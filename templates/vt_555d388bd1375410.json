@@ -1,0 +1,106 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_555d388bd1375410",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "properties": {
+            "matchedMarkets": {
+              "type": "number"
+            },
+            "opportunities": {
+              "items": {
+                "properties": {
+                  "arbitrage": {
+                    "description": "Fee-adjusted arb calc",
+                    "properties": {
+                      "confidence": {
+                        "description": "high | medium | low",
+                        "type": "string"
+                      },
+                      "impliedProfit": {
+                        "description": "Fee-adjusted EV",
+                        "type": "number"
+                      },
+                      "spreadNet": {
+                        "description": "After fees",
+                        "type": "number"
+                      },
+                      "spreadRaw": {
+                        "type": "number"
+                      },
+                      "type": {
+                        "description": "e.g. BUY_YES_POLY_NO_KALSHI",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object",
+                    "required": [
+                      "confidence",
+                      "impliedProfit",
+                      "spreadNet",
+                      "spreadRaw",
+                      "type"
+                    ]
+                  },
+                  "kalshiTitle": {
+                    "type": "string"
+                  },
+                  "kalshiYesAsk": {
+                    "type": "number"
+                  },
+                  "matchConfidence": {
+                    "type": "number"
+                  },
+                  "polymarketQuestion": {
+                    "type": "string"
+                  },
+                  "polymarketYesPrice": {
+                    "type": "number"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "arbitrage",
+                  "kalshiTitle",
+                  "kalshiYesAsk",
+                  "matchConfidence",
+                  "polymarketQuestion",
+                  "polymarketYesPrice"
+                ]
+              },
+              "type": "array"
+            }
+          },
+          "type": "object",
+          "required": [
+            "matchedMarkets",
+            "opportunities"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "data"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.opportunities[].matchConfidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "polynews.news",
+    "endpoint": "https://polynews.news/api/v1/arbitrage",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

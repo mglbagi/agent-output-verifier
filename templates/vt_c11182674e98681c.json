@@ -1,0 +1,41 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c11182674e98681c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "domain": {
+          "type": "string"
+        },
+        "latency_ms": {
+          "type": "integer"
+        },
+        "records": {
+          "type": "array"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "domain",
+        "latency_ms",
+        "records",
+        "type"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tools.bip-rep.com",
+    "endpoint": "https://tools.bip-rep.com/dns",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

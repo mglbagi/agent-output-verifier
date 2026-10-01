@@ -1,0 +1,230 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ca312717be07844c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "chain": {
+              "type": "string"
+            },
+            "coverage": {
+              "type": "object",
+              "properties": {
+                "chain": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "chain"
+              ]
+            },
+            "current_state": {
+              "type": "object",
+              "properties": {
+                "activity": {
+                  "type": "object",
+                  "properties": {
+                    "is_real": {
+                      "type": "boolean"
+                    },
+                    "measured": {
+                      "type": "boolean"
+                    },
+                    "swaps": {
+                      "type": "integer"
+                    },
+                    "traders": {
+                      "type": "integer"
+                    },
+                    "weth_vol": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "is_real",
+                    "measured",
+                    "swaps",
+                    "traders",
+                    "weth_vol"
+                  ]
+                },
+                "caller_state": {
+                  "type": "object",
+                  "properties": {
+                    "available": {
+                      "type": "boolean"
+                    },
+                    "best_caller_early_rate": {
+                      "type": "number"
+                    },
+                    "measured_caller_count": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "available",
+                    "best_caller_early_rate",
+                    "measured_caller_count"
+                  ]
+                },
+                "deployer_record": {
+                  "type": "object",
+                  "properties": {
+                    "available": {
+                      "type": "boolean"
+                    },
+                    "launched": {
+                      "type": "integer"
+                    },
+                    "score": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "available",
+                    "launched",
+                    "score"
+                  ]
+                },
+                "history": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "object",
+                  "properties": {
+                    "fdv_weth": {
+                      "type": "number"
+                    },
+                    "last_px_weth": {
+                      "type": "number"
+                    },
+                    "stale": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "fdv_weth",
+                    "last_px_weth",
+                    "stale"
+                  ]
+                },
+                "structure": {
+                  "type": "object",
+                  "properties": {
+                    "available": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "available"
+                  ]
+                }
+              },
+              "required": [
+                "activity",
+                "caller_state",
+                "deployer_record",
+                "history",
+                "price",
+                "structure"
+              ]
+            },
+            "identity": {
+              "type": "object",
+              "properties": {
+                "first_observed_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "launch_block": {
+                  "type": "integer"
+                },
+                "symbol": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "first_observed_at",
+                "launch_block",
+                "symbol"
+              ]
+            },
+            "known": {
+              "type": "boolean"
+            },
+            "observed": {
+              "type": "object",
+              "properties": {
+                "clock": {
+                  "type": "string"
+                },
+                "mentions": {
+                  "type": "object",
+                  "properties": {
+                    "available": {
+                      "type": "boolean"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "available",
+                    "total"
+                  ]
+                }
+              },
+              "required": [
+                "clock",
+                "mentions"
+              ]
+            },
+            "point_in_time": {
+              "type": "boolean"
+            },
+            "token": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            }
+          },
+          "required": [
+            "chain",
+            "coverage",
+            "current_state",
+            "identity",
+            "known",
+            "observed",
+            "point_in_time",
+            "token"
+          ]
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.current_state.caller_state.measured_caller_count": {
+        "min": 0
+      },
+      "data.observed.mentions.total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.robinx.io",
+    "endpoint": "https://api.robinx.io/agent/features",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

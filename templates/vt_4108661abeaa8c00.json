@@ -1,0 +1,162 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4108661abeaa8c00",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "billing": {
+          "type": "object",
+          "properties": {
+            "credits_charged": {
+              "type": "integer"
+            },
+            "credits_remaining": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "credits_charged",
+            "credits_remaining"
+          ]
+        },
+        "capturedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "co_investor_pairs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "string"
+              },
+              "b": {
+                "type": "string"
+              },
+              "shared_recipients": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "a",
+              "b",
+              "shared_recipients"
+            ]
+          }
+        },
+        "investor_loops": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "classification": {
+                "type": "string"
+              },
+              "investor": {
+                "type": "string"
+              },
+              "silicon_exposure_pct": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "classification",
+              "investor",
+              "silicon_exposure_pct"
+            ]
+          }
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "silicon_concentration": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "recipient_count": {
+                "type": "integer"
+              },
+              "total_usd": {
+                "type": "number"
+              },
+              "vendor": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "recipient_count",
+              "total_usd",
+              "vendor"
+            ]
+          }
+        },
+        "top_recipients": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "inbound_usd": {
+                "type": "number"
+              },
+              "investor_count": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "inbound_usd",
+              "investor_count",
+              "name"
+            ]
+          }
+        }
+      },
+      "required": [
+        "billing",
+        "capturedAt",
+        "co_investor_pairs",
+        "investor_loops",
+        "ok",
+        "silicon_concentration",
+        "top_recipients"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "investor_loops[].silicon_exposure_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "silicon_concentration[].recipient_count": {
+        "min": 0
+      },
+      "silicon_concentration[].total_usd": {
+        "min": 0
+      },
+      "top_recipients[].inbound_usd": {
+        "min": 0
+      },
+      "top_recipients[].investor_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tensorfeed.ai",
+    "endpoint": "https://tensorfeed.ai/api/premium/funding/exposure",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

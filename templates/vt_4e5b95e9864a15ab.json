@@ -1,0 +1,117 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4e5b95e9864a15ab",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "fetched_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "props": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "confidence": {
+                "type": "number"
+              },
+              "direction": {
+                "type": "string"
+              },
+              "edge_pct": {
+                "type": "number"
+              },
+              "entry_id": {
+                "type": "string"
+              },
+              "fair_prob": {
+                "type": "number"
+              },
+              "line": {
+                "type": "string"
+              },
+              "market_prob": {
+                "type": "number"
+              },
+              "player": {
+                "type": "string"
+              },
+              "sport": {
+                "type": "string"
+              },
+              "stat_type": {
+                "type": "string"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "timestamp": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "confidence",
+              "direction",
+              "edge_pct",
+              "entry_id",
+              "fair_prob",
+              "line",
+              "market_prob",
+              "player",
+              "sport",
+              "stat_type",
+              "tags",
+              "timestamp",
+              "title"
+            ]
+          }
+        },
+        "total": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "fetched_at",
+        "props",
+        "total"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "props[].entry_id"
+      }
+    ],
+    "bounds": {
+      "props[].confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "props[].edge_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.newsgurus.ai",
+    "endpoint": "https://api.newsgurus.ai/x402/sports/props",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

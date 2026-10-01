@@ -1,0 +1,41 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8223b7213f5d8018",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "apy": {
+          "type": "number"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "tvlUsd": {
+          "type": "number"
+        },
+        "venue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "apy",
+        "kind",
+        "tvlUsd",
+        "venue"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "defi-ops-402.vercel.app",
+    "endpoint": "https://defi-ops-402.vercel.app/api/best",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

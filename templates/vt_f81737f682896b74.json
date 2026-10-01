@@ -1,0 +1,142 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f81737f682896b74",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "blocks": {
+          "type": "object",
+          "properties": {
+            "hidden-issues-v6": {
+              "type": "object",
+              "properties": {
+                "meaning": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "meaning",
+                "state"
+              ]
+            },
+            "schools": {
+              "type": "object",
+              "properties": {
+                "meaning": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "meaning",
+                "state"
+              ]
+            }
+          },
+          "required": [
+            "hidden-issues-v6",
+            "schools"
+          ]
+        },
+        "product": {
+          "type": "string"
+        },
+        "property": {
+          "type": "object",
+          "properties": {
+            "coordinates": {
+              "type": "object",
+              "properties": {
+                "lat": {
+                  "type": "number"
+                },
+                "lng": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "lat",
+                "lng"
+              ]
+            },
+            "in_coverage": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "coordinates",
+            "in_coverage"
+          ]
+        },
+        "rights": {
+          "type": "object",
+          "properties": {
+            "redistribution": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "redistribution"
+          ]
+        },
+        "schema_version": {
+          "type": "string",
+          "format": "date"
+        },
+        "withheld": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "block": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "block",
+              "reason"
+            ]
+          }
+        }
+      },
+      "required": [
+        "blocks",
+        "product",
+        "property",
+        "rights",
+        "schema_version",
+        "withheld"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "property.coordinates.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "property.coordinates.lng": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agents.alphaquantlabs.ai",
+    "endpoint": "https://agents.alphaquantlabs.ai/v1/property",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

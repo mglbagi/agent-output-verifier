@@ -1,0 +1,287 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0b7811bc9ca2216a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "analysis": {
+          "type": "string"
+        },
+        "bottom_line": {
+          "type": "string"
+        },
+        "closes": {
+          "type": "object",
+          "properties": {
+            "basis_note": {
+              "type": "string"
+            },
+            "prior_annual": {
+              "type": "object",
+              "properties": {
+                "fiscal_year": {
+                  "type": "string"
+                },
+                "fye": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "number"
+                },
+                "price_basis": {
+                  "type": "string"
+                },
+                "price_date": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "fiscal_year",
+                "fye",
+                "price",
+                "price_basis",
+                "price_date"
+              ]
+            },
+            "this_quarter": {
+              "type": "object",
+              "properties": {
+                "price": {
+                  "type": "number"
+                },
+                "price_basis": {
+                  "type": "string"
+                },
+                "price_date": {
+                  "type": "string"
+                },
+                "quarter": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "price",
+                "price_basis",
+                "price_date",
+                "quarter"
+              ]
+            }
+          },
+          "required": [
+            "basis_note",
+            "prior_annual",
+            "this_quarter"
+          ]
+        },
+        "company": {
+          "type": "string"
+        },
+        "data_source": {
+          "type": "string"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "fiscal_year": {
+          "type": "integer"
+        },
+        "grade_methodology": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "longer_trend": {
+          "type": "string"
+        },
+        "metrics": {
+          "type": "object",
+          "properties": {
+            "cf_basis": {
+              "type": "string"
+            },
+            "is_basis": {
+              "type": "string"
+            },
+            "lines": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "as_printed": {
+                    "type": "string"
+                  },
+                  "delta": {
+                    "type": "integer"
+                  },
+                  "delta_unit": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "prior": {
+                    "type": "integer"
+                  },
+                  "prior_printed": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  },
+                  "this": {
+                    "type": "integer"
+                  },
+                  "this_printed": {
+                    "type": "string"
+                  },
+                  "unit": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "as_printed",
+                  "delta",
+                  "delta_unit",
+                  "id",
+                  "label",
+                  "prior",
+                  "prior_printed",
+                  "role",
+                  "this",
+                  "this_printed",
+                  "unit"
+                ]
+              }
+            },
+            "unit_default": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "cf_basis",
+            "is_basis",
+            "lines",
+            "unit_default"
+          ]
+        },
+        "period": {
+          "type": "string"
+        },
+        "print_grade": {
+          "type": "string"
+        },
+        "prior_grade": {
+          "type": "string"
+        },
+        "qe": {
+          "type": "string"
+        },
+        "quarter": {
+          "type": "string"
+        },
+        "read": {
+          "type": "object",
+          "properties": {
+            "cash": {
+              "type": "string"
+            },
+            "fences": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "gross_margin": {
+              "type": "string"
+            },
+            "operating_leverage": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "cash",
+            "fences",
+            "gross_margin",
+            "operating_leverage"
+          ]
+        },
+        "route": {
+          "type": "string"
+        },
+        "soft_leg": {
+          "type": "string"
+        },
+        "streak": {
+          "type": "integer"
+        },
+        "structure_break": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "analysis",
+        "bottom_line",
+        "closes",
+        "company",
+        "data_source",
+        "disclaimer",
+        "fiscal_year",
+        "grade_methodology",
+        "id",
+        "longer_trend",
+        "metrics",
+        "period",
+        "print_grade",
+        "prior_grade",
+        "qe",
+        "quarter",
+        "read",
+        "route",
+        "soft_leg",
+        "streak",
+        "structure_break",
+        "summary",
+        "ticker",
+        "type"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "metrics.lines[].id"
+      }
+    ],
+    "bounds": {
+      "closes.prior_annual.price": {
+        "min": 0
+      },
+      "closes.this_quarter.price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "alpha402x.com",
+    "endpoint": "https://alpha402x.com/quarterly-quant-card/AMD/fy2026-q2",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

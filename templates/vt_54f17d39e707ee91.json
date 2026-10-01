@@ -1,0 +1,33 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_54f17d39e707ee91",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "type": "object"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "required": [
+        "data",
+        "ok"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "travel-agent.forgemesh.io",
+    "endpoint": "https://travel-agent.forgemesh.io/api/transit-providers",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

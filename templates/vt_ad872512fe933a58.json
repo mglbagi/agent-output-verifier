@@ -1,0 +1,30 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ad872512fe933a58",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "result": {
+          "description": "URL of the generated image",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "result"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "amnt.io",
+    "endpoint": "https://www.amnt.io/api/agent/amnt/logo-generator-gpt15",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

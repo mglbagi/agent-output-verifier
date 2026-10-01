@@ -1,0 +1,270 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e8584bff1b936283",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "asOf": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "classes": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "carbonClassId": {
+                "type": "string"
+              },
+              "category": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "country": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "creditCount": {
+                "type": "number"
+              },
+              "liquidityTonnes": {
+                "type": "string"
+              },
+              "name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "priceBasis": {
+                "const": "indicative",
+                "type": "string"
+              },
+              "priceUsdcPerTonne": {
+                "type": "string"
+              },
+              "priceUsdcPerTonneFormatted": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "carbonClassId",
+              "name",
+              "category",
+              "country",
+              "priceUsdcPerTonne",
+              "priceUsdcPerTonneFormatted",
+              "priceBasis",
+              "liquidityTonnes",
+              "creditCount"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "endpoints": {
+          "additionalProperties": false,
+          "properties": {
+            "actionsRetire": {
+              "type": "string"
+            },
+            "certificate": {
+              "type": "string"
+            },
+            "discover": {
+              "type": "string"
+            },
+            "openapi": {
+              "type": "string"
+            },
+            "prepareAuth": {
+              "type": "string"
+            },
+            "prepareRetire": {
+              "type": "string"
+            },
+            "quote": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "discover",
+            "quote",
+            "prepareRetire",
+            "prepareAuth",
+            "actionsRetire",
+            "certificate",
+            "openapi"
+          ],
+          "type": "object"
+        },
+        "listings": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "category": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "country": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "creditId": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "expiresAt": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "leftToSellTonnes": {
+                "type": "string"
+              },
+              "listingId": {
+                "type": "string"
+              },
+              "minFillTonnes": {
+                "type": "string"
+              },
+              "priceBasis": {
+                "const": "firm",
+                "type": "string"
+              },
+              "priceUsdcPerTonne": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "priceUsdcPerTonneFormatted": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "projectName": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "registry": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "vintage": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "listingId",
+              "projectName",
+              "creditId",
+              "registry",
+              "vintage",
+              "country",
+              "category",
+              "priceUsdcPerTonne",
+              "priceUsdcPerTonneFormatted",
+              "priceBasis",
+              "leftToSellTonnes",
+              "minFillTonnes",
+              "expiresAt"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "asOf",
+        "classes",
+        "listings",
+        "endpoints",
+        "note"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-retire-git-feat-paid-indexing-gate-and-openapi-carbonmark.vercel.app",
+    "endpoint": "https://x402-retire-git-feat-paid-indexing-gate-and-openapi-carbonmark.vercel.app/api/catalog",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

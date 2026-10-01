@@ -1,0 +1,89 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9c9851b0b8f3e27a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "agreement_score": {
+          "type": "number"
+        },
+        "anomaly_level": {
+          "type": "string"
+        },
+        "anomaly_review_label": {
+          "type": "string"
+        },
+        "anomaly_score": {
+          "type": "number"
+        },
+        "calibrated_confidence": {
+          "type": "number"
+        },
+        "confidence": {
+          "type": "number"
+        },
+        "decision_id": {
+          "type": "string"
+        },
+        "directional_bias": {
+          "type": "string"
+        },
+        "legacy_fields": {
+          "type": "object"
+        },
+        "market_intelligence_only": {
+          "type": "boolean"
+        },
+        "next_step": {
+          "type": "object"
+        },
+        "risk_disclosure": {
+          "type": "object"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        },
+        "why_not_high": {
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "agreement_score",
+        "anomaly_level",
+        "anomaly_review_label",
+        "anomaly_score",
+        "calibrated_confidence",
+        "confidence",
+        "decision_id",
+        "directional_bias",
+        "market_intelligence_only",
+        "next_step",
+        "risk_disclosure",
+        "symbol",
+        "verified",
+        "why_not_high"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "crypto.forgemesh.io",
+    "endpoint": "https://crypto.forgemesh.io/api/kronos/decision",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

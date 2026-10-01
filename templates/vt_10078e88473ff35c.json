@@ -1,0 +1,40 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_10078e88473ff35c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "Returned once payment settles and the page is live.",
+      "properties": {
+        "claim_token": {
+          "description": "One-time secret to adopt this page into an account later.",
+          "type": "string"
+        },
+        "unlisted_token": {
+          "type": "string"
+        },
+        "url": {
+          "description": "The permanent private link to share.",
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "type": "object",
+      "required": [
+        "claim_token",
+        "url"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.stacktr.ee",
+    "endpoint": "https://api.stacktr.ee/publish",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

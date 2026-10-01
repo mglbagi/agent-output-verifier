@@ -1,0 +1,182 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f95732380b26830a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "canonicalUrl": {
+          "description": "Public HTTPS JSON, RSS, or Atom URL without credentials, query parameters, or fragments",
+          "maxLength": 2048,
+          "type": "string",
+          "format": "uri"
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ],
+          "type": "string"
+        },
+        "detectedFormat": {
+          "enum": [
+            "json",
+            "rss",
+            "atom"
+          ],
+          "type": "string"
+        },
+        "itemCount": {
+          "maximum": 200,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "network": {
+          "enum": [
+            "eip155:84532",
+            "eip155:8453"
+          ],
+          "type": "string"
+        },
+        "price": {
+          "const": "$0.01",
+          "type": "string"
+        },
+        "selectedFields": {
+          "items": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 12,
+          "type": "array"
+        },
+        "source": {
+          "oneOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "fields": {
+                  "additionalProperties": {
+                    "items": {
+                      "maxLength": 64,
+                      "minLength": 1,
+                      "pattern": "^[A-Za-z0-9_.:@-]+$",
+                      "type": "string"
+                    },
+                    "maxItems": 8,
+                    "minItems": 1,
+                    "type": "array"
+                  },
+                  "propertyNames": {
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
+                    "type": "string"
+                  },
+                  "type": "object"
+                },
+                "format": {
+                  "const": "json",
+                  "type": "string"
+                },
+                "idPath": {
+                  "description": "Property path to a stable unique string or safe-integer item identifier",
+                  "items": {
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "pattern": "^[A-Za-z0-9_.:@-]+$",
+                    "type": "string"
+                  },
+                  "maxItems": 8,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "itemsPath": {
+                  "description": "Property path to the record array; use an empty array when the JSON document root is the array",
+                  "items": {
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "pattern": "^[A-Za-z0-9_.:@-]+$",
+                    "type": "string"
+                  },
+                  "maxItems": 8,
+                  "type": "array"
+                },
+                "url": {
+                  "description": "Public HTTPS JSON, RSS, or Atom URL without credentials, query parameters, or fragments",
+                  "maxLength": 2048,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "url",
+                "format",
+                "itemsPath",
+                "idPath",
+                "fields"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "format": {
+                  "enum": [
+                    "rss",
+                    "atom"
+                  ],
+                  "type": "string"
+                },
+                "url": {
+                  "description": "Public HTTPS JSON, RSS, or Atom URL without credentials, query parameters, or fragments",
+                  "maxLength": 2048,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "url",
+                "format"
+              ],
+              "type": "object"
+            }
+          ]
+        },
+        "warnings": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 8,
+          "type": "array"
+        }
+      },
+      "required": [
+        "canonicalUrl",
+        "detectedFormat",
+        "confidence",
+        "itemCount",
+        "selectedFields",
+        "warnings",
+        "source",
+        "price",
+        "network"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "delta.rursus.app",
+    "endpoint": "https://delta.rursus.app/v1/sources/inspect",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

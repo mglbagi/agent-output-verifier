@@ -1,0 +1,345 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6e98e70ba348f0e9",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "asset_turnover": {
+                "type": "number"
+              },
+              "capex": {
+                "type": "integer"
+              },
+              "capex_disclosure": {
+                "type": "integer"
+              },
+              "cash_and_deposits": {
+                "type": "integer"
+              },
+              "cash_end": {
+                "type": "integer"
+              },
+              "cf_financing": {
+                "type": "integer"
+              },
+              "cf_investing": {
+                "type": "integer"
+              },
+              "cf_operating": {
+                "type": "integer"
+              },
+              "code": {
+                "type": "string"
+              },
+              "consolidated": {
+                "type": "boolean"
+              },
+              "cost_of_sales": {
+                "type": "number"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "current_assets": {
+                "type": "integer"
+              },
+              "current_liabilities": {
+                "type": "integer"
+              },
+              "current_ratio_pct": {
+                "type": "number"
+              },
+              "de_ratio": {
+                "type": "number"
+              },
+              "depreciation": {
+                "type": "integer"
+              },
+              "dividends_paid": {
+                "type": "integer"
+              },
+              "doc_id": {
+                "type": "string"
+              },
+              "eps_basic": {
+                "type": "number"
+              },
+              "eps_diluted": {},
+              "equity_owners": {
+                "type": "integer"
+              },
+              "equity_ratio_pct": {
+                "type": "number"
+              },
+              "fcf": {
+                "type": "integer"
+              },
+              "filed_at": {
+                "type": "string"
+              },
+              "fiscal_year": {
+                "type": "string"
+              },
+              "gross_profit": {
+                "type": "integer"
+              },
+              "income_taxes": {
+                "type": "number"
+              },
+              "intangibles": {
+                "type": "integer"
+              },
+              "interest_bearing_debt": {
+                "type": "integer"
+              },
+              "inventories": {
+                "type": "integer"
+              },
+              "market": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "name_en": {
+                "type": "string"
+              },
+              "net_assets": {
+                "type": "integer"
+              },
+              "net_income": {
+                "type": "integer"
+              },
+              "net_income_owners": {
+                "type": "integer"
+              },
+              "net_margin_pct": {
+                "type": "number"
+              },
+              "operating_income": {
+                "type": "integer"
+              },
+              "operating_margin_pct": {
+                "type": "number"
+              },
+              "ordinary_income": {
+                "type": "integer"
+              },
+              "period_end": {
+                "type": "string",
+                "format": "date"
+              },
+              "period_months": {
+                "type": "integer"
+              },
+              "period_start": {
+                "type": "string",
+                "format": "date"
+              },
+              "ppe": {
+                "type": "integer"
+              },
+              "pretax_income": {
+                "type": "number"
+              },
+              "revenue": {
+                "type": "integer"
+              },
+              "revenue_source": {
+                "type": "string"
+              },
+              "rnd_expense": {
+                "type": "integer"
+              },
+              "roa_pct": {
+                "type": "number"
+              },
+              "roe_pct": {
+                "type": "number"
+              },
+              "sector": {
+                "type": "string"
+              },
+              "sga": {
+                "type": "integer"
+              },
+              "standard": {
+                "type": "string"
+              },
+              "total_assets": {
+                "type": "number"
+              },
+              "total_liabilities": {
+                "type": "number"
+              },
+              "trade_receivables": {
+                "type": "integer"
+              },
+              "treasury_shares": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "asset_turnover",
+              "capex",
+              "capex_disclosure",
+              "cash_and_deposits",
+              "cash_end",
+              "cf_financing",
+              "cf_investing",
+              "cf_operating",
+              "code",
+              "consolidated",
+              "cost_of_sales",
+              "currency",
+              "current_assets",
+              "current_liabilities",
+              "current_ratio_pct",
+              "de_ratio",
+              "depreciation",
+              "dividends_paid",
+              "doc_id",
+              "eps_basic",
+              "equity_owners",
+              "equity_ratio_pct",
+              "fcf",
+              "filed_at",
+              "fiscal_year",
+              "gross_profit",
+              "income_taxes",
+              "intangibles",
+              "interest_bearing_debt",
+              "inventories",
+              "market",
+              "name",
+              "name_en",
+              "net_assets",
+              "net_income",
+              "net_income_owners",
+              "net_margin_pct",
+              "operating_income",
+              "operating_margin_pct",
+              "ordinary_income",
+              "period_end",
+              "period_months",
+              "period_start",
+              "ppe",
+              "pretax_income",
+              "revenue",
+              "revenue_source",
+              "rnd_expense",
+              "roa_pct",
+              "roe_pct",
+              "sector",
+              "sga",
+              "standard",
+              "total_assets",
+              "total_liabilities",
+              "trade_receivables",
+              "treasury_shares"
+            ]
+          }
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "attribution": {
+              "type": "string"
+            },
+            "attribution_en": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "attribution",
+            "attribution_en"
+          ]
+        }
+      },
+      "required": [
+        "count",
+        "limit",
+        "offset",
+        "results",
+        "source"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "results[].period_start",
+        "other_field": "results[].period_end"
+      },
+      {
+        "type": "unique",
+        "field": "results[].doc_id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "limit": {
+        "min": 0
+      },
+      "results[].cost_of_sales": {
+        "min": 0
+      },
+      "results[].de_ratio": {
+        "min": 0,
+        "max": 1
+      },
+      "results[].equity_ratio_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "results[].net_margin_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "results[].operating_margin_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "results[].roa_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "results[].roe_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "results[].total_assets": {
+        "min": 0
+      },
+      "results[].total_liabilities": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.kakerapetit.dev",
+    "endpoint": "https://api.kakerapetit.dev/v2/screener",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

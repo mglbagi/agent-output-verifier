@@ -1,0 +1,122 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f4059ed4a9f39dfe",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "niche": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "answer_extract": {
+              "type": "object",
+              "properties": {
+                "chars": {
+                  "type": "integer"
+                },
+                "extractor": {
+                  "type": "string"
+                },
+                "markdown": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "tokens_estimate": {
+                  "type": "integer"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "chars",
+                "extractor",
+                "markdown",
+                "title",
+                "tokens_estimate",
+                "url"
+              ]
+            },
+            "answer_source": {
+              "type": "string"
+            },
+            "count": {
+              "type": "integer"
+            },
+            "elapsed_ms": {
+              "type": "integer"
+            },
+            "query": {
+              "type": "string"
+            },
+            "results": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "snippet": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "snippet",
+                  "title",
+                  "url"
+                ]
+              }
+            },
+            "source": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "answer_extract",
+            "answer_source",
+            "count",
+            "elapsed_ms",
+            "query",
+            "results",
+            "source"
+          ]
+        }
+      },
+      "required": [
+        "niche",
+        "ok",
+        "result"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "result.count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.hergertsynthora.com",
+    "endpoint": "https://api.hergertsynthora.com/v1/websearch",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_93e50c502f673ac2",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "price": {
+          "type": "number"
+        },
+        "signal": {
+          "type": "string"
+        },
+        "signal_score": {
+          "type": "number"
+        },
+        "symbol": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "price",
+        "signal",
+        "signal_score",
+        "symbol"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ta.lonestaroracle.xyz",
+    "endpoint": "https://ta.lonestaroracle.xyz/analyze",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

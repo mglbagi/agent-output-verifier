@@ -1,0 +1,73 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_307d7d273d64f989",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "badges_earned": {
+          "type": "array"
+        },
+        "opened": {
+          "type": "boolean"
+        },
+        "pack": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "flavor": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "rarity": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "category",
+              "flavor",
+              "id",
+              "name",
+              "rarity"
+            ]
+          }
+        },
+        "shop": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "badges_earned",
+        "opened",
+        "pack",
+        "shop"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "pack[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "midway.lol",
+    "endpoint": "https://midway.lol/booth/pack",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

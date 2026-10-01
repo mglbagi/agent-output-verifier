@@ -1,0 +1,68 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fee8e16e0e490ea1",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "api_version": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "date": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "next_page_token": {
+          "type": "string"
+        },
+        "range_complete": {
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "scanned": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "api_version",
+        "mode",
+        "category",
+        "date",
+        "count",
+        "scanned",
+        "next_page_token",
+        "range_complete",
+        "results"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hackernews-data.underscoredone.com",
+    "endpoint": "https://hackernews-data.underscoredone.com/fetch",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

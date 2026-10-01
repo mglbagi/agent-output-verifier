@@ -1,0 +1,81 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_85c79b87ef98427b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "items": {
+        "properties": {
+          "artists": {
+            "description": "Performer/artist names",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "city": {
+            "description": "City name",
+            "nullable": true,
+            "type": "string"
+          },
+          "date": {
+            "description": "Local date (YYYY-MM-DD)",
+            "type": "string"
+          },
+          "name": {
+            "description": "Concert/event name",
+            "type": "string"
+          },
+          "priceRange": {
+            "description": "Ticket price range or null if unavailable",
+            "nullable": true,
+            "properties": {
+              "max": {
+                "description": "Maximum ticket price (USD)",
+                "type": "number"
+              },
+              "min": {
+                "description": "Minimum ticket price (USD)",
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "time": {
+            "description": "Local time (HH:MM:SS) or null",
+            "nullable": true,
+            "type": "string"
+          },
+          "url": {
+            "description": "Event URL",
+            "nullable": true,
+            "type": "string"
+          },
+          "venue": {
+            "description": "Venue name",
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "date",
+          "artists"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mechamanda.com",
+    "endpoint": "https://mechamanda.com/api/concerts",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

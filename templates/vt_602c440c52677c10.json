@@ -1,0 +1,53 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_602c440c52677c10",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "expires_at": {
+          "type": "string"
+        },
+        "ops_remaining": {
+          "type": "integer"
+        },
+        "ops_total": {
+          "type": "number"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "session_token": {
+          "type": "string"
+        },
+        "tier": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "expires_at",
+        "ops_remaining",
+        "ops_total",
+        "scope",
+        "session_token",
+        "tier"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "ops_total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "soren.com",
+    "endpoint": "https://soren.com/v1/coord/session",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

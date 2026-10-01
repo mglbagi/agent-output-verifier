@@ -1,0 +1,130 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e7f935cb354720dd",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "active_hazard_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "generated_at": {
+          "type": "string"
+        },
+        "hazards": {
+          "additionalProperties": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "type": "object"
+        },
+        "location": {
+          "properties": {
+            "lat": {
+              "type": "number"
+            },
+            "lon": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "lat",
+            "lon"
+          ],
+          "type": "object"
+        },
+        "ok": {
+          "const": true,
+          "type": "boolean"
+        },
+        "overall_risk": {
+          "additionalProperties": false,
+          "properties": {
+            "level": {
+              "enum": [
+                "none",
+                "low",
+                "medium",
+                "high",
+                "severe"
+              ],
+              "type": "string"
+            },
+            "primary_hazard": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "score": {
+              "maximum": 100,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "secondary_hazard_boost": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "score",
+            "level",
+            "primary_hazard",
+            "secondary_hazard_boost"
+          ],
+          "type": "object"
+        },
+        "satellite_images_included": {
+          "const": false,
+          "type": "boolean"
+        },
+        "tool": {
+          "const": "location-risk",
+          "type": "string"
+        },
+        "top_nearby_events": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "ok",
+        "tool",
+        "location",
+        "overall_risk",
+        "hazards",
+        "satellite_images_included"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "location.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "location.lon": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "sat.ipintel.ai",
+    "endpoint": "https://sat.ipintel.ai/location-risk",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,236 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1aeba09510c1e477",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "billing": {
+          "properties": {
+            "amount_usdc": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "mode": {
+              "enum": [
+                "local",
+                "staging",
+                "production"
+              ]
+            },
+            "status": {
+              "enum": [
+                "settled",
+                "not_charged"
+              ]
+            }
+          },
+          "required": [
+            "mode",
+            "status",
+            "amount_usdc"
+          ],
+          "type": "object"
+        },
+        "cache_age_seconds": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "conflicts": {
+          "items": {
+            "properties": {
+              "evidence": {
+                "items": {
+                  "properties": {
+                    "evidence_type": {
+                      "enum": [
+                        "official_site_json_ld",
+                        "official_site_meta_description",
+                        "official_site_brand_metadata"
+                      ],
+                      "type": "string"
+                    },
+                    "retrieved_at": {
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "source_url": {
+                      "format": "uri",
+                      "pattern": "^https://",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "source_url",
+                    "evidence_type",
+                    "retrieved_at"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "field": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "field",
+              "evidence"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "data": {
+          "properties": {
+            "description": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "links": {
+              "items": {
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "format": "uri",
+                    "pattern": "^https://",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "url",
+                  "title"
+                ],
+                "type": "object"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            "published_at": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "retrieved_at": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "text": {
+              "maxLength": 60000,
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "truncated": {
+              "type": "boolean"
+            },
+            "url": {
+              "format": "uri",
+              "pattern": "^https://",
+              "type": "string"
+            }
+          },
+          "required": [
+            "url",
+            "title",
+            "description",
+            "text",
+            "truncated",
+            "links",
+            "retrieved_at",
+            "published_at"
+          ],
+          "type": "object"
+        },
+        "missing_fields": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "request_id": {
+          "type": "string"
+        },
+        "retrieved_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0"
+        },
+        "sources": {
+          "items": {
+            "properties": {
+              "provider": {
+                "type": "string"
+              },
+              "retrieved_at": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "url": {
+                "format": "uri",
+                "pattern": "^https://",
+                "type": "string"
+              }
+            },
+            "required": [
+              "retrieved_at"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "request_id",
+        "schema_version",
+        "data",
+        "sources",
+        "retrieved_at",
+        "missing_fields",
+        "conflicts",
+        "warnings",
+        "cache_age_seconds",
+        "billing"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-research-api.onrender.com",
+    "endpoint": "https://agent-research-api.onrender.com/v1/read",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

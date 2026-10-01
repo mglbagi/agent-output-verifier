@@ -1,0 +1,51 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7c2096d576c9ad3a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "alerts": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "by_type": {
+          "type": "object"
+        },
+        "emergency_count": {
+          "type": "integer"
+        },
+        "total_tracked": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "alerts",
+        "by_type",
+        "emergency_count",
+        "total_tracked"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "emergency_count": {
+        "min": 0
+      },
+      "total_tracked": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "anomaly.forgemesh.io",
+    "endpoint": "https://anomaly.forgemesh.io/api/squawk-alerts",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

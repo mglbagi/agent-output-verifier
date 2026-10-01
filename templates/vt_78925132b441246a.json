@@ -1,0 +1,69 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_78925132b441246a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "criticalRisks": {
+          "type": "array"
+        },
+        "isFreezable": {
+          "type": "boolean"
+        },
+        "isMintable": {
+          "type": "boolean"
+        },
+        "mint": {
+          "type": "string"
+        },
+        "overallSafetyLevel": {
+          "type": "string"
+        },
+        "topHolderOwnership": {
+          "type": "number"
+        },
+        "topNetworkOwnership": {
+          "type": "number"
+        },
+        "topNetworkWalletCount": {
+          "type": "integer"
+        },
+        "topTenOwnership": {
+          "type": "number"
+        },
+        "totalHolders": {
+          "type": "number"
+        },
+        "warnings": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "criticalRisks",
+        "isFreezable",
+        "isMintable",
+        "mint",
+        "overallSafetyLevel",
+        "topHolderOwnership",
+        "topNetworkOwnership",
+        "topNetworkWalletCount",
+        "topTenOwnership",
+        "totalHolders",
+        "warnings"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.deepnets.ai",
+    "endpoint": "https://api.deepnets.ai/api/token-safety",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

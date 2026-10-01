@@ -1,0 +1,213 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_30b3f0b15b396e27",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "amount_usd": {
+          "type": "number"
+        },
+        "best_aggregator_route": {
+          "type": "string"
+        },
+        "dex_arb_opportunities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "bridge_cost_usd": {
+                "type": "number"
+              },
+              "buy_chain": {
+                "type": "string"
+              },
+              "buy_dex": {
+                "type": "string"
+              },
+              "buy_price": {
+                "type": "number"
+              },
+              "execution_path": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "flash_loan_eligible": {
+                "type": "boolean"
+              },
+              "gas_cost_usd": {
+                "type": "number"
+              },
+              "gross_spread_pct": {
+                "type": "number"
+              },
+              "mev_risk": {
+                "type": "string"
+              },
+              "net_profit_pct": {
+                "type": "number"
+              },
+              "net_profit_usd": {
+                "type": "number"
+              },
+              "sell_chain": {
+                "type": "string"
+              },
+              "sell_dex": {
+                "type": "string"
+              },
+              "sell_price": {
+                "type": "number"
+              },
+              "swap_fee_cost_pct": {
+                "type": "number"
+              },
+              "type": {
+                "type": "string"
+              },
+              "viable": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "bridge_cost_usd",
+              "buy_chain",
+              "buy_dex",
+              "buy_price",
+              "execution_path",
+              "flash_loan_eligible",
+              "gas_cost_usd",
+              "gross_spread_pct",
+              "mev_risk",
+              "net_profit_pct",
+              "net_profit_usd",
+              "sell_chain",
+              "sell_dex",
+              "sell_price",
+              "swap_fee_cost_pct",
+              "type",
+              "viable"
+            ]
+          }
+        },
+        "execution_tools": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "description",
+              "name",
+              "url"
+            ]
+          }
+        },
+        "mev_context": {
+          "type": "string"
+        },
+        "price_landscape": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "chain": {
+                "type": "string"
+              },
+              "dex": {
+                "type": "string"
+              },
+              "liquidity_usd": {
+                "type": "number"
+              },
+              "price_usd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "chain",
+              "dex",
+              "liquidity_usd",
+              "price_usd"
+            ]
+          }
+        },
+        "pulse_suggestions": {
+          "type": "array"
+        },
+        "scan_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "token": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "amount_usd",
+        "best_aggregator_route",
+        "dex_arb_opportunities",
+        "execution_tools",
+        "mev_context",
+        "price_landscape",
+        "pulse_suggestions",
+        "scan_time",
+        "token"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "amount_usd": {
+        "min": 0
+      },
+      "dex_arb_opportunities[].bridge_cost_usd": {
+        "min": 0
+      },
+      "dex_arb_opportunities[].buy_price": {
+        "min": 0
+      },
+      "dex_arb_opportunities[].gas_cost_usd": {
+        "min": 0
+      },
+      "dex_arb_opportunities[].gross_spread_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "dex_arb_opportunities[].sell_price": {
+        "min": 0
+      },
+      "dex_arb_opportunities[].swap_fee_cost_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "price_landscape[].liquidity_usd": {
+        "min": 0
+      },
+      "price_landscape[].price_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "arbipulse.theaslangroupllc.com",
+    "endpoint": "https://arbipulse.theaslangroupllc.com/api/dex",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

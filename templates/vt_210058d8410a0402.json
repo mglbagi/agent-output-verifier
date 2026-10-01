@@ -1,0 +1,108 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_210058d8410a0402",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "compound": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "slug": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "slug"
+          ]
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "intended_use": {
+          "type": "string"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "duration_weeks": {
+              "type": "integer"
+            },
+            "injections_per_week": {
+              "type": "integer"
+            },
+            "more": {
+              "type": "string"
+            },
+            "network_note": {
+              "type": "string"
+            },
+            "samples_per_day": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "duration_weeks",
+            "injections_per_week",
+            "more",
+            "network_note",
+            "samples_per_day"
+          ]
+        },
+        "series": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "day": {
+                "type": "number"
+              },
+              "level": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "day",
+              "level"
+            ]
+          }
+        },
+        "units": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "compound",
+        "disclaimer",
+        "intended_use",
+        "meta",
+        "series",
+        "units"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "meta.duration_weeks": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.doseplot.com",
+    "endpoint": "https://api.doseplot.com/v1/pk/simulate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

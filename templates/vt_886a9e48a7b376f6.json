@@ -1,0 +1,38 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_886a9e48a7b376f6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "explanation": {
+          "type": "string"
+        },
+        "verdict": {
+          "enum": [
+            "SAFE",
+            "CAUTION",
+            "RISK"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "verdict",
+        "explanation"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "smartcontractexplainer.onrender.com",
+    "endpoint": "https://smartcontractexplainer.onrender.com/api/explain",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

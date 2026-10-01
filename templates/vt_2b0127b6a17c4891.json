@@ -1,0 +1,84 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2b0127b6a17c4891",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "above_trust_line": {
+          "type": "boolean"
+        },
+        "as_of": {
+          "type": "string",
+          "format": "date"
+        },
+        "centrality": {
+          "type": "number"
+        },
+        "flag": {},
+        "host": {
+          "type": "string"
+        },
+        "organic_paying_agents": {
+          "type": "integer"
+        },
+        "outlook": {
+          "type": "string"
+        },
+        "paying_wallets_raw": {
+          "type": "integer"
+        },
+        "score": {
+          "type": "number"
+        },
+        "settled_usd_14d": {
+          "type": "number"
+        },
+        "tier": {
+          "type": "string"
+        },
+        "trust_line": {
+          "type": "string"
+        },
+        "uptime": {
+          "type": "integer"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "above_trust_line",
+        "as_of",
+        "centrality",
+        "host",
+        "organic_paying_agents",
+        "outlook",
+        "paying_wallets_raw",
+        "score",
+        "settled_usd_14d",
+        "tier",
+        "trust_line",
+        "uptime",
+        "url"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "settled_usd_14d": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agenteconomy.report",
+    "endpoint": "https://agenteconomy.report/api/rating/:host",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d14042d7524521bf",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "content_base64": {
+          "description": "Standard padded base64 of the exact SVG or PNG artifact bytes.",
+          "maxLength": 2796204,
+          "type": "string"
+        },
+        "format": {
+          "description": "Decoded artifact format; determines media_type.",
+          "enum": [
+            "svg",
+            "png"
+          ],
+          "type": "string"
+        },
+        "height": {
+          "description": "Decoded artifact height in pixels.",
+          "maximum": 2048,
+          "minimum": 64,
+          "type": "integer"
+        },
+        "kind": {
+          "const": "identicon",
+          "description": "Generated artifact kind.",
+          "type": "string"
+        },
+        "media_type": {
+          "description": "Media type of the decoded content_base64 bytes.",
+          "enum": [
+            "image/svg+xml",
+            "image/png"
+          ],
+          "type": "string"
+        },
+        "render_version": {
+          "description": "Versioned normalization and rendering contract used to produce the artifact.",
+          "enum": [
+            "mirror-grid-v1"
+          ],
+          "type": "string"
+        },
+        "sha256": {
+          "description": "Lowercase SHA-256 digest of the decoded artifact bytes, not of the base64 text.",
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "width": {
+          "description": "Decoded artifact width in pixels.",
+          "maximum": 2048,
+          "minimum": 64,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "kind",
+        "render_version",
+        "format",
+        "media_type",
+        "width",
+        "height",
+        "sha256",
+        "content_base64"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "visuals.use.x402atlas.com",
+    "endpoint": "https://visuals.use.x402atlas.com/identicon",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

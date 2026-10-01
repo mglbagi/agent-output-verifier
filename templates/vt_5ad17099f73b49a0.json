@@ -1,0 +1,219 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5ad17099f73b49a0",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "fingerprint": {
+          "type": "object",
+          "properties": {
+            "components": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "confidence": {
+                    "type": "string"
+                  },
+                  "ecosystem": {
+                    "type": "string"
+                  },
+                  "evidence": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "source": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "confidence",
+                  "ecosystem",
+                  "evidence",
+                  "name",
+                  "source",
+                  "version"
+                ]
+              }
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "components",
+            "status"
+          ]
+        },
+        "generatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "mcp": {
+          "type": "object",
+          "properties": {
+            "authRequired": {
+              "type": "boolean"
+            },
+            "era": {
+              "type": "string"
+            },
+            "reachable": {
+              "type": "boolean"
+            },
+            "serverInfoTrustedForSecurityDecision": {
+              "type": "boolean"
+            },
+            "transport": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "authRequired",
+            "era",
+            "reachable",
+            "serverInfoTrustedForSecurityDecision",
+            "transport"
+          ]
+        },
+        "securityPrioritization": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "transport": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "status",
+                "transport"
+              ]
+            },
+            "submittedCves": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "result",
+            "submittedCves"
+          ]
+        },
+        "target": {
+          "type": "string"
+        },
+        "vulnerabilityCheck": {
+          "type": "object",
+          "properties": {
+            "affectedComponentSummary": {
+              "type": "object",
+              "properties": {
+                "confirmed": {
+                  "type": "integer"
+                },
+                "potential": {
+                  "type": "integer"
+                },
+                "probable": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "confirmed",
+                "potential",
+                "probable"
+              ]
+            },
+            "componentEvidenceSummary": {
+              "type": "object",
+              "properties": {
+                "counts": {
+                  "type": "object",
+                  "properties": {
+                    "confirmed": {
+                      "type": "integer"
+                    },
+                    "potential": {
+                      "type": "integer"
+                    },
+                    "probable": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "confirmed",
+                    "potential",
+                    "probable"
+                  ]
+                },
+                "hasPrioritizationEligibleEvidence": {
+                  "type": "boolean"
+                },
+                "strongestLevel": {
+                  "type": "string"
+                },
+                "versionedDecisionReadyCount": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "counts",
+                "hasPrioritizationEligibleEvidence",
+                "strongestLevel",
+                "versionedDecisionReadyCount"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "uniqueCves": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "affectedComponentSummary",
+            "componentEvidenceSummary",
+            "source",
+            "uniqueCves"
+          ]
+        }
+      },
+      "required": [
+        "fingerprint",
+        "generatedAt",
+        "mcp",
+        "securityPrioritization",
+        "target",
+        "vulnerabilityCheck"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "zeroworker-mcp-preflight-api.zeroworker-lab.workers.dev",
+    "endpoint": "https://zeroworker-mcp-preflight-api.zeroworker-lab.workers.dev/v1/analyze",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_735eb2248c62539e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "description": "Number of distinct named probers",
+          "type": "integer"
+        },
+        "observedFrom": {
+          "description": "First day of the observation window, ISO date",
+          "type": "string",
+          "format": "date"
+        },
+        "observedTo": {
+          "description": "Last day of the observation window, ISO date",
+          "type": "string",
+          "format": "date"
+        },
+        "probers": {
+          "items": {
+            "properties": {
+              "class": {
+                "description": "monitor (reads the price, never pays) or crawler (index or search)",
+                "type": "string"
+              },
+              "days": {
+                "description": "Distinct days seen in the window",
+                "type": "integer"
+              },
+              "match": {
+                "description": "User-agent prefix that identifies the prober",
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "operator": {
+                "description": "Operator URL from the user-agent string, if given",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "purpose": {
+                "description": "What the user-agent string says about itself",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "quotes": {
+                "description": "402s served to this prober in the window",
+                "type": "integer"
+              }
+            },
+            "type": "object",
+            "required": [
+              "class",
+              "days",
+              "match",
+              "name",
+              "quotes"
+            ]
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "observedFrom",
+        "observedTo",
+        "count",
+        "probers"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "store-production-8add.up.railway.app",
+    "endpoint": "https://store-production-8add.up.railway.app/v1/probers",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

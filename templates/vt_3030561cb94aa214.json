@@ -1,0 +1,86 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3030561cb94aa214",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "changed": {
+          "type": "boolean"
+        },
+        "error": {
+          "type": "object"
+        },
+        "input_bytes": {
+          "type": "integer"
+        },
+        "json": {
+          "type": "string"
+        },
+        "mode": {
+          "enum": [
+            "validate",
+            "repair"
+          ],
+          "type": "string"
+        },
+        "price_usdc": {
+          "const": 0.005,
+          "type": "number"
+        },
+        "repairs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "result": {},
+        "schema": {
+          "type": "string"
+        },
+        "service": {
+          "const": "json-repair",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "valid",
+            "repaired",
+            "invalid"
+          ],
+          "type": "string"
+        },
+        "valid": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "service",
+        "price_usdc",
+        "schema",
+        "mode",
+        "status",
+        "valid",
+        "changed",
+        "repairs",
+        "input_bytes"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "input_bytes": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent.atinamos.co.uk",
+    "endpoint": "https://agent.atinamos.co.uk/agent/json-repair",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

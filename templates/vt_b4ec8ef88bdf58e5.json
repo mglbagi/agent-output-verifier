@@ -1,0 +1,168 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b4ec8ef88bdf58e5",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "properties": {
+            "algorithm": {
+              "type": "string"
+            },
+            "bban": {
+              "type": "string"
+            },
+            "check_digits": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "expected_length": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "iban": {
+              "type": "string"
+            },
+            "iban_print": {
+              "type": "string"
+            },
+            "length": {
+              "type": "integer"
+            },
+            "parts": {
+              "properties": {
+                "account": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "bank": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "branch": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "bank",
+                "branch",
+                "account"
+              ],
+              "type": "object"
+            },
+            "reason": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "valid": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "valid",
+            "iban",
+            "iban_print",
+            "country",
+            "check_digits",
+            "bban",
+            "parts",
+            "length",
+            "expected_length",
+            "reason",
+            "algorithm"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "properties": {
+            "computed_at": {
+              "description": "RFC 3339 UTC with milliseconds",
+              "type": "string",
+              "format": "date-time"
+            },
+            "deterministic": {
+              "type": "boolean"
+            },
+            "disclaimer": {
+              "type": "string"
+            },
+            "price_usd": {
+              "type": "string"
+            },
+            "request_id": {
+              "type": "string"
+            },
+            "sources": {
+              "items": {
+                "required": [
+                  "id",
+                  "version",
+                  "published"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "request_id",
+            "computed_at",
+            "price_usd",
+            "deterministic",
+            "disclaimer"
+          ],
+          "type": "object"
+        },
+        "ok": {
+          "const": true
+        },
+        "route": {
+          "const": "/v1/id/iban"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "route",
+        "version",
+        "data",
+        "meta"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "data.expected_length": {
+        "min": 0
+      },
+      "data.length": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.duoleads.com",
+    "endpoint": "https://api.duoleads.com/v1/id/iban",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

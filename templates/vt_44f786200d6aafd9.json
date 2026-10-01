@@ -1,0 +1,99 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_44f786200d6aafd9",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "deterministic": {
+          "type": "boolean"
+        },
+        "series": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "as_of": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "chain": {
+                "type": "string"
+              },
+              "contract": {
+                "type": "string",
+                "pattern": "^0x[a-fA-F0-9]{40}$"
+              },
+              "key": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "round_id": {
+                "type": "string"
+              },
+              "units": {
+                "type": "string"
+              },
+              "value": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "as_of",
+              "chain",
+              "contract",
+              "key",
+              "name",
+              "round_id",
+              "units",
+              "value"
+            ]
+          }
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "license": {
+              "type": "string"
+            },
+            "transport": {
+              "type": "string"
+            },
+            "verifiable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "license",
+            "transport",
+            "verifiable"
+          ]
+        }
+      },
+      "required": [
+        "deterministic",
+        "series",
+        "source"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "series[].key"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "macropulse.theaslangroupllc.com",
+    "endpoint": "https://macropulse.theaslangroupllc.com/api/macro/us",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

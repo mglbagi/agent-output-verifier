@@ -1,0 +1,81 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bdff6d50730f412e",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "engine_version": {
+          "type": "string"
+        },
+        "lines": {
+          "type": "object",
+          "properties": {
+            "combined_tax": {
+              "type": "number"
+            },
+            "dividend_refund": {
+              "type": "integer"
+            },
+            "on_tax": {
+              "type": "number"
+            },
+            "part_i_tax": {
+              "type": "number"
+            },
+            "part_iv_tax": {
+              "type": "number"
+            },
+            "reduced_business_limit": {
+              "type": "integer"
+            },
+            "sbd_income": {
+              "type": "integer"
+            },
+            "small_business_deduction": {
+              "type": "integer"
+            },
+            "total_tax_payable_net_of_refund": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "combined_tax",
+            "dividend_refund",
+            "on_tax",
+            "part_i_tax",
+            "part_iv_tax",
+            "reduced_business_limit",
+            "sbd_income",
+            "small_business_deduction",
+            "total_tax_payable_net_of_refund"
+          ]
+        },
+        "rules_version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "engine_version",
+        "lines",
+        "rules_version"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "lines.reduced_business_limit": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ccpcrate.ca",
+    "endpoint": "https://ccpcrate.ca/v1/resolve",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

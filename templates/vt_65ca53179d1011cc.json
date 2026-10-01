@@ -1,0 +1,65 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_65ca53179d1011cc",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "catalogTotal": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "categoryCounts": {
+          "type": "object"
+        },
+        "computedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "freshness": {
+          "type": "object"
+        },
+        "newestResources": {
+          "type": "array"
+        },
+        "price": {
+          "type": "object"
+        },
+        "productId": {
+          "type": "string"
+        },
+        "requestedKeywordCounts": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "sampledResources": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "productId",
+        "computedAt",
+        "sampledResources",
+        "price",
+        "categoryCounts"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "aura-revenue.helionixlabs.com",
+    "endpoint": "https://aura-revenue.helionixlabs.com/x402/data/bazaar-market-pulse",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

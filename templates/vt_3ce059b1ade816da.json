@@ -1,0 +1,59 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3ce059b1ade816da",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "age_seconds": {
+          "type": "number"
+        },
+        "data": {
+          "description": "Parsed House/Senate PTR trades: member, ticker, type, amounts, filing lag (last 1000)",
+          "type": "object"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "product": {
+          "type": "string"
+        },
+        "sample": {
+          "type": "boolean"
+        },
+        "stale": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "required": [
+        "age_seconds",
+        "data",
+        "disclaimer",
+        "generated_at",
+        "product",
+        "sample",
+        "stale"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "age_seconds": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "whodeployed.wtf",
+    "endpoint": "https://whodeployed.wtf/v1/congress_tape",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

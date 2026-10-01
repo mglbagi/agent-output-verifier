@@ -1,0 +1,200 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ead93cc094c5d3b6",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "basis": {
+          "type": "string"
+        },
+        "feed": {
+          "type": "string"
+        },
+        "page": {
+          "type": "object",
+          "properties": {
+            "has_more": {
+              "type": "boolean"
+            },
+            "limit": {
+              "type": "integer"
+            },
+            "next_cursor": {
+              "type": "string"
+            },
+            "returned": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "has_more",
+            "limit",
+            "next_cursor",
+            "returned"
+          ]
+        },
+        "query": {
+          "type": "object",
+          "properties": {
+            "exchange": {
+              "type": "string"
+            },
+            "min_insiders": {
+              "type": "string"
+            },
+            "min_value": {
+              "type": "string"
+            },
+            "since": {
+              "type": "string"
+            },
+            "ticker": {
+              "type": "string"
+            },
+            "window": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "exchange",
+            "min_insiders",
+            "min_value",
+            "since",
+            "ticker",
+            "window"
+          ]
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "as_published_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "company_name": {
+                "type": "string"
+              },
+              "direction": {
+                "type": "string"
+              },
+              "event_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "event_key": {
+                "type": "string"
+              },
+              "exchange": {
+                "type": "string"
+              },
+              "first_txn_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "insider_count": {
+                "type": "integer"
+              },
+              "is_public_company": {
+                "type": "boolean"
+              },
+              "issuer_cik": {
+                "type": "string"
+              },
+              "last_txn_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "ticker": {
+                "type": "string"
+              },
+              "total_shares": {
+                "type": "number"
+              },
+              "total_value": {
+                "type": "number"
+              },
+              "txn_count": {
+                "type": "integer"
+              },
+              "window_days": {
+                "type": "integer"
+              },
+              "window_end": {
+                "type": "string",
+                "format": "date"
+              },
+              "window_start": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "required": [
+              "as_published_date",
+              "company_name",
+              "direction",
+              "event_date",
+              "event_key",
+              "exchange",
+              "first_txn_date",
+              "insider_count",
+              "is_public_company",
+              "issuer_cik",
+              "last_txn_date",
+              "ticker",
+              "total_shares",
+              "total_value",
+              "txn_count",
+              "window_days",
+              "window_end",
+              "window_start"
+            ]
+          }
+        }
+      },
+      "required": [
+        "basis",
+        "feed",
+        "page",
+        "query",
+        "rows"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "rows[].window_start",
+        "other_field": "rows[].window_end"
+      }
+    ],
+    "bounds": {
+      "page.limit": {
+        "min": 0
+      },
+      "rows[].insider_count": {
+        "min": 0
+      },
+      "rows[].total_shares": {
+        "min": 0
+      },
+      "rows[].total_value": {
+        "min": 0
+      },
+      "rows[].txn_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.govparse.io",
+    "endpoint": "https://api.govparse.io/v1/feeds/insider-buying",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

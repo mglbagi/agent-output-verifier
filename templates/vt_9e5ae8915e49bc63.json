@@ -1,0 +1,104 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9e5ae8915e49bc63",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "company": {
+          "additionalProperties": false,
+          "properties": {
+            "cik": {
+              "type": "integer"
+            },
+            "entity_type": {
+              "type": "string"
+            },
+            "exchanges": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "fiscal_year_end": {
+              "type": "string"
+            },
+            "former_names": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "from": {
+                    "format": "date",
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "to": {
+                    "format": "date",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "name": {
+              "type": "string"
+            },
+            "sic": {
+              "type": "string"
+            },
+            "sic_description": {
+              "type": "string"
+            },
+            "ticker": {
+              "type": "string"
+            },
+            "tickers": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "ticker",
+            "cik",
+            "name",
+            "exchanges",
+            "tickers",
+            "former_names"
+          ],
+          "type": "object"
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "company"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "company.former_names[].from",
+        "other_field": "company.former_names[].to",
+        "if_present": true
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "sec.use.x402atlas.com",
+    "endpoint": "https://sec.use.x402atlas.com/company/:ticker",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

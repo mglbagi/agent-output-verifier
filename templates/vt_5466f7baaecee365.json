@@ -1,0 +1,112 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5466f7baaecee365",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "base_salary": {
+          "type": "object",
+          "properties": {
+            "currency": {
+              "type": "string"
+            },
+            "median": {
+              "type": "integer"
+            },
+            "p25": {
+              "type": "integer"
+            },
+            "p75": {
+              "type": "integer"
+            },
+            "p90": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "currency",
+            "median",
+            "p25",
+            "p75",
+            "p90"
+          ]
+        },
+        "country": {
+          "type": "string"
+        },
+        "level": {
+          "type": "string"
+        },
+        "long_term_incentive": {
+          "type": "object",
+          "properties": {
+            "annual_grant_value_usd": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "vesting_schedule": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "annual_grant_value_usd",
+            "type",
+            "vesting_schedule"
+          ]
+        },
+        "role": {
+          "type": "string"
+        },
+        "sector": {
+          "type": "string"
+        },
+        "total_target_compensation": {
+          "type": "object",
+          "properties": {
+            "median_usd": {
+              "type": "number"
+            },
+            "p75_usd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "median_usd",
+            "p75_usd"
+          ]
+        }
+      },
+      "required": [
+        "base_salary",
+        "country",
+        "level",
+        "long_term_incentive",
+        "role",
+        "sector",
+        "total_target_compensation"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "total_target_compensation.median_usd": {
+        "min": 0
+      },
+      "total_target_compensation.p75_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "talentpulse.theaslangroupllc.com",
+    "endpoint": "https://talentpulse.theaslangroupllc.com/api/talent/compensation",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

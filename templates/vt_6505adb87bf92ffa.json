@@ -1,0 +1,90 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6505adb87bf92ffa",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "aggregate": {
+          "type": "object",
+          "properties": {
+            "dex_vwap_usd": {
+              "type": "number"
+            },
+            "num_sources": {
+              "type": "integer"
+            },
+            "total_dex_tvl_usd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "dex_vwap_usd",
+            "num_sources",
+            "total_dex_tvl_usd"
+          ]
+        },
+        "chain": {
+          "type": "string"
+        },
+        "recent": {
+          "type": "object",
+          "properties": {
+            "change_pct": {
+              "type": "number"
+            },
+            "volatility_pct": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "change_pct",
+            "volatility_pct"
+          ]
+        },
+        "reference_price_usd": {
+          "type": "number"
+        },
+        "token": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "aggregate",
+        "chain",
+        "recent",
+        "reference_price_usd",
+        "token"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "aggregate.dex_vwap_usd": {
+        "min": 0
+      },
+      "aggregate.num_sources": {
+        "min": 0
+      },
+      "aggregate.total_dex_tvl_usd": {
+        "min": 0
+      },
+      "recent.volatility_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "reference_price_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.agentstools.dev",
+    "endpoint": "https://api.agentstools.dev/market/report",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

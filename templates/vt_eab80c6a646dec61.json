@@ -1,0 +1,79 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_eab80c6a646dec61",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "changed": {
+          "type": "boolean"
+        },
+        "changes": {
+          "type": "array"
+        },
+        "current": {
+          "type": "object",
+          "properties": {
+            "final_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "latency_ms": {
+              "type": "integer"
+            },
+            "site": {
+              "type": "string"
+            },
+            "status": {
+              "type": "integer"
+            },
+            "up": {
+              "type": "boolean"
+            },
+            "verdict": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "final_url",
+            "latency_ms",
+            "site",
+            "status",
+            "up",
+            "verdict"
+          ]
+        },
+        "first_seen": {
+          "type": "boolean"
+        },
+        "previous_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "query": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "changed",
+        "changes",
+        "current",
+        "first_seen",
+        "previous_at",
+        "query"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "monitor.intel.rallylive.ca",
+    "endpoint": "https://monitor.intel.rallylive.ca/watch/monitor/is-down/atlassian-com",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

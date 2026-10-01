@@ -1,0 +1,70 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_341cdaff09477b70",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "code_size": {
+          "type": "number"
+        },
+        "eth_balance": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "nonce": {
+          "type": "number"
+        },
+        "notes": {
+          "type": "array"
+        },
+        "tokens": {
+          "type": "array"
+        },
+        "tokens_checked": {
+          "type": "array"
+        },
+        "tokens_failed": {
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "address",
+        "chain",
+        "code_size",
+        "eth_balance",
+        "kind",
+        "nonce",
+        "notes",
+        "tokens",
+        "tokens_checked",
+        "tokens_failed"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "code_size": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.jagent.dev",
+    "endpoint": "https://api.jagent.dev/v1/wallet-profile",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

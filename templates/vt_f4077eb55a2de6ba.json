@@ -1,0 +1,143 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f4077eb55a2de6ba",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "headers": {
+          "description": "Graded, normalized security headers. Each field is null when the header is absent from the response",
+          "properties": {
+            "content_security_policy": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "permissions_policy": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "referrer_policy": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "server": {
+              "description": "Server header value, if disclosed by the target",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "strict_transport_security": {
+              "properties": {
+                "include_subdomains": {
+                  "type": "boolean"
+                },
+                "max_age": {
+                  "description": "Parsed max-age in seconds; null if absent or unparseable",
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "preload": {
+                  "type": "boolean"
+                },
+                "value": {
+                  "description": "Raw Strict-Transport-Security header value",
+                  "type": "string"
+                }
+              },
+              "type": [
+                "object",
+                "null"
+              ],
+              "required": [
+                "include_subdomains",
+                "max_age",
+                "preload",
+                "value"
+              ]
+            },
+            "x_content_type_options": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "x_frame_options": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "x_powered_by": {
+              "description": "X-Powered-By header value, if disclosed by the target",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "content_security_policy",
+            "referrer_policy",
+            "strict_transport_security",
+            "x_content_type_options",
+            "x_frame_options"
+          ]
+        },
+        "queried_at": {
+          "description": "UTC timestamp the audit was performed",
+          "format": "date-time",
+          "type": "string"
+        },
+        "status_code": {
+          "description": "HTTP status code returned by the target for the HEAD request",
+          "type": "integer"
+        },
+        "url": {
+          "description": "The audited URL, exactly as given",
+          "type": "string",
+          "format": "uri"
+        },
+        "warnings": {
+          "description": "Human-readable posture advisories, e.g. missing or weak headers",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "url",
+        "status_code",
+        "queried_at",
+        "headers",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "headers.strict_transport_security.max_age": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "headers.use.x402atlas.com",
+    "endpoint": "https://headers.use.x402atlas.com/",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

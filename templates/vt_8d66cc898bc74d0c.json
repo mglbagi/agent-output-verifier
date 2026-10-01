@@ -1,0 +1,241 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8d66cc898bc74d0c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "output": {
+          "type": "object",
+          "properties": {
+            "last_updated": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "overall_risk_score": {
+              "type": "number"
+            },
+            "recommendation": {
+              "type": "string"
+            },
+            "risk_factors": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "risk_level": {
+              "type": "string"
+            },
+            "token": {
+              "type": "object",
+              "properties": {
+                "decimals": {
+                  "type": "integer"
+                },
+                "holder_count": {
+                  "type": "integer"
+                },
+                "market_cap": {
+                  "type": "integer"
+                },
+                "mint": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "price_usd": {
+                  "type": "number"
+                },
+                "supply": {
+                  "type": "integer"
+                },
+                "symbol": {
+                  "type": "string"
+                },
+                "volume_24h": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "decimals",
+                "holder_count",
+                "market_cap",
+                "mint",
+                "name",
+                "price_usd",
+                "supply",
+                "symbol",
+                "volume_24h"
+              ]
+            },
+            "whales": {
+              "type": "object",
+              "properties": {
+                "holders_source": {
+                  "type": "string"
+                },
+                "last_updated": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "lookback_hours": {
+                  "type": "integer"
+                },
+                "mint": {
+                  "type": "string"
+                },
+                "net_flow_direction": {
+                  "type": "string"
+                },
+                "threshold_usd": {
+                  "type": "number"
+                },
+                "total_whale_volume_usd": {
+                  "type": "number"
+                },
+                "whale_count": {
+                  "type": "integer"
+                },
+                "whales": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "address": {
+                        "type": "string"
+                      },
+                      "avg_transaction_usd": {
+                        "type": "number"
+                      },
+                      "balance_usd": {
+                        "type": "number"
+                      },
+                      "buy_volume_usd": {
+                        "type": "number"
+                      },
+                      "entity_label": {
+                        "type": "string"
+                      },
+                      "entity_type": {
+                        "type": "string"
+                      },
+                      "pct_supply": {
+                        "type": "number"
+                      },
+                      "total_volume_usd": {
+                        "type": "number"
+                      },
+                      "transaction_count": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "address",
+                      "avg_transaction_usd",
+                      "balance_usd",
+                      "buy_volume_usd",
+                      "entity_label",
+                      "entity_type",
+                      "pct_supply",
+                      "total_volume_usd",
+                      "transaction_count"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "holders_source",
+                "last_updated",
+                "lookback_hours",
+                "mint",
+                "net_flow_direction",
+                "threshold_usd",
+                "total_whale_volume_usd",
+                "whale_count",
+                "whales"
+              ]
+            }
+          },
+          "required": [
+            "last_updated",
+            "overall_risk_score",
+            "recommendation",
+            "risk_factors",
+            "risk_level",
+            "token",
+            "whales"
+          ]
+        },
+        "run_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "output",
+        "run_id",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "output.token.holder_count": {
+        "min": 0
+      },
+      "output.token.market_cap": {
+        "min": 0
+      },
+      "output.token.price_usd": {
+        "min": 0
+      },
+      "output.token.supply": {
+        "min": 0
+      },
+      "output.token.volume_24h": {
+        "min": 0
+      },
+      "output.whales.threshold_usd": {
+        "min": 0
+      },
+      "output.whales.total_whale_volume_usd": {
+        "min": 0
+      },
+      "output.whales.whale_count": {
+        "min": 0
+      },
+      "output.whales.whales[].avg_transaction_usd": {
+        "min": 0
+      },
+      "output.whales.whales[].balance_usd": {
+        "min": 0
+      },
+      "output.whales.whales[].buy_volume_usd": {
+        "min": 0
+      },
+      "output.whales.whales[].pct_supply": {
+        "min": 0,
+        "max": 100
+      },
+      "output.whales.whales[].total_volume_usd": {
+        "min": 0
+      },
+      "output.whales.whales[].transaction_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.solenrich.com",
+    "endpoint": "https://api.solenrich.com/entrypoints/due-diligence/invoke",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

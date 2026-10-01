@@ -1,0 +1,98 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_25308ea893130afd",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "cvd": {
+          "type": "object",
+          "properties": {
+            "direction": {
+              "type": "string"
+            },
+            "value": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "direction",
+            "value"
+          ]
+        },
+        "oi": {
+          "type": "object",
+          "properties": {
+            "direction": {
+              "type": "string"
+            },
+            "spike": {
+              "type": "boolean"
+            },
+            "value": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "direction",
+            "spike",
+            "value"
+          ]
+        },
+        "price": {
+          "type": "number"
+        },
+        "session": {
+          "type": "object",
+          "properties": {
+            "losses": {
+              "type": "integer"
+            },
+            "pnl": {
+              "type": "integer"
+            },
+            "wins": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "losses",
+            "pnl",
+            "wins"
+          ]
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "cvd",
+        "oi",
+        "price",
+        "session",
+        "symbol",
+        "timestamp"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agents.ai-rook.com",
+    "endpoint": "https://agents.ai-rook.com/api/market-pulse",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

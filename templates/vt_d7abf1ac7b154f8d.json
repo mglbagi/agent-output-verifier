@@ -1,0 +1,52 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d7abf1ac7b154f8d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "label_count": {
+          "type": "integer"
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "name_tag": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "label",
+              "name_tag"
+            ]
+          }
+        }
+      },
+      "required": [
+        "label_count",
+        "labels"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "label_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "whale.hugen.tokyo",
+    "endpoint": "https://whale.hugen.tokyo/whale/lookup",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

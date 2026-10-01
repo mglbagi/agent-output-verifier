@@ -1,0 +1,71 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8fd15d68ba7e7183",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "stocktwits_trending": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "symbol": {
+                "type": "string"
+              },
+              "watchlist_count": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "symbol",
+              "watchlist_count"
+            ]
+          }
+        },
+        "wsb_mentions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "mentions": {
+                "type": "integer"
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "symbol": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "mentions",
+              "rank",
+              "symbol"
+            ]
+          }
+        }
+      },
+      "required": [
+        "stocktwits_trending",
+        "wsb_mentions"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "stocktwits_trending[].watchlist_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "orchard-data.netlify.app",
+    "endpoint": "https://orchard-data.netlify.app/api/trending",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

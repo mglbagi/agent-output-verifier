@@ -1,0 +1,278 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d83eae26713f5ee3",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "catalogue": {
+          "type": "object",
+          "properties": {
+            "evaluated": {
+              "type": "integer"
+            },
+            "gated": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "evaluated",
+            "gated"
+          ]
+        },
+        "catalogueVersion": {
+          "type": "string"
+        },
+        "caveats": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "charged": {
+          "type": "boolean"
+        },
+        "focus": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "source"
+          ]
+        },
+        "generatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "permitMix": {
+          "type": "object",
+          "properties": {
+            "available": {
+              "type": "boolean"
+            },
+            "coverage": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "available",
+            "coverage"
+          ]
+        },
+        "persona": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "source"
+          ]
+        },
+        "prose": {
+          "type": "string"
+        },
+        "questionUse": {
+          "type": "object",
+          "properties": {
+            "focusGroup": {
+              "type": "string"
+            },
+            "personaFrom": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "focusGroup",
+            "personaFrom"
+          ]
+        },
+        "readings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "checkNext": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "readingText": {
+                "type": "string"
+              },
+              "recordRefs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "status": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "checkNext",
+              "id",
+              "readingText",
+              "recordRefs",
+              "status",
+              "title"
+            ]
+          }
+        },
+        "readingsNotEvaluated": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "reason"
+            ]
+          }
+        },
+        "recordRefs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "timing": {
+          "type": "object",
+          "properties": {
+            "recordsCached": {
+              "type": "boolean"
+            },
+            "stages": {
+              "type": "object",
+              "properties": {}
+            },
+            "totalMs": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "recordsCached",
+            "stages",
+            "totalMs"
+          ]
+        },
+        "verifyNext": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "label",
+              "url"
+            ]
+          }
+        },
+        "waterContext": {
+          "type": "object",
+          "properties": {
+            "citations": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nonInference": {
+              "type": "string"
+            },
+            "pfasDetectionCount": {
+              "type": "integer"
+            },
+            "violationCount12mo": {
+              "type": "integer"
+            },
+            "violations": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          },
+          "required": [
+            "citations",
+            "nonInference",
+            "pfasDetectionCount",
+            "violationCount12mo",
+            "violations"
+          ]
+        }
+      },
+      "required": [
+        "address",
+        "catalogue",
+        "catalogueVersion",
+        "caveats",
+        "charged",
+        "focus",
+        "generatedAt",
+        "kind",
+        "permitMix",
+        "persona",
+        "prose",
+        "questionUse",
+        "readings",
+        "readingsNotEvaluated",
+        "recordRefs",
+        "timing",
+        "verifyNext",
+        "waterContext"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "readings[].id"
+      },
+      {
+        "type": "unique",
+        "field": "readingsNotEvaluated[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.locus.report",
+    "endpoint": "https://api.locus.report/api/locus-practitioner-read",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

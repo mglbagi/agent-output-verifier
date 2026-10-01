@@ -1,0 +1,92 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2ed6213e83f107d0",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "count": {
+                "type": "integer"
+              },
+              "top_results": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "content": {
+                      "type": "string"
+                    },
+                    "published_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "source": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  },
+                  "required": [
+                    "content",
+                    "published_at",
+                    "source",
+                    "title",
+                    "url"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "category",
+              "count",
+              "top_results"
+            ]
+          }
+        },
+        "topic": {
+          "type": "string"
+        },
+        "total_count": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "categories",
+        "topic",
+        "total_count"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "categories[].count": {
+        "min": 0
+      },
+      "total_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "concordancehq.duckdns.org",
+    "endpoint": "https://concordancehq.duckdns.org/tools/digest",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

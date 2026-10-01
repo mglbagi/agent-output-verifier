@@ -1,0 +1,115 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_93c4228549772329",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "issue_codes": {
+          "type": "array"
+        },
+        "job_id": {
+          "type": "string"
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "next_jobs": {
+          "type": "array"
+        },
+        "parse_ok": {
+          "type": "boolean"
+        },
+        "repair_notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "repaired": {
+          "type": "boolean"
+        },
+        "repaired_json": {
+          "type": "object",
+          "properties": {
+            "ok": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "ok"
+          ]
+        },
+        "schema_errors": {
+          "type": "array"
+        },
+        "schema_ok": {
+          "type": "boolean"
+        },
+        "service": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "note": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "note",
+              "url"
+            ]
+          }
+        },
+        "status": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "generated_at",
+        "issue_codes",
+        "job_id",
+        "limitations",
+        "next_jobs",
+        "parse_ok",
+        "repair_notes",
+        "repaired",
+        "repaired_json",
+        "schema_errors",
+        "schema_ok",
+        "service",
+        "sources",
+        "status",
+        "summary"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent.kihustle.tech",
+    "endpoint": "https://agent.kihustle.tech/services/json-schema-repair/jobs",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

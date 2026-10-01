@@ -1,0 +1,162 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e83ef934c8974dd2",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "area": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "name_en": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "code",
+            "name",
+            "name_en"
+          ]
+        },
+        "daily": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "area": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "pops": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "temps": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "wave": {
+                "type": "string"
+              },
+              "weather": {
+                "type": "string"
+              },
+              "weather_code": {
+                "type": "string"
+              },
+              "weather_en": {
+                "type": "string"
+              },
+              "wind": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "area",
+              "date",
+              "pops",
+              "temps",
+              "wave",
+              "weather",
+              "weather_code",
+              "weather_en",
+              "wind"
+            ]
+          }
+        },
+        "publishing_office": {
+          "type": "string"
+        },
+        "report_datetime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "summary_en": {
+          "type": "string"
+        },
+        "summary_ja": {
+          "type": "string"
+        },
+        "weekly": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "pop": {
+                "type": "integer"
+              },
+              "reliability": {
+                "type": "string"
+              },
+              "temp_max": {
+                "type": "integer"
+              },
+              "temp_min": {
+                "type": "integer"
+              },
+              "weather_code": {
+                "type": "string"
+              },
+              "weather_en": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "date",
+              "pop",
+              "reliability",
+              "temp_max",
+              "temp_min",
+              "weather_code",
+              "weather_en"
+            ]
+          }
+        }
+      },
+      "required": [
+        "area",
+        "daily",
+        "publishing_office",
+        "report_datetime",
+        "summary_en",
+        "summary_ja",
+        "weekly"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "weekly[].temp_min",
+        "other_field": "weekly[].temp_max"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "weather.agentic-jp.com",
+    "endpoint": "https://weather.agentic-jp.com/forecast/:area",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

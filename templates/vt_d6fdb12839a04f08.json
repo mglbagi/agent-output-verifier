@@ -1,0 +1,88 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d6fdb12839a04f08",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "assets": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "change_24h_percent": {
+                "type": "number"
+              },
+              "id": {
+                "type": "string"
+              },
+              "market_cap_usd": {
+                "type": "integer"
+              },
+              "price_usd": {
+                "type": "integer"
+              },
+              "volume_24h_usd": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "id",
+              "price_usd",
+              "market_cap_usd",
+              "volume_24h_usd",
+              "change_24h_percent"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "quote_currency": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success",
+        "quote_currency",
+        "count",
+        "assets"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "assets[].id"
+      }
+    ],
+    "bounds": {
+      "assets[].market_cap_usd": {
+        "min": 0
+      },
+      "assets[].price_usd": {
+        "min": 0
+      },
+      "assets[].volume_24h_usd": {
+        "min": 0
+      },
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ai-data-marketplace-1042299154756.us-central1.run.app",
+    "endpoint": "https://ai-data-marketplace-1042299154756.us-central1.run.app/api/v1/crypto_market_snapshot",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

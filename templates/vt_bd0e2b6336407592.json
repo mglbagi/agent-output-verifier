@@ -1,0 +1,233 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bd0e2b6336407592",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "jobId": {
+              "type": "string"
+            },
+            "maxBytes": {
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991,
+              "type": "integer"
+            },
+            "price": {
+              "type": "string"
+            },
+            "retryAfterSec": {
+              "default": 5,
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991,
+              "type": "integer"
+            },
+            "status": {
+              "const": "processing",
+              "type": "string"
+            },
+            "tier": {
+              "enum": [
+                "tube-100mb",
+                "tube-500mb",
+                "tube-1gb"
+              ],
+              "type": "string"
+            },
+            "videoId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "status",
+            "jobId",
+            "videoId",
+            "tier",
+            "maxBytes",
+            "retryAfterSec"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "contentLengthBytes": {
+              "anyOf": [
+                {
+                  "maximum": 9007199254740991,
+                  "minimum": -9007199254740991,
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "downloadUrl": {
+              "description": "Temporary StableTube-owned S3 download URL. Fetch before expiresAt or poll the job again for a fresh URL.",
+              "format": "uri",
+              "type": "string"
+            },
+            "durationSec": {
+              "anyOf": [
+                {
+                  "maximum": 9007199254740991,
+                  "minimum": -9007199254740991,
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "expiresAt": {
+              "format": "date-time",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$",
+              "type": "string"
+            },
+            "format": {
+              "enum": [
+                "mp4"
+              ],
+              "type": "string"
+            },
+            "jobId": {
+              "type": "string"
+            },
+            "maxBytes": {
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991,
+              "type": "integer"
+            },
+            "mimeType": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "price": {
+              "type": "string"
+            },
+            "quality": {
+              "enum": [
+                "360p",
+                "720p",
+                "1080p"
+              ],
+              "type": "string"
+            },
+            "status": {
+              "const": "complete",
+              "type": "string"
+            },
+            "tier": {
+              "enum": [
+                "tube-100mb",
+                "tube-500mb",
+                "tube-1gb"
+              ],
+              "type": "string"
+            },
+            "title": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "videoId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "status",
+            "jobId",
+            "videoId",
+            "quality",
+            "tier",
+            "format",
+            "maxBytes",
+            "downloadUrl",
+            "expiresAt"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "error": {
+              "additionalProperties": false,
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ],
+              "type": "object"
+            },
+            "jobId": {
+              "type": "string"
+            },
+            "maxBytes": {
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991,
+              "type": "integer"
+            },
+            "price": {
+              "type": "string"
+            },
+            "status": {
+              "const": "failed",
+              "type": "string"
+            },
+            "tier": {
+              "enum": [
+                "tube-100mb",
+                "tube-500mb",
+                "tube-1gb"
+              ],
+              "type": "string"
+            },
+            "videoId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "status",
+            "jobId",
+            "error"
+          ],
+          "type": "object"
+        }
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "stabletube.dev",
+    "endpoint": "https://stabletube.dev/api/download",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

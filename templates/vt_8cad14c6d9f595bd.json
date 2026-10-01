@@ -1,0 +1,107 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8cad14c6d9f595bd",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "min_rank": {
+          "type": "integer"
+        },
+        "pass": {
+          "type": "boolean"
+        },
+        "phrases_unused": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "phrases_used": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "target": {
+          "type": "object",
+          "properties": {
+            "gap_to_top": {
+              "type": "integer"
+            },
+            "id": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "rank": {
+              "type": "integer"
+            },
+            "score": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "gap_to_top",
+            "id",
+            "path",
+            "rank",
+            "score"
+          ]
+        },
+        "top": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "score": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "path",
+              "rank",
+              "score"
+            ]
+          }
+        }
+      },
+      "required": [
+        "min_rank",
+        "pass",
+        "phrases_unused",
+        "phrases_used",
+        "target",
+        "top"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "top[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "topic-scorer.pixelcove.co",
+    "endpoint": "https://topic-scorer.pixelcove.co/v1/gate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

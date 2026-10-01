@@ -1,0 +1,57 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fcc44c1ad41acc6a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "expires_at": {
+          "description": "Unix ms.",
+          "type": "integer"
+        },
+        "ipv4": {
+          "description": "Box IPv4. May be null at first; poll GET /instance/{id}.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rental_id": {
+          "type": "string"
+        },
+        "root_token": {
+          "description": "Bearer for GET /instance/{id} and POST /rentals/{id}/renew. Treat as a credential.",
+          "type": "string"
+        },
+        "sku": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "pending_settlement"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "expires_at",
+        "rental_id",
+        "root_token",
+        "sku",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "vps.phoneagent.xyz",
+    "endpoint": "https://vps.phoneagent.xyz/rent",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

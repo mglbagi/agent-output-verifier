@@ -1,0 +1,126 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_00cc8fad85cc5e27",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "disagreement": {
+          "type": "number"
+        },
+        "excluded": {
+          "type": "array"
+        },
+        "markets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "question": {
+                "type": "string"
+              },
+              "venue": {
+                "type": "string"
+              },
+              "via": {
+                "type": "string"
+              },
+              "yes": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "question",
+              "venue",
+              "via",
+              "yes"
+            ]
+          }
+        },
+        "matched_markets": {
+          "type": "integer"
+        },
+        "max": {
+          "type": "number"
+        },
+        "min": {
+          "type": "number"
+        },
+        "query": {
+          "type": "string"
+        },
+        "venues": {
+          "type": "object",
+          "properties": {
+            "manifold": {
+              "type": "object",
+              "properties": {
+                "markets": {
+                  "type": "integer"
+                },
+                "yes": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "markets",
+                "yes"
+              ]
+            },
+            "polymarket": {
+              "type": "object",
+              "properties": {
+                "markets": {
+                  "type": "integer"
+                },
+                "yes": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "markets",
+                "yes"
+              ]
+            }
+          },
+          "required": [
+            "manifold",
+            "polymarket"
+          ]
+        },
+        "yes": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "disagreement",
+        "excluded",
+        "markets",
+        "matched_markets",
+        "max",
+        "min",
+        "query",
+        "venues",
+        "yes"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "min",
+        "other_field": "max"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "odds.rjhsignaltech.workers.dev",
+    "endpoint": "https://odds.rjhsignaltech.workers.dev/v1/consensus",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

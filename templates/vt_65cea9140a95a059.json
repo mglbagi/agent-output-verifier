@@ -1,0 +1,172 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_65cea9140a95a059",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "assessment_id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "asset": {
+          "const": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+          "type": "string"
+        },
+        "block_number": {
+          "pattern": "^(0|[1-9][0-9]{0,77})$",
+          "type": "string"
+        },
+        "calculated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "chain": {
+          "const": "base",
+          "type": "string"
+        },
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "expires_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "factors": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "explanation": {
+                "type": "string"
+              },
+              "factor": {
+                "enum": [
+                  "oracle_risk",
+                  "liquidity_utilization_risk",
+                  "collateral_configuration_risk",
+                  "operational_restriction_risk"
+                ],
+                "type": "string"
+              },
+              "rule_id": {
+                "type": "string"
+              },
+              "score": {
+                "maximum": 100,
+                "minimum": 0,
+                "type": "number"
+              },
+              "status": {
+                "const": "evaluated",
+                "type": "string"
+              }
+            },
+            "required": [
+              "factor",
+              "status",
+              "score",
+              "explanation",
+              "rule_id"
+            ],
+            "type": "object"
+          },
+          "maxItems": 4,
+          "minItems": 4,
+          "type": "array"
+        },
+        "fresh_until": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "freshness_status": {
+          "enum": [
+            "fresh",
+            "degraded"
+          ],
+          "type": "string"
+        },
+        "methodology_version": {
+          "const": "v0.1",
+          "type": "string"
+        },
+        "protocol": {
+          "const": "aave-v3",
+          "type": "string"
+        },
+        "reason": {
+          "type": "null"
+        },
+        "risk_level": {
+          "enum": [
+            "low",
+            "moderate",
+            "high",
+            "critical"
+          ],
+          "type": "string"
+        },
+        "score": {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "number"
+        },
+        "status": {
+          "enum": [
+            "OK",
+            "DEGRADED"
+          ],
+          "type": "string"
+        },
+        "unknown_after": {
+          "format": "date-time",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "assessment_id",
+        "chain",
+        "protocol",
+        "asset",
+        "methodology_version",
+        "score",
+        "risk_level",
+        "confidence",
+        "status",
+        "freshness_status",
+        "reason",
+        "block_number",
+        "calculated_at",
+        "fresh_until",
+        "expires_at",
+        "unknown_after",
+        "factors"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "factors[].rule_id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "risk-oracle-api.rohan-rajnikanth.workers.dev",
+    "endpoint": "https://risk-oracle-api.rohan-rajnikanth.workers.dev/v1/risk-check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

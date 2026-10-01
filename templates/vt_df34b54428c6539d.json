@@ -1,0 +1,65 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_df34b54428c6539d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "categories": {
+          "type": "object",
+          "properties": {
+            "non_delivery": {
+              "type": "integer"
+            },
+            "overcharge": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "non_delivery",
+            "overcharge"
+          ]
+        },
+        "distinct_reporters": {
+          "type": "integer"
+        },
+        "report_count": {
+          "type": "integer"
+        },
+        "risk": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "categories",
+        "distinct_reporters",
+        "report_count",
+        "risk",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "report_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "paysafe-agent.com",
+    "endpoint": "https://paysafe-agent.com/v1/reputation/:address",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

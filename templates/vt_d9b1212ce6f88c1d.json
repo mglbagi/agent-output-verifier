@@ -1,0 +1,77 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d9b1212ce6f88c1d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "ticks": {
+          "type": "object",
+          "properties": {
+            "EURUSD": {
+              "type": "object",
+              "properties": {
+                "best_ask": {
+                  "type": "string"
+                },
+                "best_bid": {
+                  "type": "string"
+                },
+                "best_spread": {
+                  "type": "string"
+                },
+                "fresh_sources": {
+                  "type": "integer"
+                },
+                "is_crossed": {
+                  "type": "boolean"
+                },
+                "quality_state": {
+                  "type": "string"
+                },
+                "seq": {
+                  "type": "integer"
+                },
+                "spread_vs_single_source": {
+                  "type": "string"
+                },
+                "symbol": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "best_ask",
+                "best_bid",
+                "best_spread",
+                "fresh_sources",
+                "is_crossed",
+                "quality_state",
+                "seq",
+                "spread_vs_single_source",
+                "symbol"
+              ]
+            }
+          },
+          "required": [
+            "EURUSD"
+          ]
+        }
+      },
+      "required": [
+        "ticks"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tick.hugen.tokyo",
+    "endpoint": "https://tick.hugen.tokyo/tick/all",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

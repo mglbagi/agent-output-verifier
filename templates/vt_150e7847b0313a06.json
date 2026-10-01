@@ -1,0 +1,57 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_150e7847b0313a06",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "asset": {
+          "type": "string"
+        },
+        "best_ask": {
+          "type": "string"
+        },
+        "best_bid": {
+          "type": "string"
+        },
+        "funding": {
+          "type": "string"
+        },
+        "mark_price": {
+          "type": "string"
+        },
+        "open_interest": {
+          "type": "string"
+        },
+        "oracle_price": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "asset",
+        "best_ask",
+        "best_bid",
+        "funding",
+        "mark_price",
+        "open_interest",
+        "oracle_price",
+        "timestamp"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hyperliquid-x402.rajdeep-dutta-in.workers.dev",
+    "endpoint": "https://hyperliquid-x402.rajdeep-dutta-in.workers.dev/market",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

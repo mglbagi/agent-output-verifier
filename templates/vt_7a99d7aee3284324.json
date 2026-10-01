@@ -1,0 +1,97 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7a99d7aee3284324",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "file": {
+          "type": "object",
+          "properties": {
+            "content": {
+              "type": "string"
+            },
+            "encoding": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "content",
+            "encoding",
+            "name"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "receipt": {
+          "type": "object",
+          "properties": {
+            "settled": {
+              "type": "boolean"
+            },
+            "tx": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "settled",
+            "tx"
+          ]
+        },
+        "redownload": {
+          "type": "object",
+          "properties": {
+            "token": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "token",
+            "url"
+          ]
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "skill": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "file",
+        "name",
+        "ok",
+        "receipt",
+        "redownload",
+        "sha256",
+        "skill",
+        "version"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.aiskills402.com",
+    "endpoint": "https://api.aiskills402.com/v1/skills/humanize/file",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

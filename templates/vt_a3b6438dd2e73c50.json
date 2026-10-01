@@ -1,0 +1,276 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a3b6438dd2e73c50",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "account_value_usd": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Account Value Usd"
+        },
+        "data_source": {
+          "title": "Data Source",
+          "type": "string"
+        },
+        "generated_at": {
+          "properties": {
+            "kst": {
+              "title": "Kst",
+              "type": "string"
+            },
+            "utc": {
+              "title": "Utc",
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "utc",
+            "kst"
+          ],
+          "title": "TimestampPair",
+          "type": "object"
+        },
+        "margin_usage_pct": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Margin Usage Pct"
+        },
+        "notice": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Notice"
+        },
+        "open_position_count": {
+          "title": "Open Position Count",
+          "type": "integer"
+        },
+        "positions": {
+          "default": [],
+          "items": {
+            "properties": {
+              "coin": {
+                "title": "Coin",
+                "type": "string"
+              },
+              "distance_to_liquidation_pct": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "abs(mark_price - liquidation_price) / mark_price * 100. Null when Hyperliquid reports no liquidation price for this position.",
+                "title": "Distance To Liquidation Pct"
+              },
+              "entry_price": {
+                "title": "Entry Price",
+                "type": "number"
+              },
+              "leverage": {
+                "title": "Leverage",
+                "type": "number"
+              },
+              "leverage_type": {
+                "description": "cross or isolated, as reported by Hyperliquid.",
+                "title": "Leverage Type",
+                "type": "string"
+              },
+              "liquidation_price": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Liquidation Price"
+              },
+              "mark_price": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "Derived as position_value_usd / size, since clearinghouseState does not return a live mark price directly. Not a separately-fetched live quote.",
+                "title": "Mark Price"
+              },
+              "max_leverage": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "Hyperliquid's own reported leverage ceiling for this asset/account setting - not the leverage actually in use (see 'leverage' for that).",
+                "title": "Max Leverage"
+              },
+              "position_value_usd": {
+                "title": "Position Value Usd",
+                "type": "number"
+              },
+              "return_on_equity_pct": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "Hyperliquid's own reported return-on-equity for this position, as a percentage. This is Hyperliquid's own ROE definition, which can differ from a naive unrealized_pnl_usd / margin_used calculation.",
+                "title": "Return On Equity Pct"
+              },
+              "side": {
+                "description": "LONG or SHORT, derived from the sign of Hyperliquid's szi (signed size).",
+                "title": "Side",
+                "type": "string"
+              },
+              "size": {
+                "title": "Size",
+                "type": "number"
+              },
+              "unrealized_pnl_usd": {
+                "title": "Unrealized Pnl Usd",
+                "type": "number"
+              }
+            },
+            "required": [
+              "coin",
+              "side",
+              "size",
+              "entry_price",
+              "position_value_usd",
+              "leverage",
+              "leverage_type",
+              "unrealized_pnl_usd"
+            ],
+            "title": "WhalePosition",
+            "type": "object"
+          },
+          "title": "Positions",
+          "type": "array"
+        },
+        "risk_flags": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Risk Flags",
+          "type": "array"
+        },
+        "total_margin_used_usd": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Total Margin Used Usd"
+        },
+        "total_notional_position_usd": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Total Notional Position Usd"
+        },
+        "wallet_address": {
+          "title": "Wallet Address",
+          "type": "string"
+        },
+        "withdrawable_usd": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Withdrawable Usd"
+        }
+      },
+      "required": [
+        "generated_at",
+        "wallet_address",
+        "open_position_count",
+        "data_source"
+      ],
+      "title": "WhalePositionAuditResponse",
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "open_position_count": {
+        "min": 0
+      },
+      "positions[].entry_price": {
+        "min": 0,
+        "if_present": true
+      },
+      "positions[].position_value_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "positions[].size": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "alphapipeline-eu.onrender.com",
+    "endpoint": "https://alphapipeline-eu.onrender.com/v1/derivatives/whale-position-audit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

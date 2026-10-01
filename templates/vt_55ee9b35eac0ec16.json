@@ -1,0 +1,136 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_55ee9b35eac0ec16",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "analysts": {
+          "type": "object",
+          "properties": {
+            "consensus": {
+              "type": "string"
+            },
+            "signal": {
+              "type": "string"
+            },
+            "upside_pct": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "consensus",
+            "signal",
+            "upside_pct"
+          ]
+        },
+        "cohorts_active": {
+          "type": "integer"
+        },
+        "cohorts_bearish": {
+          "type": "integer"
+        },
+        "cohorts_bullish": {
+          "type": "integer"
+        },
+        "congress": {
+          "type": "object",
+          "properties": {
+            "disclosed_trades": {
+              "type": "integer"
+            },
+            "signal": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "disclosed_trades",
+            "signal"
+          ]
+        },
+        "conviction": {
+          "type": "string"
+        },
+        "insiders": {
+          "type": "object",
+          "properties": {
+            "buy_count": {
+              "type": "integer"
+            },
+            "sell_count": {
+              "type": "integer"
+            },
+            "signal": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "buy_count",
+            "sell_count",
+            "signal"
+          ]
+        },
+        "institutions": {
+          "type": "object",
+          "properties": {
+            "flow_signal": {
+              "type": "string"
+            },
+            "signal": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "flow_signal",
+            "signal"
+          ]
+        },
+        "smart_money_signal": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "ticker": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "analysts",
+        "cohorts_active",
+        "cohorts_bearish",
+        "cohorts_bullish",
+        "congress",
+        "conviction",
+        "insiders",
+        "institutions",
+        "smart_money_signal",
+        "summary",
+        "ticker"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "analysts.upside_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "insiders.buy_count": {
+        "min": 0
+      },
+      "insiders.sell_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "smartmoney.lonestaroracle.xyz",
+    "endpoint": "https://smartmoney.lonestaroracle.xyz/smartmoney",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

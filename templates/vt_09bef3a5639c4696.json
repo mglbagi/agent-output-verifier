@@ -1,0 +1,82 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_09bef3a5639c4696",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "curlExample": {
+          "type": "string"
+        },
+        "expiresAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "maxSize": {
+          "type": "number"
+        },
+        "postFields": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "propertyNames": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "postUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "publicUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "txHash": {
+          "type": "string"
+        },
+        "uploadId": {
+          "type": "string"
+        },
+        "uploadMethod": {
+          "enum": [
+            "put",
+            "post"
+          ],
+          "type": "string"
+        },
+        "uploadUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "uploadUrlExpiresAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "uploadId",
+        "uploadUrl",
+        "uploadMethod",
+        "uploadUrlExpiresAt",
+        "publicUrl",
+        "expiresAt",
+        "maxSize",
+        "curlExample"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "stableupload.dev",
+    "endpoint": "https://stableupload.dev/api/upload",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

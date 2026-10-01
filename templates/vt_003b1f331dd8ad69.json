@@ -1,0 +1,53 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_003b1f331dd8ad69",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "disclaimer": {
+          "type": "string"
+        },
+        "domain": {
+          "description": "EIP-712 domain (name, chainId, verifyingContract).",
+          "type": "object"
+        },
+        "kind": {
+          "description": "typed_data or personal_sign.",
+          "type": "string"
+        },
+        "primaryType": {
+          "type": "string"
+        },
+        "risk": {
+          "description": "level (none|caution|danger) + flags.",
+          "type": "object"
+        },
+        "summary": {
+          "description": "human-readable statement of what signing does.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "disclaimer",
+        "domain",
+        "kind",
+        "primaryType",
+        "risk",
+        "summary"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "sign.cyberwarex.com",
+    "endpoint": "https://sign.cyberwarex.com/decode",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

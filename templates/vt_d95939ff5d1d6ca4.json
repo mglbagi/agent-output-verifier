@@ -1,0 +1,44 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d95939ff5d1d6ca4",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "character_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "markdown": {
+          "type": "string"
+        },
+        "status": {
+          "const": "success",
+          "type": "string"
+        },
+        "truncated": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "status",
+        "markdown",
+        "character_count",
+        "truncated"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "fetchharbor.benlab.download",
+    "endpoint": "https://fetchharbor.benlab.download/html-to-md",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

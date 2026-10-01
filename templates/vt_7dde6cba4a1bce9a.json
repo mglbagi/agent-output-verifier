@@ -1,0 +1,54 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7dde6cba4a1bce9a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "base": {
+          "description": "Base currency of the rate table (ISO 4217)",
+          "type": "string"
+        },
+        "date": {
+          "description": "ECB reference date of the rates (YYYY-MM-DD, last business day)",
+          "type": "string",
+          "format": "date"
+        },
+        "notice": {
+          "description": "ECB attribution notice: the underlying data is available free of charge from the ECB; cross-rates are computed values",
+          "type": "string"
+        },
+        "rates": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "description": "Units of each quoted currency per 1 unit of base, e.g. rates.USD = USD per base. ECB publishes vs EUR; other bases are cross-rates via EUR rounded to 6 decimals.",
+          "type": "object"
+        },
+        "source": {
+          "description": "Always \"ECB\" — European Central Bank euro foreign exchange reference rates",
+          "type": "string"
+        }
+      },
+      "required": [
+        "base",
+        "date",
+        "rates",
+        "source",
+        "notice"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "4yearcycle.com",
+    "endpoint": "https://4yearcycle.com/x402/fx-rates",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

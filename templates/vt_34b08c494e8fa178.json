@@ -1,0 +1,43 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_34b08c494e8fa178",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "checks": {
+          "type": "array"
+        },
+        "fixes": {
+          "type": "array"
+        },
+        "grade": {
+          "type": "string"
+        },
+        "score": {
+          "type": "integer"
+        },
+        "target": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "target",
+        "score",
+        "checks"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "schema.nsgoods.org",
+    "endpoint": "https://schema.nsgoods.org/extractability",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

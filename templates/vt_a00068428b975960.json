@@ -1,0 +1,94 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a00068428b975960",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "fullName": {
+          "type": "string"
+        },
+        "records": {
+          "type": "object",
+          "properties": {
+            "contentHash": {
+              "type": "object",
+              "properties": {
+                "decoded": {
+                  "type": "string"
+                },
+                "protocolType": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "decoded",
+                "protocolType"
+              ]
+            },
+            "texts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "value"
+                ]
+              }
+            }
+          },
+          "required": [
+            "contentHash",
+            "texts"
+          ]
+        },
+        "resolvedAddress": {
+          "type": "object",
+          "properties": {
+            "coinType": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            }
+          },
+          "required": [
+            "coinType",
+            "value"
+          ]
+        }
+      },
+      "required": [
+        "fullName",
+        "records",
+        "resolvedAddress"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "records.texts[].key"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.justaname.id",
+    "endpoint": "https://api.justaname.id/ens/v2/resolve",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

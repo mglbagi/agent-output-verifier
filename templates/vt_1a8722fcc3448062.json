@@ -1,0 +1,226 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1a8722fcc3448062",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "computed_at": {
+          "title": "Computed At",
+          "type": "string",
+          "format": "date-time"
+        },
+        "data_as_of": {
+          "title": "Data As Of",
+          "type": "string",
+          "format": "date"
+        },
+        "disclaimer": {
+          "default": "Statistical ranking over OpenAlex (CC0) publication counts; an estimate, not ground truth.",
+          "title": "Disclaimer",
+          "type": "string"
+        },
+        "last_full_year": {
+          "title": "Last Full Year",
+          "type": "integer"
+        },
+        "method_id": {
+          "default": "technology_momentum_stat_v1",
+          "title": "Method Id",
+          "type": "string"
+        },
+        "scan_id": {
+          "title": "Scan Id",
+          "type": "string"
+        },
+        "topics": {
+          "items": {
+            "properties": {
+              "acceleration_3y": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Acceleration 3Y"
+              },
+              "decile_growth_3y": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Decile Growth 3Y"
+              },
+              "field": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Field"
+              },
+              "growth_1y": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Growth 1Y"
+              },
+              "growth_3y": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Growth 3Y"
+              },
+              "growth_5y": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Growth 5Y"
+              },
+              "is_emerging": {
+                "title": "Is Emerging",
+                "type": "boolean"
+              },
+              "momentum_stat": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Universe z-score blend of 3y growth, acceleration and lagged top-decile growth (method technology_momentum_stat_v1).",
+                "title": "Momentum Stat"
+              },
+              "name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Name"
+              },
+              "rank": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Rank"
+              },
+              "subfield": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Subfield"
+              },
+              "topic_id": {
+                "title": "Topic Id",
+                "type": "string"
+              },
+              "works_10y": {
+                "title": "Works 10Y",
+                "type": "integer"
+              },
+              "works_last_full_year": {
+                "title": "Works Last Full Year",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "topic_id",
+              "name",
+              "field",
+              "subfield",
+              "rank",
+              "momentum_stat",
+              "growth_1y",
+              "growth_3y",
+              "growth_5y",
+              "acceleration_3y",
+              "decile_growth_3y",
+              "works_last_full_year",
+              "works_10y",
+              "is_emerging"
+            ],
+            "title": "TopicScore",
+            "type": "object"
+          },
+          "title": "Topics",
+          "type": "array"
+        },
+        "universe_size": {
+          "title": "Universe Size",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "scan_id",
+        "computed_at",
+        "data_as_of",
+        "last_full_year",
+        "universe_size",
+        "topics"
+      ],
+      "title": "EmergingOutput",
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "topics[].topic_id"
+      }
+    ],
+    "bounds": {
+      "universe_size": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "answerpool.io",
+    "endpoint": "https://answerpool.io/v1/technology/emerging",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

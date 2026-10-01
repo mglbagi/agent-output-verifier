@@ -1,0 +1,48 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_db1c7765d9045aff",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "clientToken": {
+          "type": "string"
+        },
+        "curlExample": {
+          "type": "string"
+        },
+        "expiresAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "pathname": {
+          "type": "string"
+        },
+        "uploadId": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "required": [
+        "uploadId",
+        "clientToken",
+        "pathname",
+        "expiresAt",
+        "curlExample"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "stablestudio.dev",
+    "endpoint": "https://stablestudio.dev/api/upload",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

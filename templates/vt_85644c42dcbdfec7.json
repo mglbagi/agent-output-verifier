@@ -1,0 +1,134 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_85644c42dcbdfec7",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "announcements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "capital": {},
+              "city": {
+                "type": "string"
+              },
+              "company": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "departement": {
+                "type": "string"
+              },
+              "deposit": {
+                "type": "object",
+                "properties": {
+                  "closing_date": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "closing_date",
+                  "type"
+                ]
+              },
+              "family": {
+                "type": "string"
+              },
+              "family_code": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "judgment": {},
+              "legal_form": {
+                "type": "string"
+              },
+              "siren": {
+                "type": "string"
+              },
+              "tribunal": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "city",
+              "company",
+              "date",
+              "departement",
+              "deposit",
+              "family",
+              "family_code",
+              "id",
+              "legal_form",
+              "siren",
+              "tribunal",
+              "type",
+              "url"
+            ]
+          }
+        },
+        "count": {
+          "type": "integer"
+        },
+        "famille": {},
+        "siren": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "total_count": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "announcements",
+        "count",
+        "siren",
+        "source",
+        "total_count"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "announcements[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "total_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "data.greeneris.io",
+    "endpoint": "https://data.greeneris.io/v1/fr/bodacc",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

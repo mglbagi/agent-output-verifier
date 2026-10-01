@@ -1,0 +1,173 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3d12c21c47ea2f49",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "asOf": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "crawl": {
+          "type": "object",
+          "properties": {
+            "durationMs": {
+              "type": "integer"
+            },
+            "lastCrawlAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "durationMs",
+            "lastCrawlAt",
+            "status"
+          ]
+        },
+        "feed": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "id": {
+                "type": "integer"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "payload": {
+                "type": "object",
+                "properties": {
+                  "ats": {
+                    "type": "string"
+                  },
+                  "capturedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "counts": {
+                    "type": "object",
+                    "properties": {
+                      "artificial intelligence": {
+                        "type": "integer"
+                      },
+                      "content operations": {
+                        "type": "integer"
+                      },
+                      "generative ai": {
+                        "type": "integer"
+                      },
+                      "machine learning": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "artificial intelligence",
+                      "content operations",
+                      "generative ai",
+                      "machine learning"
+                    ]
+                  },
+                  "queries": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "studio": {
+                    "type": "string"
+                  },
+                  "studioKey": {
+                    "type": "string"
+                  },
+                  "week": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "ats",
+                  "capturedAt",
+                  "counts",
+                  "queries",
+                  "studio",
+                  "studioKey",
+                  "week"
+                ]
+              },
+              "source": {
+                "type": "string"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "at",
+              "id",
+              "kind",
+              "payload",
+              "source",
+              "summary",
+              "title",
+              "url"
+            ]
+          }
+        },
+        "ttlSeconds": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "asOf",
+        "count",
+        "crawl",
+        "feed",
+        "items",
+        "ttlSeconds"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "items[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "skim402.com",
+    "endpoint": "https://skim402.com/api/v2/signal/studio-jobs/latest",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

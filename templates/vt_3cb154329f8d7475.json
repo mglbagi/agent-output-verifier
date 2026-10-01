@@ -1,0 +1,55 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3cb154329f8d7475",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "breakdown": {
+          "description": "Band-by-band breakdown.",
+          "type": "array"
+        },
+        "buyer_type": {
+          "type": "string"
+        },
+        "effective_rate": {
+          "description": "Effective tax rate as a percentage.",
+          "type": "number"
+        },
+        "price": {
+          "type": "number"
+        },
+        "total_tax": {
+          "description": "Total SDLT payable in GBP.",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "required": [
+        "breakdown",
+        "buyer_type",
+        "effective_rate",
+        "price",
+        "total_tax"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "price": {
+        "min": 0
+      },
+      "total_tax": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "property.payapi.market",
+    "endpoint": "https://property.payapi.market/stamp-duty",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,356 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f04d43d1dc897585",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "cohorts": {
+          "type": "object",
+          "properties": {
+            "caution": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "liquidityGone": {
+                  "type": "integer"
+                },
+                "medianChangePct": {},
+                "priced": {
+                  "type": "number"
+                },
+                "unavailable": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "count",
+                "liquidityGone",
+                "priced",
+                "unavailable"
+              ]
+            },
+            "clear": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "liquidityGone": {
+                  "type": "integer"
+                },
+                "medianChangePct": {},
+                "priced": {
+                  "type": "number"
+                },
+                "unavailable": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "count",
+                "liquidityGone",
+                "priced",
+                "unavailable"
+              ]
+            },
+            "high-risk": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "liquidityGone": {
+                  "type": "integer"
+                },
+                "medianChangePct": {},
+                "priced": {
+                  "type": "number"
+                },
+                "unavailable": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "count",
+                "liquidityGone",
+                "priced",
+                "unavailable"
+              ]
+            },
+            "insufficient-data": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "liquidityGone": {
+                  "type": "integer"
+                },
+                "medianChangePct": {},
+                "priced": {
+                  "type": "number"
+                },
+                "unavailable": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "count",
+                "liquidityGone",
+                "priced",
+                "unavailable"
+              ]
+            },
+            "unassessed": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "liquidityGone": {
+                  "type": "integer"
+                },
+                "medianChangePct": {},
+                "priced": {
+                  "type": "number"
+                },
+                "unavailable": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "count",
+                "liquidityGone",
+                "priced",
+                "unavailable"
+              ]
+            }
+          },
+          "required": [
+            "caution",
+            "clear",
+            "high-risk",
+            "insufficient-data",
+            "unassessed"
+          ]
+        },
+        "coverage": {
+          "type": "object",
+          "properties": {
+            "complete": {
+              "type": "boolean"
+            },
+            "missingSnapshotDates": {
+              "type": "array"
+            },
+            "note": {
+              "type": "string"
+            },
+            "poolsObserved": {
+              "type": "integer"
+            },
+            "poolsWithoutSafety": {
+              "type": "integer"
+            },
+            "poolsWithoutToken": {
+              "type": "integer"
+            },
+            "priceBatchesFailed": {
+              "type": "number"
+            },
+            "requestedDays": {
+              "type": "integer"
+            },
+            "snapshotsListed": {
+              "type": "integer"
+            },
+            "snapshotsLoaded": {
+              "type": "integer"
+            },
+            "tokensObserved": {
+              "type": "integer"
+            },
+            "tokensPriced": {
+              "type": "number"
+            },
+            "windowBasis": {
+              "type": "string"
+            },
+            "windowFirstSnapshot": {
+              "type": "string",
+              "format": "date"
+            },
+            "windowLastSnapshot": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          "required": [
+            "complete",
+            "missingSnapshotDates",
+            "note",
+            "poolsObserved",
+            "poolsWithoutSafety",
+            "poolsWithoutToken",
+            "priceBatchesFailed",
+            "requestedDays",
+            "snapshotsListed",
+            "snapshotsLoaded",
+            "tokensObserved",
+            "tokensPriced",
+            "windowBasis",
+            "windowFirstSnapshot",
+            "windowLastSnapshot"
+          ]
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "methodology": {
+          "type": "string"
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "commit": {
+              "type": "string"
+            },
+            "index": {
+              "type": "string"
+            },
+            "integrity": {
+              "type": "string"
+            },
+            "revision": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "commit",
+            "index",
+            "integrity",
+            "revision"
+          ]
+        },
+        "tokens": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "flaggedOn": {
+                "type": "string",
+                "format": "date"
+              },
+              "liquidityGone": {
+                "type": "boolean"
+              },
+              "liquidityNowUsd": {
+                "type": "number"
+              },
+              "liquidityThenUsd": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "outcome": {
+                "type": "string"
+              },
+              "priceChangePct": {},
+              "token": {
+                "type": "string"
+              },
+              "verdictThen": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "flaggedOn",
+              "liquidityGone",
+              "liquidityNowUsd",
+              "liquidityThenUsd",
+              "name",
+              "outcome",
+              "token",
+              "verdictThen"
+            ]
+          }
+        },
+        "trackRecord": {
+          "type": "object",
+          "properties": {
+            "daysCovered": {
+              "type": "integer"
+            },
+            "firstSnapshot": {
+              "type": "string",
+              "format": "date"
+            },
+            "lastSnapshot": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          "required": [
+            "daysCovered",
+            "firstSnapshot",
+            "lastSnapshot"
+          ]
+        },
+        "windowDays": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "at",
+        "chain",
+        "cohorts",
+        "coverage",
+        "disclaimer",
+        "methodology",
+        "provenance",
+        "tokens",
+        "trackRecord",
+        "windowDays"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "cohorts.caution.count": {
+        "min": 0
+      },
+      "cohorts.clear.count": {
+        "min": 0
+      },
+      "cohorts.high-risk.count": {
+        "min": 0
+      },
+      "cohorts.insufficient-data.count": {
+        "min": 0
+      },
+      "cohorts.unassessed.count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agenttoll.app",
+    "endpoint": "https://agenttoll.app/api/base/scorecard",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

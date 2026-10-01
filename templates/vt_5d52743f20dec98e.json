@@ -1,0 +1,67 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5d52743f20dec98e",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "assets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "asset": {
+                "type": "string"
+              },
+              "delta_pct": {
+                "type": "number"
+              },
+              "dominant": {
+                "type": "string"
+              },
+              "oi_usd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "asset",
+              "delta_pct",
+              "dominant",
+              "oi_usd"
+            ]
+          }
+        },
+        "signal": {
+          "type": "string"
+        },
+        "total_oi_usd": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "assets",
+        "signal",
+        "total_oi_usd"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "assets[].oi_usd": {
+        "min": 0
+      },
+      "total_oi_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "oi.lonestaroracle.xyz",
+    "endpoint": "https://oi.lonestaroracle.xyz/oi",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

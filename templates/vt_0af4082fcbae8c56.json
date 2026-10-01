@@ -1,0 +1,48 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0af4082fcbae8c56",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "as_of": {
+          "description": "RFC3339 timestamp of the reading itself; omitted if the upstream timestamp is missing or unparseable.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "label": {
+          "description": "Human-readable classification of the value (e.g. Extreme Fear, Extreme Greed).",
+          "type": "string"
+        },
+        "queried_at": {
+          "description": "UTC timestamp when this bridge queried the upstream.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "value": {
+          "description": "Fear & Greed index reading; low is fear, high is greed.",
+          "maximum": 100,
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "queried_at",
+        "value",
+        "label"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "perpsignals.use.x402atlas.com",
+    "endpoint": "https://perpsignals.use.x402atlas.com/fear-greed",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

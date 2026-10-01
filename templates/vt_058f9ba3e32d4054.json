@@ -1,0 +1,283 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_058f9ba3e32d4054",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "output": {
+          "type": "object",
+          "properties": {
+            "account": {
+              "type": "object",
+              "properties": {
+                "margin_used_usd": {
+                  "type": "number"
+                },
+                "total_notional_usd": {
+                  "type": "number"
+                },
+                "value_usd": {
+                  "type": "number"
+                },
+                "withdrawable_usd": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "margin_used_usd",
+                "total_notional_usd",
+                "value_usd",
+                "withdrawable_usd"
+              ]
+            },
+            "address": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "directional_bias": {
+              "type": "string"
+            },
+            "fetched_at": {
+              "type": "integer"
+            },
+            "flags": {
+              "type": "object",
+              "properties": {
+                "any_high_leverage": {
+                  "type": "boolean"
+                },
+                "any_near_liquidation": {
+                  "type": "boolean"
+                },
+                "concentrated_coin": {}
+              },
+              "required": [
+                "any_high_leverage",
+                "any_near_liquidation"
+              ]
+            },
+            "has_positions": {
+              "type": "boolean"
+            },
+            "pnl": {
+              "type": "object",
+              "properties": {
+                "all_time_usd": {
+                  "type": "number"
+                },
+                "month_usd": {
+                  "type": "number"
+                },
+                "week_usd": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "all_time_usd",
+                "month_usd",
+                "week_usd"
+              ]
+            },
+            "positions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "coin": {
+                    "type": "string"
+                  },
+                  "current_px": {
+                    "type": "number"
+                  },
+                  "dir": {
+                    "type": "string"
+                  },
+                  "distance_to_liq_pct": {
+                    "type": "number"
+                  },
+                  "entry_px": {
+                    "type": "number"
+                  },
+                  "flags": {
+                    "type": "object",
+                    "properties": {
+                      "approaching_liquidation": {
+                        "type": "boolean"
+                      },
+                      "extreme_leverage": {
+                        "type": "boolean"
+                      },
+                      "high_leverage": {
+                        "type": "boolean"
+                      },
+                      "losing": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "approaching_liquidation",
+                      "extreme_leverage",
+                      "high_leverage",
+                      "losing"
+                    ]
+                  },
+                  "leverage": {
+                    "type": "integer"
+                  },
+                  "liquidation_px": {
+                    "type": "number"
+                  },
+                  "margin_used_usd": {
+                    "type": "number"
+                  },
+                  "notional_usd": {
+                    "type": "number"
+                  },
+                  "pnl_pct": {
+                    "type": "number"
+                  },
+                  "size_tokens": {
+                    "type": "integer"
+                  },
+                  "unrealized_pnl_usd": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "coin",
+                  "current_px",
+                  "dir",
+                  "distance_to_liq_pct",
+                  "entry_px",
+                  "flags",
+                  "leverage",
+                  "liquidation_px",
+                  "margin_used_usd",
+                  "notional_usd",
+                  "pnl_pct",
+                  "size_tokens",
+                  "unrealized_pnl_usd"
+                ]
+              }
+            },
+            "profile": {
+              "type": "string"
+            },
+            "totals": {
+              "type": "object",
+              "properties": {
+                "gross_notional_usd": {
+                  "type": "number"
+                },
+                "net_notional_usd": {
+                  "type": "number"
+                },
+                "position_count": {
+                  "type": "integer"
+                },
+                "total_unrealized_pnl_usd": {
+                  "type": "number"
+                },
+                "weighted_leverage": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "gross_notional_usd",
+                "net_notional_usd",
+                "position_count",
+                "total_unrealized_pnl_usd",
+                "weighted_leverage"
+              ]
+            },
+            "venue": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "account",
+            "address",
+            "directional_bias",
+            "fetched_at",
+            "flags",
+            "has_positions",
+            "pnl",
+            "positions",
+            "profile",
+            "totals",
+            "venue"
+          ]
+        },
+        "run_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "output",
+        "run_id",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "output.account.margin_used_usd": {
+        "min": 0
+      },
+      "output.account.total_notional_usd": {
+        "min": 0
+      },
+      "output.account.value_usd": {
+        "min": 0
+      },
+      "output.account.withdrawable_usd": {
+        "min": 0
+      },
+      "output.pnl.all_time_usd": {
+        "min": 0
+      },
+      "output.pnl.month_usd": {
+        "min": 0
+      },
+      "output.pnl.week_usd": {
+        "min": 0
+      },
+      "output.positions[].distance_to_liq_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "output.positions[].margin_used_usd": {
+        "min": 0
+      },
+      "output.positions[].notional_usd": {
+        "min": 0
+      },
+      "output.positions[].pnl_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "output.positions[].size_tokens": {
+        "min": 0
+      },
+      "output.totals.gross_notional_usd": {
+        "min": 0
+      },
+      "output.totals.position_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.solenrich.com",
+    "endpoint": "https://api.solenrich.com/entrypoints/hyperliquid-trader-profile/invoke",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

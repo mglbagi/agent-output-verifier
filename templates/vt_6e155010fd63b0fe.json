@@ -1,0 +1,37 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6e155010fd63b0fe",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "horoscope": {
+          "type": "string"
+        },
+        "lucky_http_code": {
+          "type": "integer"
+        },
+        "sign": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "horoscope",
+        "lucky_http_code",
+        "sign"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-treats-production.up.railway.app",
+    "endpoint": "https://agent-treats-production.up.railway.app/api/horoscope",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

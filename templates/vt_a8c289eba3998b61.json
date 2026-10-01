@@ -1,0 +1,32 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a8c289eba3998b61",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "expansions": {
+          "type": "array"
+        },
+        "provenance": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "expansions"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "seo.forgemesh.io",
+    "endpoint": "https://seo.forgemesh.io/v1/query-expand",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

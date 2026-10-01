@@ -1,0 +1,106 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_be7a3f3343831c80",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "cloud_cover_pct": {
+          "type": "integer"
+        },
+        "condition": {
+          "type": "string"
+        },
+        "feels_like_c": {
+          "type": "number"
+        },
+        "humidity_pct": {
+          "type": "integer"
+        },
+        "local_time": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "precipitation_mm": {
+          "type": "integer"
+        },
+        "resolved": {
+          "type": "object",
+          "properties": {
+            "country": {
+              "type": "string"
+            },
+            "latitude": {
+              "type": "number"
+            },
+            "longitude": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "country",
+            "latitude",
+            "longitude",
+            "name"
+          ]
+        },
+        "temperature_c": {
+          "type": "number"
+        },
+        "wind_dir": {
+          "type": "integer"
+        },
+        "wind_kmh": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "cloud_cover_pct",
+        "condition",
+        "feels_like_c",
+        "humidity_pct",
+        "local_time",
+        "location",
+        "precipitation_mm",
+        "resolved",
+        "temperature_c",
+        "wind_dir",
+        "wind_kmh"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "cloud_cover_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "humidity_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "resolved.latitude": {
+        "min": -90,
+        "max": 90
+      },
+      "resolved.longitude": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "data.intel.rallylive.ca",
+    "endpoint": "https://data.intel.rallylive.ca/data/weather/new-york",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

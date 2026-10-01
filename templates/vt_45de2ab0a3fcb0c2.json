@@ -1,0 +1,107 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_45de2ab0a3fcb0c2",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "stablecoins": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "chain_circulating": {
+                "type": "object",
+                "properties": {
+                  "Ethereum": {
+                    "type": "integer"
+                  },
+                  "Tron": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "Ethereum",
+                  "Tron"
+                ]
+              },
+              "circulating_usd": {
+                "type": "number"
+              },
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "peg_mechanism": {
+                "type": "string"
+              },
+              "peg_type": {
+                "type": "string"
+              },
+              "price_usd": {
+                "type": "number"
+              },
+              "symbol": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "chain_circulating",
+              "circulating_usd",
+              "id",
+              "name",
+              "peg_mechanism",
+              "peg_type",
+              "price_usd",
+              "symbol"
+            ]
+          }
+        },
+        "top_n": {
+          "type": "integer"
+        },
+        "top_n_total_supply_usd": {
+          "type": "number"
+        },
+        "universe_size": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "stablecoins",
+        "top_n",
+        "top_n_total_supply_usd",
+        "universe_size"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "stablecoins[].id"
+      }
+    ],
+    "bounds": {
+      "stablecoins[].price_usd": {
+        "min": 0
+      },
+      "top_n_total_supply_usd": {
+        "min": 0
+      },
+      "universe_size": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "proxy.suverse.io",
+    "endpoint": "https://proxy.suverse.io/v1/data/suverse-stablecoin-supply",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

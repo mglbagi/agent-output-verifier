@@ -1,0 +1,127 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7e1545c6f5ec353b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "briefing": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "string",
+              "format": "date"
+            },
+            "resumo": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "data",
+            "resumo"
+          ]
+        },
+        "clima": {
+          "type": "object",
+          "properties": {
+            "cinturoes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "chuva_7d_mm": {
+                    "type": "number"
+                  },
+                  "cinturao": {
+                    "type": "string"
+                  },
+                  "risco_geada": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "chuva_7d_mm",
+                  "cinturao",
+                  "risco_geada"
+                ]
+              }
+            }
+          },
+          "required": [
+            "cinturoes"
+          ]
+        },
+        "economia_pct": {
+          "type": "integer"
+        },
+        "fogo": {
+          "type": "object",
+          "properties": {
+            "por_bioma_7d": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "bioma": {
+                    "type": "string"
+                  },
+                  "focos": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "bioma",
+                  "focos"
+                ]
+              }
+            }
+          },
+          "required": [
+            "por_bioma_7d"
+          ]
+        },
+        "pacote": {
+          "type": "string"
+        },
+        "preco_avulso_total_usd": {
+          "type": "number"
+        },
+        "preco_usd": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "briefing",
+        "clima",
+        "economia_pct",
+        "fogo",
+        "pacote",
+        "preco_avulso_total_usd",
+        "preco_usd"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "economia_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "preco_avulso_total_usd": {
+        "min": 0
+      },
+      "preco_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.brazilayer.com",
+    "endpoint": "https://api.brazilayer.com/v1/commodities/pacote",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_dbe267d0d149cd25",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "as_of": {
+          "type": "string",
+          "format": "date"
+        },
+        "derived": {
+          "type": "boolean"
+        },
+        "freshness_class": {
+          "type": "string"
+        },
+        "instrument": {
+          "type": "string"
+        },
+        "license_tag": {
+          "type": "string"
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "quality": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "required": [
+        "as_of",
+        "derived",
+        "freshness_class",
+        "instrument",
+        "license_tag",
+        "observed_at",
+        "quality",
+        "unit",
+        "value"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.commodities.sh",
+    "endpoint": "https://api.commodities.sh/v1/prices",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

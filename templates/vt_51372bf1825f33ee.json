@@ -1,0 +1,70 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_51372bf1825f33ee",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "hold_time_sec": {
+          "type": "integer"
+        },
+        "reasoning": {
+          "type": "string"
+        },
+        "score": {
+          "type": "number"
+        },
+        "signal": {
+          "type": "string"
+        },
+        "sl_pct": {
+          "type": "number"
+        },
+        "strategy_id": {
+          "type": "string"
+        },
+        "strategy_name": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "tp_pct": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "hold_time_sec",
+        "reasoning",
+        "score",
+        "signal",
+        "sl_pct",
+        "strategy_id",
+        "strategy_name",
+        "symbol",
+        "tp_pct"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "sl_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "tp_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "signal-engine-production-d88d.up.railway.app",
+    "endpoint": "https://signal-engine-production-d88d.up.railway.app/v1/arena/rsi_7_extremes/ETH",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cb660fdf75b54e01",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "addedColumns": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "baselineRows": {
+          "maximum": 20000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "candidateRows": {
+          "maximum": 20000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "disallowedAddedColumns": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "disposition": {
+          "enum": [
+            "PASS",
+            "REVIEW",
+            "FAIL"
+          ],
+          "type": "string"
+        },
+        "evidenceFingerprint": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "missingRateChanges": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "baseline": {
+                "type": "number"
+              },
+              "candidate": {
+                "type": "number"
+              },
+              "column": {
+                "type": "string"
+              },
+              "delta": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "column",
+              "baseline",
+              "candidate",
+              "delta"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "numericRangeExcursions": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "above": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "baselineMaximum": {
+                "type": "number"
+              },
+              "baselineMinimum": {
+                "type": "number"
+              },
+              "below": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "column": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "column",
+              "baselineMinimum",
+              "baselineMaximum",
+              "below",
+              "above"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "product": {
+          "const": "csv-drift-evidence",
+          "type": "string"
+        },
+        "removedColumns": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "reorderedColumns": {
+          "type": "boolean"
+        },
+        "score": {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "typeChanges": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "baseline": {
+                "type": "string"
+              },
+              "candidate": {
+                "type": "string"
+              },
+              "column": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "column",
+              "baseline",
+              "candidate"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "version": {
+          "const": "1.0.0",
+          "type": "string"
+        }
+      },
+      "required": [
+        "product",
+        "version",
+        "disposition",
+        "score",
+        "baselineRows",
+        "candidateRows",
+        "removedColumns",
+        "addedColumns",
+        "disallowedAddedColumns",
+        "reorderedColumns",
+        "typeChanges",
+        "missingRateChanges",
+        "numericRangeExcursions",
+        "evidenceFingerprint"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "foundry-csv-drift-evidence-mainnet.inference-chip-index.workers.dev",
+    "endpoint": "https://foundry-csv-drift-evidence-mainnet.inference-chip-index.workers.dev/v1/csv/drift",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_609b922c777cdaeb",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "bestBuy": {
+          "type": "object",
+          "properties": {
+            "price": {
+              "type": "number"
+            },
+            "venue": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "price",
+            "venue"
+          ]
+        },
+        "bestSell": {
+          "type": "object",
+          "properties": {
+            "price": {
+              "type": "number"
+            },
+            "venue": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "price",
+            "venue"
+          ]
+        },
+        "blockNumber": {
+          "type": "integer"
+        },
+        "chainId": {
+          "type": "integer"
+        },
+        "crossDex": {
+          "type": "object",
+          "properties": {
+            "buyVenue": {
+              "type": "string"
+            },
+            "grossSpreadBps": {
+              "type": "number"
+            },
+            "grossUsd": {
+              "type": "number"
+            },
+            "optimalInput": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "number"
+                },
+                "token": {
+                  "type": "string"
+                },
+                "usd": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "amount",
+                "token",
+                "usd"
+              ]
+            },
+            "sellVenue": {
+              "type": "string"
+            },
+            "surface": {
+              "type": "string"
+            },
+            "tickBoundaryBreach": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "buyVenue",
+            "grossSpreadBps",
+            "grossUsd",
+            "optimalInput",
+            "sellVenue",
+            "surface",
+            "tickBoundaryBreach"
+          ]
+        },
+        "liquidity": {
+          "type": "object",
+          "properties": {
+            "totalTvlUsd": {
+              "type": "number"
+            },
+            "venues": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "totalTvlUsd",
+            "venues"
+          ]
+        },
+        "midSpreadBps": {
+          "type": "number"
+        },
+        "nativeUsd": {
+          "type": "number"
+        },
+        "network": {
+          "type": "string"
+        },
+        "pair": {
+          "type": "string"
+        },
+        "pricesByVenue": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "feeBps": {
+                "type": "number"
+              },
+              "price": {
+                "type": "number"
+              },
+              "surface": {
+                "type": "string"
+              },
+              "tvlUsd": {
+                "type": "number"
+              },
+              "venue": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "feeBps",
+              "price",
+              "surface",
+              "tvlUsd",
+              "venue"
+            ]
+          }
+        },
+        "source": {
+          "type": "string"
+        },
+        "ts": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "bestBuy",
+        "bestSell",
+        "blockNumber",
+        "chainId",
+        "crossDex",
+        "liquidity",
+        "midSpreadBps",
+        "nativeUsd",
+        "network",
+        "pair",
+        "pricesByVenue",
+        "source",
+        "ts"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "bestBuy.price": {
+        "min": 0
+      },
+      "bestSell.price": {
+        "min": 0
+      },
+      "crossDex.optimalInput.amount": {
+        "min": 0
+      },
+      "crossDex.optimalInput.usd": {
+        "min": 0
+      },
+      "pricesByVenue[].price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.donnyautomation.com",
+    "endpoint": "https://x402.donnyautomation.com/call",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

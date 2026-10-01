@@ -1,0 +1,68 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2749ac57ffc56c82",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "checks": {
+          "type": "object",
+          "properties": {
+            "emits_402": {
+              "type": "boolean"
+            },
+            "has_buyers": {
+              "type": "boolean"
+            },
+            "onchain_inflow_usdc": {
+              "type": "number"
+            },
+            "price_drift": {
+              "type": "boolean"
+            },
+            "reachable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "emits_402",
+            "has_buyers",
+            "onchain_inflow_usdc",
+            "price_drift",
+            "reachable"
+          ]
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "target": {
+          "type": "string"
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "checks",
+        "reasons",
+        "target",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "merchant-audit.clankerceo.workers.dev",
+    "endpoint": "https://merchant-audit.clankerceo.workers.dev/audit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

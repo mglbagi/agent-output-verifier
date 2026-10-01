@@ -1,0 +1,60 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_429c6009cdc85142",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "activity": {
+          "type": "object"
+        },
+        "address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "contract": {
+          "type": "object"
+        },
+        "holdingsSummary": {
+          "type": "object"
+        },
+        "native": {
+          "type": "object"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "profile": {
+          "type": "string"
+        },
+        "tokenHoldings": {
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "eoa",
+            "contract"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "address",
+        "type"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-url-extractor-production.up.railway.app",
+    "endpoint": "https://x402-url-extractor-production.up.railway.app/wallet-enrich",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

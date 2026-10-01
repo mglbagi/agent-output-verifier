@@ -1,0 +1,163 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7df4f8b609b5c527",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "canonicalUrl": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "checkedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "contentLength": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "contentType": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "finalUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "likelyHtml": {
+          "type": "boolean"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "redirects": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "from": {
+                "type": "string"
+              },
+              "status": {
+                "type": "integer"
+              },
+              "to": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "from",
+              "to"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "requestedUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "responseTimeMs": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "robots": {
+          "additionalProperties": false,
+          "properties": {
+            "allowedForGenericBot": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "found": {
+              "type": "boolean"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "url",
+            "found",
+            "allowedForGenericBot"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "title": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "requestedUrl",
+        "finalUrl",
+        "redirects",
+        "status",
+        "ok",
+        "contentType",
+        "contentLength",
+        "responseTimeMs",
+        "likelyHtml",
+        "title",
+        "canonicalUrl",
+        "robots",
+        "warnings",
+        "checkedAt"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-api-production.tim1712.workers.dev",
+    "endpoint": "https://agent-api-production.tim1712.workers.dev/v1/web/resource-preflight",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

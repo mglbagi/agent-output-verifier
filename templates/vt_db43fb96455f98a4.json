@@ -1,0 +1,68 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_db43fb96455f98a4",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "degraded": {
+          "type": "boolean"
+        },
+        "divergenceTop20": {
+          "type": "array"
+        },
+        "exchanges": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "generatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "rates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "exchange": {
+                "type": "string"
+              },
+              "fundingRate8h": {
+                "type": "number"
+              },
+              "symbol": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "exchange",
+              "fundingRate8h",
+              "symbol"
+            ]
+          }
+        }
+      },
+      "required": [
+        "degraded",
+        "divergenceTop20",
+        "exchanges",
+        "generatedAt",
+        "rates"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-agents-production.up.railway.app",
+    "endpoint": "https://x402-agents-production.up.railway.app/funding-rates",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

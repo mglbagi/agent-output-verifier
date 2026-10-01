@@ -1,0 +1,41 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_58284a127b563bc9",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "paid": {
+          "type": "boolean"
+        },
+        "quote_endpoint": {
+          "type": "string"
+        },
+        "rails": {
+          "type": "array"
+        },
+        "service": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "paid",
+        "quote_endpoint",
+        "rails",
+        "service"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "router.mudko.com",
+    "endpoint": "https://router.mudko.com/api/x402/route",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

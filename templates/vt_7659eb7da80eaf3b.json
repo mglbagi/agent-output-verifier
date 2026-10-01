@@ -1,0 +1,213 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7659eb7da80eaf3b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "The conversion result. The same metadata always travels in response headers as well, so a caller that asked for text/markdown still gets it: X-Url2md-Source (static | browser | pdf | origin-markdown | text), X-Url2md-Final-Url, X-Url2md-Title (percent-encoded), X-Url2md-Words, X-Url2md-Tokens-Estimate, X-Url2md-Ledger-Id (the ledger row for the settled payment), and X-Url2md-Upstream-Toll (USD paid to the origin when the page itself charged an x402 toll, absent otherwise). The x402 settlement receipt is in PAYMENT-RESPONSE. Errors are JSON with a stable error.code, and any error after a charge carries error.details.callerCharged with the ledger id.",
+      "properties": {
+        "blockSuspected": {
+          "description": "set when what came back looks like a bot challenge or block page rather than the page: the origin answered 200 and the call was charged, but the content is probably not what was asked for. Also sent as X-Url2md-Block-Suspected, and named in warnings[].",
+          "properties": {
+            "markers": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "canonical": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "charset": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "contentSignal": {
+          "description": "Upstream Content-Signal header, passed through untouched",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "contentType": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fetchedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "finalUrl": {
+          "description": "the URL after redirects; also sent as X-Url2md-Final-Url",
+          "type": "string",
+          "format": "uri"
+        },
+        "lang": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "markdown": {
+          "description": "the converted page",
+          "type": "string"
+        },
+        "redirects": {
+          "items": {
+            "properties": {
+              "from": {
+                "type": "string"
+              },
+              "status": {
+                "type": "integer"
+              },
+              "to": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "render": {
+          "properties": {
+            "escalated": {
+              "type": "boolean"
+            },
+            "mode": {
+              "enum": [
+                "auto",
+                "static",
+                "browser"
+              ],
+              "type": "string"
+            },
+            "reasons": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object",
+          "required": [
+            "escalated",
+            "mode",
+            "reasons"
+          ]
+        },
+        "source": {
+          "description": "how the markdown was produced; also sent as X-Url2md-Source",
+          "enum": [
+            "static",
+            "browser",
+            "pdf",
+            "origin-markdown",
+            "text"
+          ],
+          "type": "string"
+        },
+        "timing": {
+          "properties": {
+            "browserMsUsed": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "convertMs": {
+              "type": "integer"
+            },
+            "fetchMs": {
+              "type": "integer"
+            },
+            "renderMs": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "totalMs": {
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "required": [
+            "convertMs",
+            "fetchMs",
+            "totalMs"
+          ]
+        },
+        "title": {
+          "description": "also sent percent-encoded as X-Url2md-Title",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tokensEstimate": {
+          "description": "also sent as X-Url2md-Tokens-Estimate",
+          "type": "integer"
+        },
+        "url": {
+          "description": "the URL as asked for",
+          "type": "string",
+          "format": "uri"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "words": {
+          "description": "also sent as X-Url2md-Words",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "url",
+        "finalUrl",
+        "source",
+        "markdown",
+        "words",
+        "tokensEstimate",
+        "fetchedAt",
+        "timing",
+        "render",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "url2md.io",
+    "endpoint": "https://url2md.io/v1/md",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

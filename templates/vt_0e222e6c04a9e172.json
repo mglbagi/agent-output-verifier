@@ -1,0 +1,50 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0e222e6c04a9e172",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "bytes": {
+          "type": "number"
+        },
+        "paid": {
+          "type": "number"
+        },
+        "text": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "paid",
+        "url",
+        "title",
+        "text",
+        "bytes"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "bytes": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "money-agent-production-736f.up.railway.app",
+    "endpoint": "https://money-agent-production-736f.up.railway.app/v1/extract",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

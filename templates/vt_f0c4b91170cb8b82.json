@@ -1,0 +1,323 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f0c4b91170cb8b82",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "cached": {
+          "type": "boolean"
+        },
+        "confidence": {
+          "type": "integer"
+        },
+        "data_freshness": {
+          "type": "object",
+          "properties": {
+            "age_seconds": {
+              "type": "integer"
+            },
+            "as_of": {
+              "type": "string"
+            },
+            "deterministic": {
+              "type": "boolean"
+            },
+            "requested": {
+              "type": "integer"
+            },
+            "resolved": {
+              "type": "integer"
+            },
+            "retrieved_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "values_hash": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "age_seconds",
+            "as_of",
+            "deterministic",
+            "requested",
+            "resolved",
+            "retrieved_at",
+            "sources",
+            "values_hash"
+          ]
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "error": {},
+        "indicators": {
+          "type": "object",
+          "properties": {
+            "deposit_facility_rate": {
+              "type": "object",
+              "properties": {
+                "as_of": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "next_release": {
+                  "type": "object",
+                  "properties": {
+                    "authoritative_calendar": {
+                      "type": "string"
+                    },
+                    "cadence": {
+                      "type": "string"
+                    },
+                    "is_estimated": {
+                      "type": "boolean"
+                    },
+                    "note": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "authoritative_calendar",
+                    "cadence",
+                    "is_estimated",
+                    "note"
+                  ]
+                },
+                "series_key": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "unit": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "as_of",
+                "label",
+                "next_release",
+                "series_key",
+                "source",
+                "status",
+                "unit",
+                "value"
+              ]
+            },
+            "inflation_hicp": {
+              "type": "object",
+              "properties": {
+                "as_of": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "next_release": {
+                  "type": "object",
+                  "properties": {
+                    "authoritative_calendar": {
+                      "type": "string"
+                    },
+                    "cadence": {
+                      "type": "string"
+                    },
+                    "is_estimated": {
+                      "type": "boolean"
+                    },
+                    "note": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "authoritative_calendar",
+                    "cadence",
+                    "is_estimated",
+                    "note"
+                  ]
+                },
+                "series_key": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "unit": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "as_of",
+                "label",
+                "next_release",
+                "series_key",
+                "source",
+                "status",
+                "unit",
+                "value"
+              ]
+            }
+          },
+          "required": [
+            "deposit_facility_rate",
+            "inflation_hicp"
+          ]
+        },
+        "query": {
+          "type": "object",
+          "properties": {
+            "area": {
+              "type": "string"
+            },
+            "indicators": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "area",
+            "indicators"
+          ]
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "weight": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "code",
+              "label",
+              "weight"
+            ]
+          }
+        },
+        "signed_snapshot_receipt": {
+          "type": "object",
+          "properties": {
+            "algorithm": {
+              "type": "string"
+            },
+            "available": {
+              "type": "boolean"
+            },
+            "claims": {
+              "type": "object",
+              "properties": {
+                "area": {
+                  "type": "string"
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "snapshot_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "values_hash": {
+                  "type": "string"
+                },
+                "verdict": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "area",
+                "kind",
+                "snapshot_at",
+                "values_hash",
+                "verdict"
+              ]
+            },
+            "public_key": {
+              "type": "string"
+            },
+            "signature": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "algorithm",
+            "available",
+            "claims",
+            "public_key",
+            "signature"
+          ]
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "cached",
+        "confidence",
+        "data_freshness",
+        "disclaimer",
+        "indicators",
+        "query",
+        "reasons",
+        "signed_snapshot_receipt",
+        "timestamp",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "data_freshness.age_seconds": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-endpoints.onrender.com",
+    "endpoint": "https://x402-endpoints.onrender.com/macro/snapshot",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

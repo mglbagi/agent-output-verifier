@@ -1,0 +1,59 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_35ea29be30a01273",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "age_seconds": {
+          "type": "number"
+        },
+        "data": {
+          "description": "Same KOL confluence feed as kol_signals_live with every row at least 45 minutes old — the evaluation tier",
+          "type": "object"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "product": {
+          "type": "string"
+        },
+        "sample": {
+          "type": "boolean"
+        },
+        "stale": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "required": [
+        "age_seconds",
+        "data",
+        "disclaimer",
+        "generated_at",
+        "product",
+        "sample",
+        "stale"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "age_seconds": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "insider-radar-agent.insider-radar-agent.workers.dev",
+    "endpoint": "https://insider-radar-agent.insider-radar-agent.workers.dev/v1/kol_signals_delayed",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

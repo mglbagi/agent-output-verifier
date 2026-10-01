@@ -1,0 +1,101 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bc5737511af056b5",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "datum": {
+          "type": "string"
+        },
+        "distanceKm": {
+          "description": "Distance from the requested lat/lng to the station used; only present when resolved by lat/lng",
+          "type": "number"
+        },
+        "heightFt": {
+          "description": "Observed water level in feet above MLLW; present only when product=water_level",
+          "type": "number"
+        },
+        "lat": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "lng": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "preliminary": {
+          "description": "True if the reading is preliminary/unverified; present only when product=water_level",
+          "type": "boolean"
+        },
+        "product": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "station": {
+          "type": "string"
+        },
+        "stationName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tides": {
+          "description": "High/low tide predictions for the next 48 hours; present only when product=predictions",
+          "type": "array"
+        },
+        "time": {
+          "description": "Observation time (GMT); present only when product=water_level",
+          "type": "string"
+        },
+        "timeZone": {
+          "type": "string"
+        },
+        "units": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "datum",
+        "distanceKm",
+        "lat",
+        "lng",
+        "product",
+        "source",
+        "station",
+        "stationName",
+        "tides",
+        "timeZone",
+        "units"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "lat": {
+        "min": -90,
+        "max": 90
+      },
+      "lng": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-seller.onrender.com",
+    "endpoint": "https://x402-seller.onrender.com/ocean/tides",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

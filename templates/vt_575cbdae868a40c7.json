@@ -1,0 +1,55 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_575cbdae868a40c7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "advice": {
+          "type": "string"
+        },
+        "directive": {
+          "properties": {
+            "metadata_uri": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "token_id": {
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "required": [
+            "metadata_uri",
+            "token_id"
+          ]
+        },
+        "price": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "advice",
+        "directive"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "store.advice-sky.net",
+    "endpoint": "https://store.advice-sky.net/api/advice",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7f4db8897235c3b5",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {}
+        },
+        "settlement_tx": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{64}$"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "data",
+        "settlement_tx",
+        "success"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-agent-pay.com",
+    "endpoint": "https://x402-agent-pay.com/x402/barter/offer",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_efb99f012fa47f67",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "at_ct": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "event_id": {
+                "type": "string"
+              },
+              "invalidated_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "leg_id": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "revision_now": {
+                "type": "integer"
+              },
+              "revision_was": {
+                "type": "integer"
+              },
+              "sources": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "url"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "at_ct",
+              "event_id",
+              "invalidated_at",
+              "leg_id",
+              "reason",
+              "revision_now",
+              "revision_was",
+              "sources"
+            ]
+          }
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "events",
+        "ok"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "events[].event_id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "liquidstate.tech",
+    "endpoint": "https://www.liquidstate.tech/api/agents/invalidations",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

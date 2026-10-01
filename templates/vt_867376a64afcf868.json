@@ -1,0 +1,73 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_867376a64afcf868",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "blockNumber": {
+          "type": "integer"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "dst": {
+                "type": "string",
+                "pattern": "^0x[a-fA-F0-9]{40}$"
+              },
+              "quotes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "dstAmount": {
+                      "type": "string"
+                    },
+                    "gas": {
+                      "type": "integer"
+                    },
+                    "srcAmount": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "dstAmount",
+                    "gas",
+                    "srcAmount"
+                  ]
+                }
+              },
+              "src": {
+                "type": "string",
+                "pattern": "^0x[a-fA-F0-9]{40}$"
+              }
+            },
+            "required": [
+              "dst",
+              "quotes",
+              "src"
+            ]
+          }
+        }
+      },
+      "required": [
+        "blockNumber",
+        "result"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.3route.io",
+    "endpoint": "https://api.3route.io/v1/pro/:chainId/quote/batch",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

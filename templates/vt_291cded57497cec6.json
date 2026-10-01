@@ -1,0 +1,148 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_291cded57497cec6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "checks": {
+          "properties": {
+            "chain_depth": {
+              "properties": {
+                "current": {
+                  "type": "integer"
+                },
+                "limit": {
+                  "type": "integer"
+                }
+              },
+              "type": "object",
+              "required": [
+                "current",
+                "limit"
+              ]
+            },
+            "cost": {
+              "properties": {
+                "limit": {
+                  "type": "number"
+                },
+                "spent": {
+                  "type": "number"
+                }
+              },
+              "type": "object",
+              "required": [
+                "limit",
+                "spent"
+              ]
+            },
+            "paused": {
+              "type": "boolean"
+            },
+            "steps_retries": {
+              "properties": {
+                "retries": {
+                  "type": "integer"
+                },
+                "retry_limit": {
+                  "type": "integer"
+                },
+                "step_limit": {
+                  "type": "integer"
+                },
+                "steps": {
+                  "type": "integer"
+                }
+              },
+              "type": "object",
+              "required": [
+                "retries",
+                "retry_limit",
+                "step_limit",
+                "steps"
+              ]
+            },
+            "volume": {
+              "properties": {
+                "blocking": {
+                  "type": "boolean"
+                },
+                "pct_used": {
+                  "type": "number"
+                }
+              },
+              "type": "object",
+              "required": [
+                "blocking",
+                "pct_used"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "chain_depth",
+            "cost",
+            "paused",
+            "steps_retries",
+            "volume"
+          ]
+        },
+        "decision": {
+          "enum": [
+            "proceed",
+            "slow_down",
+            "stop"
+          ],
+          "type": "string"
+        },
+        "reason": {
+          "description": "e.g. agent_paused, retries_exhausted, cost_budget_exceeded, chain_depth_exceeded, step_cap_exceeded, volume_pressure_blocked",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "wait_seconds": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "checks",
+        "decision"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "checks.chain_depth.limit": {
+        "min": 0
+      },
+      "checks.cost.limit": {
+        "min": 0
+      },
+      "checks.steps_retries.retry_limit": {
+        "min": 0
+      },
+      "checks.steps_retries.step_limit": {
+        "min": 0
+      },
+      "checks.volume.pct_used": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "redlynr.com",
+    "endpoint": "https://redlynr.com/run",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

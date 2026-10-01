@@ -1,0 +1,80 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_661ba3826f668e1b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "active_assets": {
+              "type": "integer"
+            },
+            "btc_dominance_pct": {
+              "type": "number"
+            },
+            "eth_dominance_pct": {
+              "type": "number"
+            },
+            "total_market_cap_usd": {
+              "type": "number"
+            },
+            "total_volume_24h_usd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "active_assets",
+            "btc_dominance_pct",
+            "eth_dominance_pct",
+            "total_market_cap_usd",
+            "total_volume_24h_usd"
+          ]
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "terms": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "data",
+        "disclaimer",
+        "source",
+        "terms"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.btc_dominance_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "data.eth_dominance_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "data.total_market_cap_usd": {
+        "min": 0
+      },
+      "data.total_volume_24h_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "blockchainiq.co",
+    "endpoint": "https://www.blockchainiq.co/api/x402/v1/global",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

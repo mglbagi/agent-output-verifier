@@ -1,0 +1,78 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a571ec09b3d0c2f9",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "available": {
+          "type": "boolean"
+        },
+        "basePrice": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "bondingMultiplier": {
+          "type": "string"
+        },
+        "currentPrice": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "dailySlotsRemaining": {
+          "type": "number"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "premium": {
+          "type": "boolean"
+        },
+        "supported": {
+          "type": "boolean"
+        },
+        "tld": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "domain",
+        "available",
+        "premium",
+        "tld",
+        "basePrice",
+        "currentPrice",
+        "bondingMultiplier",
+        "dailySlotsRemaining"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "stable-domains-git-ben-upgrade-agentcash-r-bb6a65-merit-systems.vercel.app",
+    "endpoint": "https://stable-domains-git-ben-upgrade-agentcash-r-bb6a65-merit-systems.vercel.app/api/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

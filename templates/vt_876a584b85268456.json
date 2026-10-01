@@ -1,0 +1,120 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_876a584b85268456",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "address": {
+          "description": "Validated canonical address.",
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "address_format": {
+          "enum": [
+            "evm",
+            "solana"
+          ],
+          "type": "string"
+        },
+        "cached": {
+          "type": "boolean"
+        },
+        "checked_at": {
+          "description": "When the upstream result was obtained; retained on cache hits.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "is_sanctioned": {
+          "type": "boolean"
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "match": {
+          "description": "Evidence for a positive exact match; null when verdict is not_listed.",
+          "properties": {
+            "listed_blockchain": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "sanctioned_at": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "recommended_action": {
+          "enum": [
+            "block_and_review",
+            "no_exact_match"
+          ],
+          "type": "string"
+        },
+        "source": {
+          "properties": {
+            "check_type": {
+              "type": "string"
+            },
+            "lists": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "check_type",
+            "lists"
+          ],
+          "type": "object"
+        },
+        "summary": {
+          "description": "Human-readable interpretation with the scope caveat included.",
+          "type": "string"
+        },
+        "verdict": {
+          "enum": [
+            "sanctioned",
+            "not_listed"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "address_format",
+        "verdict",
+        "is_sanctioned",
+        "recommended_action",
+        "summary",
+        "match",
+        "checked_at",
+        "cached",
+        "source",
+        "limitations"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "wallet-sanctions.use.x402atlas.com",
+    "endpoint": "https://wallet-sanctions.use.x402atlas.com/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_505b9c4184007bc9",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "api_version": {
+          "type": "string"
+        },
+        "invalid_count": {
+          "type": "integer"
+        },
+        "not_found_count": {
+          "type": "integer"
+        },
+        "results": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "total": {
+          "type": "integer"
+        },
+        "valid_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "api_version",
+        "results",
+        "total",
+        "valid_count",
+        "invalid_count",
+        "not_found_count"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "invalid_count": {
+        "min": 0
+      },
+      "not_found_count": {
+        "min": 0
+      },
+      "total": {
+        "min": 0
+      },
+      "valid_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "dmarc-lookup.underscoredone.com",
+    "endpoint": "https://dmarc-lookup.underscoredone.com/dmarc-lookup",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

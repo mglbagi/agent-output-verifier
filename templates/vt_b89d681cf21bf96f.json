@@ -1,0 +1,113 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b89d681cf21bf96f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "country": {
+          "type": "string"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "indicators": {
+          "type": "object",
+          "properties": {
+            "gdp_growth": {
+              "type": "object",
+              "properties": {
+                "latest_value": {
+                  "type": "number"
+                },
+                "latest_year": {
+                  "type": "string"
+                },
+                "trend_momentum": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "latest_value",
+                "latest_year",
+                "trend_momentum"
+              ]
+            },
+            "inflation": {
+              "type": "object",
+              "properties": {
+                "latest_value": {
+                  "type": "number"
+                },
+                "latest_year": {
+                  "type": "string"
+                },
+                "trend_momentum": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "latest_value",
+                "latest_year",
+                "trend_momentum"
+              ]
+            },
+            "unemployment": {
+              "type": "object",
+              "properties": {
+                "latest_value": {
+                  "type": "number"
+                },
+                "latest_year": {
+                  "type": "string"
+                },
+                "trend_momentum": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "latest_value",
+                "latest_year",
+                "trend_momentum"
+              ]
+            }
+          },
+          "required": [
+            "gdp_growth",
+            "inflation",
+            "unemployment"
+          ]
+        },
+        "momentum_label": {
+          "type": "string"
+        },
+        "momentum_score": {
+          "type": "number"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "disclaimer",
+        "indicators",
+        "momentum_label",
+        "momentum_score",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "macro-pulse-x402.onrender.com",
+    "endpoint": "https://macro-pulse-x402.onrender.com/macro-pulse/:country_code",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

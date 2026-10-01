@@ -1,0 +1,319 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ea9afc7d4a426431",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "output": {
+          "type": "object",
+          "properties": {
+            "best": {
+              "type": "object",
+              "properties": {
+                "buyback": {
+                  "type": "object",
+                  "properties": {
+                    "capped": {
+                      "type": "boolean"
+                    },
+                    "edge_pct": {
+                      "type": "number"
+                    },
+                    "net_ev": {
+                      "type": "number"
+                    },
+                    "payout_pct": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "capped",
+                    "edge_pct",
+                    "net_ev",
+                    "payout_pct"
+                  ]
+                },
+                "code": {
+                  "type": "string"
+                },
+                "franchise": {
+                  "type": "string"
+                },
+                "gross_edge_pct": {
+                  "type": "number"
+                },
+                "gross_ev": {
+                  "type": "number"
+                },
+                "high_tier_stock_share": {
+                  "type": "number"
+                },
+                "marketplace": {
+                  "type": "object",
+                  "properties": {
+                    "edge_pct": {
+                      "type": "number"
+                    },
+                    "fee_pct": {
+                      "type": "number"
+                    },
+                    "net_ev": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "edge_pct",
+                    "fee_pct",
+                    "net_ev"
+                  ]
+                },
+                "name": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "number"
+                },
+                "total_stock": {
+                  "type": "number"
+                },
+                "verdict": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "buyback",
+                "code",
+                "franchise",
+                "gross_edge_pct",
+                "gross_ev",
+                "high_tier_stock_share",
+                "marketplace",
+                "name",
+                "price",
+                "total_stock",
+                "verdict"
+              ]
+            },
+            "exit_strategy": {
+              "type": "string"
+            },
+            "franchise": {
+              "type": "string"
+            },
+            "machine_count": {
+              "type": "integer"
+            },
+            "machines": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "buyback": {
+                    "type": "object",
+                    "properties": {
+                      "capped": {
+                        "type": "boolean"
+                      },
+                      "edge_pct": {
+                        "type": "number"
+                      },
+                      "net_ev": {
+                        "type": "number"
+                      },
+                      "payout_pct": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "capped",
+                      "edge_pct",
+                      "net_ev",
+                      "payout_pct"
+                    ]
+                  },
+                  "code": {
+                    "type": "string"
+                  },
+                  "franchise": {
+                    "type": "string"
+                  },
+                  "gross_edge_pct": {
+                    "type": "number"
+                  },
+                  "gross_ev": {
+                    "type": "number"
+                  },
+                  "high_tier_stock_share": {
+                    "type": "number"
+                  },
+                  "marketplace": {
+                    "type": "object",
+                    "properties": {
+                      "edge_pct": {
+                        "type": "number"
+                      },
+                      "fee_pct": {
+                        "type": "number"
+                      },
+                      "net_ev": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "edge_pct",
+                      "fee_pct",
+                      "net_ev"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  },
+                  "total_stock": {
+                    "type": "number"
+                  },
+                  "verdict": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "buyback",
+                  "code",
+                  "franchise",
+                  "gross_edge_pct",
+                  "gross_ev",
+                  "high_tier_stock_share",
+                  "marketplace",
+                  "name",
+                  "price",
+                  "total_stock",
+                  "verdict"
+                ]
+              }
+            },
+            "min_edge_pct": {},
+            "scanned_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "summary": {
+              "type": "object",
+              "properties": {
+                "house_edge_count": {
+                  "type": "integer"
+                },
+                "negative_ev_count": {
+                  "type": "integer"
+                },
+                "note": {
+                  "type": "string"
+                },
+                "positive_ev_count": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "house_edge_count",
+                "negative_ev_count",
+                "note",
+                "positive_ev_count"
+              ]
+            }
+          },
+          "required": [
+            "best",
+            "exit_strategy",
+            "franchise",
+            "machine_count",
+            "machines",
+            "scanned_at",
+            "summary"
+          ]
+        },
+        "run_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "output",
+        "run_id",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "output.best.buyback.payout_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "output.best.gross_edge_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "output.best.marketplace.edge_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "output.best.marketplace.fee_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "output.best.price": {
+        "min": 0
+      },
+      "output.best.total_stock": {
+        "min": 0
+      },
+      "output.machine_count": {
+        "min": 0
+      },
+      "output.machines[].buyback.payout_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "output.machines[].gross_edge_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "output.machines[].marketplace.edge_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "output.machines[].marketplace.fee_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "output.machines[].price": {
+        "min": 0
+      },
+      "output.machines[].total_stock": {
+        "min": 0
+      },
+      "output.summary.house_edge_count": {
+        "min": 0
+      },
+      "output.summary.negative_ev_count": {
+        "min": 0
+      },
+      "output.summary.positive_ev_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.solenrich.com",
+    "endpoint": "https://api.solenrich.com/entrypoints/gacha-ev-scan/invoke",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

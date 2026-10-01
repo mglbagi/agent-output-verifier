@@ -1,0 +1,84 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_edb36fd4f9165b8f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "posts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "num_comments": {
+                "type": "integer"
+              },
+              "permalink": {
+                "type": "string",
+                "format": "uri"
+              },
+              "score": {
+                "type": "integer"
+              },
+              "source": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "num_comments",
+              "permalink",
+              "score",
+              "source",
+              "title"
+            ]
+          }
+        },
+        "sources_answered": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "count",
+        "posts",
+        "sources_answered"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "posts[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "posts[].num_comments": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.x-402.online",
+    "endpoint": "https://api.x-402.online/v1/social/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

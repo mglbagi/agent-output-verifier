@@ -1,0 +1,75 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3f9498a23b2eac95",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "description": "Bounded first-party JSON result; input is processed in memory and not retained.",
+      "properties": {
+        "actual_percent": {
+          "type": "number"
+        },
+        "bad_events": {
+          "type": "integer"
+        },
+        "compliant": {
+          "type": "boolean"
+        },
+        "gap_percentage_points": {
+          "type": "number"
+        },
+        "good_events": {
+          "type": "integer"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "target_percent": {
+          "type": "number"
+        },
+        "total_events": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "actual_percent",
+        "bad_events",
+        "compliant",
+        "gap_percentage_points",
+        "good_events",
+        "schema",
+        "target_percent",
+        "total_events"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "actual_percent": {
+        "min": 0,
+        "max": 100
+      },
+      "gap_percentage_points": {
+        "min": 0,
+        "max": 100
+      },
+      "target_percent": {
+        "min": 0,
+        "max": 100
+      },
+      "total_events": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.delx.ai",
+    "endpoint": "https://api.delx.ai/api/v1/x402/slo-compliance",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

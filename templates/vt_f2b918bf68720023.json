@@ -1,0 +1,80 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f2b918bf68720023",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "from": {
+          "additionalProperties": true,
+          "properties": {
+            "colo": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "network": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "colo",
+            "country",
+            "network"
+          ]
+        },
+        "latency_ms": {
+          "type": "integer"
+        },
+        "method": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "redirect_location": {
+          "type": "null"
+        },
+        "service": {
+          "type": "string"
+        },
+        "status_code": {
+          "type": "integer"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "type": "object",
+      "required": [
+        "from",
+        "latency_ms",
+        "method",
+        "ok",
+        "service",
+        "status_code",
+        "timestamp",
+        "url"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tools.ipintel.ai",
+    "endpoint": "https://tools.ipintel.ai/http-latency",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

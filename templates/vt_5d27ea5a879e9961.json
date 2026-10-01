@@ -1,0 +1,60 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5d27ea5a879e9961",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "base": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "fetched_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "quote": {
+          "type": "string"
+        },
+        "rate": {
+          "type": "number"
+        },
+        "rate_type": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "base",
+        "quote",
+        "rate",
+        "date",
+        "source",
+        "source_url",
+        "rate_type",
+        "fetched_at"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "wallet-services-poc-clean.3hz-services.workers.dev",
+    "endpoint": "https://wallet-services-poc-clean.3hz-services.workers.dev/fx-rate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

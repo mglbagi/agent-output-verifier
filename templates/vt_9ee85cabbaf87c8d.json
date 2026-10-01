@@ -1,0 +1,73 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9ee85cabbaf87c8d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "cross_check": {
+          "type": "object"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "grade": {
+          "enum": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "F"
+          ],
+          "type": "string"
+        },
+        "honeypot_flags": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "is_honeypot": {
+          "type": "boolean"
+        },
+        "simulation": {
+          "description": "Live buy/sell probe result incl. dex, buy_ok, sell_ok, roundtrip_loss_pct.",
+          "type": "object"
+        },
+        "tradeable": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "required": [
+        "address",
+        "chain",
+        "cross_check",
+        "disclaimer",
+        "grade",
+        "honeypot_flags",
+        "is_honeypot",
+        "simulation",
+        "tradeable"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "oracle.cyberwarex.com",
+    "endpoint": "https://oracle.cyberwarex.com/honeypot",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7c69497d102240be",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "description": "News report object on success, error string on failure",
+          "properties": {
+            "headlines": {
+              "items": {
+                "description": "Ranked story. url/publishedAt/source are null when no source article matched by exact title — never a guessed link. match: exact|null. sourceTitle appears only when the publisher worded it differently.",
+                "properties": {
+                  "match": {
+                    "enum": [
+                      "exact",
+                      null
+                    ],
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "publishedAt": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
+                  },
+                  "rank": {
+                    "type": "number"
+                  },
+                  "source": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "sourceTitle": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "uri"
+                  },
+                  "whyItMatters": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "rank",
+                  "title",
+                  "whyItMatters",
+                  "url",
+                  "publishedAt",
+                  "source",
+                  "match"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "report": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "report",
+            "headlines"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "description": "Freshness. generatedAt = when we built this response. stalenessSec = age of our cached snapshot, absent on live pass-throughs. dataAsOf = vintage of the observations. degraded = an older good version was served.",
+          "properties": {
+            "dataAsOf": {
+              "description": "Vintage of the observations, as upstream declared it.",
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date-time"
+            },
+            "degraded": {
+              "type": "boolean"
+            },
+            "freshness": {
+              "description": "'stale' means past this route's advertised cadence — still served, never withheld.",
+              "enum": [
+                "fresh",
+                "stale",
+                null
+              ],
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "generatedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "sourceHealth": {
+              "type": "object"
+            },
+            "stalenessSec": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "generatedAt",
+            "degraded",
+            "sourceHealth"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "enum": [
+            "success",
+            "failed"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "data",
+        "meta"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.ottoai.services",
+    "endpoint": "https://x402.ottoai.services/crypto-news",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

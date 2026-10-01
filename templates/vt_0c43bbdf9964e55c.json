@@ -1,0 +1,123 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0c43bbdf9964e55c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "candles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "buyPressure": {
+                "type": "number"
+              },
+              "buyVolume": {
+                "type": "number"
+              },
+              "close": {
+                "type": "integer"
+              },
+              "high": {
+                "type": "number"
+              },
+              "low": {
+                "type": "number"
+              },
+              "open": {
+                "type": "number"
+              },
+              "sellVolume": {
+                "type": "number"
+              },
+              "time": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "trades": {
+                "type": "integer"
+              },
+              "venue": {
+                "type": "string"
+              },
+              "volume": {
+                "type": "number"
+              },
+              "volumeUsd": {
+                "type": "number"
+              },
+              "vwap": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "buyPressure",
+              "buyVolume",
+              "close",
+              "high",
+              "low",
+              "open",
+              "sellVolume",
+              "time",
+              "trades",
+              "venue",
+              "volume",
+              "volumeUsd",
+              "vwap"
+            ]
+          }
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "interval": {
+          "type": "string"
+        },
+        "rows": {
+          "type": "integer"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "venues": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "candles",
+        "date",
+        "interval",
+        "rows",
+        "symbol",
+        "venues"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "candles[].low",
+        "other_field": "candles[].high"
+      }
+    ],
+    "bounds": {
+      "candles[].volume": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.marketintelligenceapi.com",
+    "endpoint": "https://api.marketintelligenceapi.com/api/v1/datasets/ETHUSD",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

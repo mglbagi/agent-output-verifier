@@ -1,0 +1,42 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_09c4ec2cdf9d0560",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "digest": {
+          "type": "string"
+        },
+        "timestamp_token_der_b64": {
+          "type": "string"
+        },
+        "tsa_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "verify": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "digest",
+        "timestamp_token_der_b64",
+        "tsa_url",
+        "verify"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.satledger.org",
+    "endpoint": "https://api.satledger.org/x402/receipt",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

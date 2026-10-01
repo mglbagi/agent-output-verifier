@@ -1,0 +1,55 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7e1506b2ee8f15bb",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "corporation_count": {
+          "type": "integer"
+        },
+        "data_source": {
+          "type": "string"
+        },
+        "loaded": {
+          "type": "boolean"
+        },
+        "prefecture_count": {
+          "type": "integer"
+        },
+        "prefectures": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "corporation_count",
+        "data_source",
+        "loaded",
+        "prefecture_count",
+        "prefectures"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "corporation_count": {
+        "min": 0
+      },
+      "prefecture_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "houjin.agentic-jp.com",
+    "endpoint": "https://houjin.agentic-jp.com/stats",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

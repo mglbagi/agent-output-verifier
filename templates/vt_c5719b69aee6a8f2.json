@@ -1,0 +1,184 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c5719b69aee6a8f2",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "description": "Key figures from the latest filed annual report",
+          "properties": {
+            "currency": {
+              "description": "ISO 4217, e.g. \"SEK\"",
+              "type": "string"
+            },
+            "document": {
+              "properties": {
+                "filed_at": {
+                  "anyOf": [
+                    {
+                      "description": "Filing date (ISO 8601 date, YYYY-MM-DD)",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "format": {
+                  "description": "Format of the filed document package",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "format",
+                "filed_at"
+              ],
+              "type": "object"
+            },
+            "fiscal_year": {
+              "properties": {
+                "from": {
+                  "description": "Period start (ISO 8601 date, YYYY-MM-DD)",
+                  "type": "string",
+                  "format": "date"
+                },
+                "to": {
+                  "description": "Period end (ISO 8601 date, YYYY-MM-DD)",
+                  "type": "string",
+                  "format": "date"
+                }
+              },
+              "required": [
+                "from",
+                "to"
+              ],
+              "type": "object"
+            },
+            "identifier": {
+              "description": "Global identifier, e.g. \"SE:orgnr:5567647176\"",
+              "type": "string"
+            },
+            "key_figures": {
+              "description": "Whole currency units; null when the filing lacks the figure",
+              "properties": {
+                "employees_avg": {
+                  "description": "Average number of employees",
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "equity": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "net_revenue": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "operating_profit": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "profit_after_financial_items": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "total_assets": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "net_revenue",
+                "operating_profit",
+                "profit_after_financial_items",
+                "total_assets",
+                "equity",
+                "employees_avg"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "identifier",
+            "fiscal_year",
+            "currency",
+            "key_figures",
+            "document"
+          ],
+          "type": "object"
+        },
+        "raw": {
+          "description": "Native upstream document metadata (Bolagsverket dokumentlista). Always present in responses; omitted from the published example."
+        },
+        "source": {
+          "description": "Where the data came from",
+          "properties": {
+            "attribution": {
+              "description": "Attribution text required by the data licence",
+              "type": "string"
+            },
+            "mock": {
+              "description": "true when the data is a labelled fixture rather than live register data",
+              "type": "boolean"
+            },
+            "name": {
+              "description": "Gateway source adapter that produced the data",
+              "type": "string"
+            },
+            "retrieved_at": {
+              "description": "When the upstream data was fetched (ISO 8601 timestamp)",
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "name",
+            "attribution",
+            "retrieved_at",
+            "mock"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "data",
+        "source"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "data.fiscal_year.from",
+        "other_field": "data.fiscal_year.to"
+      }
+    ],
+    "bounds": {
+      "data.key_figures.total_assets": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-gateway.ai",
+    "endpoint": "https://x402-gateway.ai/api/v1/se/company/:orgnr/annual-report",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

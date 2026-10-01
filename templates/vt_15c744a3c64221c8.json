@@ -1,0 +1,71 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_15c744a3c64221c8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "items": {
+            "properties": {
+              "gecko_id": {
+                "description": "CoinGecko id of the native token",
+                "type": "string"
+              },
+              "name": {
+                "description": "Chain name",
+                "type": "string"
+              },
+              "tokenSymbol": {
+                "description": "Chain's native token symbol",
+                "type": "string"
+              },
+              "tvl": {
+                "description": "Current total value locked in USD",
+                "type": "number"
+              }
+            },
+            "type": "object",
+            "required": [
+              "gecko_id",
+              "name",
+              "tokenSymbol",
+              "tvl"
+            ]
+          },
+          "type": "array"
+        },
+        "queried_at": {
+          "description": "When this bridge fetched the upstream data",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "queried_at",
+        "data"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data[].gecko_id"
+      }
+    ],
+    "bounds": {
+      "data[].tvl": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "defillama.use.x402atlas.com",
+    "endpoint": "https://defillama.use.x402atlas.com/chains",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2037b710e4d0f048",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "blockHeight": {
+          "description": "Latest block number on Base Sepolia, decimal string",
+          "type": "string"
+        },
+        "network": {
+          "description": "CAIP-2 chain id, always eip155:84532",
+          "type": "string"
+        },
+        "observedAt": {
+          "description": "ISO 8601 time the chain was read",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "blockHeight",
+        "network",
+        "observedAt"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "shelf-production-43b5.up.railway.app",
+    "endpoint": "https://shelf-production-43b5.up.railway.app/v1/sepolia/block-height/q5",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

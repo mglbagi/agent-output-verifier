@@ -1,0 +1,200 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e9b16210884a58ef",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "matches": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string",
+                    "pattern": "^0x[a-fA-F0-9]{40}$"
+                  },
+                  "aliases": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "asset": {
+                    "type": "string"
+                  },
+                  "entityName": {
+                    "type": "string"
+                  },
+                  "entryId": {
+                    "type": "string"
+                  },
+                  "identityId": {
+                    "type": "string"
+                  },
+                  "listName": {
+                    "type": "string"
+                  },
+                  "listedOn": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "measures": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "normalizedAddress": {
+                    "type": "string",
+                    "pattern": "^0x[a-fA-F0-9]{40}$"
+                  },
+                  "profileId": {
+                    "type": "string"
+                  },
+                  "programs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "sourceType": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "address",
+                  "aliases",
+                  "asset",
+                  "entityName",
+                  "entryId",
+                  "identityId",
+                  "listName",
+                  "listedOn",
+                  "measures",
+                  "normalizedAddress",
+                  "profileId",
+                  "programs",
+                  "sourceType"
+                ]
+              }
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "address": {
+                  "type": "string",
+                  "pattern": "^0x[a-fA-F0-9]{40}$"
+                },
+                "asset": {
+                  "type": "string"
+                },
+                "normalizedAddress": {
+                  "type": "string",
+                  "pattern": "^0x[a-fA-F0-9]{40}$"
+                }
+              },
+              "required": [
+                "address",
+                "asset",
+                "normalizedAddress"
+              ]
+            },
+            "screeningOnly": {
+              "type": "boolean"
+            },
+            "sourceFreshness": {
+              "type": "object",
+              "properties": {
+                "addressCount": {
+                  "type": "integer"
+                },
+                "coveredAssets": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "datasetPublishedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "refreshedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "sourceUrl": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "addressCount",
+                "coveredAssets",
+                "datasetPublishedAt",
+                "refreshedAt",
+                "sourceUrl"
+              ]
+            },
+            "summary": {
+              "type": "object",
+              "properties": {
+                "exactAddressMatch": {
+                  "type": "boolean"
+                },
+                "manualReviewRecommended": {
+                  "type": "boolean"
+                },
+                "matchCount": {
+                  "type": "integer"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "exactAddressMatch",
+                "manualReviewRecommended",
+                "matchCount",
+                "status"
+              ]
+            }
+          },
+          "required": [
+            "matches",
+            "query",
+            "screeningOnly",
+            "sourceFreshness",
+            "summary"
+          ]
+        },
+        "source": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "data",
+        "source",
+        "success"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.aurelianflo.com",
+    "endpoint": "https://api.aurelianflo.com/api/ofac-wallet-screen/:address",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

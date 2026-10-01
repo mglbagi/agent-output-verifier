@@ -1,0 +1,289 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0d8cfcb81d245cbc",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "citations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "agency": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "agency",
+              "id",
+              "name",
+              "url"
+            ]
+          }
+        },
+        "compliance": {
+          "type": "object",
+          "properties": {
+            "currentViolation": {
+              "type": "boolean"
+            },
+            "extractDate": {},
+            "healthBasedViolation": {
+              "type": "boolean"
+            },
+            "lastSanitarySurvey": {
+              "type": "string"
+            },
+            "monitoringViolation": {
+              "type": "boolean"
+            },
+            "seriousViolator": {
+              "type": "boolean"
+            },
+            "trippedFlags": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "currentViolation",
+            "healthBasedViolation",
+            "lastSanitarySurvey",
+            "monitoringViolation",
+            "seriousViolator",
+            "trippedFlags"
+          ]
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "coverage": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "coverage"
+          ]
+        },
+        "decision": {
+          "type": "object",
+          "properties": {
+            "basedOn": {
+              "type": "string"
+            },
+            "outcome": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "basedOn",
+            "outcome",
+            "reason"
+          ]
+        },
+        "evidence": {
+          "type": "object",
+          "properties": {
+            "ccr": {
+              "type": "string"
+            },
+            "echoDfr": {
+              "type": "string"
+            },
+            "sdwis": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "ccr",
+            "echoDfr",
+            "sdwis"
+          ]
+        },
+        "limits": {
+          "type": "object",
+          "properties": {
+            "coverageNote": {
+              "type": "string"
+            },
+            "known": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "unknown": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "coverageNote",
+            "known",
+            "unknown"
+          ]
+        },
+        "next_actions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "detail": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "action",
+              "detail"
+            ]
+          }
+        },
+        "place": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "countryCode": {
+              "type": "string"
+            },
+            "displayName": {
+              "type": "string"
+            },
+            "lat": {
+              "type": "number"
+            },
+            "lon": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "city",
+            "country",
+            "countryCode",
+            "displayName",
+            "lat",
+            "lon"
+          ]
+        },
+        "summary": {
+          "type": "string"
+        },
+        "utility": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "populationServed": {
+              "type": "integer"
+            },
+            "pwsId": {
+              "type": "string"
+            },
+            "stateCode": {
+              "type": "string"
+            },
+            "systemType": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "populationServed",
+            "pwsId",
+            "stateCode",
+            "systemType"
+          ]
+        },
+        "verdict": {
+          "type": "object",
+          "properties": {
+            "call": {
+              "type": "string"
+            },
+            "headline": {
+              "type": "string"
+            },
+            "meetsLabel": {
+              "type": "string"
+            },
+            "meetsStandards": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "call",
+            "headline",
+            "meetsLabel",
+            "meetsStandards"
+          ]
+        },
+        "via": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "citations",
+        "compliance",
+        "data",
+        "decision",
+        "evidence",
+        "limits",
+        "next_actions",
+        "place",
+        "summary",
+        "utility",
+        "verdict",
+        "via"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "citations[].id"
+      }
+    ],
+    "bounds": {
+      "place.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "place.lon": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "zini-x402.wouldzini.workers.dev",
+    "endpoint": "https://zini-x402.wouldzini.workers.dev/v1/lookup",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

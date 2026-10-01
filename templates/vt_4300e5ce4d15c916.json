@@ -1,0 +1,90 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4300e5ce4d15c916",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "description": "Number of rows returned in rates.",
+          "type": "integer"
+        },
+        "queried_at": {
+          "description": "UTC timestamp when this bridge queried the upstream.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "rates": {
+          "description": "Top funding rates ranked by magnitude.",
+          "items": {
+            "properties": {
+              "direction": {
+                "description": "Plain-English direction of the funding payment (e.g. shorts pay longs).",
+                "type": "string"
+              },
+              "funding_rate": {
+                "description": "Current funding rate as a percentage.",
+                "type": "number"
+              },
+              "funding_rate_8h": {
+                "description": "Funding rate over the next 8h window, formatted as a percentage string.",
+                "type": "string"
+              },
+              "mark_price": {
+                "description": "Current mark price for the symbol.",
+                "type": "number"
+              },
+              "next_funding_at": {
+                "description": "RFC3339 timestamp of the next funding event; omitted if the upstream reports none.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "symbol": {
+                "description": "Perpetual-futures trading symbol (e.g. BTCUSDT).",
+                "type": "string"
+              }
+            },
+            "required": [
+              "symbol",
+              "funding_rate",
+              "funding_rate_8h",
+              "direction",
+              "mark_price"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "scanned": {
+          "description": "Total number of perpetual markets ranked by the upstream scan.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "queried_at",
+        "scanned",
+        "count",
+        "rates"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "rates[].mark_price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "perpsignals.use.x402atlas.com",
+    "endpoint": "https://perpsignals.use.x402atlas.com/funding-rates",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

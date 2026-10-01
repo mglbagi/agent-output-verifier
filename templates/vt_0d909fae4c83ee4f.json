@@ -1,0 +1,95 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0d909fae4c83ee4f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "annualNetIncome": {
+          "type": "number"
+        },
+        "annualOperatingCost": {
+          "type": "number"
+        },
+        "annualOperatingCosts": {
+          "type": "number"
+        },
+        "annualRent": {
+          "type": "number"
+        },
+        "currency": {
+          "const": "OMR",
+          "type": "string"
+        },
+        "effectiveAnnualRent": {
+          "type": "number"
+        },
+        "grossAnnualIncome": {
+          "type": "number"
+        },
+        "grossYield": {
+          "type": "number"
+        },
+        "grossYieldPct": {
+          "type": "number"
+        },
+        "netYield": {
+          "type": "number"
+        },
+        "netYieldPct": {
+          "type": "number"
+        },
+        "note": {
+          "type": "string"
+        },
+        "paybackYears": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "propertyValue": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "propertyValue",
+        "annualRent",
+        "grossAnnualIncome",
+        "grossYield",
+        "netYield",
+        "annualOperatingCost",
+        "annualNetIncome",
+        "effectiveAnnualRent",
+        "paybackYears",
+        "grossYieldPct",
+        "netYieldPct",
+        "annualOperatingCosts",
+        "currency",
+        "note"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "grossYieldPct": {
+        "min": 0,
+        "max": 100
+      },
+      "netYieldPct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.rafidsystem.com",
+    "endpoint": "https://api.rafidsystem.com/api/v1/x402/property/analyze",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

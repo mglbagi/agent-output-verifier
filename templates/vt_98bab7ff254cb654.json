@@ -1,0 +1,100 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_98bab7ff254cb654",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "base_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "collections": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "how_to_buy": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "products": {
+          "items": {
+            "properties": {
+              "handle": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "variants": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "price": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "price",
+                    "title"
+                  ]
+                },
+                "type": "array"
+              }
+            },
+            "type": "object",
+            "required": [
+              "handle",
+              "title",
+              "url",
+              "variants"
+            ]
+          },
+          "type": "array"
+        },
+        "store": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "base_url",
+        "collections",
+        "how_to_buy",
+        "products",
+        "store"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "products[].variants[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402swag.com",
+    "endpoint": "https://x402swag.com/api/agent/catalog",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

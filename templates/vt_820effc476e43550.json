@@ -1,0 +1,53 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_820effc476e43550",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "api_version": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "queried_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "results": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "count",
+        "results",
+        "queried_at",
+        "disclaimer",
+        "api_version"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "domain-availability-checker.underscoredone.com",
+    "endpoint": "https://domain-availability-checker.underscoredone.com/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

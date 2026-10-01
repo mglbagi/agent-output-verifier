@@ -1,0 +1,38 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e8790c40bd89036a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "advertised_schema": {
+          "type": "object",
+          "properties": {}
+        },
+        "delivery_grade": {
+          "type": "integer"
+        },
+        "schema_source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "advertised_schema",
+        "delivery_grade",
+        "schema_source"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "srv1553682.hstgr.cloud",
+    "endpoint": "https://srv1553682.hstgr.cloud/route/integration-pack",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

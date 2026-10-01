@@ -1,0 +1,101 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e60f04d2fd441af8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "checked_at": {
+          "description": "When the verification ran, which is not always when it was requested: a reused result carries its original timestamp.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "ecosystem": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "reasons": {
+          "description": "Evidence, one entry per finding. Branch on `code`, not on `detail`.",
+          "items": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "data": {
+                "type": "object"
+              },
+              "detail": {
+                "type": "string"
+              },
+              "kind": {
+                "description": "fact is established; heuristic is inference and never convicts on its own.",
+                "enum": [
+                  "fact",
+                  "heuristic"
+                ],
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "verdict": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "verdict",
+              "code",
+              "kind",
+              "source",
+              "detail"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "sources": {
+          "description": "The upstream each check consulted, by name.",
+          "type": "object"
+        },
+        "verdict": {
+          "description": "Ordered worst-last. The overall verdict is the worst any check produced. block and does_not_exist are answers, not errors, and return 200.",
+          "enum": [
+            "safe",
+            "caution",
+            "block",
+            "does_not_exist"
+          ],
+          "type": "string"
+        },
+        "version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "ecosystem",
+        "name",
+        "verdict",
+        "reasons",
+        "sources",
+        "checked_at"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.pkgproof.net",
+    "endpoint": "https://x402.pkgproof.net/v1/verify",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

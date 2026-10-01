@@ -1,0 +1,204 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_40b099263296afc2",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "base_fee_gwei": {
+          "description": "Base fee for the next block (gwei, human-readable).",
+          "type": "number"
+        },
+        "base_fee_wei": {
+          "description": "Base fee in wei (exact, BigInt-ready decimal string).",
+          "type": "string"
+        },
+        "block_number": {
+          "type": "integer"
+        },
+        "caip2": {
+          "type": "string"
+        },
+        "chain": {
+          "enum": [
+            "ethereum",
+            "base",
+            "optimism",
+            "arbitrum",
+            "polygon",
+            "avalanche",
+            "gnosis",
+            "linea",
+            "scroll",
+            "blast",
+            "mode",
+            "opbnb",
+            "celo",
+            "bsc",
+            "fantom",
+            "zksync",
+            "mantle"
+          ],
+          "type": "string"
+        },
+        "chain_name": {
+          "type": "string"
+        },
+        "gas_model": {
+          "enum": [
+            "eip1559",
+            "mostly-legacy",
+            "non-standard"
+          ],
+          "type": "string"
+        },
+        "gas_note": {
+          "type": "string"
+        },
+        "stats": {
+          "properties": {
+            "blocks_sampled": {
+              "type": "integer"
+            },
+            "median_fullness_pct": {
+              "type": "number"
+            },
+            "ts": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "blocks_sampled",
+            "median_fullness_pct",
+            "ts"
+          ]
+        },
+        "tiers": {
+          "description": "Slow (p10) / standard (p50) / fast (p90) EIP-1559 fee tiers. Each carries human gwei (max_fee_gwei/max_priority_gwei) AND DROP-IN wei (maxFeePerGas/maxPriorityFeePerGas, BigInt-ready) to plug straight into a viem/ethers tx.",
+          "properties": {
+            "fast": {
+              "properties": {
+                "maxFeePerGas": {
+                  "type": "string"
+                },
+                "maxPriorityFeePerGas": {
+                  "type": "string"
+                },
+                "max_fee_gwei": {
+                  "type": "number"
+                },
+                "max_priority_gwei": {
+                  "type": "number"
+                }
+              },
+              "type": "object",
+              "required": [
+                "maxFeePerGas",
+                "maxPriorityFeePerGas",
+                "max_fee_gwei",
+                "max_priority_gwei"
+              ]
+            },
+            "slow": {
+              "properties": {
+                "maxFeePerGas": {
+                  "type": "string"
+                },
+                "maxPriorityFeePerGas": {
+                  "type": "string"
+                },
+                "max_fee_gwei": {
+                  "type": "number"
+                },
+                "max_priority_gwei": {
+                  "type": "number"
+                }
+              },
+              "type": "object",
+              "required": [
+                "maxFeePerGas",
+                "maxPriorityFeePerGas",
+                "max_fee_gwei",
+                "max_priority_gwei"
+              ]
+            },
+            "standard": {
+              "properties": {
+                "maxFeePerGas": {
+                  "type": "string"
+                },
+                "maxPriorityFeePerGas": {
+                  "type": "string"
+                },
+                "max_fee_gwei": {
+                  "type": "number"
+                },
+                "max_priority_gwei": {
+                  "type": "number"
+                }
+              },
+              "type": "object",
+              "required": [
+                "maxFeePerGas",
+                "maxPriorityFeePerGas",
+                "max_fee_gwei",
+                "max_priority_gwei"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "fast",
+            "slow",
+            "standard"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "base_fee_gwei",
+        "base_fee_wei",
+        "block_number",
+        "caip2",
+        "chain",
+        "chain_name",
+        "gas_model",
+        "stats",
+        "tiers"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "base_fee_gwei": {
+        "min": 0
+      },
+      "block_number": {
+        "min": 0
+      },
+      "stats.median_fullness_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "tiers.fast.max_fee_gwei": {
+        "min": 0
+      },
+      "tiers.slow.max_fee_gwei": {
+        "min": 0
+      },
+      "tiers.standard.max_fee_gwei": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "evm-gas.apitoll.cloud",
+    "endpoint": "https://evm-gas.apitoll.cloud/v1/evm/gas",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ce4a690988707f43",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "description": "The result — an array or object depending on the endpoint. An empty array means no rows in range, never that the metric is unsupported."
+        },
+        "meta": {
+          "description": "Coverage and provenance: what was measured, and what is not held. A null label means no label is held, never that the subject is safe.",
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "onvexia.com",
+    "endpoint": "https://onvexia.com/v1/topics/rank",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4401ea17fb952bbe",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "city": {
+                "type": "string"
+              },
+              "confidence": {
+                "type": "number"
+              },
+              "country_code": {
+                "type": "string"
+              },
+              "formatted": {
+                "type": "string"
+              },
+              "house_number": {
+                "type": "string"
+              },
+              "lat": {
+                "type": "number"
+              },
+              "lon": {
+                "type": "number"
+              },
+              "postcode": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "street": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "city",
+              "confidence",
+              "country_code",
+              "formatted",
+              "house_number",
+              "lat",
+              "lon",
+              "postcode",
+              "state",
+              "street"
+            ]
+          }
+        }
+      },
+      "required": [
+        "mode",
+        "results"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "results[].confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "results[].lat": {
+        "min": -90,
+        "max": 90
+      },
+      "results[].lon": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tools.halowerk.com",
+    "endpoint": "https://tools.halowerk.com/v1/geocode",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

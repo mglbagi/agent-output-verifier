@@ -1,0 +1,463 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e938413dabf9977b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "change_events": {
+          "type": "object",
+          "properties": {
+            "available": {
+              "type": "boolean"
+            },
+            "events": {
+              "type": "array"
+            },
+            "total_events": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "available",
+            "events",
+            "total_events"
+          ]
+        },
+        "exclusions_screen": {
+          "type": "object",
+          "properties": {
+            "available": {
+              "type": "boolean"
+            },
+            "lists_not_applicable": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "per_list": {
+              "type": "object",
+              "properties": {
+                "fda_debarment": {},
+                "gsa_sam": {
+                  "type": "integer"
+                },
+                "ofac_sdn": {},
+                "oig_leie": {
+                  "type": "integer"
+                },
+                "state_boards": {
+                  "type": "integer"
+                },
+                "state_medicaid": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "gsa_sam",
+                "oig_leie",
+                "state_boards",
+                "state_medicaid"
+              ]
+            },
+            "verdict": {
+              "type": "object",
+              "properties": {
+                "clear": {
+                  "type": "boolean"
+                },
+                "flagged_lists": {
+                  "type": "array"
+                },
+                "hits": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "clear",
+                "flagged_lists",
+                "hits"
+              ]
+            }
+          },
+          "required": [
+            "available",
+            "lists_not_applicable",
+            "per_list",
+            "verdict"
+          ]
+        },
+        "hospital_affiliations": {
+          "type": "object",
+          "properties": {
+            "available": {
+              "type": "boolean"
+            },
+            "facilities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "ccn": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "facility_name": {
+                    "type": "string"
+                  },
+                  "facility_type": {
+                    "type": "string"
+                  },
+                  "overall_rating": {
+                    "type": "integer"
+                  },
+                  "state": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "ccn",
+                  "city",
+                  "facility_name",
+                  "facility_type",
+                  "overall_rating",
+                  "state"
+                ]
+              }
+            }
+          },
+          "required": [
+            "available",
+            "facilities"
+          ]
+        },
+        "identity": {
+          "type": "object",
+          "properties": {
+            "available": {
+              "type": "boolean"
+            },
+            "deactivated": {
+              "type": "boolean"
+            },
+            "entity_type": {
+              "type": "string"
+            },
+            "practice_address": {
+              "type": "object",
+              "properties": {
+                "address": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "zip": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "address",
+                "city",
+                "state",
+                "zip"
+              ]
+            },
+            "provider_name": {
+              "type": "string"
+            },
+            "taxonomy_code": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "available",
+            "deactivated",
+            "entity_type",
+            "practice_address",
+            "provider_name",
+            "taxonomy_code"
+          ]
+        },
+        "legs_available": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "legs_unavailable": {
+          "type": "array"
+        },
+        "medicare_order_referring": {
+          "type": "object",
+          "properties": {
+            "available": {
+              "type": "boolean"
+            },
+            "can_order_refer": {
+              "type": "object",
+              "properties": {
+                "dme": {
+                  "type": "boolean"
+                },
+                "hha": {
+                  "type": "boolean"
+                },
+                "hospice": {
+                  "type": "boolean"
+                },
+                "part_b": {
+                  "type": "boolean"
+                },
+                "pmd": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "dme",
+                "hha",
+                "hospice",
+                "part_b",
+                "pmd"
+              ]
+            }
+          },
+          "required": [
+            "available",
+            "can_order_refer"
+          ]
+        },
+        "medicare_utilization": {
+          "type": "object",
+          "properties": {
+            "available": {
+              "type": "boolean"
+            },
+            "performance_year": {
+              "type": "integer"
+            },
+            "primary_specialty": {
+              "type": "string"
+            },
+            "total_payment": {
+              "type": "number"
+            },
+            "total_services": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "available",
+            "performance_year",
+            "primary_specialty",
+            "total_payment",
+            "total_services"
+          ]
+        },
+        "npi": {
+          "type": "string"
+        },
+        "open_payments": {
+          "type": "object",
+          "properties": {
+            "available": {
+              "type": "boolean"
+            },
+            "years": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "by_nature": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "nature_of_payment": {
+                          "type": "string"
+                        },
+                        "total_amount": {
+                          "type": "number"
+                        },
+                        "total_records": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "nature_of_payment",
+                        "total_amount",
+                        "total_records"
+                      ]
+                    }
+                  },
+                  "performance_year": {
+                    "type": "integer"
+                  },
+                  "total_amount": {
+                    "type": "number"
+                  },
+                  "total_records": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "by_nature",
+                  "performance_year",
+                  "total_amount",
+                  "total_records"
+                ]
+              }
+            }
+          },
+          "required": [
+            "available",
+            "years"
+          ]
+        },
+        "part_d_prescribing": {
+          "type": "object",
+          "properties": {
+            "available": {
+              "type": "boolean"
+            },
+            "years": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "opioid_total_claims": {
+                    "type": "number"
+                  },
+                  "performance_year": {
+                    "type": "integer"
+                  },
+                  "total_claims": {
+                    "type": "number"
+                  },
+                  "total_drug_cost": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "opioid_total_claims",
+                  "performance_year",
+                  "total_claims",
+                  "total_drug_cost"
+                ]
+              }
+            }
+          },
+          "required": [
+            "available",
+            "years"
+          ]
+        },
+        "quality_mips": {
+          "type": "object",
+          "properties": {
+            "available": {
+              "type": "boolean"
+            },
+            "years": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "final_score": {
+                    "type": "number"
+                  },
+                  "payment_adjustment_pct": {
+                    "type": "number"
+                  },
+                  "performance_year": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "final_score",
+                  "payment_adjustment_pct",
+                  "performance_year"
+                ]
+              }
+            }
+          },
+          "required": [
+            "available",
+            "years"
+          ]
+        },
+        "records_notice": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "change_events",
+        "exclusions_screen",
+        "hospital_affiliations",
+        "identity",
+        "legs_available",
+        "legs_unavailable",
+        "medicare_order_referring",
+        "medicare_utilization",
+        "npi",
+        "open_payments",
+        "part_d_prescribing",
+        "quality_mips",
+        "records_notice"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "change_events.total_events": {
+        "min": 0
+      },
+      "medicare_utilization.total_payment": {
+        "min": 0
+      },
+      "medicare_utilization.total_services": {
+        "min": 0
+      },
+      "open_payments.years[].by_nature[].total_amount": {
+        "min": 0
+      },
+      "open_payments.years[].by_nature[].total_records": {
+        "min": 0
+      },
+      "open_payments.years[].total_amount": {
+        "min": 0
+      },
+      "open_payments.years[].total_records": {
+        "min": 0
+      },
+      "part_d_prescribing.years[].opioid_total_claims": {
+        "min": 0
+      },
+      "part_d_prescribing.years[].total_claims": {
+        "min": 0
+      },
+      "part_d_prescribing.years[].total_drug_cost": {
+        "min": 0
+      },
+      "quality_mips.years[].payment_adjustment_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.healthparse.io",
+    "endpoint": "https://api.healthparse.io/v1/providers/:npi/provider360",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fe3256e8203cf472",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "cursor": {
+          "description": "Pagination cursor for the next page, if any",
+          "type": "string"
+        },
+        "queried_at": {
+          "description": "UTC timestamp when this bridge ran the search",
+          "format": "date-time",
+          "type": "string"
+        },
+        "query": {
+          "description": "The assembled X advanced-search query string sent upstream",
+          "type": "string"
+        },
+        "tweet_count": {
+          "description": "Number of tweets in this page",
+          "type": "integer"
+        },
+        "tweets": {
+          "items": {
+            "properties": {
+              "author": {
+                "properties": {
+                  "avatar": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "followers": {
+                    "type": "integer"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "screen_name": {
+                    "type": "string"
+                  },
+                  "verified": {
+                    "description": "Blue-check verification status",
+                    "type": "boolean"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "avatar",
+                  "description",
+                  "followers",
+                  "id",
+                  "name",
+                  "screen_name",
+                  "verified"
+                ]
+              },
+              "bookmarks": {
+                "type": "integer"
+              },
+              "conversation_id": {
+                "type": "string"
+              },
+              "created_at": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "id": {
+                "description": "Tweet ID",
+                "type": "string"
+              },
+              "in_reply_to_id": {
+                "description": "Parent tweet ID, if this is a reply",
+                "type": "string"
+              },
+              "in_reply_to_user": {
+                "description": "Parent tweet's author screen name, if this is a reply",
+                "type": "string"
+              },
+              "is_quote": {
+                "type": "boolean"
+              },
+              "lang": {
+                "description": "BCP-47 language code",
+                "type": "string"
+              },
+              "likes": {
+                "type": "integer"
+              },
+              "quotes": {
+                "type": "integer"
+              },
+              "replies": {
+                "type": "integer"
+              },
+              "retweets": {
+                "type": "integer"
+              },
+              "text": {
+                "type": "string"
+              },
+              "urls": {
+                "description": "Expanded URLs linked in the tweet",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "views": {
+                "type": "integer"
+              }
+            },
+            "type": "object",
+            "required": [
+              "author",
+              "bookmarks",
+              "conversation_id",
+              "created_at",
+              "id",
+              "is_quote",
+              "lang",
+              "likes",
+              "quotes",
+              "replies",
+              "retweets",
+              "text",
+              "urls",
+              "views"
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "description": "Result ranking used for this page",
+          "enum": [
+            "top",
+            "latest",
+            "media"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "cursor",
+        "queried_at",
+        "query",
+        "tweet_count",
+        "tweets",
+        "type"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "tweets[].conversation_id"
+      }
+    ],
+    "bounds": {
+      "tweet_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "twitter.use.x402atlas.com",
+    "endpoint": "https://twitter.use.x402atlas.com/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

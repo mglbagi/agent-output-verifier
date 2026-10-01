@@ -1,0 +1,138 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_050e4c6a5bfca4c1",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "market_signal": {
+          "type": "string"
+        },
+        "query_summary": {
+          "type": "object",
+          "properties": {
+            "keyword": {
+              "type": "string"
+            },
+            "naics_code": {
+              "type": "string"
+            },
+            "period": {
+              "type": "string"
+            },
+            "total_awards_returned": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "keyword",
+            "naics_code",
+            "period",
+            "total_awards_returned"
+          ]
+        },
+        "spending_summary": {
+          "type": "object",
+          "properties": {
+            "average_award_usd": {
+              "type": "number"
+            },
+            "top_agency": {
+              "type": "string"
+            },
+            "top_recipient": {
+              "type": "string"
+            },
+            "total_value_usd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "average_award_usd",
+            "top_agency",
+            "top_recipient",
+            "total_value_usd"
+          ]
+        },
+        "top_awards": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "agency": {
+                "type": "string"
+              },
+              "amount_usd": {
+                "type": "number"
+              },
+              "description": {
+                "type": "string"
+              },
+              "naics": {
+                "type": "string"
+              },
+              "period": {
+                "type": "string"
+              },
+              "recipient": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "sub_agency": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "agency",
+              "amount_usd",
+              "description",
+              "naics",
+              "period",
+              "recipient",
+              "state",
+              "sub_agency",
+              "type"
+            ]
+          }
+        },
+        "vendor_insight": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "market_signal",
+        "query_summary",
+        "spending_summary",
+        "top_awards",
+        "vendor_insight"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "spending_summary.average_award_usd": {
+        "min": 0
+      },
+      "spending_summary.total_value_usd": {
+        "min": 0
+      },
+      "top_awards[].amount_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "govspendpulse.theaslangroupllc.com",
+    "endpoint": "https://govspendpulse.theaslangroupllc.com/api/govspend/us-contracts",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

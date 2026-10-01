@@ -1,0 +1,249 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8e16ffef31e82bee",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "_example_notice": {
+          "type": "string"
+        },
+        "bank_code_check": {
+          "type": "object",
+          "properties": {
+            "as_of": {
+              "type": "string"
+            },
+            "authoritative": {
+              "type": "boolean"
+            },
+            "match": {
+              "type": "string"
+            },
+            "register": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "as_of",
+            "authoritative",
+            "match",
+            "register",
+            "status",
+            "value"
+          ]
+        },
+        "bban": {
+          "type": "object",
+          "properties": {
+            "account_number": {
+              "type": "string"
+            },
+            "bank_code": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "account_number",
+            "bank_code"
+          ]
+        },
+        "bic": {
+          "type": "object",
+          "properties": {
+            "bank_name": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "code": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bank_name",
+            "city",
+            "code"
+          ]
+        },
+        "check_digits": {
+          "type": "string"
+        },
+        "clearing": {
+          "type": "object",
+          "properties": {
+            "eurosic": {
+              "type": "boolean"
+            },
+            "iid": {
+              "type": "string"
+            },
+            "instant_payments_chf": {
+              "type": "boolean"
+            },
+            "name": {
+              "type": "string"
+            },
+            "qr_iid": {},
+            "sic": {
+              "type": "boolean"
+            },
+            "town": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "eurosic",
+            "iid",
+            "instant_payments_chf",
+            "name",
+            "sic",
+            "town",
+            "type"
+          ]
+        },
+        "cost_usdc": {
+          "type": "number"
+        },
+        "country": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "code",
+            "name"
+          ]
+        },
+        "formatted": {
+          "type": "string"
+        },
+        "iban": {
+          "type": "string"
+        },
+        "issuer": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "classification",
+            "name",
+            "type"
+          ]
+        },
+        "risk_indicators": {
+          "type": "object",
+          "properties": {
+            "country_risk": {
+              "type": "string"
+            },
+            "issuer_type": {
+              "type": "string"
+            },
+            "sepa_reachable": {
+              "type": "boolean"
+            },
+            "sepa_reachable_scope": {
+              "type": "string"
+            },
+            "test_bic": {
+              "type": "boolean"
+            },
+            "vop_coverage": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "country_risk",
+            "issuer_type",
+            "sepa_reachable",
+            "sepa_reachable_scope",
+            "test_bic",
+            "vop_coverage"
+          ]
+        },
+        "sepa": {
+          "type": "object",
+          "properties": {
+            "member": {
+              "type": "boolean"
+            },
+            "schemes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "vop_required": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "member",
+            "schemes",
+            "vop_required"
+          ]
+        },
+        "valid": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "_example_notice",
+        "bank_code_check",
+        "bban",
+        "bic",
+        "check_digits",
+        "clearing",
+        "cost_usdc",
+        "country",
+        "formatted",
+        "iban",
+        "issuer",
+        "risk_indicators",
+        "sepa",
+        "valid"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "cost_usdc": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.ibanforge.com",
+    "endpoint": "https://api.ibanforge.com/v1/iban/validate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

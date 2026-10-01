@@ -1,0 +1,54 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_648191760b6ea3a2",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "raw": {
+          "type": "object",
+          "properties": {}
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "riskLevel": {
+          "type": "string"
+        },
+        "riskScore": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "address",
+        "chain",
+        "raw",
+        "reasons",
+        "riskLevel",
+        "riskScore"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "token-safety-oracle-production-ffad.up.railway.app",
+    "endpoint": "https://token-safety-oracle-production-ffad.up.railway.app/check/:address",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

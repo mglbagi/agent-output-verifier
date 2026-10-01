@@ -1,0 +1,83 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c87ddf6b7ceb0d83",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "exit_code": {
+          "description": "Process exit code (null if killed)",
+          "type": "number"
+        },
+        "language": {
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "id",
+            "name"
+          ]
+        },
+        "memory": {
+          "description": "Peak memory usage in kilobytes (KB). Tier limits in /pricing are expressed in MB — multiply by 1024 to compare.",
+          "type": "number"
+        },
+        "status": {
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "id": {
+              "description": "3=Accepted, 4=Wrong Answer, 5=Time Limit Exceeded, 6=Compilation Error, 7=Runtime Error (SIGSEGV), 8=Runtime Error (SIGXFSZ), 9=Runtime Error (SIGFPE), 10=Runtime Error (SIGABRT), 11=Runtime Error (NZEC), 12=Runtime Error (Other). Codes 1-2 (queued/processing) never appear in responses; codes 13-14 (infra errors) return HTTP 502 instead.",
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "description",
+            "id"
+          ]
+        },
+        "stderr": {
+          "description": "Program standard error (null if none). Truncated at 4096 KB by the execution backend.",
+          "type": "string"
+        },
+        "stdout": {
+          "description": "Program standard output (null if none). Truncated at 4096 KB by the execution backend.",
+          "type": "string"
+        },
+        "time": {
+          "description": "Execution wall time in seconds, returned as a decimal string (e.g. \"0.023\")",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "exit_code",
+        "language",
+        "memory",
+        "status",
+        "stderr",
+        "stdout",
+        "time"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "execbox.xyz",
+    "endpoint": "https://execbox.xyz/execute",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

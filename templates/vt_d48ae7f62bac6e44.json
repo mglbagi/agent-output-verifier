@@ -1,0 +1,256 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d48ae7f62bac6e44",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "accepts_mail": {
+          "description": "true when the domain has at least one MX record",
+          "type": "boolean"
+        },
+        "dkim": {
+          "properties": {
+            "checked_selectors": {
+              "description": "exact selectors probed",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "found": {
+              "items": {
+                "properties": {
+                  "record": {
+                    "type": "string"
+                  },
+                  "selector": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "record",
+                  "selector"
+                ]
+              },
+              "type": "array"
+            }
+          },
+          "type": "object",
+          "required": [
+            "checked_selectors",
+            "found"
+          ]
+        },
+        "dmarc": {
+          "description": "null when no DMARC record is present",
+          "properties": {
+            "adkim": {
+              "default": "r",
+              "enum": [
+                "r",
+                "s"
+              ],
+              "type": "string"
+            },
+            "aspf": {
+              "default": "r",
+              "enum": [
+                "r",
+                "s"
+              ],
+              "type": "string"
+            },
+            "pct": {
+              "default": 100,
+              "maximum": 100,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "policy": {
+              "description": "p= tag; empty when missing/invalid",
+              "enum": [
+                "none",
+                "quarantine",
+                "reject",
+                ""
+              ],
+              "type": "string"
+            },
+            "record": {
+              "type": "string"
+            },
+            "rua": {
+              "description": "aggregate report addresses",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "ruf": {
+              "description": "forensic report addresses",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "subdomain_policy": {
+              "description": "sp= tag; empty when absent (inherits policy)",
+              "type": "string"
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "adkim",
+            "aspf",
+            "pct",
+            "policy",
+            "record",
+            "rua",
+            "ruf",
+            "subdomain_policy"
+          ]
+        },
+        "domain": {
+          "type": "string"
+        },
+        "mx": {
+          "items": {
+            "properties": {
+              "host": {
+                "type": "string"
+              },
+              "pref": {
+                "maximum": 65535,
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "type": "object",
+            "required": [
+              "host",
+              "pref"
+            ]
+          },
+          "type": "array"
+        },
+        "queried_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "spf": {
+          "description": "null when no SPF record is present",
+          "properties": {
+            "all_qualifier": {
+              "description": "qualifier on the all mechanism; empty when absent",
+              "enum": [
+                "-all",
+                "~all",
+                "?all",
+                "+all",
+                ""
+              ],
+              "type": "string"
+            },
+            "dns_lookups": {
+              "description": "count of lookup-causing terms; RFC 7208 limit is 10",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "mechanisms": {
+              "items": {
+                "properties": {
+                  "causes_dns": {
+                    "type": "boolean"
+                  },
+                  "kind": {
+                    "enum": [
+                      "include",
+                      "a",
+                      "mx",
+                      "ip4",
+                      "ip6",
+                      "all",
+                      "exists",
+                      "ptr",
+                      "redirect",
+                      "exp",
+                      "unknown"
+                    ],
+                    "type": "string"
+                  },
+                  "qualifier": {
+                    "enum": [
+                      "+",
+                      "-",
+                      "~",
+                      "?"
+                    ],
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "causes_dns",
+                  "kind",
+                  "qualifier",
+                  "value"
+                ]
+              },
+              "type": "array"
+            },
+            "record": {
+              "type": "string"
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "all_qualifier",
+            "dns_lookups",
+            "mechanisms",
+            "record"
+          ]
+        },
+        "warnings": {
+          "description": "human-readable posture advisories; never null",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "domain",
+        "queried_at",
+        "accepts_mail",
+        "mx",
+        "spf",
+        "dmarc",
+        "dkim",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "email-auth.use.x402atlas.com",
+    "endpoint": "https://email-auth.use.x402atlas.com/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

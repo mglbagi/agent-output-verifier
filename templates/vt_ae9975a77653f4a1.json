@@ -1,0 +1,37 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ae9975a77653f4a1",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "robots": {
+          "type": "array"
+        },
+        "total": {
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "required": [
+        "robots",
+        "total"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "gateway.spraay.app",
+    "endpoint": "https://gateway.spraay.app/api/v1/robots/list",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

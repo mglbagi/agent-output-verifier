@@ -1,0 +1,84 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_151a18f630e5d675",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string",
+              "format": "date"
+            },
+            "is_business_day": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "date",
+            "is_business_day"
+          ]
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "attribution": {
+              "type": "string"
+            },
+            "fetched_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "freshness_class": {
+              "type": "string"
+            },
+            "license_id": {
+              "type": "string"
+            },
+            "source_id": {
+              "type": "string"
+            },
+            "source_name": {
+              "type": "string"
+            },
+            "stale": {
+              "type": "boolean"
+            },
+            "terms_url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "attribution",
+            "fetched_at",
+            "freshness_class",
+            "license_id",
+            "source_id",
+            "source_name",
+            "stale",
+            "terms_url"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "torii-gateway-production.ichis-lab.workers.dev",
+    "endpoint": "https://torii-gateway-production.ichis-lab.workers.dev/v1/jp-biz-calendar/is-business-day",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

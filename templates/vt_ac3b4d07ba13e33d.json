@@ -1,0 +1,236 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ac3b4d07ba13e33d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "analyzed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "analyzer_version": {
+          "type": "string"
+        },
+        "ci": {
+          "type": "object",
+          "properties": {
+            "other": {
+              "type": "array"
+            },
+            "present": {
+              "type": "boolean"
+            },
+            "workflows": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "other",
+            "present",
+            "workflows"
+          ]
+        },
+        "default_branch": {
+          "type": "string"
+        },
+        "doc_health": {
+          "type": "object",
+          "properties": {
+            "max": {
+              "type": "integer"
+            },
+            "passed": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "score": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "max",
+            "passed",
+            "score"
+          ]
+        },
+        "docs": {
+          "type": "object",
+          "properties": {
+            "readme": {
+              "type": "object",
+              "properties": {
+                "bytes": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "present": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "bytes",
+                "path",
+                "present"
+              ]
+            }
+          },
+          "required": [
+            "readme"
+          ]
+        },
+        "has_agents_md": {
+          "type": "boolean"
+        },
+        "languages": {
+          "type": "object",
+          "properties": {
+            "TypeScript": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "TypeScript"
+          ]
+        },
+        "license": {
+          "type": "string"
+        },
+        "manifests": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "phantom_paths": {
+          "type": "array"
+        },
+        "repo": {
+          "type": "string"
+        },
+        "structure": {
+          "type": "object",
+          "properties": {
+            "file_count": {
+              "type": "integer"
+            },
+            "top_level_dirs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "truncated": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "file_count",
+            "top_level_dirs",
+            "truncated"
+          ]
+        },
+        "tests": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "integer"
+            },
+            "present": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "count",
+            "present"
+          ]
+        },
+        "toolchain": {
+          "type": "object",
+          "properties": {
+            "commands": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "command": {
+                    "type": "string"
+                  },
+                  "raw": {
+                    "type": "string"
+                  },
+                  "source": {
+                    "type": "string"
+                  },
+                  "task": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "command",
+                  "raw",
+                  "source",
+                  "task"
+                ]
+              }
+            }
+          },
+          "required": [
+            "commands"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "analyzed_at",
+        "analyzer_version",
+        "ci",
+        "default_branch",
+        "doc_health",
+        "docs",
+        "has_agents_md",
+        "languages",
+        "license",
+        "manifests",
+        "phantom_paths",
+        "repo",
+        "structure",
+        "tests",
+        "toolchain",
+        "url"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "docs.readme.bytes": {
+        "min": 0
+      },
+      "structure.file_count": {
+        "min": 0
+      },
+      "tests.count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "verdoc-x402.verdoc-x402-worker.workers.dev",
+    "endpoint": "https://verdoc-x402.verdoc-x402-worker.workers.dev/scan",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

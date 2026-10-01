@@ -1,0 +1,85 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_dd13c7963d9e1edb",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "address_type": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ]
+        },
+        "recent_usdc_transfers": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "count"
+          ]
+        },
+        "usdc_balance": {
+          "type": "object",
+          "properties": {
+            "balance": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "balance"
+          ]
+        },
+        "x402_merchant": {
+          "type": "object",
+          "properties": {
+            "is_x402_merchant": {
+              "type": "boolean"
+            },
+            "listed": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "is_x402_merchant",
+            "listed"
+          ]
+        }
+      },
+      "required": [
+        "address",
+        "address_type",
+        "recent_usdc_transfers",
+        "usdc_balance",
+        "x402_merchant"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "recent_usdc_transfers.count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "quartermaster.surewhynot.app",
+    "endpoint": "https://quartermaster.surewhynot.app/v1/base/wallet-report",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

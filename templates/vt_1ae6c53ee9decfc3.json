@@ -1,0 +1,54 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1ae6c53ee9decfc3",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "currency": {
+          "description": "ISO 4217 currency of total.",
+          "type": "string"
+        },
+        "order_id": {
+          "description": "The SimFuse order id.",
+          "type": "string"
+        },
+        "order_status_url": {
+          "description": "Signed URL to poll (GET) for the order; once provisioned it returns the installable eSIM: ICCID, LPA activation code, QR code and one-tap iPhone/Android install links.",
+          "type": "string",
+          "format": "uri"
+        },
+        "order_url": {
+          "description": "URL of the order page for a person.",
+          "type": "string",
+          "format": "uri"
+        },
+        "status": {
+          "description": "Order status; \"paid\" once the payment has settled.",
+          "type": "string"
+        },
+        "total": {
+          "description": "Amount charged, in major units of currency.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "order_id",
+        "status",
+        "order_status_url"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "simfuse.app",
+    "endpoint": "https://simfuse.app/x402/purchase/01kvmtdbhapb1ymvp089vqja16",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

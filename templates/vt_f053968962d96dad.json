@@ -1,0 +1,51 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f053968962d96dad",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "properties": {
+            "attributes": {
+              "description": "Resource attributes; see https://developers.zerion.io",
+              "type": "object"
+            },
+            "id": {
+              "description": "Resource ID.",
+              "type": "string"
+            },
+            "type": {
+              "description": "Resource type.",
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "attributes",
+            "type"
+          ]
+        },
+        "links": {
+          "description": "Self and pagination links.",
+          "type": "object"
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.zerion.io",
+    "endpoint": "https://api.zerion.io/v1/wallets/:address/portfolio",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

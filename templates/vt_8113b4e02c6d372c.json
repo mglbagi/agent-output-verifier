@@ -1,0 +1,58 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8113b4e02c6d372c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "confidence": {
+          "type": "number"
+        },
+        "signals": {
+          "type": "object",
+          "properties": {
+            "entropy": {
+              "type": "number"
+            },
+            "jitter": {
+              "type": "string"
+            },
+            "tls_fp": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "entropy",
+            "jitter",
+            "tls_fp"
+          ]
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "confidence",
+        "signals",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "rtt.phoenix-ai.work",
+    "endpoint": "https://rtt.phoenix-ai.work/api/v1/classify",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

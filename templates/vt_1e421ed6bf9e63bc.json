@@ -1,0 +1,80 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1e421ed6bf9e63bc",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "deep_scan": {
+          "type": "string"
+        },
+        "fear_greed": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "value": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "label",
+            "value"
+          ]
+        },
+        "majors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "change_24h_pct": {
+                "type": "number"
+              },
+              "price_usd": {
+                "type": "number"
+              },
+              "ticker": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "change_24h_pct",
+              "price_usd",
+              "ticker"
+            ]
+          }
+        },
+        "note": {
+          "type": "string"
+        },
+        "regime": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "deep_scan",
+        "fear_greed",
+        "majors",
+        "note",
+        "regime"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "majors[].price_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "signalpulse.theaslangroupllc.com",
+    "endpoint": "https://signalpulse.theaslangroupllc.com/api/scan/crypto-lite",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

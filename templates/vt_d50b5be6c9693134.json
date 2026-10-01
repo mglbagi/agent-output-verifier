@@ -1,0 +1,45 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d50b5be6c9693134",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "description": "Initial job status",
+          "type": "string"
+        },
+        "statusUrl": {
+          "description": "Poll GET this URL for download_url when completed",
+          "format": "uri",
+          "type": "string"
+        },
+        "taskId": {
+          "description": "Generation session id",
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "required": [
+        "taskId",
+        "status",
+        "statusUrl"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "vmi1759441.contaboserver.net",
+    "endpoint": "https://vmi1759441.contaboserver.net/api/x402/ugc-product-video",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

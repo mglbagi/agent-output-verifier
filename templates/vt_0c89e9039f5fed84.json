@@ -1,0 +1,248 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0c89e9039f5fed84",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "blockedFlushSuits": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "blockers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "class": {
+                "type": "string"
+              },
+              "remaining": {
+                "type": "integer"
+              },
+              "total": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "class",
+              "remaining",
+              "total"
+            ]
+          }
+        },
+        "canonical": {
+          "type": "string"
+        },
+        "class": {
+          "type": "string"
+        },
+        "classOf": {
+          "type": "integer"
+        },
+        "classRank": {
+          "type": "integer"
+        },
+        "engine": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "version"
+          ]
+        },
+        "headToHead": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "boards": {
+                "type": "integer"
+              },
+              "combos": {
+                "type": "integer"
+              },
+              "equity": {
+                "type": "number"
+              },
+              "split": {
+                "type": "number"
+              },
+              "vs": {
+                "type": "string"
+              },
+              "win": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "boards",
+              "combos",
+              "equity",
+              "split",
+              "vs",
+              "win"
+            ]
+          }
+        },
+        "id": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "paired": {
+          "type": "boolean"
+        },
+        "percentile": {
+          "type": "number"
+        },
+        "positions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "open": {
+                "type": "boolean"
+              },
+              "position": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "label",
+              "open",
+              "position"
+            ]
+          }
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "blockers": {
+              "type": "string"
+            },
+            "headToHead": {
+              "type": "string"
+            },
+            "positions": {
+              "type": "string"
+            },
+            "vsRandom": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "blockers",
+            "headToHead",
+            "positions",
+            "vsRandom"
+          ]
+        },
+        "suited": {
+          "type": "boolean"
+        },
+        "vsRandom": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "equity": {
+                "type": "number"
+              },
+              "tie": {
+                "type": "number"
+              },
+              "win": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "equity",
+              "tie",
+              "win"
+            ]
+          }
+        },
+        "vsRange": {
+          "type": "object",
+          "properties": {
+            "any2": {
+              "type": "number"
+            },
+            "top10": {
+              "type": "number"
+            },
+            "top20": {
+              "type": "number"
+            },
+            "top40": {
+              "type": "number"
+            },
+            "top5": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "any2",
+            "top10",
+            "top20",
+            "top40",
+            "top5"
+          ]
+        }
+      },
+      "required": [
+        "blockedFlushSuits",
+        "blockers",
+        "canonical",
+        "class",
+        "classOf",
+        "classRank",
+        "engine",
+        "headToHead",
+        "id",
+        "license",
+        "name",
+        "paired",
+        "percentile",
+        "positions",
+        "provenance",
+        "suited",
+        "vsRandom",
+        "vsRange"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "blockers[].total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "poketpoker.com",
+    "endpoint": "https://poketpoker.com/api/hands/AhKh",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

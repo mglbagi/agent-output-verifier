@@ -1,0 +1,61 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_837b618abac0eb5b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "chain": {
+          "description": "Chain checked (default: base, supports all 12)",
+          "type": "string"
+        },
+        "p99_ms": {
+          "description": "Sequencer P99 RTT in milliseconds",
+          "type": "number"
+        },
+        "reason": {
+          "enum": [
+            "ok",
+            "elevated_revert",
+            "high_revert",
+            "sequencer_stall",
+            "data_stale"
+          ],
+          "type": "string"
+        },
+        "revert_ratio": {
+          "description": "Base revert ratio (0.0-1.0)",
+          "type": "number"
+        },
+        "safe": {
+          "description": "true = safe to execute L2 transaction now",
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "required": [
+        "chain",
+        "p99_ms",
+        "reason",
+        "revert_ratio",
+        "safe"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "revert_ratio": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "rtt.phoenix-ai.work",
+    "endpoint": "https://rtt.phoenix-ai.work/api/v1/safe",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

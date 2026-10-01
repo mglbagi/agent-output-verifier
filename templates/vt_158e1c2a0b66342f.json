@@ -1,0 +1,50 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_158e1c2a0b66342f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "chapter": {
+          "type": "string"
+        },
+        "full_text": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "part": {
+          "type": "integer"
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "chapter",
+        "full_text",
+        "id",
+        "part",
+        "source_url",
+        "title"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "irm-api.canvas-cart.workers.dev",
+    "endpoint": "https://irm-api.canvas-cart.workers.dev/section/:id/full",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_70b7d724486a7e1b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "current_forecast": {
+          "type": "object"
+        },
+        "fetched_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "forecast_horizon": {
+          "type": "object"
+        },
+        "hourly_forecast": {
+          "type": "array"
+        },
+        "location": {
+          "type": "object"
+        },
+        "six_hour_periods": {
+          "type": "array"
+        },
+        "source": {
+          "type": "object"
+        },
+        "source_updated_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "location",
+        "current_forecast",
+        "hourly_forecast",
+        "six_hour_periods",
+        "forecast_horizon",
+        "source",
+        "source_updated_at",
+        "fetched_at"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "wallet-services-poc-clean.3hz-services.workers.dev",
+    "endpoint": "https://wallet-services-poc-clean.3hz-services.workers.dev/weather",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

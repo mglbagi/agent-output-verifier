@@ -1,0 +1,195 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8b2feaebdb16278b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "chain": {
+          "type": "string"
+        },
+        "concentration": {
+          "type": "object",
+          "properties": {
+            "creator_pct": {
+              "type": "number"
+            },
+            "insiders_detected": {
+              "type": "boolean"
+            },
+            "top10_holder_pct": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "creator_pct",
+            "insiders_detected",
+            "top10_holder_pct"
+          ]
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "green_flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "is_safe": {
+          "type": "boolean"
+        },
+        "mint": {
+          "type": "string"
+        },
+        "momentum": {
+          "type": "object",
+          "properties": {
+            "buy_sell_ratio_h1": {
+              "type": "number"
+            },
+            "liquidity_usd": {
+              "type": "number"
+            },
+            "market_cap": {
+              "type": "integer"
+            },
+            "pair_age_hours": {
+              "type": "integer"
+            },
+            "price_change_h1_pct": {
+              "type": "number"
+            },
+            "price_usd": {
+              "type": "number"
+            },
+            "read": {
+              "type": "string"
+            },
+            "vol_h1_usd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "buy_sell_ratio_h1",
+            "liquidity_usd",
+            "market_cap",
+            "pair_age_hours",
+            "price_change_h1_pct",
+            "price_usd",
+            "read",
+            "vol_h1_usd"
+          ]
+        },
+        "one_liner": {
+          "type": "string"
+        },
+        "red_flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "risk_score": {
+          "type": "integer"
+        },
+        "safety": {
+          "type": "object",
+          "properties": {
+            "danger_risks": {
+              "type": "array"
+            },
+            "freeze_authority_revoked": {
+              "type": "boolean"
+            },
+            "lp_locked_or_burned_pct": {
+              "type": "number"
+            },
+            "mint_authority_revoked": {
+              "type": "boolean"
+            },
+            "rugged": {
+              "type": "boolean"
+            },
+            "source": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "danger_risks",
+            "freeze_authority_revoked",
+            "lp_locked_or_burned_pct",
+            "mint_authority_revoked",
+            "rugged",
+            "source"
+          ]
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "chain",
+        "concentration",
+        "confidence",
+        "disclaimer",
+        "green_flags",
+        "is_safe",
+        "mint",
+        "momentum",
+        "one_liner",
+        "red_flags",
+        "risk_score",
+        "safety",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "concentration.creator_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "concentration.top10_holder_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "momentum.buy_sell_ratio_h1": {
+        "min": 0,
+        "max": 1
+      },
+      "momentum.liquidity_usd": {
+        "min": 0
+      },
+      "momentum.market_cap": {
+        "min": 0
+      },
+      "momentum.pair_age_hours": {
+        "min": 0
+      },
+      "momentum.price_usd": {
+        "min": 0
+      },
+      "momentum.vol_h1_usd": {
+        "min": 0
+      },
+      "safety.lp_locked_or_burned_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "onchainpulse.theaslangroupllc.com",
+    "endpoint": "https://onchainpulse.theaslangroupllc.com/api/token-safety",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

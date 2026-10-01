@@ -1,0 +1,70 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_36554441c48530c3",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "asserts": {
+          "type": "string"
+        },
+        "assumptions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "bo_trust": {
+          "type": "object"
+        },
+        "deliverable_type": {
+          "type": "string"
+        },
+        "findings": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "growth": {
+          "type": "object"
+        },
+        "period": {
+          "type": "object"
+        },
+        "projected_monthly_saving_usd": {
+          "type": "number"
+        },
+        "status": {
+          "type": "string"
+        },
+        "totals": {
+          "type": "object"
+        },
+        "verify_recipe": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "deliverable_type"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "projected_monthly_saving_usd": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.craigmbrown.com",
+    "endpoint": "https://api.craigmbrown.com/v1/services/finops.token-spend-audit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

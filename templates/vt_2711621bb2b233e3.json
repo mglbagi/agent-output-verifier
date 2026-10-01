@@ -1,0 +1,90 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2711621bb2b233e3",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "confidence": {
+          "description": "0-100, lower when the seats disagreed.",
+          "type": "integer"
+        },
+        "consensus": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "dissent": {
+          "description": "real disagreements, as {seat, point} - empty when the panel agreed.",
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "elapsed_sec": {
+          "type": "number"
+        },
+        "mode": {
+          "enum": [
+            "quick",
+            "deep"
+          ],
+          "type": "string"
+        },
+        "panel": {
+          "description": "each seat's position, confidence and the model that argued it.",
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "question": {
+          "type": "string"
+        },
+        "rounds": {
+          "type": "integer"
+        },
+        "seats": {
+          "type": "integer"
+        },
+        "verdict": {
+          "description": "the council's answer, synthesized by the chair.",
+          "type": "string"
+        },
+        "watch_for": {
+          "description": "what would flip the verdict.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "confidence",
+        "consensus",
+        "dissent",
+        "elapsed_sec",
+        "mode",
+        "panel",
+        "question",
+        "rounds",
+        "seats",
+        "verdict",
+        "watch_for"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "council.cyberwarex.com",
+    "endpoint": "https://council.cyberwarex.com/council-deep",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

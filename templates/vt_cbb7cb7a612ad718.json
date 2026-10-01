@@ -1,0 +1,156 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cbb7cb7a612ad718",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "coverage": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "integer"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "age_s": {
+                    "type": "number"
+                  },
+                  "check_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "created_at": {
+                    "type": "number"
+                  },
+                  "dev_share": {
+                    "type": "number"
+                  },
+                  "flags": {
+                    "type": "array"
+                  },
+                  "mint": {
+                    "type": "string"
+                  },
+                  "n_buys": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "p_rug_300s": {
+                    "type": "number"
+                  },
+                  "p_true_graduation": {
+                    "type": "number"
+                  },
+                  "probabilities": {
+                    "type": "object",
+                    "properties": {
+                      "rug_within_300s": {
+                        "type": "number"
+                      },
+                      "true_graduation": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "rug_within_300s",
+                      "true_graduation"
+                    ]
+                  },
+                  "rs_sol": {
+                    "type": "number"
+                  },
+                  "symbol": {
+                    "type": "string"
+                  },
+                  "top5_share": {
+                    "type": "number"
+                  },
+                  "unique_buyers_60s": {
+                    "type": "integer"
+                  },
+                  "verdict": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "age_s",
+                  "check_url",
+                  "created_at",
+                  "dev_share",
+                  "flags",
+                  "mint",
+                  "n_buys",
+                  "name",
+                  "p_rug_300s",
+                  "p_true_graduation",
+                  "probabilities",
+                  "rs_sol",
+                  "symbol",
+                  "top5_share",
+                  "unique_buyers_60s",
+                  "verdict"
+                ]
+              }
+            },
+            "next_cursor": {
+              "type": "number"
+            },
+            "since": {
+              "type": "integer"
+            },
+            "truncated": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "count",
+            "items",
+            "next_cursor",
+            "since",
+            "truncated"
+          ]
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "schema_version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "coverage",
+        "data",
+        "ok",
+        "schema_version"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.count": {
+        "min": 0
+      },
+      "data.items[].age_s": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.loopholetape.com",
+    "endpoint": "https://api.loopholetape.com/mcp#launches_since#launches_since",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

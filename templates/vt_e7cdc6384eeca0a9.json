@@ -1,0 +1,84 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e7cdc6384eeca0a9",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "bio": {
+          "type": "string"
+        },
+        "cached": {
+          "type": "boolean"
+        },
+        "category": {
+          "type": "string"
+        },
+        "fetched_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "followers": {
+          "type": "integer"
+        },
+        "following": {
+          "type": "integer"
+        },
+        "full_name": {
+          "type": "string"
+        },
+        "is_business": {
+          "type": "boolean"
+        },
+        "is_verified": {
+          "type": "boolean"
+        },
+        "media_count": {
+          "type": "integer"
+        },
+        "profile_pic_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "public_email": {
+          "type": "string",
+          "format": "email"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "bio",
+        "cached",
+        "category",
+        "fetched_at",
+        "followers",
+        "following",
+        "full_name",
+        "is_business",
+        "is_verified",
+        "media_count",
+        "profile_pic_url",
+        "public_email",
+        "username"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "media_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "socialintel.dev",
+    "endpoint": "https://socialintel.dev/v1/user/:username",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

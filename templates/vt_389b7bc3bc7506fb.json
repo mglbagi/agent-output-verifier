@@ -1,0 +1,163 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_389b7bc3bc7506fb",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "asOf": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "caveats": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "decomposed": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "markets": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "apparentVolumeUsd": {
+                "description": "Observed taker-side volume in the materialized window, in USD.",
+                "minimum": 0,
+                "type": "number"
+              },
+              "apparentVsBookFlag": {
+                "description": "Whether observed volume is structurally inconsistent with available book liquidity.",
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "bucket": {
+                "description": "Descriptive taker-flow structure bucket, not a fraud verdict.",
+                "enum": [
+                  "unranked",
+                  "structurally-thin",
+                  "concentrated",
+                  "moderate",
+                  "broad"
+                ],
+                "type": "string"
+              },
+              "conditionId": {
+                "description": "Polymarket condition ID.",
+                "pattern": "^0x[0-9a-fA-F]{64}$",
+                "type": "string"
+              },
+              "effectiveTraders": {
+                "description": "HHI-derived effective trader count for the observed taker flow.",
+                "minimum": 0,
+                "type": "integer"
+              },
+              "marketClosed": {
+                "description": "Whether the market was closed in the artifact.",
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "resolution": {
+                "additionalProperties": false,
+                "properties": {
+                  "category": {
+                    "description": "Heuristic category inferred from the market title.",
+                    "type": "string"
+                  },
+                  "categoryDisputeRatePct": {
+                    "maximum": 100,
+                    "minimum": 0,
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "categoryFlipRatePct": {
+                    "maximum": 100,
+                    "minimum": 0,
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "titleLooksUncheckable": {
+                    "description": "True when the market TITLE states no checkable threshold (price, number, score, head-to-head). Read from the title only — the resolution rules are not read.",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "category",
+                  "categoryDisputeRatePct",
+                  "categoryFlipRatePct",
+                  "titleLooksUncheckable"
+                ],
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "title": {
+                "description": "Observed Polymarket market title.",
+                "type": "string"
+              },
+              "topTraderShare": {
+                "description": "Share of observed taker volume attributed to the top trader.",
+                "maximum": 1,
+                "minimum": 0,
+                "type": "number"
+              }
+            },
+            "required": [
+              "conditionId",
+              "title",
+              "bucket",
+              "apparentVolumeUsd",
+              "topTraderShare",
+              "effectiveTraders",
+              "apparentVsBookFlag",
+              "marketClosed",
+              "resolution"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "observedMarkets": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "windowHours": {
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "asOf",
+        "windowHours",
+        "observedMarkets",
+        "decomposed",
+        "markets",
+        "caveats"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.polym.uk",
+    "endpoint": "https://api.polym.uk/screener",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

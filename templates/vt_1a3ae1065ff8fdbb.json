@@ -1,0 +1,108 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1a3ae1065ff8fdbb",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "checked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "checks": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "contract_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "declared": {
+          "description": "Normalized public Agent Card or OpenAPI declaration.",
+          "type": "object"
+        },
+        "evidence_urls": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "mismatches": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "observed": {
+          "description": "Normalized live HTTP/x402 challenge.",
+          "type": "object"
+        },
+        "service_version": {
+          "type": "string"
+        },
+        "target_method": {
+          "enum": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ],
+          "type": "string"
+        },
+        "target_status": {
+          "enum": [
+            "verified",
+            "unreachable",
+            "blocked",
+            "unsupported",
+            "insufficient_evidence"
+          ],
+          "type": "string"
+        },
+        "target_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "verdict": {
+          "enum": [
+            "conforms",
+            "mismatch",
+            "unreachable",
+            "insufficient_evidence"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "verdict",
+        "target_url",
+        "target_method",
+        "target_status",
+        "declared",
+        "observed",
+        "checks",
+        "mismatches",
+        "evidence_urls",
+        "checked_at",
+        "contract_hash",
+        "service_version"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-contract-proof.mattskowronis.workers.dev",
+    "endpoint": "https://agent-contract-proof.mattskowronis.workers.dev/v1/verify",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

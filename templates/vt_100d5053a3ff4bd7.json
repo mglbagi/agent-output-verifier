@@ -1,0 +1,62 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_100d5053a3ff4bd7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "answer": {
+          "type": "string"
+        },
+        "evidence": {
+          "type": "object"
+        },
+        "freshness": {
+          "type": "object"
+        },
+        "fulfilled_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "query": {
+          "type": "string"
+        },
+        "request_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "sources": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "status": {
+          "const": "fulfilled"
+        }
+      },
+      "required": [
+        "status",
+        "query",
+        "answer",
+        "sources",
+        "freshness",
+        "evidence",
+        "fulfilled_at",
+        "request_id"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.veyrly.com",
+    "endpoint": "https://api.veyrly.com/v1/evidence",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

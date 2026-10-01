@@ -1,0 +1,125 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e348ecab2a81e197",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "condition_id": {
+          "type": "string"
+        },
+        "ghost_fill_risk_breakdown": {
+          "type": "object",
+          "properties": {
+            "high": {
+              "type": "integer"
+            },
+            "low": {
+              "type": "integer"
+            },
+            "medium": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "high",
+            "low",
+            "medium"
+          ]
+        },
+        "holders": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "classification": {
+                "type": "string"
+              },
+              "ghost_fill_risk": {
+                "type": "string"
+              },
+              "position_value_usdc": {
+                "type": "number"
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "side": {
+                "type": "string"
+              },
+              "skill_score": {
+                "type": "number"
+              },
+              "wallet": {
+                "type": "string"
+              },
+              "wallet_type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "classification",
+              "ghost_fill_risk",
+              "position_value_usdc",
+              "rank",
+              "side",
+              "skill_score",
+              "wallet",
+              "wallet_type"
+            ]
+          }
+        },
+        "holders_screened": {
+          "type": "integer"
+        },
+        "insufficient_data_count": {
+          "type": "integer"
+        },
+        "neutral_count": {
+          "type": "integer"
+        },
+        "retail_count": {
+          "type": "integer"
+        },
+        "sharp_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "condition_id",
+        "ghost_fill_risk_breakdown",
+        "holders",
+        "holders_screened",
+        "insufficient_data_count",
+        "neutral_count",
+        "retail_count",
+        "sharp_count"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "insufficient_data_count": {
+        "min": 0
+      },
+      "neutral_count": {
+        "min": 0
+      },
+      "retail_count": {
+        "min": 0
+      },
+      "sharp_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "graphadvocate.com",
+    "endpoint": "https://graphadvocate.com/polymarket/screen",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

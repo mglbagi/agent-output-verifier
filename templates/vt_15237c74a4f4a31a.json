@@ -1,0 +1,30 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_15237c74a4f4a31a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "answer": {
+          "description": "AI portfolio analysis result",
+          "type": "string"
+        }
+      },
+      "required": [
+        "answer"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "vu.velvetdao.xyz",
+    "endpoint": "https://vu.velvetdao.xyz/api/v1/wallet_402",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

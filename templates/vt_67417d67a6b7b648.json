@@ -1,0 +1,145 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_67417d67a6b7b648",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "antecedent_covers_through": {
+          "type": "string",
+          "format": "date"
+        },
+        "antecedent_lag_days": {
+          "type": "integer"
+        },
+        "antecedent_window": {
+          "type": "string"
+        },
+        "attribution": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "data_basis": {
+          "type": "string"
+        },
+        "forecast_next_3d": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "partial": {
+                "type": "boolean"
+              },
+              "precipitation_sum_mm": {
+                "type": "number"
+              },
+              "temperature_max_c": {
+                "type": "integer"
+              },
+              "temperature_min_c": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "date",
+              "partial",
+              "precipitation_sum_mm",
+              "temperature_max_c",
+              "temperature_min_c"
+            ]
+          }
+        },
+        "going": {
+          "type": "string"
+        },
+        "going_confidence": {
+          "type": "string"
+        },
+        "going_description": {
+          "type": "string"
+        },
+        "going_trend": {
+          "type": "string"
+        },
+        "moisture_index": {
+          "type": "number"
+        },
+        "rain_7d_mm": {
+          "type": "number"
+        },
+        "source_licences": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "api": {
+                "type": "string"
+              },
+              "licence": {
+                "type": "string"
+              },
+              "licence_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "source": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "api",
+              "licence",
+              "licence_url",
+              "source"
+            ]
+          }
+        },
+        "temperature_c": {
+          "type": "number"
+        },
+        "track": {
+          "type": "string"
+        },
+        "wind_speed_kmh": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "antecedent_covers_through",
+        "antecedent_lag_days",
+        "antecedent_window",
+        "attribution",
+        "data_basis",
+        "forecast_next_3d",
+        "going",
+        "going_confidence",
+        "going_description",
+        "going_trend",
+        "moisture_index",
+        "rain_7d_mm",
+        "source_licences",
+        "temperature_c",
+        "track",
+        "wind_speed_kmh"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "racingpulse.theaslangroupllc.com",
+    "endpoint": "https://racingpulse.theaslangroupllc.com/api/going",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

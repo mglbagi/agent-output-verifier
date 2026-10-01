@@ -1,0 +1,346 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0a07d294ce43203e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "airports": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "arrival_id": {
+          "type": "string"
+        },
+        "best_flights": {
+          "items": {
+            "properties": {
+              "airline_logo": {
+                "type": "string"
+              },
+              "carbon_emissions": {
+                "type": "object"
+              },
+              "departure_token": {
+                "description": "Pass back to retrieve return-flight choices",
+                "type": "string"
+              },
+              "extensions": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "flights": {
+                "items": {
+                  "properties": {
+                    "airline": {
+                      "type": "string"
+                    },
+                    "airline_logo": {
+                      "type": "string"
+                    },
+                    "airplane": {
+                      "type": "string"
+                    },
+                    "arrival_airport": {
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "time": {
+                          "description": "Local date and time",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "name",
+                        "time"
+                      ]
+                    },
+                    "departure_airport": {
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "time": {
+                          "description": "Local date and time",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "name",
+                        "time"
+                      ]
+                    },
+                    "duration": {
+                      "description": "Segment duration in minutes",
+                      "type": "integer"
+                    },
+                    "extensions": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "flight_number": {
+                      "type": "string"
+                    },
+                    "legroom": {
+                      "type": "string"
+                    },
+                    "often_delayed_by_over_30_min": {
+                      "type": "boolean"
+                    },
+                    "overnight": {
+                      "type": "boolean"
+                    },
+                    "travel_class": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object",
+                  "required": [
+                    "airline",
+                    "arrival_airport",
+                    "departure_airport",
+                    "duration",
+                    "flight_number",
+                    "travel_class"
+                  ]
+                },
+                "type": "array"
+              },
+              "layovers": {
+                "items": {
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "price": {
+                "type": "number"
+              },
+              "total_duration": {
+                "description": "Total itinerary duration in minutes",
+                "type": "integer"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "carbon_emissions",
+              "departure_token",
+              "flights",
+              "price",
+              "total_duration",
+              "type"
+            ]
+          },
+          "type": "array"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "departure_id": {
+          "type": "string"
+        },
+        "other_flights": {
+          "items": {
+            "properties": {
+              "airline_logo": {
+                "type": "string"
+              },
+              "carbon_emissions": {
+                "type": "object"
+              },
+              "departure_token": {
+                "description": "Pass back to retrieve return-flight choices",
+                "type": "string"
+              },
+              "extensions": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "flights": {
+                "items": {
+                  "properties": {
+                    "airline": {
+                      "type": "string"
+                    },
+                    "airline_logo": {
+                      "type": "string"
+                    },
+                    "airplane": {
+                      "type": "string"
+                    },
+                    "arrival_airport": {
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "time": {
+                          "description": "Local date and time",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "departure_airport": {
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "time": {
+                          "description": "Local date and time",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "duration": {
+                      "description": "Segment duration in minutes",
+                      "type": "integer"
+                    },
+                    "extensions": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "flight_number": {
+                      "type": "string"
+                    },
+                    "legroom": {
+                      "type": "string"
+                    },
+                    "often_delayed_by_over_30_min": {
+                      "type": "boolean"
+                    },
+                    "overnight": {
+                      "type": "boolean"
+                    },
+                    "travel_class": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "layovers": {
+                "items": {
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "price": {
+                "type": "number"
+              },
+              "total_duration": {
+                "description": "Total itinerary duration in minutes",
+                "type": "integer"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "outbound_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "price_insights": {
+          "type": "object"
+        },
+        "queried_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "return_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "travel_class": {
+          "type": "string"
+        },
+        "trip_type": {
+          "enum": [
+            "round_trip",
+            "one_way"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "queried_at",
+        "departure_id",
+        "arrival_id",
+        "outbound_date",
+        "trip_type",
+        "travel_class",
+        "currency",
+        "best_flights",
+        "other_flights"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "best_flights[].flights[].duration": {
+        "min": 0
+      },
+      "best_flights[].price": {
+        "min": 0
+      },
+      "best_flights[].total_duration": {
+        "min": 0
+      },
+      "other_flights[].flights[].duration": {
+        "min": 0,
+        "if_present": true
+      },
+      "other_flights[].price": {
+        "min": 0,
+        "if_present": true
+      },
+      "other_flights[].total_duration": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "flights.use.x402atlas.com",
+    "endpoint": "https://flights.use.x402atlas.com/search/:departure/:arrival",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

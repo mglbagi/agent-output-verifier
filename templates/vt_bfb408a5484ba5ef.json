@@ -1,0 +1,151 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bfb408a5484ba5ef",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "currencies": {
+          "type": "object",
+          "properties": {
+            "btc": {
+              "type": "object",
+              "properties": {
+                "price": {
+                  "type": "object",
+                  "properties": {
+                    "usd": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "usd"
+                  ]
+                },
+                "regime_state": {
+                  "type": "object",
+                  "properties": {
+                    "perp_regime": {
+                      "type": "string"
+                    },
+                    "stability": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "perp_regime",
+                    "stability"
+                  ]
+                }
+              },
+              "required": [
+                "price",
+                "regime_state"
+              ]
+            },
+            "eth": {
+              "type": "object",
+              "properties": {
+                "price": {
+                  "type": "object",
+                  "properties": {
+                    "usd": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "usd"
+                  ]
+                }
+              },
+              "required": [
+                "price"
+              ]
+            },
+            "sol": {
+              "type": "object",
+              "properties": {
+                "price": {
+                  "type": "object",
+                  "properties": {
+                    "usd": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "usd"
+                  ]
+                }
+              },
+              "required": [
+                "price"
+              ]
+            }
+          },
+          "required": [
+            "btc",
+            "eth",
+            "sol"
+          ]
+        },
+        "macro": {
+          "type": "object",
+          "properties": {
+            "risk_regime": {
+              "type": "string"
+            },
+            "risk_score": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "risk_regime",
+            "risk_score"
+          ]
+        },
+        "regime": {
+          "type": "object",
+          "properties": {
+            "mssi_regime": {
+              "type": "string"
+            },
+            "msti_regime": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "mssi_regime",
+            "msti_regime"
+          ]
+        }
+      },
+      "required": [
+        "currencies",
+        "macro",
+        "regime"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "currencies.btc.price.usd": {
+        "min": 0
+      },
+      "currencies.eth.price.usd": {
+        "min": 0
+      },
+      "currencies.sol.price.usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.myceliasignal.com",
+    "endpoint": "https://api.myceliasignal.com/oracle/synopsis/market",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

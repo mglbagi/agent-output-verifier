@@ -1,0 +1,73 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8e6a5af8de752616",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "returned": {
+          "type": "integer"
+        },
+        "threat_db_updated_at": {
+          "type": "integer"
+        },
+        "threats": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "pattern": "^0x[a-fA-F0-9]{40}$"
+              },
+              "confidence": {
+                "type": "string"
+              },
+              "first_seen": {
+                "type": "integer"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "zero_value_recipients": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "address",
+              "confidence",
+              "first_seen",
+              "reason",
+              "zero_value_recipients"
+            ]
+          }
+        },
+        "total_in_db": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "returned",
+        "threat_db_updated_at",
+        "threats",
+        "total_in_db"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "total_in_db": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-store.dgdb.workers.dev",
+    "endpoint": "https://x402-store.dgdb.workers.dev/v1/threats/recent",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

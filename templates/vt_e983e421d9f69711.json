@@ -1,0 +1,45 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e983e421d9f69711",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "a11y": {
+          "type": "object"
+        },
+        "findings": {
+          "type": "array"
+        },
+        "headers": {
+          "type": "object"
+        },
+        "overall": {
+          "type": "number"
+        },
+        "seo": {
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "required": [
+        "a11y",
+        "findings",
+        "headers",
+        "overall",
+        "seo"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mudko.com",
+    "endpoint": "https://mudko.com/api/x402/audit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

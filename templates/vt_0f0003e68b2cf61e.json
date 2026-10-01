@@ -1,0 +1,282 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0f0003e68b2cf61e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "asOf": {
+          "description": "ISO-8601 timestamp the data was fetched",
+          "type": "string",
+          "format": "date-time"
+        },
+        "markets": {
+          "description": "Normalized market rows",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "bestAsk": {
+                "description": "Best ask for the first outcome",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "bestBid": {
+                "description": "Best bid for the first outcome",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "conditionId": {
+                "description": "On-chain condition id (bytes32 hex)",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "derived": {
+                "additionalProperties": false,
+                "description": "Fields not in the free listing: computed from the CLOB price history and the public trade tape. Null with a reason in errors when a provider is unavailable.",
+                "properties": {
+                  "errors": {
+                    "description": "Provider-scoped reasons a derived field is null (e.g. clob:timeout)",
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "historySamples": {
+                    "description": "Price points used",
+                    "type": "integer"
+                  },
+                  "priceDelta1h": {
+                    "description": "YES price now minus YES price 1h ago",
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "priceDelta6h": {
+                    "description": "YES price now minus YES price 6h ago",
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "realizedVol24h": {
+                    "description": "Std-dev of 10-minute log returns over the last 24h",
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "whaleFlow": {
+                    "additionalProperties": false,
+                    "description": "Trade-tape summary over the last 6h; BUY of NO counts as SELL of YES",
+                    "properties": {
+                      "buyYesUsdc": {
+                        "type": "number"
+                      },
+                      "flow": {
+                        "enum": [
+                          "YES_ACCUMULATION",
+                          "YES_DISTRIBUTION",
+                          "BALANCED",
+                          "NO_TRADES"
+                        ],
+                        "type": "string"
+                      },
+                      "largestTradeUsdc": {
+                        "type": "number"
+                      },
+                      "netYesUsdc": {
+                        "type": "number"
+                      },
+                      "sellYesUsdc": {
+                        "type": "number"
+                      },
+                      "trades": {
+                        "type": "integer"
+                      },
+                      "whaleThresholdUsdc": {
+                        "type": "number"
+                      },
+                      "whaleTrades": {
+                        "type": "integer"
+                      },
+                      "windowSec": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "windowSec",
+                      "trades",
+                      "netYesUsdc",
+                      "largestTradeUsdc",
+                      "whaleTrades",
+                      "flow"
+                    ],
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "priceDelta1h",
+                  "priceDelta6h",
+                  "realizedVol24h",
+                  "whaleFlow",
+                  "errors"
+                ],
+                "type": "object"
+              },
+              "endDate": {
+                "description": "ISO-8601 market end date",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "id": {
+                "description": "Polymarket market id",
+                "type": "string"
+              },
+              "impliedProbability": {
+                "description": "Price of the first outcome (YES) in [0,1]",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "liquidity": {
+                "description": "Order-book liquidity in USD",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "momentum": {
+                "description": "Deterministic label: RISING if 24h change >= +0.02, FALLING if <= -0.02, else FLAT",
+                "enum": [
+                  "RISING",
+                  "FALLING",
+                  "FLAT",
+                  "UNKNOWN"
+                ],
+                "type": "string"
+              },
+              "oneDayPriceChange": {
+                "description": "24h change of the first outcome price (absolute, in probability points)",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "outcomePrices": {
+                "description": "Current outcome prices in [0,1] (implied probabilities)",
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "outcomes": {
+                "description": "Outcome labels, index-aligned with outcomePrices",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "question": {
+                "description": "Market question text",
+                "type": "string"
+              },
+              "slug": {
+                "description": "URL slug of the market",
+                "type": "string"
+              },
+              "spread": {
+                "description": "bestAsk - bestBid",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "volume24hr": {
+                "description": "24h notional volume in USD",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "slug",
+              "question",
+              "outcomes",
+              "outcomePrices",
+              "impliedProbability",
+              "momentum"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "query": {
+          "description": "Echo of the resolved query (slug, or top/orderBy)",
+          "type": "object"
+        },
+        "settled": {
+          "description": "true when an x402 payment settled for this response (false on free-quota or dry-run)",
+          "type": "boolean"
+        },
+        "source": {
+          "description": "Upstream data providers",
+          "enum": [
+            "polymarket-gamma",
+            "polymarket-gamma+clob+trades"
+          ],
+          "type": "string"
+        },
+        "ts": {
+          "description": "Response timestamp, UNIX milliseconds",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "source",
+        "query",
+        "markets",
+        "asOf",
+        "settled",
+        "ts"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "markets[].id"
+      }
+    ],
+    "bounds": {
+      "markets[].impliedProbability": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "enclave402.com",
+    "endpoint": "https://enclave402.com/api/market/signal",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

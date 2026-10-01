@@ -1,0 +1,106 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c2982ca45f1fc640",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "description": "Number of tenders returned (after keyword filtering and max cap)",
+          "type": "integer"
+        },
+        "tenders": {
+          "description": "Matching tender notices, newest first as returned by TED",
+          "items": {
+            "properties": {
+              "buyer": {
+                "description": "Contracting authority name",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "cpv": {
+                "description": "CPV classification codes of the notice",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "deadline": {
+                "description": "Submission deadline as returned by TED (ISO 8601 date-time), null if not stated",
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "description": {
+                "description": "Lot description, truncated to 500 characters",
+                "type": "string"
+              },
+              "noticeType": {
+                "description": "TED notice type code, e.g. cn-standard",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "pdfDe": {
+                "description": "Direct link to the German PDF of the notice",
+                "type": "string"
+              },
+              "publicationDate": {
+                "description": "TED publication date",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "publicationNumber": {
+                "description": "TED publication number, unique notice id",
+                "type": "string"
+              },
+              "title": {
+                "description": "Notice title (German preferred, else English, else first available language)",
+                "type": "string"
+              },
+              "url": {
+                "description": "Human-readable notice page on ted.europa.eu",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "publicationNumber",
+              "title",
+              "url"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "count",
+        "tenders"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "4yearcycle.com",
+    "endpoint": "https://4yearcycle.com/x402/tenders",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_06b32ee3fb42a9f7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "cik": {
+          "type": "integer"
+        },
+        "company_name": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "filings": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "accession_number": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "document_url": {
+                "format": "uri",
+                "type": "string"
+              },
+              "filing_date": {
+                "format": "date",
+                "type": "string"
+              },
+              "filing_url": {
+                "format": "uri",
+                "type": "string"
+              },
+              "form": {
+                "type": "string"
+              },
+              "primary_document": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "accession_number",
+              "filing_date",
+              "form",
+              "primary_document",
+              "filing_url",
+              "document_url"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "forms": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "note": {
+          "type": "string"
+        },
+        "ticker": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ticker",
+        "forms",
+        "count",
+        "filings"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "sec.use.x402atlas.com",
+    "endpoint": "https://sec.use.x402atlas.com/filings/:ticker",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

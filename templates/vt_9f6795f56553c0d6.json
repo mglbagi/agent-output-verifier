@@ -1,0 +1,88 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9f6795f56553c0d6",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "days": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "condition": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "high_c": {
+                "type": "integer"
+              },
+              "low_c": {
+                "type": "integer"
+              },
+              "precipitation_mm": {
+                "type": "number"
+              },
+              "precipitation_prob_pct": {
+                "type": "integer"
+              },
+              "sunrise": {
+                "type": "string"
+              },
+              "sunset": {
+                "type": "string"
+              },
+              "wind_max_kmh": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "condition",
+              "date",
+              "high_c",
+              "low_c",
+              "precipitation_mm",
+              "precipitation_prob_pct",
+              "sunrise",
+              "sunset",
+              "wind_max_kmh"
+            ]
+          }
+        },
+        "location": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "days",
+        "location"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "days[].low_c",
+        "other_field": "days[].high_c"
+      }
+    ],
+    "bounds": {
+      "days[].precipitation_prob_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "data.intel.rallylive.ca",
+    "endpoint": "https://data.intel.rallylive.ca/data/forecast/sudbury",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

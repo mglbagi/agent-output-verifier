@@ -1,0 +1,109 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d3c919ceea7d49f7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "bars": {
+          "items": {
+            "properties": {
+              "avg": {
+                "description": "Time-weighted average price over the bucket (median across AZs). This is the value the public dashboard shows.",
+                "type": "number"
+              },
+              "close": {
+                "description": "Price in force at the end of the bucket (median across AZs).",
+                "type": "number"
+              },
+              "dur": {
+                "description": "Seconds of the bucket covered by known prices (a partial value means the series starts or ends inside the bucket).",
+                "type": "integer"
+              },
+              "high": {
+                "description": "Highest price seen in any AZ during the bucket.",
+                "type": "number"
+              },
+              "hour": {
+                "description": "Bucket start, ISO 8601 UTC hour.",
+                "type": "string"
+              },
+              "low": {
+                "description": "Lowest price seen in any AZ during the bucket.",
+                "type": "number"
+              },
+              "open": {
+                "description": "Price in force at the start of the bucket, USD per hour (median across AZs).",
+                "type": "number"
+              }
+            },
+            "required": [
+              "hour",
+              "open",
+              "high",
+              "low",
+              "close",
+              "avg"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "from": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "instance": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "to": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "zones": {
+          "description": "Number of zone series collapsed.",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "bars[].low",
+        "other_field": "bars[].high",
+        "if_present": true
+      },
+      {
+        "type": "lte",
+        "field": "from",
+        "other_field": "to",
+        "if_present": true
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "cloud.trycorpus.ai",
+    "endpoint": "https://cloud.trycorpus.ai/v1/spot/hourly",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

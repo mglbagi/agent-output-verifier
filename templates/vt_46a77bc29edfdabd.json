@@ -1,0 +1,91 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_46a77bc29edfdabd",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "candidates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "iso6391": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "iso6393": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "score": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "iso6393",
+              "name",
+              "score"
+            ]
+          }
+        },
+        "chars": {
+          "type": "integer"
+        },
+        "confidence": {
+          "type": "number"
+        },
+        "language": {
+          "type": "object",
+          "properties": {
+            "iso6391": {
+              "type": "string"
+            },
+            "iso6393": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "iso6391",
+            "iso6393",
+            "name"
+          ]
+        },
+        "model": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidates",
+        "chars",
+        "confidence",
+        "language",
+        "model"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "workbot1.oddsys.org",
+    "endpoint": "https://workbot1.oddsys.org/lang",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

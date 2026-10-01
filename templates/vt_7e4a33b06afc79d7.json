@@ -1,0 +1,202 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7e4a33b06afc79d7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "block_number": {
+          "type": "integer"
+        },
+        "calldata": {
+          "type": "string"
+        },
+        "claims": {
+          "additionalProperties": false,
+          "properties": {
+            "asset": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "balance_proof_type": {
+              "enum": [
+                "rpc_attestation",
+                "zk_range"
+              ],
+              "type": "string"
+            },
+            "balance_qualifier_met": {
+              "type": "boolean"
+            },
+            "min_balance_tier": {
+              "type": "string"
+            },
+            "nullifier_scope": {
+              "type": "string"
+            },
+            "observed_balance_usdc": {
+              "type": "number"
+            },
+            "ownership_proof_type": {
+              "enum": [
+                "semaphore_zk"
+              ],
+              "type": "string"
+            },
+            "ownership_proven": {
+              "type": "boolean"
+            },
+            "snapshot_block": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "ownership_proven",
+            "ownership_proof_type",
+            "balance_qualifier_met",
+            "balance_proof_type",
+            "min_balance_tier",
+            "asset",
+            "snapshot_block",
+            "nullifier_scope"
+          ],
+          "type": "object"
+        },
+        "erc8004_compatible": {
+          "type": "boolean"
+        },
+        "expiry": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "job_id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "on_chain_verifiable": {
+          "type": "boolean"
+        },
+        "privacy_score": {
+          "type": "string"
+        },
+        "proof_hash": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{64}$"
+        },
+        "service_version": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "valid": {
+          "type": "boolean"
+        },
+        "validation_registry_hint": {
+          "additionalProperties": false,
+          "properties": {
+            "reference_uri": {
+              "type": "string",
+              "format": "uri"
+            },
+            "suggested_evidence_type": {
+              "type": "string"
+            },
+            "suggested_tag": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "suggested_evidence_type",
+            "suggested_tag"
+          ],
+          "type": "object"
+        },
+        "verified_by": {
+          "type": "string"
+        },
+        "verifier_contract": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "x402_payment_ref": {
+          "additionalProperties": false,
+          "properties": {
+            "amount_usdc": {
+              "type": "string"
+            },
+            "network": {
+              "type": "string"
+            },
+            "payer": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "poll_uri": {
+              "type": "string",
+              "format": "uri"
+            },
+            "resource": {
+              "type": "string"
+            },
+            "status": {
+              "enum": [
+                "pending_settlement",
+                "settled"
+              ],
+              "type": "string"
+            },
+            "tx_hash": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "status",
+            "network"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "verified_by",
+        "valid",
+        "job_id",
+        "claims",
+        "proof_hash",
+        "block_number",
+        "expiry",
+        "verifier_contract",
+        "calldata",
+        "on_chain_verifiable",
+        "timestamp",
+        "privacy_score",
+        "erc8004_compatible",
+        "validation_registry_hint",
+        "x402_payment_ref",
+        "service_version"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "block_number": {
+        "min": 0
+      },
+      "claims.observed_balance_usdc": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "zk.quickai.build",
+    "endpoint": "https://zk.quickai.build/prove",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

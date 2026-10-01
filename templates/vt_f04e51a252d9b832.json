@@ -1,0 +1,103 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f04e51a252d9b832",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "coordinates": {
+          "type": "object",
+          "properties": {
+            "lat": {
+              "type": "number"
+            },
+            "lng": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "lat",
+            "lng"
+          ]
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "madhab": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "qiblaDegreesFromNorth": {
+          "type": "number"
+        },
+        "times": {
+          "type": "object",
+          "properties": {
+            "asr": {
+              "type": "string"
+            },
+            "dhuhr": {
+              "type": "string"
+            },
+            "fajr": {
+              "type": "string"
+            },
+            "isha": {
+              "type": "string"
+            },
+            "maghrib": {
+              "type": "string"
+            },
+            "sunrise": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "asr",
+            "dhuhr",
+            "fajr",
+            "isha",
+            "maghrib",
+            "sunrise"
+          ]
+        },
+        "timezone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "coordinates",
+        "date",
+        "madhab",
+        "method",
+        "qiblaDegreesFromNorth",
+        "times",
+        "timezone"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "coordinates.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "coordinates.lng": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.qist.info",
+    "endpoint": "https://api.qist.info/api/prayer-times",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

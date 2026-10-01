@@ -1,0 +1,134 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_223f6440a6b1c986",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "check_type": {
+          "description": "The check contract used, e.g. web_field_v1.",
+          "type": "string"
+        },
+        "confidence": {
+          "description": "The engine's confidence in the verdict, 0 to 1.",
+          "type": "number"
+        },
+        "engine": {
+          "description": "Engine name and version digest that produced the verdict.",
+          "type": "string"
+        },
+        "evidence": {
+          "description": "What the re-fetch observed.",
+          "properties": {
+            "lens_votes": {
+              "description": "Boolean votes is_real, is_current, does_answer from the judging lenses.",
+              "properties": {
+                "does_answer": {
+                  "type": "boolean"
+                },
+                "is_current": {
+                  "type": "boolean"
+                },
+                "is_real": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object",
+              "required": [
+                "does_answer",
+                "is_current",
+                "is_real"
+              ]
+            },
+            "refetch_excerpt": {
+              "description": "Excerpt of the re-fetched page content the verdict was judged against.",
+              "type": "string"
+            },
+            "refetched_at": {
+              "description": "UTC timestamp of the engine's own fetch of the page.",
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "type": "object",
+          "required": [
+            "lens_votes",
+            "refetch_excerpt",
+            "refetched_at"
+          ]
+        },
+        "key_id": {
+          "description": "Identifier of the signing key; resolve against GET /pubkey.",
+          "type": "string"
+        },
+        "reasons": {
+          "description": "The stated reasons for the verdict.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "signature": {
+          "description": "ed25519 signature over canonical sorted-key JSON of every field except signature.",
+          "type": "string"
+        },
+        "source_hash": {
+          "description": "sha256 of the normalized page text the verdict judged; null when no anchor text was obtained.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "verdict": {
+          "description": "One of pass, fail, unverifiable.",
+          "enum": [
+            "pass",
+            "fail",
+            "unverifiable"
+          ],
+          "type": "string"
+        },
+        "verdict_id": {
+          "description": "Unique identifier for this verdict; its issuance is confirmable at GET /verdicts/{verdict_id}.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "verifier_url": {
+          "description": "The issuing service's URL; display only, never a trust root.",
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "verdict_id",
+        "verdict",
+        "confidence",
+        "reasons",
+        "evidence",
+        "check_type",
+        "engine",
+        "key_id",
+        "verifier_url",
+        "source_hash",
+        "signature"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "scrapecheck.fly.dev",
+    "endpoint": "https://scrapecheck.fly.dev/verify",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

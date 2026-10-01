@@ -1,0 +1,921 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_41a799daebfd69fc",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "bal_pass_rate": {
+          "type": "number"
+        },
+        "bal_pass_rate__pct_pooled": {
+          "type": "number"
+        },
+        "bal_pass_rate__pct_week": {
+          "type": "number"
+        },
+        "gs_lead_1_3": {
+          "type": "number"
+        },
+        "gs_lead_1_3__pct_pooled": {
+          "type": "number"
+        },
+        "gs_lead_1_3__pct_week": {
+          "type": "number"
+        },
+        "gs_lead_4_8": {
+          "type": "number"
+        },
+        "gs_lead_4_8__pct_pooled": {
+          "type": "number"
+        },
+        "gs_lead_4_8__pct_week": {
+          "type": "number"
+        },
+        "gs_lead_9plus": {
+          "type": "integer"
+        },
+        "gs_lead_9plus__pct_pooled": {
+          "type": "number"
+        },
+        "gs_lead_9plus__pct_week": {
+          "type": "number"
+        },
+        "gs_tied": {
+          "type": "number"
+        },
+        "gs_tied__pct_pooled": {
+          "type": "number"
+        },
+        "gs_tied__pct_week": {
+          "type": "number"
+        },
+        "gs_trail_1_3": {
+          "type": "number"
+        },
+        "gs_trail_1_3__pct_pooled": {
+          "type": "number"
+        },
+        "gs_trail_1_3__pct_week": {
+          "type": "number"
+        },
+        "gs_trail_4_8": {
+          "type": "number"
+        },
+        "gs_trail_4_8__pct_pooled": {
+          "type": "number"
+        },
+        "gs_trail_4_8__pct_week": {
+          "type": "number"
+        },
+        "gs_trail_9plus": {
+          "type": "number"
+        },
+        "gs_trail_9plus__pct_pooled": {
+          "type": "number"
+        },
+        "gs_trail_9plus__pct_week": {
+          "type": "number"
+        },
+        "pass_def_expl_rate": {
+          "type": "number"
+        },
+        "pass_def_expl_rate__pct_pooled": {
+          "type": "number"
+        },
+        "pass_def_expl_rate__pct_week": {
+          "type": "number"
+        },
+        "pass_def_int_rate": {
+          "type": "number"
+        },
+        "pass_def_int_rate__pct_pooled": {
+          "type": "number"
+        },
+        "pass_def_int_rate__pct_week": {
+          "type": "number"
+        },
+        "pass_def_sack_rate": {
+          "type": "number"
+        },
+        "pass_def_sack_rate__pct_pooled": {
+          "type": "number"
+        },
+        "pass_def_sack_rate__pct_week": {
+          "type": "number"
+        },
+        "pass_def_td_rate": {
+          "type": "number"
+        },
+        "pass_def_td_rate__pct_pooled": {
+          "type": "number"
+        },
+        "pass_def_td_rate__pct_week": {
+          "type": "number"
+        },
+        "pass_def_yds_play": {
+          "type": "number"
+        },
+        "pass_def_yds_play__pct_pooled": {
+          "type": "number"
+        },
+        "pass_def_yds_play__pct_week": {
+          "type": "number"
+        },
+        "pass_off_expl_rate": {
+          "type": "number"
+        },
+        "pass_off_expl_rate__pct_pooled": {
+          "type": "number"
+        },
+        "pass_off_expl_rate__pct_week": {
+          "type": "number"
+        },
+        "pass_off_int_rate": {
+          "type": "number"
+        },
+        "pass_off_int_rate__pct_pooled": {
+          "type": "number"
+        },
+        "pass_off_int_rate__pct_week": {
+          "type": "number"
+        },
+        "pass_off_sack_rate": {
+          "type": "number"
+        },
+        "pass_off_sack_rate__pct_pooled": {
+          "type": "number"
+        },
+        "pass_off_sack_rate__pct_week": {
+          "type": "number"
+        },
+        "pass_off_td_rate": {
+          "type": "number"
+        },
+        "pass_off_td_rate__pct_pooled": {
+          "type": "number"
+        },
+        "pass_off_td_rate__pct_week": {
+          "type": "number"
+        },
+        "pass_off_yds_play": {
+          "type": "number"
+        },
+        "pass_off_yds_play__pct_pooled": {
+          "type": "number"
+        },
+        "pass_off_yds_play__pct_week": {
+          "type": "number"
+        },
+        "pen_total_g": {
+          "type": "number"
+        },
+        "pen_total_g__pct_pooled": {
+          "type": "number"
+        },
+        "pen_total_g__pct_week": {
+          "type": "number"
+        },
+        "rush_def_expl_rate": {
+          "type": "number"
+        },
+        "rush_def_expl_rate__pct_pooled": {
+          "type": "number"
+        },
+        "rush_def_expl_rate__pct_week": {
+          "type": "number"
+        },
+        "rush_def_fum_rate": {
+          "type": "number"
+        },
+        "rush_def_fum_rate__pct_pooled": {
+          "type": "number"
+        },
+        "rush_def_fum_rate__pct_week": {
+          "type": "number"
+        },
+        "rush_def_td_rate": {
+          "type": "number"
+        },
+        "rush_def_td_rate__pct_pooled": {
+          "type": "number"
+        },
+        "rush_def_td_rate__pct_week": {
+          "type": "number"
+        },
+        "rush_def_yds_play": {
+          "type": "number"
+        },
+        "rush_def_yds_play__pct_pooled": {
+          "type": "number"
+        },
+        "rush_def_yds_play__pct_week": {
+          "type": "number"
+        },
+        "rush_off_expl_rate": {
+          "type": "number"
+        },
+        "rush_off_expl_rate__pct_pooled": {
+          "type": "number"
+        },
+        "rush_off_expl_rate__pct_week": {
+          "type": "number"
+        },
+        "rush_off_fum_rate": {
+          "type": "number"
+        },
+        "rush_off_fum_rate__pct_pooled": {
+          "type": "number"
+        },
+        "rush_off_fum_rate__pct_week": {
+          "type": "number"
+        },
+        "rush_off_td_rate": {
+          "type": "number"
+        },
+        "rush_off_td_rate__pct_pooled": {
+          "type": "number"
+        },
+        "rush_off_td_rate__pct_week": {
+          "type": "number"
+        },
+        "rush_off_yds_play": {
+          "type": "number"
+        },
+        "rush_off_yds_play__pct_pooled": {
+          "type": "number"
+        },
+        "rush_off_yds_play__pct_week": {
+          "type": "number"
+        },
+        "season": {
+          "type": "integer"
+        },
+        "sit_fg": {
+          "type": "number"
+        },
+        "sit_fg__pct_pooled": {
+          "type": "number"
+        },
+        "sit_fg__pct_week": {
+          "type": "number"
+        },
+        "sit_fp_forced": {
+          "type": "number"
+        },
+        "sit_fp_forced__pct_pooled": {
+          "type": "number"
+        },
+        "sit_fp_forced__pct_week": {
+          "type": "number"
+        },
+        "sit_fp_own": {
+          "type": "number"
+        },
+        "sit_fp_own__pct_pooled": {
+          "type": "number"
+        },
+        "sit_fp_own__pct_week": {
+          "type": "number"
+        },
+        "sit_rz_def": {
+          "type": "number"
+        },
+        "sit_rz_def__pct_pooled": {
+          "type": "number"
+        },
+        "sit_rz_def__pct_week": {
+          "type": "number"
+        },
+        "sit_rz_off": {
+          "type": "number"
+        },
+        "sit_rz_off__pct_pooled": {
+          "type": "number"
+        },
+        "sit_rz_off__pct_week": {
+          "type": "number"
+        },
+        "sit_td3_def": {
+          "type": "number"
+        },
+        "sit_td3_def__pct_pooled": {
+          "type": "number"
+        },
+        "sit_td3_def__pct_week": {
+          "type": "number"
+        },
+        "sit_td3_off": {
+          "type": "number"
+        },
+        "sit_td3_off__pct_pooled": {
+          "type": "number"
+        },
+        "sit_td3_off__pct_week": {
+          "type": "number"
+        },
+        "td_def_all": {
+          "type": "number"
+        },
+        "td_def_all__pct_pooled": {
+          "type": "number"
+        },
+        "td_def_all__pct_week": {
+          "type": "number"
+        },
+        "td_def_q1": {
+          "type": "number"
+        },
+        "td_def_q1__pct_pooled": {
+          "type": "number"
+        },
+        "td_def_q1__pct_week": {
+          "type": "number"
+        },
+        "td_def_q2": {
+          "type": "number"
+        },
+        "td_def_q2__pct_pooled": {
+          "type": "number"
+        },
+        "td_def_q2__pct_week": {
+          "type": "number"
+        },
+        "td_def_q3": {
+          "type": "number"
+        },
+        "td_def_q3__pct_pooled": {
+          "type": "number"
+        },
+        "td_def_q3__pct_week": {
+          "type": "number"
+        },
+        "td_def_q4": {
+          "type": "number"
+        },
+        "td_def_q4__pct_pooled": {
+          "type": "number"
+        },
+        "td_def_q4__pct_week": {
+          "type": "number"
+        },
+        "td_off_all": {
+          "type": "number"
+        },
+        "td_off_all__pct_pooled": {
+          "type": "number"
+        },
+        "td_off_all__pct_week": {
+          "type": "number"
+        },
+        "td_off_q1": {
+          "type": "number"
+        },
+        "td_off_q1__pct_pooled": {
+          "type": "number"
+        },
+        "td_off_q1__pct_week": {
+          "type": "number"
+        },
+        "td_off_q2": {
+          "type": "number"
+        },
+        "td_off_q2__pct_pooled": {
+          "type": "number"
+        },
+        "td_off_q2__pct_week": {
+          "type": "number"
+        },
+        "td_off_q3": {
+          "type": "number"
+        },
+        "td_off_q3__pct_pooled": {
+          "type": "number"
+        },
+        "td_off_q3__pct_week": {
+          "type": "number"
+        },
+        "td_off_q4": {
+          "type": "number"
+        },
+        "td_off_q4__pct_pooled": {
+          "type": "number"
+        },
+        "td_off_q4__pct_week": {
+          "type": "number"
+        },
+        "team": {
+          "type": "string"
+        },
+        "week": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "bal_pass_rate",
+        "bal_pass_rate__pct_pooled",
+        "bal_pass_rate__pct_week",
+        "gs_lead_1_3",
+        "gs_lead_1_3__pct_pooled",
+        "gs_lead_1_3__pct_week",
+        "gs_lead_4_8",
+        "gs_lead_4_8__pct_pooled",
+        "gs_lead_4_8__pct_week",
+        "gs_lead_9plus",
+        "gs_lead_9plus__pct_pooled",
+        "gs_lead_9plus__pct_week",
+        "gs_tied",
+        "gs_tied__pct_pooled",
+        "gs_tied__pct_week",
+        "gs_trail_1_3",
+        "gs_trail_1_3__pct_pooled",
+        "gs_trail_1_3__pct_week",
+        "gs_trail_4_8",
+        "gs_trail_4_8__pct_pooled",
+        "gs_trail_4_8__pct_week",
+        "gs_trail_9plus",
+        "gs_trail_9plus__pct_pooled",
+        "gs_trail_9plus__pct_week",
+        "pass_def_expl_rate",
+        "pass_def_expl_rate__pct_pooled",
+        "pass_def_expl_rate__pct_week",
+        "pass_def_int_rate",
+        "pass_def_int_rate__pct_pooled",
+        "pass_def_int_rate__pct_week",
+        "pass_def_sack_rate",
+        "pass_def_sack_rate__pct_pooled",
+        "pass_def_sack_rate__pct_week",
+        "pass_def_td_rate",
+        "pass_def_td_rate__pct_pooled",
+        "pass_def_td_rate__pct_week",
+        "pass_def_yds_play",
+        "pass_def_yds_play__pct_pooled",
+        "pass_def_yds_play__pct_week",
+        "pass_off_expl_rate",
+        "pass_off_expl_rate__pct_pooled",
+        "pass_off_expl_rate__pct_week",
+        "pass_off_int_rate",
+        "pass_off_int_rate__pct_pooled",
+        "pass_off_int_rate__pct_week",
+        "pass_off_sack_rate",
+        "pass_off_sack_rate__pct_pooled",
+        "pass_off_sack_rate__pct_week",
+        "pass_off_td_rate",
+        "pass_off_td_rate__pct_pooled",
+        "pass_off_td_rate__pct_week",
+        "pass_off_yds_play",
+        "pass_off_yds_play__pct_pooled",
+        "pass_off_yds_play__pct_week",
+        "pen_total_g",
+        "pen_total_g__pct_pooled",
+        "pen_total_g__pct_week",
+        "rush_def_expl_rate",
+        "rush_def_expl_rate__pct_pooled",
+        "rush_def_expl_rate__pct_week",
+        "rush_def_fum_rate",
+        "rush_def_fum_rate__pct_pooled",
+        "rush_def_fum_rate__pct_week",
+        "rush_def_td_rate",
+        "rush_def_td_rate__pct_pooled",
+        "rush_def_td_rate__pct_week",
+        "rush_def_yds_play",
+        "rush_def_yds_play__pct_pooled",
+        "rush_def_yds_play__pct_week",
+        "rush_off_expl_rate",
+        "rush_off_expl_rate__pct_pooled",
+        "rush_off_expl_rate__pct_week",
+        "rush_off_fum_rate",
+        "rush_off_fum_rate__pct_pooled",
+        "rush_off_fum_rate__pct_week",
+        "rush_off_td_rate",
+        "rush_off_td_rate__pct_pooled",
+        "rush_off_td_rate__pct_week",
+        "rush_off_yds_play",
+        "rush_off_yds_play__pct_pooled",
+        "rush_off_yds_play__pct_week",
+        "season",
+        "sit_fg",
+        "sit_fg__pct_pooled",
+        "sit_fg__pct_week",
+        "sit_fp_forced",
+        "sit_fp_forced__pct_pooled",
+        "sit_fp_forced__pct_week",
+        "sit_fp_own",
+        "sit_fp_own__pct_pooled",
+        "sit_fp_own__pct_week",
+        "sit_rz_def",
+        "sit_rz_def__pct_pooled",
+        "sit_rz_def__pct_week",
+        "sit_rz_off",
+        "sit_rz_off__pct_pooled",
+        "sit_rz_off__pct_week",
+        "sit_td3_def",
+        "sit_td3_def__pct_pooled",
+        "sit_td3_def__pct_week",
+        "sit_td3_off",
+        "sit_td3_off__pct_pooled",
+        "sit_td3_off__pct_week",
+        "td_def_all",
+        "td_def_all__pct_pooled",
+        "td_def_all__pct_week",
+        "td_def_q1",
+        "td_def_q1__pct_pooled",
+        "td_def_q1__pct_week",
+        "td_def_q2",
+        "td_def_q2__pct_pooled",
+        "td_def_q2__pct_week",
+        "td_def_q3",
+        "td_def_q3__pct_pooled",
+        "td_def_q3__pct_week",
+        "td_def_q4",
+        "td_def_q4__pct_pooled",
+        "td_def_q4__pct_week",
+        "td_off_all",
+        "td_off_all__pct_pooled",
+        "td_off_all__pct_week",
+        "td_off_q1",
+        "td_off_q1__pct_pooled",
+        "td_off_q1__pct_week",
+        "td_off_q2",
+        "td_off_q2__pct_pooled",
+        "td_off_q2__pct_week",
+        "td_off_q3",
+        "td_off_q3__pct_pooled",
+        "td_off_q3__pct_week",
+        "td_off_q4",
+        "td_off_q4__pct_pooled",
+        "td_off_q4__pct_week",
+        "team",
+        "week"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "bal_pass_rate__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "bal_pass_rate__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "gs_lead_1_3__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "gs_lead_1_3__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "gs_lead_4_8__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "gs_lead_4_8__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "gs_lead_9plus__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "gs_lead_9plus__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "gs_tied__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "gs_tied__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "gs_trail_1_3__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "gs_trail_1_3__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "gs_trail_4_8__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "gs_trail_4_8__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "gs_trail_9plus__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "gs_trail_9plus__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "pass_def_expl_rate__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "pass_def_expl_rate__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "pass_def_int_rate__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "pass_def_int_rate__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "pass_def_sack_rate__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "pass_def_sack_rate__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "pass_def_td_rate__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "pass_def_td_rate__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "pass_def_yds_play__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "pass_def_yds_play__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "pass_off_expl_rate__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "pass_off_expl_rate__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "pass_off_int_rate__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "pass_off_int_rate__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "pass_off_sack_rate__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "pass_off_sack_rate__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "pass_off_td_rate__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "pass_off_td_rate__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "pass_off_yds_play__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "pass_off_yds_play__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "pen_total_g": {
+        "min": 0
+      },
+      "pen_total_g__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "pen_total_g__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "rush_def_expl_rate__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "rush_def_expl_rate__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "rush_def_fum_rate__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "rush_def_fum_rate__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "rush_def_td_rate__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "rush_def_td_rate__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "rush_def_yds_play__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "rush_def_yds_play__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "rush_off_expl_rate__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "rush_off_expl_rate__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "rush_off_fum_rate__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "rush_off_fum_rate__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "rush_off_td_rate__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "rush_off_td_rate__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "rush_off_yds_play__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "rush_off_yds_play__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "sit_fg__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "sit_fg__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "sit_fp_forced__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "sit_fp_forced__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "sit_fp_own__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "sit_fp_own__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "sit_rz_def__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "sit_rz_def__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "sit_rz_off__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "sit_rz_off__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "sit_td3_def__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "sit_td3_def__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "sit_td3_off__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "sit_td3_off__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "td_def_all__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "td_def_all__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "td_def_q1__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "td_def_q1__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "td_def_q2__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "td_def_q2__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "td_def_q3__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "td_def_q3__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "td_def_q4__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "td_def_q4__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "td_off_all__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "td_off_all__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "td_off_q1__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "td_off_q1__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "td_off_q2__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "td_off_q2__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "td_off_q3__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "td_off_q3__pct_week": {
+        "min": 0,
+        "max": 100
+      },
+      "td_off_q4__pct_pooled": {
+        "min": 0,
+        "max": 100
+      },
+      "td_off_q4__pct_week": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "nfl-form-x402.owenlvll.workers.dev",
+    "endpoint": "https://nfl-form-x402.owenlvll.workers.dev/team-rank/:season/:week/:team",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

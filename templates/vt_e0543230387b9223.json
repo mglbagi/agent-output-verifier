@@ -1,0 +1,131 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e0543230387b9223",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "hits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "list": {
+                "type": "string"
+              },
+              "list_id": {
+                "type": "string"
+              },
+              "list_published": {
+                "type": "string"
+              },
+              "match": {
+                "type": "string"
+              },
+              "matched_on": {
+                "type": "string"
+              },
+              "score": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "list",
+              "list_id",
+              "list_published",
+              "match",
+              "matched_on",
+              "score"
+            ]
+          }
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "lists": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "list": {
+                "type": "string"
+              },
+              "published": {
+                "type": "string"
+              },
+              "sha256": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "list",
+              "published",
+              "sha256"
+            ]
+          }
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "receipt": {
+          "type": "object",
+          "properties": {
+            "amount_usd": {
+              "type": "number"
+            },
+            "receipt_id": {
+              "type": "string"
+            },
+            "tx_hash": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount_usd",
+            "receipt_id",
+            "tx_hash"
+          ]
+        },
+        "result": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "hits",
+        "limitations",
+        "lists",
+        "ok",
+        "receipt",
+        "result",
+        "type"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "hits[].list_id"
+      }
+    ],
+    "bounds": {
+      "receipt.amount_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "twin.unykorn.org",
+    "endpoint": "https://twin.unykorn.org/screen/name",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_218f5b2fb8551dc6",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "varieties": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "best_for": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "citation_count": {
+                "type": "integer"
+              },
+              "citations_endpoint": {
+                "type": "string"
+              },
+              "color_grade": {
+                "type": "string"
+              },
+              "color_gradeable": {
+                "type": "boolean"
+              },
+              "flavor_profile_enum": {
+                "type": "string"
+              },
+              "intensity_level": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "origin_regions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "pfund_source": {
+                "type": "string"
+              },
+              "pfund_value": {
+                "type": "number"
+              },
+              "primary_countries": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "secondary_countries": {
+                "type": "array"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "texture": {
+                "type": "string"
+              },
+              "use_cases": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "best_for",
+              "citation_count",
+              "citations_endpoint",
+              "color_grade",
+              "color_gradeable",
+              "flavor_profile_enum",
+              "intensity_level",
+              "name",
+              "origin_regions",
+              "pfund_source",
+              "pfund_value",
+              "primary_countries",
+              "secondary_countries",
+              "slug",
+              "texture",
+              "use_cases"
+            ]
+          }
+        }
+      },
+      "required": [
+        "varieties"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "varieties[].citation_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.melvea.com",
+    "endpoint": "https://api.melvea.com/v1/catalog",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

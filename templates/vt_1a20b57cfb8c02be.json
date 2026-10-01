@@ -1,0 +1,108 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1a20b57cfb8c02be",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "district_code": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lookup_method": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lookup_statement": {
+          "type": "string"
+        },
+        "matched_address": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "meta": {
+          "properties": {
+            "last_reviewed_at": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            },
+            "positioning": {
+              "type": "string"
+            },
+            "source_url": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "uri"
+            }
+          },
+          "type": "object",
+          "required": [
+            "last_reviewed_at",
+            "positioning",
+            "source_url"
+          ]
+        },
+        "municipality": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resolution_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resolve_grade": {
+          "enum": [
+            "automatic",
+            "manual",
+            "unreliable",
+            null
+          ],
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "service_credit": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "supported": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "supported",
+        "lookup_statement"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "zoningverdict.com",
+    "endpoint": "https://zoningverdict.com/api/v1/parcel/resolve",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

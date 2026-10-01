@@ -1,0 +1,378 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c51baecc7af4fcd9",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "Endpoint-specific response payload",
+      "properties": {
+        "asks": {
+          "items": {
+            "properties": {
+              "is_bid_token0": {
+                "type": "boolean"
+              },
+              "maker": {
+                "type": "string",
+                "pattern": "^0x[a-fA-F0-9]{40}$"
+              },
+              "nonce_raw": {
+                "type": "integer"
+              },
+              "order_id": {
+                "type": "string",
+                "pattern": "^0x[a-fA-F0-9]{64}$"
+              },
+              "price": {
+                "type": "number"
+              },
+              "price_key_raw": {
+                "type": "string"
+              },
+              "price_raw": {
+                "type": "string"
+              },
+              "queue_position": {
+                "type": "integer"
+              },
+              "rest_index": {
+                "type": "integer"
+              },
+              "rested_at_block": {
+                "type": "integer"
+              },
+              "sequence_raw": {
+                "type": "string"
+              },
+              "side": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "size_raw": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "is_bid_token0",
+              "maker",
+              "nonce_raw",
+              "order_id",
+              "price",
+              "price_key_raw",
+              "price_raw",
+              "queue_position",
+              "rest_index",
+              "rested_at_block",
+              "sequence_raw",
+              "side",
+              "size",
+              "size_raw"
+            ]
+          },
+          "type": "array"
+        },
+        "base_token": {
+          "properties": {
+            "address": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "decimals": {
+              "type": "integer"
+            },
+            "symbol": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "address",
+            "decimals",
+            "symbol"
+          ]
+        },
+        "bids": {
+          "items": {
+            "properties": {
+              "is_bid_token0": {
+                "type": "boolean"
+              },
+              "maker": {
+                "type": "string",
+                "pattern": "^0x[a-fA-F0-9]{40}$"
+              },
+              "nonce_raw": {
+                "type": "integer"
+              },
+              "order_id": {
+                "type": "string",
+                "pattern": "^0x[a-fA-F0-9]{64}$"
+              },
+              "price": {
+                "type": "number"
+              },
+              "price_key_raw": {
+                "type": "string"
+              },
+              "price_raw": {
+                "type": "string"
+              },
+              "queue_position": {
+                "type": "integer"
+              },
+              "rest_index": {
+                "type": "integer"
+              },
+              "rested_at_block": {
+                "type": "integer"
+              },
+              "sequence_raw": {
+                "type": "string"
+              },
+              "side": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "size_raw": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "is_bid_token0",
+              "maker",
+              "nonce_raw",
+              "order_id",
+              "price",
+              "price_key_raw",
+              "price_raw",
+              "queue_position",
+              "rest_index",
+              "rested_at_block",
+              "sequence_raw",
+              "side",
+              "size",
+              "size_raw"
+            ]
+          },
+          "type": "array"
+        },
+        "block_hash": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{64}$"
+        },
+        "block_number": {
+          "type": "integer"
+        },
+        "book_id": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{64}$"
+        },
+        "book_label": {
+          "type": "string"
+        },
+        "book_slug": {
+          "type": "string"
+        },
+        "finality": {
+          "type": "string"
+        },
+        "market_session": {
+          "type": "string"
+        },
+        "quote_token": {
+          "properties": {
+            "address": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "decimals": {
+              "type": "integer"
+            },
+            "symbol": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "address",
+            "decimals",
+            "symbol"
+          ]
+        },
+        "summary": {
+          "properties": {
+            "ask_count": {
+              "type": "integer"
+            },
+            "ask_depth_1pct_quote_raw": {
+              "type": "string"
+            },
+            "ask_depth_quote_raw": {
+              "type": "string"
+            },
+            "base_fee_per_gas_raw": {
+              "type": "string"
+            },
+            "best_ask_raw": {
+              "type": "string"
+            },
+            "best_bid_raw": {
+              "type": "string"
+            },
+            "bid_count": {
+              "type": "integer"
+            },
+            "bid_depth_1pct_quote_raw": {
+              "type": "string"
+            },
+            "bid_depth_quote_raw": {
+              "type": "string"
+            },
+            "block_number": {
+              "type": "integer"
+            },
+            "book_id": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{64}$"
+            },
+            "book_label": {
+              "type": "string"
+            },
+            "finality": {
+              "type": "string"
+            },
+            "last_trade_price_raw": {
+              "type": "string"
+            },
+            "market_session": {
+              "type": "string"
+            },
+            "mid_raw": {
+              "type": "string"
+            },
+            "order_count": {
+              "type": "integer"
+            },
+            "spread_bps": {
+              "type": "number"
+            },
+            "spread_raw": {
+              "type": "string"
+            },
+            "top_ask_maker": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "top_ask_order_id": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{64}$"
+            },
+            "top_bid_maker": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "top_bid_order_id": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{64}$"
+            }
+          },
+          "type": "object",
+          "required": [
+            "ask_count",
+            "ask_depth_1pct_quote_raw",
+            "ask_depth_quote_raw",
+            "base_fee_per_gas_raw",
+            "best_ask_raw",
+            "best_bid_raw",
+            "bid_count",
+            "bid_depth_1pct_quote_raw",
+            "bid_depth_quote_raw",
+            "block_number",
+            "book_id",
+            "book_label",
+            "finality",
+            "last_trade_price_raw",
+            "market_session",
+            "mid_raw",
+            "order_count",
+            "spread_bps",
+            "spread_raw",
+            "top_ask_maker",
+            "top_ask_order_id",
+            "top_bid_maker",
+            "top_bid_order_id"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "asks",
+        "base_token",
+        "bids",
+        "block_hash",
+        "block_number",
+        "book_id",
+        "book_label",
+        "book_slug",
+        "finality",
+        "market_session",
+        "quote_token",
+        "summary"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "asks[].order_id"
+      },
+      {
+        "type": "unique",
+        "field": "bids[].order_id"
+      }
+    ],
+    "bounds": {
+      "asks[].price": {
+        "min": 0
+      },
+      "asks[].size": {
+        "min": 0
+      },
+      "bids[].price": {
+        "min": 0
+      },
+      "bids[].size": {
+        "min": 0
+      },
+      "block_number": {
+        "min": 0
+      },
+      "summary.ask_count": {
+        "min": 0
+      },
+      "summary.bid_count": {
+        "min": 0
+      },
+      "summary.block_number": {
+        "min": 0
+      },
+      "summary.order_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.onesource.io",
+    "endpoint": "https://api.onesource.io/deepstate/v1/book/:book",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

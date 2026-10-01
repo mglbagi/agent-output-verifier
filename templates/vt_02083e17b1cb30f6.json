@@ -1,0 +1,77 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_02083e17b1cb30f6",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "commitment": {},
+        "count": {
+          "type": "integer"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "input_hash": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "range": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "result_hash": {
+          "type": "string"
+        },
+        "scheme": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        }
+      },
+      "required": [
+        "count",
+        "domain",
+        "input_hash",
+        "label",
+        "range",
+        "result",
+        "result_hash",
+        "scheme",
+        "signature",
+        "signer"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.anchor-x402.com",
+    "endpoint": "https://api.anchor-x402.com/v1/roll",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

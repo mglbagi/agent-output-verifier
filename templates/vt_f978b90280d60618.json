@@ -1,0 +1,396 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f978b90280d60618",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "metric": {
+          "type": "string"
+        },
+        "order": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "asset_turnover": {
+                "type": "number"
+              },
+              "capex": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "capex_disclosure": {
+                "type": "integer"
+              },
+              "cash_and_deposits": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "cash_end": {
+                "type": "integer"
+              },
+              "cf_financing": {
+                "type": "integer"
+              },
+              "cf_investing": {
+                "type": "integer"
+              },
+              "cf_operating": {
+                "type": "integer"
+              },
+              "code": {
+                "type": "string"
+              },
+              "consolidated": {
+                "type": "boolean"
+              },
+              "cost_of_sales": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "currency": {
+                "type": "string"
+              },
+              "current_assets": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "current_liabilities": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "current_ratio_pct": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "de_ratio": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "depreciation": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "dividends_paid": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "doc_id": {
+                "type": "string"
+              },
+              "eps_basic": {
+                "type": "number"
+              },
+              "eps_diluted": {
+                "type": "number"
+              },
+              "equity_owners": {
+                "type": "integer"
+              },
+              "equity_ratio_pct": {
+                "type": "number"
+              },
+              "fcf": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "filed_at": {
+                "type": "string"
+              },
+              "fiscal_year": {
+                "type": "string"
+              },
+              "gross_profit": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "income_taxes": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "intangibles": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "interest_bearing_debt": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "inventories": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "market": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "name_en": {
+                "type": "string"
+              },
+              "net_assets": {
+                "type": "integer"
+              },
+              "net_income": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "net_income_owners": {
+                "type": "integer"
+              },
+              "net_margin_pct": {
+                "type": "number"
+              },
+              "operating_income": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "operating_margin_pct": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "ordinary_income": {},
+              "period_end": {
+                "type": "string",
+                "format": "date"
+              },
+              "period_months": {
+                "type": "integer"
+              },
+              "period_start": {
+                "type": "string",
+                "format": "date"
+              },
+              "ppe": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "pretax_income": {
+                "type": "number"
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "revenue": {
+                "type": "integer"
+              },
+              "revenue_source": {
+                "type": "string"
+              },
+              "rnd_expense": {
+                "type": "integer"
+              },
+              "roa_pct": {
+                "type": "number"
+              },
+              "roe_pct": {
+                "type": "number"
+              },
+              "sector": {
+                "type": "string"
+              },
+              "sga": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "standard": {
+                "type": "string"
+              },
+              "total_assets": {
+                "type": "number"
+              },
+              "total_liabilities": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "trade_receivables": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "treasury_shares": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "asset_turnover",
+              "capex_disclosure",
+              "cash_end",
+              "cf_financing",
+              "cf_investing",
+              "cf_operating",
+              "code",
+              "consolidated",
+              "currency",
+              "doc_id",
+              "eps_basic",
+              "eps_diluted",
+              "equity_owners",
+              "equity_ratio_pct",
+              "filed_at",
+              "fiscal_year",
+              "market",
+              "name",
+              "name_en",
+              "net_assets",
+              "net_income_owners",
+              "net_margin_pct",
+              "period_end",
+              "period_months",
+              "period_start",
+              "pretax_income",
+              "rank",
+              "revenue",
+              "revenue_source",
+              "rnd_expense",
+              "roa_pct",
+              "roe_pct",
+              "sector",
+              "standard",
+              "total_assets"
+            ]
+          }
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "attribution": {
+              "type": "string"
+            },
+            "attribution_en": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "attribution",
+            "attribution_en"
+          ]
+        }
+      },
+      "required": [
+        "count",
+        "metric",
+        "order",
+        "results",
+        "source"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "results[].period_start",
+        "other_field": "results[].period_end"
+      },
+      {
+        "type": "unique",
+        "field": "results[].doc_id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "results[].cost_of_sales": {
+        "min": 0,
+        "if_present": true
+      },
+      "results[].de_ratio": {
+        "min": 0,
+        "max": 1,
+        "if_present": true
+      },
+      "results[].equity_ratio_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "results[].net_margin_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "results[].operating_margin_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "results[].roa_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "results[].roe_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "results[].total_assets": {
+        "min": 0
+      },
+      "results[].total_liabilities": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.kakerapetit.dev",
+    "endpoint": "https://api.kakerapetit.dev/v2/rankings",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

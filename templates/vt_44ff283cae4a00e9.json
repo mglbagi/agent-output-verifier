@@ -1,0 +1,109 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_44ff283cae4a00e9",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "brand": {
+          "type": "string"
+        },
+        "company": {
+          "type": "object",
+          "properties": {
+            "cik": {
+              "type": "string"
+            },
+            "exchanges": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "name": {
+              "type": "string"
+            },
+            "sic": {
+              "type": "string"
+            },
+            "sic_description": {
+              "type": "string"
+            },
+            "ticker": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "cik",
+            "exchanges",
+            "name",
+            "sic",
+            "sic_description",
+            "ticker"
+          ]
+        },
+        "filings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "accession_number": {
+                "type": "string"
+              },
+              "filed": {
+                "type": "string",
+                "format": "date"
+              },
+              "form": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "accession_number",
+              "filed",
+              "form",
+              "url"
+            ]
+          }
+        },
+        "filings_available_total": {
+          "type": "number"
+        },
+        "service": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "brand",
+        "company",
+        "filings",
+        "filings_available_total",
+        "service",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "filings_available_total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-data-api.x402agent.workers.dev",
+    "endpoint": "https://x402-data-api.x402agent.workers.dev/sec-research",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

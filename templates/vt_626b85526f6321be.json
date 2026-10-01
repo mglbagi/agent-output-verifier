@@ -1,0 +1,92 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_626b85526f6321be",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "currency": {
+                "type": "string"
+              },
+              "delivery": {
+                "type": "string"
+              },
+              "image": {
+                "type": "string"
+              },
+              "price": {
+                "type": "number"
+              },
+              "productId": {
+                "type": "string"
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "rating": {
+                "type": "number"
+              },
+              "reviews": {
+                "type": "integer"
+              },
+              "seller": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "currency",
+              "delivery",
+              "image",
+              "price",
+              "productId",
+              "rank",
+              "rating",
+              "reviews",
+              "seller",
+              "title",
+              "url"
+            ]
+          }
+        },
+        "total": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "results",
+        "total"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "results[].price": {
+        "min": 0
+      },
+      "total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "products.openverbs.com",
+    "endpoint": "https://products.openverbs.com/v1/google-shopping",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

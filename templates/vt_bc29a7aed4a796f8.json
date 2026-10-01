@@ -1,0 +1,38 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bc29a7aed4a796f8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "charged": {
+          "description": "False when silence was detected and no payment was taken.",
+          "type": "boolean"
+        },
+        "note": {
+          "description": "Set to 'no speech detected' when the clip is silent.",
+          "type": "string"
+        },
+        "text": {
+          "description": "Transcribed speech from the uploaded audio.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "text"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "voice.cyberwarex.com",
+    "endpoint": "https://voice.cyberwarex.com/transcribe",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

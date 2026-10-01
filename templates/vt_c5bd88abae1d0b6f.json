@@ -1,0 +1,59 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c5bd88abae1d0b6f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "hackertarget_error": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ip": {
+          "type": "string"
+        },
+        "other_domains": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "other_domains_count": {
+          "type": "integer"
+        },
+        "other_domains_source": {
+          "type": "string"
+        },
+        "ptr": {
+          "description": "PTR result: primary hostname and any aliases.",
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "required": [
+        "ip",
+        "other_domains",
+        "other_domains_count",
+        "other_domains_source",
+        "ptr"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "other_domains_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "dns-intel-api-production.up.railway.app",
+    "endpoint": "https://dns-intel-api-production.up.railway.app/dns/reverse",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

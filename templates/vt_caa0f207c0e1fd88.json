@@ -1,0 +1,79 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_caa0f207c0e1fd88",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "country": {
+          "type": "string"
+        },
+        "geographic": {
+          "type": "boolean"
+        },
+        "local_time": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "time": {
+                "type": "string"
+              },
+              "tz": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "time",
+              "tz"
+            ]
+          }
+        },
+        "npa": {
+          "type": "string"
+        },
+        "premium_rate": {
+          "type": "boolean"
+        },
+        "region": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "timezones": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "toll_free": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "country",
+        "geographic",
+        "local_time",
+        "npa",
+        "premium_rate",
+        "region",
+        "state",
+        "timezones",
+        "toll_free"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "numberintel.dev",
+    "endpoint": "https://numberintel.dev/v1/npa",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

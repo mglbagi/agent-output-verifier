@@ -1,0 +1,123 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_765cfe29ee2cfa5d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "age_sec": {
+          "type": "number"
+        },
+        "aircraft": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "alt_baro": {
+                "type": "integer"
+              },
+              "flight": {
+                "type": "string"
+              },
+              "gs": {
+                "type": "integer"
+              },
+              "hex": {
+                "type": "string"
+              },
+              "lat": {
+                "type": "number"
+              },
+              "lon": {
+                "type": "number"
+              },
+              "r": {
+                "type": "string"
+              },
+              "route": {
+                "type": "object",
+                "properties": {
+                  "destination": {
+                    "type": "string"
+                  },
+                  "flight_no": {
+                    "type": "string"
+                  },
+                  "origin": {
+                    "type": "string"
+                  },
+                  "verified": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "destination",
+                  "flight_no",
+                  "origin",
+                  "verified"
+                ]
+              },
+              "t": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "alt_baro",
+              "flight",
+              "gs",
+              "hex",
+              "lat",
+              "lon",
+              "r",
+              "route",
+              "t"
+            ]
+          }
+        },
+        "count": {
+          "type": "integer"
+        },
+        "observed_at": {
+          "type": "integer"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "age_sec",
+        "aircraft",
+        "count",
+        "observed_at",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "age_sec": {
+        "min": 0
+      },
+      "aircraft[].lat": {
+        "min": -90,
+        "max": 90
+      },
+      "aircraft[].lon": {
+        "min": -180,
+        "max": 180
+      },
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-adsb.x402-adsb-worker.workers.dev",
+    "endpoint": "https://x402-adsb.x402-adsb-worker.workers.dev/aircraft",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

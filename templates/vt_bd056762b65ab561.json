@@ -1,0 +1,253 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bd056762b65ab561",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "_atlas": {
+          "additionalProperties": false,
+          "description": "Atlas documentation and related-route metadata added after deployment",
+          "properties": {
+            "docs": {
+              "description": "Documentation URL for this bridge",
+              "format": "uri",
+              "maxLength": 512,
+              "type": "string"
+            },
+            "related": {
+              "description": "Bounded related Atlas routes",
+              "items": {
+                "additionalProperties": false,
+                "description": "One related Atlas route",
+                "properties": {
+                  "bridge": {
+                    "description": "Related bridge name",
+                    "maxLength": 64,
+                    "type": "string"
+                  },
+                  "docs": {
+                    "description": "Related bridge documentation URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  },
+                  "summary": {
+                    "description": "Short capability summary",
+                    "maxLength": 256,
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "Related route URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "bridge",
+                  "url",
+                  "docs",
+                  "summary"
+                ],
+                "type": "object"
+              },
+              "maxItems": 3,
+              "type": "array"
+            }
+          },
+          "required": [
+            "docs"
+          ],
+          "type": "object"
+        },
+        "algorithm_version": {
+          "const": "knapsack-01-dp-v1",
+          "description": "Pinned deterministic algorithm and transcript contract",
+          "type": "string"
+        },
+        "evidence": {
+          "additionalProperties": false,
+          "description": "Reproducible transcript evidence that detects final-DP drift but does not prove optimality",
+          "properties": {
+            "dp_capacity": {
+              "description": "Maximum capacity index in the final DP transcript",
+              "maximum": 100000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "dp_items": {
+              "description": "Number of item rows incorporated into the final dynamic program",
+              "maximum": 512,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "optimality_proof": {
+              "const": false,
+              "description": "Always false: the digest alone is not an optimality proof",
+              "type": "boolean"
+            },
+            "transcript_encoding": {
+              "const": "dpValue[0..capacity] as signed int64 two's-complement, 8-byte big-endian, no prefix",
+              "description": "Exact byte encoding hashed; dimensions are carried separately and are not part of the digest",
+              "type": "string"
+            },
+            "transcript_sha256": {
+              "description": "Lowercase SHA-256 digest of the encoded final DP values; this is non-proof evidence",
+              "maxLength": 64,
+              "minLength": 64,
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "verification": {
+              "const": "recompute the bounded dynamic program; the digest detects transcript drift but is not an optimality proof",
+              "description": "Independent verification instruction; recomputation is required to verify optimality",
+              "type": "string"
+            }
+          },
+          "required": [
+            "dp_items",
+            "dp_capacity",
+            "transcript_encoding",
+            "transcript_sha256",
+            "optimality_proof",
+            "verification"
+          ],
+          "type": "object"
+        },
+        "objective": {
+          "const": "maximum_total_value",
+          "description": "The solver maximizes total selected value within capacity",
+          "type": "string"
+        },
+        "objective_value": {
+          "description": "Proven maximum total value",
+          "maximum": 512000000000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "operation": {
+          "const": "knapsack",
+          "description": "Stable route operation name",
+          "type": "string"
+        },
+        "optimal": {
+          "const": true,
+          "description": "True because the bounded dynamic program computes the exact optimum",
+          "type": "boolean"
+        },
+        "solution": {
+          "additionalProperties": false,
+          "description": "Selected item set and capacity accounting",
+          "properties": {
+            "remaining_capacity": {
+              "description": "Capacity minus selected weight",
+              "maximum": 100000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "selected": {
+              "description": "Selected items in input order; [] is valid when no positive-value item fits",
+              "items": {
+                "additionalProperties": false,
+                "description": "One selected item",
+                "properties": {
+                  "id": {
+                    "description": "Input item identifier",
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "pattern": "^[ -~]+$",
+                    "type": "string"
+                  },
+                  "original_index": {
+                    "description": "Zero-based input index",
+                    "maximum": 511,
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "value": {
+                    "description": "Input item value",
+                    "maximum": 1000000000,
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "weight": {
+                    "description": "Input item weight",
+                    "maximum": 1000000000,
+                    "minimum": 0,
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "id",
+                  "original_index",
+                  "weight",
+                  "value"
+                ],
+                "type": "object"
+              },
+              "maxItems": 512,
+              "type": "array"
+            },
+            "used_capacity": {
+              "description": "Total selected weight",
+              "maximum": 100000,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "selected",
+            "used_capacity",
+            "remaining_capacity"
+          ],
+          "type": "object"
+        },
+        "warnings": {
+          "description": "Always empty for this exact solver; non-proof semantics are carried in evidence",
+          "items": {
+            "description": "Human-readable warning",
+            "type": "string"
+          },
+          "maxItems": 0,
+          "type": "array"
+        },
+        "work_units": {
+          "description": "Item count times (capacity+1), the declared dynamic-program work units",
+          "maximum": 2000000,
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "operation",
+        "algorithm_version",
+        "objective",
+        "objective_value",
+        "optimal",
+        "solution",
+        "work_units",
+        "evidence",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "solution.selected[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "decision-solver.use.x402atlas.com",
+    "endpoint": "https://decision-solver.use.x402atlas.com/knapsack",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

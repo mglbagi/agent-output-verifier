@@ -1,0 +1,129 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_54cf1ba51de254a6",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "baseline": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "string",
+              "format": "date"
+            },
+            "ndbi": {
+              "type": "number"
+            },
+            "ndvi": {
+              "type": "number"
+            },
+            "to": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          "required": [
+            "from",
+            "ndbi",
+            "ndvi",
+            "to"
+          ]
+        },
+        "change_detected": {
+          "type": "boolean"
+        },
+        "change_direction": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "recent": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "string",
+              "format": "date"
+            },
+            "ndbi": {
+              "type": "number"
+            },
+            "ndvi": {
+              "type": "number"
+            },
+            "to": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          "required": [
+            "from",
+            "ndbi",
+            "ndvi",
+            "to"
+          ]
+        },
+        "scenes_used": {
+          "type": "integer"
+        },
+        "site": {
+          "type": "object",
+          "properties": {
+            "lat": {
+              "type": "number"
+            },
+            "lon": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "lat",
+            "lon"
+          ]
+        }
+      },
+      "required": [
+        "baseline",
+        "change_detected",
+        "change_direction",
+        "confidence",
+        "recent",
+        "scenes_used",
+        "site"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "baseline.from",
+        "other_field": "baseline.to"
+      },
+      {
+        "type": "lte",
+        "field": "recent.from",
+        "other_field": "recent.to"
+      }
+    ],
+    "bounds": {
+      "site.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "site.lon": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "sitepulse.waltsoft.net",
+    "endpoint": "https://sitepulse.waltsoft.net/v1/site",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

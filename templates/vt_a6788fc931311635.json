@@ -1,0 +1,59 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a6788fc931311635",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "funding_impact": {
+          "type": "object"
+        },
+        "liquidation_price": {
+          "type": "number"
+        },
+        "max_leverage_surviving_range": {
+          "type": "number"
+        },
+        "risk_disclosure": {
+          "type": "object"
+        },
+        "survives_calibrated_range": {
+          "type": "boolean"
+        },
+        "verdict": {
+          "enum": [
+            "SURVIVES_RANGE",
+            "THIN_BUFFER",
+            "LIQUIDATION_INSIDE_RANGE",
+            "UNKNOWN_RANGE"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "funding_impact",
+        "liquidation_price",
+        "max_leverage_surviving_range",
+        "risk_disclosure",
+        "survives_calibrated_range",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "liquidation_price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.coinopai.com",
+    "endpoint": "https://x402.coinopai.com/api/kronos/futures/risk",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

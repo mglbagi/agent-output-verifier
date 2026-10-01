@@ -1,0 +1,77 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1518ef0c633beed6",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string"
+              },
+              "feedDate": {
+                "type": "number"
+              },
+              "id": {
+                "type": "string"
+              },
+              "isFeatured": {
+                "type": "boolean"
+              },
+              "link": {
+                "type": "string",
+                "format": "uri"
+              },
+              "searchKeyWords": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "source": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "description",
+              "feedDate",
+              "id",
+              "isFeatured",
+              "link",
+              "searchKeyWords",
+              "source",
+              "title"
+            ]
+          }
+        }
+      },
+      "required": [
+        "result"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "result[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.coinstats.app",
+    "endpoint": "https://x402.coinstats.app/news",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

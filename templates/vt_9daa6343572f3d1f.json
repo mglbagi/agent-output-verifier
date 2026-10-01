@@ -1,0 +1,46 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9daa6343572f3d1f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "paid": {
+          "type": "boolean"
+        },
+        "secret": {
+          "type": "string"
+        },
+        "statusUrl": {
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "paid",
+        "orderId",
+        "secret",
+        "statusUrl"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "grov.fun",
+    "endpoint": "https://grov.fun/api/solana/spotifyplays",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

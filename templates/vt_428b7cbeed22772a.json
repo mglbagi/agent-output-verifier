@@ -1,0 +1,114 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_428b7cbeed22772a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "elevation_m": {
+          "type": "integer"
+        },
+        "hourly": {
+          "type": "object",
+          "properties": {
+            "precipitation": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "temperature_2m": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            },
+            "time": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "wind_speed_10m": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "required": [
+            "precipitation",
+            "temperature_2m",
+            "time",
+            "wind_speed_10m"
+          ]
+        },
+        "hourly_units": {
+          "type": "object",
+          "properties": {
+            "precipitation": {
+              "type": "string"
+            },
+            "temperature_2m": {
+              "type": "string"
+            },
+            "time": {
+              "type": "string"
+            },
+            "wind_speed_10m": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "precipitation",
+            "temperature_2m",
+            "time",
+            "wind_speed_10m"
+          ]
+        },
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "source": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "elevation_m",
+        "hourly",
+        "hourly_units",
+        "latitude",
+        "longitude",
+        "source",
+        "timezone"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "latitude": {
+        "min": -90,
+        "max": 90
+      },
+      "longitude": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-datashop-production.up.railway.app",
+    "endpoint": "https://x402-datashop-production.up.railway.app/v1/wx/forecast",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

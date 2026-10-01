@@ -1,0 +1,130 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a9612222588f93eb",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "freshness": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "tokens": {
+          "items": {
+            "properties": {
+              "chain": {
+                "description": "EVM chain slug (e.g. base, ethereum, arbitrum).",
+                "type": "string"
+              },
+              "confidenceScore": {
+                "description": "Source-quality score, 0..1.",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "id": {
+                "description": "Internal numeric identifier.",
+                "type": "integer"
+              },
+              "imageUrl": {
+                "format": "uri",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "lastUpdated": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "liquidityUsd": {
+                "description": "On-chain pool liquidity in USD.",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "marketCap": {
+                "description": "Fully-diluted market cap in USD.",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "name": {
+                "type": "string"
+              },
+              "priceChange24hPercent": {
+                "description": "24h price change, percent (-100..+inf).",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "priceUsd": {
+                "description": "Spot price in USD.",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "symbol": {
+                "description": "Uppercase ticker symbol, e.g. ETH.",
+                "type": "string"
+              },
+              "volume24h": {
+                "description": "Trailing 24h trading volume in USD.",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "symbol",
+              "name",
+              "chain",
+              "lastUpdated"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "total": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "tokens",
+        "total",
+        "freshness"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "tokens[].id"
+      }
+    ],
+    "bounds": {
+      "tokens[].confidenceScore": {
+        "min": 0,
+        "max": 1,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "aiagentoracle.ai",
+    "endpoint": "https://aiagentoracle.ai/api/v1/tokens/top",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

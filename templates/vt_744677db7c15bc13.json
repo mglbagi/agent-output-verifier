@@ -1,0 +1,143 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_744677db7c15bc13",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "deals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string"
+              },
+              "arv": {
+                "type": "integer"
+              },
+              "arv_p25": {
+                "type": "integer"
+              },
+              "arv_p75": {
+                "type": "integer"
+              },
+              "baths": {
+                "type": "integer"
+              },
+              "beds": {
+                "type": "integer"
+              },
+              "city": {
+                "type": "string"
+              },
+              "comp_count": {
+                "type": "integer"
+              },
+              "confidence": {
+                "type": "integer"
+              },
+              "confidence_band": {
+                "type": "string"
+              },
+              "dom": {
+                "type": "integer"
+              },
+              "grade": {
+                "type": "string"
+              },
+              "gross_margin_pct": {
+                "type": "number"
+              },
+              "gross_spread": {
+                "type": "integer"
+              },
+              "list_price": {
+                "type": "number"
+              },
+              "property_type": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "sqft": {
+                "type": "integer"
+              },
+              "state": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "year_built": {
+                "type": "integer"
+              },
+              "zip": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "address",
+              "arv",
+              "arv_p25",
+              "arv_p75",
+              "baths",
+              "beds",
+              "city",
+              "comp_count",
+              "confidence",
+              "confidence_band",
+              "dom",
+              "grade",
+              "gross_margin_pct",
+              "gross_spread",
+              "list_price",
+              "property_type",
+              "reason",
+              "sqft",
+              "state",
+              "url",
+              "year_built",
+              "zip"
+            ]
+          }
+        }
+      },
+      "required": [
+        "count",
+        "deals"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "deals[].comp_count": {
+        "min": 0
+      },
+      "deals[].gross_margin_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "deals[].list_price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-scalogy-production.up.railway.app",
+    "endpoint": "https://x402-scalogy-production.up.railway.app/find_graded_deals",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

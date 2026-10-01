@@ -1,0 +1,117 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f0a0ff5152312448",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "candles": {
+          "items": {
+            "properties": {
+              "close": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "high": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "low": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "open": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "time": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              }
+            },
+            "type": "object",
+            "required": [
+              "close",
+              "high",
+              "low",
+              "open",
+              "time"
+            ]
+          },
+          "type": "array"
+        },
+        "coin": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "days": {
+          "type": "integer"
+        },
+        "economics": {
+          "properties": {
+            "sellPriceUsd": {
+              "type": "number"
+            },
+            "upstreamCostUsdActual": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": "object"
+        },
+        "machine": {
+          "type": "string"
+        },
+        "route": {
+          "type": "string"
+        },
+        "vsCurrency": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "machine",
+        "route",
+        "candles"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "candles[].low",
+        "other_field": "candles[].high"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-commerce-factory-jm.austriaeast.cloudapp.azure.com",
+    "endpoint": "https://agent-commerce-factory-jm.austriaeast.cloudapp.azure.com/v1/crypto/history",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

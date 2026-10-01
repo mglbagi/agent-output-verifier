@@ -1,0 +1,494 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_342736b144432e8f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "product_version": {
+          "type": "string"
+        },
+        "season": {
+          "type": "integer"
+        },
+        "weeks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "games": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "away": {
+                      "type": "string"
+                    },
+                    "away_bal_n_all": {
+                      "type": "integer"
+                    },
+                    "away_bal_pass_rate": {
+                      "type": "number"
+                    },
+                    "away_gs_lead_1_3": {
+                      "type": "number"
+                    },
+                    "away_gs_lead_4_8": {
+                      "type": "number"
+                    },
+                    "away_gs_lead_9plus": {
+                      "type": "number"
+                    },
+                    "away_gs_tied": {
+                      "type": "number"
+                    },
+                    "away_gs_trail_1_3": {
+                      "type": "number"
+                    },
+                    "away_gs_trail_4_8": {
+                      "type": "number"
+                    },
+                    "away_gs_trail_9plus": {
+                      "type": "number"
+                    },
+                    "away_pass_def_expl_rate": {
+                      "type": "number"
+                    },
+                    "away_pass_def_int_rate": {
+                      "type": "number"
+                    },
+                    "away_pass_def_sack_rate": {
+                      "type": "number"
+                    },
+                    "away_pass_def_td_rate": {
+                      "type": "number"
+                    },
+                    "away_pass_def_yds_play": {
+                      "type": "number"
+                    },
+                    "away_pass_n_def": {
+                      "type": "integer"
+                    },
+                    "away_pass_n_off": {
+                      "type": "integer"
+                    },
+                    "away_pass_off_expl_rate": {
+                      "type": "number"
+                    },
+                    "away_pass_off_int_rate": {
+                      "type": "number"
+                    },
+                    "away_pass_off_sack_rate": {
+                      "type": "number"
+                    },
+                    "away_pass_off_td_rate": {
+                      "type": "number"
+                    },
+                    "away_pass_off_yds_play": {
+                      "type": "number"
+                    },
+                    "away_pen_total_g": {
+                      "type": "number"
+                    },
+                    "away_rush_def_expl_rate": {
+                      "type": "number"
+                    },
+                    "away_rush_def_fum_rate": {
+                      "type": "number"
+                    },
+                    "away_rush_def_td_rate": {
+                      "type": "number"
+                    },
+                    "away_rush_def_yds_play": {
+                      "type": "number"
+                    },
+                    "away_rush_n_def": {
+                      "type": "integer"
+                    },
+                    "away_rush_n_off": {
+                      "type": "integer"
+                    },
+                    "away_rush_off_expl_rate": {
+                      "type": "number"
+                    },
+                    "away_rush_off_fum_rate": {
+                      "type": "number"
+                    },
+                    "away_rush_off_td_rate": {
+                      "type": "number"
+                    },
+                    "away_rush_off_yds_play": {
+                      "type": "number"
+                    },
+                    "away_sit_fg": {
+                      "type": "number"
+                    },
+                    "away_sit_fp_forced": {
+                      "type": "number"
+                    },
+                    "away_sit_fp_own": {
+                      "type": "number"
+                    },
+                    "away_sit_rz_def": {
+                      "type": "number"
+                    },
+                    "away_sit_rz_off": {
+                      "type": "number"
+                    },
+                    "away_sit_td3_def": {
+                      "type": "number"
+                    },
+                    "away_sit_td3_off": {
+                      "type": "number"
+                    },
+                    "away_td_def_all": {
+                      "type": "number"
+                    },
+                    "away_td_def_q1": {
+                      "type": "number"
+                    },
+                    "away_td_def_q2": {
+                      "type": "number"
+                    },
+                    "away_td_def_q3": {
+                      "type": "number"
+                    },
+                    "away_td_def_q4": {
+                      "type": "number"
+                    },
+                    "away_td_n_def": {
+                      "type": "integer"
+                    },
+                    "away_td_n_off": {
+                      "type": "integer"
+                    },
+                    "away_td_off_all": {
+                      "type": "number"
+                    },
+                    "away_td_off_q1": {
+                      "type": "number"
+                    },
+                    "away_td_off_q2": {
+                      "type": "number"
+                    },
+                    "away_td_off_q3": {
+                      "type": "number"
+                    },
+                    "away_td_off_q4": {
+                      "type": "number"
+                    },
+                    "home": {
+                      "type": "string"
+                    },
+                    "home_bal_n_all": {
+                      "type": "integer"
+                    },
+                    "home_bal_pass_rate": {
+                      "type": "number"
+                    },
+                    "home_gs_lead_1_3": {
+                      "type": "number"
+                    },
+                    "home_gs_lead_4_8": {
+                      "type": "number"
+                    },
+                    "home_gs_lead_9plus": {
+                      "type": "integer"
+                    },
+                    "home_gs_tied": {
+                      "type": "number"
+                    },
+                    "home_gs_trail_1_3": {
+                      "type": "number"
+                    },
+                    "home_gs_trail_4_8": {
+                      "type": "number"
+                    },
+                    "home_gs_trail_9plus": {
+                      "type": "number"
+                    },
+                    "home_pass_def_expl_rate": {
+                      "type": "number"
+                    },
+                    "home_pass_def_int_rate": {
+                      "type": "number"
+                    },
+                    "home_pass_def_sack_rate": {
+                      "type": "number"
+                    },
+                    "home_pass_def_td_rate": {
+                      "type": "number"
+                    },
+                    "home_pass_def_yds_play": {
+                      "type": "number"
+                    },
+                    "home_pass_n_def": {
+                      "type": "integer"
+                    },
+                    "home_pass_n_off": {
+                      "type": "integer"
+                    },
+                    "home_pass_off_expl_rate": {
+                      "type": "number"
+                    },
+                    "home_pass_off_int_rate": {
+                      "type": "number"
+                    },
+                    "home_pass_off_sack_rate": {
+                      "type": "number"
+                    },
+                    "home_pass_off_td_rate": {
+                      "type": "number"
+                    },
+                    "home_pass_off_yds_play": {
+                      "type": "number"
+                    },
+                    "home_pen_total_g": {
+                      "type": "number"
+                    },
+                    "home_rush_def_expl_rate": {
+                      "type": "number"
+                    },
+                    "home_rush_def_fum_rate": {
+                      "type": "number"
+                    },
+                    "home_rush_def_td_rate": {
+                      "type": "number"
+                    },
+                    "home_rush_def_yds_play": {
+                      "type": "number"
+                    },
+                    "home_rush_n_def": {
+                      "type": "integer"
+                    },
+                    "home_rush_n_off": {
+                      "type": "integer"
+                    },
+                    "home_rush_off_expl_rate": {
+                      "type": "number"
+                    },
+                    "home_rush_off_fum_rate": {
+                      "type": "number"
+                    },
+                    "home_rush_off_td_rate": {
+                      "type": "number"
+                    },
+                    "home_rush_off_yds_play": {
+                      "type": "number"
+                    },
+                    "home_sit_fg": {
+                      "type": "number"
+                    },
+                    "home_sit_fp_forced": {
+                      "type": "number"
+                    },
+                    "home_sit_fp_own": {
+                      "type": "number"
+                    },
+                    "home_sit_rz_def": {
+                      "type": "number"
+                    },
+                    "home_sit_rz_off": {
+                      "type": "number"
+                    },
+                    "home_sit_td3_def": {
+                      "type": "number"
+                    },
+                    "home_sit_td3_off": {
+                      "type": "number"
+                    },
+                    "home_td_def_all": {
+                      "type": "number"
+                    },
+                    "home_td_def_q1": {
+                      "type": "number"
+                    },
+                    "home_td_def_q2": {
+                      "type": "number"
+                    },
+                    "home_td_def_q3": {
+                      "type": "number"
+                    },
+                    "home_td_def_q4": {
+                      "type": "number"
+                    },
+                    "home_td_n_def": {
+                      "type": "integer"
+                    },
+                    "home_td_n_off": {
+                      "type": "integer"
+                    },
+                    "home_td_off_all": {
+                      "type": "number"
+                    },
+                    "home_td_off_q1": {
+                      "type": "number"
+                    },
+                    "home_td_off_q2": {
+                      "type": "number"
+                    },
+                    "home_td_off_q3": {
+                      "type": "number"
+                    },
+                    "home_td_off_q4": {
+                      "type": "number"
+                    },
+                    "neutral_site": {
+                      "type": "boolean"
+                    },
+                    "season": {
+                      "type": "integer"
+                    },
+                    "week": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "away",
+                    "away_bal_n_all",
+                    "away_bal_pass_rate",
+                    "away_gs_lead_1_3",
+                    "away_gs_lead_4_8",
+                    "away_gs_lead_9plus",
+                    "away_gs_tied",
+                    "away_gs_trail_1_3",
+                    "away_gs_trail_4_8",
+                    "away_gs_trail_9plus",
+                    "away_pass_def_expl_rate",
+                    "away_pass_def_int_rate",
+                    "away_pass_def_sack_rate",
+                    "away_pass_def_td_rate",
+                    "away_pass_def_yds_play",
+                    "away_pass_n_def",
+                    "away_pass_n_off",
+                    "away_pass_off_expl_rate",
+                    "away_pass_off_int_rate",
+                    "away_pass_off_sack_rate",
+                    "away_pass_off_td_rate",
+                    "away_pass_off_yds_play",
+                    "away_pen_total_g",
+                    "away_rush_def_expl_rate",
+                    "away_rush_def_fum_rate",
+                    "away_rush_def_td_rate",
+                    "away_rush_def_yds_play",
+                    "away_rush_n_def",
+                    "away_rush_n_off",
+                    "away_rush_off_expl_rate",
+                    "away_rush_off_fum_rate",
+                    "away_rush_off_td_rate",
+                    "away_rush_off_yds_play",
+                    "away_sit_fg",
+                    "away_sit_fp_forced",
+                    "away_sit_fp_own",
+                    "away_sit_rz_def",
+                    "away_sit_rz_off",
+                    "away_sit_td3_def",
+                    "away_sit_td3_off",
+                    "away_td_def_all",
+                    "away_td_def_q1",
+                    "away_td_def_q2",
+                    "away_td_def_q3",
+                    "away_td_def_q4",
+                    "away_td_n_def",
+                    "away_td_n_off",
+                    "away_td_off_all",
+                    "away_td_off_q1",
+                    "away_td_off_q2",
+                    "away_td_off_q3",
+                    "away_td_off_q4",
+                    "home",
+                    "home_bal_n_all",
+                    "home_bal_pass_rate",
+                    "home_gs_lead_1_3",
+                    "home_gs_lead_4_8",
+                    "home_gs_lead_9plus",
+                    "home_gs_tied",
+                    "home_gs_trail_1_3",
+                    "home_gs_trail_4_8",
+                    "home_gs_trail_9plus",
+                    "home_pass_def_expl_rate",
+                    "home_pass_def_int_rate",
+                    "home_pass_def_sack_rate",
+                    "home_pass_def_td_rate",
+                    "home_pass_def_yds_play",
+                    "home_pass_n_def",
+                    "home_pass_n_off",
+                    "home_pass_off_expl_rate",
+                    "home_pass_off_int_rate",
+                    "home_pass_off_sack_rate",
+                    "home_pass_off_td_rate",
+                    "home_pass_off_yds_play",
+                    "home_pen_total_g",
+                    "home_rush_def_expl_rate",
+                    "home_rush_def_fum_rate",
+                    "home_rush_def_td_rate",
+                    "home_rush_def_yds_play",
+                    "home_rush_n_def",
+                    "home_rush_n_off",
+                    "home_rush_off_expl_rate",
+                    "home_rush_off_fum_rate",
+                    "home_rush_off_td_rate",
+                    "home_rush_off_yds_play",
+                    "home_sit_fg",
+                    "home_sit_fp_forced",
+                    "home_sit_fp_own",
+                    "home_sit_rz_def",
+                    "home_sit_rz_off",
+                    "home_sit_td3_def",
+                    "home_sit_td3_off",
+                    "home_td_def_all",
+                    "home_td_def_q1",
+                    "home_td_def_q2",
+                    "home_td_def_q3",
+                    "home_td_def_q4",
+                    "home_td_n_def",
+                    "home_td_n_off",
+                    "home_td_off_all",
+                    "home_td_off_q1",
+                    "home_td_off_q2",
+                    "home_td_off_q3",
+                    "home_td_off_q4",
+                    "neutral_site",
+                    "season",
+                    "week"
+                  ]
+                }
+              },
+              "week": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "games",
+              "week"
+            ]
+          }
+        }
+      },
+      "required": [
+        "product_version",
+        "season",
+        "weeks"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "weeks[].games[].away_pen_total_g": {
+        "min": 0
+      },
+      "weeks[].games[].home_pen_total_g": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "nfl-form-x402.owenlvll.workers.dev",
+    "endpoint": "https://nfl-form-x402.owenlvll.workers.dev/season/:season",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

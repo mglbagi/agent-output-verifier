@@ -1,0 +1,270 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9afbf24789bc4783",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "checkedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "contract": {
+          "description": "Raw contract findings from the scanner.",
+          "type": "object"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "flags": {
+          "items": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "level": {
+                "enum": [
+                  "danger",
+                  "warning",
+                  "info"
+                ],
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "code",
+              "level",
+              "message"
+            ]
+          },
+          "type": "array"
+        },
+        "holders": {
+          "properties": {
+            "count": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "top": {
+              "type": "array"
+            },
+            "top10Percent": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "count",
+            "top",
+            "top10Percent"
+          ]
+        },
+        "liquidity": {
+          "properties": {
+            "lockedPercent": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "lpHolders": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "lockedPercent",
+            "lpHolders"
+          ]
+        },
+        "market": {
+          "properties": {
+            "fdvUsd": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "links": {
+              "type": "object"
+            },
+            "liquidityKnown": {
+              "description": "False when only a price was available.",
+              "type": "boolean"
+            },
+            "liquidityUsd": {
+              "description": "Total DEX liquidity across all pairs.",
+              "type": "number"
+            },
+            "marketCapUsd": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "marketSource": {
+              "description": "DexScreener, GeckoTerminal or DefiLlama (price only).",
+              "type": "string"
+            },
+            "name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "oldestPairCreatedAt": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date-time"
+            },
+            "pairs": {
+              "description": "Number of DEX trading pairs.",
+              "type": "integer"
+            },
+            "priceChange": {
+              "description": "Percent change over 5m, 1h, 6h, 24h.",
+              "type": "object"
+            },
+            "priceNative": {
+              "description": "Price in the pair's quote token.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "priceUsd": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "symbol": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "topPair": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "txns24h": {
+              "properties": {
+                "buys": {
+                  "type": "integer"
+                },
+                "sells": {
+                  "type": "integer"
+                }
+              },
+              "type": "object",
+              "required": [
+                "buys",
+                "sells"
+              ]
+            },
+            "volume24hUsd": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "fdvUsd",
+            "links",
+            "liquidityKnown",
+            "liquidityUsd",
+            "marketCapUsd",
+            "marketSource",
+            "name",
+            "oldestPairCreatedAt",
+            "pairs",
+            "priceChange",
+            "priceNative",
+            "priceUsd",
+            "symbol",
+            "txns24h",
+            "volume24hUsd"
+          ]
+        },
+        "score": {
+          "description": "100 = no issues found.",
+          "maximum": 100,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "sources": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "verdict": {
+          "enum": [
+            "high-risk",
+            "caution",
+            "low-risk",
+            "unknown"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "chain",
+        "verdict",
+        "score",
+        "flags",
+        "holders",
+        "liquidity",
+        "market"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "holders.count": {
+        "min": 0
+      },
+      "holders.top10Percent": {
+        "min": 0,
+        "max": 100
+      },
+      "liquidity.lockedPercent": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "aayatai.com",
+    "endpoint": "https://aayatai.com/token/safety",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

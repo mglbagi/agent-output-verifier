@@ -1,0 +1,61 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bd9aa2960b5f23a7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "description": "Array of JSON:API resource objects.",
+          "items": {
+            "properties": {
+              "attributes": {
+                "description": "Resource attributes; see https://developers.zerion.io",
+                "type": "object"
+              },
+              "id": {
+                "description": "Resource ID.",
+                "type": "string"
+              },
+              "type": {
+                "description": "Resource type.",
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "attributes",
+              "id",
+              "type"
+            ]
+          },
+          "type": "array"
+        },
+        "links": {
+          "description": "Self and pagination links.",
+          "type": "object"
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.zerion.io",
+    "endpoint": "https://api.zerion.io/v1/fungibles/",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

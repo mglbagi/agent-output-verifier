@@ -1,0 +1,43 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b129e0d1ac6c340f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "current": {
+          "type": "object"
+        },
+        "daily": {
+          "type": "array"
+        },
+        "hourly": {
+          "type": "array"
+        },
+        "location": {
+          "type": "object"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "daily",
+        "location",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "weather.cyberwarex.com",
+    "endpoint": "https://weather.cyberwarex.com/forecast",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,222 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8ed09772cea809dd",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "endpoint": {
+          "const": "csv-quality-profile",
+          "type": "string"
+        },
+        "protocol": {
+          "const": "x402-v2",
+          "type": "string"
+        },
+        "result": {
+          "additionalProperties": false,
+          "properties": {
+            "column_count": {
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
+              "type": "integer"
+            },
+            "columns": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "duplicate_nonempty_count": {
+                    "maximum": 9007199254740991,
+                    "minimum": -9007199254740991,
+                    "type": "integer"
+                  },
+                  "examples": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "inferred_type": {
+                    "enum": [
+                      "empty",
+                      "boolean",
+                      "integer",
+                      "number",
+                      "date",
+                      "string",
+                      "mixed"
+                    ],
+                    "type": "string"
+                  },
+                  "max_length": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "min_length": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "null_or_empty_count": {
+                    "maximum": 9007199254740991,
+                    "minimum": -9007199254740991,
+                    "type": "integer"
+                  },
+                  "numeric_max": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "numeric_min": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "unique_count": {
+                    "maximum": 9007199254740991,
+                    "minimum": -9007199254740991,
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "name",
+                  "inferred_type",
+                  "null_or_empty_count",
+                  "unique_count",
+                  "duplicate_nonempty_count",
+                  "min_length",
+                  "max_length",
+                  "numeric_min",
+                  "numeric_max",
+                  "examples"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "delimiter": {
+              "type": "string"
+            },
+            "duplicate_headers": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "has_header": {
+              "type": "boolean"
+            },
+            "headers": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "inconsistent_row_count": {
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
+              "type": "integer"
+            },
+            "inconsistent_rows": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "columns": {
+                    "maximum": 9007199254740991,
+                    "minimum": -9007199254740991,
+                    "type": "integer"
+                  },
+                  "row": {
+                    "maximum": 9007199254740991,
+                    "minimum": -9007199254740991,
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "row",
+                  "columns"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "input_sha256": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            "row_count": {
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "input_sha256",
+            "delimiter",
+            "has_header",
+            "row_count",
+            "column_count",
+            "headers",
+            "duplicate_headers",
+            "inconsistent_row_count",
+            "inconsistent_rows",
+            "columns"
+          ],
+          "type": "object"
+        },
+        "service": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "endpoint",
+        "protocol",
+        "result",
+        "service",
+        "version"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "result.columns[].min_length",
+        "other_field": "result.columns[].max_length"
+      },
+      {
+        "type": "lte",
+        "field": "result.columns[].numeric_min",
+        "other_field": "result.columns[].numeric_max"
+      }
+    ],
+    "bounds": {
+      "result.columns[].max_length": {
+        "min": 0
+      },
+      "result.columns[].min_length": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "foundry-par007-machine-revenue-mainnet.inference-chip-index.workers.dev",
+    "endpoint": "https://foundry-par007-machine-revenue-mainnet.inference-chip-index.workers.dev/v1/csv/profile",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

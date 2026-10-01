@@ -1,0 +1,117 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e81b3af08d96d020",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "alternatives": {
+          "items": {
+            "properties": {
+              "amountUsd": {
+                "type": "number"
+              },
+              "endpointPage": {
+                "type": "string",
+                "format": "uri"
+              },
+              "grade": {
+                "type": "string"
+              },
+              "network": {
+                "type": "string"
+              },
+              "priceCeiling": {
+                "type": "boolean"
+              },
+              "recommendation": {
+                "type": "string"
+              },
+              "resource": {
+                "type": "string"
+              },
+              "score": {
+                "type": "number"
+              },
+              "similarity": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "resource",
+              "score",
+              "grade",
+              "recommendation",
+              "similarity",
+              "amountUsd",
+              "priceCeiling",
+              "network",
+              "endpointPage"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "note": {
+          "type": "string"
+        },
+        "resource": {
+          "type": "string"
+        },
+        "subject": {
+          "properties": {
+            "grade": {
+              "type": "string"
+            },
+            "inObservationSet": {
+              "type": "boolean"
+            },
+            "score": {
+              "type": "number"
+            },
+            "vectorized": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "score",
+            "grade",
+            "inObservationSet",
+            "vectorized"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "resource",
+        "subject",
+        "count",
+        "alternatives",
+        "note"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "alternatives[].similarity": {
+        "min": 0,
+        "max": 1
+      },
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-trust.com",
+    "endpoint": "https://x402-trust.com/v1/similar",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f2cbb24a6ceba340",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "product": {
+          "type": "string"
+        },
+        "rankings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "fair_value_gap_pct": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "tvr_estimated_value_usd": {
+                "type": "number"
+              },
+              "tvr_score": {
+                "type": "integer"
+              },
+              "valuation": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "fair_value_gap_pct",
+              "name",
+              "rank",
+              "symbol",
+              "tvr_estimated_value_usd",
+              "tvr_score",
+              "valuation"
+            ]
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "count",
+        "product",
+        "rankings",
+        "success"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "rankings[].fair_value_gap_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "rankings[].tvr_estimated_value_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "truevaluerankings.com",
+    "endpoint": "https://truevaluerankings.com/premium/custom-ranking",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c5d8a9256ddb55f2",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "flags": {
+          "type": "string"
+        },
+        "fullCount": {
+          "type": "integer"
+        },
+        "matchCount": {
+          "type": "integer"
+        },
+        "matches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "groups": {
+                "type": "array"
+              },
+              "index": {
+                "type": "integer"
+              },
+              "length": {
+                "type": "integer"
+              },
+              "match": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "groups",
+              "index",
+              "length",
+              "match"
+            ]
+          }
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "pattern": {
+          "type": "string"
+        },
+        "payment": {
+          "type": "object",
+          "properties": {
+            "network": {
+              "type": "string"
+            },
+            "payer": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "transaction": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{64}$"
+            }
+          },
+          "required": [
+            "network",
+            "payer",
+            "transaction"
+          ]
+        },
+        "service": {
+          "type": "string"
+        },
+        "truncated": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "flags",
+        "fullCount",
+        "matchCount",
+        "matches",
+        "ok",
+        "pattern",
+        "payment",
+        "service",
+        "truncated"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "matches[].length": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "app.heinrichstech.com",
+    "endpoint": "https://app.heinrichstech.com/v1/cdp/regex-test",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

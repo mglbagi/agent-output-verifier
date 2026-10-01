@@ -1,0 +1,45 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3a2ff26e115770ec",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "corpus": {
+          "type": "object"
+        },
+        "network": {
+          "type": "string"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "receipt": {
+          "type": "object"
+        },
+        "resource": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "protocol",
+        "resource",
+        "network",
+        "corpus",
+        "receipt"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ai-akari.ai",
+    "endpoint": "https://ai-akari.ai/api/x402/philosophy",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_378a9d80b4119815",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "receipt": {
+          "type": "object",
+          "properties": {
+            "amount_usd": {
+              "type": "number"
+            },
+            "receipt_id": {
+              "type": "string"
+            },
+            "tx_hash": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount_usd",
+            "receipt_id",
+            "tx_hash"
+          ]
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "agents": {
+              "type": "integer"
+            },
+            "epochs": {
+              "type": "integer"
+            },
+            "final_gini": {
+              "type": "number"
+            },
+            "stable": {
+              "type": "boolean"
+            },
+            "state_commitment_sha256": {
+              "type": "string"
+            },
+            "total_energy": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "agents",
+            "epochs",
+            "final_gini",
+            "stable",
+            "state_commitment_sha256",
+            "total_energy"
+          ]
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "receipt",
+        "result",
+        "type"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "receipt.amount_usd": {
+        "min": 0
+      },
+      "result.total_energy": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "twin.unykorn.org",
+    "endpoint": "https://twin.unykorn.org/genesis-sim",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

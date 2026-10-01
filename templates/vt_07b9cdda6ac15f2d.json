@@ -1,0 +1,52 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_07b9cdda6ac15f2d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "api_version": {
+          "type": "string"
+        },
+        "match_count": {
+          "type": "integer"
+        },
+        "matches": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "op": {
+          "type": "string"
+        },
+        "valid": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "api_version",
+        "op",
+        "valid",
+        "matches",
+        "match_count"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "match_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "json-suite.underscoredone.com",
+    "endpoint": "https://json-suite.underscoredone.com/json",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7f6e36355125417d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "_atlas": {
+          "additionalProperties": false,
+          "description": "Atlas documentation and related-route metadata added after deployment",
+          "properties": {
+            "docs": {
+              "description": "Documentation URL for this bridge",
+              "format": "uri",
+              "maxLength": 512,
+              "type": "string"
+            },
+            "related": {
+              "description": "Bounded related Atlas routes",
+              "items": {
+                "additionalProperties": false,
+                "description": "One related Atlas route",
+                "properties": {
+                  "bridge": {
+                    "description": "Related bridge name",
+                    "maxLength": 64,
+                    "type": "string"
+                  },
+                  "docs": {
+                    "description": "Related bridge documentation URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  },
+                  "summary": {
+                    "description": "Short capability summary",
+                    "maxLength": 256,
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "Related route URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "bridge",
+                  "url",
+                  "docs",
+                  "summary"
+                ],
+                "type": "object"
+              },
+              "maxItems": 3,
+              "type": "array"
+            }
+          },
+          "required": [
+            "docs"
+          ],
+          "type": "object"
+        },
+        "algorithm_version": {
+          "const": "schedule-v1",
+          "description": "Pinned interval merge contract",
+          "type": "string"
+        },
+        "input_count": {
+          "description": "Number of input intervals",
+          "maximum": 1000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "intervals": {
+          "description": "Sorted maximal UTC intervals; [] when input is empty",
+          "items": {
+            "additionalProperties": false,
+            "description": "One normalized UTC half-open interval",
+            "properties": {
+              "end": {
+                "description": "Exclusive RFC3339 instant after start",
+                "format": "date-time",
+                "type": "string"
+              },
+              "start": {
+                "description": "Inclusive RFC3339 instant",
+                "format": "date-time",
+                "type": "string"
+              }
+            },
+            "required": [
+              "start",
+              "end"
+            ],
+            "type": "object"
+          },
+          "maxItems": 1000,
+          "minItems": 0,
+          "type": "array"
+        },
+        "merge_adjacent": {
+          "description": "Applied adjacency policy",
+          "type": "boolean"
+        },
+        "operation": {
+          "const": "intervals-merge",
+          "description": "Stable route operation",
+          "type": "string"
+        },
+        "output_count": {
+          "description": "Number of maximal output intervals",
+          "maximum": 1000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "total_covered_seconds": {
+          "description": "Checked sum of output interval durations in seconds",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "warnings": {
+          "description": "Always empty for deterministic merging",
+          "items": {
+            "description": "Warning",
+            "type": "string"
+          },
+          "maxItems": 0,
+          "type": "array"
+        }
+      },
+      "required": [
+        "operation",
+        "algorithm_version",
+        "merge_adjacent",
+        "input_count",
+        "output_count",
+        "intervals",
+        "total_covered_seconds",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "intervals[].start",
+        "other_field": "intervals[].end"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "schedule-tools.use.x402atlas.com",
+    "endpoint": "https://schedule-tools.use.x402atlas.com/intervals-merge",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_71abf90221da3afc",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "deterministic": {
+          "type": "boolean"
+        },
+        "next_hours": {
+          "type": "object",
+          "properties": {
+            "avg_gco2_per_kwh": {
+              "type": "integer"
+            },
+            "cleanest": {
+              "type": "object",
+              "properties": {
+                "gco2_per_kwh": {
+                  "type": "integer"
+                },
+                "start": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "required": [
+                "gco2_per_kwh",
+                "start"
+              ]
+            }
+          },
+          "required": [
+            "avg_gco2_per_kwh",
+            "cleanest"
+          ]
+        },
+        "now": {
+          "type": "object",
+          "properties": {
+            "gco2_per_kwh": {
+              "type": "integer"
+            },
+            "start": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "gco2_per_kwh",
+            "start"
+          ]
+        },
+        "region": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "deterministic",
+        "next_hours",
+        "now",
+        "region"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "gridpulse.theaslangroupllc.com",
+    "endpoint": "https://gridpulse.theaslangroupllc.com/api/energy/carbon-intensity",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_be53739c5d5d019c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "checked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "country": {
+          "type": "string"
+        },
+        "country_name": {
+          "type": "string"
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "valid": {
+          "type": "boolean"
+        },
+        "vat": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "checked_at",
+        "country",
+        "country_name",
+        "deterministic",
+        "name",
+        "number",
+        "source",
+        "status",
+        "valid",
+        "vat"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "compliancepulse.theaslangroupllc.com",
+    "endpoint": "https://compliancepulse.theaslangroupllc.com/api/validate/vat",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9cd9cf2b37b6fbd6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "regions": {
+          "items": {
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "id",
+              "name"
+            ]
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "regions"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "regions[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.reloadpi.com",
+    "endpoint": "https://api.reloadpi.com/api/catalog/topups/regions",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

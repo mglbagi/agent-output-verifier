@@ -1,0 +1,179 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1ed5f633b55168b5",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "completedAt": {
+          "description": "Completion timestamp.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "createdAt": {
+          "description": "Creation time.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "deliveryStatus": {
+          "description": "XAUH delivery status. DELIVERY_PENDING means automated delivery is still running; COMPLETED confirms delivery.",
+          "enum": [
+            "DELIVERY_PENDING",
+            "COMPLETED",
+            "FAILED",
+            "CANCELLED"
+          ],
+          "type": "string"
+        },
+        "failedAt": {
+          "description": "Failure timestamp.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "description": "Purchase request ID.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "payment": {
+          "additionalProperties": false,
+          "description": "x402 payment details.",
+          "properties": {
+            "amount": {
+              "description": "Human-readable payment amount.",
+              "type": "string"
+            },
+            "amountAtomic": {
+              "description": "Payment amount in atomic units.",
+              "type": "string"
+            },
+            "assetAddress": {
+              "description": "Payment asset contract or token identifier.",
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "assetSymbol": {
+              "description": "Payment asset ticker.",
+              "type": "string"
+            },
+            "decimals": {
+              "description": "Payment asset decimals.",
+              "type": "integer"
+            },
+            "explorerUrl": {
+              "description": "Payment settlement transaction explorer URL.",
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "uri"
+            },
+            "network": {
+              "description": "x402 CAIP-2 payment network identifier.",
+              "type": "string"
+            },
+            "txHash": {
+              "description": "Verified payment settlement transaction hash. Null when a TON settlement succeeded but its on-chain transaction could not be resolved.",
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^0x[a-fA-F0-9]{64}$"
+            }
+          },
+          "required": [
+            "assetSymbol",
+            "assetAddress",
+            "network",
+            "amount",
+            "amountAtomic",
+            "decimals",
+            "txHash"
+          ],
+          "type": "object"
+        },
+        "paymentReceivedAt": {
+          "description": "Payment received timestamp.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "status": {
+          "description": "Purchase lifecycle status. PAYMENT_RECEIVED means payment is confirmed and automated XAUH delivery is pending; COMPLETED confirms delivery.",
+          "enum": [
+            "PENDING",
+            "PAYMENT_RECEIVED",
+            "COMPLETED",
+            "FAILED",
+            "CANCELLED"
+          ],
+          "type": "string"
+        },
+        "statusUrl": {
+          "description": "Canonical purchase request status URL to poll for automated delivery progress until a terminal status.",
+          "type": "string"
+        },
+        "tonTransferTxHash": {
+          "description": "TON transfer transaction hash, exposed when delivery is completed and the hash is available.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tonWalletAddress": {
+          "description": "TON wallet address that will receive XAUH jettons.",
+          "type": "string"
+        },
+        "userId": {
+          "description": "User ID.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "xauhAmount": {
+          "description": "Human-readable XAUH amount.",
+          "type": "string"
+        },
+        "xauhAmountAtomic": {
+          "description": "XAUH amount in atomic units.",
+          "type": "string"
+        },
+        "xauhDecimals": {
+          "description": "XAUH token decimals.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "tonWalletAddress",
+        "statusUrl",
+        "xauhAmount",
+        "xauhAmountAtomic",
+        "xauhDecimals",
+        "status",
+        "deliveryStatus",
+        "payment",
+        "createdAt"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.jamton.network",
+    "endpoint": "https://api.jamton.network/v1/purchases/xauh/requests/x402",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_029135f600e48ed6",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "navigation": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            },
+            "next_step": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "message",
+            "next_step"
+          ]
+        },
+        "product": {
+          "type": "string"
+        },
+        "signals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "confidence_band": {
+                "type": "string"
+              },
+              "depth": {
+                "type": "string"
+              },
+              "event_id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "freshness": {
+                "type": "string"
+              },
+              "publish_state": {
+                "type": "string"
+              },
+              "region": {
+                "type": "string"
+              },
+              "score_band": {
+                "type": "string"
+              },
+              "signal_id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "signal_type": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "unlock": {
+                "type": "object",
+                "properties": {
+                  "sector_impacts": {
+                    "type": "string"
+                  },
+                  "sector_impacts_price_usd": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "sector_impacts",
+                  "sector_impacts_price_usd"
+                ]
+              },
+              "why_not_high": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "confidence_band",
+              "depth",
+              "event_id",
+              "freshness",
+              "publish_state",
+              "region",
+              "score_band",
+              "signal_id",
+              "signal_type",
+              "state",
+              "unlock",
+              "why_not_high"
+            ]
+          }
+        },
+        "why_not_high": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "count",
+        "navigation",
+        "product",
+        "signals",
+        "why_not_high"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "signals[].event_id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "signals[].unlock.sector_impacts_price_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "disruption.forgemesh.io",
+    "endpoint": "https://disruption.forgemesh.io/ripple/index",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

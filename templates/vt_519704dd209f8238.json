@@ -1,0 +1,111 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_519704dd209f8238",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "markets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "close_date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "id": {
+                "type": "string"
+              },
+              "outcomes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "probability": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "probability"
+                  ]
+                }
+              },
+              "source": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "volume_24h_usd": {
+                "type": "number"
+              },
+              "volume_usd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "close_date",
+              "id",
+              "outcomes",
+              "source",
+              "status",
+              "title",
+              "volume_24h_usd",
+              "volume_usd"
+            ]
+          }
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "count",
+        "markets",
+        "source"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "markets[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "markets[].outcomes[].probability": {
+        "min": 0,
+        "max": 1
+      },
+      "markets[].volume_24h_usd": {
+        "min": 0
+      },
+      "markets[].volume_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402financialdata.com",
+    "endpoint": "https://www.x402financialdata.com/trending-markets",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

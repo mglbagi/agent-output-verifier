@@ -1,0 +1,76 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d6c91c3f41aedf6e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "ms": {
+          "type": "integer"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "result": {
+          "properties": {
+            "inDirectory": {
+              "type": "boolean"
+            },
+            "liveChecks": {
+              "properties": {
+                "evidence": {
+                  "items": {
+                    "properties": {
+                      "signal": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "integer"
+                      },
+                      "weight": {
+                        "type": "integer"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "level": {
+                  "type": "string"
+                },
+                "score": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "verdict": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "tool": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "result.liveChecks.evidence[].weight": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "toll402.dev",
+    "endpoint": "https://toll402.dev/v1/biz/verify",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

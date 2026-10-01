@@ -1,0 +1,178 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f2dabd407c221e1c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "answers": {
+          "type": "object",
+          "properties": {
+            "department": {
+              "type": "object",
+              "properties": {
+                "choice": {
+                  "type": "string"
+                },
+                "confidence": {
+                  "type": "number"
+                },
+                "probabilities": {
+                  "type": "object",
+                  "properties": {
+                    "billing": {
+                      "type": "number"
+                    },
+                    "sales": {
+                      "type": "number"
+                    },
+                    "technical": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "billing",
+                    "sales",
+                    "technical"
+                  ]
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "choice",
+                "confidence",
+                "probabilities",
+                "type"
+              ]
+            },
+            "frustration": {
+              "type": "object",
+              "properties": {
+                "confidence": {
+                  "type": "number"
+                },
+                "legend": {
+                  "type": "object",
+                  "properties": {
+                    "0": {
+                      "type": "string"
+                    },
+                    "1": {
+                      "type": "string"
+                    },
+                    "2": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "0",
+                    "1",
+                    "2"
+                  ]
+                },
+                "probabilities": {
+                  "type": "object",
+                  "properties": {
+                    "0": {
+                      "type": "number"
+                    },
+                    "1": {
+                      "type": "number"
+                    },
+                    "2": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "0",
+                    "1",
+                    "2"
+                  ]
+                },
+                "score": {
+                  "type": "number"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "confidence",
+                "legend",
+                "probabilities",
+                "score",
+                "type"
+              ]
+            },
+            "is_urgent": {
+              "type": "object",
+              "properties": {
+                "noul": {
+                  "type": "number"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "noul",
+                "type"
+              ]
+            }
+          },
+          "required": [
+            "department",
+            "frustration",
+            "is_urgent"
+          ]
+        },
+        "model": {
+          "type": "string"
+        },
+        "usage": {
+          "type": "object",
+          "properties": {
+            "input_tokens": {
+              "type": "integer"
+            },
+            "output_tokens": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "input_tokens",
+            "output_tokens"
+          ]
+        }
+      },
+      "required": [
+        "answers",
+        "model",
+        "usage"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "answers.department.confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "answers.frustration.confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "jev.agents.bakingbad.dev",
+    "endpoint": "https://jev.agents.bakingbad.dev/v1/systemone",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3de21c525de42c27",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "markdown": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        },
+        "wordCount": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "markdown",
+        "success",
+        "title",
+        "wordCount"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "zlurp.ai",
+    "endpoint": "https://zlurp.ai/scrape",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

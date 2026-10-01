@@ -1,0 +1,130 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0dea30cd4a87dc56",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "aggregate_score": {
+          "description": "0 to 1, weighted across rules",
+          "type": "number"
+        },
+        "confidence": {
+          "description": "Minimum confidence across rules, 0 to 1",
+          "type": "number"
+        },
+        "id": {
+          "type": "string"
+        },
+        "latency_ms": {
+          "type": "integer"
+        },
+        "recommended_action": {
+          "description": "The one field to branch on. block: do not send. redact: remove the flagged content and check again. review: ask a human. allow: proceed",
+          "enum": [
+            "block",
+            "redact",
+            "review",
+            "allow"
+          ],
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "action": {
+                "description": "What this rule asks for when it fails",
+                "enum": [
+                  "block",
+                  "redact",
+                  "review"
+                ],
+                "type": "string"
+              },
+              "answer": {},
+              "confidence": {
+                "type": "number"
+              },
+              "probability": {
+                "type": "number"
+              },
+              "rule": {
+                "type": "string"
+              },
+              "type": {
+                "enum": [
+                  "choice",
+                  "score",
+                  "noul"
+                ],
+                "type": "string"
+              },
+              "verdict": {
+                "enum": [
+                  "pass",
+                  "fail",
+                  "review"
+                ],
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "action",
+              "answer",
+              "confidence",
+              "probability",
+              "rule",
+              "type",
+              "verdict"
+            ]
+          },
+          "type": "array"
+        },
+        "verdict": {
+          "description": "fail: a rule matched. review: a rule was unsure. pass: neither",
+          "enum": [
+            "pass",
+            "fail",
+            "review"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "aggregate_score",
+        "confidence",
+        "id",
+        "latency_ms",
+        "recommended_action",
+        "results",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "results[].confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "results[].probability": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "overwing.ai",
+    "endpoint": "https://overwing.ai/api/x402/evaluate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

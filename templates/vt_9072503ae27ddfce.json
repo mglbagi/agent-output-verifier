@@ -1,0 +1,60 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9072503ae27ddfce",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "compressed_size": {
+          "type": "integer"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "original_size": {
+          "type": "integer"
+        },
+        "pdf_base64": {
+          "type": "string"
+        },
+        "reduction_percent": {
+          "type": "integer"
+        },
+        "warnings": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "compressed_size",
+        "mode",
+        "original_size",
+        "pdf_base64",
+        "reduction_percent",
+        "warnings"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "compressed_size": {
+        "min": 0
+      },
+      "original_size": {
+        "min": 0
+      },
+      "reduction_percent": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tools.miniframe.com.br",
+    "endpoint": "https://tools.miniframe.com.br/compress-pdf",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

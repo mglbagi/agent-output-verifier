@@ -1,0 +1,65 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8d970425c22bbfc8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "properties": {
+            "signals": {
+              "properties": {
+                "ETH": {
+                  "properties": {
+                    "bias": {
+                      "type": "string"
+                    },
+                    "conviction": {
+                      "type": "number"
+                    },
+                    "sentiment": {
+                      "type": "number"
+                    }
+                  },
+                  "type": "object",
+                  "required": [
+                    "bias",
+                    "conviction",
+                    "sentiment"
+                  ]
+                }
+              },
+              "type": "object",
+              "required": [
+                "ETH"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "signals"
+          ]
+        },
+        "network": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "data",
+        "network"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ozmium.org",
+    "endpoint": "https://ozmium.org/v1/signals",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

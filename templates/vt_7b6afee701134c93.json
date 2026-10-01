@@ -1,0 +1,57 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7b6afee701134c93",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "market_moving": {
+                "type": "boolean"
+              },
+              "time_et": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "market_moving",
+              "time_et",
+              "title"
+            ]
+          }
+        }
+      },
+      "required": [
+        "count",
+        "events"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-market-one.vercel.app",
+    "endpoint": "https://agent-market-one.vercel.app/v1/fed/calendar",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

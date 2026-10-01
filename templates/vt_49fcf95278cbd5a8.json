@@ -1,0 +1,147 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_49fcf95278cbd5a8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "as_of": {
+          "type": "string",
+          "format": "date"
+        },
+        "coverage": {
+          "type": "object",
+          "properties": {
+            "failed": {
+              "type": "integer"
+            },
+            "ok": {
+              "type": "integer"
+            },
+            "ratio": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "failed",
+            "ok",
+            "ratio"
+          ]
+        },
+        "fact": {
+          "type": "object",
+          "properties": {
+            "attributed_share": {
+              "type": "object",
+              "properties": {
+                "txs": {
+                  "type": "number"
+                },
+                "usdc": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "txs",
+                "usdc"
+              ]
+            },
+            "days": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "day": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "totals": {
+                    "type": "object",
+                    "properties": {
+                      "purchases": {
+                        "type": "integer"
+                      },
+                      "txs": {
+                        "type": "integer"
+                      },
+                      "usdc": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "purchases",
+                      "txs",
+                      "usdc"
+                    ]
+                  }
+                },
+                "required": [
+                  "day",
+                  "totals"
+                ]
+              }
+            },
+            "days_missing": {
+              "type": "array"
+            },
+            "totals": {
+              "type": "object",
+              "properties": {
+                "purchases": {
+                  "type": "integer"
+                },
+                "txs": {
+                  "type": "integer"
+                },
+                "usdc": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "purchases",
+                "txs",
+                "usdc"
+              ]
+            }
+          },
+          "required": [
+            "attributed_share",
+            "days",
+            "days_missing",
+            "totals"
+          ]
+        },
+        "frame": {
+          "type": "string"
+        },
+        "tier": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "as_of",
+        "coverage",
+        "fact",
+        "frame",
+        "tier"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "coverage.ratio": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "parallax402.com",
+    "endpoint": "https://parallax402.com/v1/window",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

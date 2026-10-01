@@ -1,0 +1,54 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a84c67fc76aa77ba",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "mint": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "risk": {
+          "enum": [
+            "LOW",
+            "MEDIUM",
+            "HIGH"
+          ],
+          "type": "string"
+        },
+        "score": {
+          "type": "number"
+        },
+        "signals": {
+          "type": "array"
+        },
+        "symbol": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "mint",
+        "name",
+        "risk",
+        "score",
+        "signals",
+        "symbol"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "cyre.dev",
+    "endpoint": "https://cyre.dev/api/token",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

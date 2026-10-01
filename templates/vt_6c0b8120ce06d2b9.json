@@ -1,0 +1,90 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6c0b8120ce06d2b9",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "events": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "event": {
+                    "type": "string"
+                  },
+                  "followed_caller_record": {
+                    "type": "object",
+                    "properties": {
+                      "calls": {
+                        "type": "integer"
+                      },
+                      "early_rate": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "calls",
+                      "early_rate"
+                    ]
+                  },
+                  "followed_followers": {
+                    "type": "integer"
+                  },
+                  "followed_handle": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "watched": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "at",
+                  "event",
+                  "followed_caller_record",
+                  "followed_followers",
+                  "followed_handle",
+                  "id",
+                  "watched"
+                ]
+              }
+            }
+          },
+          "required": [
+            "events"
+          ]
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data.events[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.robinx.io",
+    "endpoint": "https://api.robinx.io/social/follows",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

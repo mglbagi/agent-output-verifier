@@ -1,0 +1,71 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_96798af8f5d26603",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "file_size_bytes": {
+              "type": "integer"
+            },
+            "page_count": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "file_size_bytes",
+            "page_count"
+          ]
+        },
+        "summary_stats": {
+          "type": "object",
+          "properties": {
+            "has_text": {
+              "type": "boolean"
+            },
+            "ocr_pages": {
+              "type": "integer"
+            },
+            "total_characters": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "has_text",
+            "ocr_pages",
+            "total_characters"
+          ]
+        }
+      },
+      "required": [
+        "metadata",
+        "summary_stats"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "metadata.file_size_bytes": {
+        "min": 0
+      },
+      "metadata.page_count": {
+        "min": 0
+      },
+      "summary_stats.total_characters": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "visual.hugen.tokyo",
+    "endpoint": "https://visual.hugen.tokyo/visual/ocr",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

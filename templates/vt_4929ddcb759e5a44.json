@@ -1,0 +1,232 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4929ddcb759e5a44",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ],
+          "type": "string"
+        },
+        "indicators": {
+          "description": "Per indicator its values and vote; vote null = not counted (e.g. insufficient_history).",
+          "properties": {
+            "bollinger": {
+              "properties": {
+                "vote": {
+                  "enum": [
+                    "bullish",
+                    "bearish",
+                    "neutral",
+                    null
+                  ],
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "type": "object",
+              "required": [
+                "vote"
+              ]
+            },
+            "ema_cross": {
+              "properties": {
+                "vote": {
+                  "enum": [
+                    "bullish",
+                    "bearish",
+                    "neutral",
+                    null
+                  ],
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "type": "object",
+              "required": [
+                "vote"
+              ]
+            },
+            "ichimoku": {
+              "properties": {
+                "vote": {
+                  "enum": [
+                    "bullish",
+                    "bearish",
+                    "neutral",
+                    null
+                  ],
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "type": "object",
+              "required": [
+                "vote"
+              ]
+            },
+            "macd": {
+              "properties": {
+                "vote": {
+                  "enum": [
+                    "bullish",
+                    "bearish",
+                    "neutral",
+                    null
+                  ],
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "type": "object",
+              "required": [
+                "vote"
+              ]
+            },
+            "rsi": {
+              "properties": {
+                "vote": {
+                  "enum": [
+                    "bullish",
+                    "bearish",
+                    "neutral",
+                    null
+                  ],
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "type": "object",
+              "required": [
+                "vote"
+              ]
+            },
+            "volume": {
+              "properties": {
+                "vote": {
+                  "enum": [
+                    "bullish",
+                    "bearish",
+                    "neutral",
+                    null
+                  ],
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "type": "object",
+              "required": [
+                "vote"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "bollinger",
+            "ema_cross",
+            "ichimoku",
+            "macd",
+            "rsi",
+            "volume"
+          ]
+        },
+        "interval": {
+          "type": "string"
+        },
+        "pair": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
+        },
+        "score": {
+          "description": "(bullish - bearish) / counted votes, from -1 to 1",
+          "type": "number"
+        },
+        "signal": {
+          "enum": [
+            "bullish",
+            "bearish",
+            "neutral"
+          ],
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "timestamp": {
+          "description": "ISO 8601 UTC",
+          "type": "string",
+          "format": "date-time"
+        },
+        "votes": {
+          "properties": {
+            "bearish": {
+              "type": "integer"
+            },
+            "bullish": {
+              "type": "integer"
+            },
+            "counted": {
+              "type": "integer"
+            },
+            "neutral": {
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "required": [
+            "bearish",
+            "bullish",
+            "counted",
+            "neutral"
+          ]
+        }
+      },
+      "required": [
+        "pair",
+        "interval",
+        "timestamp",
+        "price",
+        "signal",
+        "confidence",
+        "score",
+        "votes",
+        "indicators"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ichimoku-signal.fizzl.eu",
+    "endpoint": "https://ichimoku-signal.fizzl.eu/signals/:pair",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

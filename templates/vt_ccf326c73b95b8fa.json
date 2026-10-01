@@ -1,0 +1,61 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ccf326c73b95b8fa",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "changes": {
+          "items": {
+            "properties": {
+              "entity_uri": {
+                "type": "string",
+                "format": "uri"
+              },
+              "new_value": {
+                "type": "string"
+              },
+              "operation": {
+                "type": "string"
+              },
+              "property": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "entity_uri",
+              "new_value",
+              "operation",
+              "property"
+            ]
+          },
+          "type": "array"
+        },
+        "count": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "changes",
+        "count"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.dyor.network",
+    "endpoint": "https://api.dyor.network/api/changes",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

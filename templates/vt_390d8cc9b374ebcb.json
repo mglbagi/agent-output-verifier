@@ -1,0 +1,40 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_390d8cc9b374ebcb",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "fixes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "grade": {
+          "type": "string"
+        },
+        "score": {
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "required": [
+        "fixes",
+        "grade",
+        "score"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.charliemorrison.dev",
+    "endpoint": "https://x402.charliemorrison.dev/audit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

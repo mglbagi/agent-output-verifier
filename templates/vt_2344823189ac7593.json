@@ -1,0 +1,53 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2344823189ac7593",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "author": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "reading_time_minutes": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        },
+        "word_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "author",
+        "content",
+        "language",
+        "reading_time_minutes",
+        "title",
+        "word_count"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "word_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "content.hugen.tokyo",
+    "endpoint": "https://content.hugen.tokyo/content/extract",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

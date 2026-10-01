@@ -1,0 +1,42 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cb849ad356548f1f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "domain": {
+          "type": "string"
+        },
+        "rdap": {
+          "type": "object"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "trust_assessment": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "domain",
+        "trust_assessment",
+        "rdap",
+        "timestamp"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "jmt-x402-proxy.jmthomasofficial.workers.dev",
+    "endpoint": "https://jmt-x402-proxy.jmthomasofficial.workers.dev/v2/api/domain-trust-score",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

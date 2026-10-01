@@ -1,0 +1,64 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_70f1b26d0fdbad8d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "charge_id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "restaurants": {
+          "items": {
+            "additionalProperties": true,
+            "description": "id, name, cuisine[], price tier (1-4), image_url, website_url, cities[], neighborhoods[], locations[] (address, coordinates, time_zone), specials ([] = checked, no offers; null = never checked), specials_checked_at",
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "synced_at": {
+          "format": "date-time",
+          "nullable": true,
+          "type": "string"
+        },
+        "total": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "charge_id",
+        "limit",
+        "offset",
+        "restaurants",
+        "synced_at",
+        "total"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "limit": {
+        "min": 0
+      },
+      "total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agentres.dev",
+    "endpoint": "https://agentres.dev/api/discover/restaurants",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

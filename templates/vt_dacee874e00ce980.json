@@ -1,0 +1,63 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_dacee874e00ce980",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "choices": {
+          "items": {
+            "properties": {
+              "message": {
+                "properties": {
+                  "content": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "const": "assistant",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "role",
+                  "content"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "message"
+            ],
+            "type": "object"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "model": {
+          "type": "string"
+        },
+        "object": {
+          "const": "chat.completion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "object",
+        "model",
+        "choices"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.onhub.ai",
+    "endpoint": "https://x402.onhub.ai/v1/chat/completions",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

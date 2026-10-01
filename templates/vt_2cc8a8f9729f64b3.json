@@ -1,0 +1,95 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2cc8a8f9729f64b3",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "Available rentable compute SKUs across two tracks: ephemeral sandbox and persistent server.",
+      "items": {
+        "properties": {
+          "available": {
+            "description": "False = advertised but POST /rent returns 503 for this SKU.",
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          },
+          "disk": {
+            "description": "Root disk shipped with the box.",
+            "properties": {
+              "size_gb": {
+                "type": "integer"
+              },
+              "type": {
+                "enum": [
+                  "SSD",
+                  "NVMe"
+                ],
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "duration_minutes": {
+            "description": "Rental window from provision; renewals extend additively.",
+            "type": "integer"
+          },
+          "price_usdc": {
+            "description": "Settle price in USDC (decimal).",
+            "type": "number"
+          },
+          "region_pricing": {
+            "description": "Server track only. `default` is the free region; `surcharge_usd` maps each deployable region to the total USDC added over the SKU window (add to price_usdc). Pass the chosen code as `region` in the /rent body.",
+            "properties": {
+              "default": {
+                "type": "string"
+              },
+              "surcharge_usd": {
+                "additionalProperties": {
+                  "type": "number"
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "sku": {
+            "description": "Stable SKU id; pass verbatim to POST /rent.",
+            "type": "string"
+          },
+          "spec_floor": {
+            "properties": {
+              "memory_mb": {
+                "type": "integer"
+              },
+              "vcpu": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "track": {
+            "enum": [
+              "sandbox",
+              "server"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "vps.phoneagent.xyz",
+    "endpoint": "https://vps.phoneagent.xyz/catalog",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

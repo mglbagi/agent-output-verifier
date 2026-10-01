@@ -1,0 +1,527 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cdc1754ae0d77451",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "$defs": {
+        "change": {
+          "additionalProperties": false,
+          "properties": {
+            "after": {
+              "additionalProperties": false,
+              "properties": {
+                "error": {
+                  "$ref": "#/$defs/error"
+                },
+                "value": {
+                  "$ref": "#/$defs/scalar"
+                }
+              },
+              "required": [
+                "value"
+              ],
+              "type": "object"
+            },
+            "before": {
+              "additionalProperties": false,
+              "properties": {
+                "error": {
+                  "$ref": "#/$defs/error"
+                },
+                "value": {
+                  "$ref": "#/$defs/scalar"
+                }
+              },
+              "required": [
+                "value"
+              ],
+              "type": "object"
+            },
+            "cell": {
+              "type": "string"
+            },
+            "formula": {
+              "type": "string"
+            },
+            "sheet": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "sheet",
+            "cell",
+            "before",
+            "after"
+          ],
+          "type": "object"
+        },
+        "error": {
+          "anyOf": [
+            {
+              "enum": [
+                "#DIV/0!",
+                "#NAME?",
+                "#REF!",
+                "#VALUE!",
+                "#N/A",
+                "#NUM!",
+                "#NULL!"
+              ],
+              "type": "string"
+            },
+            {
+              "pattern": "^Err:[0-9]+$",
+              "type": "string"
+            }
+          ]
+        },
+        "ref": {
+          "additionalProperties": false,
+          "properties": {
+            "cell": {
+              "description": "A1-style cell reference. This pattern is a superset of the real Calc grid; the API additionally enforces columns A-XFD (1-16384) and rows 1-1048576, which a regex alone cannot express.",
+              "pattern": "^[A-Z]{1,3}[1-9][0-9]{0,6}$",
+              "type": "string"
+            },
+            "sheet": {
+              "maxLength": 31,
+              "minLength": 1,
+              "pattern": "^[^\\[\\]:*?/\\\\]{1,31}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "sheet",
+            "cell"
+          ],
+          "type": "object"
+        },
+        "scalar": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "maxLength": 32768,
+              "type": "string"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "snapshot": {
+          "additionalProperties": false,
+          "properties": {
+            "cell": {
+              "type": "string"
+            },
+            "error": {
+              "$ref": "#/$defs/error"
+            },
+            "formula": {
+              "type": "string"
+            },
+            "sheet": {
+              "type": "string"
+            },
+            "value": {
+              "$ref": "#/$defs/scalar"
+            }
+          },
+          "required": [
+            "sheet",
+            "cell",
+            "value"
+          ],
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "artifacts": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "href": {
+                "format": "uri",
+                "type": "string"
+              },
+              "mediaType": {
+                "maxLength": 128,
+                "minLength": 1,
+                "type": "string"
+              },
+              "name": {
+                "enum": [
+                  "modified.xlsx",
+                  "report.json"
+                ],
+                "type": "string"
+              },
+              "sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "sizeBytes": {
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "name",
+              "mediaType",
+              "sizeBytes",
+              "sha256",
+              "href"
+            ],
+            "type": "object"
+          },
+          "maxItems": 2,
+          "type": "array"
+        },
+        "edits": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "after": {
+                "$ref": "#/$defs/snapshot"
+              },
+              "before": {
+                "$ref": "#/$defs/snapshot"
+              },
+              "resolved": {
+                "$ref": "#/$defs/ref"
+              },
+              "target": {
+                "oneOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "cell": {
+                        "description": "A1-style cell reference. This pattern is a superset of the real Calc grid; the API additionally enforces columns A-XFD (1-16384) and rows 1-1048576, which a regex alone cannot express.",
+                        "pattern": "^[A-Z]{1,3}[1-9][0-9]{0,6}$",
+                        "type": "string"
+                      },
+                      "sheet": {
+                        "maxLength": 31,
+                        "minLength": 1,
+                        "pattern": "^[^\\[\\]:*?/\\\\]{1,31}$",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "sheet",
+                      "cell"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "name": {
+                        "pattern": "^[A-Za-z_\\\\][A-Za-z0-9_.]{0,254}$",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "target",
+              "resolved",
+              "before",
+              "after"
+            ],
+            "type": "object"
+          },
+          "maxItems": 200,
+          "type": "array"
+        },
+        "errors": {
+          "additionalProperties": false,
+          "properties": {
+            "afterCount": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "beforeCount": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "introduced": {
+              "items": {
+                "$ref": "#/$defs/snapshot"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            "resolved": {
+              "items": {
+                "$ref": "#/$defs/snapshot"
+              },
+              "maxItems": 100,
+              "type": "array"
+            }
+          },
+          "required": [
+            "beforeCount",
+            "afterCount",
+            "introduced",
+            "resolved"
+          ],
+          "type": "object"
+        },
+        "expiresAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "impact": {
+          "additionalProperties": false,
+          "properties": {
+            "changed": {
+              "items": {
+                "$ref": "#/$defs/change"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            "changedCount": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "changedCount",
+            "changed"
+          ],
+          "type": "object"
+        },
+        "invariants": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "detail": {
+                "maxLength": 4096,
+                "type": "string"
+              },
+              "id": {
+                "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                "type": "string"
+              },
+              "observed": {
+                "additionalProperties": {
+                  "$ref": "#/$defs/scalar"
+                },
+                "type": "object"
+              },
+              "status": {
+                "enum": [
+                  "passed",
+                  "failed",
+                  "not_checked"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "status",
+              "detail"
+            ],
+            "type": "object"
+          },
+          "maxItems": 50,
+          "type": "array"
+        },
+        "limitations": {
+          "items": {
+            "maxLength": 4096,
+            "type": "string"
+          },
+          "maxItems": 16,
+          "type": "array"
+        },
+        "staleCache": {
+          "additionalProperties": false,
+          "properties": {
+            "checked": {
+              "type": "boolean"
+            },
+            "mismatchCount": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "mismatches": {
+              "items": {
+                "$ref": "#/$defs/change"
+              },
+              "maxItems": 100,
+              "type": "array"
+            }
+          },
+          "required": [
+            "checked",
+            "mismatchCount",
+            "mismatches"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "enum": [
+            "passed",
+            "failed"
+          ],
+          "type": "string"
+        },
+        "tools": {
+          "additionalProperties": false,
+          "properties": {
+            "calc": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "calc"
+          ],
+          "type": "object"
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "unsupportedFunctions": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "cells": {
+                "items": {
+                  "$ref": "#/$defs/ref"
+                },
+                "type": "array"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "cells"
+            ],
+            "type": "object"
+          },
+          "maxItems": 100,
+          "type": "array"
+        },
+        "warnings": {
+          "items": {
+            "maxLength": 4096,
+            "type": "string"
+          },
+          "maxItems": 32,
+          "type": "array"
+        },
+        "watch": {
+          "items": {
+            "$ref": "#/$defs/snapshot"
+          },
+          "maxItems": 200,
+          "type": "array"
+        },
+        "workbook": {
+          "additionalProperties": false,
+          "properties": {
+            "externalLinks": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "formulaCells": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "hasMacros": {
+              "type": "boolean"
+            },
+            "namedRanges": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "refersTo": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "refersTo"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "sheets": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "sheets",
+            "formulaCells",
+            "namedRanges",
+            "hasMacros",
+            "externalLinks"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "status",
+        "tools",
+        "workbook",
+        "staleCache",
+        "edits",
+        "impact",
+        "errors",
+        "unsupportedFunctions",
+        "invariants",
+        "watch",
+        "warnings",
+        "limitations",
+        "truncated",
+        "expiresAt",
+        "artifacts"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "invariants[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "sheets.api.williamrobinson.dev",
+    "endpoint": "https://sheets.api.williamrobinson.dev/v1/sheets/modify",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

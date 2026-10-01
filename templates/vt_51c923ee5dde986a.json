@@ -1,0 +1,93 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_51c923ee5dde986a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "HTTP 200 = completed ranking (charged). Refusals/errors are never charged (400/422/5xx, charged=false), incl. incompatible data scope, redundant criteria, research-only metrics, invalid NAICS sector, SCORING_DATA_INCOMPLETE. SiteScore 0-100 = relative fit under the buyer-supplied criteria and weights; not a probability of success or profitability.",
+      "properties": {
+        "category_composition": {
+          "type": "object"
+        },
+        "charged": {
+          "type": "boolean"
+        },
+        "comparison_universe": {
+          "type": "object"
+        },
+        "criteria": {
+          "type": "array"
+        },
+        "data_scope": {
+          "type": "string"
+        },
+        "data_vintage": {
+          "type": "object"
+        },
+        "economic_provenance": {
+          "type": "object"
+        },
+        "eligibility": {
+          "type": "object"
+        },
+        "eligible_locations": {
+          "type": "integer"
+        },
+        "error": {
+          "type": "object"
+        },
+        "methodology": {
+          "type": "object"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "provenance": {
+          "type": "array"
+        },
+        "results": {
+          "type": "array"
+        },
+        "scoring_reference_period": {
+          "type": "integer"
+        },
+        "site_selection_version": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "target_industry": {
+          "type": "object"
+        },
+        "target_market": {
+          "type": "object"
+        },
+        "warnings": {
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "data_scope",
+        "methodology",
+        "mode",
+        "results",
+        "scoring_reference_period",
+        "site_selection_version",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-vending-production.up.railway.app",
+    "endpoint": "https://agent-vending-production.up.railway.app/v1/site-selection",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

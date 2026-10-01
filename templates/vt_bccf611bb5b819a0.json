@@ -1,0 +1,112 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bccf611bb5b819a0",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "markets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "outcomes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "price": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "price"
+                  ]
+                }
+              },
+              "price": {
+                "type": "number"
+              },
+              "question": {
+                "type": "string"
+              },
+              "volume_usd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "category",
+              "id",
+              "outcomes",
+              "price",
+              "question",
+              "volume_usd"
+            ]
+          }
+        },
+        "source": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "total_volume_usd": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "count",
+        "markets",
+        "source",
+        "success",
+        "total_volume_usd"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "markets[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "markets[].outcomes[].price": {
+        "min": 0
+      },
+      "markets[].price": {
+        "min": 0
+      },
+      "markets[].volume_usd": {
+        "min": 0
+      },
+      "total_volume_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "predict.memoryapi.org",
+    "endpoint": "https://predict.memoryapi.org/x402/predict/markets",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

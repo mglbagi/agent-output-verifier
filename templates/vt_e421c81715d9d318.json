@@ -1,0 +1,93 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e421c81715d9d318",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "characters": {
+          "type": "integer"
+        },
+        "extractedPages": {
+          "type": "integer"
+        },
+        "info": {
+          "type": "object",
+          "properties": {
+            "author": {
+              "type": "string"
+            },
+            "creationDate": {
+              "type": "string"
+            },
+            "creator": {
+              "type": "string"
+            },
+            "encrypted": {
+              "type": "boolean"
+            },
+            "keywords": {},
+            "modificationDate": {},
+            "pdfVersion": {
+              "type": "string"
+            },
+            "producer": {
+              "type": "string"
+            },
+            "subject": {},
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "author",
+            "creationDate",
+            "creator",
+            "encrypted",
+            "pdfVersion",
+            "producer",
+            "title"
+          ]
+        },
+        "pages": {
+          "type": "integer"
+        },
+        "source": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "characters",
+        "extractedPages",
+        "info",
+        "pages",
+        "source",
+        "text",
+        "truncated",
+        "url"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "pdf.openverbs.com",
+    "endpoint": "https://pdf.openverbs.com/v1/extract",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d03d07e36c538f08",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "lat": {
+          "type": "number"
+        },
+        "lon": {
+          "type": "number"
+        },
+        "radiusKm": {
+          "type": "integer"
+        },
+        "restaurants": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "address": {},
+              "cuisine": {
+                "type": "array"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "distanceKm": {
+                "type": "number"
+              },
+              "hours": {
+                "type": "string"
+              },
+              "lat": {
+                "type": "number"
+              },
+              "lon": {
+                "type": "number"
+              },
+              "menuItemCount": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "restaurantId": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "website": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "cuisine",
+              "currency",
+              "distanceKm",
+              "hours",
+              "lat",
+              "lon",
+              "menuItemCount",
+              "name",
+              "restaurantId",
+              "type",
+              "website"
+            ]
+          }
+        },
+        "total": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "lat",
+        "lon",
+        "radiusKm",
+        "restaurants",
+        "total"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "lat": {
+        "min": -90,
+        "max": 90
+      },
+      "lon": {
+        "min": -180,
+        "max": 180
+      },
+      "restaurants[].lat": {
+        "min": -90,
+        "max": 90
+      },
+      "restaurants[].lon": {
+        "min": -180,
+        "max": 180
+      },
+      "total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.maxwellinternational.ai",
+    "endpoint": "https://api.maxwellinternational.ai/v1/food/near",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

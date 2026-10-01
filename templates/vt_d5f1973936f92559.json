@@ -1,0 +1,185 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d5f1973936f92559",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "freeze_authority_revoked": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "holder_count": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "liquidity_score": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "liquidity_usd": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "lp_locked_pct": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "mint": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "mint_authority_revoked": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "momentum_score": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "narratives": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "price_change_24h": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "price_usd": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "security_score": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "symbol": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "token_age_days": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "volume_24h_usd": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "watchdog_score": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "type": "object",
+            "required": [
+              "freeze_authority_revoked",
+              "holder_count",
+              "liquidity_score",
+              "liquidity_usd",
+              "lp_locked_pct",
+              "mint",
+              "mint_authority_revoked",
+              "momentum_score",
+              "name",
+              "narratives",
+              "price_change_24h",
+              "price_usd",
+              "security_score",
+              "symbol",
+              "token_age_days",
+              "volume_24h_usd",
+              "watchdog_score"
+            ]
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "count",
+        "results"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "results[].holder_count": {
+        "min": 0
+      },
+      "results[].liquidity_usd": {
+        "min": 0
+      },
+      "results[].lp_locked_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "results[].price_usd": {
+        "min": 0
+      },
+      "results[].token_age_days": {
+        "min": 0
+      },
+      "results[].volume_24h_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "saylorinnovations.com",
+    "endpoint": "https://saylorinnovations.com/api/compare",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

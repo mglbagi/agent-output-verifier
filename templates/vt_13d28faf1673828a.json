@@ -1,0 +1,71 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_13d28faf1673828a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "currency": {
+                "type": "string"
+              },
+              "destination": {
+                "type": "string"
+              },
+              "origin": {
+                "type": "string"
+              },
+              "price": {
+                "type": "number"
+              },
+              "recommendation": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "currency",
+              "destination",
+              "origin",
+              "price",
+              "recommendation"
+            ]
+          }
+        },
+        "provider": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "count",
+        "data",
+        "provider"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "data[].price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "travel.forgemesh.io",
+    "endpoint": "https://travel.forgemesh.io/api/fare-intelligence",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7abfb2529fe41ae1",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "changePct": {
+                "type": "integer"
+              },
+              "direction": {
+                "type": "string"
+              },
+              "hasMeaningfulData": {
+                "type": "boolean"
+              },
+              "interestScore": {
+                "type": "integer"
+              },
+              "keyword": {
+                "type": "string"
+              },
+              "relatedQueries": {
+                "type": "array"
+              },
+              "timeline": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "value": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "date",
+                    "value"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "changePct",
+              "direction",
+              "hasMeaningfulData",
+              "interestScore",
+              "keyword",
+              "relatedQueries",
+              "timeline"
+            ]
+          }
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "economics": {
+              "type": "object",
+              "properties": {
+                "retailPriceUsd": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "retailPriceUsd"
+              ]
+            },
+            "product": {
+              "type": "string"
+            },
+            "success": {
+              "type": "boolean"
+            },
+            "supplier": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "economics",
+            "product",
+            "success",
+            "supplier"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agentwholesale-5zlaioz91-despiteryan-4343s-projects.vercel.app",
+    "endpoint": "https://agentwholesale-5zlaioz91-despiteryan-4343s-projects.vercel.app/api/v1/trends",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

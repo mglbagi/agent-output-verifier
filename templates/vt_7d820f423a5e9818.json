@@ -1,0 +1,231 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7d820f423a5e9818",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "annualized_yield_pct": {},
+        "break_even_analysis": {
+          "type": "object",
+          "properties": {
+            "current_spread_bps": {
+              "type": "integer"
+            },
+            "gap_bps": {
+              "type": "integer"
+            },
+            "min_spread_bps_to_break_even": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "current_spread_bps",
+            "gap_bps",
+            "min_spread_bps_to_break_even"
+          ]
+        },
+        "fee_breakdown": {
+          "type": "object",
+          "properties": {
+            "bridge_fee_usd": {
+              "type": "number"
+            },
+            "flash_fee_usd": {
+              "type": "number"
+            },
+            "gas_usd": {
+              "type": "number"
+            },
+            "slippage_usd": {
+              "type": "number"
+            },
+            "taker_fee_buy_usd": {
+              "type": "number"
+            },
+            "taker_fee_sell_usd": {
+              "type": "number"
+            },
+            "total_costs_pct": {
+              "type": "number"
+            },
+            "total_costs_usd": {
+              "type": "number"
+            },
+            "withdrawal_fee_usd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "bridge_fee_usd",
+            "flash_fee_usd",
+            "gas_usd",
+            "slippage_usd",
+            "taker_fee_buy_usd",
+            "taker_fee_sell_usd",
+            "total_costs_pct",
+            "total_costs_usd",
+            "withdrawal_fee_usd"
+          ]
+        },
+        "gross_spread_pct": {
+          "type": "number"
+        },
+        "gross_spread_usd": {
+          "type": "number"
+        },
+        "inputs": {
+          "type": "object",
+          "properties": {
+            "arb_type": {
+              "type": "string"
+            },
+            "entry_price": {
+              "type": "number"
+            },
+            "exit_price": {
+              "type": "number"
+            },
+            "gas_usd": {
+              "type": "number"
+            },
+            "slippage_bps": {
+              "type": "integer"
+            },
+            "taker_fee_bps": {
+              "type": "number"
+            },
+            "trade_size_usd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "arb_type",
+            "entry_price",
+            "exit_price",
+            "gas_usd",
+            "slippage_bps",
+            "taker_fee_bps",
+            "trade_size_usd"
+          ]
+        },
+        "net_profit_pct": {
+          "type": "number"
+        },
+        "net_profit_usd": {
+          "type": "number"
+        },
+        "scale_analysis": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "net_pct": {
+                "type": "number"
+              },
+              "net_profit_usd": {
+                "type": "number"
+              },
+              "size_usd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "net_pct",
+              "net_profit_usd",
+              "size_usd"
+            ]
+          }
+        },
+        "suggestion": {
+          "type": "string"
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "break_even_analysis",
+        "fee_breakdown",
+        "gross_spread_pct",
+        "gross_spread_usd",
+        "inputs",
+        "net_profit_pct",
+        "net_profit_usd",
+        "scale_analysis",
+        "suggestion",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "fee_breakdown.bridge_fee_usd": {
+        "min": 0
+      },
+      "fee_breakdown.flash_fee_usd": {
+        "min": 0
+      },
+      "fee_breakdown.gas_usd": {
+        "min": 0
+      },
+      "fee_breakdown.slippage_usd": {
+        "min": 0
+      },
+      "fee_breakdown.taker_fee_buy_usd": {
+        "min": 0
+      },
+      "fee_breakdown.taker_fee_sell_usd": {
+        "min": 0
+      },
+      "fee_breakdown.total_costs_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "fee_breakdown.total_costs_usd": {
+        "min": 0
+      },
+      "fee_breakdown.withdrawal_fee_usd": {
+        "min": 0
+      },
+      "gross_spread_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "gross_spread_usd": {
+        "min": 0
+      },
+      "inputs.entry_price": {
+        "min": 0
+      },
+      "inputs.exit_price": {
+        "min": 0
+      },
+      "inputs.gas_usd": {
+        "min": 0
+      },
+      "inputs.taker_fee_bps": {
+        "min": 0
+      },
+      "inputs.trade_size_usd": {
+        "min": 0
+      },
+      "scale_analysis[].net_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "scale_analysis[].size_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "arbipulse.theaslangroupllc.com",
+    "endpoint": "https://arbipulse.theaslangroupllc.com/api/calculator",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

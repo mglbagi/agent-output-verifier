@@ -1,0 +1,388 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f34ee448a8ce8868",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "next_cursor": {
+          "description": "Opaque token for the next page of posts; feed it back as `?cursor=` on /instagram/posts/{username}. Empty when there is no further page.",
+          "type": "string"
+        },
+        "next_cursor_url": {
+          "description": "Ready-made URL for the next page — GET it as-is (it is a paid $0.02 call like any other). Equivalent to feeding `next_cursor` back yourself. Empty when there is no further page.",
+          "type": "string",
+          "format": "uri"
+        },
+        "note": {
+          "description": "Present only when the lookup found nothing public (unknown, private or empty account). The paid lookup still ran.",
+          "type": "string"
+        },
+        "posts": {
+          "description": "One page of the account's posts, newest first; empty when nothing public was found",
+          "items": {
+            "properties": {
+              "accessibility_caption": {
+                "description": "Instagram's auto-generated image description",
+                "type": "string"
+              },
+              "caption": {
+                "description": "The post's written caption; falls back to accessibility_caption when the post has no written one",
+                "type": "string"
+              },
+              "carousel": {
+                "description": "Children of a multi-media post; empty for single-media posts",
+                "items": {
+                  "properties": {
+                    "dimensions": {
+                      "properties": {
+                        "height": {
+                          "type": "integer"
+                        },
+                        "width": {
+                          "type": "integer"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "display_url": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "is_video": {
+                      "type": "boolean"
+                    },
+                    "shortcode": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "comments": {
+                "type": "integer"
+              },
+              "comments_disabled": {
+                "type": "boolean"
+              },
+              "dimensions": {
+                "properties": {
+                  "height": {
+                    "type": "integer"
+                  },
+                  "width": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "height",
+                  "width"
+                ]
+              },
+              "display_url": {
+                "description": "Full-size image (or video cover) URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "has_audio": {
+                "type": "boolean"
+              },
+              "id": {
+                "type": "string"
+              },
+              "is_paid_partnership": {
+                "type": "boolean"
+              },
+              "is_video": {
+                "type": "boolean"
+              },
+              "like_and_view_counts_disabled": {
+                "type": "boolean"
+              },
+              "likes": {
+                "type": "integer"
+              },
+              "location": {
+                "description": "Tagged place; absent when the post has none",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "slug": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "id",
+                  "name",
+                  "slug"
+                ]
+              },
+              "owner": {
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "id",
+                  "username"
+                ]
+              },
+              "product_type": {
+                "description": "Post kind as Instagram labels it, e.g. feed or clips (reels)",
+                "type": "string"
+              },
+              "shortcode": {
+                "description": "The post's short id, the last segment of its permalink",
+                "type": "string"
+              },
+              "tagged_users": {
+                "description": "Handles tagged in the post",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "thumbnail_url": {
+                "description": "Smaller preview of the same media as display_url — use it for grids and lists",
+                "type": "string",
+                "format": "uri"
+              },
+              "title": {
+                "description": "Post title; only reels and clips carry one, absent on ordinary feed posts",
+                "type": "string"
+              },
+              "url": {
+                "description": "Public post permalink, derived from the shortcode",
+                "type": "string",
+                "format": "uri"
+              },
+              "video_duration": {
+                "description": "Video length in seconds. Absent on images, and also absent when the post is a video whose duration is not reported — branch on is_video, not on this field",
+                "type": "number"
+              }
+            },
+            "required": [
+              "is_video",
+              "has_audio",
+              "dimensions",
+              "likes",
+              "comments",
+              "comments_disabled",
+              "like_and_view_counts_disabled",
+              "is_paid_partnership",
+              "tagged_users",
+              "carousel"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "profile": {
+          "description": "The account's public profile; zeroed when the lookup found nothing (see note)",
+          "properties": {
+            "bio_links": {
+              "description": "Every link the account lists in its bio",
+              "items": {
+                "properties": {
+                  "link_type": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "link_type",
+                  "title",
+                  "url"
+                ]
+              },
+              "type": "array"
+            },
+            "biography": {
+              "type": "string"
+            },
+            "business_category_name": {
+              "type": "string"
+            },
+            "business_email": {
+              "description": "Public contact email, when the account publishes one",
+              "type": "string"
+            },
+            "business_phone_number": {
+              "type": "string"
+            },
+            "category_name": {
+              "description": "The account's public category, e.g. Government organization",
+              "type": "string"
+            },
+            "external_url": {
+              "description": "The single link in the account's header",
+              "type": "string",
+              "format": "uri"
+            },
+            "followers": {
+              "type": "integer"
+            },
+            "following": {
+              "type": "integer"
+            },
+            "full_name": {
+              "type": "string"
+            },
+            "has_channel": {
+              "type": "boolean"
+            },
+            "has_guides": {
+              "type": "boolean"
+            },
+            "has_reels": {
+              "type": "boolean"
+            },
+            "has_threads_profile": {
+              "type": "boolean"
+            },
+            "hide_like_and_view_counts": {
+              "type": "boolean"
+            },
+            "id": {
+              "description": "Instagram's numeric account id, as a string",
+              "type": "string"
+            },
+            "is_business_account": {
+              "type": "boolean"
+            },
+            "is_private": {
+              "type": "boolean"
+            },
+            "is_professional_account": {
+              "type": "boolean"
+            },
+            "is_verified": {
+              "type": "boolean"
+            },
+            "is_verified_by_meta": {
+              "type": "boolean"
+            },
+            "joined_recently": {
+              "type": "boolean"
+            },
+            "posts_count": {
+              "type": "integer"
+            },
+            "profile_pic_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "profile_pic_url_hd": {
+              "type": "string",
+              "format": "uri"
+            },
+            "username": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "bio_links",
+            "biography",
+            "category_name",
+            "external_url",
+            "followers",
+            "following",
+            "full_name",
+            "has_channel",
+            "has_guides",
+            "has_reels",
+            "has_threads_profile",
+            "hide_like_and_view_counts",
+            "id",
+            "is_business_account",
+            "is_private",
+            "is_professional_account",
+            "is_verified",
+            "is_verified_by_meta",
+            "joined_recently",
+            "posts_count",
+            "profile_pic_url",
+            "profile_pic_url_hd",
+            "username"
+          ]
+        },
+        "username": {
+          "description": "The normalized handle that was looked up",
+          "type": "string"
+        }
+      },
+      "required": [
+        "username",
+        "profile",
+        "posts",
+        "next_cursor",
+        "next_cursor_url"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "posts[].carousel[].id"
+      },
+      {
+        "type": "unique",
+        "field": "posts[].id"
+      }
+    ],
+    "bounds": {
+      "posts[].carousel[].dimensions.height": {
+        "min": 0,
+        "if_present": true
+      },
+      "posts[].carousel[].dimensions.width": {
+        "min": 0,
+        "if_present": true
+      },
+      "posts[].dimensions.height": {
+        "min": 0
+      },
+      "posts[].dimensions.width": {
+        "min": 0
+      },
+      "posts[].video_duration": {
+        "min": 0,
+        "if_present": true
+      },
+      "profile.posts_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "instagram.use.x402atlas.com",
+    "endpoint": "https://instagram.use.x402atlas.com/profile/:username",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

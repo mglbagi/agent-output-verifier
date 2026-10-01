@@ -1,0 +1,83 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9be5f63a5a512301",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "change_pct": {
+          "type": "number"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "exchange": {
+          "type": "string"
+        },
+        "high": {
+          "type": "number"
+        },
+        "low": {
+          "type": "number"
+        },
+        "previous_close": {
+          "type": "number"
+        },
+        "price": {
+          "type": "number"
+        },
+        "provider": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "ts": {
+          "type": "integer"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "change_pct",
+        "currency",
+        "exchange",
+        "high",
+        "low",
+        "previous_close",
+        "price",
+        "provider",
+        "source",
+        "symbol",
+        "ts",
+        "version"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "low",
+        "other_field": "high"
+      }
+    ],
+    "bounds": {
+      "price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.losbeto.xyz",
+    "endpoint": "https://api.losbeto.xyz/stock-quote",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

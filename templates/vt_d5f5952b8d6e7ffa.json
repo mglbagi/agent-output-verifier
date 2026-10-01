@@ -1,0 +1,142 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d5f5952b8d6e7ffa",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "page": {
+              "type": "object",
+              "properties": {
+                "hasMore": {
+                  "type": "boolean"
+                },
+                "nextCursor": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "hasMore",
+                "nextCursor"
+              ]
+            },
+            "query": {
+              "type": "string"
+            },
+            "videos": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "caption": {
+                    "type": "string"
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "durationMs": {
+                    "type": "integer"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "isAd": {
+                    "type": "boolean"
+                  },
+                  "media": {
+                    "type": "object",
+                    "properties": {
+                      "downloadWithoutWatermarkUrl": {}
+                    }
+                  },
+                  "pinned": {
+                    "type": "boolean"
+                  },
+                  "stats": {
+                    "type": "object",
+                    "properties": {
+                      "comments": {},
+                      "likes": {},
+                      "saves": {},
+                      "shares": {},
+                      "views": {}
+                    }
+                  },
+                  "thumbnailUrl": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "caption",
+                  "createdAt",
+                  "durationMs",
+                  "id",
+                  "isAd",
+                  "media",
+                  "pinned",
+                  "stats",
+                  "thumbnailUrl",
+                  "url"
+                ]
+              }
+            }
+          },
+          "required": [
+            "page",
+            "query",
+            "videos"
+          ]
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "creditsCharged": {
+              "type": "integer"
+            },
+            "requestId": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "creditsCharged",
+            "requestId",
+            "version"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data.videos[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.socialfetch.dev",
+    "endpoint": "https://api.socialfetch.dev/v1/tiktok/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

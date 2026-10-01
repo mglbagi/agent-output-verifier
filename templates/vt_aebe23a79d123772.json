@@ -1,0 +1,57 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_aebe23a79d123772",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string"
+        },
+        "score": {
+          "type": "integer"
+        },
+        "structured": {
+          "type": "object",
+          "properties": {
+            "alpha_score": {
+              "type": "number"
+            },
+            "intent": {
+              "type": "string"
+            },
+            "suggested_action": {
+              "type": "string"
+            },
+            "trust_score": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "alpha_score",
+            "intent",
+            "suggested_action",
+            "trust_score"
+          ]
+        }
+      },
+      "required": [
+        "result",
+        "score",
+        "structured"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.billionaireorder.com",
+    "endpoint": "https://x402.billionaireorder.com/v1/web-extract-clean",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

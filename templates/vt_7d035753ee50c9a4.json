@@ -1,0 +1,346 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7d035753ee50c9a4",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "$defs": {
+        "check": {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "detail": {
+              "type": "string"
+            },
+            "status": {
+              "enum": [
+                "passed",
+                "failed",
+                "not_checked"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "code",
+            "status",
+            "detail"
+          ],
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "artifacts": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "href": {
+                "format": "uri",
+                "type": "string"
+              },
+              "mediaType": {
+                "maxLength": 128,
+                "minLength": 1,
+                "type": "string"
+              },
+              "name": {
+                "enum": [
+                  "protocol.py",
+                  "platemap.csv",
+                  "platemap.svg",
+                  "reagents.csv",
+                  "simulation-log.txt",
+                  "report.json"
+                ],
+                "type": "string"
+              },
+              "sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "sizeBytes": {
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "name",
+              "mediaType",
+              "sizeBytes",
+              "sha256",
+              "href"
+            ],
+            "type": "object"
+          },
+          "maxItems": 6,
+          "type": "array"
+        },
+        "checks": {
+          "items": {
+            "$ref": "#/$defs/check"
+          },
+          "type": "array"
+        },
+        "expiresAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "findings": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "detail": {
+                "type": "string"
+              },
+              "severity": {
+                "enum": [
+                  "error",
+                  "warning"
+                ],
+                "type": "string"
+              },
+              "step": {
+                "minimum": -1,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "step",
+              "code",
+              "severity",
+              "detail"
+            ],
+            "type": "object"
+          },
+          "maxItems": 100,
+          "type": "array"
+        },
+        "limitations": {
+          "items": {
+            "maxLength": 4096,
+            "type": "string"
+          },
+          "maxItems": 16,
+          "type": "array"
+        },
+        "liquids": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "availableUl": {
+                "type": "number"
+              },
+              "consumedUl": {
+                "type": "number"
+              },
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "remainingUl": {
+                "type": "number"
+              },
+              "shortfallUl": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "availableUl",
+              "consumedUl",
+              "remainingUl",
+              "shortfallUl"
+            ],
+            "type": "object"
+          },
+          "maxItems": 32,
+          "type": "array"
+        },
+        "robot": {
+          "const": "flex"
+        },
+        "simulation": {
+          "additionalProperties": false,
+          "properties": {
+            "commands": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "error": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "ok": {
+              "type": "boolean"
+            },
+            "ran": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "ran",
+            "ok",
+            "commands",
+            "error"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "enum": [
+            "passed",
+            "failed"
+          ],
+          "type": "string"
+        },
+        "summary": {
+          "additionalProperties": false,
+          "properties": {
+            "estimatedMinutes": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "labware": {
+              "maximum": 12,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "liquids": {
+              "maximum": 32,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "steps": {
+              "maximum": 200,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "tipsUsed": {
+              "additionalProperties": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "type": "object"
+            },
+            "transfers": {
+              "maximum": 2000,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "steps",
+            "transfers",
+            "tipsUsed",
+            "estimatedMinutes",
+            "labware",
+            "liquids"
+          ],
+          "type": "object"
+        },
+        "tools": {
+          "additionalProperties": false,
+          "properties": {
+            "apiLevel": {
+              "type": "string"
+            },
+            "opentrons": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "opentrons",
+            "apiLevel"
+          ],
+          "type": "object"
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "warnings": {
+          "items": {
+            "maxLength": 4096,
+            "type": "string"
+          },
+          "maxItems": 100,
+          "type": "array"
+        },
+        "wells": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "labware": {
+                "type": "string"
+              },
+              "liquids": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "volumeUl": {
+                "minimum": 0,
+                "type": "number"
+              },
+              "well": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "labware",
+              "well",
+              "volumeUl",
+              "liquids"
+            ],
+            "type": "object"
+          },
+          "maxItems": 100,
+          "type": "array"
+        }
+      },
+      "required": [
+        "status",
+        "tools",
+        "robot",
+        "summary",
+        "liquids",
+        "wells",
+        "findings",
+        "simulation",
+        "checks",
+        "warnings",
+        "limitations",
+        "truncated",
+        "expiresAt",
+        "artifacts"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "liquids[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "lab.api.williamrobinson.dev",
+    "endpoint": "https://lab.api.williamrobinson.dev/v1/lab/compile",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

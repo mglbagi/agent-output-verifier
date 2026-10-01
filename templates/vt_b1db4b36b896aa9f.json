@@ -1,0 +1,90 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b1db4b36b896aa9f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "generatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "opportunities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "expectedValueUsdc": {
+                "type": "number"
+              },
+              "id": {
+                "type": "string"
+              },
+              "score": {
+                "type": "integer"
+              },
+              "source": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "expectedValueUsdc",
+              "id",
+              "score",
+              "source",
+              "title"
+            ]
+          }
+        },
+        "sources": {
+          "type": "object",
+          "properties": {
+            "taskbounty": {
+              "type": "boolean"
+            },
+            "taskmarket": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "taskbounty",
+            "taskmarket"
+          ]
+        }
+      },
+      "required": [
+        "count",
+        "generatedAt",
+        "opportunities",
+        "sources"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "opportunities[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "keystone-opportunity-api.keystone-opportunity.workers.dev",
+    "endpoint": "https://keystone-opportunity-api.keystone-opportunity.workers.dev/v1/opportunities",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

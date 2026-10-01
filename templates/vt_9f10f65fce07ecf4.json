@@ -1,0 +1,146 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9f10f65fce07ecf4",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "authorMeta": {
+          "type": "object",
+          "properties": {
+            "fans": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "nickName": {
+              "type": "string"
+            },
+            "profileUrl": {
+              "type": "string",
+              "format": "uri"
+            },
+            "verified": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "fans",
+            "name",
+            "nickName",
+            "profileUrl",
+            "verified"
+          ]
+        },
+        "collectCount": {
+          "type": "integer"
+        },
+        "commentCount": {
+          "type": "integer"
+        },
+        "createTimeISO": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "diggCount": {
+          "type": "integer"
+        },
+        "hashtags": {
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        },
+        "musicMeta": {
+          "type": "object",
+          "properties": {
+            "musicAuthor": {
+              "type": "string"
+            },
+            "musicName": {
+              "type": "string"
+            },
+            "musicOriginal": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "musicAuthor",
+            "musicName",
+            "musicOriginal"
+          ]
+        },
+        "playCount": {
+          "type": "integer"
+        },
+        "shareCount": {
+          "type": "integer"
+        },
+        "text": {
+          "type": "string"
+        },
+        "videoMeta": {
+          "type": "object",
+          "properties": {
+            "duration": {
+              "type": "integer"
+            },
+            "height": {
+              "type": "integer"
+            },
+            "width": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "duration",
+            "height",
+            "width"
+          ]
+        },
+        "webVideoUrl": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "authorMeta",
+        "collectCount",
+        "commentCount",
+        "createTimeISO",
+        "diggCount",
+        "hashtags",
+        "id",
+        "musicMeta",
+        "playCount",
+        "shareCount",
+        "text",
+        "videoMeta",
+        "webVideoUrl"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "videoMeta.duration": {
+        "min": 0
+      },
+      "videoMeta.height": {
+        "min": 0
+      },
+      "videoMeta.width": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agdata.shveik.dev",
+    "endpoint": "https://agdata.shveik.dev/x402/tiktok",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

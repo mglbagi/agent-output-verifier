@@ -1,0 +1,376 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0cb0a059f6ab200a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "_atlas": {
+          "additionalProperties": false,
+          "description": "Atlas documentation and related-route metadata added after deployment",
+          "properties": {
+            "docs": {
+              "description": "Documentation URL for this bridge",
+              "format": "uri",
+              "maxLength": 512,
+              "type": "string"
+            },
+            "related": {
+              "description": "Bounded related Atlas routes",
+              "items": {
+                "additionalProperties": false,
+                "description": "One related Atlas route",
+                "properties": {
+                  "bridge": {
+                    "description": "Related bridge name",
+                    "maxLength": 64,
+                    "type": "string"
+                  },
+                  "docs": {
+                    "description": "Related bridge documentation URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  },
+                  "summary": {
+                    "description": "Short capability summary",
+                    "maxLength": 256,
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "Related route URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "bridge",
+                  "url",
+                  "docs",
+                  "summary"
+                ],
+                "type": "object"
+              },
+              "maxItems": 3,
+              "type": "array"
+            }
+          },
+          "required": [
+            "docs"
+          ],
+          "type": "object"
+        },
+        "algorithm_version": {
+          "const": "x509-certificate-inspect-v1",
+          "description": "Pinned certificate inspection contract",
+          "type": "string"
+        },
+        "at_time": {
+          "description": "Applied validity comparison instant",
+          "format": "date-time",
+          "type": "string"
+        },
+        "certificate": {
+          "additionalProperties": false,
+          "description": "Normalized RFC 5280 leaf certificate fields without a trust conclusion",
+          "properties": {
+            "constraints": {
+              "additionalProperties": false,
+              "description": "Parsed basic constraints without path validation",
+              "properties": {
+                "basic_constraints_valid": {
+                  "description": "Whether a basic constraints extension was parsed",
+                  "type": "boolean"
+                },
+                "is_ca": {
+                  "description": "Certificate CA bit; not a trust result",
+                  "type": "boolean"
+                },
+                "max_path_length": {
+                  "description": "Parsed path length, often -1 when absent",
+                  "minimum": -1,
+                  "type": "integer"
+                },
+                "max_path_length_zero": {
+                  "description": "Whether an explicit zero path length was present",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "basic_constraints_valid",
+                "is_ca",
+                "max_path_length",
+                "max_path_length_zero"
+              ],
+              "type": "object"
+            },
+            "extended_key_usage": {
+              "description": "Normalized extended key usages and unknown OIDs",
+              "items": {
+                "description": "Normalized string value",
+                "type": "string"
+              },
+              "maxItems": 128,
+              "type": "array"
+            },
+            "fingerprint_sha256": {
+              "description": "Colon-separated uppercase SHA-256 fingerprint of the exact DER bytes",
+              "pattern": "^([0-9A-F]{2}:){31}[0-9A-F]{2}$",
+              "type": "string"
+            },
+            "issuer": {
+              "description": "Printable issuer distinguished name",
+              "type": "string"
+            },
+            "issuer_rdns": {
+              "description": "Ordered issuer relative distinguished names",
+              "items": {
+                "description": "One relative distinguished name set",
+                "items": {
+                  "additionalProperties": false,
+                  "description": "One distinguished-name attribute",
+                  "properties": {
+                    "name": {
+                      "description": "Known stable attribute name or unknown",
+                      "type": "string"
+                    },
+                    "oid": {
+                      "description": "Dotted-decimal attribute object identifier",
+                      "type": "string"
+                    },
+                    "value": {
+                      "description": "Printable attribute value",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "oid",
+                    "name",
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 32,
+                "type": "array"
+              },
+              "maxItems": 128,
+              "type": "array"
+            },
+            "key_usage": {
+              "description": "Normalized RFC 5280 key usage names",
+              "items": {
+                "description": "Normalized string value",
+                "type": "string"
+              },
+              "maxItems": 9,
+              "type": "array"
+            },
+            "not_after": {
+              "description": "Certificate validity upper bound",
+              "format": "date-time",
+              "type": "string"
+            },
+            "not_before": {
+              "description": "Certificate validity lower bound",
+              "format": "date-time",
+              "type": "string"
+            },
+            "public_key": {
+              "additionalProperties": false,
+              "description": "Included public-key algorithm and size",
+              "properties": {
+                "algorithm": {
+                  "description": "Parsed public-key algorithm",
+                  "type": "string"
+                },
+                "bits": {
+                  "description": "Public-key or curve bit size; zero only for an unsupported parsed type",
+                  "maximum": 16384,
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "algorithm",
+                "bits"
+              ],
+              "type": "object"
+            },
+            "sans": {
+              "additionalProperties": false,
+              "description": "Caller-provided subject alternative names; URI values were not fetched",
+              "properties": {
+                "dns_names": {
+                  "description": "DNS subject alternative names",
+                  "items": {
+                    "description": "Normalized string value",
+                    "type": "string"
+                  },
+                  "maxItems": 256,
+                  "type": "array"
+                },
+                "email_addresses": {
+                  "description": "Email subject alternative names",
+                  "items": {
+                    "description": "Normalized string value",
+                    "type": "string"
+                  },
+                  "maxItems": 256,
+                  "type": "array"
+                },
+                "ip_addresses": {
+                  "description": "Canonical IP subject alternative names",
+                  "items": {
+                    "description": "Normalized string value",
+                    "type": "string"
+                  },
+                  "maxItems": 256,
+                  "type": "array"
+                },
+                "uris": {
+                  "description": "URI subject alternative names; never fetched",
+                  "items": {
+                    "description": "Normalized string value",
+                    "type": "string"
+                  },
+                  "maxItems": 256,
+                  "type": "array"
+                }
+              },
+              "required": [
+                "dns_names",
+                "email_addresses",
+                "ip_addresses",
+                "uris"
+              ],
+              "type": "object"
+            },
+            "serial_hex": {
+              "description": "Certificate serial number in uppercase hexadecimal",
+              "type": "string"
+            },
+            "signature_algorithm": {
+              "description": "Parsed certificate signature algorithm name",
+              "type": "string"
+            },
+            "subject": {
+              "description": "Printable subject distinguished name",
+              "type": "string"
+            },
+            "subject_rdns": {
+              "description": "Ordered subject relative distinguished names",
+              "items": {
+                "description": "One relative distinguished name set",
+                "items": {
+                  "additionalProperties": false,
+                  "description": "One distinguished-name attribute",
+                  "properties": {
+                    "name": {
+                      "description": "Known stable attribute name or unknown",
+                      "type": "string"
+                    },
+                    "oid": {
+                      "description": "Dotted-decimal attribute object identifier",
+                      "type": "string"
+                    },
+                    "value": {
+                      "description": "Printable attribute value",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "oid",
+                    "name",
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 32,
+                "type": "array"
+              },
+              "maxItems": 128,
+              "type": "array"
+            }
+          },
+          "required": [
+            "fingerprint_sha256",
+            "serial_hex",
+            "subject",
+            "subject_rdns",
+            "issuer",
+            "issuer_rdns",
+            "not_before",
+            "not_after",
+            "sans",
+            "key_usage",
+            "extended_key_usage",
+            "public_key",
+            "signature_algorithm",
+            "constraints"
+          ],
+          "type": "object"
+        },
+        "hostname": {
+          "description": "Compared hostname, empty when not requested",
+          "type": "string"
+        },
+        "hostname_evaluated": {
+          "description": "Whether hostname comparison was requested",
+          "type": "boolean"
+        },
+        "hostname_matches": {
+          "description": "Standard name-matcher result; not a trust decision",
+          "type": "boolean"
+        },
+        "operation": {
+          "const": "certificate-inspect",
+          "description": "Stable operation name",
+          "type": "string"
+        },
+        "time_status": {
+          "description": "Date-only status; not a trust decision",
+          "enum": [
+            "not_yet_valid",
+            "currently_valid",
+            "expired"
+          ],
+          "type": "string"
+        },
+        "warnings": {
+          "description": "Trust and parsing limitations; never certificate trust conclusions",
+          "items": {
+            "description": "Human-readable warning",
+            "type": "string"
+          },
+          "maxItems": 8,
+          "type": "array"
+        }
+      },
+      "required": [
+        "operation",
+        "algorithm_version",
+        "at_time",
+        "hostname_evaluated",
+        "hostname",
+        "hostname_matches",
+        "time_status",
+        "certificate",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "artifact-inspector.use.x402atlas.com",
+    "endpoint": "https://artifact-inspector.use.x402atlas.com/certificate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

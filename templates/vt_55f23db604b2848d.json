@@ -1,0 +1,187 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_55f23db604b2848d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "base_fee_gwei": {
+          "description": "EIP-1559 base fee for the next block (gwei, human-readable).",
+          "type": "number"
+        },
+        "base_fee_wei": {
+          "description": "Base fee in wei (exact, BigInt-ready decimal string).",
+          "type": "string"
+        },
+        "block_number": {
+          "description": "Latest sampled block number (the head).",
+          "type": "integer"
+        },
+        "network": {
+          "description": "Network identifier (Base mainnet or testnet)",
+          "enum": [
+            "base-mainnet",
+            "base-sepolia"
+          ],
+          "type": "string"
+        },
+        "stats": {
+          "description": "Sampling metadata: block count and median fullness.",
+          "properties": {
+            "blocks_sampled": {
+              "description": "Number of recent blocks sampled for percentile calculation.",
+              "type": "integer"
+            },
+            "median_fullness_pct": {
+              "description": "Median (gasUsed / gasLimit) × 100 across sampled blocks. 100 = full, 0 = empty.",
+              "type": "number"
+            },
+            "ts": {
+              "description": "ISO 8601 timestamp when snapshot was assembled.",
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "blocks_sampled",
+            "median_fullness_pct",
+            "ts"
+          ],
+          "type": "object"
+        },
+        "tiers": {
+          "description": "Three fee tiers (slow p10, standard p50, fast p90). Each carries human gwei (max_fee_gwei/max_priority_gwei) AND DROP-IN wei (maxFeePerGas/maxPriorityFeePerGas, BigInt-ready) to plug straight into a viem/ethers tx.",
+          "properties": {
+            "fast": {
+              "properties": {
+                "maxFeePerGas": {
+                  "description": "DROP-IN: exact maxFeePerGas in wei. tx.maxFeePerGas = BigInt(this).",
+                  "type": "string"
+                },
+                "maxPriorityFeePerGas": {
+                  "description": "DROP-IN: exact maxPriorityFeePerGas in wei (BigInt-ready).",
+                  "type": "string"
+                },
+                "max_fee_gwei": {
+                  "description": "maxFeePerGas in gwei (human-readable).",
+                  "type": "number"
+                },
+                "max_priority_gwei": {
+                  "description": "maxPriorityFeePerGas (tip) in gwei (human-readable).",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "max_fee_gwei",
+                "max_priority_gwei",
+                "maxFeePerGas",
+                "maxPriorityFeePerGas"
+              ],
+              "type": "object"
+            },
+            "slow": {
+              "properties": {
+                "maxFeePerGas": {
+                  "description": "DROP-IN: exact maxFeePerGas in wei. tx.maxFeePerGas = BigInt(this).",
+                  "type": "string"
+                },
+                "maxPriorityFeePerGas": {
+                  "description": "DROP-IN: exact maxPriorityFeePerGas in wei (BigInt-ready).",
+                  "type": "string"
+                },
+                "max_fee_gwei": {
+                  "description": "maxFeePerGas in gwei (human-readable).",
+                  "type": "number"
+                },
+                "max_priority_gwei": {
+                  "description": "maxPriorityFeePerGas (tip) in gwei (human-readable).",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "max_fee_gwei",
+                "max_priority_gwei",
+                "maxFeePerGas",
+                "maxPriorityFeePerGas"
+              ],
+              "type": "object"
+            },
+            "standard": {
+              "properties": {
+                "maxFeePerGas": {
+                  "description": "DROP-IN: exact maxFeePerGas in wei. tx.maxFeePerGas = BigInt(this).",
+                  "type": "string"
+                },
+                "maxPriorityFeePerGas": {
+                  "description": "DROP-IN: exact maxPriorityFeePerGas in wei (BigInt-ready).",
+                  "type": "string"
+                },
+                "max_fee_gwei": {
+                  "description": "maxFeePerGas in gwei (human-readable).",
+                  "type": "number"
+                },
+                "max_priority_gwei": {
+                  "description": "maxPriorityFeePerGas (tip) in gwei (human-readable).",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "max_fee_gwei",
+                "max_priority_gwei",
+                "maxFeePerGas",
+                "maxPriorityFeePerGas"
+              ],
+              "type": "object"
+            }
+          },
+          "type": "object",
+          "required": [
+            "fast",
+            "slow",
+            "standard"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "base_fee_gwei",
+        "base_fee_wei",
+        "block_number",
+        "network",
+        "stats",
+        "tiers"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "base_fee_gwei": {
+        "min": 0
+      },
+      "block_number": {
+        "min": 0
+      },
+      "stats.median_fullness_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "tiers.fast.max_fee_gwei": {
+        "min": 0
+      },
+      "tiers.slow.max_fee_gwei": {
+        "min": 0
+      },
+      "tiers.standard.max_fee_gwei": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "gas.apitoll.cloud",
+    "endpoint": "https://gas.apitoll.cloud/v1/base/gas",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

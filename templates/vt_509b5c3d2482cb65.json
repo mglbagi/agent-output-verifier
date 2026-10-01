@@ -1,0 +1,94 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_509b5c3d2482cb65",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "headlines": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "publishedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "sentiment": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "publishedAt",
+              "sentiment",
+              "source",
+              "title",
+              "url"
+            ]
+          }
+        },
+        "product": {
+          "type": "string"
+        },
+        "sentiment": {
+          "type": "object",
+          "properties": {
+            "negative": {
+              "type": "integer"
+            },
+            "neutral": {
+              "type": "integer"
+            },
+            "positive": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "negative",
+            "neutral",
+            "positive"
+          ]
+        },
+        "topic": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "count",
+        "headlines",
+        "product",
+        "sentiment",
+        "topic"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "signals.edge.report",
+    "endpoint": "https://signals.edge.report/v1/brief",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

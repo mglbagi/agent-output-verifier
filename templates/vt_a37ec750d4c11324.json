@@ -1,0 +1,63 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a37ec750d4c11324",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "contentHash": {
+          "type": "string"
+        },
+        "format": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "mimeType": {
+          "type": "string"
+        },
+        "rawUrl": {
+          "format": "uri",
+          "type": "string"
+        },
+        "sizeBytes": {
+          "type": "number"
+        },
+        "status": {
+          "enum": [
+            "published"
+          ],
+          "type": "string"
+        },
+        "url": {
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "url",
+        "rawUrl",
+        "format",
+        "mimeType",
+        "sizeBytes",
+        "contentHash",
+        "status"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-artifact-eta.vercel.app",
+    "endpoint": "https://agent-artifact-eta.vercel.app/api/artifacts/publish",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

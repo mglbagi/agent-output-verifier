@@ -1,0 +1,58 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6cd3e8e5d7ad44d7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "dominant_colors": {
+          "type": "array"
+        },
+        "metadata": {
+          "type": "object"
+        },
+        "ocr_text": {
+          "type": "string"
+        },
+        "ocr_words": {
+          "type": "array"
+        },
+        "operation": {
+          "const": "image_passport",
+          "type": "string"
+        },
+        "perceptual_hash": {
+          "type": "string"
+        },
+        "quality": {
+          "type": "object"
+        },
+        "suggested_crops": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "operation",
+        "metadata",
+        "perceptual_hash",
+        "dominant_colors",
+        "quality",
+        "ocr_text",
+        "ocr_words",
+        "suggested_crops"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "pixels.gateway.clawca.sh",
+    "endpoint": "https://pixels.gateway.clawca.sh/v1/passport/url",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

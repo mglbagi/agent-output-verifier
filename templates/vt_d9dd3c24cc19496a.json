@@ -1,0 +1,81 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d9dd3c24cc19496a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "downloadUrl": {
+          "type": "string"
+        },
+        "jobId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "output": {
+          "type": "object",
+          "properties": {
+            "byteSize": {
+              "type": "integer"
+            },
+            "contentType": {
+              "type": "string"
+            },
+            "filename": {
+              "type": "string"
+            },
+            "format": {
+              "type": "string"
+            },
+            "hasAlpha": {
+              "type": "boolean"
+            },
+            "height": {
+              "type": "integer"
+            },
+            "width": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "byteSize",
+            "contentType",
+            "filename",
+            "format",
+            "hasAlpha",
+            "height",
+            "width"
+          ]
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "downloadUrl",
+        "jobId",
+        "output",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "output.height": {
+        "min": 0
+      },
+      "output.width": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.snapfix.media",
+    "endpoint": "https://api.snapfix.media/v1/transform",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

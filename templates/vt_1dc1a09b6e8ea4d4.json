@@ -1,0 +1,154 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1dc1a09b6e8ea4d4",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "billed": {
+          "type": "boolean"
+        },
+        "cipher": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "days_left": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "focus": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "hostname_match": {
+          "type": "boolean"
+        },
+        "issuer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ok": {
+          "const": true,
+          "type": "boolean"
+        },
+        "ok_check": {
+          "type": "boolean"
+        },
+        "port": {
+          "type": "integer"
+        },
+        "protocol": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pubkey_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "receipt_id": {
+          "type": "string"
+        },
+        "sans": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "self_signed": {
+          "type": "boolean"
+        },
+        "subject": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "valid_from": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "valid_to": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "warnings": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "wildcard": {
+          "type": "boolean"
+        },
+        "within_days": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "ok",
+        "receipt_id",
+        "billed",
+        "host",
+        "port",
+        "focus",
+        "ok_check",
+        "protocol",
+        "cipher",
+        "subject",
+        "issuer",
+        "sans",
+        "wildcard",
+        "self_signed",
+        "hostname_match",
+        "valid_from",
+        "valid_to",
+        "days_left",
+        "within_days",
+        "pubkey_type"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agentshelf.syntexa.ch",
+    "endpoint": "https://agentshelf.syntexa.ch/v1/tls-hostname",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

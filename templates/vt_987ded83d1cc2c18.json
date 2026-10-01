@@ -1,0 +1,108 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_987ded83d1cc2c18",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "results": {
+          "items": {
+            "properties": {
+              "categories": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "coordinates": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "id": {
+                "type": "string"
+              },
+              "postal_address": {
+                "properties": {
+                  "displayAddress": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "displayAddress"
+                ]
+              },
+              "rating": {
+                "properties": {
+                  "bestRating": {
+                    "type": "number"
+                  },
+                  "ratingValue": {
+                    "type": "number"
+                  },
+                  "reviewCount": {
+                    "type": "number"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "bestRating",
+                  "ratingValue",
+                  "reviewCount"
+                ]
+              },
+              "title": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "type": "object",
+            "required": [
+              "categories",
+              "coordinates",
+              "id",
+              "postal_address",
+              "rating",
+              "title",
+              "type",
+              "url"
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "results",
+        "type"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "results[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "search.agent.s.brave.app",
+    "endpoint": "https://search.agent.s.brave.app/res/v1/local/place_search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

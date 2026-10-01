@@ -1,0 +1,104 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bc5b5962045b27c4",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "confidence": {
+          "type": "number"
+        },
+        "critical_risks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "id": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string"
+              },
+              "summary": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "evidence",
+              "id",
+              "severity",
+              "summary"
+            ]
+          }
+        },
+        "decision": {
+          "type": "string"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "note": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "tier": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "note",
+              "source",
+              "tier"
+            ]
+          }
+        },
+        "recommended_action": {
+          "type": "string"
+        },
+        "schema_version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "confidence",
+        "critical_risks",
+        "decision",
+        "evidence",
+        "recommended_action",
+        "schema_version"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "critical_risks[].id"
+      }
+    ],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-integration-risk.vercel.app",
+    "endpoint": "https://x402-integration-risk.vercel.app/v1/decide/integration-risk",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ba133a7c9ed5f3a0",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data_freshness": {
+          "type": "object",
+          "properties": {
+            "analysis_sample_processes": {
+              "type": "integer"
+            },
+            "july_population_processes": {
+              "type": "integer"
+            },
+            "latest_official_month_available": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "analysis_sample_processes",
+            "july_population_processes",
+            "latest_official_month_available"
+          ]
+        },
+        "demand_signal": {
+          "type": "object",
+          "properties": {
+            "budget_coverage_pct": {
+              "type": "number"
+            },
+            "repeat_buyers": {
+              "type": "integer"
+            },
+            "tenders": {
+              "type": "integer"
+            },
+            "total_budget_clp": {
+              "type": "number"
+            },
+            "unique_buyers": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "budget_coverage_pct",
+            "repeat_buyers",
+            "tenders",
+            "total_budget_clp",
+            "unique_buyers"
+          ]
+        },
+        "product": {
+          "type": "string"
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "period": {
+              "type": "string"
+            },
+            "publisher": {
+              "type": "string"
+            },
+            "standard": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "period",
+            "publisher",
+            "standard"
+          ]
+        },
+        "top_buyers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "buyer_id": {
+                "type": "string"
+              },
+              "buyer_name": {
+                "type": "string"
+              },
+              "region": {
+                "type": "string"
+              },
+              "tenders": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "buyer_id",
+              "buyer_name",
+              "region",
+              "tenders"
+            ]
+          }
+        },
+        "unspsc_segment": {
+          "type": "string"
+        },
+        "vertical": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "data_freshness",
+        "demand_signal",
+        "product",
+        "provenance",
+        "top_buyers",
+        "unspsc_segment",
+        "vertical"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "top_buyers[].buyer_id"
+      }
+    ],
+    "bounds": {
+      "demand_signal.budget_coverage_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "demand_signal.total_budget_clp": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "exp-100k-001-v2.vercel.app",
+    "endpoint": "https://exp-100k-001-v2.vercel.app/v1/verticals/medical-equipment/buyer-map",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

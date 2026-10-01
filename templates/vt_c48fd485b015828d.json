@@ -1,0 +1,77 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c48fd485b015828d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "api_catalog": {
+          "type": "string"
+        },
+        "auth": {
+          "type": "string"
+        },
+        "documentation": {
+          "type": "string"
+        },
+        "mcp_server": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "openapi": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "x402": {
+          "type": "object",
+          "properties": {
+            "agentic_payments": {
+              "type": "string"
+            },
+            "discovery_challenge": {
+              "type": "string"
+            },
+            "protocol": {
+              "type": "string"
+            },
+            "resource_pattern": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "agentic_payments",
+            "discovery_challenge",
+            "protocol",
+            "resource_pattern"
+          ]
+        }
+      },
+      "required": [
+        "api_catalog",
+        "auth",
+        "documentation",
+        "mcp_server",
+        "name",
+        "openapi",
+        "version",
+        "x402"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "getbags.app",
+    "endpoint": "https://www.getbags.app/api/v1",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

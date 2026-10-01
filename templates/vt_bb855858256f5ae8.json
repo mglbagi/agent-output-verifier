@@ -1,0 +1,98 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bb855858256f5ae8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "base_rate_7d": {
+          "type": "number"
+        },
+        "catalog_as_of": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "listing": {
+          "type": "object",
+          "properties": {
+            "days_until_eviction": {
+              "type": "number"
+            },
+            "host_listing_count": {
+              "type": "integer"
+            },
+            "host_share_called_in_last_7d": {
+              "type": "integer"
+            },
+            "last_paid_call_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "network": {
+              "type": "string"
+            },
+            "paid_calls_30d": {
+              "type": "integer"
+            },
+            "price_usd": {
+              "type": "number"
+            },
+            "unique_payers_30d": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "days_until_eviction",
+            "host_listing_count",
+            "host_share_called_in_last_7d",
+            "last_paid_call_at",
+            "network",
+            "paid_calls_30d",
+            "price_usd",
+            "unique_payers_30d"
+          ]
+        },
+        "model": {
+          "type": "string"
+        },
+        "paid_7d": {
+          "type": "number"
+        },
+        "paid_7d_raw": {
+          "type": "number"
+        },
+        "resource": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "base_rate_7d",
+        "catalog_as_of",
+        "listing",
+        "model",
+        "paid_7d",
+        "paid_7d_raw",
+        "resource"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "listing.host_listing_count": {
+        "min": 0
+      },
+      "listing.price_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "sentedge.ai",
+    "endpoint": "https://sentedge.ai/api/x402-demand/score",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

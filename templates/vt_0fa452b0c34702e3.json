@@ -1,0 +1,99 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0fa452b0c34702e3",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "facilitators": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cluster_count": {
+                "type": "integer"
+              },
+              "cluster_volume_usd": {
+                "type": "object",
+                "properties": {
+                  "d30": {
+                    "type": "number"
+                  },
+                  "d7": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "d30",
+                  "d7"
+                ]
+              },
+              "external_payer_count": {
+                "type": "integer"
+              },
+              "facilitator": {
+                "type": "string"
+              },
+              "flagged_share_of_listed_pct": {
+                "type": "number"
+              },
+              "self_funding_pct": {
+                "type": "integer"
+              },
+              "trend": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "cluster_count",
+              "cluster_volume_usd",
+              "external_payer_count",
+              "facilitator",
+              "flagged_share_of_listed_pct",
+              "self_funding_pct",
+              "trend"
+            ]
+          }
+        },
+        "methodology_version": {
+          "type": "string"
+        },
+        "tool": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "facilitators",
+        "methodology_version",
+        "tool"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "facilitators[].cluster_count": {
+        "min": 0
+      },
+      "facilitators[].external_payer_count": {
+        "min": 0
+      },
+      "facilitators[].flagged_share_of_listed_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "facilitators[].self_funding_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "paddock.finance",
+    "endpoint": "https://paddock.finance/api/paddock/mcp/circular-signal",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

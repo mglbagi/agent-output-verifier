@@ -1,0 +1,80 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2dfdc6d4b0eacf2b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "choices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "object",
+                "properties": {
+                  "content": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "content",
+                  "role"
+                ]
+              }
+            },
+            "required": [
+              "message"
+            ]
+          }
+        },
+        "id": {
+          "type": "string"
+        },
+        "usage": {
+          "type": "object",
+          "properties": {
+            "completion_tokens": {
+              "type": "integer"
+            },
+            "prompt_tokens": {
+              "type": "integer"
+            },
+            "total_tokens": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "completion_tokens",
+            "prompt_tokens",
+            "total_tokens"
+          ]
+        }
+      },
+      "required": [
+        "choices",
+        "id",
+        "usage"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "usage.total_tokens": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agents.dexl.io",
+    "endpoint": "https://agents.dexl.io/v1/chat/completions",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

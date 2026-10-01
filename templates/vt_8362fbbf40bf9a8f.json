@@ -1,0 +1,115 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8362fbbf40bf9a8f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "amountAtomic": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "amountFormatted": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "amountSymbol": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "chainId": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "nonce": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "owner": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "primaryType": {
+          "type": "string"
+        },
+        "signer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "spenderOrRecipient": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "standard": {
+          "type": "string"
+        },
+        "token": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "validity": {
+          "type": "object"
+        },
+        "verifyingContract": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "warnings": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "standard",
+        "primaryType",
+        "token",
+        "verifyingContract",
+        "chainId",
+        "spenderOrRecipient",
+        "owner",
+        "amountAtomic",
+        "amountFormatted",
+        "amountSymbol",
+        "validity",
+        "nonce",
+        "signer",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api-staging.vapinetwork.ai",
+    "endpoint": "https://api-staging.vapinetwork.ai/x402/decode",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3aa2dc30f154d23b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "cohorts": {
+          "type": "object",
+          "properties": {
+            "no_revenue": {
+              "type": "object",
+              "properties": {
+                "desc_chars": {
+                  "type": "number"
+                },
+                "price_usd": {
+                  "type": "number"
+                },
+                "resources": {
+                  "type": "integer"
+                },
+                "services": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "desc_chars",
+                "price_usd",
+                "resources",
+                "services"
+              ]
+            },
+            "top_20pct_by_revenue": {
+              "type": "object",
+              "properties": {
+                "desc_chars": {
+                  "type": "number"
+                },
+                "price_usd": {
+                  "type": "number"
+                },
+                "resources": {
+                  "type": "integer"
+                },
+                "services": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "desc_chars",
+                "price_usd",
+                "resources",
+                "services"
+              ]
+            }
+          },
+          "required": [
+            "no_revenue",
+            "top_20pct_by_revenue"
+          ]
+        },
+        "difference_vs_top_20pct": {
+          "type": "object",
+          "properties": {
+            "description_chars_median": {
+              "type": "number"
+            },
+            "resources_listed": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "description_chars_median",
+            "resources_listed"
+          ]
+        },
+        "observed": {
+          "type": "boolean"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "window_days": {
+          "type": "integer"
+        },
+        "you": {
+          "type": "object",
+          "properties": {
+            "calls": {
+              "type": "integer"
+            },
+            "description_chars_median": {
+              "type": "integer"
+            },
+            "price_usd_median": {
+              "type": "number"
+            },
+            "resources_listed": {
+              "type": "integer"
+            },
+            "revenue_usd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "calls",
+            "description_chars_median",
+            "price_usd_median",
+            "resources_listed",
+            "revenue_usd"
+          ]
+        }
+      },
+      "required": [
+        "cohorts",
+        "difference_vs_top_20pct",
+        "observed",
+        "schema",
+        "window_days",
+        "you"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "cohorts.no_revenue.price_usd": {
+        "min": 0
+      },
+      "cohorts.top_20pct_by_revenue.price_usd": {
+        "min": 0
+      },
+      "you.price_usd_median": {
+        "min": 0
+      },
+      "you.revenue_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.dailyelo.com",
+    "endpoint": "https://x402.dailyelo.com/v1/sales/gap",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

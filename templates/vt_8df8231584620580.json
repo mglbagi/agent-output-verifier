@@ -1,0 +1,661 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8df8231584620580",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "$defs": {
+        "artifact": {
+          "additionalProperties": false,
+          "properties": {
+            "href": {
+              "format": "uri",
+              "type": "string"
+            },
+            "mediaType": {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            "name": {
+              "enum": [
+                "asset.glb",
+                "asset-lod1.glb",
+                "asset-lod2.glb",
+                "collision.json",
+                "godot-scene.tscn",
+                "preview.png",
+                "report.json"
+              ],
+              "type": "string"
+            },
+            "sha256": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            "sizeBytes": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "name",
+            "mediaType",
+            "sizeBytes",
+            "sha256",
+            "href"
+          ],
+          "type": "object"
+        },
+        "bounds": {
+          "additionalProperties": false,
+          "properties": {
+            "max": {
+              "$ref": "#/$defs/vector3"
+            },
+            "min": {
+              "$ref": "#/$defs/vector3"
+            },
+            "size": {
+              "$ref": "#/$defs/vector3"
+            }
+          },
+          "required": [
+            "min",
+            "max",
+            "size"
+          ],
+          "type": "object"
+        },
+        "check": {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "detail": {
+              "maxLength": 2048,
+              "type": "string"
+            },
+            "status": {
+              "enum": [
+                "passed",
+                "failed",
+                "not_checked"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "code",
+            "status",
+            "detail"
+          ],
+          "type": "object"
+        },
+        "collision": {
+          "enum": [
+            "none",
+            "convex",
+            "convex+trimesh"
+          ],
+          "type": "string"
+        },
+        "lod": {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "error": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "name": {
+              "enum": [
+                "asset.glb",
+                "asset-lod1.glb",
+                "asset-lod2.glb"
+              ],
+              "type": "string"
+            },
+            "ratio": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "triangles": {
+              "maximum": 250000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "vertices": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "name",
+            "ratio",
+            "triangles",
+            "vertices",
+            "bytes",
+            "error"
+          ],
+          "type": "object"
+        },
+        "target": {
+          "additionalProperties": false,
+          "properties": {
+            "collision": {
+              "$ref": "#/$defs/collision"
+            },
+            "engine": {
+              "enum": [
+                "godot4",
+                "unity",
+                "unreal",
+                "gltf"
+              ],
+              "type": "string"
+            },
+            "maxTextureSize": {
+              "maximum": 8192,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "origin": {
+              "enum": [
+                "keep",
+                "center",
+                "floor"
+              ],
+              "type": "string"
+            },
+            "platform": {
+              "enum": [
+                "mobile",
+                "desktop"
+              ],
+              "type": "string"
+            },
+            "size": {
+              "additionalProperties": false,
+              "properties": {
+                "axis": {
+                  "enum": [
+                    "x",
+                    "y",
+                    "z",
+                    "max"
+                  ],
+                  "type": "string"
+                },
+                "metres": {
+                  "exclusiveMinimum": 0,
+                  "maximum": 1000,
+                  "type": "number"
+                }
+              },
+              "required": [
+                "axis",
+                "metres"
+              ],
+              "type": "object"
+            },
+            "sourceUp": {
+              "enum": [
+                "y",
+                "z"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "engine",
+            "platform",
+            "sourceUp",
+            "origin",
+            "collision"
+          ],
+          "type": "object"
+        },
+        "vector3": {
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "type": "array"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "artifacts": {
+          "items": {
+            "$ref": "#/$defs/artifact"
+          },
+          "maxItems": 7,
+          "type": "array"
+        },
+        "checks": {
+          "items": {
+            "$ref": "#/$defs/check"
+          },
+          "maxItems": 32,
+          "type": "array"
+        },
+        "collision": {
+          "additionalProperties": false,
+          "properties": {
+            "convexHullVertices": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "kind": {
+              "$ref": "#/$defs/collision"
+            },
+            "trimeshTriangles": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "kind",
+            "convexHullVertices",
+            "trimeshTriangles"
+          ],
+          "type": "object"
+        },
+        "engineLoad": {
+          "additionalProperties": false,
+          "properties": {
+            "animations": {
+              "items": {
+                "maxLength": 256,
+                "type": "string"
+              },
+              "maxItems": 256,
+              "type": "array"
+            },
+            "engine": {
+              "type": "string"
+            },
+            "errors": {
+              "items": {
+                "maxLength": 2048,
+                "type": "string"
+              },
+              "maxItems": 64,
+              "type": "array"
+            },
+            "loaded": {
+              "type": "boolean"
+            },
+            "materials": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "meshInstances": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "nodes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "skeletons": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "engine",
+            "loaded",
+            "nodes",
+            "meshInstances",
+            "materials",
+            "skeletons",
+            "animations",
+            "errors"
+          ],
+          "type": "object"
+        },
+        "expiresAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "limitations": {
+          "items": {
+            "maxLength": 4096,
+            "type": "string"
+          },
+          "maxItems": 16,
+          "type": "array"
+        },
+        "lods": {
+          "items": {
+            "$ref": "#/$defs/lod"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "type": "array"
+        },
+        "normalization": {
+          "additionalProperties": false,
+          "properties": {
+            "rotationXDegrees": {
+              "type": "number"
+            },
+            "scale": {
+              "type": "number"
+            },
+            "translation": {
+              "$ref": "#/$defs/vector3"
+            }
+          },
+          "required": [
+            "scale",
+            "rotationXDegrees",
+            "translation"
+          ],
+          "type": "object"
+        },
+        "output": {
+          "additionalProperties": false,
+          "properties": {
+            "animations": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "bones": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "bounds": {
+              "$ref": "#/$defs/bounds"
+            },
+            "bytes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "materials": {
+              "maximum": 32,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "maxTextureEdge": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "meshes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "nodes": {
+              "maximum": 2000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "primitives": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "skins": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "textures": {
+              "maximum": 32,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "triangles": {
+              "maximum": 250000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "vertices": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "triangles",
+            "vertices",
+            "primitives",
+            "meshes",
+            "nodes",
+            "materials",
+            "textures",
+            "maxTextureEdge",
+            "skins",
+            "bones",
+            "animations",
+            "bytes",
+            "bounds"
+          ],
+          "type": "object"
+        },
+        "repairs": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "code": {
+                "maxLength": 128,
+                "type": "string"
+              },
+              "detail": {
+                "maxLength": 2048,
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "detail"
+            ],
+            "type": "object"
+          },
+          "maxItems": 100,
+          "type": "array"
+        },
+        "source": {
+          "additionalProperties": false,
+          "properties": {
+            "animations": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "bones": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "bounds": {
+              "$ref": "#/$defs/bounds"
+            },
+            "bytes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "materials": {
+              "maximum": 32,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "maxTextureEdge": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "meshes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "nodes": {
+              "maximum": 2000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "primitives": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "skins": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "textures": {
+              "maximum": 32,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "triangles": {
+              "maximum": 250000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "validatorErrors": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "validatorWarnings": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "vertices": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "triangles",
+            "vertices",
+            "primitives",
+            "meshes",
+            "nodes",
+            "materials",
+            "textures",
+            "maxTextureEdge",
+            "skins",
+            "bones",
+            "animations",
+            "bytes",
+            "bounds",
+            "validatorErrors",
+            "validatorWarnings"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "enum": [
+            "passed",
+            "failed"
+          ],
+          "type": "string"
+        },
+        "target": {
+          "$ref": "#/$defs/target"
+        },
+        "tools": {
+          "additionalProperties": false,
+          "properties": {
+            "engine": {
+              "type": "string"
+            },
+            "transform": {
+              "type": "string"
+            },
+            "validator": {
+              "type": "string",
+              "format": "email"
+            }
+          },
+          "required": [
+            "validator",
+            "transform",
+            "engine"
+          ],
+          "type": "object"
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "validator": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "code": {
+                "maxLength": 128,
+                "type": "string"
+              },
+              "message": {
+                "maxLength": 2048,
+                "type": "string"
+              },
+              "pointer": {
+                "maxLength": 512,
+                "type": "string"
+              },
+              "severity": {
+                "enum": [
+                  "error",
+                  "warning",
+                  "info"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "severity",
+              "code",
+              "message",
+              "pointer"
+            ],
+            "type": "object"
+          },
+          "maxItems": 100,
+          "type": "array"
+        },
+        "warnings": {
+          "items": {
+            "maxLength": 4096,
+            "type": "string"
+          },
+          "maxItems": 100,
+          "type": "array"
+        }
+      },
+      "required": [
+        "status",
+        "tools",
+        "target",
+        "source",
+        "output",
+        "normalization",
+        "lods",
+        "collision",
+        "engineLoad",
+        "repairs",
+        "checks",
+        "validator",
+        "warnings",
+        "limitations",
+        "truncated",
+        "expiresAt",
+        "artifacts"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "asset.api.williamrobinson.dev",
+    "endpoint": "https://asset.api.williamrobinson.dev/v1/asset/prepare",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

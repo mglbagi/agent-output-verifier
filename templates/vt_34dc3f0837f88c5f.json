@@ -1,0 +1,82 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_34dc3f0837f88c5f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "characters": {
+              "type": "integer"
+            },
+            "linkCount": {
+              "type": "integer"
+            },
+            "text": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "characters",
+            "linkCount",
+            "text",
+            "title",
+            "url"
+          ]
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "paid": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number"
+            },
+            "asset": {
+              "type": "string"
+            },
+            "network": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount",
+            "asset",
+            "network"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "ok",
+        "paid"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "paid.amount": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "apexfaucet.xyz",
+    "endpoint": "https://apexfaucet.xyz/api/x402/page-extract",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

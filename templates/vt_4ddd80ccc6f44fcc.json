@@ -1,0 +1,76 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4ddd80ccc6f44fcc",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "currency": {
+          "type": "string"
+        },
+        "expiresAt": {
+          "type": "number"
+        },
+        "expiresInSeconds": {
+          "type": "number"
+        },
+        "issuedAt": {
+          "type": "number"
+        },
+        "price": {
+          "type": "string"
+        },
+        "productId": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string"
+        },
+        "rail": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "surface": {
+          "enum": [
+            "image",
+            "video"
+          ],
+          "type": "string"
+        },
+        "tokenType": {
+          "type": "string"
+        },
+        "unlockToken": {
+          "type": "string"
+        },
+        "usage": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "unlockToken",
+        "tokenType",
+        "provider",
+        "scope",
+        "productId",
+        "surface",
+        "price",
+        "currency"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "quokkapix.com",
+    "endpoint": "https://quokkapix.com/api/agent-unlock/coinbase-x402",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

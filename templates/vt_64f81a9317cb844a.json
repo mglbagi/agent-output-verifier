@@ -1,0 +1,48 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_64f81a9317cb844a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "description": "Number of symbols in pairs.",
+          "type": "integer"
+        },
+        "pairs": {
+          "description": "Perpetual-futures symbols this API covers (e.g. BTCUSDT).",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "queried_at": {
+          "description": "UTC timestamp when this bridge queried the upstream.",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "queried_at",
+        "count",
+        "pairs"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "perpsignals.use.x402atlas.com",
+    "endpoint": "https://perpsignals.use.x402atlas.com/pairs",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

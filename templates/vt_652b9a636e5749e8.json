@@ -1,0 +1,138 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_652b9a636e5749e8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "catalyst_signal": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string"
+        },
+        "counts": {
+          "type": "object",
+          "properties": {
+            "next_90d": {
+              "type": "integer"
+            },
+            "phase2": {
+              "type": "integer"
+            },
+            "phase3": {
+              "type": "integer"
+            },
+            "total_upcoming": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "next_90d",
+            "phase2",
+            "phase3",
+            "total_upcoming"
+          ]
+        },
+        "horizon_days": {
+          "type": "integer"
+        },
+        "interpretation": {
+          "type": "string"
+        },
+        "match": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "sponsor_query": {
+          "type": "string"
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "upcoming_catalysts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "days_out": {
+                "type": "integer"
+              },
+              "expected_readout": {
+                "type": "string",
+                "format": "date"
+              },
+              "indication": {
+                "type": "string"
+              },
+              "lead_sponsor": {
+                "type": "string"
+              },
+              "nct_id": {
+                "type": "string"
+              },
+              "phase": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "days_out",
+              "expected_readout",
+              "indication",
+              "lead_sponsor",
+              "nct_id",
+              "phase",
+              "source",
+              "status",
+              "type"
+            ]
+          }
+        }
+      },
+      "required": [
+        "catalyst_signal",
+        "company",
+        "counts",
+        "horizon_days",
+        "interpretation",
+        "match",
+        "source",
+        "sponsor_query",
+        "ticker",
+        "upcoming_catalysts"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "upcoming_catalysts[].nct_id"
+      }
+    ],
+    "bounds": {
+      "counts.total_upcoming": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "pharma.lonestaroracle.xyz",
+    "endpoint": "https://pharma.lonestaroracle.xyz/catalysts",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

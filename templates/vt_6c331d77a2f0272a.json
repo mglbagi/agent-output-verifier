@@ -1,0 +1,137 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6c331d77a2f0272a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "factors": {
+          "type": "object",
+          "properties": {
+            "carry": {
+              "type": "object",
+              "properties": {
+                "level": {
+                  "type": "string"
+                },
+                "median_funding_pct": {
+                  "type": "number"
+                },
+                "reason": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "level",
+                "median_funding_pct",
+                "reason"
+              ]
+            },
+            "crowding": {
+              "type": "object",
+              "properties": {
+                "level": {
+                  "type": "string"
+                },
+                "long_short_ratio": {
+                  "type": "number"
+                },
+                "reason": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "level",
+                "long_short_ratio",
+                "reason"
+              ]
+            },
+            "liquidity": {
+              "type": "object",
+              "properties": {
+                "level": {
+                  "type": "string"
+                },
+                "reason": {
+                  "type": "string"
+                },
+                "slippage_pct": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "level",
+                "reason",
+                "slippage_pct"
+              ]
+            },
+            "security": {
+              "type": "object",
+              "properties": {
+                "level": {
+                  "type": "string"
+                },
+                "reason": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "level",
+                "reason"
+              ]
+            }
+          },
+          "required": [
+            "carry",
+            "crowding",
+            "liquidity",
+            "security"
+          ]
+        },
+        "side": {
+          "type": "string"
+        },
+        "size_usd": {
+          "type": "number"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "factors",
+        "side",
+        "size_usd",
+        "symbol",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "factors.carry.median_funding_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "factors.liquidity.slippage_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "size_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agentpay.tools",
+    "endpoint": "https://agentpay.tools/tools/pre_trade_check/call",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

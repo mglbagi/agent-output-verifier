@@ -1,0 +1,126 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3d48c6444a832044",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "type": "number"
+        },
+        "period": {
+          "type": "string"
+        },
+        "requested": {
+          "type": "number"
+        },
+        "series": {
+          "items": {
+            "properties": {
+              "confidence": {
+                "type": "number"
+              },
+              "key": {
+                "type": "string"
+              },
+              "points": {
+                "items": {
+                  "properties": {
+                    "price": {
+                      "type": "number"
+                    },
+                    "timestamp": {
+                      "type": "number"
+                    }
+                  },
+                  "type": "object",
+                  "required": [
+                    "price",
+                    "timestamp"
+                  ]
+                },
+                "type": "array"
+              },
+              "query": {
+                "type": "string"
+              },
+              "resolved": {
+                "type": "boolean"
+              },
+              "symbol": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "confidence",
+              "key",
+              "points",
+              "query",
+              "resolved",
+              "symbol"
+            ]
+          },
+          "type": "array"
+        },
+        "source": {
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "name"
+          ]
+        },
+        "span": {
+          "type": "number"
+        },
+        "unresolved": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "count",
+        "period",
+        "requested",
+        "series",
+        "source",
+        "span",
+        "unresolved"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "series[].key"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "series[].confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "series[].points[].price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "crypto.apitoll.cloud",
+    "endpoint": "https://crypto.apitoll.cloud/v1/crypto/chart",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

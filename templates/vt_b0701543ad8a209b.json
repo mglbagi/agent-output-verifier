@@ -1,0 +1,77 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b0701543ad8a209b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "block_number": {
+          "type": "integer"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "from_address": {
+          "type": "string"
+        },
+        "gas_used": {
+          "type": "integer"
+        },
+        "input_calldata_hex": {
+          "type": "string"
+        },
+        "native_currency": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "timestamp": {
+          "type": "integer"
+        },
+        "to_address": {
+          "type": "string"
+        },
+        "tx_hash": {
+          "type": "string"
+        },
+        "value_eth": {
+          "type": "string"
+        },
+        "value_wei": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "block_number",
+        "chain",
+        "from_address",
+        "gas_used",
+        "input_calldata_hex",
+        "native_currency",
+        "status",
+        "timestamp",
+        "to_address",
+        "tx_hash",
+        "value_eth",
+        "value_wei"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "block_number": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.anchor-x402.com",
+    "endpoint": "https://api.anchor-x402.com/v1/decode/tx",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

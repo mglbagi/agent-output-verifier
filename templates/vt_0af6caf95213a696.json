@@ -1,0 +1,110 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0af6caf95213a696",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "compute_ms": {
+          "type": "integer"
+        },
+        "format": {
+          "enum": [
+            "webp",
+            "png"
+          ],
+          "type": "string"
+        },
+        "georef": {
+          "properties": {
+            "bounds_wgs84": {
+              "description": "[west, south, east, north] in WGS84 degrees; null when the source CRS is unknown.",
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 4,
+              "minItems": 4,
+              "type": [
+                "array",
+                "null"
+              ]
+            },
+            "crs": {
+              "type": "string"
+            },
+            "pixel_scale_m": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "crs"
+          ]
+        },
+        "height_px": {
+          "type": "integer"
+        },
+        "image_base64": {
+          "contentEncoding": "base64",
+          "type": "string"
+        },
+        "source_stats": {
+          "properties": {
+            "bands": {
+              "type": "integer"
+            },
+            "bit_depth": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "compression": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "bands",
+            "bit_depth",
+            "compression"
+          ]
+        },
+        "width_px": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "image_base64",
+        "format",
+        "width_px",
+        "height_px",
+        "georef",
+        "source_stats",
+        "compute_ms"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "height_px": {
+        "min": 0
+      },
+      "width_px": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "wasm-geotiff-transcoder.jannioura.workers.dev",
+    "endpoint": "https://wasm-geotiff-transcoder.jannioura.workers.dev/",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

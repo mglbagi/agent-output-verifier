@@ -1,0 +1,74 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_565861823b335513",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "chains": {
+          "items": {
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "tvl": {
+                "type": "number"
+              }
+            },
+            "type": "object",
+            "required": [
+              "name",
+              "tvl"
+            ]
+          },
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "topProtocols": {
+          "items": {
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "tvl": {
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "ok"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "chains[].tvl": {
+        "min": 0,
+        "if_present": true
+      },
+      "topProtocols[].tvl": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "conc-exe.xyz",
+    "endpoint": "https://conc-exe.xyz/api/concierge-intel-tvl",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_44ec04d2972af19f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "history": {
+          "type": "array"
+        },
+        "nodes": {
+          "type": "object"
+        },
+        "paid_via": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "status": {
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "required": [
+        "nodes",
+        "paid_via",
+        "source",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "trabotpro.it",
+    "endpoint": "https://trabotpro.it/api/a2a/x402/pearl/detail",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

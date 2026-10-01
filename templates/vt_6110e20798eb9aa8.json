@@ -1,0 +1,243 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6110e20798eb9aa8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "arkbUsdM": {
+          "type": "number"
+        },
+        "asOf": {
+          "type": "string"
+        },
+        "as_of_ct": {
+          "type": "string"
+        },
+        "bitbUsdM": {
+          "type": "number"
+        },
+        "btcUsdM": {
+          "type": "number"
+        },
+        "complete": {
+          "type": "boolean"
+        },
+        "cumulativeUsdM": {
+          "type": "number"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "ethSource": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "name",
+            "url"
+          ]
+        },
+        "ethTotalUsdM": {
+          "type": "number"
+        },
+        "ethaUsdM": {
+          "type": "number"
+        },
+        "fbtcUsdM": {
+          "type": "number"
+        },
+        "gbtcUsdM": {
+          "type": "number"
+        },
+        "ibitUsdM": {
+          "type": "number"
+        },
+        "invalidated_at": {},
+        "kind": {
+          "type": "string"
+        },
+        "leg_id": {
+          "type": "string"
+        },
+        "levels": {
+          "type": "object",
+          "properties": {
+            "arkbUsdM": {
+              "type": "number"
+            },
+            "bitbUsdM": {
+              "type": "number"
+            },
+            "btcUsdM": {
+              "type": "number"
+            },
+            "cumulativeUsdM": {
+              "type": "number"
+            },
+            "ethTotalUsdM": {
+              "type": "number"
+            },
+            "ethaUsdM": {
+              "type": "number"
+            },
+            "fbtcUsdM": {
+              "type": "number"
+            },
+            "gbtcUsdM": {
+              "type": "number"
+            },
+            "ibitUsdM": {
+              "type": "number"
+            },
+            "msbtUsdM": {
+              "type": "number"
+            },
+            "priorIbitUsdM": {
+              "type": "number"
+            },
+            "priorTotalUsdM": {
+              "type": "number"
+            },
+            "totalUsdM": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "arkbUsdM",
+            "bitbUsdM",
+            "btcUsdM",
+            "cumulativeUsdM",
+            "ethTotalUsdM",
+            "ethaUsdM",
+            "fbtcUsdM",
+            "gbtcUsdM",
+            "ibitUsdM",
+            "msbtUsdM",
+            "priorIbitUsdM",
+            "priorTotalUsdM",
+            "totalUsdM"
+          ]
+        },
+        "msbtUsdM": {
+          "type": "number"
+        },
+        "notice": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "priorAsOf": {
+          "type": "string"
+        },
+        "priorIbitUsdM": {
+          "type": "number"
+        },
+        "priorTotalUsdM": {
+          "type": "number"
+        },
+        "published_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "revision": {
+          "type": "integer"
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "name",
+            "url"
+          ]
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "name",
+              "url"
+            ]
+          }
+        },
+        "thesis": {
+          "type": "string"
+        },
+        "totalUsdM": {
+          "type": "number"
+        },
+        "wrong_if": {}
+      },
+      "required": [
+        "arkbUsdM",
+        "asOf",
+        "as_of_ct",
+        "bitbUsdM",
+        "btcUsdM",
+        "complete",
+        "cumulativeUsdM",
+        "date",
+        "ethSource",
+        "ethTotalUsdM",
+        "ethaUsdM",
+        "fbtcUsdM",
+        "gbtcUsdM",
+        "ibitUsdM",
+        "kind",
+        "leg_id",
+        "levels",
+        "msbtUsdM",
+        "notice",
+        "ok",
+        "priorAsOf",
+        "priorIbitUsdM",
+        "priorTotalUsdM",
+        "published_at",
+        "revision",
+        "source",
+        "sources",
+        "thesis",
+        "totalUsdM"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "liquidstate.tech",
+    "endpoint": "https://www.liquidstate.tech/api/x402/farside-btc-etf",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

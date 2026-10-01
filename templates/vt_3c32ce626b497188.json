@@ -1,0 +1,95 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3c32ce626b497188",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "payment": {
+          "type": "object",
+          "properties": {
+            "network": {
+              "type": "string"
+            },
+            "payer": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "transaction": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{64}$"
+            }
+          },
+          "required": [
+            "network",
+            "payer",
+            "transaction"
+          ]
+        },
+        "repaired": {
+          "type": "object",
+          "properties": {
+            "age": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "age",
+            "name"
+          ]
+        },
+        "service": {
+          "type": "string"
+        },
+        "validatedAgainstSchema": {
+          "type": "boolean"
+        },
+        "validation": {
+          "type": "object",
+          "properties": {
+            "valid": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "valid"
+          ]
+        },
+        "wasModified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok",
+        "payment",
+        "repaired",
+        "service",
+        "validatedAgainstSchema",
+        "validation",
+        "wasModified"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "repaired.age": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "app.heinrichstech.com",
+    "endpoint": "https://app.heinrichstech.com/v1/cdp/json-repair",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

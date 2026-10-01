@@ -1,0 +1,147 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_98031b16502ad5b5",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "confidence": {
+          "type": "string"
+        },
+        "notice": {
+          "type": "string"
+        },
+        "query": {
+          "type": "object",
+          "properties": {
+            "q": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "q",
+            "region"
+          ]
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "notices": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "buyer": {
+                    "type": "string"
+                  },
+                  "cpv": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "desc": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "code",
+                        "desc"
+                      ]
+                    }
+                  },
+                  "days_remaining": {
+                    "type": "integer"
+                  },
+                  "deadline": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "ocid": {
+                    "type": "string"
+                  },
+                  "stage": {
+                    "type": "string"
+                  },
+                  "summary": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "object",
+                    "properties": {
+                      "amount": {
+                        "type": "number"
+                      },
+                      "currency": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "amount",
+                      "currency"
+                    ]
+                  }
+                },
+                "required": [
+                  "buyer",
+                  "cpv",
+                  "days_remaining",
+                  "deadline",
+                  "ocid",
+                  "stage",
+                  "summary",
+                  "title",
+                  "value"
+                ]
+              }
+            },
+            "returned": {
+              "type": "integer"
+            },
+            "total_matched": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "notices",
+            "returned",
+            "total_matched"
+          ]
+        }
+      },
+      "required": [
+        "confidence",
+        "notice",
+        "query",
+        "result"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "result.notices[].value.amount": {
+        "min": 0
+      },
+      "result.total_matched": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.ukintel.uk",
+    "endpoint": "https://api.ukintel.uk/v1/tenders/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

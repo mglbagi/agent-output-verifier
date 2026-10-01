@@ -1,0 +1,137 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_396b68bc3983e841",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "citation": {
+                "type": "object",
+                "properties": {
+                  "authors": {
+                    "type": "string"
+                  },
+                  "doi": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "pmid": {
+                    "type": "string"
+                  },
+                  "source": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "authors",
+                  "doi",
+                  "id",
+                  "pmid",
+                  "source",
+                  "title"
+                ]
+              },
+              "disclaimer": {
+                "type": "string"
+              },
+              "estimated_fetal_weight_g": {
+                "type": "integer"
+              },
+              "fetoplacental_volume_ml": {
+                "type": "integer"
+              },
+              "formula": {
+                "type": "string"
+              },
+              "formula_expression": {
+                "type": "string"
+              },
+              "hct_donor_percent": {
+                "type": "integer"
+              },
+              "hct_final_percent": {
+                "type": "integer"
+              },
+              "hct_initial_percent": {
+                "type": "integer"
+              },
+              "volume_ml": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "citation",
+              "disclaimer",
+              "estimated_fetal_weight_g",
+              "fetoplacental_volume_ml",
+              "formula",
+              "formula_expression",
+              "hct_donor_percent",
+              "hct_final_percent",
+              "hct_initial_percent",
+              "volume_ml"
+            ]
+          }
+        },
+        "path": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "count",
+        "items",
+        "path"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "items[].estimated_fetal_weight_g": {
+        "min": 0
+      },
+      "items[].fetoplacental_volume_ml": {
+        "min": 0
+      },
+      "items[].hct_donor_percent": {
+        "min": 0,
+        "max": 100
+      },
+      "items[].hct_final_percent": {
+        "min": 0,
+        "max": 100
+      },
+      "items[].hct_initial_percent": {
+        "min": 0,
+        "max": 100
+      },
+      "items[].volume_ml": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.magentlab.com",
+    "endpoint": "https://api.magentlab.com/api/calc/intrauterine_rbc",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

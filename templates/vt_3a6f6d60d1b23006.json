@@ -1,0 +1,81 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3a6f6d60d1b23006",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "disclaimer": {
+          "type": "string"
+        },
+        "hit_count": {
+          "type": "integer"
+        },
+        "hits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "entity": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "match_via": {
+                "type": "string"
+              },
+              "score": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "entity",
+              "match_via",
+              "score"
+            ]
+          }
+        },
+        "list_as_of": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "potential_matches_only": {
+          "type": "boolean"
+        },
+        "query": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "disclaimer",
+        "hit_count",
+        "hits",
+        "list_as_of",
+        "potential_matches_only",
+        "query"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "hit_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-ofac-api.vercel.app",
+    "endpoint": "https://x402-ofac-api.vercel.app/api/v1/ofac-sdn",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

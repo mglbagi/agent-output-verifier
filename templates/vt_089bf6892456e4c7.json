@@ -1,0 +1,104 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_089bf6892456e4c7",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "individualHolders": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string"
+              },
+              "percentage": {
+                "type": "number"
+              },
+              "riskLevel": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "address",
+              "percentage",
+              "riskLevel"
+            ]
+          }
+        },
+        "mint": {
+          "type": "string"
+        },
+        "networkBundles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "accounts": {
+                "type": "array"
+              },
+              "address": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "percentOwnership": {
+                "type": "number"
+              },
+              "riskLevel": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "accounts",
+              "address",
+              "name",
+              "percentOwnership",
+              "riskLevel"
+            ]
+          }
+        },
+        "topNetworkOwnership": {
+          "type": "number"
+        },
+        "totalHolders": {
+          "type": "number"
+        },
+        "walletsAnalyzed": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "individualHolders",
+        "mint",
+        "networkBundles",
+        "topNetworkOwnership",
+        "totalHolders",
+        "walletsAnalyzed"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "individualHolders[].percentage": {
+        "min": 0,
+        "max": 100
+      },
+      "networkBundles[].percentOwnership": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.deepnets.ai",
+    "endpoint": "https://api.deepnets.ai/api/token-details",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

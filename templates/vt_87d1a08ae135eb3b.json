@@ -1,0 +1,146 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_87d1a08ae135eb3b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "consensus": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
+        },
+        "price_target": {
+          "type": "object",
+          "properties": {
+            "consensus": {
+              "type": "number"
+            },
+            "high": {
+              "type": "integer"
+            },
+            "low": {
+              "type": "integer"
+            },
+            "upside_pct": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "consensus",
+            "high",
+            "low",
+            "upside_pct"
+          ]
+        },
+        "rating_breakdown": {
+          "type": "object",
+          "properties": {
+            "buy": {
+              "type": "integer"
+            },
+            "hold": {
+              "type": "integer"
+            },
+            "sell": {
+              "type": "integer"
+            },
+            "strong_buy": {
+              "type": "integer"
+            },
+            "strong_sell": {
+              "type": "integer"
+            },
+            "total": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "buy",
+            "hold",
+            "sell",
+            "strong_buy",
+            "strong_sell",
+            "total"
+          ]
+        },
+        "recent_actions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "firm": {
+                "type": "string"
+              },
+              "from": {
+                "type": "string"
+              },
+              "to": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "action",
+              "date",
+              "firm",
+              "from",
+              "to"
+            ]
+          }
+        },
+        "signal": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "consensus",
+        "price",
+        "price_target",
+        "rating_breakdown",
+        "recent_actions",
+        "signal",
+        "symbol"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "price_target.low",
+        "other_field": "price_target.high"
+      }
+    ],
+    "bounds": {
+      "price": {
+        "min": 0
+      },
+      "price_target.upside_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "rating_breakdown.total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "analyst.lonestaroracle.xyz",
+    "endpoint": "https://analyst.lonestaroracle.xyz/ratings",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

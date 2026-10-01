@@ -1,0 +1,70 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6e18a37a7de569e8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "expiresAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string"
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "events": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "events",
+            "status"
+          ]
+        },
+        "secret": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "tier": {
+          "type": "string"
+        },
+        "triggerCap": {
+          "type": "integer"
+        },
+        "triggersUsed": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "expiresAt",
+        "id",
+        "links",
+        "secret",
+        "state",
+        "tier",
+        "triggerCap",
+        "triggersUsed"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.datasieve.xyz",
+    "endpoint": "https://api.datasieve.xyz/watch/standard",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b1a45115d8c24e39",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "commercials": {
+          "type": "object",
+          "properties": {
+            "long": {
+              "type": "integer"
+            },
+            "net": {
+              "type": "integer"
+            },
+            "net_pct_oi": {
+              "type": "number"
+            },
+            "note": {
+              "type": "string"
+            },
+            "short": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "long",
+            "net",
+            "net_pct_oi",
+            "note",
+            "short"
+          ]
+        },
+        "cot_signal": {
+          "type": "string"
+        },
+        "history_weeks": {
+          "type": "integer"
+        },
+        "interpretation": {
+          "type": "string"
+        },
+        "large_specs": {
+          "type": "object",
+          "properties": {
+            "long": {
+              "type": "integer"
+            },
+            "net": {
+              "type": "integer"
+            },
+            "net_pct_oi": {
+              "type": "number"
+            },
+            "net_percentile_3y": {
+              "type": "number"
+            },
+            "net_wow_change": {
+              "type": "integer"
+            },
+            "short": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "long",
+            "net",
+            "net_pct_oi",
+            "net_percentile_3y",
+            "net_wow_change",
+            "short"
+          ]
+        },
+        "market": {
+          "type": "string"
+        },
+        "oi_wow_change": {
+          "type": "integer"
+        },
+        "open_interest": {
+          "type": "integer"
+        },
+        "query": {
+          "type": "string"
+        },
+        "report_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "small_traders": {
+          "type": "object",
+          "properties": {
+            "net": {
+              "type": "integer"
+            },
+            "net_pct_oi": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "net",
+            "net_pct_oi"
+          ]
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "commercials",
+        "cot_signal",
+        "history_weeks",
+        "interpretation",
+        "large_specs",
+        "market",
+        "oi_wow_change",
+        "open_interest",
+        "query",
+        "report_date",
+        "small_traders",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "commercials.net_pct_oi": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "cot.lonestaroracle.xyz",
+    "endpoint": "https://cot.lonestaroracle.xyz/cot",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

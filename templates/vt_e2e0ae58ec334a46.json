@@ -1,0 +1,46 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e2e0ae58ec334a46",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "agents": {
+          "type": "array"
+        },
+        "economy": {
+          "type": "object",
+          "properties": {}
+        },
+        "total_agents": {
+          "type": "number"
+        },
+        "treasury": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "agents",
+        "economy",
+        "total_agents",
+        "treasury"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "total_agents": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agentworld.me",
+    "endpoint": "https://agentworld.me/api/agentworld/agwc/buy-kit/paid",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

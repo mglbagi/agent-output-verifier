@@ -1,0 +1,144 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bd5b6a4a9add9ee0",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "ad": {
+          "type": "string"
+        },
+        "donemler": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "bilanco_ozeti_milyon_tl": {
+                "type": "object",
+                "properties": {
+                  "donen_varliklar": {
+                    "type": "number"
+                  },
+                  "hasilat": {
+                    "type": "number"
+                  },
+                  "kisa_vadeli_borc": {
+                    "type": "number"
+                  },
+                  "nakit": {
+                    "type": "number"
+                  },
+                  "net_kar": {
+                    "type": "number"
+                  },
+                  "ozkaynak": {
+                    "type": "number"
+                  },
+                  "personel_gideri": {
+                    "type": "number"
+                  },
+                  "toplam_borc": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "donen_varliklar",
+                  "hasilat",
+                  "kisa_vadeli_borc",
+                  "nakit",
+                  "net_kar",
+                  "ozkaynak",
+                  "personel_gideri",
+                  "toplam_borc"
+                ]
+              },
+              "donem": {
+                "type": "string"
+              },
+              "ekospor_endeksi": {
+                "type": "object",
+                "properties": {
+                  "ham_puan": {
+                    "type": "number"
+                  },
+                  "puan": {
+                    "type": "number"
+                  },
+                  "sureklilik_cezasi": {
+                    "type": "integer"
+                  },
+                  "yontem_surumu": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "ham_puan",
+                  "puan",
+                  "sureklilik_cezasi",
+                  "yontem_surumu"
+                ]
+              },
+              "oranlar": {
+                "type": "object",
+                "properties": {
+                  "borc_gelir_orani": {
+                    "type": "number"
+                  },
+                  "cari_oran": {
+                    "type": "number"
+                  },
+                  "maas_gelir_orani": {
+                    "type": "number"
+                  },
+                  "nakit_kisa_borc_orani": {
+                    "type": "number"
+                  },
+                  "net_kar_marji": {
+                    "type": "number"
+                  },
+                  "ozkaynak_negatif": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "borc_gelir_orani",
+                  "cari_oran",
+                  "maas_gelir_orani",
+                  "nakit_kisa_borc_orani",
+                  "net_kar_marji",
+                  "ozkaynak_negatif"
+                ]
+              }
+            },
+            "required": [
+              "bilanco_ozeti_milyon_tl",
+              "donem",
+              "ekospor_endeksi",
+              "oranlar"
+            ]
+          }
+        },
+        "kod": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ad",
+        "donemler",
+        "kod"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.ekospor.com",
+    "endpoint": "https://api.ekospor.com/v1/kulup/:kod",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

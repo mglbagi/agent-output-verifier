@@ -1,0 +1,51 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3bd1c7dd4b50592e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "createdAt": {
+          "description": "ISO 8601 creation timestamp.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "editToken": {
+          "description": "Returned once on first creation (not on an idempotent replay). Send it as the X-Proposal-Edit-Token header to rename or re-bucket the proposal.",
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "proposalId": {
+          "type": "string"
+        },
+        "screenshotUrl": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "proposalId",
+        "createdAt",
+        "screenshotUrl"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.urbangametheory.xyz",
+    "endpoint": "https://api.urbangametheory.xyz/agent/proposals",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

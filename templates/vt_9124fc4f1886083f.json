@@ -1,0 +1,41 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9124fc4f1886083f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "distance_km": {
+          "type": "number"
+        },
+        "distance_miles": {
+          "type": "number"
+        },
+        "ip1": {
+          "type": "object"
+        },
+        "ip2": {
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "required": [
+        "distance_km",
+        "distance_miles",
+        "ip1",
+        "ip2"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ip-geo-api-production.up.railway.app",
+    "endpoint": "https://ip-geo-api-production.up.railway.app/lookup/distance",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

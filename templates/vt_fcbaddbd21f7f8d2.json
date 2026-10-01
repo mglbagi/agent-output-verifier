@@ -1,0 +1,46 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fcbaddbd21f7f8d2",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "capture_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "expires_at": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "string"
+        },
+        "secret": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "capture_url",
+        "expires_at",
+        "id",
+        "secret",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "stumble.vimabrosta.com",
+    "endpoint": "https://stumble.vimabrosta.com/v1/inbox",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

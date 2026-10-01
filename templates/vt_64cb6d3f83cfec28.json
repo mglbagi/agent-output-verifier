@@ -1,0 +1,434 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_64cb6d3f83cfec28",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "generated_at": {
+          "type": "integer"
+        },
+        "recompute_limit_hit": {
+          "type": "boolean"
+        },
+        "recomputed_count": {
+          "type": "integer"
+        },
+        "recomputed_ms": {
+          "type": "integer"
+        },
+        "requested": {
+          "type": "integer"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "advertised": {
+                "properties": {
+                  "amount": {
+                    "type": "string"
+                  },
+                  "amountUsd": {
+                    "type": "number"
+                  },
+                  "asset": {
+                    "type": "string",
+                    "pattern": "^0x[a-fA-F0-9]{40}$"
+                  },
+                  "decimals": {
+                    "type": "integer"
+                  },
+                  "network": {
+                    "type": "string"
+                  },
+                  "observedAtTs": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "amount",
+                  "amountUsd",
+                  "asset",
+                  "network",
+                  "decimals",
+                  "observedAtTs"
+                ],
+                "type": "object"
+              },
+              "breakdown": {
+                "properties": {
+                  "activity": {
+                    "type": "number"
+                  },
+                  "age": {
+                    "type": "number"
+                  },
+                  "compliance": {
+                    "type": "integer"
+                  },
+                  "latency": {
+                    "type": "number"
+                  },
+                  "stability": {
+                    "type": "integer"
+                  },
+                  "uptime": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "uptime",
+                  "compliance",
+                  "latency",
+                  "age",
+                  "activity",
+                  "stability"
+                ],
+                "type": "object"
+              },
+              "computed_at": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "confidence": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "confidenceDetail": {
+                "properties": {
+                  "economic": {
+                    "type": "number"
+                  },
+                  "observation": {
+                    "type": "number"
+                  },
+                  "overall": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "overall",
+                  "observation",
+                  "economic"
+                ],
+                "type": "object"
+              },
+              "dataCompleteSince": {
+                "type": "integer"
+              },
+              "description": {
+                "type": "string"
+              },
+              "endpoint_id": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "explanations": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "flags": {
+                "type": "array"
+              },
+              "flagsDetailed": {
+                "type": "array"
+              },
+              "found": {
+                "type": "boolean"
+              },
+              "freshness": {
+                "properties": {
+                  "ageSeconds": {
+                    "type": "integer"
+                  },
+                  "live": {
+                    "type": "boolean"
+                  },
+                  "probedAtTs": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "live",
+                  "probedAtTs",
+                  "ageSeconds"
+                ],
+                "type": "object"
+              },
+              "grade": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "gradeThresholds": {
+                "properties": {
+                  "A": {
+                    "type": "integer"
+                  },
+                  "B": {
+                    "type": "integer"
+                  },
+                  "C": {
+                    "type": "integer"
+                  },
+                  "D": {
+                    "type": "integer"
+                  },
+                  "F": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "A",
+                  "B",
+                  "C",
+                  "D",
+                  "F"
+                ],
+                "type": "object"
+              },
+              "probed_at": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "probes_30d": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "recommendation": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "recomputed": {
+                "type": "boolean"
+              },
+              "resource": {
+                "type": "string"
+              },
+              "score": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "scoreRange": {
+                "properties": {
+                  "high": {
+                    "type": "integer"
+                  },
+                  "low": {
+                    "type": "number"
+                  },
+                  "point": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "point",
+                  "high"
+                ],
+                "type": "object"
+              },
+              "serviceName": {
+                "type": "string"
+              },
+              "stats": {
+                "properties": {
+                  "avgLatencyMs": {
+                    "type": "integer"
+                  },
+                  "delisted": {
+                    "type": "boolean"
+                  },
+                  "distinctPayers30d": {
+                    "type": "integer"
+                  },
+                  "envelopeValid30d": {
+                    "type": "integer"
+                  },
+                  "firstSeenTs": {
+                    "type": "integer"
+                  },
+                  "latencyVantage": {
+                    "type": "string"
+                  },
+                  "observedDays": {
+                    "type": "integer"
+                  },
+                  "payTo": {
+                    "type": "string",
+                    "pattern": "^0x[a-fA-F0-9]{40}$"
+                  },
+                  "payToLastSeenTs": {
+                    "type": "integer"
+                  },
+                  "payToSharedWith": {
+                    "type": "integer"
+                  },
+                  "payToStale": {
+                    "type": "boolean"
+                  },
+                  "priceChanges30d": {
+                    "type": "integer"
+                  },
+                  "probeOk30d": {
+                    "type": "integer"
+                  },
+                  "probes30d": {
+                    "type": "integer"
+                  },
+                  "settledVolumeUnits30d": {
+                    "type": "string"
+                  },
+                  "settledVolumeUsd30d": {
+                    "type": "number"
+                  },
+                  "settlementAsset": {
+                    "type": "string"
+                  },
+                  "settlementDecimals": {
+                    "type": "integer"
+                  },
+                  "settlements30d": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "firstSeenTs",
+                  "observedDays",
+                  "probes30d",
+                  "probeOk30d",
+                  "envelopeValid30d",
+                  "avgLatencyMs",
+                  "latencyVantage",
+                  "priceChanges30d",
+                  "payTo",
+                  "payToLastSeenTs",
+                  "payToStale",
+                  "payToSharedWith",
+                  "settlements30d",
+                  "distinctPayers30d",
+                  "settledVolumeUnits30d",
+                  "settledVolumeUsd30d",
+                  "settlementAsset",
+                  "settlementDecimals",
+                  "delisted"
+                ],
+                "type": "object"
+              },
+              "subscores": {
+                "properties": {
+                  "economicConfidence": {
+                    "type": "number"
+                  },
+                  "economicReputationScore": {
+                    "type": "integer"
+                  },
+                  "specComplianceScore": {
+                    "type": "integer"
+                  },
+                  "technicalReliabilityScore": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "technicalReliabilityScore",
+                  "specComplianceScore",
+                  "economicReputationScore",
+                  "economicConfidence"
+                ],
+                "type": "object"
+              },
+              "templated": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "resource",
+              "found",
+              "endpoint_id",
+              "score",
+              "grade",
+              "recommendation",
+              "confidence",
+              "probes_30d",
+              "probed_at",
+              "computed_at",
+              "recomputed"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "tier": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "generated_at",
+        "tier",
+        "requested",
+        "recomputed_count",
+        "recomputed_ms",
+        "recompute_limit_hit",
+        "results"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "results[].scoreRange.low",
+        "other_field": "results[].scoreRange.high",
+        "if_present": true
+      },
+      {
+        "type": "unique",
+        "field": "results[].endpoint_id"
+      }
+    ],
+    "bounds": {
+      "recomputed_count": {
+        "min": 0
+      },
+      "results[].breakdown.age": {
+        "min": 0,
+        "if_present": true
+      },
+      "results[].confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "results[].subscores.economicConfidence": {
+        "min": 0,
+        "max": 1,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-trust.com",
+    "endpoint": "https://x402-trust.com/v1/x402-trust-bulk-10",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

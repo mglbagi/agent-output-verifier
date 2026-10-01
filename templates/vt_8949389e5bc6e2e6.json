@@ -1,0 +1,143 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8949389e5bc6e2e6",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "checked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "ofac_name": {},
+        "ofac_wallet": {
+          "type": "object",
+          "properties": {
+            "currency": {
+              "type": "string"
+            },
+            "listed": {
+              "type": "boolean"
+            },
+            "program": {
+              "type": "string"
+            },
+            "sdn_name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "currency",
+            "listed",
+            "program",
+            "sdn_name"
+          ]
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "receipt": {
+          "type": "object",
+          "properties": {
+            "receipt": {
+              "type": "object",
+              "properties": {
+                "checked_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "service": {
+                  "type": "string"
+                },
+                "verdict": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "checked_at",
+                "service",
+                "verdict"
+              ]
+            },
+            "signature": {
+              "type": "object",
+              "properties": {
+                "alg": {
+                  "type": "string"
+                },
+                "sig": {
+                  "type": "string"
+                },
+                "signer": {
+                  "type": "string",
+                  "pattern": "^0x[a-fA-F0-9]{40}$"
+                }
+              },
+              "required": [
+                "alg",
+                "sig",
+                "signer"
+              ]
+            }
+          },
+          "required": [
+            "receipt",
+            "signature"
+          ]
+        },
+        "verdict": {
+          "type": "string"
+        },
+        "wallet_risk": {
+          "type": "object",
+          "properties": {
+            "chain": {
+              "type": "string"
+            },
+            "risk_flags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "risk_label": {
+              "type": "string"
+            },
+            "risk_score": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "chain",
+            "risk_flags",
+            "risk_label",
+            "risk_score"
+          ]
+        }
+      },
+      "required": [
+        "checked_at",
+        "ofac_wallet",
+        "reasons",
+        "receipt",
+        "verdict",
+        "wallet_risk"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "kya.lonestaroracle.xyz",
+    "endpoint": "https://kya.lonestaroracle.xyz/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

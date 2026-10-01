@@ -1,0 +1,101 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_68a1cf32cbee1995",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "attribution": {
+          "type": "string"
+        },
+        "candles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "close": {
+                "type": "integer"
+              },
+              "high": {
+                "type": "integer"
+              },
+              "low": {
+                "type": "integer"
+              },
+              "open": {
+                "type": "integer"
+              },
+              "t": {
+                "type": "integer"
+              },
+              "trades": {
+                "type": "integer"
+              },
+              "volume": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "close",
+              "high",
+              "low",
+              "open",
+              "t",
+              "trades",
+              "volume"
+            ]
+          }
+        },
+        "coin": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "interval": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "stale": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "attribution",
+        "candles",
+        "coin",
+        "count",
+        "interval",
+        "source",
+        "stale"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "candles[].low",
+        "other_field": "candles[].high"
+      }
+    ],
+    "bounds": {
+      "candles[].volume": {
+        "min": 0
+      },
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "crypto.openverbs.com",
+    "endpoint": "https://crypto.openverbs.com/v1/ohlc",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

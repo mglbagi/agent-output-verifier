@@ -1,0 +1,37 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_815ece1dbffec91d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "digests": {
+          "type": "object"
+        },
+        "input_bytes": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "input_bytes",
+        "digests"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "input_bytes": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-echo-service.onrender.com",
+    "endpoint": "https://x402-echo-service.onrender.com/hash",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3a82d8751478de3d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "confidence": {
+          "description": "0.0-1.0; >= 0.6 reliable for display",
+          "type": "number"
+        },
+        "count": {
+          "description": "Estimated total holders",
+          "type": "integer"
+        },
+        "largest": {
+          "items": {
+            "properties": {
+              "address": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "number"
+              },
+              "percentage": {
+                "type": "number"
+              }
+            },
+            "type": "object",
+            "required": [
+              "address",
+              "amount",
+              "percentage"
+            ]
+          },
+          "type": "array"
+        },
+        "latency_ms": {
+          "type": "number"
+        },
+        "mint": {
+          "type": "string"
+        },
+        "provenance": {
+          "description": "Freshness of this answer: when it was fetched/computed (UTC), whether it came from a cache layer, and the Solana slot it reflects when the underlying data source exposes one (null otherwise).",
+          "properties": {
+            "as_of_slot": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "cached": {
+              "type": "boolean"
+            },
+            "fetched_at": {
+              "description": "ISO-8601 UTC timestamp",
+              "type": "string",
+              "format": "date-time"
+            },
+            "source": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "cached",
+            "fetched_at"
+          ]
+        },
+        "sampled": {
+          "description": "Holder accounts actually sampled",
+          "type": "integer"
+        },
+        "source": {
+          "description": "Path that produced the result, e.g. 'helius_das'",
+          "type": "string"
+        },
+        "supply": {
+          "type": "number"
+        },
+        "top1": {
+          "description": "Top-1 wallet share of supply, percent",
+          "type": "number"
+        },
+        "top10": {
+          "description": "Top-10 share of supply, percent",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "required": [
+        "confidence",
+        "count",
+        "largest",
+        "latency_ms",
+        "mint",
+        "provenance",
+        "sampled",
+        "source",
+        "supply",
+        "top1",
+        "top10"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "count": {
+        "min": 0
+      },
+      "largest[].amount": {
+        "min": 0
+      },
+      "largest[].percentage": {
+        "min": 0,
+        "max": 100
+      },
+      "supply": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.solsentry.app",
+    "endpoint": "https://api.solsentry.app/x402/v1/holders/:solana_address",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

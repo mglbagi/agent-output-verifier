@@ -1,0 +1,178 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_53d13fd3cb57d0fd",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "found": {
+          "type": "boolean"
+        },
+        "input": {
+          "type": "string"
+        },
+        "result": {
+          "properties": {
+            "admin_county": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "admin_district": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "admin_ward": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "ccg": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "codes": {
+              "type": "object"
+            },
+            "country": {
+              "type": "string"
+            },
+            "date_of_introduction": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "european_electoral_region": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "incode": {
+              "type": "string"
+            },
+            "latitude": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "longitude": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "lsoa": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "msoa": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "nuts": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "outcode": {
+              "type": "string"
+            },
+            "parish": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "parliamentary_constituency": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "postcode": {
+              "type": "string"
+            },
+            "primary_care_trust": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "quality": {
+              "type": "integer"
+            },
+            "region": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "admin_district",
+            "admin_ward",
+            "ccg",
+            "codes",
+            "country",
+            "date_of_introduction",
+            "european_electoral_region",
+            "incode",
+            "latitude",
+            "longitude",
+            "lsoa",
+            "msoa",
+            "nuts",
+            "outcode",
+            "parish",
+            "parliamentary_constituency",
+            "postcode",
+            "primary_care_trust",
+            "quality",
+            "region"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "found",
+        "input",
+        "result"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "result.latitude": {
+        "min": -90,
+        "max": 90
+      },
+      "result.longitude": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "postcode-api-production.up.railway.app",
+    "endpoint": "https://postcode-api-production.up.railway.app/lookup/postcode",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3444ac3180a39bd9",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "events_24h": {
+          "type": "integer"
+        },
+        "pressure": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "asset_id": {
+                "type": "string"
+              },
+              "n": {
+                "type": "integer"
+              },
+              "net": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "asset_id",
+              "n",
+              "net"
+            ]
+          }
+        },
+        "venues_open": {
+          "type": "object",
+          "properties": {
+            "US": {
+              "type": "boolean"
+            },
+            "crypto": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "US",
+            "crypto"
+          ]
+        }
+      },
+      "required": [
+        "events_24h",
+        "pressure",
+        "venues_open"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "pressure[].asset_id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "intel.degenscan.io",
+    "endpoint": "https://intel.degenscan.io/v1/regime",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9fe590a07d388c0d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "message"
+          ]
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "disclaimer": {
+              "type": "string"
+            },
+            "generated_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "service": {
+              "type": "string"
+            },
+            "source_datasets": {
+              "type": "array"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "disclaimer",
+            "generated_at",
+            "service",
+            "source_datasets",
+            "version"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tollbooth-hello-testnet.sjwilliams8.workers.dev",
+    "endpoint": "https://tollbooth-hello-testnet.sjwilliams8.workers.dev/hello",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

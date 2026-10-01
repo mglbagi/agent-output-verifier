@@ -1,0 +1,76 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_238972667b0376ac",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "actionBindingVersion": {
+          "type": "string"
+        },
+        "actionHash": {
+          "type": "string"
+        },
+        "matchedRuleIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "nextRecommendedCall": {
+          "type": "object",
+          "properties": {
+            "method": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "priceCents": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "method",
+            "path",
+            "priceCents"
+          ]
+        },
+        "requiresApproval": {
+          "type": "boolean"
+        },
+        "risk": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "actionBindingVersion",
+        "actionHash",
+        "matchedRuleIds",
+        "nextRecommendedCall",
+        "requiresApproval",
+        "risk",
+        "service",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hermesplant.com",
+    "endpoint": "https://hermesplant.com/api/agent-services/action-safety/quick",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

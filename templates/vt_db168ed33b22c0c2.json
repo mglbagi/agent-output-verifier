@@ -1,0 +1,66 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_db168ed33b22c0c2",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "taxonomy": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "level": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "taxonomy_id": {
+                "type": "string"
+              },
+              "taxonomy_version": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "code",
+              "level",
+              "name",
+              "taxonomy_id",
+              "taxonomy_version",
+              "updated_at"
+            ]
+          }
+        }
+      },
+      "required": [
+        "taxonomy"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "taxonomy[].taxonomy_id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.predictionmarketdata.io",
+    "endpoint": "https://api.predictionmarketdata.io/prediction-markets/taxonomy",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7e87c6ee1a8a97e2",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "failure_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "final_http_status": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "final_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "hop_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "hops": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "from": {
+                "type": "string"
+              },
+              "status_code": {
+                "type": "integer"
+              },
+              "to": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "from",
+              "to",
+              "status_code"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "latency_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "loop_detected": {
+          "type": "boolean"
+        },
+        "requested_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "status": {
+          "enum": [
+            "RESOLVED",
+            "NO_REDIRECT",
+            "FAILED"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "requested_url",
+        "final_url",
+        "hops",
+        "hop_count",
+        "final_http_status",
+        "loop_detected",
+        "latency_ms",
+        "failure_reason"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "atomic-verify-claim-poc.topadvancement-atomic.workers.dev",
+    "endpoint": "https://atomic-verify-claim-poc.topadvancement-atomic.workers.dev/api/resolve-redirect-chain",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

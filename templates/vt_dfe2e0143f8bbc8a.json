@@ -1,0 +1,168 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_dfe2e0143f8bbc8a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "candidates": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "carrier_id": {
+                    "type": "string"
+                  },
+                  "carrier_name": {
+                    "type": "string"
+                  },
+                  "evidence": {
+                    "type": "object",
+                    "properties": {
+                      "check_digit": {
+                        "type": "string"
+                      },
+                      "country_hint": {},
+                      "length": {
+                        "type": "integer"
+                      },
+                      "prefix": {
+                        "type": "string"
+                      },
+                      "s10_origin_country": {}
+                    },
+                    "required": [
+                      "check_digit",
+                      "length",
+                      "prefix"
+                    ]
+                  },
+                  "format_id": {
+                    "type": "string"
+                  },
+                  "match_score": {
+                    "type": "number"
+                  },
+                  "match_strength": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "carrier_id",
+                  "carrier_name",
+                  "evidence",
+                  "format_id",
+                  "match_score",
+                  "match_strength"
+                ]
+              }
+            },
+            "carrier": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name"
+              ]
+            },
+            "formats_matched": {
+              "type": "integer"
+            },
+            "input": {
+              "type": "object",
+              "properties": {
+                "normalised": {
+                  "type": "string"
+                },
+                "original": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "normalised",
+                "original"
+              ]
+            },
+            "match_score": {
+              "type": "number"
+            },
+            "match_strength": {
+              "type": "string"
+            },
+            "signature_version": {
+              "type": "string"
+            },
+            "upu_s10": {}
+          },
+          "required": [
+            "candidates",
+            "carrier",
+            "formats_matched",
+            "input",
+            "match_score",
+            "match_strength",
+            "signature_version"
+          ]
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "capability": {
+              "type": "string"
+            },
+            "freshness": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "capability",
+            "freshness",
+            "source",
+            "version"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data.candidates[].carrier_id"
+      }
+    ],
+    "bounds": {
+      "data.candidates[].evidence.length": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.eckari.com",
+    "endpoint": "https://api.eckari.com/v1/parcels/detect-carrier",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

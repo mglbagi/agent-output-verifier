@@ -1,0 +1,367 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2c1940f8e593cd9e",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "activation": {
+                "type": "string"
+              },
+              "category": {
+                "type": "string"
+              },
+              "confidence": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "field": {
+                      "type": "string"
+                    },
+                    "source": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "field",
+                    "source"
+                  ]
+                }
+              },
+              "label": {
+                "type": "string"
+              },
+              "risk": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "activation",
+              "category",
+              "confidence",
+              "evidence",
+              "label",
+              "risk",
+              "source"
+            ]
+          }
+        },
+        "conformance": {
+          "type": "string"
+        },
+        "detectedCount": {
+          "type": "integer"
+        },
+        "igaPacket": {
+          "type": "object",
+          "properties": {
+            "generatedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "highestRisk": {
+              "type": "string"
+            },
+            "packetId": {
+              "type": "string"
+            },
+            "recommendedDecision": {
+              "type": "string"
+            },
+            "summary": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "generatedAt",
+            "highestRisk",
+            "packetId",
+            "recommendedDecision",
+            "summary",
+            "target"
+          ]
+        },
+        "llmsTxt": {
+          "type": "object",
+          "properties": {
+            "found": {
+              "type": "boolean"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "found",
+            "url"
+          ]
+        },
+        "normalizedAgent": {
+          "type": "object",
+          "properties": {
+            "declaredCapabilities": {
+              "type": "array"
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  },
+                  "source": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "field",
+                  "source"
+                ]
+              }
+            },
+            "inputModes": {
+              "type": "array"
+            },
+            "interfaces": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "protocol": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "protocol",
+                  "url"
+                ]
+              }
+            },
+            "name": {
+              "type": "string"
+            },
+            "outputModes": {
+              "type": "array"
+            },
+            "skills": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "evidence": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "field": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "field",
+                        "source"
+                      ]
+                    }
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "source": {
+                    "type": "string"
+                  },
+                  "tags": {
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "description",
+                  "evidence",
+                  "id",
+                  "name",
+                  "source",
+                  "tags"
+                ]
+              }
+            }
+          },
+          "required": [
+            "declaredCapabilities",
+            "evidence",
+            "inputModes",
+            "interfaces",
+            "name",
+            "outputModes",
+            "skills"
+          ]
+        },
+        "origin": {
+          "type": "string"
+        },
+        "protocols": {
+          "type": "object",
+          "properties": {
+            "a2a": {
+              "type": "object",
+              "properties": {
+                "evidence": {
+                  "type": "array"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "evidence",
+                "status"
+              ]
+            },
+            "ard": {
+              "type": "object",
+              "properties": {
+                "evidence": {
+                  "type": "array"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "evidence",
+                "status"
+              ]
+            },
+            "mcp": {
+              "type": "object",
+              "properties": {
+                "details": {
+                  "type": "object",
+                  "properties": {
+                    "tools": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "description": {
+                            "type": "string"
+                          },
+                          "inputSchema": {
+                            "type": "object",
+                            "properties": {
+                              "properties": {},
+                              "required": {},
+                              "type": {}
+                            },
+                            "required": [
+                              "properties",
+                              "required",
+                              "type"
+                            ]
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "description",
+                          "inputSchema",
+                          "name"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "tools"
+                  ]
+                },
+                "evidence": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "details",
+                "evidence",
+                "status"
+              ]
+            }
+          },
+          "required": [
+            "a2a",
+            "ard",
+            "mcp"
+          ]
+        },
+        "scanId": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "capabilities",
+        "conformance",
+        "detectedCount",
+        "igaPacket",
+        "llmsTxt",
+        "normalizedAgent",
+        "origin",
+        "protocols",
+        "scanId",
+        "target"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "normalizedAgent.skills[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "contextiq.trango-compute.com",
+    "endpoint": "https://contextiq.trango-compute.com/api/v1/agent-protocol-inspector/x402-v2",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

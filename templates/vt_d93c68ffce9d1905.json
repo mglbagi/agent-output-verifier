@@ -1,0 +1,141 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d93c68ffce9d1905",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "banner": {
+          "type": "string"
+        },
+        "gleif": {
+          "type": "object",
+          "properties": {
+            "match": {
+              "type": "object",
+              "properties": {
+                "hit_count": {
+                  "type": "integer"
+                },
+                "matches": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "lei": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "lei"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "hit_count",
+                "matches"
+              ]
+            },
+            "resolve": {
+              "type": "object",
+              "properties": {
+                "found": {
+                  "type": "boolean"
+                },
+                "lei": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "found",
+                "lei"
+              ]
+            }
+          },
+          "required": [
+            "match",
+            "resolve"
+          ]
+        },
+        "list_as_of": {
+          "type": "object",
+          "properties": {
+            "gleif": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "ofac": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "gleif",
+            "ofac"
+          ]
+        },
+        "not_attestation": {
+          "type": "boolean"
+        },
+        "not_clearance": {
+          "type": "boolean"
+        },
+        "ofac": {
+          "type": "object",
+          "properties": {
+            "hit_count": {
+              "type": "integer"
+            },
+            "hits": {
+              "type": "array"
+            },
+            "potential_matches_only": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "hit_count",
+            "hits",
+            "potential_matches_only"
+          ]
+        },
+        "pack": {
+          "type": "string"
+        },
+        "potential_matches_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "banner",
+        "gleif",
+        "list_as_of",
+        "not_attestation",
+        "not_clearance",
+        "ofac",
+        "pack",
+        "potential_matches_only"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "gleif.match.hit_count": {
+        "min": 0
+      },
+      "ofac.hit_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-kyb-api.vercel.app",
+    "endpoint": "https://x402-kyb-api.vercel.app/api/v1/kyb/pack",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2de52a67ce7c5464",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "advisory": {
+          "type": "string"
+        },
+        "content": {
+          "description": "Page content in the requested format.",
+          "type": "string"
+        },
+        "format": {
+          "enum": [
+            "markdown",
+            "text",
+            "html"
+          ],
+          "type": "string"
+        },
+        "status": {
+          "description": "HTTP status returned by the target page.",
+          "type": "integer"
+        },
+        "untrusted": {
+          "type": "boolean"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "type": "object",
+      "required": [
+        "advisory",
+        "content",
+        "format",
+        "status",
+        "untrusted",
+        "url"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "localvps.tail5141c3.ts.net",
+    "endpoint": "https://localvps.tail5141c3.ts.net:10000/fetch",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

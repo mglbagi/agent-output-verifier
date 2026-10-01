@@ -1,0 +1,156 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_06dabd857a8d469d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "article": {
+          "type": "object",
+          "properties": {
+            "content_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "payment": {
+              "type": "object",
+              "properties": {
+                "asset": {
+                  "type": "string",
+                  "pattern": "^0x[a-fA-F0-9]{40}$"
+                },
+                "facilitator": {
+                  "type": "string"
+                },
+                "pay_to": {
+                  "type": "string",
+                  "pattern": "^0x[a-fA-F0-9]{40}$"
+                },
+                "protocol": {
+                  "type": "string"
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "asset",
+                "facilitator",
+                "pay_to",
+                "protocol",
+                "scheme"
+              ]
+            },
+            "preview_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "price": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "string"
+                },
+                "amount_atomic": {
+                  "type": "string"
+                },
+                "currency": {
+                  "type": "string"
+                },
+                "network": {
+                  "type": "string"
+                },
+                "network_caip2": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "amount",
+                "amount_atomic",
+                "currency",
+                "network",
+                "network_caip2"
+              ]
+            },
+            "series": {
+              "type": "string"
+            },
+            "slug": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "content_url",
+            "payment",
+            "preview_url",
+            "price",
+            "series",
+            "slug",
+            "status",
+            "title"
+          ]
+        },
+        "chapter": {
+          "type": "object",
+          "properties": {
+            "agent_takeaways": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "chapter": {
+              "type": "integer"
+            },
+            "id": {
+              "type": "string"
+            },
+            "series_title": {
+              "type": "string"
+            },
+            "summary": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "agent_takeaways",
+            "chapter",
+            "id",
+            "series_title",
+            "summary",
+            "title"
+          ]
+        },
+        "purchased": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "article",
+        "chapter",
+        "purchased"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "darrylbots.com",
+    "endpoint": "https://darrylbots.com/api/agent-article-martingale-mirage",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

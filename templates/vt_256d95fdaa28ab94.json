@@ -1,0 +1,123 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_256d95fdaa28ab94",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "brand": {
+          "type": "string"
+        },
+        "card_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "claim_token": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "delivery": {
+          "type": "string"
+        },
+        "face_value": {
+          "type": "string"
+        },
+        "includes": {
+          "type": "object",
+          "properties": {
+            "bridge_fee_ceiling_usdc": {
+              "type": "string"
+            },
+            "card_usdc": {
+              "type": "string"
+            },
+            "service_fee_usdc": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bridge_fee_ceiling_usdc",
+            "card_usdc",
+            "service_fee_usdc"
+          ]
+        },
+        "order_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "pay_by": {
+          "type": "integer"
+        },
+        "pay_to": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "pay_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "pricing_note": {
+          "type": "string"
+        },
+        "redeemable_in": {
+          "type": "string"
+        },
+        "spend_controls_hint": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "status_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "total_usdc": {
+          "type": "string"
+        },
+        "typical_minutes": {
+          "type": "integer"
+        },
+        "valid_until": {},
+        "what_to_expect": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "brand",
+        "card_url",
+        "claim_token",
+        "currency",
+        "delivery",
+        "face_value",
+        "includes",
+        "order_id",
+        "pay_by",
+        "pay_to",
+        "pay_url",
+        "pricing_note",
+        "redeemable_in",
+        "spend_controls_hint",
+        "status",
+        "status_url",
+        "total_usdc",
+        "typical_minutes",
+        "what_to_expect"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.spendthebits.com",
+    "endpoint": "https://x402.spendthebits.com/x402/giftcards/quote/",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

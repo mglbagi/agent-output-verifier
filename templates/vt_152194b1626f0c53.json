@@ -1,0 +1,167 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_152194b1626f0c53",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "properties": {
+            "currency": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "minor_plural": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "minor_singular": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "minor_units": {
+                  "type": "integer"
+                },
+                "unit_plural": {
+                  "type": "string"
+                },
+                "unit_singular": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "unit_singular",
+                "unit_plural",
+                "minor_singular",
+                "minor_plural",
+                "minor_units"
+              ],
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "form": {
+              "type": "string"
+            },
+            "lang": {
+              "type": "string"
+            },
+            "parts": {
+              "properties": {
+                "integer_words": {
+                  "type": "string"
+                },
+                "minor_words": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "integer_words",
+                "minor_words"
+              ],
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "rounding_applied": {
+              "type": "boolean"
+            },
+            "value": {
+              "type": "string"
+            },
+            "words": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "words",
+            "value",
+            "lang",
+            "form",
+            "currency"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "properties": {
+            "computed_at": {
+              "description": "RFC 3339 UTC with milliseconds",
+              "type": "string",
+              "format": "date-time"
+            },
+            "deterministic": {
+              "type": "boolean"
+            },
+            "disclaimer": {
+              "type": "string"
+            },
+            "price_usd": {
+              "type": "string"
+            },
+            "request_id": {
+              "type": "string"
+            },
+            "sources": {
+              "items": {
+                "required": [
+                  "id",
+                  "version",
+                  "published"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "request_id",
+            "computed_at",
+            "price_usd",
+            "deterministic",
+            "disclaimer"
+          ],
+          "type": "object"
+        },
+        "ok": {
+          "const": true
+        },
+        "route": {
+          "const": "/v1/num/words"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "route",
+        "version",
+        "data",
+        "meta"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.duoleads.com",
+    "endpoint": "https://api.duoleads.com/v1/num/words",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

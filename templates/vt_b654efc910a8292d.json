@@ -1,0 +1,116 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b654efc910a8292d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "findings": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "confidence": {
+                "maximum": 1,
+                "minimum": 0,
+                "type": "number"
+              },
+              "evidence": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "recommendation": {
+                "type": "string"
+              },
+              "risk": {
+                "type": "string"
+              },
+              "severity": {
+                "enum": [
+                  "low",
+                  "medium",
+                  "high",
+                  "critical"
+                ],
+                "type": "string"
+              },
+              "statement": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "severity",
+              "statement",
+              "risk",
+              "evidence",
+              "recommendation",
+              "confidence"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "risk": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "critical"
+          ],
+          "type": "string"
+        },
+        "rollbackNotes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "safeSequence": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "score": {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "number"
+        },
+        "unknowns": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "risk",
+        "score",
+        "findings",
+        "safeSequence",
+        "rollbackNotes",
+        "unknowns"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "findings[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "i3p3mgbsn54dvlivnk6wbumal40eqtsn.lambda-url.us-east-1.on.aws",
+    "endpoint": "https://i3p3mgbsn54dvlivnk6wbumal40eqtsn.lambda-url.us-east-1.on.aws/v1/migration-safety-auditor",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

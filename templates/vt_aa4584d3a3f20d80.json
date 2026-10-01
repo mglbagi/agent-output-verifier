@@ -1,0 +1,275 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_aa4584d3a3f20d80",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "controversy_score": {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "number"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "failure_modes": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "description": {
+                "maxLength": 300,
+                "minLength": 1,
+                "type": "string"
+              },
+              "likelihood": {
+                "enum": [
+                  "low",
+                  "medium",
+                  "high"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "description",
+              "likelihood"
+            ],
+            "type": "object"
+          },
+          "maxItems": 10,
+          "type": "array"
+        },
+        "generated_at": {
+          "description": "ISO 8601 timestamp (UTC).",
+          "type": "string",
+          "format": "date-time"
+        },
+        "input_integrity": {
+          "additionalProperties": false,
+          "properties": {
+            "notes": {
+              "maxLength": 300,
+              "type": "string"
+            },
+            "status": {
+              "enum": [
+                "clean",
+                "suspicious"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "status",
+            "notes"
+          ],
+          "type": "object"
+        },
+        "key_uncertainties": {
+          "items": {
+            "maxLength": 300,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 10,
+          "type": "array"
+        },
+        "likely_objections": {
+          "items": {
+            "maxLength": 300,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 10,
+          "type": "array"
+        },
+        "likely_positive_reactions": {
+          "items": {
+            "maxLength": 300,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 10,
+          "type": "array"
+        },
+        "market_implications": {
+          "items": {
+            "maxLength": 300,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 10,
+          "type": "array"
+        },
+        "meta": {
+          "properties": {
+            "latency_ms": {
+              "type": "integer"
+            },
+            "model": {
+              "type": "string"
+            },
+            "network": {
+              "type": "string"
+            },
+            "price_usd": {
+              "type": "string"
+            },
+            "provider": {
+              "type": "string"
+            },
+            "tokens_in": {
+              "type": "integer"
+            },
+            "tokens_out": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "model",
+            "provider",
+            "latency_ms",
+            "tokens_in",
+            "tokens_out",
+            "price_usd",
+            "network"
+          ],
+          "type": "object"
+        },
+        "negative_probability": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "overall_sentiment": {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "number"
+        },
+        "perspectives": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "headline": {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              "reasoning": {
+                "maxLength": 900,
+                "minLength": 1,
+                "type": "string"
+              },
+              "role": {
+                "maxLength": 60,
+                "minLength": 1,
+                "type": "string"
+              },
+              "sentiment": {
+                "maximum": 100,
+                "minimum": 0,
+                "type": "number"
+              },
+              "stance": {
+                "enum": [
+                  "positive",
+                  "mixed",
+                  "negative",
+                  "indifferent"
+                ],
+                "type": "string"
+              },
+              "top_appeal": {
+                "maxLength": 300,
+                "type": "string"
+              },
+              "top_concern": {
+                "maxLength": 300,
+                "type": "string"
+              }
+            },
+            "required": [
+              "role",
+              "stance",
+              "sentiment",
+              "headline",
+              "reasoning",
+              "top_concern",
+              "top_appeal"
+            ],
+            "type": "object"
+          },
+          "maxItems": 8,
+          "minItems": 3,
+          "type": "array"
+        },
+        "positive_probability": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "recommended_adjustments": {
+          "items": {
+            "maxLength": 300,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 10,
+          "type": "array"
+        },
+        "request_id": {
+          "description": "Server-generated UUID for this execution.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "subject_summary": {
+          "maxLength": 600,
+          "minLength": 1,
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "request_id",
+        "version",
+        "generated_at",
+        "subject_summary",
+        "overall_sentiment",
+        "positive_probability",
+        "negative_probability",
+        "controversy_score",
+        "perspectives",
+        "likely_objections",
+        "likely_positive_reactions",
+        "failure_modes",
+        "market_implications",
+        "recommended_adjustments",
+        "key_uncertainties",
+        "confidence",
+        "input_integrity",
+        "meta",
+        "disclaimer"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "reactionpulse-production.reactionpulse-x402.workers.dev",
+    "endpoint": "https://reactionpulse-production.reactionpulse-x402.workers.dev/v1/reaction/quick",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8acfd9373426a6c7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "analyzedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "decoded": {
+          "properties": {
+            "action": {
+              "description": "Human summary of what the call does",
+              "type": "string"
+            },
+            "function": {
+              "description": "Function name/signature if identifiable",
+              "type": "string"
+            },
+            "params": {
+              "description": "Decoded parameters",
+              "type": "object"
+            }
+          },
+          "type": "object",
+          "required": [
+            "action",
+            "function",
+            "params"
+          ]
+        },
+        "recommendation": {
+          "enum": [
+            "PROCEED",
+            "REQUIRE_HUMAN_CONFIRMATION",
+            "ABORT_TRANSACTION"
+          ],
+          "type": "string"
+        },
+        "riskScore": {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "number"
+        },
+        "summary": {
+          "description": "Detailed technical rationale",
+          "type": "string"
+        },
+        "targetAddress": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "threatFlags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "verdict": {
+          "enum": [
+            "SAFE",
+            "CAUTION",
+            "SUSPICIOUS",
+            "CRITICAL_MALICIOUS"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "verdict",
+        "riskScore",
+        "recommendation"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "gpt.558686.xyz",
+    "endpoint": "https://gpt.558686.xyz/v1/guard/tx",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

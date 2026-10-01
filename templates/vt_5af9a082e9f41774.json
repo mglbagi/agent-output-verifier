@@ -1,0 +1,72 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5af9a082e9f41774",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "amount_usd": {
+          "type": "number"
+        },
+        "condition": {
+          "type": "string"
+        },
+        "deposit_address": {
+          "type": "string"
+        },
+        "escrow_id": {
+          "type": "string"
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "fee_usd": {
+          "type": "number"
+        },
+        "status": {
+          "type": "string"
+        },
+        "total_to_deposit_usd": {
+          "type": "number"
+        },
+        "worker_address": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "amount_usd",
+        "condition",
+        "deposit_address",
+        "escrow_id",
+        "expires_at",
+        "fee_usd",
+        "status",
+        "total_to_deposit_usd",
+        "worker_address"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "amount_usd": {
+        "min": 0
+      },
+      "fee_usd": {
+        "min": 0
+      },
+      "total_to_deposit_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "escrowpulse.waltsoft.net",
+    "endpoint": "https://escrowpulse.waltsoft.net/v1/escrow",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

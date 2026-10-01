@@ -1,0 +1,53 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_72b2f999aa7559d0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "binding_constraint": {
+          "type": "string"
+        },
+        "math_max_ltv": {
+          "type": "number"
+        },
+        "max_ltv": {
+          "type": "number"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "regime": {
+          "type": "string"
+        },
+        "regime_cap_ltv": {
+          "type": "number"
+        },
+        "sigma_T": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "ok",
+        "max_ltv"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "regime_cap_ltv": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "regimeshift.xyz",
+    "endpoint": "https://regimeshift.xyz/api/v1/risk/max-ltv",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

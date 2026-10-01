@@ -1,0 +1,134 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c6b9b2aa44d50d09",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "request": {
+          "properties": {
+            "data": {
+              "properties": {
+                "embed_exif_metadata": {
+                  "type": "boolean"
+                },
+                "format": {
+                  "type": "string"
+                },
+                "height": {
+                  "type": "number"
+                },
+                "hide_watermark": {
+                  "type": "boolean"
+                },
+                "model": {
+                  "type": "string"
+                },
+                "prompt": {
+                  "type": "string"
+                },
+                "return_binary": {
+                  "type": "boolean"
+                },
+                "safe_mode": {
+                  "type": "boolean"
+                },
+                "seed": {
+                  "type": "number"
+                },
+                "steps": {
+                  "type": "number"
+                },
+                "width": {
+                  "type": "number"
+                }
+              },
+              "type": "object",
+              "required": [
+                "embed_exif_metadata",
+                "format",
+                "height",
+                "hide_watermark",
+                "model",
+                "prompt",
+                "return_binary",
+                "safe_mode",
+                "seed",
+                "steps",
+                "width"
+              ]
+            },
+            "success": {
+              "type": "boolean"
+            }
+          },
+          "type": "object",
+          "required": [
+            "data",
+            "success"
+          ]
+        },
+        "timing": {
+          "properties": {
+            "inferenceDuration": {
+              "type": "number"
+            },
+            "inferencePreprocessingTime": {
+              "type": "number"
+            },
+            "inferenceQueueTime": {
+              "type": "number"
+            },
+            "total": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "inferenceDuration",
+            "inferencePreprocessingTime",
+            "inferenceQueueTime",
+            "total"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "id",
+        "images",
+        "request",
+        "timing"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "request.data.height": {
+        "min": 0
+      },
+      "request.data.width": {
+        "min": 0
+      },
+      "timing.total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.aispace.bot",
+    "endpoint": "https://x402.aispace.bot/api/v1/image/generate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

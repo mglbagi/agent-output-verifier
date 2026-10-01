@@ -1,0 +1,90 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3b382666de48f9bb",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "properties": {
+            "long_pct": {
+              "type": "number"
+            },
+            "long_pct_1h_ago": {
+              "type": "number"
+            },
+            "long_pct_24h_ago": {
+              "type": "number"
+            },
+            "period": {
+              "type": "string"
+            },
+            "short_pct": {
+              "type": "number"
+            },
+            "source": {
+              "type": "string"
+            },
+            "symbol": {
+              "type": "string"
+            },
+            "ts": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "long_pct",
+            "long_pct_1h_ago",
+            "long_pct_24h_ago",
+            "period",
+            "short_pct",
+            "source",
+            "symbol",
+            "ts"
+          ]
+        },
+        "paid": {
+          "type": "boolean"
+        },
+        "tool": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "data",
+        "paid",
+        "tool"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.long_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "data.long_pct_1h_ago": {
+        "min": 0,
+        "max": 100
+      },
+      "data.long_pct_24h_ago": {
+        "min": 0,
+        "max": 100
+      },
+      "data.short_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.ochinimus.app",
+    "endpoint": "https://x402.ochinimus.app/api/long-short",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c8e981a4859c75bd",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "items": {
+            "properties": {
+              "date": {
+                "description": "Unix timestamp (seconds) of this data point",
+                "type": "integer"
+              },
+              "tvl": {
+                "description": "Aggregate TVL across all chains in USD",
+                "type": "number"
+              }
+            },
+            "type": "object",
+            "required": [
+              "date",
+              "tvl"
+            ]
+          },
+          "type": "array"
+        },
+        "queried_at": {
+          "description": "When this bridge fetched the upstream data",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "queried_at",
+        "data"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "data[].tvl": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "defillama.use.x402atlas.com",
+    "endpoint": "https://defillama.use.x402atlas.com/historical-chain-tvl",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

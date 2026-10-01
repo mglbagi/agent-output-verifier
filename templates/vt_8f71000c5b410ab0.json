@@ -1,0 +1,55 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8f71000c5b410ab0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "pagination": {
+          "additionalProperties": true,
+          "properties": {
+            "pageNumber": {
+              "type": "number"
+            },
+            "pageSize": {
+              "type": "number"
+            },
+            "paginationToken": {
+              "type": "null"
+            },
+            "totalElements": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "pageNumber",
+            "pageSize",
+            "totalElements"
+          ]
+        },
+        "results": {
+          "items": {},
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "pagination",
+        "results"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.linkedpanda.com",
+    "endpoint": "https://api.linkedpanda.com/agent/v1/profiles/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

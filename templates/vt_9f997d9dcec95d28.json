@@ -1,0 +1,123 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9f997d9dcec95d28",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "Fair value and Greeks. European Greeks are analytic BSM; American Greeks are finite-difference on the CRR tree. timeline.tauYears is the model life (window); calendarYearsToExpiry is purchase→expiry.",
+      "properties": {
+        "computedAt": {
+          "description": "ISO-8601 UTC timestamp of computation",
+          "type": "string",
+          "format": "date-time"
+        },
+        "greeks": {
+          "description": "Greeks for hedge construction",
+          "properties": {
+            "delta": {
+              "description": "∂V/∂S",
+              "type": "number"
+            },
+            "gamma": {
+              "description": "∂²V/∂S²",
+              "type": "number"
+            },
+            "rho": {
+              "description": "∂V/∂r per 1.0 absolute rate",
+              "type": "number"
+            },
+            "theta": {
+              "description": "∂V/∂T per year",
+              "type": "number"
+            },
+            "vega": {
+              "description": "∂V/∂σ per 1.0 absolute vol",
+              "type": "number"
+            }
+          },
+          "required": [
+            "delta",
+            "gamma",
+            "vega",
+            "theta",
+            "rho"
+          ],
+          "type": "object"
+        },
+        "greeksQuality": {
+          "enum": [
+            "analytic",
+            "finite-difference"
+          ],
+          "type": "string"
+        },
+        "inputs": {
+          "description": "Echo of validated request inputs (timeToExpiry may be resolved τ)",
+          "type": "object"
+        },
+        "model": {
+          "enum": [
+            "black-scholes-merton",
+            "binomial-crr-american"
+          ],
+          "type": "string"
+        },
+        "optionStyle": {
+          "enum": [
+            "european",
+            "american"
+          ],
+          "type": "string"
+        },
+        "price": {
+          "description": "Model option fair value in underlying currency units",
+          "type": "number"
+        },
+        "requestId": {
+          "description": "Correlation id for this call",
+          "type": "string",
+          "format": "uuid"
+        },
+        "timeline": {
+          "description": "Resolved ACT/365.25 window",
+          "type": "object"
+        },
+        "treeSteps": {
+          "type": "integer"
+        },
+        "units": {
+          "description": "Human/agent readable unit notes for price and Greeks",
+          "type": "object"
+        }
+      },
+      "required": [
+        "price",
+        "greeks",
+        "inputs",
+        "model",
+        "optionStyle",
+        "timeline",
+        "greeksQuality",
+        "requestId",
+        "computedAt"
+      ],
+      "title": "OptionPriceResponse",
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "derivatives-pricer-production.up.railway.app",
+    "endpoint": "https://derivatives-pricer-production.up.railway.app/v1/option/price",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5144517459d904b3",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "compound": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "slug": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "slug"
+          ]
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "intended_use": {
+          "type": "string"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "more": {
+              "type": "string"
+            },
+            "network_note": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "more",
+            "network_note"
+          ]
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "bac_water_ml": {
+                "type": "number"
+              },
+              "concentration_per_ml": {
+                "type": "number"
+              },
+              "preset_doses": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "dose": {
+                      "type": "integer"
+                    },
+                    "dose_unit": {
+                      "type": "string"
+                    },
+                    "doses_per_vial": {
+                      "type": "integer"
+                    },
+                    "syringe_marks": {
+                      "type": "object",
+                      "properties": {
+                        "u100": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "u100"
+                      ]
+                    },
+                    "units_per_dose": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "dose",
+                    "dose_unit",
+                    "doses_per_vial",
+                    "syringe_marks",
+                    "units_per_dose"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "bac_water_ml",
+              "concentration_per_ml",
+              "preset_doses"
+            ]
+          }
+        },
+        "vial": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number"
+            },
+            "source": {
+              "type": "string"
+            },
+            "unit": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount",
+            "source",
+            "unit"
+          ]
+        }
+      },
+      "required": [
+        "compound",
+        "disclaimer",
+        "intended_use",
+        "meta",
+        "rows",
+        "vial"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "vial.amount": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.doseplot.com",
+    "endpoint": "https://api.doseplot.com/v1/recon/options",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

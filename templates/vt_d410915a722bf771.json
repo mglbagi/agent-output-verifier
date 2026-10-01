@@ -1,0 +1,218 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d410915a722bf771",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "as_of": {},
+        "assumptions": {
+          "type": "array"
+        },
+        "billable": {
+          "type": "boolean"
+        },
+        "breakdown": {
+          "type": "array"
+        },
+        "carried_forward": {
+          "type": "array"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "not_covered": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "note": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "method": {
+              "type": "string"
+            },
+            "monthly_payment_yen": {
+              "type": "integer"
+            },
+            "months_paid": {
+              "type": "integer"
+            },
+            "schedule_head": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "balance_yen": {
+                    "type": "number"
+                  },
+                  "interest_yen": {
+                    "type": "integer"
+                  },
+                  "month": {
+                    "type": "integer"
+                  },
+                  "payment_yen": {
+                    "type": "integer"
+                  },
+                  "principal_yen": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "balance_yen",
+                  "interest_yen",
+                  "month",
+                  "payment_yen",
+                  "principal_yen"
+                ]
+              }
+            },
+            "schedule_tail": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "balance_yen": {
+                    "type": "number"
+                  },
+                  "interest_yen": {
+                    "type": "integer"
+                  },
+                  "month": {
+                    "type": "integer"
+                  },
+                  "payment_yen": {
+                    "type": "integer"
+                  },
+                  "principal_yen": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "balance_yen",
+                  "interest_yen",
+                  "month",
+                  "payment_yen",
+                  "principal_yen"
+                ]
+              }
+            },
+            "total_interest_yen": {
+              "type": "number"
+            },
+            "total_paid_yen": {
+              "type": "number"
+            },
+            "total_prepaid_yen": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "method",
+            "monthly_payment_yen",
+            "months_paid",
+            "schedule_head",
+            "schedule_tail",
+            "total_interest_yen",
+            "total_paid_yen",
+            "total_prepaid_yen"
+          ]
+        },
+        "rules_version": {
+          "type": "string"
+        },
+        "sample": {
+          "type": "boolean"
+        },
+        "sample_input": {
+          "type": "object",
+          "properties": {
+            "annual_rate": {
+              "type": "number"
+            },
+            "months": {
+              "type": "integer"
+            },
+            "principal_yen": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "annual_rate",
+            "months",
+            "principal_yen"
+          ]
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "summary": {
+          "type": "string"
+        },
+        "tool": {
+          "type": "string"
+        },
+        "unverified_rules": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "assumptions",
+        "billable",
+        "breakdown",
+        "carried_forward",
+        "disclaimer",
+        "not_covered",
+        "note",
+        "ok",
+        "result",
+        "rules_version",
+        "sample",
+        "sample_input",
+        "sources",
+        "summary",
+        "tool",
+        "unverified_rules"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "result.schedule_head[].balance_yen": {
+        "min": 0
+      },
+      "result.schedule_tail[].balance_yen": {
+        "min": 0
+      },
+      "result.total_interest_yen": {
+        "min": 0
+      },
+      "result.total_paid_yen": {
+        "min": 0
+      },
+      "result.total_prepaid_yen": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mart402.com",
+    "endpoint": "https://mart402.com/v1/jp-mortgage",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

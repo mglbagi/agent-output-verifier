@@ -1,0 +1,38 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_11bf325258ed6172",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "Services with rentable SMS numbers somewhere in the catalog. Each entry: the alias to pass as `service` in POST /rent, a display name, and the cheapest SKU price across all countries. Add ?country=<iso> to get the services offered in one country with live price and inventory pool. Companion route GET /countries lists countries (filter with ?service=<code>).",
+      "items": {
+        "properties": {
+          "code": {
+            "description": "Service alias — pass verbatim as `service` in POST /rent (e.g. tg, wa, zo for OpenAI, other for any platform).",
+            "type": "string"
+          },
+          "from_usdc": {
+            "description": "Cheapest SKU price for this service across countries (1, 2, or 5).",
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.phoneagent.xyz",
+    "endpoint": "https://api.phoneagent.xyz/services",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

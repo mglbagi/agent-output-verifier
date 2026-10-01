@@ -1,0 +1,30 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_dc8bba73ca3a68d9",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "report": {
+          "description": "Report",
+          "type": "string"
+        }
+      },
+      "required": [
+        "report"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "centry.cybercentry.co.uk",
+    "endpoint": "https://centry.cybercentry.co.uk/api/services/wallet_verification",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

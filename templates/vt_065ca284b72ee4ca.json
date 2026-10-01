@@ -1,0 +1,79 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_065ca284b72ee4ca",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "asOf": {
+          "description": "ISO-8601 time of the live fetch",
+          "type": "string",
+          "format": "date-time"
+        },
+        "asset": {
+          "description": "Native USDC on Base",
+          "properties": {
+            "address": {
+              "description": "USDC contract on Base",
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "decimals": {
+              "type": "integer"
+            },
+            "symbol": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "address",
+            "decimals",
+            "symbol"
+          ]
+        },
+        "chain": {
+          "description": "Always base",
+          "type": "string"
+        },
+        "chainId": {
+          "description": "Base mainnet chain id 8453",
+          "type": "integer"
+        },
+        "conservative": {
+          "description": "Ranking among the two named venues only. Not a deposit instruction.",
+          "type": "object"
+        },
+        "recommendation": {
+          "description": "Amount-aware pick: preferredVenue, usdPerYear on principalUsdc (example 100 USDC if omitted), gasUsdEnter, daysToBreakEven, skipIfUneconomic. Scale with usdPerYearPerUsdc.",
+          "type": "object"
+        },
+        "venues": {
+          "description": "Aave V3 USDC pool and Morpho Gauntlet USDC Prime vault",
+          "type": "array"
+        }
+      },
+      "required": [
+        "chain",
+        "chainId",
+        "asset",
+        "asOf",
+        "venues",
+        "conservative",
+        "recommendation"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "raptor-base-yields.vercel.app",
+    "endpoint": "https://raptor-base-yields.vercel.app/v1/yields",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

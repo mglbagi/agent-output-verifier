@@ -1,0 +1,114 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_54f054ed233c388a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "pattern": "^0x[a-fA-F0-9]{40}$"
+              },
+              "block_number": {
+                "type": "integer"
+              },
+              "block_timestamp": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "chain": {
+                "type": "string"
+              },
+              "raw_balance": {
+                "type": "number"
+              },
+              "raw_balance_str": {
+                "type": "string"
+              },
+              "token": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string",
+                    "pattern": "^0x[a-fA-F0-9]{40}$"
+                  },
+                  "chain": {
+                    "type": "string"
+                  },
+                  "decimals": {
+                    "type": "integer"
+                  },
+                  "info": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "symbol": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "symbol"
+                    ]
+                  },
+                  "object": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "address",
+                  "chain",
+                  "decimals",
+                  "info",
+                  "object",
+                  "type"
+                ]
+              }
+            },
+            "required": [
+              "address",
+              "block_number",
+              "block_timestamp",
+              "chain",
+              "raw_balance",
+              "raw_balance_str",
+              "token"
+            ]
+          }
+        }
+      },
+      "required": [
+        "items"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "items[].block_number": {
+        "min": 0
+      },
+      "items[].raw_balance": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agents.allium.so",
+    "endpoint": "https://agents.allium.so/api/v1/developer/wallet/balances/history",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

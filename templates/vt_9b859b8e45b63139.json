@@ -1,0 +1,260 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9b859b8e45b63139",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "billing": {
+          "type": "object",
+          "properties": {
+            "credits_charged": {
+              "type": "integer"
+            },
+            "credits_remaining": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "credits_charged",
+            "credits_remaining"
+          ]
+        },
+        "capturedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "filter": {
+          "type": "object",
+          "properties": {
+            "family": {
+              "type": "string"
+            },
+            "min_savings_pct": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "family",
+            "min_savings_pct"
+          ]
+        },
+        "matrix_last_updated": {
+          "type": "string",
+          "format": "date"
+        },
+        "models": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cheapest_paid": {
+                "type": "object",
+                "properties": {
+                  "blendedPrice": {
+                    "type": "number"
+                  },
+                  "provider": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "blendedPrice",
+                  "provider"
+                ]
+              },
+              "cheapest_with_tps": {
+                "type": "object",
+                "properties": {
+                  "blendedPrice": {
+                    "type": "number"
+                  },
+                  "outputTPS": {
+                    "type": "integer"
+                  },
+                  "provider": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "blendedPrice",
+                  "outputTPS",
+                  "provider"
+                ]
+              },
+              "family": {
+                "type": "string"
+              },
+              "fastest_tps": {
+                "type": "object",
+                "properties": {
+                  "outputTPS": {
+                    "type": "integer"
+                  },
+                  "provider": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "outputTPS",
+                  "provider"
+                ]
+              },
+              "free_tier_offers": {
+                "type": "array"
+              },
+              "median_paid_blended": {
+                "type": "number"
+              },
+              "modelId": {
+                "type": "string"
+              },
+              "modelName": {
+                "type": "string"
+              },
+              "most_expensive_paid": {
+                "type": "object",
+                "properties": {
+                  "blendedPrice": {
+                    "type": "number"
+                  },
+                  "provider": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "blendedPrice",
+                  "provider"
+                ]
+              },
+              "offer_count_paid": {
+                "type": "integer"
+              },
+              "paramsB": {
+                "type": "integer"
+              },
+              "savings_pct": {
+                "type": "number"
+              },
+              "spread_usd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "cheapest_paid",
+              "cheapest_with_tps",
+              "family",
+              "fastest_tps",
+              "free_tier_offers",
+              "median_paid_blended",
+              "modelId",
+              "modelName",
+              "most_expensive_paid",
+              "offer_count_paid",
+              "paramsB",
+              "savings_pct",
+              "spread_usd"
+            ]
+          }
+        },
+        "models_in_matrix": {
+          "type": "integer"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "provider_rollup": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "appearances_paid": {
+                "type": "integer"
+              },
+              "cheapest_count": {
+                "type": "integer"
+              },
+              "free_tier_count": {
+                "type": "integer"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "top_tps_count": {
+                "type": "integer"
+              },
+              "value_score": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "appearances_paid",
+              "cheapest_count",
+              "free_tier_count",
+              "provider",
+              "top_tps_count",
+              "value_score"
+            ]
+          }
+        },
+        "top_arbitrage": {
+          "type": "array"
+        },
+        "tracked_providers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "billing",
+        "capturedAt",
+        "filter",
+        "matrix_last_updated",
+        "models",
+        "models_in_matrix",
+        "ok",
+        "provider_rollup",
+        "top_arbitrage",
+        "tracked_providers"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "filter.min_savings_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "models[].offer_count_paid": {
+        "min": 0
+      },
+      "models[].savings_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "models[].spread_usd": {
+        "min": 0
+      },
+      "provider_rollup[].cheapest_count": {
+        "min": 0
+      },
+      "provider_rollup[].free_tier_count": {
+        "min": 0
+      },
+      "provider_rollup[].top_tps_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tensorfeed.ai",
+    "endpoint": "https://tensorfeed.ai/api/premium/inference-providers/arbitrage",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

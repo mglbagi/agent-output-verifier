@@ -1,0 +1,101 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4375cef8f6381004",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "niche": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "a_records": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "age_days": {
+              "type": "integer"
+            },
+            "created": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "days_to_expiry": {
+              "type": "integer"
+            },
+            "dnssec": {
+              "type": "boolean"
+            },
+            "domain": {
+              "type": "string"
+            },
+            "expires": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "hygiene_grade": {
+              "type": "string"
+            },
+            "hygiene_score": {
+              "type": "integer"
+            },
+            "mx_present": {
+              "type": "boolean"
+            },
+            "ns_count": {
+              "type": "integer"
+            },
+            "registrar": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "a_records",
+            "age_days",
+            "created",
+            "days_to_expiry",
+            "dnssec",
+            "domain",
+            "expires",
+            "hygiene_grade",
+            "hygiene_score",
+            "mx_present",
+            "ns_count",
+            "registrar"
+          ]
+        }
+      },
+      "required": [
+        "niche",
+        "ok",
+        "result"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "result.age_days": {
+        "min": 0
+      },
+      "result.ns_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "dnsdomain.hergertsynthora.com",
+    "endpoint": "https://dnsdomain.hergertsynthora.com/service",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

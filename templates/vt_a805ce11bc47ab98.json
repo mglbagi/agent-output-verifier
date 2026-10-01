@@ -1,0 +1,61 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a805ce11bc47ab98",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "bonus_typical_pct": {
+          "type": "integer"
+        },
+        "equity_typical": {
+          "type": "string"
+        },
+        "p25": {
+          "type": "integer"
+        },
+        "p50": {
+          "type": "integer"
+        },
+        "p75": {
+          "type": "integer"
+        },
+        "p90": {
+          "type": "integer"
+        },
+        "total_comp_p50": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "bonus_typical_pct",
+        "equity_typical",
+        "p25",
+        "p50",
+        "p75",
+        "p90",
+        "total_comp_p50"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "bonus_typical_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "total_comp_p50": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "careerpulse.theaslangroupllc.com",
+    "endpoint": "https://careerpulse.theaslangroupllc.com/api/career/salary",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

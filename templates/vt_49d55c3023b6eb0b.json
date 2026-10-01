@@ -1,0 +1,49 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_49d55c3023b6eb0b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "apy": {
+          "type": "number"
+        },
+        "apyPercent": {
+          "type": "string"
+        },
+        "asset": {
+          "type": "string"
+        },
+        "network": {
+          "type": "string"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "apy",
+        "apyPercent",
+        "asset",
+        "network",
+        "protocol",
+        "timestamp"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "bunnvault.xyz",
+    "endpoint": "https://bunnvault.xyz/api/vault/apy",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ca87d370f0361597",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "defaultBranch": {
+          "type": "string"
+        },
+        "detectedManifest": {
+          "type": "string"
+        },
+        "eligible": {
+          "type": "boolean"
+        },
+        "repository": {
+          "type": "string"
+        },
+        "validationCommand": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "defaultBranch",
+        "detectedManifest",
+        "eligible",
+        "repository",
+        "validationCommand"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "covenant-x402-seller.onrender.com",
+    "endpoint": "https://covenant-x402-seller.onrender.com/x402/mizuki/assess/:owner/:repo",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

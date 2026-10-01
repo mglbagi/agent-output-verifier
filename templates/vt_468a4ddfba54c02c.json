@@ -1,0 +1,81 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_468a4ddfba54c02c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "alive": {
+          "type": "boolean"
+        },
+        "asset": {
+          "type": "string"
+        },
+        "at": {
+          "type": "string"
+        },
+        "checked": {
+          "type": "string"
+        },
+        "latency_ms": {
+          "type": "number"
+        },
+        "network": {
+          "type": "string"
+        },
+        "payTo": {
+          "type": "string"
+        },
+        "price_atomic": {
+          "type": "string"
+        },
+        "price_usd_if_usdc": {
+          "type": "number"
+        },
+        "scheme": {
+          "type": "string"
+        },
+        "status": {
+          "type": "number"
+        },
+        "valid_handshake": {
+          "type": "boolean"
+        },
+        "x402": {
+          "type": "boolean"
+        },
+        "x402_version": {
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "required": [
+        "alive",
+        "checked",
+        "latency_ms",
+        "network",
+        "price_usd_if_usdc",
+        "scheme",
+        "status",
+        "valid_handshake",
+        "x402",
+        "x402_version"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "price_usd_if_usdc": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ali-acids-helmet-cindy.trycloudflare.com",
+    "endpoint": "https://ali-acids-helmet-cindy.trycloudflare.com/api/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

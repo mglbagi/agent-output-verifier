@@ -1,0 +1,96 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_dc959a47749b4a91",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "analysis": {
+          "type": "object",
+          "properties": {
+            "bearish_scenario": {
+              "type": "string"
+            },
+            "bullish_scenario": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string"
+            },
+            "invalidation_level": {
+              "type": "integer"
+            },
+            "key_data": {
+              "type": "object",
+              "properties": {
+                "fear_greed": {
+                  "type": "integer"
+                },
+                "funding_rate_annualized_pct": {
+                  "type": "number"
+                },
+                "open_interest_usd": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "fear_greed",
+                "funding_rate_annualized_pct",
+                "open_interest_usd"
+              ]
+            },
+            "regime": {
+              "type": "string"
+            },
+            "summary": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bearish_scenario",
+            "bullish_scenario",
+            "confidence",
+            "invalidation_level",
+            "key_data",
+            "regime",
+            "summary"
+          ]
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "tools_called": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "analysis",
+        "ok",
+        "tools_called"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "analysis.key_data.funding_rate_annualized_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "analysis.key_data.open_interest_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "asistent-crypto.vercel.app",
+    "endpoint": "https://asistent-crypto.vercel.app/api/x402/analyze",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

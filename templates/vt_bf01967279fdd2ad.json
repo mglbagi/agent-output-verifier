@@ -1,0 +1,62 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bf01967279fdd2ad",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "asset": {
+          "type": "string"
+        },
+        "direction": {
+          "properties": {
+            "probability_above_current": {
+              "type": "number"
+            },
+            "probability_below_current": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "probability_above_current",
+            "probability_below_current"
+          ]
+        },
+        "expected_terminal_return": {
+          "type": "number"
+        },
+        "horizon_minutes": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "asset",
+        "direction",
+        "expected_terminal_return",
+        "horizon_minutes"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "direction.probability_above_current": {
+        "min": 0,
+        "max": 1
+      },
+      "direction.probability_below_current": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "atlas-probability-api-production.up.railway.app",
+    "endpoint": "https://atlas-probability-api-production.up.railway.app/v1/x402/probability/BTC",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

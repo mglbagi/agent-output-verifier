@@ -1,0 +1,58 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_edf7eea620a4e3f8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "accounts": {
+          "type": "object",
+          "properties": {
+            "next_due": {
+              "type": "string",
+              "format": "date"
+            },
+            "overdue": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "next_due",
+            "overdue"
+          ]
+        },
+        "company_number": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "accounts",
+        "company_number",
+        "name",
+        "status",
+        "type"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "uk-company-check.fly.dev",
+    "endpoint": "https://uk-company-check.fly.dev/v1/uk/company/:number",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,288 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a114568e652891b1",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "charged": {
+          "type": "boolean"
+        },
+        "comparison": {
+          "properties": {
+            "basis": {
+              "type": "string"
+            },
+            "equivalence": {
+              "type": "string"
+            },
+            "missing_variant_ids": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "ranked_offers": {
+              "items": {
+                "properties": {
+                  "available": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "checkout_url": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "duties_minor": {
+                    "minimum": 0,
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "landed_total_minor": {
+                    "minimum": 0,
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "price": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "properties": {
+                          "amount_minor": {
+                            "minimum": 0,
+                            "type": "integer"
+                          },
+                          "currency": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "amount_minor",
+                          "currency"
+                        ],
+                        "type": "object"
+                      }
+                    ]
+                  },
+                  "seller": {
+                    "type": "object"
+                  },
+                  "shipping_minor": {
+                    "minimum": 0,
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "tax_minor": {
+                    "minimum": 0,
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "variant_id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "variant_id",
+                  "price",
+                  "available",
+                  "landed_total_minor"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "total_cost_winner": {
+              "type": "null"
+            }
+          },
+          "type": "object"
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "products": {
+          "items": {
+            "properties": {
+              "offers": {
+                "items": {
+                  "properties": {
+                    "available": {
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
+                    },
+                    "checkout_url": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "duties_minor": {
+                      "minimum": 0,
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    },
+                    "landed_total_minor": {
+                      "minimum": 0,
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    },
+                    "price": {
+                      "anyOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "properties": {
+                            "amount_minor": {
+                              "minimum": 0,
+                              "type": "integer"
+                            },
+                            "currency": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "amount_minor",
+                            "currency"
+                          ],
+                          "type": "object"
+                        }
+                      ]
+                    },
+                    "seller": {
+                      "type": "object"
+                    },
+                    "shipping_minor": {
+                      "minimum": 0,
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    },
+                    "tax_minor": {
+                      "minimum": 0,
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    },
+                    "variant_id": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "variant_id",
+                    "price",
+                    "available",
+                    "landed_total_minor"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "product_id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "product_id",
+              "title",
+              "offers"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "source": {
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "merchant_verified_at": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "retrieved_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "id",
+            "retrieved_at"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "source",
+        "products",
+        "charged"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "comparison.ranked_offers[].variant_id",
+        "if_present": true
+      },
+      {
+        "type": "unique",
+        "field": "products[].offers[].variant_id"
+      },
+      {
+        "type": "unique",
+        "field": "products[].product_id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "shopscout.forgemesh.io",
+    "endpoint": "https://shopscout.forgemesh.io/v1/products/get",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

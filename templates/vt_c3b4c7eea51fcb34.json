@@ -1,0 +1,68 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c3b4c7eea51fcb34",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "freshness": {
+          "properties": {
+            "cached": {
+              "type": "boolean"
+            },
+            "observed_at": {
+              "description": "ISO 8601 timestamp",
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "cached",
+            "observed_at"
+          ],
+          "type": "object"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "provider": {
+          "const": "machine.market",
+          "type": "string"
+        },
+        "success": {
+          "const": true,
+          "type": "boolean"
+        },
+        "type": {
+          "const": "profile",
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "provider",
+        "platform",
+        "type",
+        "freshness",
+        "data"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "machine-market-social.machine-market.workers.dev",
+    "endpoint": "https://machine-market-social.machine-market.workers.dev/profile",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

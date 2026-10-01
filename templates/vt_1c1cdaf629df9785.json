@@ -1,0 +1,990 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1c1cdaf629df9785",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "alternatives": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "artifact": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "enum": [
+                      "alternative-1.gcode",
+                      "alternative-2.gcode",
+                      "alternative-3.gcode",
+                      "alternative-4.gcode"
+                    ],
+                    "type": "string"
+                  }
+                ]
+              },
+              "editFraction": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "maximum": 1,
+                    "minimum": 0,
+                    "type": "number"
+                  }
+                ]
+              },
+              "kind": {
+                "enum": [
+                  "orientation",
+                  "partial_edit"
+                ],
+                "type": "string"
+              },
+              "meetsAllGoals": {
+                "type": "boolean"
+              },
+              "mesh": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "boundsMm": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "max": {
+                            "items": {
+                              "type": "number"
+                            },
+                            "maxItems": 3,
+                            "minItems": 3,
+                            "type": "array"
+                          },
+                          "min": {
+                            "items": {
+                              "type": "number"
+                            },
+                            "maxItems": 3,
+                            "minItems": 3,
+                            "type": "array"
+                          },
+                          "size": {
+                            "items": {
+                              "type": "number"
+                            },
+                            "maxItems": 3,
+                            "minItems": 3,
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "min",
+                          "max",
+                          "size"
+                        ],
+                        "type": "object"
+                      },
+                      "triangleCount": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "volumeMm3": {
+                        "minimum": 0,
+                        "type": "number"
+                      },
+                      "watertight": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "triangleCount",
+                      "boundsMm",
+                      "volumeMm3",
+                      "watertight"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              },
+              "orientation": {
+                "enum": [
+                  "+z",
+                  "-z",
+                  "+x",
+                  "-x",
+                  "+y",
+                  "-y"
+                ],
+                "type": "string"
+              },
+              "parametersApplied": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "description": "Maximum 512 UTF-8 bytes.",
+                          "maxLength": 512,
+                          "type": "string"
+                        },
+                        {
+                          "maximum": 1000000,
+                          "minimum": -1000000,
+                          "type": "number"
+                        },
+                        {
+                          "type": "boolean"
+                        }
+                      ]
+                    },
+                    "default": {},
+                    "description": "Overrides must name unique top-level scalar literal assignments, not derived expressions or reserved names.",
+                    "maxProperties": 64,
+                    "propertyNames": {
+                      "pattern": "^[A-Za-z_][A-Za-z0-9_]{0,63}$"
+                    },
+                    "type": "object"
+                  }
+                ]
+              },
+              "slice": {
+                "additionalProperties": false,
+                "properties": {
+                  "estimatedPrintTimeMin": {
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "filamentG": {
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "filamentMm": {
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "layerCount": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "needsSupport": {
+                    "type": "boolean"
+                  },
+                  "supportFilamentMm": {
+                    "minimum": 0,
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "estimatedPrintTimeMin",
+                  "filamentG",
+                  "filamentMm",
+                  "supportFilamentMm",
+                  "layerCount",
+                  "needsSupport"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "kind",
+              "artifact",
+              "orientation",
+              "parametersApplied",
+              "editFraction",
+              "mesh",
+              "slice",
+              "meetsAllGoals"
+            ],
+            "type": "object"
+          },
+          "maxItems": 4,
+          "type": "array"
+        },
+        "artifacts": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "href": {
+                "format": "uri",
+                "type": "string"
+              },
+              "mediaType": {
+                "maxLength": 128,
+                "minLength": 1,
+                "type": "string"
+              },
+              "name": {
+                "enum": [
+                  "revised.scad",
+                  "changes.diff",
+                  "baseline.stl",
+                  "revised.stl",
+                  "revised.gcode",
+                  "alternative-1.gcode",
+                  "alternative-2.gcode",
+                  "alternative-3.gcode",
+                  "alternative-4.gcode",
+                  "profile.ini",
+                  "preview.png",
+                  "report.json"
+                ],
+                "type": "string"
+              },
+              "sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "sizeBytes": {
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "name",
+              "mediaType",
+              "sizeBytes",
+              "sha256",
+              "href"
+            ],
+            "type": "object"
+          },
+          "maxItems": 12,
+          "type": "array"
+        },
+        "baseline": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "boundsMm": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "max": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "min": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "size": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "min",
+                    "max",
+                    "size"
+                  ],
+                  "type": "object"
+                },
+                "triangleCount": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "volumeMm3": {
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "watertight": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "triangleCount",
+                "boundsMm",
+                "volumeMm3",
+                "watertight"
+              ],
+              "type": "object"
+            }
+          ]
+        },
+        "changes": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "after": {
+                "anyOf": [
+                  {
+                    "description": "Maximum 512 UTF-8 bytes.",
+                    "maxLength": 512,
+                    "type": "string"
+                  },
+                  {
+                    "maximum": 1000000,
+                    "minimum": -1000000,
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  }
+                ]
+              },
+              "before": {
+                "anyOf": [
+                  {
+                    "description": "Maximum 512 UTF-8 bytes.",
+                    "maxLength": 512,
+                    "type": "string"
+                  },
+                  {
+                    "maximum": 1000000,
+                    "minimum": -1000000,
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  }
+                ]
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "before",
+              "after"
+            ],
+            "type": "object"
+          },
+          "maxItems": 16,
+          "type": "array"
+        },
+        "checks": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "code": {
+                "maxLength": 128,
+                "minLength": 1,
+                "type": "string"
+              },
+              "detail": {
+                "maxLength": 4096,
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "passed",
+                  "failed",
+                  "not_checked"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "status",
+              "detail"
+            ],
+            "type": "object"
+          },
+          "maxItems": 32,
+          "type": "array"
+        },
+        "delta": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "sizeMm": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 3,
+                  "minItems": 3,
+                  "type": "array"
+                },
+                "volumeMm3": {
+                  "type": "number"
+                },
+                "volumePercent": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "sizeMm",
+                "volumeMm3",
+                "volumePercent"
+              ],
+              "type": "object"
+            }
+          ]
+        },
+        "evaluations": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "goals": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "filament": {
+                        "type": "boolean"
+                      },
+                      "fit": {
+                        "type": "boolean"
+                      },
+                      "noSupports": {
+                        "type": "boolean"
+                      },
+                      "printTime": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "noSupports",
+                      "printTime",
+                      "filament",
+                      "fit"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              },
+              "orientation": {
+                "enum": [
+                  "+z",
+                  "-z",
+                  "+x",
+                  "-x",
+                  "+y",
+                  "-y"
+                ],
+                "type": "string"
+              },
+              "overhang": {
+                "additionalProperties": false,
+                "properties": {
+                  "bedContactAreaMm2": {
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "footprintMm": {
+                    "items": {
+                      "type": "number"
+                    },
+                    "maxItems": 2,
+                    "minItems": 2,
+                    "type": "array"
+                  },
+                  "heightMm": {
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "overhangAreaMm2": {
+                    "minimum": 0,
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "overhangAreaMm2",
+                  "bedContactAreaMm2",
+                  "heightMm",
+                  "footprintMm"
+                ],
+                "type": "object"
+              },
+              "rotation": {
+                "additionalProperties": false,
+                "properties": {
+                  "xDeg": {
+                    "type": "number"
+                  },
+                  "yDeg": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "xDeg",
+                  "yDeg"
+                ],
+                "type": "object"
+              },
+              "slice": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "estimatedPrintTimeMin": {
+                        "minimum": 0,
+                        "type": "number"
+                      },
+                      "filamentG": {
+                        "minimum": 0,
+                        "type": "number"
+                      },
+                      "filamentMm": {
+                        "minimum": 0,
+                        "type": "number"
+                      },
+                      "layerCount": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "needsSupport": {
+                        "type": "boolean"
+                      },
+                      "supportFilamentMm": {
+                        "minimum": 0,
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "estimatedPrintTimeMin",
+                      "filamentG",
+                      "filamentMm",
+                      "supportFilamentMm",
+                      "layerCount",
+                      "needsSupport"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              },
+              "sliced": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "orientation",
+              "rotation",
+              "overhang",
+              "slice",
+              "goals",
+              "sliced"
+            ],
+            "type": "object"
+          },
+          "maxItems": 6,
+          "type": "array"
+        },
+        "expiresAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "limitations": {
+          "items": {
+            "maxLength": 4096,
+            "type": "string"
+          },
+          "maxItems": 16,
+          "type": "array"
+        },
+        "parametersApplied": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "description": "Maximum 512 UTF-8 bytes.",
+                "maxLength": 512,
+                "type": "string"
+              },
+              {
+                "maximum": 1000000,
+                "minimum": -1000000,
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          },
+          "default": {},
+          "description": "Overrides must name unique top-level scalar literal assignments, not derived expressions or reserved names.",
+          "maxProperties": 64,
+          "propertyNames": {
+            "pattern": "^[A-Za-z_][A-Za-z0-9_]{0,63}$"
+          },
+          "type": "object"
+        },
+        "profile": {
+          "enum": [
+            "fdm-pla-0.4",
+            "fdm-petg-0.4"
+          ],
+          "type": "string"
+        },
+        "recommendations": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "code": {
+                "maxLength": 128,
+                "type": "string"
+              },
+              "message": {
+                "maxLength": 4096,
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "maxItems": 32,
+          "type": "array"
+        },
+        "requested": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "goals": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "filament": {
+                          "type": "boolean"
+                        },
+                        "fit": {
+                          "type": "boolean"
+                        },
+                        "noSupports": {
+                          "type": "boolean"
+                        },
+                        "printTime": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "noSupports",
+                        "printTime",
+                        "filament",
+                        "fit"
+                      ],
+                      "type": "object"
+                    }
+                  ]
+                },
+                "orientation": {
+                  "enum": [
+                    "+z",
+                    "-z",
+                    "+x",
+                    "-x",
+                    "+y",
+                    "-y"
+                  ],
+                  "type": "string"
+                },
+                "overhang": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "bedContactAreaMm2": {
+                      "minimum": 0,
+                      "type": "number"
+                    },
+                    "footprintMm": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    "heightMm": {
+                      "minimum": 0,
+                      "type": "number"
+                    },
+                    "overhangAreaMm2": {
+                      "minimum": 0,
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "overhangAreaMm2",
+                    "bedContactAreaMm2",
+                    "heightMm",
+                    "footprintMm"
+                  ],
+                  "type": "object"
+                },
+                "rotation": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "xDeg": {
+                      "type": "number"
+                    },
+                    "yDeg": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "xDeg",
+                    "yDeg"
+                  ],
+                  "type": "object"
+                },
+                "slice": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "estimatedPrintTimeMin": {
+                          "minimum": 0,
+                          "type": "number"
+                        },
+                        "filamentG": {
+                          "minimum": 0,
+                          "type": "number"
+                        },
+                        "filamentMm": {
+                          "minimum": 0,
+                          "type": "number"
+                        },
+                        "layerCount": {
+                          "minimum": 0,
+                          "type": "integer"
+                        },
+                        "needsSupport": {
+                          "type": "boolean"
+                        },
+                        "supportFilamentMm": {
+                          "minimum": 0,
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "estimatedPrintTimeMin",
+                        "filamentG",
+                        "filamentMm",
+                        "supportFilamentMm",
+                        "layerCount",
+                        "needsSupport"
+                      ],
+                      "type": "object"
+                    }
+                  ]
+                },
+                "sliced": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "orientation",
+                "rotation",
+                "overhang",
+                "slice",
+                "goals",
+                "sliced"
+              ],
+              "type": "object"
+            }
+          ]
+        },
+        "revised": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "boundsMm": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "max": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "min": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "size": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "min",
+                    "max",
+                    "size"
+                  ],
+                  "type": "object"
+                },
+                "triangleCount": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "volumeMm3": {
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "watertight": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "triangleCount",
+                "boundsMm",
+                "volumeMm3",
+                "watertight"
+              ],
+              "type": "object"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "passed",
+            "goals_unmet",
+            "rejected"
+          ],
+          "type": "string"
+        },
+        "timings": {
+          "additionalProperties": false,
+          "properties": {
+            "compileMs": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "previewMs": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "searchMs": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "sliceMs": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "totalMs": {
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "compileMs",
+            "sliceMs",
+            "searchMs",
+            "previewMs",
+            "totalMs"
+          ],
+          "type": "object"
+        },
+        "tools": {
+          "additionalProperties": false,
+          "properties": {
+            "openscad": {
+              "type": "string"
+            },
+            "slicer": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "openscad",
+            "slicer"
+          ],
+          "type": "object"
+        },
+        "warnings": {
+          "items": {
+            "maxLength": 4096,
+            "type": "string"
+          },
+          "maxItems": 32,
+          "type": "array"
+        }
+      },
+      "required": [
+        "status",
+        "profile",
+        "tools",
+        "parametersApplied",
+        "changes",
+        "baseline",
+        "revised",
+        "delta",
+        "requested",
+        "evaluations",
+        "alternatives",
+        "checks",
+        "warnings",
+        "recommendations",
+        "limitations",
+        "timings",
+        "expiresAt",
+        "artifacts"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "prototype.api.williamrobinson.dev",
+    "endpoint": "https://prototype.api.williamrobinson.dev/v1/prototype/revise",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,380 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e4217d5c8c49884a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "$defs": {
+        "bbox": {
+          "additionalProperties": false,
+          "properties": {
+            "heightMm": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "widthMm": {
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "widthMm",
+            "heightMm"
+          ],
+          "type": "object"
+        },
+        "check": {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "detail": {
+              "maxLength": 2048,
+              "type": "string"
+            },
+            "status": {
+              "enum": [
+                "passed",
+                "failed",
+                "not_checked"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "code",
+            "status",
+            "detail"
+          ],
+          "type": "object"
+        },
+        "placement": {
+          "additionalProperties": false,
+          "properties": {
+            "copy": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "mirrored": {
+              "type": "boolean"
+            },
+            "onFold": {
+              "type": "boolean"
+            },
+            "piece": {
+              "type": "string"
+            },
+            "rotationDeg": {
+              "enum": [
+                0,
+                180
+              ],
+              "type": "integer"
+            },
+            "xMm": {
+              "type": "number"
+            },
+            "yMm": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "piece",
+            "copy",
+            "xMm",
+            "yMm",
+            "rotationDeg",
+            "mirrored",
+            "onFold"
+          ],
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "artifacts": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "href": {
+                "format": "uri",
+                "type": "string"
+              },
+              "mediaType": {
+                "maxLength": 128,
+                "minLength": 1,
+                "type": "string"
+              },
+              "name": {
+                "enum": [
+                  "pattern.svg",
+                  "layout.svg",
+                  "pieces.json",
+                  "cutlist.csv",
+                  "report.json"
+                ],
+                "type": "string"
+              },
+              "sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "sizeBytes": {
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "name",
+              "mediaType",
+              "sizeBytes",
+              "sha256",
+              "href"
+            ],
+            "type": "object"
+          },
+          "maxItems": 5,
+          "type": "array"
+        },
+        "checks": {
+          "items": {
+            "$ref": "#/$defs/check"
+          },
+          "type": "array"
+        },
+        "design": {
+          "enum": [
+            "aaron",
+            "bruce",
+            "teagan",
+            "simon",
+            "hugo",
+            "wahid",
+            "bella",
+            "sven"
+          ],
+          "type": "string"
+        },
+        "designVersion": {
+          "type": "string"
+        },
+        "expiresAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "freesewingVersion": {
+          "const": "4.10.1",
+          "type": "string"
+        },
+        "layout": {
+          "additionalProperties": false,
+          "properties": {
+            "fabricWidthMm": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "folded": {
+              "type": "boolean"
+            },
+            "gapMm": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "lengthMm": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "method": {
+              "const": "bbox-shelf",
+              "type": "string"
+            },
+            "placements": {
+              "items": {
+                "$ref": "#/$defs/placement"
+              },
+              "type": "array"
+            },
+            "usableWidthMm": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "utilization": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "fabricWidthMm",
+            "usableWidthMm",
+            "folded",
+            "gapMm",
+            "lengthMm",
+            "utilization",
+            "method",
+            "placements"
+          ],
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "limitations": {
+          "items": {
+            "maxLength": 4096,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "measurementsApplied": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "type": "object"
+        },
+        "optionsApplied": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          },
+          "type": "object"
+        },
+        "pieces": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "areaMm2": {
+                "minimum": 0,
+                "type": "number"
+              },
+              "bboxMm": {
+                "$ref": "#/$defs/bbox"
+              },
+              "cut": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "hasGrainline": {
+                "type": "boolean"
+              },
+              "material": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "name": {
+                "type": "string"
+              },
+              "onFold": {
+                "type": "boolean"
+              },
+              "saApplied": {
+                "type": "boolean"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "title",
+              "bboxMm",
+              "areaMm2",
+              "cut",
+              "onFold",
+              "hasGrainline",
+              "material",
+              "saApplied"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "saMm": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "status": {
+          "enum": [
+            "passed",
+            "rejected"
+          ],
+          "type": "string"
+        },
+        "totals": {
+          "additionalProperties": false,
+          "properties": {
+            "cutPieces": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "draftMs": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "pieceAreaMm2": {
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "pieceAreaMm2",
+            "cutPieces",
+            "draftMs"
+          ],
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "warnings": {
+          "items": {
+            "maxLength": 4096,
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "status",
+        "design",
+        "designVersion",
+        "freesewingVersion",
+        "measurementsApplied",
+        "optionsApplied",
+        "saMm",
+        "pieces",
+        "layout",
+        "totals",
+        "checks",
+        "warnings",
+        "limitations",
+        "expiresAt",
+        "artifacts"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "garment.api.williamrobinson.dev",
+    "endpoint": "https://garment.api.williamrobinson.dev/v1/garment/draft",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

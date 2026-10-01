@@ -1,0 +1,82 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_afd64a60cea1f9bd",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "jp_mof": {
+              "type": "object",
+              "properties": {
+                "addresses_total": {
+                  "type": "number"
+                },
+                "list_date": {
+                  "type": "string",
+                  "format": "date"
+                }
+              },
+              "required": [
+                "addresses_total",
+                "list_date"
+              ]
+            },
+            "ofac": {
+              "type": "object",
+              "properties": {
+                "addresses_total": {
+                  "type": "number"
+                },
+                "publish_date": {
+                  "type": "string",
+                  "format": "date"
+                }
+              },
+              "required": [
+                "addresses_total",
+                "publish_date"
+              ]
+            }
+          },
+          "required": [
+            "jp_mof",
+            "ofac"
+          ]
+        },
+        "kind": {
+          "type": "string"
+        },
+        "product": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "data",
+        "kind",
+        "product"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.jp_mof.addresses_total": {
+        "min": 0
+      },
+      "data.ofac.addresses_total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.agentfeeds.jp",
+    "endpoint": "https://api.agentfeeds.jp/v1/reg/sanctions/heartbeat",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

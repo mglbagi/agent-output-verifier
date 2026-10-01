@@ -1,0 +1,163 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_02ebfdee0033bc9a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "about": {
+          "type": "object",
+          "properties": {
+            "description": {},
+            "telegram": {},
+            "twitter": {},
+            "website": {}
+          }
+        },
+        "change24hPct": {
+          "type": "number"
+        },
+        "color": {
+          "type": "string"
+        },
+        "decimals": {
+          "type": "integer"
+        },
+        "listed": {
+          "type": "boolean"
+        },
+        "logoURI": {
+          "type": "string",
+          "format": "uri"
+        },
+        "mint": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "pools": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string"
+              },
+              "apr24h": {
+                "type": "number"
+              },
+              "lpMint": {
+                "type": "string"
+              },
+              "mintA": {
+                "type": "string"
+              },
+              "mintB": {
+                "type": "string"
+              },
+              "tokenA": {
+                "type": "string"
+              },
+              "tokenB": {
+                "type": "string"
+              },
+              "tvl": {
+                "type": "number"
+              },
+              "vol24h": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "address",
+              "apr24h",
+              "lpMint",
+              "mintA",
+              "mintB",
+              "tokenA",
+              "tokenB",
+              "tvl",
+              "vol24h"
+            ]
+          }
+        },
+        "priceUsd": {
+          "type": "number"
+        },
+        "stats": {
+          "type": "object",
+          "properties": {
+            "fdvUsd": {
+              "type": "number"
+            },
+            "high52wUsd": {
+              "type": "number"
+            },
+            "low52wUsd": {
+              "type": "number"
+            },
+            "marketCapUsd": {
+              "type": "number"
+            },
+            "tvlUsd": {
+              "type": "number"
+            },
+            "volume24hUsd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "fdvUsd",
+            "high52wUsd",
+            "low52wUsd",
+            "marketCapUsd",
+            "tvlUsd",
+            "volume24hUsd"
+          ]
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "trust": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "about",
+        "change24hPct",
+        "color",
+        "decimals",
+        "listed",
+        "logoURI",
+        "mint",
+        "name",
+        "pools",
+        "priceUsd",
+        "stats",
+        "symbol",
+        "trust",
+        "updatedAt"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "pools[].tvl": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "app.fortiblox.com",
+    "endpoint": "https://app.fortiblox.com/api/token/:mint",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

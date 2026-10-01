@@ -1,0 +1,55 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_dbde4ca0190aa7f3",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "links": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "text": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "word_count": {
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "required": [
+        "kind",
+        "links",
+        "text",
+        "title",
+        "word_count"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "word_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.charliemorrison.dev",
+    "endpoint": "https://x402.charliemorrison.dev/extract",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_694ecbed22f81422",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "components_usd_bn": {
+          "type": "object",
+          "properties": {
+            "bank_reserves": {
+              "type": "number"
+            },
+            "fed_balance_sheet": {
+              "type": "number"
+            },
+            "reverse_repo_onrrp": {
+              "type": "number"
+            },
+            "treasury_general_account": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "bank_reserves",
+            "fed_balance_sheet",
+            "reverse_repo_onrrp",
+            "treasury_general_account"
+          ]
+        },
+        "credit_spread_hy_pct": {
+          "type": "number"
+        },
+        "financial_conditions": {
+          "type": "string"
+        },
+        "financial_conditions_nfci": {
+          "type": "number"
+        },
+        "interpretation": {
+          "type": "string"
+        },
+        "liquidity_signal": {
+          "type": "string"
+        },
+        "net_liquidity_4w_change_bn": {
+          "type": "number"
+        },
+        "net_liquidity_4w_change_pct": {
+          "type": "number"
+        },
+        "net_liquidity_usd_bn": {
+          "type": "number"
+        },
+        "regime": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "yield_curve_10y2y": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "components_usd_bn",
+        "credit_spread_hy_pct",
+        "financial_conditions",
+        "financial_conditions_nfci",
+        "interpretation",
+        "liquidity_signal",
+        "net_liquidity_4w_change_bn",
+        "net_liquidity_4w_change_pct",
+        "net_liquidity_usd_bn",
+        "regime",
+        "source",
+        "yield_curve_10y2y"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "components_usd_bn.fed_balance_sheet": {
+        "min": 0
+      },
+      "credit_spread_hy_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "liquidity.lonestaroracle.xyz",
+    "endpoint": "https://liquidity.lonestaroracle.xyz/liquidity",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

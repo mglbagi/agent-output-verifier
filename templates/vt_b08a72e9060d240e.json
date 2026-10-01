@@ -1,0 +1,112 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b08a72e9060d240e",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "drug_category": {},
+        "performance_year": {
+          "type": "integer"
+        },
+        "records_notice": {
+          "type": "string"
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "antibiotic_total_claims": {
+                "type": "number"
+              },
+              "brand_total_claims": {
+                "type": "number"
+              },
+              "npi": {
+                "type": "string"
+              },
+              "opioid_total_claims": {
+                "type": "number"
+              },
+              "prescriber_city": {
+                "type": "string"
+              },
+              "prescriber_name": {
+                "type": "string"
+              },
+              "prescriber_specialty": {
+                "type": "string"
+              },
+              "prescriber_state": {
+                "type": "string"
+              },
+              "total_claims": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "antibiotic_total_claims",
+              "brand_total_claims",
+              "npi",
+              "opioid_total_claims",
+              "prescriber_city",
+              "prescriber_name",
+              "prescriber_specialty",
+              "prescriber_state",
+              "total_claims"
+            ]
+          }
+        },
+        "selectors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "total_matched": {
+          "type": "number"
+        },
+        "total_matched_capped": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "performance_year",
+        "records_notice",
+        "rows",
+        "selectors",
+        "total_matched",
+        "total_matched_capped"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "rows[].antibiotic_total_claims": {
+        "min": 0
+      },
+      "rows[].brand_total_claims": {
+        "min": 0
+      },
+      "rows[].opioid_total_claims": {
+        "min": 0
+      },
+      "rows[].total_claims": {
+        "min": 0
+      },
+      "total_matched": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.healthparse.io",
+    "endpoint": "https://api.healthparse.io/v1/prescribers/part-d/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

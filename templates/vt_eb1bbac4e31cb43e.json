@@ -1,0 +1,117 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_eb1bbac4e31cb43e",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "fill": {
+          "type": "object",
+          "properties": {
+            "avgPx": {
+              "type": "number"
+            },
+            "filledUsd": {
+              "type": "number"
+            },
+            "slippageBps": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "avgPx",
+            "filledUsd",
+            "slippageBps"
+          ]
+        },
+        "flags": {
+          "type": "array"
+        },
+        "funding": {
+          "type": "object",
+          "properties": {
+            "cost24hUsd": {
+              "type": "number"
+            },
+            "costAnnualizedPct": {
+              "type": "number"
+            },
+            "hourlyRate": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "cost24hUsd",
+            "costAnnualizedPct",
+            "hourlyRate"
+          ]
+        },
+        "liquidation": {
+          "type": "object",
+          "properties": {
+            "distanceInDailySigma": {
+              "type": "number"
+            },
+            "distancePct": {
+              "type": "number"
+            },
+            "historyDays": {
+              "type": "integer"
+            },
+            "price": {
+              "type": "number"
+            },
+            "touchedDaysLast30": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "distanceInDailySigma",
+            "distancePct",
+            "historyDays",
+            "price",
+            "touchedDaysLast30"
+          ]
+        },
+        "market": {
+          "type": "string"
+        },
+        "side": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "fill",
+        "flags",
+        "funding",
+        "liquidation",
+        "market",
+        "side"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "funding.costAnnualizedPct": {
+        "min": 0,
+        "max": 100
+      },
+      "liquidation.distancePct": {
+        "min": 0,
+        "max": 100
+      },
+      "liquidation.price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.discoverdmc.cloud",
+    "endpoint": "https://api.discoverdmc.cloud/risk/perp",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

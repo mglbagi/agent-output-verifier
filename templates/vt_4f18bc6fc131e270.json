@@ -1,0 +1,29 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4f18bc6fc131e270",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "result": {
+          "description": "Tool output (JSON)"
+        }
+      },
+      "type": "object",
+      "required": [
+        "result"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.freeq.one",
+    "endpoint": "https://x402.freeq.one/tools/giftcard/api/buy",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

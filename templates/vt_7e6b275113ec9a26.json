@@ -1,0 +1,58 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7e6b275113ec9a26",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "asOf": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "count": {
+          "type": "number"
+        },
+        "historical": {
+          "type": "boolean"
+        },
+        "prices": {
+          "type": "array"
+        },
+        "requested": {
+          "type": "number"
+        },
+        "source": {
+          "type": "object"
+        },
+        "unresolved": {
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "asOf",
+        "count",
+        "historical",
+        "prices",
+        "requested",
+        "source",
+        "unresolved"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "store.agentexchange.work",
+    "endpoint": "https://store.agentexchange.work/crypto/prices",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3447b1f3fa9eaa86",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "alerts": {
+          "properties": {
+            "premium_surge_1h": {
+              "title": "Premium Surge 1H",
+              "type": "boolean"
+            },
+            "reverse_premium": {
+              "title": "Reverse Premium",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "reverse_premium",
+            "premium_surge_1h"
+          ],
+          "title": "KimchiAlerts",
+          "type": "object"
+        },
+        "binance_price_usdt": {
+          "title": "Binance Price Usdt",
+          "type": "number"
+        },
+        "generated_at": {
+          "properties": {
+            "kst": {
+              "title": "Kst",
+              "type": "string"
+            },
+            "utc": {
+              "title": "Utc",
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "utc",
+            "kst"
+          ],
+          "title": "TimestampPair",
+          "type": "object"
+        },
+        "kimchi_premium_pct": {
+          "title": "Kimchi Premium Pct",
+          "type": "number"
+        },
+        "premium_change_1h_pct": {
+          "title": "Premium Change 1H Pct",
+          "type": "number"
+        },
+        "symbol": {
+          "title": "Symbol",
+          "type": "string"
+        },
+        "thresholds": {
+          "properties": {
+            "reverse_premium_pct": {
+              "title": "Reverse Premium Pct",
+              "type": "number"
+            },
+            "surge_1h_pct": {
+              "title": "Surge 1H Pct",
+              "type": "number"
+            }
+          },
+          "required": [
+            "reverse_premium_pct",
+            "surge_1h_pct"
+          ],
+          "title": "KimchiThresholds",
+          "type": "object"
+        },
+        "upbit_price_krw": {
+          "title": "Upbit Price Krw",
+          "type": "number"
+        },
+        "usdkrw_rate_estimate": {
+          "title": "Usdkrw Rate Estimate",
+          "type": "number"
+        }
+      },
+      "required": [
+        "generated_at",
+        "symbol",
+        "upbit_price_krw",
+        "binance_price_usdt",
+        "usdkrw_rate_estimate",
+        "kimchi_premium_pct",
+        "premium_change_1h_pct",
+        "alerts",
+        "thresholds"
+      ],
+      "title": "KimchiAlertResponse",
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "binance_price_usdt": {
+        "min": 0
+      },
+      "kimchi_premium_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "thresholds.surge_1h_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "upbit_price_krw": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "alphapipeline-eu.onrender.com",
+    "endpoint": "https://alphapipeline-eu.onrender.com/v1/market/kimchi-alert",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

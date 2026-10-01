@@ -1,0 +1,126 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d8f7373d36f5aa28",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "asn": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "billed": {
+          "type": "boolean"
+        },
+        "city": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "country": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "country_code": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ip": {
+          "type": "string"
+        },
+        "isp": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "latitude": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "longitude": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "ok": {
+          "const": true,
+          "type": "boolean"
+        },
+        "org": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "receipt_id": {
+          "type": "string"
+        },
+        "region": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "warnings": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "ok",
+        "receipt_id",
+        "billed",
+        "ip",
+        "country",
+        "country_code",
+        "region",
+        "city",
+        "latitude",
+        "longitude",
+        "asn",
+        "isp",
+        "org"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "latitude": {
+        "min": -90,
+        "max": 90
+      },
+      "longitude": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agentshelf.syntexa.ch",
+    "endpoint": "https://agentshelf.syntexa.ch/v1/ip-geo",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

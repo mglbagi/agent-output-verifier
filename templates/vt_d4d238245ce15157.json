@@ -1,0 +1,737 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d4d238245ce15157",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "applied_filters": {
+          "additionalProperties": false,
+          "properties": {
+            "condition": {
+              "anyOf": [
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "applied_at": {
+                      "enum": [
+                        "upstream_and_local"
+                      ]
+                    },
+                    "value": {
+                      "enum": [
+                        "used"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "applied_at"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "country": {
+              "additionalProperties": false,
+              "properties": {
+                "applied_at": {
+                  "enum": [
+                    "upstream"
+                  ]
+                },
+                "location": {
+                  "maxLength": 300,
+                  "type": "string"
+                },
+                "value": {
+                  "$ref": "#/$defs/codes0"
+                }
+              },
+              "required": [
+                "value",
+                "applied_at",
+                "location"
+              ],
+              "type": "object"
+            },
+            "currency": {
+              "additionalProperties": false,
+              "properties": {
+                "applied_at": {
+                  "enum": [
+                    "local",
+                    "not_applied"
+                  ]
+                },
+                "excludes_unknown": {
+                  "type": "boolean"
+                },
+                "value": {
+                  "$ref": "#/$defs/codes1"
+                }
+              },
+              "required": [
+                "value",
+                "applied_at",
+                "excludes_unknown"
+              ],
+              "type": "object"
+            },
+            "max_price": {
+              "$ref": "#/$defs/priceFilter"
+            },
+            "min_price": {
+              "$ref": "#/$defs/priceFilter"
+            }
+          },
+          "required": [
+            "country",
+            "currency",
+            "min_price",
+            "max_price",
+            "condition"
+          ],
+          "type": "object"
+        },
+        "country": {
+          "$ref": "#/$defs/codes0"
+        },
+        "currency": {
+          "$ref": "#/$defs/codes1"
+        },
+        "currency_source": {
+          "enum": [
+            "request",
+            "country_default"
+          ]
+        },
+        "limitations": {
+          "items": {
+            "maxLength": 500,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "query": {
+          "maxLength": 500,
+          "type": "string"
+        },
+        "result_count": {
+          "maximum": 20,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "result_limit": {
+          "maximum": 20,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "results": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "availability": {
+                "additionalProperties": false,
+                "description": "Unverified stock is unknown, with null source/text.",
+                "properties": {
+                  "source": {
+                    "anyOf": [
+                      {
+                        "enum": [
+                          "searchapi.google_shopping.shopping_results.availability",
+                          "searchapi.google_shopping.shopping_results.in_stock"
+                        ]
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "status": {
+                    "enum": [
+                      "in_stock",
+                      "out_of_stock",
+                      "preorder",
+                      "unknown"
+                    ]
+                  },
+                  "text": {
+                    "anyOf": [
+                      {
+                        "maxLength": 200,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "status",
+                  "source",
+                  "text"
+                ],
+                "type": "object"
+              },
+              "condition": {
+                "anyOf": [
+                  {
+                    "maxLength": 100,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "currency": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/codes1"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "currency_source": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      "provider",
+                      "price_text",
+                      "country_context"
+                    ]
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "image_url": {
+                "anyOf": [
+                  {
+                    "format": "uri",
+                    "maxLength": 4096,
+                    "pattern": "^https?://",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "price": {
+                "anyOf": [
+                  {
+                    "maximum": 1000000000000000,
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Numeric price, or null; may exclude tax/shipping."
+              },
+              "product_url": {
+                "anyOf": [
+                  {
+                    "format": "uri",
+                    "maxLength": 4096,
+                    "pattern": "^https?://",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Actual source link; may be Google Shopping, not a retailer checkout URL."
+              },
+              "rating": {
+                "anyOf": [
+                  {
+                    "maximum": 5,
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "retailer": {
+                "anyOf": [
+                  {
+                    "maxLength": 300,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Reported retailer name, or null."
+              },
+              "review_count": {
+                "anyOf": [
+                  {
+                    "maximum": 9007199254740991,
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "source_position": {
+                "anyOf": [
+                  {
+                    "maximum": 9007199254740991,
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "title": {
+                "anyOf": [
+                  {
+                    "maxLength": 1000,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "title",
+              "price",
+              "currency",
+              "currency_source",
+              "retailer",
+              "product_url",
+              "image_url",
+              "rating",
+              "review_count",
+              "condition",
+              "availability",
+              "source_position"
+            ],
+            "type": "object"
+          },
+          "maxItems": 20,
+          "type": "array"
+        },
+        "retrieved_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "sort": {
+          "additionalProperties": false,
+          "properties": {
+            "applied_at": {
+              "enum": [
+                "upstream",
+                "local",
+                "upstream_and_local"
+              ]
+            },
+            "requested": {
+              "enum": [
+                "best_match",
+                "price_low_to_high",
+                "rating_high_to_low"
+              ]
+            },
+            "scope": {
+              "enum": [
+                "retrieved_results"
+              ]
+            },
+            "upstream_order_valid": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "requested",
+            "applied_at",
+            "scope",
+            "upstream_order_valid"
+          ],
+          "type": "object"
+        },
+        "source": {
+          "additionalProperties": false,
+          "description": "Search provider, engine, result set and location.",
+          "properties": {
+            "engine": {
+              "enum": [
+                "google_shopping"
+              ]
+            },
+            "location_used": {
+              "anyOf": [
+                {
+                  "maxLength": 300,
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "provider": {
+              "enum": [
+                "searchapi",
+                "fixture"
+              ]
+            },
+            "result_set": {
+              "enum": [
+                "shopping_results"
+              ]
+            }
+          },
+          "required": [
+            "provider",
+            "engine",
+            "result_set",
+            "location_used"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "query",
+        "country",
+        "currency",
+        "currency_source",
+        "applied_filters",
+        "sort",
+        "result_limit",
+        "results",
+        "result_count",
+        "retrieved_at",
+        "source",
+        "limitations"
+      ],
+      "type": "object",
+      "$defs": {
+        "codes0": {
+          "enum": [
+            "AE",
+            "AI",
+            "AR",
+            "AT",
+            "AU",
+            "AW",
+            "BE",
+            "BM",
+            "BR",
+            "CA",
+            "CC",
+            "CH",
+            "CL",
+            "CO",
+            "CX",
+            "CZ",
+            "DE",
+            "DK",
+            "ES",
+            "FI",
+            "FK",
+            "FR",
+            "GB",
+            "GF",
+            "GP",
+            "GR",
+            "GS",
+            "HK",
+            "HM",
+            "HU",
+            "ID",
+            "IE",
+            "IL",
+            "IN",
+            "IO",
+            "IT",
+            "JP",
+            "KR",
+            "KY",
+            "MQ",
+            "MS",
+            "MX",
+            "MY",
+            "NC",
+            "NF",
+            "NL",
+            "NO",
+            "NZ",
+            "PF",
+            "PH",
+            "PL",
+            "PM",
+            "PT",
+            "RE",
+            "RO",
+            "RU",
+            "SA",
+            "SE",
+            "SG",
+            "SK",
+            "TC",
+            "TF",
+            "TH",
+            "TK",
+            "TR",
+            "TW",
+            "UA",
+            "US",
+            "VG",
+            "VN",
+            "WF",
+            "YT",
+            "ZA"
+          ]
+        },
+        "codes1": {
+          "enum": [
+            "AED",
+            "AFN",
+            "ALL",
+            "AMD",
+            "AOA",
+            "ARS",
+            "AUD",
+            "AWG",
+            "AZN",
+            "BAM",
+            "BBD",
+            "BDT",
+            "BHD",
+            "BIF",
+            "BMD",
+            "BND",
+            "BOB",
+            "BOV",
+            "BRL",
+            "BSD",
+            "BTN",
+            "BWP",
+            "BYN",
+            "BZD",
+            "CAD",
+            "CDF",
+            "CHE",
+            "CHF",
+            "CHW",
+            "CLF",
+            "CLP",
+            "CNY",
+            "COP",
+            "COU",
+            "CRC",
+            "CUP",
+            "CVE",
+            "CZK",
+            "DJF",
+            "DKK",
+            "DOP",
+            "DZD",
+            "EGP",
+            "ERN",
+            "ETB",
+            "EUR",
+            "FJD",
+            "FKP",
+            "GBP",
+            "GEL",
+            "GHS",
+            "GIP",
+            "GMD",
+            "GNF",
+            "GTQ",
+            "GYD",
+            "HKD",
+            "HNL",
+            "HTG",
+            "HUF",
+            "IDR",
+            "ILS",
+            "INR",
+            "IQD",
+            "IRR",
+            "ISK",
+            "JMD",
+            "JOD",
+            "JPY",
+            "KES",
+            "KGS",
+            "KHR",
+            "KMF",
+            "KPW",
+            "KRW",
+            "KWD",
+            "KYD",
+            "KZT",
+            "LAK",
+            "LBP",
+            "LKR",
+            "LRD",
+            "LSL",
+            "LYD",
+            "MAD",
+            "MDL",
+            "MGA",
+            "MKD",
+            "MMK",
+            "MNT",
+            "MOP",
+            "MRU",
+            "MUR",
+            "MVR",
+            "MWK",
+            "MXN",
+            "MXV",
+            "MYR",
+            "MZN",
+            "NAD",
+            "NGN",
+            "NIO",
+            "NOK",
+            "NPR",
+            "NZD",
+            "OMR",
+            "PAB",
+            "PEN",
+            "PGK",
+            "PHP",
+            "PKR",
+            "PLN",
+            "PYG",
+            "QAR",
+            "RON",
+            "RSD",
+            "RUB",
+            "RWF",
+            "SAR",
+            "SBD",
+            "SCR",
+            "SDG",
+            "SEK",
+            "SGD",
+            "SHP",
+            "SLE",
+            "SOS",
+            "SRD",
+            "SSP",
+            "STN",
+            "SVC",
+            "SYP",
+            "SZL",
+            "THB",
+            "TJS",
+            "TMT",
+            "TND",
+            "TOP",
+            "TRY",
+            "TTD",
+            "TWD",
+            "TZS",
+            "UAH",
+            "UGX",
+            "USD",
+            "USN",
+            "UYI",
+            "UYU",
+            "UYW",
+            "UZS",
+            "VED",
+            "VES",
+            "VND",
+            "VUV",
+            "WST",
+            "XAD",
+            "XAF",
+            "XAG",
+            "XAU",
+            "XBA",
+            "XBB",
+            "XBC",
+            "XBD",
+            "XCD",
+            "XCG",
+            "XDR",
+            "XOF",
+            "XPD",
+            "XPF",
+            "XPT",
+            "XSU",
+            "XUA",
+            "YER",
+            "ZAR",
+            "ZMW",
+            "ZWG"
+          ]
+        },
+        "priceFilter": {
+          "anyOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "applied_at": {
+                  "enum": [
+                    "local",
+                    "upstream_and_local"
+                  ]
+                },
+                "value": {
+                  "maximum": 1000000000,
+                  "minimum": 0,
+                  "type": "number"
+                }
+              },
+              "required": [
+                "value",
+                "applied_at"
+              ],
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.402shelf.com",
+    "endpoint": "https://api.402shelf.com/products/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

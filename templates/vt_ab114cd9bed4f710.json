@@ -1,0 +1,92 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ab114cd9bed4f710",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "actual_cost": {
+          "type": "number"
+        },
+        "answer": {
+          "type": "string"
+        },
+        "capability": {
+          "type": "string"
+        },
+        "latency_ms": {
+          "type": "integer"
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cout_reel_usd": {
+                "type": "number"
+              },
+              "id": {
+                "type": "string"
+              },
+              "statut": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "cout_reel_usd",
+              "id",
+              "statut"
+            ]
+          }
+        },
+        "verification": {
+          "type": "object",
+          "properties": {
+            "passe": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "passe"
+          ]
+        },
+        "workflow": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "actual_cost",
+        "answer",
+        "capability",
+        "latency_ms",
+        "steps",
+        "verification",
+        "workflow"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "steps[].id"
+      }
+    ],
+    "bounds": {
+      "actual_cost": {
+        "min": 0
+      },
+      "steps[].cout_reel_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.x-402.online",
+    "endpoint": "https://api.x-402.online/v1/agent/task",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8bddbb5e62a6ed7f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "analysis": {
+                "type": "object",
+                "properties": {}
+              },
+              "attribution": {
+                "type": "object",
+                "properties": {
+                  "assetUrl": {
+                    "type": "string"
+                  },
+                  "externalId": {
+                    "type": "string"
+                  },
+                  "license": {
+                    "type": "string"
+                  },
+                  "provider": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "assetUrl",
+                  "externalId",
+                  "license",
+                  "provider"
+                ]
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "duration": {
+                "type": "integer"
+              },
+              "fileSize": {
+                "type": "integer"
+              },
+              "frameRate": {
+                "type": "number"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "id": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "listUsd": {
+                "type": "number"
+              },
+              "mimeType": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "processingStatus": {
+                "type": "object",
+                "properties": {
+                  "error": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "percent": {
+                    "type": "integer"
+                  },
+                  "phase": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "error",
+                  "message",
+                  "percent",
+                  "phase"
+                ]
+              },
+              "progress": {
+                "type": "object",
+                "properties": {
+                  "percent": {
+                    "type": "integer"
+                  },
+                  "phase": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "percent",
+                  "phase"
+                ]
+              },
+              "source": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "thumbnailUrl": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "analysis",
+              "attribution",
+              "createdAt",
+              "duration",
+              "fileSize",
+              "frameRate",
+              "height",
+              "id",
+              "kind",
+              "listUsd",
+              "mimeType",
+              "name",
+              "processingStatus",
+              "progress",
+              "source",
+              "status",
+              "tags",
+              "thumbnailUrl",
+              "updatedAt",
+              "width"
+            ]
+          }
+        },
+        "pagination": {
+          "type": "object",
+          "properties": {
+            "hasMore": {
+              "type": "boolean"
+            },
+            "nextCursor": {
+              "type": "string"
+            },
+            "prevCursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "hasMore",
+            "nextCursor",
+            "prevCursor"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "pagination"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data[].id"
+      }
+    ],
+    "bounds": {
+      "data[].duration": {
+        "min": 0
+      },
+      "data[].height": {
+        "min": 0
+      },
+      "data[].processingStatus.percent": {
+        "min": 0,
+        "max": 100
+      },
+      "data[].progress.percent": {
+        "min": 0,
+        "max": 100
+      },
+      "data[].width": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api-dev.cueframe.ai",
+    "endpoint": "https://api-dev.cueframe.ai/v1/media",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

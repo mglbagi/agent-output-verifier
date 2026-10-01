@@ -1,0 +1,54 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7383ac3b947cbeee",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "exists": {
+          "type": "boolean"
+        },
+        "latest_version": {
+          "type": "string"
+        },
+        "proof": {
+          "type": "object",
+          "properties": {
+            "artifact_sha256": {
+              "type": "string"
+            },
+            "source_url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "artifact_sha256",
+            "source_url"
+          ]
+        },
+        "typosquat_adjacent": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "exists",
+        "latest_version",
+        "proof",
+        "typosquat_adjacent"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "attester.dev",
+    "endpoint": "https://attester.dev/v1/package/exists",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

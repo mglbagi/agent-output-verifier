@@ -1,0 +1,196 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_84837b19d74b58a7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "api_version": {
+          "type": "string"
+        },
+        "changes": {
+          "properties": {
+            "available": {
+              "type": "boolean"
+            },
+            "categories_present": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "events": {
+              "items": {
+                "properties": {
+                  "category": {
+                    "type": "string"
+                  },
+                  "charge_id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "event_date": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date"
+                  },
+                  "request_type": {
+                    "type": "string"
+                  },
+                  "request_type_code": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "source_record_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "event_date",
+                  "request_type",
+                  "category",
+                  "request_type_code",
+                  "charge_id",
+                  "source_record_id"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "latest_event_date": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            },
+            "returned_count": {
+              "type": "integer"
+            },
+            "total_matching_events": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "available",
+            "total_matching_events",
+            "returned_count",
+            "latest_event_date",
+            "categories_present",
+            "events"
+          ],
+          "type": "object"
+        },
+        "checked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "entity": {
+          "properties": {
+            "company_number": {
+              "type": "string"
+            },
+            "legal_name": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "legal_name",
+            "company_number",
+            "status"
+          ],
+          "type": "object"
+        },
+        "evidence": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "query": {
+          "additionalProperties": false,
+          "properties": {
+            "company_number": {
+              "description": "Exact nine-digit Israeli company registration number. Defaults to the public sample 514744887 when omitted (marketplace canary / empty paid body).",
+              "pattern": "^\\d{9}$",
+              "type": "string"
+            },
+            "language": {
+              "default": "en",
+              "enum": [
+                "en",
+                "he"
+              ],
+              "type": "string"
+            },
+            "limit": {
+              "default": 25,
+              "description": "Maximum number of most-recent events to return.",
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "lookback_days": {
+              "default": 366,
+              "description": "Return events recorded during this many recent days.",
+              "maximum": 366,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "company_number",
+            "lookback_days",
+            "limit",
+            "language"
+          ],
+          "type": "object"
+        },
+        "request_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "request_id",
+        "api_version",
+        "query",
+        "entity",
+        "changes",
+        "evidence",
+        "limitations",
+        "checked_at"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "changes.total_matching_events": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "israel-counterparty-intelligence.vercel.app",
+    "endpoint": "https://israel-counterparty-intelligence.vercel.app/v1/company-changes/mainnet",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

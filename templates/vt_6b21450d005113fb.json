@@ -1,0 +1,43 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6b21450d005113fb",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "aspect_guide": {
+          "type": "object"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "styles": {
+          "type": "array"
+        },
+        "tier_guide": {
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "required": [
+        "count",
+        "styles"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "imagegen.coinopai.com",
+    "endpoint": "https://imagegen.coinopai.com/prompt-styles",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

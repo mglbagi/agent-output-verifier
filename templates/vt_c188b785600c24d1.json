@@ -1,0 +1,224 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c188b785600c24d1",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "buckets": {
+          "type": "object",
+          "properties": {
+            "m0_6": {
+              "type": "object",
+              "properties": {
+                "balance": {
+                  "type": "number"
+                },
+                "loans": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "balance",
+                "loans"
+              ]
+            },
+            "m12_18": {
+              "type": "object",
+              "properties": {
+                "balance": {
+                  "type": "number"
+                },
+                "loans": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "balance",
+                "loans"
+              ]
+            },
+            "m18_24": {
+              "type": "object",
+              "properties": {
+                "balance": {
+                  "type": "number"
+                },
+                "loans": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "balance",
+                "loans"
+              ]
+            },
+            "m24plus": {
+              "type": "object",
+              "properties": {
+                "balance": {
+                  "type": "number"
+                },
+                "loans": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "balance",
+                "loans"
+              ]
+            },
+            "m6_12": {
+              "type": "object",
+              "properties": {
+                "balance": {
+                  "type": "number"
+                },
+                "loans": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "balance",
+                "loans"
+              ]
+            },
+            "pastMaturity": {
+              "type": "object",
+              "properties": {
+                "balance": {
+                  "type": "number"
+                },
+                "loans": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "balance",
+                "loans"
+              ]
+            }
+          },
+          "required": [
+            "m0_6",
+            "m12_18",
+            "m18_24",
+            "m24plus",
+            "m6_12",
+            "pastMaturity"
+          ]
+        },
+        "byPropertyType": {
+          "type": "object",
+          "properties": {
+            "MU": {
+              "type": "object",
+              "properties": {
+                "balance": {
+                  "type": "number"
+                },
+                "loans": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "balance",
+                "loans"
+              ]
+            }
+          },
+          "required": [
+            "MU"
+          ]
+        },
+        "caveats": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "charged": {
+          "type": "boolean"
+        },
+        "countyFips": {
+          "type": "string"
+        },
+        "currentBalance": {
+          "type": "number"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "leaseBeforeMaturityLoans": {
+          "type": "integer"
+        },
+        "loans": {
+          "type": "integer"
+        },
+        "reportingPeriodEnd": {
+          "type": "string",
+          "format": "date"
+        },
+        "sourceName": {
+          "type": "string"
+        },
+        "sourceUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "specialServicedLoans": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "buckets",
+        "byPropertyType",
+        "caveats",
+        "charged",
+        "countyFips",
+        "currentBalance",
+        "kind",
+        "leaseBeforeMaturityLoans",
+        "loans",
+        "reportingPeriodEnd",
+        "sourceName",
+        "sourceUrl",
+        "specialServicedLoans"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "buckets.m0_6.balance": {
+        "min": 0
+      },
+      "buckets.m12_18.balance": {
+        "min": 0
+      },
+      "buckets.m18_24.balance": {
+        "min": 0
+      },
+      "buckets.m24plus.balance": {
+        "min": 0
+      },
+      "buckets.m6_12.balance": {
+        "min": 0
+      },
+      "buckets.pastMaturity.balance": {
+        "min": 0
+      },
+      "byPropertyType.MU.balance": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.locus.report",
+    "endpoint": "https://api.locus.report/api/locus-cmbs-maturity-wall",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

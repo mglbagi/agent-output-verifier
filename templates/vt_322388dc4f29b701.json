@@ -1,0 +1,96 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_322388dc4f29b701",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "coins": {
+          "items": {
+            "properties": {
+              "deviationBps": {
+                "type": "number"
+              },
+              "high24h": {
+                "type": "number"
+              },
+              "id": {
+                "type": "string"
+              },
+              "low24h": {
+                "type": "number"
+              },
+              "marketCap": {
+                "type": "integer"
+              },
+              "maxDeviation24hBps": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "price": {
+                "type": "number"
+              },
+              "status": {
+                "type": "string"
+              },
+              "symbol": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "deviationBps",
+              "high24h",
+              "id",
+              "low24h",
+              "marketCap",
+              "maxDeviation24hBps",
+              "name",
+              "price",
+              "status",
+              "symbol"
+            ]
+          },
+          "type": "array"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "peg": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "peg",
+        "count",
+        "coins"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "coins[].id"
+      }
+    ],
+    "bounds": {
+      "coins[].price": {
+        "min": 0
+      },
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent402.tools",
+    "endpoint": "https://agent402.tools/api/stablecoin-peg",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

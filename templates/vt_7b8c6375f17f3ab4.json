@@ -1,0 +1,113 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7b8c6375f17f3ab4",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "listing": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "publication": {
+              "type": "object",
+              "properties": {
+                "indexable_profile": {
+                  "type": "boolean"
+                },
+                "paid_submission": {
+                  "type": "boolean"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "indexable_profile",
+                "paid_submission",
+                "status"
+              ]
+            },
+            "verification_status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "publication",
+            "verification_status"
+          ]
+        },
+        "provider_next_steps": {
+          "type": "object",
+          "properties": {
+            "agent_tool_procurement_passport": {
+              "type": "object",
+              "properties": {
+                "schema": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "schema",
+                "status"
+              ]
+            },
+            "bazaar_launch_passport": {
+              "type": "object",
+              "properties": {
+                "schema": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "schema",
+                "status"
+              ]
+            },
+            "schema": {
+              "type": "string"
+            },
+            "strict_discovery_ready": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "agent_tool_procurement_passport",
+            "bazaar_launch_passport",
+            "schema",
+            "strict_discovery_ready"
+          ]
+        }
+      },
+      "required": [
+        "listing",
+        "provider_next_steps"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ontarioprotocol.com",
+    "endpoint": "https://ontarioprotocol.com/api/x402/list-service",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

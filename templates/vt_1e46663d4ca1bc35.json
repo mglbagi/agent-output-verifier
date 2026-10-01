@@ -1,0 +1,64 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1e46663d4ca1bc35",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "fetchedAt": {
+          "description": "ISO-8601 time the page was fetched",
+          "format": "date-time",
+          "type": "string"
+        },
+        "language": {
+          "description": "html lang or content-language, or null",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "text": {
+          "description": "Main readable plaintext, capped by maxChars (default and max 12000)",
+          "type": "string"
+        },
+        "title": {
+          "description": "HTML title, or null",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "description": "Final URL after redirects",
+          "format": "uri",
+          "type": "string"
+        },
+        "wordCount": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "url",
+        "title",
+        "text",
+        "wordCount",
+        "language",
+        "fetchedAt"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "scrooge-x402-tool-mill.vercel.app",
+    "endpoint": "https://scrooge-x402-tool-mill.vercel.app/v1/readable-text",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

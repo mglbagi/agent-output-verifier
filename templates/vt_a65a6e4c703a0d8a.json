@@ -1,0 +1,175 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a65a6e4c703a0d8a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "next_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "request_id": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "accession_number": {
+                "type": "string"
+              },
+              "aff_10b5_one": {},
+              "date_of_original_submission": {},
+              "direct_or_indirect": {
+                "type": "string"
+              },
+              "exercise_date": {},
+              "exercise_price": {},
+              "filing_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "filing_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "footnotes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "description": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "description",
+                    "id"
+                  ]
+                }
+              },
+              "form_type": {
+                "type": "string"
+              },
+              "is_director": {
+                "type": "boolean"
+              },
+              "is_officer": {
+                "type": "boolean"
+              },
+              "is_other": {
+                "type": "boolean"
+              },
+              "is_ten_percent_owner": {
+                "type": "boolean"
+              },
+              "issuer_cik": {
+                "type": "string"
+              },
+              "issuer_name": {
+                "type": "string"
+              },
+              "nature_of_ownership": {},
+              "not_subject_to_section_16": {},
+              "officer_title": {
+                "type": "string"
+              },
+              "owner_cik": {
+                "type": "string"
+              },
+              "owner_name": {
+                "type": "string"
+              },
+              "period_of_report": {
+                "type": "string",
+                "format": "date"
+              },
+              "remarks": {},
+              "security_title": {
+                "type": "string"
+              },
+              "security_type": {
+                "type": "string"
+              },
+              "shares_owned": {},
+              "tickers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "underlying_security_shares": {
+                "type": "integer"
+              },
+              "underlying_security_title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "accession_number",
+              "direct_or_indirect",
+              "filing_date",
+              "filing_url",
+              "footnotes",
+              "form_type",
+              "is_director",
+              "is_officer",
+              "is_other",
+              "is_ten_percent_owner",
+              "issuer_cik",
+              "issuer_name",
+              "officer_title",
+              "owner_cik",
+              "owner_name",
+              "period_of_report",
+              "security_title",
+              "security_type",
+              "tickers",
+              "underlying_security_shares",
+              "underlying_security_title"
+            ]
+          }
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "count",
+        "next_url",
+        "request_id",
+        "results",
+        "status"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "results[].footnotes[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent.massive.com",
+    "endpoint": "https://agent.massive.com/stocks/filings/vX/form-3",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

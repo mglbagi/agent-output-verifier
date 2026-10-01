@@ -1,0 +1,396 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_43f9354c070e000b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "calculated_at": {
+          "type": "string",
+          "format": "date"
+        },
+        "call": {
+          "type": "object",
+          "properties": {
+            "cadence": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "number"
+            },
+            "confidence_meaning": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string",
+              "format": "date"
+            },
+            "decision_for_date": {
+              "type": "string",
+              "format": "date"
+            },
+            "direction": {
+              "type": "string"
+            },
+            "first_captured_at": {},
+            "first_captured_confidence": {},
+            "first_captured_position": {},
+            "horizon": {
+              "type": "string"
+            },
+            "key_drivers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "contribution": {
+                    "type": "number"
+                  },
+                  "direction": {
+                    "type": "string"
+                  },
+                  "domain": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "contribution",
+                  "direction",
+                  "domain"
+                ]
+              }
+            },
+            "position": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "cadence",
+            "confidence",
+            "confidence_meaning",
+            "date",
+            "decision_for_date",
+            "direction",
+            "horizon",
+            "key_drivers",
+            "position"
+          ]
+        },
+        "confidence_quality": {
+          "type": "object",
+          "properties": {
+            "brier": {
+              "type": "number"
+            },
+            "hit_rate": {
+              "type": "number"
+            },
+            "hit_rate_wilson95": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            },
+            "hits": {
+              "type": "integer"
+            },
+            "n_decisions": {
+              "type": "integer"
+            },
+            "through_date": {
+              "type": "string",
+              "format": "date"
+            },
+            "window_days": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "brier",
+            "hit_rate",
+            "hit_rate_wilson95",
+            "hits",
+            "n_decisions",
+            "through_date",
+            "window_days"
+          ]
+        },
+        "content_id": {
+          "type": "string"
+        },
+        "first_publication_id": {
+          "type": "string"
+        },
+        "freshness": {
+          "type": "object",
+          "properties": {
+            "deadline": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "deadline",
+            "status"
+          ]
+        },
+        "instrument": {
+          "type": "string"
+        },
+        "product_id": {
+          "type": "string"
+        },
+        "publication_id": {
+          "type": "string"
+        },
+        "published_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "result_class": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "integer"
+        },
+        "schema_version": {
+          "type": "string"
+        },
+        "signal_id": {
+          "type": "string"
+        },
+        "source_decision_as_of": {
+          "type": "string",
+          "format": "date"
+        },
+        "source_identity": {
+          "type": "string"
+        },
+        "supersedes_publication_id": {},
+        "track_record": {
+          "type": "object",
+          "properties": {
+            "history": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "advisory_pnl_pct": {
+                    "type": "number"
+                  },
+                  "btc_close": {
+                    "type": "integer"
+                  },
+                  "btc_start": {
+                    "type": "integer"
+                  },
+                  "confidence": {
+                    "type": "number"
+                  },
+                  "cumulative_advisory_pnl_pct": {
+                    "type": "number"
+                  },
+                  "cumulative_benchmark_pnl_pct": {
+                    "type": "integer"
+                  },
+                  "date": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "first_captured_confidence": {},
+                  "first_captured_position": {},
+                  "first_captured_status": {
+                    "type": "string"
+                  },
+                  "position": {
+                    "type": "number"
+                  },
+                  "session_return_pct": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "advisory_pnl_pct",
+                  "btc_close",
+                  "btc_start",
+                  "confidence",
+                  "cumulative_advisory_pnl_pct",
+                  "cumulative_benchmark_pnl_pct",
+                  "date",
+                  "first_captured_status",
+                  "position",
+                  "session_return_pct"
+                ]
+              }
+            },
+            "history_methodology": {
+              "type": "object",
+              "properties": {
+                "aggregation": {
+                  "type": "string"
+                },
+                "benchmark": {
+                  "type": "string"
+                },
+                "cost_bps_per_unit_turnover": {
+                  "type": "number"
+                },
+                "flat_position_handling": {
+                  "type": "string"
+                },
+                "missing_session_handling": {
+                  "type": "string"
+                },
+                "result_class": {
+                  "type": "string"
+                },
+                "session_boundary": {
+                  "type": "string"
+                },
+                "units": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "aggregation",
+                "benchmark",
+                "cost_bps_per_unit_turnover",
+                "flat_position_handling",
+                "missing_session_handling",
+                "result_class",
+                "session_boundary",
+                "units"
+              ]
+            },
+            "summary": {
+              "type": "object",
+              "properties": {
+                "cumulative_advisory_pnl_pct": {
+                  "type": "number"
+                },
+                "cumulative_benchmark_pnl_pct": {
+                  "type": "integer"
+                },
+                "lifetime_skipped_anomalous_sessions": {
+                  "type": "integer"
+                },
+                "mean_advisory_pnl_pct": {
+                  "type": "number"
+                },
+                "mean_benchmark_pnl_pct": {
+                  "type": "integer"
+                },
+                "n_sessions": {
+                  "type": "integer"
+                },
+                "skipped_anomalous_dates": {
+                  "type": "array"
+                },
+                "skipped_anomalous_dates_truncated": {
+                  "type": "boolean"
+                },
+                "skipped_anomalous_sessions": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "cumulative_advisory_pnl_pct",
+                "cumulative_benchmark_pnl_pct",
+                "lifetime_skipped_anomalous_sessions",
+                "mean_advisory_pnl_pct",
+                "mean_benchmark_pnl_pct",
+                "n_sessions",
+                "skipped_anomalous_dates",
+                "skipped_anomalous_dates_truncated",
+                "skipped_anomalous_sessions"
+              ]
+            }
+          },
+          "required": [
+            "history",
+            "history_methodology",
+            "summary"
+          ]
+        }
+      },
+      "required": [
+        "calculated_at",
+        "call",
+        "confidence_quality",
+        "content_id",
+        "first_publication_id",
+        "freshness",
+        "instrument",
+        "product_id",
+        "publication_id",
+        "published_at",
+        "result_class",
+        "revision",
+        "schema_version",
+        "signal_id",
+        "source_decision_as_of",
+        "source_identity",
+        "track_record"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "call.confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "track_record.history[].advisory_pnl_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "track_record.history[].confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "track_record.history[].cumulative_advisory_pnl_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "track_record.history[].cumulative_benchmark_pnl_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "track_record.history[].session_return_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "track_record.history_methodology.cost_bps_per_unit_turnover": {
+        "min": 0
+      },
+      "track_record.summary.cumulative_advisory_pnl_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "track_record.summary.cumulative_benchmark_pnl_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "track_record.summary.mean_advisory_pnl_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "track_record.summary.mean_benchmark_pnl_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "paid-api.cryptoanalysis.workers.dev",
+    "endpoint": "https://paid-api.cryptoanalysis.workers.dev/v1/call/today",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

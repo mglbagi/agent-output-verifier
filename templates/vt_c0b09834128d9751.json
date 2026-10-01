@@ -1,0 +1,194 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c0b09834128d9751",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "cached": {
+          "type": "boolean"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "games": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "awayScore": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "awayTeam": {
+                "additionalProperties": false,
+                "properties": {
+                  "abbreviation": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "abbreviation"
+                ],
+                "type": "object"
+              },
+              "clock": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "homeScore": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "homeTeam": {
+                "additionalProperties": false,
+                "properties": {
+                  "abbreviation": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "abbreviation"
+                ],
+                "type": "object"
+              },
+              "id": {
+                "type": [
+                  "integer",
+                  "string"
+                ]
+              },
+              "league": {
+                "type": "string"
+              },
+              "period": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "postseason": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "status": {
+                "type": "string"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "venue": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "league",
+              "date",
+              "status",
+              "homeTeam",
+              "awayTeam",
+              "homeScore",
+              "awayScore",
+              "venue",
+              "summary"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "league": {
+          "type": "string"
+        },
+        "payment": {
+          "type": "string"
+        },
+        "retrievedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source": {
+          "type": "string"
+        },
+        "stale": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string"
+        },
+        "teamFilter": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "source",
+        "league",
+        "date",
+        "teamFilter",
+        "count",
+        "cached",
+        "stale",
+        "retrievedAt",
+        "games"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "games[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-trends-server.onrender.com",
+    "endpoint": "https://x402-trends-server.onrender.com/api/sports-game-brief",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_36242e108dc0e364",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "complete": {
+          "type": "boolean"
+        },
+        "data": {
+          "items": {
+            "properties": {
+              "available_capabilities": {
+                "items": {
+                  "enum": [
+                    "profile",
+                    "officers",
+                    "owners",
+                    "filings",
+                    "insolvency"
+                  ]
+                },
+                "type": "array",
+                "uniqueItems": true
+              },
+              "company_number": {
+                "type": "string"
+              },
+              "company_status": {
+                "type": "string"
+              },
+              "company_type": {
+                "type": "string"
+              },
+              "country": {
+                "pattern": "^[A-Z]{2}$",
+                "type": "string"
+              },
+              "dissolution_date": {
+                "format": "date",
+                "type": "string"
+              },
+              "entity_id": {
+                "type": "string"
+              },
+              "entity_type": {
+                "type": "string"
+              },
+              "incorporation_date": {
+                "format": "date",
+                "type": "string"
+              },
+              "jurisdiction": {
+                "type": "string"
+              },
+              "legal_name": {
+                "type": "string"
+              },
+              "local_identifiers": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              "match_type": {
+                "enum": [
+                  "exact",
+                  "prefix",
+                  "fuzzy",
+                  "provider_ranked",
+                  "unknown"
+                ]
+              },
+              "registered_address": {
+                "additionalProperties": false,
+                "properties": {
+                  "address_line_1": {
+                    "type": "string"
+                  },
+                  "address_line_2": {
+                    "type": "string"
+                  },
+                  "care_of": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "locality": {
+                    "type": "string"
+                  },
+                  "po_box": {
+                    "type": "string"
+                  },
+                  "postal_code": {
+                    "type": "string"
+                  },
+                  "premises": {
+                    "type": "string"
+                  },
+                  "region": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "registered_office_address": {
+                "additionalProperties": false,
+                "properties": {
+                  "address_line_1": {
+                    "type": "string"
+                  },
+                  "address_line_2": {
+                    "type": "string"
+                  },
+                  "care_of": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "locality": {
+                    "type": "string"
+                  },
+                  "po_box": {
+                    "type": "string"
+                  },
+                  "postal_code": {
+                    "type": "string"
+                  },
+                  "premises": {
+                    "type": "string"
+                  },
+                  "region": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "registration_number": {
+                "type": "string"
+              },
+              "source": {
+                "properties": {
+                  "authority": {
+                    "type": "string"
+                  },
+                  "provider": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "authority",
+                  "provider"
+                ],
+                "type": "object"
+              },
+              "status": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "entity_id",
+              "legal_name",
+              "company_number",
+              "registration_number",
+              "country",
+              "jurisdiction",
+              "source",
+              "available_capabilities"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "entity_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "provenance": {
+          "properties": {
+            "authority": {
+              "type": "string"
+            },
+            "country": {
+              "pattern": "^[A-Z]{2}$",
+              "type": "string"
+            },
+            "freshness": {
+              "const": "live"
+            },
+            "jurisdiction": {
+              "type": "string"
+            },
+            "provider": {
+              "type": "string"
+            },
+            "registry": {
+              "type": "string"
+            },
+            "retrieved_at": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "source": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "source",
+            "jurisdiction",
+            "registry",
+            "retrieved_at",
+            "freshness"
+          ],
+          "type": "object"
+        },
+        "success": {
+          "const": true
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "success",
+        "complete",
+        "entity_ids",
+        "data",
+        "provenance",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data[].entity_id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "celerapi.com",
+    "endpoint": "https://www.celerapi.com/v1/company/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

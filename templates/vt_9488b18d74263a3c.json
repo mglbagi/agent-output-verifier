@@ -1,0 +1,123 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9488b18d74263a3c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "as_of": {
+          "type": "string",
+          "format": "date"
+        },
+        "earnings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "days_until": {
+                "type": "integer"
+              },
+              "earnings_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "earnings_growth": {
+                "type": "number"
+              },
+              "eps_estimate_avg": {
+                "type": "number"
+              },
+              "eps_estimate_high": {
+                "type": "number"
+              },
+              "eps_estimate_low": {
+                "type": "number"
+              },
+              "eps_forward": {
+                "type": "number"
+              },
+              "eps_ttm": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "price": {
+                "type": "number"
+              },
+              "reporting_soon": {
+                "type": "boolean"
+              },
+              "rev_estimate_avg": {
+                "type": "string"
+              },
+              "ticker": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "days_until",
+              "earnings_date",
+              "earnings_growth",
+              "eps_estimate_avg",
+              "eps_estimate_high",
+              "eps_estimate_low",
+              "eps_forward",
+              "eps_ttm",
+              "name",
+              "price",
+              "reporting_soon",
+              "rev_estimate_avg",
+              "ticker"
+            ]
+          }
+        },
+        "reporting_soon": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "summary": {
+          "type": "string"
+        },
+        "tickers_found": {
+          "type": "integer"
+        },
+        "tickers_no_data": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "as_of",
+        "earnings",
+        "reporting_soon",
+        "summary",
+        "tickers_found",
+        "tickers_no_data"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "earnings[].eps_estimate_low",
+        "other_field": "earnings[].eps_estimate_high"
+      }
+    ],
+    "bounds": {
+      "earnings[].price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "earnings.lonestaroracle.xyz",
+    "endpoint": "https://earnings.lonestaroracle.xyz/calendar",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

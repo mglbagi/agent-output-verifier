@@ -1,0 +1,195 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_903bc714dbc23b4d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "auditedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "finalUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "incomplete": {
+          "items": {
+            "properties": {
+              "description": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "impact": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "score": {
+          "type": "number"
+        },
+        "summary": {
+          "properties": {
+            "byImpact": {
+              "properties": {
+                "critical": {
+                  "type": "number"
+                },
+                "minor": {
+                  "type": "number"
+                },
+                "moderate": {
+                  "type": "number"
+                },
+                "serious": {
+                  "type": "number"
+                }
+              },
+              "type": "object",
+              "required": [
+                "critical",
+                "minor",
+                "moderate",
+                "serious"
+              ]
+            },
+            "incomplete": {
+              "type": "number"
+            },
+            "passes": {
+              "type": "number"
+            },
+            "violations": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "byImpact",
+            "incomplete",
+            "passes",
+            "violations"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "viewport": {
+          "enum": [
+            "desktop",
+            "mobile"
+          ],
+          "type": "string"
+        },
+        "violations": {
+          "items": {
+            "properties": {
+              "description": {
+                "type": "string"
+              },
+              "helpUrl": {
+                "type": "string",
+                "format": "uri"
+              },
+              "id": {
+                "type": "string"
+              },
+              "impact": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "nodes": {
+                "items": {
+                  "properties": {
+                    "failureSummary": {
+                      "type": "string"
+                    },
+                    "html": {
+                      "type": "string"
+                    },
+                    "selector": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object",
+                  "required": [
+                    "failureSummary",
+                    "html",
+                    "selector"
+                  ]
+                },
+                "type": "array"
+              },
+              "wcagTags": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object",
+            "required": [
+              "description",
+              "helpUrl",
+              "id",
+              "impact",
+              "nodes",
+              "wcagTags"
+            ]
+          },
+          "type": "array"
+        },
+        "wcagLevel": {
+          "enum": [
+            "2.1-aa",
+            "2.2-aa"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "auditedAt",
+        "finalUrl",
+        "incomplete",
+        "score",
+        "summary",
+        "url",
+        "viewport",
+        "violations",
+        "wcagLevel"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "incomplete[].id"
+      },
+      {
+        "type": "unique",
+        "field": "violations[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-api-24223879872.us-east1.run.app",
+    "endpoint": "https://x402-api-24223879872.us-east1.run.app/v1/a11y-audit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

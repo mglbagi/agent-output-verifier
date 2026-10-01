@@ -1,0 +1,62 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_500006f92940b675",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "aspectRatio": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "paidUsd": {
+          "type": "number"
+        },
+        "runId": {
+          "type": "string"
+        },
+        "seconds": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "string"
+        },
+        "statusUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "transaction": {
+          "type": "string"
+        },
+        "video": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "aspectRatio",
+        "model",
+        "paidUsd",
+        "runId",
+        "seconds",
+        "status",
+        "statusUrl",
+        "transaction",
+        "video"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "trezalabs.com",
+    "endpoint": "https://www.trezalabs.com/api/x402/video",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

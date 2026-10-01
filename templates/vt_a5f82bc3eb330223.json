@@ -1,0 +1,121 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a5f82bc3eb330223",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "alternates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "manufacturer": {
+                "type": "string"
+              },
+              "mpn": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "manufacturer",
+              "mpn"
+            ]
+          }
+        },
+        "lifecycle": {
+          "type": "string"
+        },
+        "manufacturer": {
+          "type": "string"
+        },
+        "mpn": {
+          "type": "string"
+        },
+        "offers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "currency": {
+                "type": "string"
+              },
+              "distributor": {
+                "type": "string"
+              },
+              "priceBreaks": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "price": {
+                      "type": "number"
+                    },
+                    "qty": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "price",
+                    "qty"
+                  ]
+                }
+              },
+              "stock": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "currency",
+              "distributor",
+              "priceBreaks",
+              "stock"
+            ]
+          }
+        },
+        "specs": {
+          "type": "object",
+          "properties": {
+            "Case/Package": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Case/Package"
+          ]
+        },
+        "totalStock": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "alternates",
+        "lifecycle",
+        "manufacturer",
+        "mpn",
+        "offers",
+        "specs",
+        "totalStock"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "offers[].priceBreaks[].price": {
+        "min": 0
+      },
+      "offers[].priceBreaks[].qty": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "toolcall.click",
+    "endpoint": "https://toolcall.click/t/part/lookup",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

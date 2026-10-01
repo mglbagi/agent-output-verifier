@@ -1,0 +1,825 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bcb57f83eda26ffe",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "alternatives": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "amountIn": {
+                "type": "string"
+              },
+              "amountOut": {
+                "type": "string"
+              },
+              "guard": {
+                "type": "object",
+                "properties": {
+                  "hardExcluded": {
+                    "type": "boolean"
+                  },
+                  "maxPriceDeviationPct": {
+                    "type": "number"
+                  },
+                  "minPoolTvlXnt": {
+                    "type": "number"
+                  },
+                  "penaltyBps": {
+                    "type": "integer"
+                  },
+                  "thin": {
+                    "type": "boolean"
+                  },
+                  "worstTradeReservePct": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "hardExcluded",
+                  "maxPriceDeviationPct",
+                  "minPoolTvlXnt",
+                  "penaltyBps",
+                  "thin",
+                  "worstTradeReservePct"
+                ]
+              },
+              "legs": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string"
+                    },
+                    "amountIn": {
+                      "type": "string"
+                    },
+                    "amountOut": {
+                      "type": "string"
+                    },
+                    "feePpm": {
+                      "type": "number"
+                    },
+                    "inMint": {
+                      "type": "string"
+                    },
+                    "outMint": {
+                      "type": "string"
+                    },
+                    "priceImpactPct": {
+                      "type": "number"
+                    },
+                    "venue": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "address",
+                    "amountIn",
+                    "amountOut",
+                    "feePpm",
+                    "inMint",
+                    "outMint",
+                    "priceImpactPct",
+                    "venue"
+                  ]
+                }
+              },
+              "priceImpactPct": {
+                "type": "number"
+              },
+              "requiresGuard": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "amountIn",
+              "amountOut",
+              "guard",
+              "legs",
+              "priceImpactPct",
+              "requiresGuard"
+            ]
+          }
+        },
+        "amountIn": {
+          "type": "string"
+        },
+        "amountOut": {
+          "type": "string"
+        },
+        "amountOutNet": {
+          "type": "string"
+        },
+        "asOfSlot": {
+          "type": "integer"
+        },
+        "blocked": {
+          "type": "boolean"
+        },
+        "candidates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "amountIn": {
+                "type": "string"
+              },
+              "amountOut": {
+                "type": "string"
+              },
+              "confidence": {
+                "type": "object",
+                "properties": {
+                  "band": {
+                    "type": "string"
+                  },
+                  "level": {
+                    "type": "string"
+                  },
+                  "score": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "band",
+                  "level",
+                  "score"
+                ]
+              },
+              "guard": {
+                "type": "object",
+                "properties": {
+                  "hardExcluded": {
+                    "type": "boolean"
+                  },
+                  "maxPriceDeviationPct": {
+                    "type": "number"
+                  },
+                  "minPoolTvlXnt": {
+                    "type": "number"
+                  },
+                  "penaltyBps": {
+                    "type": "integer"
+                  },
+                  "thin": {
+                    "type": "boolean"
+                  },
+                  "worstTradeReservePct": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "hardExcluded",
+                  "maxPriceDeviationPct",
+                  "minPoolTvlXnt",
+                  "penaltyBps",
+                  "thin",
+                  "worstTradeReservePct"
+                ]
+              },
+              "hops": {
+                "type": "integer"
+              },
+              "legs": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string"
+                    },
+                    "amountIn": {
+                      "type": "string"
+                    },
+                    "amountOut": {
+                      "type": "string"
+                    },
+                    "feePpm": {
+                      "type": "number"
+                    },
+                    "inMint": {
+                      "type": "string"
+                    },
+                    "outMint": {
+                      "type": "string"
+                    },
+                    "priceImpactPct": {
+                      "type": "number"
+                    },
+                    "venue": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "address",
+                    "amountIn",
+                    "amountOut",
+                    "feePpm",
+                    "inMint",
+                    "outMint",
+                    "priceImpactPct",
+                    "venue"
+                  ]
+                }
+              },
+              "priceImpactPct": {
+                "type": "number"
+              },
+              "requiresGuard": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "amountIn",
+              "amountOut",
+              "confidence",
+              "guard",
+              "hops",
+              "legs",
+              "priceImpactPct",
+              "requiresGuard"
+            ]
+          }
+        },
+        "computeUnits": {
+          "type": "integer"
+        },
+        "confidence": {
+          "type": "object",
+          "properties": {
+            "band": {
+              "type": "string"
+            },
+            "level": {
+              "type": "string"
+            },
+            "score": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "band",
+            "level",
+            "score"
+          ]
+        },
+        "executable": {},
+        "expiresAt": {
+          "type": "integer"
+        },
+        "explanation": {
+          "type": "object",
+          "properties": {
+            "aggregatePriceImpactPct": {
+              "type": "number"
+            },
+            "hopCount": {
+              "type": "integer"
+            },
+            "hops": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "amountIn": {
+                    "type": "string"
+                  },
+                  "amountOut": {
+                    "type": "string"
+                  },
+                  "feeBps": {
+                    "type": "number"
+                  },
+                  "inMint": {
+                    "type": "string"
+                  },
+                  "index": {
+                    "type": "integer"
+                  },
+                  "inputTransferFee": {},
+                  "outMint": {
+                    "type": "string"
+                  },
+                  "outputTransferFee": {},
+                  "poolId": {
+                    "type": "string"
+                  },
+                  "priceImpactPct": {
+                    "type": "number"
+                  },
+                  "venue": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "amountIn",
+                  "amountOut",
+                  "feeBps",
+                  "inMint",
+                  "index",
+                  "outMint",
+                  "poolId",
+                  "priceImpactPct",
+                  "venue"
+                ]
+              }
+            },
+            "legFees": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "feeBps": {
+                    "type": "number"
+                  },
+                  "poolId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "feeBps",
+                  "poolId"
+                ]
+              }
+            },
+            "protocolFee": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "string"
+                },
+                "bps": {
+                  "type": "integer"
+                },
+                "enforcedOnChain": {
+                  "type": "boolean"
+                },
+                "net": {
+                  "type": "string"
+                },
+                "pct": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "amount",
+                "bps",
+                "enforcedOnChain",
+                "net",
+                "pct"
+              ]
+            },
+            "requiresGuard": {
+              "type": "boolean"
+            },
+            "simulated": {},
+            "whyThisRoute": {
+              "type": "object",
+              "properties": {
+                "considered": {
+                  "type": "integer"
+                },
+                "summary": {
+                  "type": "string"
+                },
+                "tieBreak": {
+                  "type": "string"
+                },
+                "tieEpsilonBps": {
+                  "type": "integer"
+                },
+                "tiedWithinEpsilon": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "considered",
+                "summary",
+                "tieBreak",
+                "tieEpsilonBps",
+                "tiedWithinEpsilon"
+              ]
+            }
+          },
+          "required": [
+            "aggregatePriceImpactPct",
+            "hopCount",
+            "hops",
+            "legFees",
+            "protocolFee",
+            "requiresGuard",
+            "whyThisRoute"
+          ]
+        },
+        "fee": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "string"
+            },
+            "bps": {
+              "type": "integer"
+            },
+            "enforcedOnChain": {
+              "type": "boolean"
+            },
+            "net": {
+              "type": "string"
+            },
+            "pct": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "amount",
+            "bps",
+            "enforcedOnChain",
+            "net",
+            "pct"
+          ]
+        },
+        "freshnessVerified": {
+          "type": "boolean"
+        },
+        "graphUpdatedAt": {
+          "type": "integer"
+        },
+        "guard": {
+          "type": "object",
+          "properties": {
+            "hardExcluded": {
+              "type": "boolean"
+            },
+            "maxPriceDeviationPct": {
+              "type": "number"
+            },
+            "minPoolTvlXnt": {
+              "type": "number"
+            },
+            "penaltyBps": {
+              "type": "integer"
+            },
+            "thin": {
+              "type": "boolean"
+            },
+            "worstTradeReservePct": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "hardExcluded",
+            "maxPriceDeviationPct",
+            "minPoolTvlXnt",
+            "penaltyBps",
+            "thin",
+            "worstTradeReservePct"
+          ]
+        },
+        "highImpact": {
+          "type": "boolean"
+        },
+        "hops": {
+          "type": "integer"
+        },
+        "inputMint": {
+          "type": "string"
+        },
+        "minimumAmountOut": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "outputMint": {
+          "type": "string"
+        },
+        "parts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "legs": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string"
+                    },
+                    "amountIn": {
+                      "type": "string"
+                    },
+                    "amountOut": {
+                      "type": "string"
+                    },
+                    "feePpm": {
+                      "type": "number"
+                    },
+                    "inMint": {
+                      "type": "string"
+                    },
+                    "outMint": {
+                      "type": "string"
+                    },
+                    "priceImpactPct": {
+                      "type": "number"
+                    },
+                    "venue": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "address",
+                    "amountIn",
+                    "amountOut",
+                    "feePpm",
+                    "inMint",
+                    "outMint",
+                    "priceImpactPct",
+                    "venue"
+                  ]
+                }
+              },
+              "percent": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "legs",
+              "percent"
+            ]
+          }
+        },
+        "platformFee": {
+          "type": "object",
+          "properties": {
+            "amountToken": {
+              "type": "string"
+            },
+            "bps": {
+              "type": "integer"
+            },
+            "percent": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amountToken",
+            "bps",
+            "percent"
+          ]
+        },
+        "priceImpactPct": {
+          "type": "number"
+        },
+        "quoteMs": {
+          "type": "integer"
+        },
+        "repricedAtExecution": {
+          "type": "boolean"
+        },
+        "requiresGuard": {
+          "type": "boolean"
+        },
+        "route": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string"
+              },
+              "amountIn": {
+                "type": "string"
+              },
+              "amountOut": {
+                "type": "string"
+              },
+              "feePpm": {
+                "type": "number"
+              },
+              "inMint": {
+                "type": "string"
+              },
+              "outMint": {
+                "type": "string"
+              },
+              "priceImpactPct": {
+                "type": "number"
+              },
+              "venue": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "address",
+              "amountIn",
+              "amountOut",
+              "feePpm",
+              "inMint",
+              "outMint",
+              "priceImpactPct",
+              "venue"
+            ]
+          }
+        },
+        "safety": {
+          "type": "object",
+          "properties": {
+            "level": {
+              "type": "string"
+            },
+            "reasons": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "level",
+            "reasons"
+          ]
+        },
+        "savingsVsDirectPct": {},
+        "selection": {
+          "type": "object",
+          "properties": {
+            "considered": {
+              "type": "integer"
+            },
+            "summary": {
+              "type": "string"
+            },
+            "tieBreak": {
+              "type": "string"
+            },
+            "tieEpsilonBps": {
+              "type": "integer"
+            },
+            "tiedWithinEpsilon": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "considered",
+            "summary",
+            "tieBreak",
+            "tieEpsilonBps",
+            "tiedWithinEpsilon"
+          ]
+        },
+        "simulated": {},
+        "slippageBps": {
+          "type": "integer"
+        },
+        "slippageDynamic": {
+          "type": "boolean"
+        },
+        "split": {},
+        "splitAmountOut": {},
+        "thinLiquidity": {
+          "type": "boolean"
+        },
+        "ttlMs": {
+          "type": "integer"
+        },
+        "ttlSlots": {
+          "type": "integer"
+        },
+        "validUntilSlot": {
+          "type": "integer"
+        },
+        "warnings": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "alternatives",
+        "amountIn",
+        "amountOut",
+        "amountOutNet",
+        "asOfSlot",
+        "blocked",
+        "candidates",
+        "computeUnits",
+        "confidence",
+        "expiresAt",
+        "explanation",
+        "fee",
+        "freshnessVerified",
+        "graphUpdatedAt",
+        "guard",
+        "highImpact",
+        "hops",
+        "inputMint",
+        "minimumAmountOut",
+        "mode",
+        "outputMint",
+        "parts",
+        "platformFee",
+        "priceImpactPct",
+        "quoteMs",
+        "repricedAtExecution",
+        "requiresGuard",
+        "route",
+        "safety",
+        "selection",
+        "slippageBps",
+        "slippageDynamic",
+        "thinLiquidity",
+        "ttlMs",
+        "ttlSlots",
+        "validUntilSlot",
+        "warnings"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "alternatives[].guard.maxPriceDeviationPct": {
+        "min": 0,
+        "max": 100
+      },
+      "alternatives[].guard.worstTradeReservePct": {
+        "min": 0,
+        "max": 100
+      },
+      "alternatives[].legs[].priceImpactPct": {
+        "min": 0,
+        "max": 100
+      },
+      "alternatives[].priceImpactPct": {
+        "min": 0,
+        "max": 100
+      },
+      "candidates[].guard.maxPriceDeviationPct": {
+        "min": 0,
+        "max": 100
+      },
+      "candidates[].guard.worstTradeReservePct": {
+        "min": 0,
+        "max": 100
+      },
+      "candidates[].legs[].priceImpactPct": {
+        "min": 0,
+        "max": 100
+      },
+      "candidates[].priceImpactPct": {
+        "min": 0,
+        "max": 100
+      },
+      "explanation.aggregatePriceImpactPct": {
+        "min": 0,
+        "max": 100
+      },
+      "explanation.hops[].priceImpactPct": {
+        "min": 0,
+        "max": 100
+      },
+      "explanation.protocolFee.pct": {
+        "min": 0,
+        "max": 100
+      },
+      "fee.pct": {
+        "min": 0,
+        "max": 100
+      },
+      "guard.maxPriceDeviationPct": {
+        "min": 0,
+        "max": 100
+      },
+      "guard.worstTradeReservePct": {
+        "min": 0,
+        "max": 100
+      },
+      "parts[].legs[].priceImpactPct": {
+        "min": 0,
+        "max": 100
+      },
+      "parts[].percent": {
+        "min": 0,
+        "max": 100
+      },
+      "priceImpactPct": {
+        "min": 0,
+        "max": 100
+      },
+      "route[].priceImpactPct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "app.fortiblox.com",
+    "endpoint": "https://app.fortiblox.com/api/quote",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

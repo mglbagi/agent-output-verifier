@@ -1,0 +1,170 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_831d7e4e282e7d8e",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "as_of": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "methodology": {
+          "type": "string"
+        },
+        "network": {
+          "type": "string"
+        },
+        "venues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "asset": {
+                "type": "string"
+              },
+              "audit_firms": {
+                "type": "integer"
+              },
+              "audited": {
+                "type": "boolean"
+              },
+              "auto_defense": {
+                "type": "object",
+                "properties": {
+                  "floor": {
+                    "type": "integer"
+                  },
+                  "reason": {},
+                  "would_exit": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "floor",
+                  "would_exit"
+                ]
+              },
+              "chain": {
+                "type": "string"
+              },
+              "chain_id": {
+                "type": "integer"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "factors": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string"
+                    },
+                    "max": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "points": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "detail",
+                    "max",
+                    "name",
+                    "points"
+                  ]
+                }
+              },
+              "id": {
+                "type": "string"
+              },
+              "incidents": {
+                "type": "integer"
+              },
+              "launched_days_ago": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "observed_apr": {
+                "type": "string"
+              },
+              "pool_address": {
+                "type": "string"
+              },
+              "protocol": {
+                "type": "string"
+              },
+              "risk_adjusted_apr": {
+                "type": "string"
+              },
+              "safety_score": {
+                "type": "integer"
+              },
+              "tvl_usd": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "asset",
+              "audit_firms",
+              "audited",
+              "auto_defense",
+              "chain",
+              "chain_id",
+              "enabled",
+              "factors",
+              "id",
+              "incidents",
+              "launched_days_ago",
+              "name",
+              "observed_apr",
+              "pool_address",
+              "protocol",
+              "risk_adjusted_apr",
+              "safety_score",
+              "tvl_usd"
+            ]
+          }
+        }
+      },
+      "required": [
+        "as_of",
+        "count",
+        "methodology",
+        "network",
+        "venues"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "venues[].chain_id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.spendthebits.com",
+    "endpoint": "https://x402.spendthebits.com/@stbclaudeprod/yield-safety/",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

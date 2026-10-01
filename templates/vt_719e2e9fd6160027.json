@@ -1,0 +1,33 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_719e2e9fd6160027",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "chant": {
+          "type": "string"
+        },
+        "club_responds": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "chant",
+        "club_responds"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "conch402.dylan-caponi.workers.dev",
+    "endpoint": "https://conch402.dylan-caponi.workers.dev/hail",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

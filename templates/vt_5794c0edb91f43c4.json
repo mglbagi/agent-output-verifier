@@ -1,0 +1,182 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5794c0edb91f43c4",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "asOf": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "caveats": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "flipReferencePct": {
+          "description": "Overall flip reference rate, in percent. `null` means WITHHELD, never a default: see flipReferenceStatus and flipReferenceWithheldReason. When it is null, flipProne was not evaluated on any row.",
+          "maximum": 100,
+          "minimum": 0,
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "flipReferenceStatus": {
+          "enum": [
+            "measured",
+            "withheld"
+          ],
+          "type": "string"
+        },
+        "flipReferenceWithheldReason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "howToRead": {
+          "type": "string"
+        },
+        "liveMarketsRanked": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "markets": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "apparentVolumeUsd": {
+                "minimum": 0,
+                "type": "number"
+              },
+              "category": {
+                "type": "string"
+              },
+              "categoryDisputeRatePctHighVolume": {
+                "maximum": 100,
+                "minimum": 0,
+                "type": "number"
+              },
+              "categoryElevated": {
+                "type": "boolean"
+              },
+              "conditionId": {
+                "description": "Polymarket condition ID.",
+                "pattern": "^0x[0-9a-fA-F]{64}$",
+                "type": "string"
+              },
+              "disputeFlagCount": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "flags": {
+                "additionalProperties": false,
+                "properties": {
+                  "categoryElevated": {
+                    "description": "Category flagged elevated by consensus across both dispute samples. Dispute axis; counts toward tier.",
+                    "type": "boolean"
+                  },
+                  "flipProne": {
+                    "description": "Separate conditional axis: if disputed, this category reverses at or above the overall rate. Never raises the tier.",
+                    "type": "boolean"
+                  },
+                  "titleLooksUncheckable": {
+                    "description": "The title states no checkable threshold. Dispute axis; counts toward tier. Read from the title only.",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "categoryElevated",
+                  "titleLooksUncheckable",
+                  "flipProne"
+                ],
+                "type": "object"
+              },
+              "flipRatePct": {
+                "maximum": 100,
+                "minimum": 0,
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "marketClosed": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "tier": {
+                "enum": [
+                  "elevated",
+                  "watch",
+                  "baseline"
+                ],
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "titleLooksUncheckable": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "conditionId",
+              "title",
+              "tier",
+              "disputeFlagCount",
+              "flags",
+              "category",
+              "titleLooksUncheckable",
+              "categoryElevated",
+              "categoryDisputeRatePctHighVolume",
+              "flipRatePct",
+              "apparentVolumeUsd",
+              "marketClosed"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "tierCounts": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "type": "object"
+        },
+        "windowHours": {
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "asOf",
+        "windowHours",
+        "liveMarketsRanked",
+        "tierCounts",
+        "flipReferencePct",
+        "markets",
+        "howToRead",
+        "caveats"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.polym.uk",
+    "endpoint": "https://api.polym.uk/resolution-watchlist",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

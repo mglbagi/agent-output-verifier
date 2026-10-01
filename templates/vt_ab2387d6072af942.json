@@ -1,0 +1,78 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ab2387d6072af942",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "arb_revert_ratio": {
+          "description": "Fraction of reverted txs on Arbitrum (0.0-1.0)",
+          "type": "number"
+        },
+        "base_revert_ratio": {
+          "description": "Fraction of reverted txs on Base (0.0-1.0)",
+          "type": "number"
+        },
+        "blob_base_fee": {
+          "description": "EIP-4844 blob base fee",
+          "type": "number"
+        },
+        "chains": {
+          "description": "Per-chain P99/P95 RTT in ms, stall flag, last-updated unix timestamp. Chains: base, arbitrum, optimism, zksync, blast, linea, mantle, mode, scroll, taiko, polygon_zkevm, casper",
+          "type": "object"
+        },
+        "gas_pressure": {
+          "description": "L1 gas price in gwei",
+          "type": "number"
+        },
+        "recommendation": {
+          "enum": [
+            "SAFE_TO_EXECUTE",
+            "ELEVATED_RISK",
+            "HIGH_RISK",
+            "STALL_DETECTED"
+          ],
+          "type": "string"
+        },
+        "timestamp": {
+          "description": "ISO 8601 UTC timestamp",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "type": "object",
+      "required": [
+        "arb_revert_ratio",
+        "base_revert_ratio",
+        "blob_base_fee",
+        "chains",
+        "gas_pressure",
+        "recommendation",
+        "timestamp"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "arb_revert_ratio": {
+        "min": 0,
+        "max": 1
+      },
+      "base_revert_ratio": {
+        "min": 0,
+        "max": 1
+      },
+      "blob_base_fee": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "rtt.phoenix-ai.work",
+    "endpoint": "https://rtt.phoenix-ai.work/api/v1/health",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d87dbbe514768f4b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "briefing": {
+          "type": "string"
+        },
+        "source_count": {
+          "type": "integer"
+        },
+        "sources": {
+          "type": "array"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "topic": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "topic",
+        "briefing",
+        "source_count",
+        "sources",
+        "timestamp"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "source_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "jmt-x402-proxy.jmthomasofficial.workers.dev",
+    "endpoint": "https://jmt-x402-proxy.jmthomasofficial.workers.dev/v2/api/news-briefing",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

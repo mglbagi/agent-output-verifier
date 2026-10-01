@@ -1,0 +1,91 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_de64a159325d951b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "query": {
+          "type": "string"
+        },
+        "result": {
+          "properties": {
+            "answer": {
+              "type": "string"
+            },
+            "citations": {
+              "items": {
+                "properties": {
+                  "snippet": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "title": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "url": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "url"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "status": {
+          "enum": [
+            "pending",
+            "planning",
+            "searching",
+            "processing",
+            "aggregating",
+            "completed",
+            "failed",
+            "cancelled"
+          ],
+          "type": "string"
+        },
+        "x402_payment_status": {
+          "enum": [
+            "verified_unsettled",
+            "settled",
+            "voided",
+            "settlement_failed"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "status",
+        "query"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api-onchain.optimai.network",
+    "endpoint": "https://api-onchain.optimai.network/external/v1/x402/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

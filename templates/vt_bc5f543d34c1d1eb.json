@@ -1,0 +1,87 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bc5f543d34c1d1eb",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "as_of": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "change_24h": {
+          "type": "number"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "published_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "relevance_score": {
+                "type": "integer"
+              },
+              "source": {
+                "type": "string"
+              },
+              "source_tier": {
+                "type": "integer"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "published_at",
+              "relevance_score",
+              "source",
+              "source_tier",
+              "title",
+              "url"
+            ]
+          }
+        },
+        "percentile_30d": {
+          "type": "integer"
+        },
+        "percentile_90d": {
+          "type": "integer"
+        },
+        "regime_label": {
+          "type": "string"
+        },
+        "score": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "as_of",
+        "change_24h",
+        "events",
+        "percentile_30d",
+        "percentile_90d",
+        "regime_label",
+        "score"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.qsig.net",
+    "endpoint": "https://x402.qsig.net/v1/georisk",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

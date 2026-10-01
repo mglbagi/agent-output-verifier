@@ -1,0 +1,162 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_da008157a0e05c1d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "checkedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "excluded": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "dex": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "poolAddress": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "dex",
+              "name",
+              "poolAddress",
+              "reason"
+            ]
+          }
+        },
+        "excludedCount": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "minTvlUsd": {
+          "type": "number"
+        },
+        "network": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pools": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ageHours": {
+                "type": "integer"
+              },
+              "dex": {
+                "type": "string"
+              },
+              "feeTierPct": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "poolAddress": {
+                "type": "string"
+              },
+              "priceChange24hPct": {
+                "type": "number"
+              },
+              "realFeeAprPct": {
+                "type": "number"
+              },
+              "riskAdjustedScore": {
+                "type": "number"
+              },
+              "turnover": {
+                "type": "number"
+              },
+              "tvlUsd": {
+                "type": "number"
+              },
+              "verdict": {
+                "type": "string"
+              },
+              "volume24hUsd": {
+                "type": "number"
+              },
+              "washReasons": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "washTradingRisk": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "ageHours",
+              "dex",
+              "feeTierPct",
+              "name",
+              "poolAddress",
+              "priceChange24hPct",
+              "realFeeAprPct",
+              "riskAdjustedScore",
+              "turnover",
+              "tvlUsd",
+              "verdict",
+              "volume24hUsd",
+              "washReasons",
+              "washTradingRisk"
+            ]
+          }
+        }
+      },
+      "required": [
+        "checkedAt",
+        "excluded",
+        "excludedCount",
+        "limit",
+        "minTvlUsd",
+        "network",
+        "notes",
+        "pools"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "limit": {
+        "min": 0
+      },
+      "pools[].feeTierPct": {
+        "min": 0,
+        "max": 100
+      },
+      "pools[].realFeeAprPct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "soldefi.thomenz.me",
+    "endpoint": "https://soldefi.thomenz.me/v1/solana/pools/top",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

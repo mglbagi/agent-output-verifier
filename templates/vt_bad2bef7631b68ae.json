@@ -1,0 +1,148 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bad2bef7631b68ae",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "analizado_en": {
+          "title": "Analizado En",
+          "type": "string",
+          "format": "date-time"
+        },
+        "carencias": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Carencias",
+          "type": "array"
+        },
+        "checks": {
+          "items": {
+            "properties": {
+              "check": {
+                "title": "Check",
+                "type": "string"
+              },
+              "detalle": {
+                "title": "Detalle",
+                "type": "string"
+              },
+              "estado": {
+                "enum": [
+                  "ok",
+                  "aviso",
+                  "fallo"
+                ],
+                "title": "Estado",
+                "type": "string"
+              }
+            },
+            "required": [
+              "check",
+              "estado",
+              "detalle"
+            ],
+            "title": "CheckSeo",
+            "type": "object"
+          },
+          "title": "Checks",
+          "type": "array"
+        },
+        "grade": {
+          "description": "A | B | C | D | F",
+          "title": "Grade",
+          "type": "string"
+        },
+        "hoja_de_ruta": {
+          "description": "Solo en deep: plan priorizado escrito por IA.",
+          "items": {
+            "type": "string"
+          },
+          "title": "Hoja De Ruta",
+          "type": "array"
+        },
+        "paginas_analizadas": {
+          "default": 1,
+          "title": "Paginas Analizadas",
+          "type": "integer"
+        },
+        "recomendaciones": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Recomendaciones",
+          "type": "array"
+        },
+        "score": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Score",
+          "type": "integer"
+        },
+        "sugerencias": {
+          "items": {
+            "properties": {
+              "campo": {
+                "description": "title | meta_description",
+                "title": "Campo",
+                "type": "string"
+              },
+              "caracteres": {
+                "title": "Caracteres",
+                "type": "integer"
+              },
+              "texto": {
+                "title": "Texto",
+                "type": "string"
+              }
+            },
+            "required": [
+              "campo",
+              "texto",
+              "caracteres"
+            ],
+            "title": "SugerenciaSeo",
+            "type": "object"
+          },
+          "title": "Sugerencias",
+          "type": "array"
+        },
+        "url": {
+          "title": "Url",
+          "type": "string",
+          "format": "uri"
+        },
+        "uso": {
+          "additionalProperties": true,
+          "title": "Uso",
+          "type": "object"
+        }
+      },
+      "required": [
+        "url",
+        "score",
+        "grade",
+        "checks",
+        "carencias",
+        "recomendaciones",
+        "sugerencias",
+        "analizado_en",
+        "uso"
+      ],
+      "title": "RespuestaSeoAudit",
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agente.revenuerecoveryai.app",
+    "endpoint": "https://agente.revenuerecoveryai.app/v1/seo/audit/deep",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d2d0c7377585f13b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "agents": {
+          "items": {
+            "properties": {
+              "description": {
+                "type": "string"
+              },
+              "domain": {
+                "type": "string"
+              },
+              "externalId": {
+                "nullable": true,
+                "type": "string"
+              },
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "name": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "description",
+              "domain",
+              "externalId",
+              "id",
+              "name",
+              "slug"
+            ]
+          },
+          "type": "array"
+        },
+        "count": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "agents",
+        "count"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "agents[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "gateway.sanfoundation.com",
+    "endpoint": "https://gateway.sanfoundation.com/x402/v1/agents",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

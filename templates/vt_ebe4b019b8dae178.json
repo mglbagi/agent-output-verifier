@@ -1,0 +1,143 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ebe4b019b8dae178",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "description": "Gridlock answer-check validity and optimality verdict.",
+      "properties": {
+        "challenge_id": {
+          "description": "Checked Gridlock challenge identity.",
+          "type": "string"
+        },
+        "correct": {
+          "description": "Whether the Gridlock path is optimal.",
+          "type": "boolean"
+        },
+        "feedback": {
+          "additionalProperties": false,
+          "description": "Gridlock path validity and optimality measurements.",
+          "properties": {
+            "absolute_gap": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "first_invalid_step": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "message": {
+              "type": "string"
+            },
+            "optimal_path_length": {
+              "type": "integer"
+            },
+            "percentage_gap_percent": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "submitted_path_length": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "message",
+            "first_invalid_step",
+            "submitted_path_length",
+            "optimal_path_length",
+            "absolute_gap",
+            "percentage_gap_percent"
+          ],
+          "type": "object"
+        },
+        "game": {
+          "description": "Gridlock game identity.",
+          "enum": [
+            "gridlock"
+          ],
+          "type": "string"
+        },
+        "proof": {
+          "additionalProperties": false,
+          "description": "Present only after a correct Gridlock answer.",
+          "properties": {
+            "optimal_path": {
+              "items": {
+                "additionalProperties": false,
+                "description": "One zero-based Gridlock path coordinate.",
+                "properties": {
+                  "col": {
+                    "maximum": 19,
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "row": {
+                    "maximum": 19,
+                    "minimum": 0,
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "row",
+                  "col"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "optimal_path"
+          ],
+          "type": "object"
+        },
+        "score": {
+          "description": "Informational Gridlock score: 100 when correct, otherwise 0.",
+          "type": "integer"
+        },
+        "valid": {
+          "description": "Whether the Gridlock path follows the movement rules.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "challenge_id",
+        "game",
+        "valid",
+        "correct",
+        "score",
+        "feedback"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "feedback.optimal_path_length": {
+        "min": 0
+      },
+      "feedback.percentage_gap_percent": {
+        "min": 0,
+        "max": 100
+      },
+      "feedback.submitted_path_length": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-arcade.use.x402atlas.com",
+    "endpoint": "https://agent-arcade.use.x402atlas.com/gridlock/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

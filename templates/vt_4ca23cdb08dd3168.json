@@ -1,0 +1,40 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4ca23cdb08dd3168",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "imageUrl": {
+          "description": "Cover art image URL.",
+          "format": "uri",
+          "type": "string"
+        },
+        "shareUrl": {
+          "description": "Public URL to listen to and download the track.",
+          "format": "uri",
+          "type": "string"
+        },
+        "title": {
+          "description": "Title of the generated track.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "shareUrl"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "app.suedeai.ai",
+    "endpoint": "https://app.suedeai.ai/create-music",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

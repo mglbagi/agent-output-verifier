@@ -1,0 +1,53 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_338593ab6d9cb07c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "components": {
+          "description": "per-rule scoring breakdown; the score is reconstructable from these plus overrides"
+        },
+        "confidence": {
+          "description": "0-1, how much evidence backs the score"
+        },
+        "flags": {
+          "description": "array of {code, severity, title, detail}"
+        },
+        "overrides": {
+          "description": "hard caps applied after weighting, each with from/cap/reason"
+        },
+        "recommendation": {
+          "description": "proceed | proceed_with_caution | hold | block | insufficient_data. insufficient_data means no judgment was possible — treat it as unknown, not as risky."
+        },
+        "riskBand": {
+          "description": "minimal | low | moderate | elevated | severe | unknown"
+        },
+        "trustScore": {
+          "description": "0-100, higher is safer; null when no rule could be evaluated"
+        }
+      },
+      "type": "object",
+      "required": [
+        "components",
+        "confidence",
+        "flags",
+        "overrides",
+        "recommendation",
+        "riskBand",
+        "trustScore"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "trust-agent.io",
+    "endpoint": "https://trust-agent.io/v1/verify/quick",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

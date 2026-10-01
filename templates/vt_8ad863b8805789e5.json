@@ -1,0 +1,152 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8ad863b8805789e5",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "certificate": {
+          "properties": {
+            "issuer_cn": {
+              "type": "string"
+            },
+            "issuer_org": {
+              "type": "string"
+            },
+            "key_algorithm": {
+              "description": "e.g. RSA, ECDSA, Ed25519",
+              "type": "string"
+            },
+            "key_size": {
+              "description": "Key size in bits (0 for algorithms with no fixed size, e.g. Ed25519)",
+              "type": "integer"
+            },
+            "not_after": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "not_before": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "sans": {
+              "description": "Subject Alternative Names",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "serial_number": {
+              "type": "string"
+            },
+            "signature_algorithm": {
+              "type": "string"
+            },
+            "subject_cn": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "issuer_cn",
+            "issuer_org",
+            "key_algorithm",
+            "key_size",
+            "not_after",
+            "not_before",
+            "sans",
+            "serial_number",
+            "signature_algorithm",
+            "subject_cn"
+          ]
+        },
+        "chain": {
+          "properties": {
+            "chain_valid": {
+              "description": "Verified against the system trust store using only the intermediates the server presented; no AIA fetching",
+              "type": "boolean"
+            },
+            "days_until_expiry": {
+              "type": "integer"
+            },
+            "hostname_matches": {
+              "type": "boolean"
+            },
+            "is_expired": {
+              "type": "boolean"
+            },
+            "is_self_signed": {
+              "type": "boolean"
+            }
+          },
+          "type": "object",
+          "required": [
+            "chain_valid",
+            "days_until_expiry",
+            "hostname_matches",
+            "is_expired",
+            "is_self_signed"
+          ]
+        },
+        "connection": {
+          "properties": {
+            "cipher_suite": {
+              "type": "string"
+            },
+            "tls_version": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "cipher_suite",
+            "tls_version"
+          ]
+        },
+        "host": {
+          "type": "string"
+        },
+        "port": {
+          "type": "integer"
+        },
+        "queried_at": {
+          "description": "When the inspection ran",
+          "format": "date-time",
+          "type": "string"
+        },
+        "warnings": {
+          "description": "Human-readable advisories (weak algo, expired, self-signed, chain invalid, hostname mismatch); empty array when clean",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "certificate",
+        "chain",
+        "connection",
+        "host",
+        "port",
+        "queried_at",
+        "warnings"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "certificate.key_size": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ssl.use.x402atlas.com",
+    "endpoint": "https://ssl.use.x402atlas.com/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

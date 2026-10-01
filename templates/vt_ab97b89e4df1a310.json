@@ -1,0 +1,54 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ab97b89e4df1a310",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "operation": {
+          "const": "json-repair"
+        },
+        "requestId": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "result": {
+          "additionalProperties": false,
+          "properties": {
+            "changed": {
+              "type": "boolean"
+            },
+            "text": {
+              "type": "string"
+            },
+            "value": {}
+          },
+          "required": [
+            "value",
+            "text",
+            "changed"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "requestId",
+        "operation",
+        "result"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-data-fixer-production.up.railway.app",
+    "endpoint": "https://agent-data-fixer-production.up.railway.app/json-repair",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

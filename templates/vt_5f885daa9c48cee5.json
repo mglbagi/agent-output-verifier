@@ -1,0 +1,59 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5f885daa9c48cee5",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "completeness": {
+          "additionalProperties": true,
+          "description": "Bounded-response and record-count metadata.",
+          "type": "object"
+        },
+        "data_status": {
+          "description": "Whether the returned publication is fixture or production data.",
+          "type": "string"
+        },
+        "publication": {
+          "additionalProperties": true,
+          "description": "The complete latest daily publication and Markdown synthesis.",
+          "type": "object"
+        },
+        "records": {
+          "items": {
+            "additionalProperties": true,
+            "description": "A normalized public Keelbase Signal event record with factual reporting, Keelbase analysis, assessment, source attribution, and correction lineage.",
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "data_status",
+        "publication",
+        "completeness",
+        "records",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "signal.keelbase.io",
+    "endpoint": "https://signal.keelbase.io/api/v1/daily/latest",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

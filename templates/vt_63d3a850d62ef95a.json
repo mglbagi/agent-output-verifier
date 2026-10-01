@@ -1,0 +1,133 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_63d3a850d62ef95a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "attestation": {
+          "type": "object",
+          "properties": {
+            "result_digest": {
+              "type": "string"
+            },
+            "signature": {
+              "type": "string"
+            },
+            "signing_key_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result_digest",
+            "signature",
+            "signing_key_id"
+          ]
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "_record_id": {
+                "type": "string"
+              },
+              "field": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "_record_id",
+              "field"
+            ]
+          }
+        },
+        "payment_receipt": {
+          "type": "object",
+          "properties": {
+            "amount_usd": {
+              "type": "number"
+            },
+            "settlement_ref": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount_usd",
+            "settlement_ref"
+          ]
+        },
+        "product": {
+          "type": "string"
+        },
+        "product_version": {
+          "type": "integer"
+        },
+        "provenance": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "authority": {
+                "type": "string"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "observed_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "source_url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "authority",
+              "hash",
+              "observed_at",
+              "source_url"
+            ]
+          }
+        },
+        "row_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "attestation",
+        "data",
+        "payment_receipt",
+        "product",
+        "product_version",
+        "provenance",
+        "row_count"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data[]._record_id"
+      }
+    ],
+    "bounds": {
+      "payment_receipt.amount_usd": {
+        "min": 0
+      },
+      "row_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.clinkforge.com",
+    "endpoint": "https://api.clinkforge.com/v1/p/auto-nchs-births-and-general-fertility-rates-united-states-lookup",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_654a406ae61a5237",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "height": {
+          "type": "integer"
+        },
+        "latency_ms": {
+          "type": "integer"
+        },
+        "png_base64": {
+          "type": "string"
+        },
+        "size_bytes": {
+          "type": "integer"
+        },
+        "theme": {
+          "type": "string"
+        },
+        "width": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "height",
+        "latency_ms",
+        "png_base64",
+        "size_bytes",
+        "theme",
+        "width"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "height": {
+        "min": 0
+      },
+      "size_bytes": {
+        "min": 0
+      },
+      "width": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "og.bip-rep.com",
+    "endpoint": "https://og.bip-rep.com/generate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

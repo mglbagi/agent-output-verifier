@@ -1,0 +1,212 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fd04c6583d299292",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "search": {
+          "type": "object",
+          "properties": {
+            "offers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "arriving_at": {
+                    "type": "string"
+                  },
+                  "base_amount_decimal": {
+                    "type": "string"
+                  },
+                  "cabin_class": {
+                    "type": "string"
+                  },
+                  "cabin_class_marketing_name": {
+                    "type": "string"
+                  },
+                  "carry_on_bags_included": {
+                    "type": "integer"
+                  },
+                  "checked_bags_included": {
+                    "type": "integer"
+                  },
+                  "comparison_key": {
+                    "type": "string"
+                  },
+                  "conditions": {
+                    "type": "object",
+                    "properties": {
+                      "change_allowed": {
+                        "type": "boolean"
+                      },
+                      "change_penalty_amount": {
+                        "type": "string"
+                      },
+                      "change_penalty_currency": {
+                        "type": "string"
+                      },
+                      "refund_allowed": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "change_allowed",
+                      "change_penalty_amount",
+                      "change_penalty_currency",
+                      "refund_allowed"
+                    ]
+                  },
+                  "departing_at": {
+                    "type": "string"
+                  },
+                  "destination_iata": {
+                    "type": "string"
+                  },
+                  "destination_time_zone": {
+                    "type": "string"
+                  },
+                  "duration": {
+                    "type": "string"
+                  },
+                  "fare_brand_name": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "identity_documents_required": {
+                    "type": "boolean"
+                  },
+                  "origin_iata": {
+                    "type": "string"
+                  },
+                  "origin_time_zone": {
+                    "type": "string"
+                  },
+                  "owner_name": {
+                    "type": "string"
+                  },
+                  "segments": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "arriving_at": {
+                          "type": "string"
+                        },
+                        "carrier_name": {
+                          "type": "string"
+                        },
+                        "departing_at": {
+                          "type": "string"
+                        },
+                        "destination_iata": {
+                          "type": "string"
+                        },
+                        "flight_number": {
+                          "type": "string"
+                        },
+                        "origin_iata": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "arriving_at",
+                        "carrier_name",
+                        "departing_at",
+                        "destination_iata",
+                        "flight_number",
+                        "origin_iata"
+                      ]
+                    }
+                  },
+                  "stops": {
+                    "type": "integer"
+                  },
+                  "tax_amount_decimal": {
+                    "type": "string"
+                  },
+                  "technical_stops": {
+                    "type": "integer"
+                  },
+                  "total_amount": {
+                    "type": "number"
+                  },
+                  "total_amount_decimal": {
+                    "type": "string"
+                  },
+                  "total_currency": {
+                    "type": "string"
+                  },
+                  "total_emissions_kg": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "arriving_at",
+                  "base_amount_decimal",
+                  "cabin_class",
+                  "cabin_class_marketing_name",
+                  "carry_on_bags_included",
+                  "checked_bags_included",
+                  "comparison_key",
+                  "conditions",
+                  "departing_at",
+                  "destination_iata",
+                  "destination_time_zone",
+                  "duration",
+                  "fare_brand_name",
+                  "id",
+                  "identity_documents_required",
+                  "origin_iata",
+                  "origin_time_zone",
+                  "owner_name",
+                  "segments",
+                  "stops",
+                  "tax_amount_decimal",
+                  "technical_stops",
+                  "total_amount",
+                  "total_amount_decimal",
+                  "total_currency",
+                  "total_emissions_kg"
+                ]
+              }
+            },
+            "request_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "offers",
+            "request_id"
+          ]
+        }
+      },
+      "required": [
+        "search"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "search.offers[].id"
+      }
+    ],
+    "bounds": {
+      "search.offers[].total_amount": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "travel.brij.fi",
+    "endpoint": "https://travel.brij.fi/air/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

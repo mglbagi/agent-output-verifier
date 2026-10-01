@@ -1,0 +1,75 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_97fb589076079527",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "flags": {
+          "items": {
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "check": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "hit": {
+                "type": "boolean"
+              },
+              "id": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "action",
+              "evidence",
+              "hit",
+              "id",
+              "severity"
+            ]
+          },
+          "type": "array"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "verdict": {
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "required": [
+        "flags",
+        "mode",
+        "verdict"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "flags[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "geld-machen-x402.fly.dev",
+    "endpoint": "https://geld-machen-x402.fly.dev/product/red-flag-scan.json",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

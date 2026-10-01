@@ -1,0 +1,127 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_50f197435bcdd3f6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "info": {
+          "properties": {
+            "results_count": {
+              "type": "integer"
+            },
+            "reviews_for_current_version": {
+              "type": "integer"
+            },
+            "total_page_count": {
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "required": [
+            "results_count",
+            "total_page_count"
+          ]
+        },
+        "note": {
+          "description": "Present only when no reviews matched: a hint that product_id must be a numeric App Store id. The paid lookup still ran.",
+          "type": "string"
+        },
+        "product_id": {
+          "type": "string"
+        },
+        "queried_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "reviews": {
+          "items": {
+            "properties": {
+              "author": {
+                "properties": {
+                  "author_id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "name"
+                ]
+              },
+              "helpfulness_vote_information": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "position": {
+                "type": "integer"
+              },
+              "rating": {
+                "type": "number"
+              },
+              "review_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "reviewed_version": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "author",
+              "id",
+              "rating",
+              "review_date",
+              "reviewed_version",
+              "text",
+              "title"
+            ]
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "product_id",
+        "queried_at",
+        "reviews"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "reviews[].id"
+      }
+    ],
+    "bounds": {
+      "info.results_count": {
+        "min": 0,
+        "if_present": true
+      },
+      "info.total_page_count": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "appstore.use.x402atlas.com",
+    "endpoint": "https://appstore.use.x402atlas.com/v2/product/:product_id/reviews",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

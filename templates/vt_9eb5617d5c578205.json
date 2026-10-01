@@ -1,0 +1,417 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9eb5617d5c578205",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "$defs": {
+        "check": {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "detail": {
+              "maxLength": 4096,
+              "type": "string"
+            },
+            "status": {
+              "enum": [
+                "passed",
+                "failed",
+                "not_checked"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "code",
+            "status",
+            "detail"
+          ],
+          "type": "object"
+        },
+        "textBox": {
+          "additionalProperties": false,
+          "properties": {
+            "block": {
+              "type": "string"
+            },
+            "bold": {
+              "type": "boolean"
+            },
+            "fontSizePt": {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            "heightMm": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "lines": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "widthMm": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "xHeightMm": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "xMm": {
+              "type": "number"
+            },
+            "yMm": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "block",
+            "xMm",
+            "yMm",
+            "widthMm",
+            "heightMm",
+            "fontSizePt",
+            "xHeightMm",
+            "lines",
+            "bold"
+          ],
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "allergens": {
+          "additionalProperties": false,
+          "properties": {
+            "detectedUnmarked": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "ingredient": {
+                    "type": "string"
+                  },
+                  "term": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "ingredient",
+                  "term"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "marked": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "marked",
+            "detectedUnmarked"
+          ],
+          "type": "object"
+        },
+        "artifacts": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "href": {
+                "format": "uri",
+                "type": "string"
+              },
+              "mediaType": {
+                "maxLength": 128,
+                "minLength": 1,
+                "type": "string"
+              },
+              "name": {
+                "enum": [
+                  "label.pdf",
+                  "label.svg",
+                  "proof.png",
+                  "dieline.svg",
+                  "report.json"
+                ],
+                "type": "string"
+              },
+              "sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "sizeBytes": {
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "name",
+              "mediaType",
+              "sizeBytes",
+              "sha256",
+              "href"
+            ],
+            "type": "object"
+          },
+          "maxItems": 5,
+          "type": "array"
+        },
+        "barcode": {
+          "additionalProperties": false,
+          "properties": {
+            "checkDigitValid": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "data": {
+              "type": "string"
+            },
+            "heightMm": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "magnification": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "moduleMm": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "quietZoneLeftMm": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "quietZoneRightMm": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "symbology": {
+              "enum": [
+                "ean13",
+                "upca",
+                "qrcode",
+                "datamatrix"
+              ],
+              "type": "string"
+            },
+            "truncated": {
+              "type": "boolean"
+            },
+            "widthMm": {
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "symbology",
+            "data",
+            "checkDigitValid",
+            "moduleMm",
+            "magnification",
+            "widthMm",
+            "heightMm",
+            "quietZoneLeftMm",
+            "quietZoneRightMm",
+            "truncated"
+          ],
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "checks": {
+          "items": {
+            "$ref": "#/$defs/check"
+          },
+          "type": "array"
+        },
+        "contrast": {
+          "additionalProperties": false,
+          "properties": {
+            "accentOnBackground": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "textOnBackground": {
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "textOnBackground",
+            "accentOnBackground"
+          ],
+          "type": "object"
+        },
+        "expiresAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "fonts": {
+          "additionalProperties": false,
+          "properties": {
+            "bold": {
+              "type": "string"
+            },
+            "family": {
+              "enum": [
+                "liberation-sans",
+                "liberation-serif"
+              ],
+              "type": "string"
+            },
+            "regular": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "family",
+            "regular",
+            "bold"
+          ],
+          "type": "object"
+        },
+        "format": {
+          "additionalProperties": false,
+          "properties": {
+            "areaCm2": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "bleedMm": {
+              "type": "number"
+            },
+            "cornerRadiusMm": {
+              "type": "number"
+            },
+            "heightMm": {
+              "type": "number"
+            },
+            "safeMm": {
+              "type": "number"
+            },
+            "smallPack": {
+              "description": "Trim area below the ruleset's small-pack threshold (EU FIC Art. 13(3): 80 cm²).",
+              "type": "boolean"
+            },
+            "widthMm": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "widthMm",
+            "heightMm",
+            "bleedMm",
+            "safeMm",
+            "cornerRadiusMm",
+            "areaCm2",
+            "smallPack"
+          ],
+          "type": "object"
+        },
+        "layout": {
+          "items": {
+            "$ref": "#/$defs/textBox"
+          },
+          "type": "array"
+        },
+        "limitations": {
+          "items": {
+            "maxLength": 4096,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "minimumXHeightMm": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "ruleset": {
+          "enum": [
+            "eu-fic",
+            "us-fda",
+            "generic"
+          ],
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "passed",
+            "rejected"
+          ],
+          "type": "string"
+        },
+        "timings": {
+          "additionalProperties": false,
+          "properties": {
+            "layoutMs": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "renderMs": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "totalMs": {
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "layoutMs",
+            "renderMs",
+            "totalMs"
+          ],
+          "type": "object"
+        },
+        "warnings": {
+          "items": {
+            "maxLength": 4096,
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "status",
+        "ruleset",
+        "format",
+        "minimumXHeightMm",
+        "fonts",
+        "layout",
+        "barcode",
+        "allergens",
+        "contrast",
+        "checks",
+        "warnings",
+        "limitations",
+        "timings",
+        "expiresAt",
+        "artifacts"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "label.api.williamrobinson.dev",
+    "endpoint": "https://label.api.williamrobinson.dev/v1/label/compile",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

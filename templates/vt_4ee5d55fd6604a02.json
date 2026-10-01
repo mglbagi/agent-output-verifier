@@ -1,0 +1,212 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4ee5d55fd6604a02",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "checked_at": {
+          "description": "ISO-8601 timestamp when extraction ran.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "content": {
+          "properties": {
+            "approx_tokens": {
+              "type": "integer"
+            },
+            "characters": {
+              "type": "integer"
+            },
+            "extraction_basis": {
+              "enum": [
+                "main",
+                "article",
+                "body-heuristic",
+                "none"
+              ],
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            },
+            "token_estimate_method": {
+              "type": "string"
+            },
+            "truncated": {
+              "type": "boolean"
+            }
+          },
+          "type": "object",
+          "required": [
+            "approx_tokens",
+            "characters",
+            "extraction_basis",
+            "text",
+            "token_estimate_method",
+            "truncated"
+          ]
+        },
+        "evidence": {
+          "type": "object"
+        },
+        "final_url": {
+          "description": "Final URL after bounded redirects, or null on HOLD.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "freshness": {
+          "properties": {
+            "observations": {
+              "type": "array"
+            }
+          },
+          "type": "object",
+          "required": [
+            "observations"
+          ]
+        },
+        "http": {
+          "properties": {
+            "content_type": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "redirect_count": {
+              "type": "integer"
+            },
+            "status": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "content_type",
+            "redirect_count",
+            "status"
+          ]
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "metadata": {
+          "properties": {
+            "canonical": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "description": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "title": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "canonical",
+            "title"
+          ]
+        },
+        "methodology_version": {
+          "enum": [
+            "url-context-0.1.0"
+          ],
+          "type": "string"
+        },
+        "outline": {
+          "items": {
+            "properties": {
+              "level": {
+                "type": "integer"
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "level",
+              "text"
+            ]
+          },
+          "type": "array"
+        },
+        "requested_url": {
+          "description": "The buyer-supplied URL after request validation.",
+          "type": "string",
+          "format": "uri"
+        },
+        "size": {
+          "type": "object"
+        },
+        "status": {
+          "enum": [
+            "OK",
+            "PARTIAL",
+            "HOLD"
+          ],
+          "type": "string"
+        },
+        "structured_data": {
+          "properties": {
+            "json_ld_types": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object",
+          "required": [
+            "json_ld_types"
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "methodology_version",
+        "requested_url",
+        "content",
+        "limitations"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "http.redirect_count": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.agentmercantile.com",
+    "endpoint": "https://api.agentmercantile.com/v1/url-context",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

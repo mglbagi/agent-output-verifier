@@ -1,0 +1,55 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d1543b51806c4d4c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "description": "Extracted value; guaranteed to validate against the request `schema`."
+        },
+        "meta": {
+          "properties": {
+            "deterministicFields": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "latencyMs": {
+              "type": "integer"
+            },
+            "repairs": {
+              "type": "integer"
+            },
+            "validated": {
+              "const": true
+            }
+          },
+          "required": [
+            "repairs",
+            "latencyMs",
+            "validated"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "data",
+        "meta"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "schemasure.com",
+    "endpoint": "https://schemasure.com/v2/extract",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1c3129c6eaa000fc",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "confidence": {
+          "type": "number"
+        },
+        "engine": {
+          "type": "string"
+        },
+        "fetched_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lang": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "text": {
+          "type": "string"
+        },
+        "timing_ms": {
+          "type": "integer"
+        },
+        "word_count": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "confidence",
+        "engine",
+        "fetched_at",
+        "lang",
+        "ok",
+        "text",
+        "timing_ms",
+        "word_count"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "word_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "geld-machen-x402.fly.dev",
+    "endpoint": "https://geld-machen-x402.fly.dev/product/image-ocr.json",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

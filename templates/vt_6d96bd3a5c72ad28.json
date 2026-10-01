@@ -1,0 +1,119 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6d96bd3a5c72ad28",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "scorecard": {
+          "type": "object",
+          "properties": {
+            "author": {
+              "type": "object",
+              "properties": {
+                "handle": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "handle",
+                "name"
+              ]
+            },
+            "coverage": {
+              "type": "object",
+              "properties": {
+                "resolved_claims": {
+                  "type": "integer"
+                },
+                "total_claims": {
+                  "type": "number"
+                },
+                "unique_instruments": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "resolved_claims",
+                "total_claims",
+                "unique_instruments"
+              ]
+            },
+            "performance": {
+              "type": "object",
+              "properties": {
+                "confidence_interval_95": {
+                  "type": "object",
+                  "properties": {
+                    "lower": {
+                      "type": "number"
+                    },
+                    "upper": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "lower",
+                    "upper"
+                  ]
+                },
+                "hit_rate": {
+                  "type": "number"
+                },
+                "hits": {
+                  "type": "integer"
+                },
+                "misses": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "confidence_interval_95",
+                "hit_rate",
+                "hits",
+                "misses"
+              ]
+            }
+          },
+          "required": [
+            "author",
+            "coverage",
+            "performance"
+          ]
+        }
+      },
+      "required": [
+        "ok",
+        "scorecard"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "scorecard.performance.confidence_interval_95.lower",
+        "other_field": "scorecard.performance.confidence_interval_95.upper"
+      }
+    ],
+    "bounds": {
+      "scorecard.coverage.total_claims": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "dragon7.space",
+    "endpoint": "https://dragon7.space/v1/authors/:handle/scorecard",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

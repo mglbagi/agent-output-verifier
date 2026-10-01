@@ -1,0 +1,208 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_072ea38f8dc6dc90",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "chain": {
+          "const": "polygon",
+          "type": "string"
+        },
+        "chainId": {
+          "const": 137,
+          "type": "integer"
+        },
+        "contract": {
+          "pattern": "^0x[a-fA-F0-9]{40}$",
+          "type": "string"
+        },
+        "definitions": {
+          "additionalProperties": false,
+          "properties": {
+            "countUnit": {
+              "const": "events",
+              "type": "string"
+            },
+            "eligible": {
+              "const": "positive-value transfers with distinct sender and receiver, excluding the zero address",
+              "type": "string"
+            },
+            "median": {
+              "const": "floored atomic average for even counts",
+              "type": "string"
+            }
+          },
+          "required": [
+            "eligible",
+            "countUnit",
+            "median"
+          ],
+          "type": "object"
+        },
+        "expiresAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "fromBlock": {
+          "pattern": "^[0-9]+$",
+          "type": "string"
+        },
+        "fromTimestamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "generatedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "medianTransfer": {
+          "pattern": "^[0-9]+$",
+          "type": "string"
+        },
+        "medianTransferFormatted": {
+          "pattern": "^[0-9]+(\\.[0-9]+)?$",
+          "type": "string"
+        },
+        "notice": {
+          "const": "onchain-facts-only",
+          "description": "On-chain facts computed hourly from finalized Polygon blocks. Informational only; not financial advice. Full terms at termsUrl.",
+          "type": "string"
+        },
+        "observedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "schemaVersion": {
+          "const": "2.2",
+          "type": "string"
+        },
+        "termsUrl": {
+          "format": "uri",
+          "type": "string"
+        },
+        "toBlock": {
+          "pattern": "^[0-9]+$",
+          "type": "string"
+        },
+        "toTimestamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "token": {
+          "additionalProperties": false,
+          "properties": {
+            "decimals": {
+              "const": 18,
+              "type": "integer"
+            },
+            "symbol": {
+              "const": "JPYC",
+              "type": "string"
+            }
+          },
+          "required": [
+            "symbol",
+            "decimals"
+          ],
+          "type": "object"
+        },
+        "topReceivers": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "address": {
+                "pattern": "^0x[a-f0-9]{40}$",
+                "type": "string"
+              },
+              "count": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "volume": {
+                "pattern": "^[0-9]+$",
+                "type": "string"
+              },
+              "volumeFormatted": {
+                "pattern": "^[0-9]+(\\.[0-9]+)?$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "address",
+              "count",
+              "volume",
+              "volumeFormatted"
+            ],
+            "type": "object"
+          },
+          "maxItems": 5,
+          "type": "array"
+        },
+        "transferCount": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "uniqueReceivers": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "uniqueSenders": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "volume": {
+          "pattern": "^[0-9]+$",
+          "type": "string"
+        },
+        "volumeFormatted": {
+          "pattern": "^[0-9]+(\\.[0-9]+)?$",
+          "type": "string"
+        },
+        "window": {
+          "const": "24h",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "token",
+        "generatedAt",
+        "notice",
+        "termsUrl",
+        "chain",
+        "chainId",
+        "contract",
+        "window",
+        "fromBlock",
+        "toBlock",
+        "fromTimestamp",
+        "toTimestamp",
+        "transferCount",
+        "uniqueSenders",
+        "uniqueReceivers",
+        "volume",
+        "volumeFormatted",
+        "medianTransfer",
+        "medianTransferFormatted",
+        "topReceivers",
+        "definitions",
+        "observedAt",
+        "expiresAt"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "open-pay.jp",
+    "endpoint": "https://open-pay.jp/api/paid/usdc/jpyc/activity",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_282ca26491c389fa",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "blocks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "hash": {
+                "type": "string"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "nTx": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "hash",
+              "height",
+              "nTx"
+            ]
+          }
+        },
+        "count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "blocks",
+        "count"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "blocks[].height": {
+        "min": 0
+      },
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "btcnode.uk",
+    "endpoint": "https://btcnode.uk/api/blocks/recent",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

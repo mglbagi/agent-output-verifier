@@ -1,0 +1,341 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c35ec39316606a80",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "cached": {
+          "type": "boolean"
+        },
+        "cached_at": {
+          "format": "date-time",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "chain": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "change_24h_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "data_source": {
+          "type": "string"
+        },
+        "indicators": {
+          "additionalProperties": false,
+          "properties": {
+            "atr": {
+              "additionalProperties": false,
+              "properties": {
+                "assessment": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "value",
+                "assessment"
+              ],
+              "type": "object"
+            },
+            "bollinger": {
+              "additionalProperties": false,
+              "properties": {
+                "assessment": {
+                  "type": "string"
+                },
+                "lower": {
+                  "type": "number"
+                },
+                "middle": {
+                  "type": "number"
+                },
+                "upper": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "upper",
+                "middle",
+                "lower",
+                "assessment"
+              ],
+              "type": "object"
+            },
+            "ema": {
+              "additionalProperties": false,
+              "properties": {
+                "ema_20": {
+                  "type": "number"
+                },
+                "ema_200": {
+                  "type": "number"
+                },
+                "ema_50": {
+                  "type": "number"
+                },
+                "trend": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "ema_20",
+                "ema_50",
+                "ema_200",
+                "trend"
+              ],
+              "type": "object"
+            },
+            "fractals": {
+              "additionalProperties": false,
+              "properties": {
+                "assessment": {
+                  "type": "string"
+                },
+                "bearish": {
+                  "type": "boolean"
+                },
+                "bullish": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "bullish",
+                "bearish",
+                "assessment"
+              ],
+              "type": "object"
+            },
+            "macd": {
+              "additionalProperties": false,
+              "properties": {
+                "histogram": {
+                  "type": "number"
+                },
+                "macd": {
+                  "type": "number"
+                },
+                "signal": {
+                  "type": "number"
+                },
+                "trend": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "macd",
+                "signal",
+                "histogram",
+                "trend"
+              ],
+              "type": "object"
+            },
+            "rsi": {
+              "additionalProperties": false,
+              "properties": {
+                "assessment": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                },
+                "zone": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "zone",
+                "assessment"
+              ],
+              "type": "object"
+            },
+            "sma": {
+              "additionalProperties": false,
+              "properties": {
+                "sma_20": {
+                  "type": "number"
+                },
+                "sma_200": {
+                  "type": "number"
+                },
+                "sma_50": {
+                  "type": "number"
+                },
+                "trend": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "sma_20",
+                "sma_50",
+                "sma_200",
+                "trend"
+              ],
+              "type": "object"
+            },
+            "stochastic": {
+              "additionalProperties": false,
+              "properties": {
+                "assessment": {
+                  "type": "string"
+                },
+                "percent_k": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "percent_k",
+                "assessment"
+              ],
+              "type": "object"
+            },
+            "volume": {
+              "additionalProperties": false,
+              "properties": {
+                "assessment": {
+                  "type": "string"
+                },
+                "latest": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "assessment"
+              ],
+              "type": "object"
+            },
+            "vwma": {
+              "additionalProperties": false,
+              "properties": {
+                "comparison": {
+                  "type": "string"
+                },
+                "vwma_20": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "vwma_20",
+                "comparison"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "bollinger",
+            "sma",
+            "ema",
+            "vwma",
+            "rsi",
+            "macd",
+            "atr",
+            "stochastic",
+            "fractals",
+            "volume"
+          ],
+          "type": "object"
+        },
+        "market_cap": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "notes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "price": {
+          "type": "number"
+        },
+        "resolved_name": {
+          "type": "string"
+        },
+        "timeframe": {
+          "enum": [
+            "5m",
+            "15m",
+            "1h",
+            "4h",
+            "1d",
+            "1w"
+          ],
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "volume_24h": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "token",
+        "resolved_name",
+        "timestamp",
+        "price",
+        "timeframe",
+        "indicators",
+        "data_source",
+        "notes",
+        "cached"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "indicators.bollinger.lower",
+        "other_field": "indicators.bollinger.upper"
+      }
+    ],
+    "bounds": {
+      "indicators.stochastic.percent_k": {
+        "min": 0,
+        "max": 100
+      },
+      "market_cap": {
+        "min": 0,
+        "if_present": true
+      },
+      "price": {
+        "min": 0
+      },
+      "volume_24h": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "signal.quickai.build",
+    "endpoint": "https://signal.quickai.build/signal",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

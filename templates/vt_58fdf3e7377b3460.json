@@ -1,0 +1,50 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_58fdf3e7377b3460",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "financials": {
+          "additionalProperties": false,
+          "properties": {
+            "balance_sheets": {
+              "items": {},
+              "type": "array"
+            },
+            "cash_flow_statements": {
+              "items": {},
+              "type": "array"
+            },
+            "income_statements": {
+              "items": {},
+              "type": "array"
+            }
+          },
+          "required": [
+            "income_statements",
+            "balance_sheets",
+            "cash_flow_statements"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "financials"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "stablefinance.dev",
+    "endpoint": "https://stablefinance.dev/api/financials",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

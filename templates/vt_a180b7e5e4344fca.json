@@ -1,0 +1,116 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a180b7e5e4344fca",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "count": {
+          "description": "Rounds returned.",
+          "type": "integer"
+        },
+        "limitations": {
+          "description": "Coverage limits and missing data, always disclosed.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "offering": {
+          "const": "forecast_history",
+          "description": "Offering that produced this result.",
+          "type": "string"
+        },
+        "provenance": {
+          "description": "Reproducibility metadata so another agent can audit this.",
+          "properties": {
+            "auditedDeliverableHash": {
+              "description": "Explicit alias for resultHash on deliverable-audit results; hashes the buyer-supplied input, not the audit envelope.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "generatedAt": {
+              "description": "Unix seconds.",
+              "type": "integer"
+            },
+            "ledgerLaunchCount": {
+              "description": "Launches in the ledger. Null when the offering is not derived from the launch ledger — this means not applicable, not collection failure.",
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "ledgerSpanHours": {
+              "description": "Hours of history covered. Null when the offering is not derived from the launch ledger.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "resultHash": {
+              "description": "Hash of the audited input, so the same verdict can be reproduced. Present on audit offerings.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "rubricVersion": {
+              "description": "Rubric the verdict was produced under. Present on audit offerings.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "source": {
+              "description": "Data origin.",
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "generatedAt",
+            "source"
+          ]
+        },
+        "rounds": {
+          "description": "Sealed rounds.",
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "schemaVersion": {
+          "description": "Deliverable contract version.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "offering",
+        "provenance",
+        "limitations",
+        "count",
+        "rounds"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "app.tenna.ai",
+    "endpoint": "https://app.tenna.ai/api/x402/lumi/forecast_history",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

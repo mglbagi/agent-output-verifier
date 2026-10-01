@@ -1,0 +1,76 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0fe743142e56d918",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "companyDomain": {
+          "type": "string"
+        },
+        "companyName": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "enrichedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "followerCount": {
+          "type": "number"
+        },
+        "headline": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "linkedinId": {
+          "type": "string"
+        },
+        "linkedinUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "location": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "companyDomain",
+        "companyName",
+        "country",
+        "enrichedAt",
+        "firstName",
+        "followerCount",
+        "headline",
+        "lastName",
+        "linkedinId",
+        "linkedinUrl",
+        "location",
+        "title"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.linkedpanda.com",
+    "endpoint": "https://api.linkedpanda.com/agent/v1/profiles/:linkedinId",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

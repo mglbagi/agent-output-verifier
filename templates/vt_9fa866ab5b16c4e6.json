@@ -1,0 +1,91 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9fa866ab5b16c4e6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "actions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "auditId": {
+          "type": "string"
+        },
+        "grade": {
+          "type": "string"
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "listings": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "merchant": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "network": {
+          "type": "string"
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "onchain": {
+          "type": "object"
+        },
+        "rankings": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "score": {
+          "type": "integer"
+        },
+        "scoreBreakdown": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "auditId",
+        "merchant",
+        "network",
+        "observedAt",
+        "score",
+        "grade",
+        "scoreBreakdown",
+        "summary",
+        "listings",
+        "rankings",
+        "onchain",
+        "actions",
+        "limitations"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "anywaypossible.com",
+    "endpoint": "https://anywaypossible.com/api/merchant-audit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

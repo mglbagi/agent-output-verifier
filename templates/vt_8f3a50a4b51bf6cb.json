@@ -1,0 +1,132 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8f3a50a4b51bf6cb",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "abbreviation": {
+          "type": "string"
+        },
+        "at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "boundaries": {
+          "type": "object",
+          "properties": {
+            "accuracyMetres": {
+              "type": "integer"
+            },
+            "dataset": {
+              "type": "string"
+            },
+            "h3Resolution": {
+              "type": "integer"
+            },
+            "license": {
+              "type": "string"
+            },
+            "tzdbVintage": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "accuracyMetres",
+            "dataset",
+            "h3Resolution",
+            "license",
+            "tzdbVintage"
+          ]
+        },
+        "cell": {
+          "type": "string"
+        },
+        "dstOffsetMinutes": {
+          "type": "integer"
+        },
+        "isDST": {
+          "type": "boolean"
+        },
+        "localTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "notes": {
+          "type": "array"
+        },
+        "query": {
+          "type": "object",
+          "properties": {
+            "lat": {
+              "type": "number"
+            },
+            "lon": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "lat",
+            "lon"
+          ]
+        },
+        "source": {
+          "type": "string"
+        },
+        "standardUtcOffset": {
+          "type": "string"
+        },
+        "standardUtcOffsetMinutes": {
+          "type": "integer"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "utcOffset": {
+          "type": "string"
+        },
+        "utcOffsetMinutes": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "abbreviation",
+        "at",
+        "boundaries",
+        "cell",
+        "dstOffsetMinutes",
+        "isDST",
+        "localTime",
+        "notes",
+        "query",
+        "source",
+        "standardUtcOffset",
+        "standardUtcOffsetMinutes",
+        "timezone",
+        "utcOffset",
+        "utcOffsetMinutes"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "query.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "query.lon": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.geoprimitives.dev",
+    "endpoint": "https://api.geoprimitives.dev/v1/timezone",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

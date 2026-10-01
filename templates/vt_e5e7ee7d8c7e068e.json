@@ -1,0 +1,44 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e5e7ee7d8c7e068e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "bazaar": {
+          "type": "object"
+        },
+        "checks": {
+          "type": "array"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "bazaar",
+        "checks",
+        "verdict"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "unlisted.sh",
+    "endpoint": "https://unlisted.sh/diagnose",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

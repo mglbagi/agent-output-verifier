@@ -1,0 +1,103 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b1d96489242d9b13",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "back_color": {
+          "description": "Background colour as normalised #rrggbb hex.",
+          "type": "string"
+        },
+        "border": {
+          "description": "Quiet-zone border width in modules.",
+          "type": "integer"
+        },
+        "box_size": {
+          "description": "Pixels per QR module.",
+          "type": "integer"
+        },
+        "data": {
+          "description": "The text or URL encoded into the QR code.",
+          "type": "string"
+        },
+        "error_correction": {
+          "description": "Error-correction level used: L, M, Q, or H.",
+          "type": "string"
+        },
+        "fill_color": {
+          "description": "Foreground colour as normalised #rrggbb hex.",
+          "type": "string"
+        },
+        "format": {
+          "description": "Image format of the returned bytes; always 'png'.",
+          "type": "string"
+        },
+        "height": {
+          "description": "PNG height in pixels.",
+          "type": "integer"
+        },
+        "image_base64": {
+          "description": "Base64-encoded PNG of the QR code.",
+          "type": "string"
+        },
+        "modules": {
+          "description": "QR module count per side (the grid dimension).",
+          "type": "integer"
+        },
+        "size_bytes": {
+          "description": "Byte length of the raw PNG.",
+          "type": "integer"
+        },
+        "version": {
+          "description": "QR version (1-40) chosen to fit the data.",
+          "type": "integer"
+        },
+        "width": {
+          "description": "PNG width in pixels.",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "back_color",
+        "border",
+        "box_size",
+        "data",
+        "error_correction",
+        "fill_color",
+        "format",
+        "height",
+        "image_base64",
+        "modules",
+        "size_bytes",
+        "version",
+        "width"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "box_size": {
+        "min": 0
+      },
+      "height": {
+        "min": 0
+      },
+      "size_bytes": {
+        "min": 0
+      },
+      "width": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "qr-api-production-1836.up.railway.app",
+    "endpoint": "https://qr-api-production-1836.up.railway.app/generate/basic",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

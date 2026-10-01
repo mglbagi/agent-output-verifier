@@ -1,0 +1,203 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_529b029e261595d4",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "attribution": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "filters": {
+          "description": "Echo of the filters that were applied.",
+          "type": "object"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "next_page": {
+          "description": "Next page number, or null when this is the last page.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "page": {
+          "type": "integer"
+        },
+        "page_size": {
+          "type": "integer"
+        },
+        "related": {
+          "description": "Sibling endpoints worth buying next.",
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "returned": {
+          "type": "integer"
+        },
+        "rows": {
+          "items": {
+            "properties": {
+              "activity_date": {
+                "format": "date",
+                "type": "string"
+              },
+              "eligible_adjustment_qty": {
+                "type": "number"
+              },
+              "eligible_qty": {
+                "type": "number"
+              },
+              "metal": {
+                "type": "string"
+              },
+              "pledged_qty": {
+                "type": "number"
+              },
+              "received_qty": {
+                "type": "number"
+              },
+              "registered_adjustment_qty": {
+                "type": "number"
+              },
+              "registered_qty": {
+                "type": "number"
+              },
+              "total_adjustment_qty": {
+                "type": "number"
+              },
+              "total_qty": {
+                "type": "number"
+              },
+              "warehouse_breakdown": {
+                "description": "Per-depository detail: {\"warehouses\": [{\"name\", \"registered\", \"eligible\", ...}]}.",
+                "properties": {
+                  "warehouses": {
+                    "items": {
+                      "properties": {
+                        "eligible": {
+                          "type": "number"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "registered": {
+                          "type": "number"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "eligible",
+                        "name",
+                        "registered"
+                      ]
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "warehouses"
+                ]
+              },
+              "withdrawn_qty": {
+                "type": "number"
+              }
+            },
+            "type": "object",
+            "required": [
+              "activity_date",
+              "eligible_adjustment_qty",
+              "eligible_qty",
+              "metal",
+              "pledged_qty",
+              "received_qty",
+              "registered_adjustment_qty",
+              "registered_qty",
+              "total_adjustment_qty",
+              "total_qty",
+              "warehouse_breakdown",
+              "withdrawn_qty"
+            ]
+          },
+          "type": "array"
+        },
+        "schema_version": {
+          "type": "integer"
+        },
+        "source": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "total_matches": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "endpoint",
+        "rows",
+        "total_matches"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "page_size": {
+        "min": 0,
+        "if_present": true
+      },
+      "rows[].eligible_adjustment_qty": {
+        "min": 0
+      },
+      "rows[].eligible_qty": {
+        "min": 0
+      },
+      "rows[].pledged_qty": {
+        "min": 0
+      },
+      "rows[].received_qty": {
+        "min": 0
+      },
+      "rows[].registered_adjustment_qty": {
+        "min": 0
+      },
+      "rows[].registered_qty": {
+        "min": 0
+      },
+      "rows[].total_adjustment_qty": {
+        "min": 0
+      },
+      "rows[].total_qty": {
+        "min": 0
+      },
+      "rows[].withdrawn_qty": {
+        "min": 0
+      },
+      "total_matches": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "thevaultreport.com",
+    "endpoint": "https://thevaultreport.com/api/x402/comex/warehouse",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

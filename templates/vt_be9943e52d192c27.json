@@ -1,0 +1,1135 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_be9943e52d192c27",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data_as_of": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "freshness": {
+          "type": "object",
+          "properties": {
+            "age_seconds": {
+              "type": "integer"
+            },
+            "component_statuses": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "data_as_of": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "max_age_seconds": {
+              "type": "integer"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "age_seconds",
+            "component_statuses",
+            "data_as_of",
+            "max_age_seconds",
+            "status"
+          ]
+        },
+        "funding": {
+          "type": "object",
+          "properties": {
+            "canonical_symbol": {
+              "type": "string"
+            },
+            "carry": {
+              "type": "object",
+              "properties": {
+                "annualization_method": {
+                  "type": "string"
+                },
+                "funding_annualized_pct": {
+                  "type": "number"
+                },
+                "funding_apr_pct": {
+                  "type": "number"
+                },
+                "funding_direction": {
+                  "type": "string"
+                },
+                "funding_rate_1d": {
+                  "type": "number"
+                },
+                "funding_rate_8h": {
+                  "type": "number"
+                },
+                "funding_rate_per_hour": {
+                  "type": "number"
+                },
+                "premium": {
+                  "type": "number"
+                },
+                "projection_basis": {
+                  "type": "string"
+                },
+                "settlement_interval": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "annualization_method",
+                "funding_annualized_pct",
+                "funding_apr_pct",
+                "funding_direction",
+                "funding_rate_1d",
+                "funding_rate_8h",
+                "funding_rate_per_hour",
+                "premium",
+                "projection_basis",
+                "settlement_interval"
+              ]
+            },
+            "data_as_of": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "dex": {
+              "type": "string"
+            },
+            "freshness": {
+              "type": "object",
+              "properties": {
+                "age_seconds": {
+                  "type": "integer"
+                },
+                "data_as_of": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "max_age_seconds": {
+                  "type": "integer"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "age_seconds",
+                "data_as_of",
+                "max_age_seconds",
+                "status"
+              ]
+            },
+            "generated_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "market_type": {
+              "type": "string"
+            },
+            "positioning": {
+              "type": "object",
+              "properties": {
+                "day_base_volume": {
+                  "type": "number"
+                },
+                "day_notional_volume_usd": {
+                  "type": "number"
+                },
+                "open_interest_base": {
+                  "type": "number"
+                },
+                "open_interest_usd": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "day_base_volume",
+                "day_notional_volume_usd",
+                "open_interest_base",
+                "open_interest_usd"
+              ]
+            },
+            "prices": {
+              "type": "object",
+              "properties": {
+                "mark": {
+                  "type": "number"
+                },
+                "mark_oracle_basis_bps": {
+                  "type": "integer"
+                },
+                "midpoint": {
+                  "type": "number"
+                },
+                "oracle": {
+                  "type": "number"
+                },
+                "previous_day": {
+                  "type": "integer"
+                },
+                "price_change_24h_pct": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "mark",
+                "mark_oracle_basis_bps",
+                "midpoint",
+                "oracle",
+                "previous_day",
+                "price_change_24h_pct"
+              ]
+            },
+            "product_version": {
+              "type": "string"
+            },
+            "quote": {
+              "type": "string"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "service": {
+              "type": "string"
+            },
+            "symbol": {
+              "type": "string"
+            },
+            "usage": {
+              "type": "object",
+              "properties": {
+                "current_snapshot_only": {
+                  "type": "boolean"
+                },
+                "historical_series_included": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "current_snapshot_only",
+                "historical_series_included"
+              ]
+            },
+            "venue": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "canonical_symbol",
+            "carry",
+            "data_as_of",
+            "dex",
+            "freshness",
+            "generated_at",
+            "market_type",
+            "positioning",
+            "prices",
+            "product_version",
+            "quote",
+            "schema",
+            "service",
+            "symbol",
+            "usage",
+            "venue"
+          ]
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "liquidations": {
+          "type": "object",
+          "properties": {
+            "data_as_of": {
+              "type": "integer"
+            },
+            "freshness": {
+              "type": "object",
+              "properties": {
+                "age_seconds": {
+                  "type": "integer"
+                },
+                "data_as_of": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "max_age_seconds": {
+                  "type": "integer"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "age_seconds",
+                "data_as_of",
+                "max_age_seconds",
+                "status"
+              ]
+            },
+            "generated_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "levels": {
+              "type": "object",
+              "properties": {
+                "available_buy_count": {
+                  "type": "integer"
+                },
+                "available_sell_count": {
+                  "type": "integer"
+                },
+                "buy": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "absolute_distance_from_reference_pct": {
+                        "type": "number"
+                      },
+                      "distance_from_reference_bps": {
+                        "type": "number"
+                      },
+                      "distance_from_reference_pct": {
+                        "type": "number"
+                      },
+                      "distance_from_reference_usd": {
+                        "type": "number"
+                      },
+                      "liquidation_flow": {
+                        "type": "string"
+                      },
+                      "liquidation_price": {
+                        "type": "number"
+                      },
+                      "position_count": {
+                        "type": "integer"
+                      },
+                      "position_side": {
+                        "type": "string"
+                      },
+                      "reference_price": {
+                        "type": "number"
+                      },
+                      "reference_price_source": {
+                        "type": "string"
+                      },
+                      "relative_to_reference": {
+                        "type": "string"
+                      },
+                      "size": {
+                        "type": "number"
+                      },
+                      "value": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "absolute_distance_from_reference_pct",
+                      "distance_from_reference_bps",
+                      "distance_from_reference_pct",
+                      "distance_from_reference_usd",
+                      "liquidation_flow",
+                      "liquidation_price",
+                      "position_count",
+                      "position_side",
+                      "reference_price",
+                      "reference_price_source",
+                      "relative_to_reference",
+                      "size",
+                      "value"
+                    ]
+                  }
+                },
+                "complete": {
+                  "type": "boolean"
+                },
+                "order": {
+                  "type": "string"
+                },
+                "published_buy_count": {
+                  "type": "integer"
+                },
+                "published_sell_count": {
+                  "type": "integer"
+                },
+                "sell": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "absolute_distance_from_reference_pct": {
+                        "type": "number"
+                      },
+                      "distance_from_reference_bps": {
+                        "type": "number"
+                      },
+                      "distance_from_reference_pct": {
+                        "type": "number"
+                      },
+                      "distance_from_reference_usd": {
+                        "type": "number"
+                      },
+                      "liquidation_flow": {
+                        "type": "string"
+                      },
+                      "liquidation_price": {
+                        "type": "number"
+                      },
+                      "position_count": {
+                        "type": "integer"
+                      },
+                      "position_side": {
+                        "type": "string"
+                      },
+                      "reference_price": {
+                        "type": "number"
+                      },
+                      "reference_price_source": {
+                        "type": "string"
+                      },
+                      "relative_to_reference": {
+                        "type": "string"
+                      },
+                      "size": {
+                        "type": "number"
+                      },
+                      "value": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "absolute_distance_from_reference_pct",
+                      "distance_from_reference_bps",
+                      "distance_from_reference_pct",
+                      "distance_from_reference_usd",
+                      "liquidation_flow",
+                      "liquidation_price",
+                      "position_count",
+                      "position_side",
+                      "reference_price",
+                      "reference_price_source",
+                      "relative_to_reference",
+                      "size",
+                      "value"
+                    ]
+                  }
+                },
+                "side_meaning": {
+                  "type": "object",
+                  "properties": {
+                    "buy": {
+                      "type": "string"
+                    },
+                    "sell": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "buy",
+                    "sell"
+                  ]
+                },
+                "side_semantics": {
+                  "type": "object",
+                  "properties": {
+                    "buy": {
+                      "type": "object",
+                      "properties": {
+                        "liquidation_flow": {
+                          "type": "string"
+                        },
+                        "position_side": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "liquidation_flow",
+                        "position_side"
+                      ]
+                    },
+                    "sell": {
+                      "type": "object",
+                      "properties": {
+                        "liquidation_flow": {
+                          "type": "string"
+                        },
+                        "position_side": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "liquidation_flow",
+                        "position_side"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "buy",
+                    "sell"
+                  ]
+                }
+              },
+              "required": [
+                "available_buy_count",
+                "available_sell_count",
+                "buy",
+                "complete",
+                "order",
+                "published_buy_count",
+                "published_sell_count",
+                "sell",
+                "side_meaning",
+                "side_semantics"
+              ]
+            },
+            "margin_stress": {
+              "type": "object",
+              "properties": {
+                "interpretation": {
+                  "type": "string"
+                },
+                "method": {
+                  "type": "string"
+                },
+                "reference_price": {
+                  "type": "number"
+                },
+                "reference_price_source": {
+                  "type": "string"
+                },
+                "scenarios": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "crossed_bucket_count": {
+                        "type": "integer"
+                      },
+                      "estimated_liquidation_notional_usd": {
+                        "type": "number"
+                      },
+                      "estimated_liquidation_size": {
+                        "type": "number"
+                      },
+                      "estimated_position_count": {
+                        "type": "integer"
+                      },
+                      "liquidated_side": {
+                        "type": "string"
+                      },
+                      "move_pct": {
+                        "type": "integer"
+                      },
+                      "target_price": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "crossed_bucket_count",
+                      "estimated_liquidation_notional_usd",
+                      "estimated_liquidation_size",
+                      "estimated_position_count",
+                      "liquidated_side",
+                      "move_pct",
+                      "target_price"
+                    ]
+                  }
+                },
+                "trigger_basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "interpretation",
+                "method",
+                "reference_price",
+                "reference_price_source",
+                "scenarios",
+                "trigger_basis"
+              ]
+            },
+            "market_reference": {
+              "type": "object",
+              "properties": {
+                "mark": {
+                  "type": "integer"
+                },
+                "midpoint": {
+                  "type": "integer"
+                },
+                "oracle": {
+                  "type": "integer"
+                },
+                "price": {
+                  "type": "number"
+                },
+                "source": {
+                  "type": "string"
+                },
+                "trigger_basis": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "mark",
+                "midpoint",
+                "oracle",
+                "price",
+                "source",
+                "trigger_basis"
+              ]
+            },
+            "product_version": {
+              "type": "string"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "scope": {
+              "type": "string"
+            },
+            "service": {
+              "type": "string"
+            },
+            "summary": {
+              "type": "object",
+              "properties": {
+                "buy_lvwap_by_value": {
+                  "type": "number"
+                },
+                "legacy_liquidation_distribution_mid_proxy": {
+                  "type": "integer"
+                },
+                "positions_with_liquidation_price": {
+                  "type": "number"
+                },
+                "reference_price": {
+                  "type": "number"
+                },
+                "reference_price_source": {
+                  "type": "string"
+                },
+                "sell_lvwap_by_value": {
+                  "type": "number"
+                },
+                "total_positions": {
+                  "type": "number"
+                },
+                "total_size": {
+                  "type": "number"
+                },
+                "total_value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "buy_lvwap_by_value",
+                "legacy_liquidation_distribution_mid_proxy",
+                "positions_with_liquidation_price",
+                "reference_price",
+                "reference_price_source",
+                "sell_lvwap_by_value",
+                "total_positions",
+                "total_size",
+                "total_value"
+              ]
+            },
+            "symbol": {
+              "type": "string"
+            },
+            "usage": {
+              "type": "object",
+              "properties": {
+                "item_limit": {
+                  "type": "integer"
+                },
+                "published_level_count": {
+                  "type": "integer"
+                },
+                "published_levels_complete": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "item_limit",
+                "published_level_count",
+                "published_levels_complete"
+              ]
+            },
+            "view": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "data_as_of",
+            "freshness",
+            "generated_at",
+            "levels",
+            "margin_stress",
+            "market_reference",
+            "product_version",
+            "schema",
+            "scope",
+            "service",
+            "summary",
+            "symbol",
+            "usage",
+            "view"
+          ]
+        },
+        "news": {
+          "type": "object",
+          "properties": {
+            "data_as_of": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "freshness": {
+              "type": "object",
+              "properties": {
+                "age_seconds": {
+                  "type": "integer"
+                },
+                "data_as_of": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "max_age_seconds": {
+                  "type": "integer"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "age_seconds",
+                "data_as_of",
+                "max_age_seconds",
+                "status"
+              ]
+            },
+            "generated_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "analysis": {
+                    "type": "object",
+                    "properties": {
+                      "model": {
+                        "type": "string"
+                      },
+                      "prompt_version": {
+                        "type": "string"
+                      },
+                      "schema_version": {
+                        "type": "string"
+                      },
+                      "validation_status": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "model",
+                      "prompt_version",
+                      "schema_version",
+                      "validation_status"
+                    ]
+                  },
+                  "analysis_type": {
+                    "type": "string"
+                  },
+                  "confidence": {
+                    "type": "number"
+                  },
+                  "direction": {
+                    "type": "string"
+                  },
+                  "headline": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "impact": {
+                    "type": "string"
+                  },
+                  "importance": {
+                    "type": "number"
+                  },
+                  "sentiment": {
+                    "type": "number"
+                  },
+                  "summary": {
+                    "type": "string"
+                  },
+                  "theme": {
+                    "type": "string"
+                  },
+                  "tickers": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "timestamp": {
+                    "type": "integer"
+                  },
+                  "topics": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "analysis",
+                  "analysis_type",
+                  "confidence",
+                  "direction",
+                  "headline",
+                  "id",
+                  "impact",
+                  "importance",
+                  "sentiment",
+                  "summary",
+                  "theme",
+                  "tickers",
+                  "timestamp",
+                  "topics"
+                ]
+              }
+            },
+            "market": {
+              "type": "string"
+            },
+            "market_context": {
+              "type": "object",
+              "properties": {
+                "cadence_minutes": {
+                  "type": "integer"
+                },
+                "confidence": {
+                  "type": "number"
+                },
+                "direction": {
+                  "type": "string"
+                },
+                "generated_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "notable_tickers": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "object": {
+                  "type": "string"
+                },
+                "sentiment_rating": {
+                  "type": "integer"
+                },
+                "source_window_hours": {
+                  "type": "integer"
+                },
+                "summary": {
+                  "type": "string"
+                },
+                "timeline": {
+                  "type": "array"
+                },
+                "topics": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "cadence_minutes",
+                "confidence",
+                "direction",
+                "generated_at",
+                "notable_tickers",
+                "object",
+                "sentiment_rating",
+                "source_window_hours",
+                "summary",
+                "timeline",
+                "topics"
+              ]
+            },
+            "product_version": {
+              "type": "string"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "service": {
+              "type": "string"
+            },
+            "symbol": {
+              "type": "string"
+            },
+            "usage": {
+              "type": "object",
+              "properties": {
+                "event_window_minutes": {
+                  "type": "integer"
+                },
+                "from_timestamp": {},
+                "item_count": {
+                  "type": "integer"
+                },
+                "lookback_hours": {
+                  "type": "integer"
+                },
+                "mode": {
+                  "type": "string"
+                },
+                "nearest_timestamp": {},
+                "offset": {
+                  "type": "integer"
+                },
+                "order": {
+                  "type": "string"
+                },
+                "requested_date": {},
+                "selection_mode": {
+                  "type": "string"
+                },
+                "to_timestamp": {}
+              },
+              "required": [
+                "event_window_minutes",
+                "item_count",
+                "lookback_hours",
+                "mode",
+                "offset",
+                "order",
+                "selection_mode"
+              ]
+            }
+          },
+          "required": [
+            "data_as_of",
+            "freshness",
+            "generated_at",
+            "items",
+            "market",
+            "market_context",
+            "product_version",
+            "schema",
+            "service",
+            "symbol",
+            "usage"
+          ]
+        },
+        "product_version": {
+          "type": "string"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "data_as_of",
+        "freshness",
+        "funding",
+        "generated_at",
+        "liquidations",
+        "news",
+        "product_version",
+        "schema",
+        "scope",
+        "service",
+        "symbol"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "news.items[].id"
+      }
+    ],
+    "bounds": {
+      "freshness.age_seconds": {
+        "min": 0
+      },
+      "freshness.max_age_seconds": {
+        "min": 0
+      },
+      "funding.carry.funding_annualized_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "funding.carry.funding_apr_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "funding.freshness.age_seconds": {
+        "min": 0
+      },
+      "funding.freshness.max_age_seconds": {
+        "min": 0
+      },
+      "funding.positioning.day_base_volume": {
+        "min": 0
+      },
+      "funding.positioning.day_notional_volume_usd": {
+        "min": 0
+      },
+      "funding.positioning.open_interest_usd": {
+        "min": 0
+      },
+      "liquidations.freshness.age_seconds": {
+        "min": 0
+      },
+      "liquidations.freshness.max_age_seconds": {
+        "min": 0
+      },
+      "liquidations.levels.available_buy_count": {
+        "min": 0
+      },
+      "liquidations.levels.available_sell_count": {
+        "min": 0
+      },
+      "liquidations.levels.buy[].absolute_distance_from_reference_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "liquidations.levels.buy[].liquidation_price": {
+        "min": 0
+      },
+      "liquidations.levels.buy[].position_count": {
+        "min": 0
+      },
+      "liquidations.levels.buy[].reference_price": {
+        "min": 0
+      },
+      "liquidations.levels.buy[].size": {
+        "min": 0
+      },
+      "liquidations.levels.published_buy_count": {
+        "min": 0
+      },
+      "liquidations.levels.published_sell_count": {
+        "min": 0
+      },
+      "liquidations.levels.sell[].absolute_distance_from_reference_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "liquidations.levels.sell[].distance_from_reference_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "liquidations.levels.sell[].distance_from_reference_usd": {
+        "min": 0
+      },
+      "liquidations.levels.sell[].liquidation_price": {
+        "min": 0
+      },
+      "liquidations.levels.sell[].position_count": {
+        "min": 0
+      },
+      "liquidations.levels.sell[].reference_price": {
+        "min": 0
+      },
+      "liquidations.levels.sell[].size": {
+        "min": 0
+      },
+      "liquidations.margin_stress.reference_price": {
+        "min": 0
+      },
+      "liquidations.margin_stress.scenarios[].crossed_bucket_count": {
+        "min": 0
+      },
+      "liquidations.margin_stress.scenarios[].estimated_liquidation_notional_usd": {
+        "min": 0
+      },
+      "liquidations.margin_stress.scenarios[].estimated_liquidation_size": {
+        "min": 0
+      },
+      "liquidations.margin_stress.scenarios[].estimated_position_count": {
+        "min": 0
+      },
+      "liquidations.margin_stress.scenarios[].target_price": {
+        "min": 0
+      },
+      "liquidations.market_reference.price": {
+        "min": 0
+      },
+      "liquidations.summary.positions_with_liquidation_price": {
+        "min": 0
+      },
+      "liquidations.summary.reference_price": {
+        "min": 0
+      },
+      "liquidations.summary.total_positions": {
+        "min": 0
+      },
+      "liquidations.summary.total_size": {
+        "min": 0
+      },
+      "liquidations.summary.total_value": {
+        "min": 0
+      },
+      "liquidations.usage.item_limit": {
+        "min": 0
+      },
+      "liquidations.usage.published_level_count": {
+        "min": 0
+      },
+      "news.freshness.age_seconds": {
+        "min": 0
+      },
+      "news.freshness.max_age_seconds": {
+        "min": 0
+      },
+      "news.items[].confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "news.market_context.confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "news.usage.item_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "omniterminal.app",
+    "endpoint": "https://omniterminal.app/api/x402/v1/market-risk/:symbol",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

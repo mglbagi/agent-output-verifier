@@ -1,0 +1,221 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_77efbbb34cbd72c0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "airport": {
+          "additionalProperties": false,
+          "properties": {
+            "faaId": {
+              "anyOf": [
+                {
+                  "maxLength": 8,
+                  "minLength": 2,
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "iataId": {
+              "anyOf": [
+                {
+                  "pattern": "^[A-Z0-9]{3}$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "icaoId": {
+              "pattern": "^[A-Z0-9]{4}$",
+              "type": "string"
+            },
+            "name": {
+              "maxLength": 300,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "icaoId",
+            "iataId",
+            "faaId",
+            "name"
+          ],
+          "type": "object"
+        },
+        "assessedAt": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$",
+          "type": "string"
+        },
+        "components": {
+          "additionalProperties": false,
+          "properties": {
+            "operations": {
+              "maximum": 60,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "weather": {
+              "maximum": 40,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "operations",
+            "weather"
+          ],
+          "type": "object"
+        },
+        "direction": {
+          "enum": [
+            "arrivals",
+            "departures",
+            "both"
+          ],
+          "type": "string"
+        },
+        "recommendedAction": {
+          "enum": [
+            "proceed",
+            "monitor",
+            "add_buffer",
+            "avoid_or_rebook"
+          ],
+          "type": "string"
+        },
+        "riskBand": {
+          "enum": [
+            "low",
+            "moderate",
+            "high",
+            "severe"
+          ],
+          "type": "string"
+        },
+        "riskScore": {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "scoringVersion": {
+          "const": "airport-v1",
+          "type": "string"
+        },
+        "signals": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "code": {
+                "maxLength": 80,
+                "minLength": 1,
+                "type": "string"
+              },
+              "impact": {
+                "maximum": 100,
+                "minimum": 0,
+                "type": "integer"
+              },
+              "source": {
+                "enum": [
+                  "faa",
+                  "metar",
+                  "taf",
+                  "itinerary"
+                ],
+                "type": "string"
+              },
+              "summary": {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "source",
+              "impact",
+              "summary"
+            ],
+            "type": "object"
+          },
+          "maxItems": 20,
+          "type": "array"
+        },
+        "sourceTimes": {
+          "additionalProperties": false,
+          "properties": {
+            "faaUpdatedAt": {
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$",
+              "type": "string"
+            },
+            "metarObservedAt": {
+              "anyOf": [
+                {
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "tafIssuedAt": {
+              "anyOf": [
+                {
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "faaUpdatedAt",
+            "metarObservedAt",
+            "tafIssuedAt"
+          ],
+          "type": "object"
+        },
+        "targetTime": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "airport",
+        "assessedAt",
+        "targetTime",
+        "direction",
+        "riskScore",
+        "riskBand",
+        "recommendedAction",
+        "components",
+        "signals",
+        "sourceTimes",
+        "scoringVersion"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "travelcheck-x402.fly.dev",
+    "endpoint": "https://travelcheck-x402.fly.dev/v1/airport-risk",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

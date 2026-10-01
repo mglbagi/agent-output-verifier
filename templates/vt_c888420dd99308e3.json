@@ -1,0 +1,46 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c888420dd99308e3",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "change_24h": {
+          "type": "number"
+        },
+        "eth_usd": {
+          "type": "number"
+        },
+        "network": {
+          "type": "string"
+        },
+        "seller": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        }
+      },
+      "required": [
+        "change_24h",
+        "eth_usd",
+        "network",
+        "seller"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "eth_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agentkit-x402-buy.netlify.app",
+    "endpoint": "https://agentkit-x402-buy.netlify.app/api/eth-price",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

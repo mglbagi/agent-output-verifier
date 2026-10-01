@@ -1,0 +1,85 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_95a0b5ebc704e520",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "asset": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "onBase": {
+          "type": "object",
+          "properties": {
+            "circulatingUsd": {
+              "type": "number"
+            },
+            "shareOfTotalPct": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "circulatingUsd",
+            "shareOfTotalPct"
+          ]
+        },
+        "pegDeviationPct": {
+          "type": "number"
+        },
+        "pegMechanism": {
+          "type": "string"
+        },
+        "pegStatus": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
+        },
+        "totalCirculatingUsd": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "asset",
+        "name",
+        "note",
+        "onBase",
+        "pegDeviationPct",
+        "pegMechanism",
+        "pegStatus",
+        "price",
+        "totalCirculatingUsd"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "onBase.shareOfTotalPct": {
+        "min": 0,
+        "max": 100
+      },
+      "pegDeviationPct": {
+        "min": 0,
+        "max": 100
+      },
+      "price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "fiatdock.com",
+    "endpoint": "https://fiatdock.com/v1/stablecoin/intel",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

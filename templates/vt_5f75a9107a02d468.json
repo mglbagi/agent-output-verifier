@@ -1,0 +1,43 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5f75a9107a02d468",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "asset": {
+          "type": "string"
+        },
+        "change24hPercent": {
+          "type": "number"
+        },
+        "marketCapUsd": {
+          "type": "number"
+        },
+        "priceUsd": {
+          "type": "number"
+        },
+        "volume24hUsd": {
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "required": [
+        "asset",
+        "change24hPercent",
+        "priceUsd"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "cryptoshark.duckdns.org",
+    "endpoint": "https://cryptoshark.duckdns.org/reports/market",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

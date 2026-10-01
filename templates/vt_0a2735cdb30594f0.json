@@ -1,0 +1,73 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0a2735cdb30594f0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "capabilityId": {
+          "const": "token.metadata"
+        },
+        "invocationId": {
+          "type": "string"
+        },
+        "pricing": {
+          "type": "object"
+        },
+        "receiptUrl": {
+          "type": "string"
+        },
+        "result": {
+          "properties": {
+            "erc20Readable": {
+              "type": "boolean"
+            },
+            "reasonCodes": {
+              "type": "array"
+            },
+            "token": {
+              "type": "object"
+            },
+            "validUntilBlock": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "token",
+            "erc20Readable",
+            "reasonCodes",
+            "validUntilBlock"
+          ],
+          "type": "object"
+        },
+        "verdict": {
+          "enum": [
+            "allow",
+            "review",
+            "block"
+          ]
+        }
+      },
+      "required": [
+        "capabilityId",
+        "invocationId",
+        "verdict",
+        "result",
+        "pricing",
+        "receiptUrl"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tereno.xyz",
+    "endpoint": "https://www.tereno.xyz/api/v1/capabilities/token.metadata/invoke",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

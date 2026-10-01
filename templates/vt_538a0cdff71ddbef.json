@@ -1,0 +1,38 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_538a0cdff71ddbef",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "effective_markup_percent": {
+          "type": "number"
+        },
+        "reference_rate": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "effective_markup_percent",
+        "reference_rate"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "effective_markup_percent": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "energybilltoolkit.co.uk",
+    "endpoint": "https://energybilltoolkit.co.uk/decision-tools/api/fx/quote-audit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

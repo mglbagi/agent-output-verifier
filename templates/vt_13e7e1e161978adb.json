@@ -1,0 +1,49 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_13e7e1e161978adb",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "agentId": {
+          "type": "string"
+        },
+        "requestId": {
+          "type": "string"
+        },
+        "result": {
+          "type": "string"
+        },
+        "streak": {
+          "type": "integer"
+        },
+        "txHash": {
+          "type": "string"
+        },
+        "wallet": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "agentId",
+        "requestId",
+        "result",
+        "streak",
+        "txHash",
+        "wallet"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "flipr-x402.fly.dev",
+    "endpoint": "https://flipr-x402.fly.dev/x402/flip",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

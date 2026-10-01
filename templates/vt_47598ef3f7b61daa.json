@@ -1,0 +1,242 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_47598ef3f7b61daa",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "avisos": {
+          "items": {},
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "encontrados": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "filtro": {
+          "properties": {
+            "proyecto": {},
+            "red": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "token": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "tvl_min_usd": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "red",
+            "token",
+            "tvl_min_usd"
+          ]
+        },
+        "fuente": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "nota": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pools": {
+          "items": {
+            "properties": {
+              "apy_base_pct": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "apy_medio_30d_pct": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "apy_pct": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "apy_premios_pct": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "cambio_apy_7d": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "enlace": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "estable": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "exposicion": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "format": "uuid"
+              },
+              "par": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "prediccion_apy": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "proyecto": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "red": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "riesgo_perdida_impermanente": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "tvl_usd": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "volumen_24h_usd": {}
+            },
+            "type": [
+              "null",
+              "object"
+            ],
+            "required": [
+              "apy_base_pct",
+              "apy_medio_30d_pct",
+              "apy_pct",
+              "cambio_apy_7d",
+              "enlace",
+              "estable",
+              "exposicion",
+              "id",
+              "par",
+              "prediccion_apy",
+              "proyecto",
+              "red",
+              "riesgo_perdida_impermanente",
+              "tvl_usd"
+            ]
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "avisos",
+        "encontrados",
+        "filtro",
+        "fuente",
+        "nota",
+        "pools"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "pools[].id"
+      }
+    ],
+    "bounds": {
+      "filtro.tvl_min_usd": {
+        "min": 0
+      },
+      "pools[].apy_base_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "pools[].apy_medio_30d_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "pools[].apy_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "pools[].apy_premios_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "pools[].tvl_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.vextorium.com",
+    "endpoint": "https://api.vextorium.com/defi-rendimientos-pago",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_663290591415eb64",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "changed": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "content_hash": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "coverage_start": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "monitored": {
+          "type": "boolean"
+        },
+        "observation_age_seconds": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "observed_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "ok",
+            "stale",
+            "no_observation",
+            "not_covered",
+            "ambiguous",
+            "bad_request",
+            "not_monitored"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "changed",
+        "content_hash",
+        "coverage_start",
+        "monitored",
+        "observation_age_seconds",
+        "observed_at",
+        "reason",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "observation_age_seconds": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "35-253-195-79.sslip.io",
+    "endpoint": "https://35-253-195-79.sslip.io/changed",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

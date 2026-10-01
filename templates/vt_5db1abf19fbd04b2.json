@@ -1,0 +1,215 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5db1abf19fbd04b2",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "inspect_url": {
+          "pattern": "^/v1/invocations/[A-Za-z0-9][A-Za-z0-9._:-]*$",
+          "type": "string"
+        },
+        "invocation": {
+          "properties": {
+            "invocation_id": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+              "type": "string"
+            },
+            "offer_revision_digest": {
+              "const": "sha256:2075d04fffaa0d718d26cdae4e164f12c9049f67aa215ae73fa17d61efb4436a"
+            },
+            "output": {
+              "additionalProperties": false,
+              "properties": {
+                "feature_counts": {
+                  "additionalProperties": false,
+                  "minProperties": 1,
+                  "properties": {
+                    "FORMS": {
+                      "maximum": 32000,
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "LAYOUT": {
+                      "maximum": 32000,
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "SIGNATURES": {
+                      "maximum": 32000,
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "TABLES": {
+                      "maximum": 32000,
+                      "minimum": 0,
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object",
+                  "required": [
+                    "FORMS",
+                    "TABLES"
+                  ]
+                },
+                "pages": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "artifact_ref": {
+                        "maxLength": 512,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "content_digest": {
+                        "pattern": "^sha256:[a-f0-9]{64}$",
+                        "type": "string"
+                      },
+                      "feature_counts": {
+                        "additionalProperties": false,
+                        "minProperties": 1,
+                        "properties": {
+                          "FORMS": {
+                            "maximum": 32000,
+                            "minimum": 0,
+                            "type": "integer"
+                          },
+                          "LAYOUT": {
+                            "maximum": 32000,
+                            "minimum": 0,
+                            "type": "integer"
+                          },
+                          "SIGNATURES": {
+                            "maximum": 32000,
+                            "minimum": 0,
+                            "type": "integer"
+                          },
+                          "TABLES": {
+                            "maximum": 32000,
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object",
+                        "required": [
+                          "FORMS",
+                          "TABLES"
+                        ]
+                      },
+                      "page_index": {
+                        "maximum": 32,
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "size_bytes": {
+                        "maximum": 26214400,
+                        "minimum": 1,
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "page_index",
+                      "artifact_ref",
+                      "content_digest",
+                      "size_bytes",
+                      "feature_counts"
+                    ],
+                    "type": "object"
+                  },
+                  "maxItems": 32,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "schema": {
+                  "const": "ausca.document_analysis.manifest.v1"
+                },
+                "source_digest": {
+                  "pattern": "^sha256:[a-f0-9]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "schema",
+                "source_digest",
+                "pages",
+                "feature_counts"
+              ],
+              "type": "object"
+            },
+            "output_digest": {
+              "pattern": "^sha256:[a-f0-9]{64}$",
+              "type": "string"
+            },
+            "receipt_ref": {
+              "properties": {
+                "public_url": {
+                  "format": "uri",
+                  "maxLength": 2048,
+                  "pattern": "^https://[^?#]+/r/[a-f0-9]{64}$",
+                  "type": "string"
+                },
+                "type": {
+                  "const": "receipt"
+                },
+                "uri": {
+                  "maxLength": 512,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "uri"
+              ],
+              "type": "object"
+            },
+            "state": {
+              "enum": [
+                "admitted",
+                "running",
+                "succeeded",
+                "failed",
+                "cancellation_requested",
+                "cancelled"
+              ],
+              "type": "string"
+            },
+            "updated_at": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "invocation_id",
+            "offer_revision_digest",
+            "state",
+            "updated_at"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "const": "accepted"
+        }
+      },
+      "required": [
+        "status",
+        "invocation",
+        "inspect_url"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ausca.com",
+    "endpoint": "https://ausca.com/v1/analyze-document",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5f966b9dbdcd2091",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "agent": {
+          "type": "string"
+        },
+        "cutoff_ts": {
+          "type": "integer"
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cost_usd": {
+                "type": "number"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "model": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "ts": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "cost_usd",
+              "kind",
+              "model",
+              "text",
+              "ts"
+            ]
+          }
+        },
+        "thoughts_since_cutoff": {
+          "type": "integer"
+        },
+        "why_the_cutoff": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "agent",
+        "cutoff_ts",
+        "entries",
+        "thoughts_since_cutoff",
+        "why_the_cutoff"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "entries[].cost_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "whaletape.xyz",
+    "endpoint": "https://whaletape.xyz/mer0/diario",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

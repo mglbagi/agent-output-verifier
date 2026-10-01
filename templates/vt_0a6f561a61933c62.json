@@ -1,0 +1,64 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0a6f561a61933c62",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "fear_greed": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string"
+            },
+            "value": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "classification",
+            "value"
+          ]
+        },
+        "prices": {
+          "type": "object",
+          "properties": {
+            "btc_usd": {
+              "type": "number"
+            },
+            "eth_usd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "btc_usd",
+            "eth_usd"
+          ]
+        }
+      },
+      "required": [
+        "fear_greed",
+        "prices"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "prices.btc_usd": {
+        "min": 0
+      },
+      "prices.eth_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-defi-signals.onrender.com",
+    "endpoint": "https://x402-defi-signals.onrender.com/market/snapshot",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

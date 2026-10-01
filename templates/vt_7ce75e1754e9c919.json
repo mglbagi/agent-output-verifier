@@ -1,0 +1,56 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7ce75e1754e9c919",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "created": {
+          "type": "boolean"
+        },
+        "frameworks_computed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "human_id": {
+          "type": "string"
+        },
+        "stored_signals": {
+          "type": "object",
+          "properties": {
+            "observations": {
+              "type": "integer"
+            },
+            "textSamples": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "observations",
+            "textSamples"
+          ]
+        }
+      },
+      "required": [
+        "created",
+        "frameworks_computed",
+        "human_id",
+        "stored_signals"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "convrgent.ai",
+    "endpoint": "https://convrgent.ai/api/vault/create",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bc78baf5e8e577c5",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "api_version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "api_version"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "cpi-report-us.underscoredone.com",
+    "endpoint": "https://cpi-report-us.underscoredone.com/cpi",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,424 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_21ebdf57b47ef88c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "asOf": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "catalogNote": {
+          "type": "string"
+        },
+        "classes": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "carbonClassId": {
+                "type": "string",
+                "pattern": "^0x[a-fA-F0-9]{40}$"
+              },
+              "category": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "country": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "creditCount": {
+                "type": "number"
+              },
+              "liquidityTonnes": {
+                "type": "string"
+              },
+              "name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "priceBasis": {
+                "const": "indicative",
+                "type": "string"
+              },
+              "priceUsdcPerTonne": {
+                "type": "string"
+              },
+              "priceUsdcPerTonneFormatted": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "carbonClassId",
+              "name",
+              "category",
+              "country",
+              "priceUsdcPerTonne",
+              "priceUsdcPerTonneFormatted",
+              "priceBasis",
+              "liquidityTonnes",
+              "creditCount"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "endpoints": {
+          "additionalProperties": false,
+          "properties": {
+            "actionsRetire": {
+              "additionalProperties": false,
+              "properties": {
+                "method": {
+                  "enum": [
+                    "GET",
+                    "POST"
+                  ],
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "url",
+                "method"
+              ],
+              "type": "object"
+            },
+            "certificate": {
+              "additionalProperties": false,
+              "properties": {
+                "method": {
+                  "enum": [
+                    "GET",
+                    "POST"
+                  ],
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "url",
+                "method"
+              ],
+              "type": "object"
+            },
+            "discover": {
+              "additionalProperties": false,
+              "properties": {
+                "method": {
+                  "enum": [
+                    "GET",
+                    "POST"
+                  ],
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "url",
+                "method"
+              ],
+              "type": "object"
+            },
+            "manifest": {
+              "additionalProperties": false,
+              "properties": {
+                "method": {
+                  "enum": [
+                    "GET",
+                    "POST"
+                  ],
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "url",
+                "method"
+              ],
+              "type": "object"
+            },
+            "note": {
+              "type": "string"
+            },
+            "openapi": {
+              "additionalProperties": false,
+              "properties": {
+                "method": {
+                  "enum": [
+                    "GET",
+                    "POST"
+                  ],
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "url",
+                "method"
+              ],
+              "type": "object"
+            },
+            "prepareAuth": {
+              "additionalProperties": false,
+              "properties": {
+                "method": {
+                  "enum": [
+                    "GET",
+                    "POST"
+                  ],
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "url",
+                "method"
+              ],
+              "type": "object"
+            },
+            "prepareRetire": {
+              "additionalProperties": false,
+              "properties": {
+                "method": {
+                  "enum": [
+                    "GET",
+                    "POST"
+                  ],
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "url",
+                "method"
+              ],
+              "type": "object"
+            },
+            "quote": {
+              "additionalProperties": false,
+              "properties": {
+                "method": {
+                  "enum": [
+                    "GET",
+                    "POST"
+                  ],
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "url",
+                "method"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "note",
+            "discover",
+            "quote",
+            "prepareRetire",
+            "prepareAuth",
+            "actionsRetire",
+            "certificate",
+            "openapi",
+            "manifest"
+          ],
+          "type": "object"
+        },
+        "listings": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "category": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "country": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "creditId": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "expiresAt": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "leftToSellTonnes": {
+                "type": "string"
+              },
+              "listingId": {
+                "type": "string",
+                "pattern": "^0x[a-fA-F0-9]{64}$"
+              },
+              "minFillTonnes": {
+                "type": "string"
+              },
+              "priceBasis": {
+                "const": "firm",
+                "type": "string"
+              },
+              "priceUsdcPerTonne": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "priceUsdcPerTonneFormatted": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "projectName": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "registry": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "vintage": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "listingId",
+              "projectName",
+              "creditId",
+              "registry",
+              "vintage",
+              "country",
+              "category",
+              "priceUsdcPerTonne",
+              "priceUsdcPerTonneFormatted",
+              "priceBasis",
+              "leftToSellTonnes",
+              "minFillTonnes",
+              "expiresAt"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "asOf",
+        "endpoints",
+        "classes",
+        "listings",
+        "catalogNote"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.klimalabs.com",
+    "endpoint": "https://x402.klimalabs.com/api/catalog",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

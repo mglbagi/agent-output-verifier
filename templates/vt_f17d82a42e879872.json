@@ -1,0 +1,49 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f17d82a42e879872",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "stats": {
+          "type": "object",
+          "properties": {
+            "claims": {
+              "type": "integer"
+            },
+            "episodes": {
+              "type": "integer"
+            },
+            "papers": {
+              "type": "integer"
+            },
+            "shows": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "claims",
+            "episodes",
+            "papers",
+            "shows"
+          ]
+        }
+      },
+      "required": [
+        "stats"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "holdsup.app",
+    "endpoint": "https://holdsup.app/api/v1/stats",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

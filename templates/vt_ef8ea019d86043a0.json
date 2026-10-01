@@ -1,0 +1,133 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ef8ea019d86043a0",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "available": {
+          "type": "boolean"
+        },
+        "certificate": {
+          "type": "object",
+          "properties": {
+            "data_hash": {
+              "type": "string"
+            },
+            "grade": {
+              "type": "string"
+            },
+            "grade_label": {
+              "type": "object",
+              "properties": {
+                "eng": {
+                  "type": "string"
+                },
+                "esp": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "eng",
+                "esp"
+              ]
+            },
+            "onchain": {
+              "type": "object",
+              "properties": {
+                "chain_id": {
+                  "type": "integer"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "tx_hash": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "chain_id",
+                "status",
+                "tx_hash"
+              ]
+            },
+            "signature": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "signer": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "scheme",
+                "signer"
+              ]
+            },
+            "summary": {
+              "type": "object",
+              "properties": {
+                "eng": {
+                  "type": "string"
+                },
+                "esp": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "eng",
+                "esp"
+              ]
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "data_hash",
+            "grade",
+            "grade_label",
+            "onchain",
+            "signature",
+            "summary",
+            "type"
+          ]
+        },
+        "certificate_type": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "available",
+        "certificate",
+        "certificate_type",
+        "mode",
+        "provider",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "walcert.globalscoreagent.com",
+    "endpoint": "https://walcert.globalscoreagent.com/v1/certificates/multichain",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

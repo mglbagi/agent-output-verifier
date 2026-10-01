@@ -1,0 +1,88 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_863ac3746cb610f8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "edges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "from": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "relationshipSignals": {
+                "type": "object",
+                "properties": {
+                  "directRelatedParty": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "directRelatedParty"
+                ]
+              },
+              "to": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "from",
+              "kind",
+              "relationshipSignals",
+              "to"
+            ]
+          }
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "kind"
+            ]
+          }
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "edges",
+        "nodes",
+        "version"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "nodes[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.boonprotocol.com",
+    "endpoint": "https://api.boonprotocol.com/api/v1/x402/graph",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

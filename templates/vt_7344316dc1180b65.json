@@ -1,0 +1,243 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7344316dc1180b65",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "as_of": {
+          "title": "As Of",
+          "type": "string",
+          "format": "date-time"
+        },
+        "disclaimer": {
+          "default": "Keyword-matched US federal spending (USAspending) and NIH grants (RePORTER), both public domain; an activity signal, not a census of the technology and not investment advice.",
+          "title": "Disclaimer",
+          "type": "string"
+        },
+        "fiscal_years": {
+          "items": {
+            "type": "integer"
+          },
+          "title": "Fiscal Years",
+          "type": "array"
+        },
+        "flags": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Flags",
+          "type": "array"
+        },
+        "method_id": {
+          "default": "funding_signals_rules_v1",
+          "title": "Method Id",
+          "type": "string"
+        },
+        "nih_growth_3y": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Nih Growth 3Y"
+        },
+        "nih_projects_by_fy": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "title": "Nih Projects By Fy",
+          "type": "object"
+        },
+        "nih_recent_projects": {
+          "items": {
+            "properties": {
+              "award_amount_usd": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Award Amount Usd"
+              },
+              "fiscal_year": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Fiscal Year"
+              },
+              "organization": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Organization"
+              },
+              "project_num": {
+                "title": "Project Num",
+                "type": "string"
+              },
+              "title": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Title"
+              }
+            },
+            "required": [
+              "project_num",
+              "title",
+              "organization",
+              "award_amount_usd",
+              "fiscal_year"
+            ],
+            "title": "NihProject",
+            "type": "object"
+          },
+          "title": "Nih Recent Projects",
+          "type": "array"
+        },
+        "term": {
+          "title": "Term",
+          "type": "string"
+        },
+        "top_recipients": {
+          "items": {
+            "properties": {
+              "amount_usd": {
+                "title": "Amount Usd",
+                "type": "number"
+              },
+              "name": {
+                "title": "Name",
+                "type": "string"
+              },
+              "uei": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Uei"
+              }
+            },
+            "required": [
+              "name",
+              "amount_usd",
+              "uei"
+            ],
+            "title": "Recipient",
+            "type": "object"
+          },
+          "title": "Top Recipients",
+          "type": "array"
+        },
+        "usaspending_by_fy": {
+          "items": {
+            "properties": {
+              "contract_obligations_usd": {
+                "title": "Contract Obligations Usd",
+                "type": "number"
+              },
+              "fiscal_year": {
+                "title": "Fiscal Year",
+                "type": "integer"
+              },
+              "grant_obligations_usd": {
+                "title": "Grant Obligations Usd",
+                "type": "number"
+              },
+              "total_obligations_usd": {
+                "title": "Total Obligations Usd",
+                "type": "number"
+              }
+            },
+            "required": [
+              "fiscal_year",
+              "total_obligations_usd",
+              "contract_obligations_usd",
+              "grant_obligations_usd"
+            ],
+            "title": "FiscalYearSpend",
+            "type": "object"
+          },
+          "title": "Usaspending By Fy",
+          "type": "array"
+        },
+        "usaspending_growth_3y": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Total obligations, last complete FY vs 3 FYs earlier, as a ratio - 1; null if base is 0.",
+          "title": "Usaspending Growth 3Y"
+        }
+      },
+      "required": [
+        "as_of",
+        "term",
+        "fiscal_years",
+        "usaspending_by_fy",
+        "usaspending_growth_3y",
+        "top_recipients",
+        "nih_projects_by_fy",
+        "nih_growth_3y",
+        "nih_recent_projects",
+        "flags"
+      ],
+      "title": "FundingOutput",
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "top_recipients[].amount_usd": {
+        "min": 0
+      },
+      "usaspending_by_fy[].contract_obligations_usd": {
+        "min": 0
+      },
+      "usaspending_by_fy[].grant_obligations_usd": {
+        "min": 0
+      },
+      "usaspending_by_fy[].total_obligations_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "answerpool.io",
+    "endpoint": "https://answerpool.io/v1/funding/signals",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

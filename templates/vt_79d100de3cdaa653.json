@@ -1,0 +1,87 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_79d100de3cdaa653",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "cache": {
+          "type": "string"
+        },
+        "checksVersion": {
+          "type": "string"
+        },
+        "grade": {
+          "type": "string"
+        },
+        "origin": {
+          "type": "string"
+        },
+        "reportUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "evidence": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "evidence",
+              "id",
+              "severity",
+              "status"
+            ]
+          }
+        },
+        "scannedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "score": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "cache",
+        "checksVersion",
+        "grade",
+        "origin",
+        "reportUrl",
+        "results",
+        "scannedAt",
+        "score"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "results[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.x402lint.dev",
+    "endpoint": "https://api.x402lint.dev/v1/scan",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

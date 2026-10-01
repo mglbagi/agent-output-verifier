@@ -1,0 +1,97 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_16c713f68758bb7c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "description": "Best matches first",
+          "items": {
+            "description": "Name-search hit; look the identifier up for the full record",
+            "properties": {
+              "active": {
+                "type": "boolean"
+              },
+              "city": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "identifier": {
+                "description": "Global identifier, e.g. \"SE:orgnr:5567037485\"",
+                "type": "string"
+              },
+              "legal_form": {
+                "description": "Register code, e.g. \"AB\"",
+                "type": "string"
+              },
+              "name": {
+                "description": "Registered name",
+                "type": "string"
+              }
+            },
+            "required": [
+              "identifier",
+              "name",
+              "legal_form",
+              "city",
+              "active"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "raw": {
+          "description": "Always null for search. Always present in responses; omitted from the published example."
+        },
+        "source": {
+          "description": "Where the data came from",
+          "properties": {
+            "attribution": {
+              "description": "Attribution text required by the data licence",
+              "type": "string"
+            },
+            "mock": {
+              "description": "true when the data is a labelled fixture rather than live register data",
+              "type": "boolean"
+            },
+            "name": {
+              "description": "Gateway source adapter that produced the data",
+              "type": "string"
+            },
+            "retrieved_at": {
+              "description": "When the upstream data was fetched (ISO 8601 timestamp)",
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "name",
+            "attribution",
+            "retrieved_at",
+            "mock"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "data",
+        "source"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-gateway.ai",
+    "endpoint": "https://x402-gateway.ai/api/v1/se/company/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

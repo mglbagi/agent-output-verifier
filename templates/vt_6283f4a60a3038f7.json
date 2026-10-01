@@ -1,0 +1,64 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6283f4a60a3038f7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "action": {
+          "const": "lookup",
+          "type": "string"
+        },
+        "constituent_count": {
+          "type": "integer"
+        },
+        "constituents": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "degraded": {
+          "const": false,
+          "type": "boolean"
+        },
+        "index": {
+          "type": "string"
+        },
+        "payload": {
+          "const": "indices",
+          "type": "string"
+        },
+        "source": {
+          "const": "live",
+          "type": "string"
+        }
+      },
+      "required": [
+        "payload",
+        "action",
+        "index",
+        "constituent_count",
+        "constituents",
+        "degraded",
+        "source"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "constituent_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.edifiedlab.com",
+    "endpoint": "https://api.edifiedlab.com/v1/market/indices",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

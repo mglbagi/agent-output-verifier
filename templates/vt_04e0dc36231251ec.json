@@ -1,0 +1,86 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_04e0dc36231251ec",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "cik": {
+          "type": "string"
+        },
+        "concepts": {
+          "type": "object",
+          "properties": {
+            "revenue": {
+              "type": "object",
+              "properties": {
+                "annual": {
+                  "type": "object",
+                  "properties": {
+                    "end": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "form": {
+                      "type": "string"
+                    },
+                    "unit": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "end",
+                    "form",
+                    "unit",
+                    "value"
+                  ]
+                },
+                "label": {
+                  "type": "string"
+                },
+                "tag": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "annual",
+                "label",
+                "tag"
+              ]
+            }
+          },
+          "required": [
+            "revenue"
+          ]
+        },
+        "entity": {
+          "type": "string"
+        },
+        "ticker": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "cik",
+        "concepts",
+        "entity",
+        "ticker"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.agentfund.net",
+    "endpoint": "https://x402.agentfund.net/x402/edgar_financials",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

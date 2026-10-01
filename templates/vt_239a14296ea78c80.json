@@ -1,0 +1,88 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_239a14296ea78c80",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "asset_class": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "markets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "asset_class": {
+                "type": "string"
+              },
+              "coin": {
+                "type": "string"
+              },
+              "day_volume": {
+                "type": "number"
+              },
+              "dex": {
+                "type": "string"
+              },
+              "funding": {
+                "type": "number"
+              },
+              "mark_px": {
+                "type": "integer"
+              },
+              "open_interest": {
+                "type": "number"
+              },
+              "symbol": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "asset_class",
+              "coin",
+              "day_volume",
+              "dex",
+              "funding",
+              "mark_px",
+              "open_interest",
+              "symbol"
+            ]
+          }
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "asset_class",
+        "count",
+        "markets",
+        "updated_at"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "markets[].day_volume": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "whaletape.xyz",
+    "endpoint": "https://whaletape.xyz/markets/class/:asset_class",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

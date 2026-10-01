@@ -1,0 +1,86 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_edf8bfc376efb646",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "report_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "evidence": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "pillar": {
+                "type": "string"
+              },
+              "question": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "evidence",
+              "id",
+              "label",
+              "pillar",
+              "question",
+              "status"
+            ]
+          }
+        },
+        "scores": {
+          "type": "object",
+          "properties": {
+            "grade": {
+              "type": "string"
+            },
+            "overall": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "grade",
+            "overall"
+          ]
+        }
+      },
+      "required": [
+        "report_url",
+        "results",
+        "scores"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "results[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "orbylon.com",
+    "endpoint": "https://orbylon.com/api/scan/full",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

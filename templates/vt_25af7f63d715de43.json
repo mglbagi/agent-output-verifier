@@ -1,0 +1,317 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_25af7f63d715de43",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "ai_summary": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "buys_24h": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "decimals": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "fdv_usd": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "fetched_at": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "holder_count": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "liquidity_score": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "liquidity_usd": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "market_cap_usd": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "mint": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "momentum_score": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "narratives": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "pairs": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "price_change_24h": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "price_usd": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "security": {
+          "properties": {
+            "freeze_authority_revoked": {
+              "description": "False means your balance can be frozen.",
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "insider_accounts_detected": {
+              "description": "Total accounts across all detected clusters.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "insider_accounts_pct_of_holders": {
+              "description": "insider_accounts_detected as a percent of total_holders. A lead to investigate, not a verdict — legitimate exchanges/market makers can also show up as large connected clusters.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "insider_network_count": {
+              "description": "Number of connected-wallet clusters RugCheck's graph analysis detected across ALL holders (not just the top 10/20).",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "lp_locked_pct": {
+              "description": "Percent of liquidity locked, 0-100.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "lp_unlock_date": {
+              "description": "ISO timestamp of the nearest future LP unlock, if any locked LP has a known unlock date. Null if fully unlocked or no lock data.",
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date-time"
+            },
+            "mint_authority_revoked": {
+              "description": "False means new supply can still be minted.",
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "rugcheck_risks": {
+              "description": "Named risks.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "rugcheck_score": {
+              "description": "Raw upstream RugCheck score.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "top10_holder_pct": {
+              "description": "Percent of supply held by the top 10 holders.",
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "freeze_authority_revoked",
+            "insider_accounts_detected",
+            "insider_accounts_pct_of_holders",
+            "insider_network_count",
+            "lp_locked_pct",
+            "lp_unlock_date",
+            "mint_authority_revoked"
+          ]
+        },
+        "security_score": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "sells_24h": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "socials": {
+          "type": "object"
+        },
+        "supply": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "symbol": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "token_age_days": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "tradable_on_jupiter": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "volume_24h_usd": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "watchdog_score": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "buys_24h",
+        "decimals",
+        "fetched_at",
+        "holder_count",
+        "liquidity_score",
+        "liquidity_usd",
+        "mint",
+        "momentum_score",
+        "name",
+        "narratives",
+        "price_change_24h",
+        "price_usd",
+        "security",
+        "security_score",
+        "symbol",
+        "token_age_days",
+        "tradable_on_jupiter",
+        "volume_24h_usd",
+        "watchdog_score"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "fdv_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "holder_count": {
+        "min": 0
+      },
+      "liquidity_usd": {
+        "min": 0
+      },
+      "market_cap_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "price_usd": {
+        "min": 0
+      },
+      "security.insider_accounts_pct_of_holders": {
+        "min": 0,
+        "max": 100
+      },
+      "security.lp_locked_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "security.top10_holder_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "supply": {
+        "min": 0,
+        "if_present": true
+      },
+      "token_age_days": {
+        "min": 0
+      },
+      "volume_24h_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "saylorinnovations.com",
+    "endpoint": "https://saylorinnovations.com/api/token/:mint",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

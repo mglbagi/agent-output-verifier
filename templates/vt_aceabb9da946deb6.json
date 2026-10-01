@@ -1,0 +1,103 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_aceabb9da946deb6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "properties": {
+            "agents": {
+              "items": {
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "payment": {
+                    "type": "object"
+                  },
+                  "reputation": {
+                    "type": "object"
+                  },
+                  "score": {
+                    "type": "number"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "capabilities_without_agents": {
+              "items": {
+                "properties": {
+                  "capability": {
+                    "type": "string"
+                  },
+                  "confidence": {
+                    "type": "number"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "domain": {
+                    "type": "string"
+                  },
+                  "execution_tier": {
+                    "type": "string"
+                  },
+                  "source": {
+                    "type": "string"
+                  },
+                  "trust_score": {
+                    "type": "number"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "count": {
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "required": [
+        "success"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data.agents[].id",
+        "if_present": true
+      }
+    ],
+    "bounds": {
+      "data.count": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.agentinternetruntime.com",
+    "endpoint": "https://api.agentinternetruntime.com/v1/registry/discover",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

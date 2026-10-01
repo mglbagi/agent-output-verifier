@@ -1,0 +1,50 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c4434006d3112904",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "burns_after": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "claim_url": {
+          "format": "uri",
+          "type": "string"
+        },
+        "expires_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "receipt_key": {
+          "description": "Location of the public key for verifying burn attestations.",
+          "type": "string"
+        },
+        "vault_id": {
+          "pattern": "^vlt_[0-9a-f]{8}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "vault_id",
+        "claim_url",
+        "expires_at",
+        "burns_after",
+        "receipt_key"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "burn-once-secret-vault.jannioura.workers.dev",
+    "endpoint": "https://burn-once-secret-vault.jannioura.workers.dev/",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_715e915805125ace",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "altitudeMetres": {
+          "type": "integer"
+        },
+        "cloudCoverPct": {
+          "type": "integer"
+        },
+        "conditions": {
+          "type": "string"
+        },
+        "lat": {
+          "type": "number"
+        },
+        "license": {
+          "type": "string"
+        },
+        "lon": {
+          "type": "number"
+        },
+        "modelRun": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "next": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "precipitationMm": {
+                "type": "integer"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "temperatureC": {
+                "type": "number"
+              },
+              "time": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "precipitationMm",
+              "symbol",
+              "temperatureC",
+              "time"
+            ]
+          }
+        },
+        "observedFor": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "precipitationNext1hMm": {
+          "type": "integer"
+        },
+        "pressureHpa": {
+          "type": "number"
+        },
+        "relativeHumidityPct": {
+          "type": "number"
+        },
+        "source": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "temperatureC": {
+          "type": "number"
+        },
+        "units": {
+          "type": "object",
+          "properties": {
+            "air_temperature": {
+              "type": "string"
+            },
+            "wind_speed": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "air_temperature",
+            "wind_speed"
+          ]
+        },
+        "windFromCompass": {
+          "type": "string"
+        },
+        "windFromDegrees": {
+          "type": "number"
+        },
+        "windSpeedMs": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "altitudeMetres",
+        "cloudCoverPct",
+        "conditions",
+        "lat",
+        "license",
+        "lon",
+        "modelRun",
+        "next",
+        "observedFor",
+        "precipitationNext1hMm",
+        "pressureHpa",
+        "relativeHumidityPct",
+        "source",
+        "symbol",
+        "temperatureC",
+        "units",
+        "windFromCompass",
+        "windFromDegrees",
+        "windSpeedMs"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "cloudCoverPct": {
+        "min": 0,
+        "max": 100
+      },
+      "lat": {
+        "min": -90,
+        "max": 90
+      },
+      "lon": {
+        "min": -180,
+        "max": 180
+      },
+      "relativeHumidityPct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "flat-rate-llm.kikoribera03.workers.dev",
+    "endpoint": "https://flat-rate-llm.kikoribera03.workers.dev/v1/weather/now",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

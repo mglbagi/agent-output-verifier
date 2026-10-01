@@ -1,0 +1,81 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2a310d0287312b43",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "clean": {
+          "description": "Sanitized text",
+          "type": "string"
+        },
+        "inputChars": {
+          "type": "integer"
+        },
+        "outputChars": {
+          "type": "integer"
+        },
+        "redactions": {
+          "description": "Counts per redaction class",
+          "properties": {
+            "cards": {
+              "type": "integer"
+            },
+            "emails": {
+              "type": "integer"
+            },
+            "phones": {
+              "type": "integer"
+            },
+            "secrets": {
+              "type": "integer"
+            },
+            "ssns": {
+              "type": "integer"
+            },
+            "urlTokens": {
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "required": [
+            "cards",
+            "emails",
+            "phones",
+            "secrets",
+            "ssns",
+            "urlTokens"
+          ]
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "success",
+        "clean",
+        "redactions"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "desanatization-production.up.railway.app",
+    "endpoint": "https://desanatization-production.up.railway.app/api/resource",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

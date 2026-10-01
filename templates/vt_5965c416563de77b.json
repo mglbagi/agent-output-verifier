@@ -1,0 +1,54 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5965c416563de77b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "description": "Depends on the route. A JSON-RPC call POSTed to the service root returns the JSON-RPC 2.0 envelope with `result` in the shape the CometBFT method defines (an object; block and status reads nest `block`, `sync_info` and so on). A GET on an LCD route returns that route's own JSON per the Cosmos SDK gRPC-gateway specification.",
+          "type": "object"
+        },
+        "portal": {
+          "properties": {
+            "provenance": {
+              "const": "third-party-supplier"
+            },
+            "schemaCheck": {
+              "enum": [
+                "passed",
+                "undeclared",
+                "unchecked"
+              ]
+            },
+            "serviceId": {
+              "const": "sei"
+            }
+          },
+          "required": [
+            "provenance",
+            "serviceId",
+            "schemaCheck"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "portal",
+        "data"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "test.agent.pocket.network",
+    "endpoint": "https://test.agent.pocket.network/v1/sei",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

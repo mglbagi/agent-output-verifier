@@ -1,0 +1,80 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ab2ba42bb8f4b01e",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "investor_sentiment": {
+          "type": "string"
+        },
+        "recent_rounds": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "amount_usd": {
+                "type": "string"
+              },
+              "company": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string"
+              },
+              "lead_investor": {
+                "type": "string"
+              },
+              "notable": {
+                "type": "string"
+              },
+              "stage": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "amount_usd",
+              "company",
+              "date",
+              "lead_investor",
+              "notable",
+              "stage"
+            ]
+          }
+        },
+        "region": {
+          "type": "string"
+        },
+        "sector": {
+          "type": "string"
+        },
+        "stage": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "investor_sentiment",
+        "recent_rounds",
+        "region",
+        "sector",
+        "stage",
+        "summary"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "venturepulse.theaslangroupllc.com",
+    "endpoint": "https://venturepulse.theaslangroupllc.com/api/startup/funding-search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

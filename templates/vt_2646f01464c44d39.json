@@ -1,0 +1,43 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2646f01464c44d39",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "contentType": {
+          "const": "text/markdown",
+          "type": "string"
+        },
+        "excerpt": {
+          "description": "Free teaser lines; the paid response is the full episode markdown",
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "words": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "contentType",
+        "excerpt",
+        "title",
+        "words"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "recipients-paywall.onrender.com",
+    "endpoint": "https://recipients-paywall.onrender.com/episode/1",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

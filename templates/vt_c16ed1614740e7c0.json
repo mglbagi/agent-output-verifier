@@ -1,0 +1,50 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c16ed1614740e7c0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "oneAttempt": {
+          "description": "Exactly one attempt; the id is consumed either way.",
+          "type": "boolean"
+        },
+        "paid": {
+          "description": "Confirms your USDC payment was received.",
+          "type": "boolean"
+        },
+        "prompt": {
+          "description": "The puzzle to solve.",
+          "type": "string"
+        },
+        "puzzleId": {
+          "description": "Submit your answer to POST /api/check with this id.",
+          "type": "string"
+        },
+        "ttlSeconds": {
+          "description": "Seconds before the puzzle expires unanswered.",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "required": [
+        "oneAttempt",
+        "paid",
+        "prompt",
+        "puzzleId",
+        "ttlSeconds"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "thelatentlounge.com",
+    "endpoint": "https://www.thelatentlounge.com/api/play/grandmaster/automaton",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_37c771cc73f8f220",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "query": {
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "author": {
+                "type": "string"
+              },
+              "comments_count": {
+                "type": "integer"
+              },
+              "created_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "id": {
+                "type": "string"
+              },
+              "points": {
+                "type": "integer"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "type": "object",
+            "required": [
+              "author",
+              "comments_count",
+              "created_at",
+              "id",
+              "points",
+              "title",
+              "url"
+            ]
+          },
+          "type": "array"
+        },
+        "source": {
+          "type": "string"
+        },
+        "total_hits": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "query",
+        "results",
+        "source",
+        "total_hits"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "results[].id"
+      }
+    ],
+    "bounds": {
+      "results[].comments_count": {
+        "min": 0
+      },
+      "total_hits": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.agentutility.ai",
+    "endpoint": "https://x402.agentutility.ai/hacker-news-search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

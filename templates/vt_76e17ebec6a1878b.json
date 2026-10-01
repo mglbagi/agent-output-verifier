@@ -1,0 +1,91 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_76e17ebec6a1878b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "maximum": 9007199254740991,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "findings": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "confidence": {
+                "maximum": 1,
+                "minimum": 0,
+                "type": "number"
+              },
+              "end": {
+                "exclusiveMinimum": 0,
+                "maximum": 9007199254740991,
+                "type": "integer"
+              },
+              "replacement": {
+                "type": "string"
+              },
+              "start": {
+                "maximum": 9007199254740991,
+                "minimum": 0,
+                "type": "integer"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "start",
+              "end",
+              "replacement",
+              "confidence"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "limitation": {
+          "type": "string"
+        },
+        "redacted": {
+          "type": "string"
+        },
+        "types": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "redacted",
+        "findings",
+        "count",
+        "types",
+        "limitation"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "findings[].start",
+        "other_field": "findings[].end"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "i3p3mgbsn54dvlivnk6wbumal40eqtsn.lambda-url.us-east-1.on.aws",
+    "endpoint": "https://i3p3mgbsn54dvlivnk6wbumal40eqtsn.lambda-url.us-east-1.on.aws/v1/pii-secret-redactor",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

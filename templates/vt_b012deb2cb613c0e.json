@@ -1,0 +1,180 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b012deb2cb613c0e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "ads": {
+          "items": {
+            "properties": {
+              "adArchiveId": {
+                "type": "string"
+              },
+              "bodyText": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "ctaText": {
+                "type": "string"
+              },
+              "ctaType": {
+                "type": "string"
+              },
+              "daysRunning": {
+                "type": "number"
+              },
+              "displayFormat": {
+                "type": "string"
+              },
+              "imageUrls": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "isActive": {
+                "type": "boolean"
+              },
+              "linkUrl": {
+                "type": "string",
+                "format": "uri"
+              },
+              "linkUrlType": {
+                "type": "string"
+              },
+              "mediaExpiresAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "pageId": {
+                "type": "string"
+              },
+              "pageName": {
+                "type": "string"
+              },
+              "pageVerified": {
+                "type": "boolean"
+              },
+              "publisherPlatform": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "scrapedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "sourceUrl": {
+                "type": "string",
+                "format": "uri"
+              },
+              "startDate": {
+                "type": "number"
+              },
+              "templatedText": {
+                "type": "boolean"
+              },
+              "title": {
+                "type": "string"
+              },
+              "videoUrl": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "type": "object",
+            "required": [
+              "adArchiveId",
+              "bodyText",
+              "country",
+              "ctaText",
+              "ctaType",
+              "daysRunning",
+              "displayFormat",
+              "imageUrls",
+              "isActive",
+              "linkUrl",
+              "linkUrlType",
+              "mediaExpiresAt",
+              "pageId",
+              "pageName",
+              "pageVerified",
+              "publisherPlatform",
+              "scrapedAt",
+              "sourceUrl",
+              "startDate",
+              "templatedText",
+              "title",
+              "videoUrl"
+            ]
+          },
+          "type": "array"
+        },
+        "asOf": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "count": {
+          "type": "number"
+        },
+        "country": {
+          "type": "string"
+        },
+        "query": {
+          "properties": {
+            "keyword": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "keyword"
+          ]
+        },
+        "source": {
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "via": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "name",
+            "via"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "ads",
+        "asOf",
+        "count",
+        "country",
+        "query",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ads.apitoll.cloud",
+    "endpoint": "https://ads.apitoll.cloud/v1/ads/facebook/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a46601b3eb2ee23a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "block": {
+          "type": "integer"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "pools_scanned": {
+          "type": "integer"
+        },
+        "trending": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "base": {
+                "type": "string"
+              },
+              "buy_count": {
+                "type": "integer"
+              },
+              "buy_volume_usd": {
+                "type": "number"
+              },
+              "dex": {
+                "type": "string"
+              },
+              "net_flow_usd": {
+                "type": "number"
+              },
+              "pair": {
+                "type": "string"
+              },
+              "pool": {
+                "type": "string"
+              },
+              "quote": {
+                "type": "string"
+              },
+              "sell_count": {
+                "type": "integer"
+              },
+              "sell_volume_usd": {
+                "type": "number"
+              },
+              "swap_count": {
+                "type": "integer"
+              },
+              "volume_usd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "base",
+              "buy_count",
+              "buy_volume_usd",
+              "dex",
+              "net_flow_usd",
+              "pair",
+              "pool",
+              "quote",
+              "sell_count",
+              "sell_volume_usd",
+              "swap_count",
+              "volume_usd"
+            ]
+          }
+        },
+        "window_blocks": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "block",
+        "chain",
+        "pools_scanned",
+        "trending",
+        "window_blocks"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "trending[].buy_count": {
+        "min": 0
+      },
+      "trending[].buy_volume_usd": {
+        "min": 0
+      },
+      "trending[].sell_count": {
+        "min": 0
+      },
+      "trending[].sell_volume_usd": {
+        "min": 0
+      },
+      "trending[].swap_count": {
+        "min": 0
+      },
+      "trending[].volume_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.agentstools.dev",
+    "endpoint": "https://api.agentstools.dev/dex/trending",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

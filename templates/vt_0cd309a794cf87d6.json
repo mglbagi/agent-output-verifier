@@ -1,0 +1,100 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0cd309a794cf87d6",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "query": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "close": {
+                "type": "string",
+                "format": "date"
+              },
+              "event": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "question": {
+                "type": "string"
+              },
+              "score": {
+                "type": "integer"
+              },
+              "traders": {},
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "venue": {
+                "type": "string"
+              },
+              "volume_usd": {
+                "type": "number"
+              },
+              "yes": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "close",
+              "event",
+              "id",
+              "question",
+              "score",
+              "url",
+              "venue",
+              "volume_usd",
+              "yes"
+            ]
+          }
+        }
+      },
+      "required": [
+        "count",
+        "generated_at",
+        "query",
+        "results"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "results[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "results[].volume_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "odds.rjhsignaltech.workers.dev",
+    "endpoint": "https://odds.rjhsignaltech.workers.dev/v1/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

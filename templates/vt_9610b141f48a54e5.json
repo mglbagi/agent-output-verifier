@@ -1,0 +1,92 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9610b141f48a54e5",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "api_version": {
+          "type": "string"
+        },
+        "canonical_tag": {
+          "type": "string"
+        },
+        "final_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "h1_tags": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "h2_tags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "h3_tags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "meta_description": {
+          "type": "string"
+        },
+        "meta_keywords": {
+          "type": "string"
+        },
+        "meta_robots": {
+          "type": "string"
+        },
+        "num_links": {
+          "type": "integer"
+        },
+        "status_code": {
+          "type": "integer"
+        },
+        "title_tag": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "api_version",
+        "url",
+        "final_url",
+        "status_code",
+        "title_tag",
+        "meta_description",
+        "meta_keywords",
+        "meta_robots",
+        "canonical_tag",
+        "h1_tags",
+        "h2_tags",
+        "h3_tags",
+        "num_links"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "num_links": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "seo-data-extractor.underscoredone.com",
+    "endpoint": "https://seo-data-extractor.underscoredone.com/extract",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

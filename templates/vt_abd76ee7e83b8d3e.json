@@ -1,0 +1,57 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_abd76ee7e83b8d3e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "final_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "format": {
+          "description": "The paper size used for the PDF.",
+          "type": "string"
+        },
+        "pdf_base64": {
+          "description": "Base64-encoded PDF bytes of the rendered page.",
+          "type": "string"
+        },
+        "size_bytes": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "type": "object",
+      "required": [
+        "final_url",
+        "format",
+        "pdf_base64",
+        "size_bytes",
+        "title",
+        "url"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "size_bytes": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "screenshot-api-production-fe7e.up.railway.app",
+    "endpoint": "https://screenshot-api-production-fe7e.up.railway.app/capture/pdf",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

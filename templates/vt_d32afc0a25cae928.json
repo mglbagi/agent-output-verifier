@@ -1,0 +1,115 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d32afc0a25cae928",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "activeWindowHours": {
+          "type": "number"
+        },
+        "darkFleetTotal": {
+          "type": "number"
+        },
+        "distinct_flags": {
+          "type": "integer"
+        },
+        "health": {
+          "type": "object",
+          "properties": {
+            "aisSource": {
+              "type": "string"
+            },
+            "note": {},
+            "trusted": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "aisSource",
+            "trusted"
+          ]
+        },
+        "sanctioned_count": {
+          "type": "integer"
+        },
+        "sanctioned_share": {
+          "type": "number"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "top_flags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "count": {
+                "type": "integer"
+              },
+              "country": {
+                "type": "string"
+              },
+              "oldest_last_seen": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "sanctioned_count": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "code",
+              "count",
+              "country",
+              "oldest_last_seen",
+              "sanctioned_count"
+            ]
+          }
+        },
+        "vessel_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "activeWindowHours",
+        "darkFleetTotal",
+        "distinct_flags",
+        "health",
+        "sanctioned_count",
+        "sanctioned_share",
+        "schema",
+        "top_flags",
+        "vessel_count"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "sanctioned_count": {
+        "min": 0
+      },
+      "top_flags[].count": {
+        "min": 0
+      },
+      "top_flags[].sanctioned_count": {
+        "min": 0
+      },
+      "vessel_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "straits.live",
+    "endpoint": "https://straits.live/api/premium/hormuz/flags",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

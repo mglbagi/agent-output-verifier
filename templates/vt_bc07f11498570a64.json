@@ -1,0 +1,103 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bc07f11498570a64",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "endpoints": {
+          "type": "integer"
+        },
+        "first_seen": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "flags": {
+          "type": "array"
+        },
+        "live": {
+          "type": "integer"
+        },
+        "onchain": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "last_settlement_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "network": {
+                "type": "string"
+              },
+              "settlements_30d": {
+                "type": "integer"
+              },
+              "status": {
+                "type": "string"
+              },
+              "unique_payers_30d": {
+                "type": "integer"
+              },
+              "window": {
+                "type": "object",
+                "properties": {
+                  "coverage_from": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "days": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "coverage_from",
+                  "days"
+                ]
+              }
+            },
+            "required": [
+              "last_settlement_at",
+              "network",
+              "settlements_30d",
+              "status",
+              "unique_payers_30d",
+              "window"
+            ]
+          }
+        },
+        "price_range_usd": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "address",
+        "endpoints",
+        "first_seen",
+        "flags",
+        "live",
+        "onchain",
+        "price_range_usd"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "settled.justinedwardvolmer.workers.dev",
+    "endpoint": "https://settled.justinedwardvolmer.workers.dev/v1/payto/:address",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

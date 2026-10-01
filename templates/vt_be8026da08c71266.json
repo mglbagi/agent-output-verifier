@@ -1,0 +1,59 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_be8026da08c71266",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "cached": {
+          "type": "boolean"
+        },
+        "estimated_annual_rent": {
+          "type": "number"
+        },
+        "estimated_monthly_rent": {
+          "type": "number"
+        },
+        "gross_yield_percent": {
+          "type": "number"
+        },
+        "postcode": {
+          "type": "string"
+        },
+        "property_value": {
+          "type": "number"
+        },
+        "yield_band": {
+          "description": "'Low' (<4%), 'Average' (4-6%), or 'High' (>6%).",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "cached",
+        "estimated_annual_rent",
+        "estimated_monthly_rent",
+        "gross_yield_percent",
+        "postcode",
+        "property_value",
+        "yield_band"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "gross_yield_percent": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "web-production-18a32.up.railway.app",
+    "endpoint": "https://web-production-18a32.up.railway.app/yield-estimate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d68d73abc218d00d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "action": {
+          "enum": [
+            "convert",
+            "latest",
+            "historical",
+            "currencies"
+          ],
+          "type": "string"
+        },
+        "amount": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "base": {
+          "type": "string"
+        },
+        "converted": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "currencies": {
+          "type": "object"
+        },
+        "date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "from": {
+          "type": "string"
+        },
+        "payload": {
+          "const": "fx_convert",
+          "type": "string"
+        },
+        "rate": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "rates": {
+          "type": "object"
+        },
+        "source": {
+          "enum": [
+            "ecb_reference",
+            "local_identity"
+          ],
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "payload",
+        "action",
+        "source"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "amount": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.edifiedlab.com",
+    "endpoint": "https://api.edifiedlab.com/v1/market/fx-convert",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

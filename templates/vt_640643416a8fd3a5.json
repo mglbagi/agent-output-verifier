@@ -1,0 +1,79 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_640643416a8fd3a5",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "caveats": {
+          "description": "Present when coverage was limited (e.g. live feed tracking 0 active exploit entities). Absent = no caveats.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "checked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "findings": {
+          "description": "Actionable findings (medium+); worst-first.",
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "risk_level": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "critical"
+          ],
+          "type": "string"
+        },
+        "risk_score": {
+          "description": "0-100; higher is riskier.",
+          "type": "number"
+        },
+        "stateless": {
+          "type": "boolean"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "threat_feed": {
+          "description": "Provenance of the live exploit feed this verdict was evaluated against: state (ok|stale|missing|error), updated_at, entities. A degraded feed is refused with 503 BEFORE payment; paid responses always disclose feed state.",
+          "type": "object"
+        }
+      },
+      "required": [
+        "address",
+        "chain",
+        "risk_score",
+        "risk_level",
+        "findings",
+        "stateless"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.wallettriage.com",
+    "endpoint": "https://api.wallettriage.com/scan",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

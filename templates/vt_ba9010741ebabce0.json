@@ -1,0 +1,57 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ba9010741ebabce0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "api_version": {
+          "type": "string"
+        },
+        "failed": {
+          "type": "integer"
+        },
+        "processed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "results": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "succeeded": {
+          "type": "integer"
+        },
+        "total": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "api_version",
+        "results",
+        "total",
+        "succeeded",
+        "failed",
+        "processed_at"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "domain-age-checker.underscoredone.com",
+    "endpoint": "https://domain-age-checker.underscoredone.com/lookup",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

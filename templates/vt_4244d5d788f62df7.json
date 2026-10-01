@@ -1,0 +1,49 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4244d5d788f62df7",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "billedUsd": {
+          "type": "string"
+        },
+        "durationSeconds": {
+          "type": "number"
+        },
+        "etaSeconds": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "string"
+        },
+        "maxPriceUsd": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "billedUsd",
+        "durationSeconds",
+        "etaSeconds",
+        "id",
+        "maxPriceUsd",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "compress.codreanu.casa",
+    "endpoint": "https://compress.codreanu.casa/v1/jobs/start",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

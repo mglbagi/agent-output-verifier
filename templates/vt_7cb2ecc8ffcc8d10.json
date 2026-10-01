@@ -1,0 +1,163 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7cb2ecc8ffcc8d10",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "cik": {
+              "type": "string"
+            },
+            "forms_not_found": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "forms_requested": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "accession_number": {
+                    "type": "string"
+                  },
+                  "document_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "filing_date": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "form": {
+                    "type": "string"
+                  },
+                  "primary_document": {
+                    "type": "string"
+                  },
+                  "report_date": {
+                    "type": "string",
+                    "format": "date"
+                  }
+                },
+                "required": [
+                  "accession_number",
+                  "document_url",
+                  "filing_date",
+                  "form",
+                  "primary_document",
+                  "report_date"
+                ]
+              }
+            },
+            "name": {
+              "type": "string"
+            },
+            "page": {
+              "type": "object",
+              "properties": {
+                "has_more": {
+                  "type": "boolean"
+                },
+                "limit": {},
+                "next_offset": {},
+                "offset": {
+                  "type": "integer"
+                },
+                "returned": {
+                  "type": "integer"
+                },
+                "total": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "has_more",
+                "offset",
+                "returned",
+                "total"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "matched_by": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "matched_by"
+              ]
+            }
+          },
+          "required": [
+            "cik",
+            "forms_not_found",
+            "forms_requested",
+            "items",
+            "name",
+            "page",
+            "query"
+          ]
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "capability": {
+              "type": "string"
+            },
+            "freshness": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "capability",
+            "freshness",
+            "source",
+            "version"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.page.total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api-staging.eckari.com",
+    "endpoint": "https://api-staging.eckari.com/v1/companies/us/:id/filings/latest",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

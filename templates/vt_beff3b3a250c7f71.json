@@ -1,0 +1,85 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_beff3b3a250c7f71",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "entry": {
+          "type": "object",
+          "properties": {
+            "contact": {
+              "type": "string",
+              "format": "email"
+            },
+            "held_since": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "house_entry": {
+              "type": "boolean"
+            },
+            "line": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "payer_address": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "price_paid_usd": {
+              "type": "string"
+            },
+            "price_usd": {
+              "type": "string"
+            },
+            "rail": {
+              "type": "string"
+            },
+            "rank": {
+              "type": "integer"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "contact",
+            "held_since",
+            "house_entry",
+            "line",
+            "name",
+            "payer_address",
+            "price_paid_usd",
+            "price_usd",
+            "rail",
+            "rank",
+            "url"
+          ]
+        },
+        "placed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "entry",
+        "placed"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "centboard.xyz",
+    "endpoint": "https://centboard.xyz/v1/bid",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

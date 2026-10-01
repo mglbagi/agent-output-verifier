@@ -1,0 +1,212 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5ab7314942f2b5bc",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "queried_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "age_rating": {
+                "type": "string"
+              },
+              "bundle_id": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "developer": {
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "link": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "name"
+                ]
+              },
+              "genres": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "primary": {
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "id": {
+                "description": "App Store app id",
+                "type": "integer"
+              },
+              "link": {
+                "type": "string"
+              },
+              "logos": {
+                "items": {
+                  "properties": {
+                    "link": {
+                      "type": "string"
+                    },
+                    "size": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "minimum_os_version": {
+                "type": "string"
+              },
+              "position": {
+                "type": "integer"
+              },
+              "price": {
+                "properties": {
+                  "amount": {
+                    "type": "number"
+                  },
+                  "currency": {
+                    "type": "string"
+                  },
+                  "symbol": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "type"
+                ]
+              },
+              "rating": {
+                "items": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    },
+                    "rating": {
+                      "type": "number"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object",
+                  "required": [
+                    "count",
+                    "rating",
+                    "type"
+                  ]
+                },
+                "type": "array"
+              },
+              "release_note": {
+                "type": "string"
+              },
+              "screenshots": {
+                "additionalProperties": {
+                  "items": {
+                    "properties": {
+                      "link": {
+                        "type": "string"
+                      },
+                      "size": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "description": "Screenshot media grouped by device family (e.g. iphone, ipad)",
+                "type": "object"
+              },
+              "size_in_bytes": {
+                "type": "integer"
+              },
+              "title": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "title"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "term": {
+          "description": "Echoed search term",
+          "type": "string"
+        }
+      },
+      "required": [
+        "term",
+        "queried_at",
+        "results"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "results[].genres[].id",
+        "if_present": true
+      },
+      {
+        "type": "unique",
+        "field": "results[].bundle_id"
+      }
+    ],
+    "bounds": {
+      "results[].price.amount": {
+        "min": 0,
+        "if_present": true
+      },
+      "results[].rating[].count": {
+        "min": 0,
+        "if_present": true
+      },
+      "results[].size_in_bytes": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "appstore.use.x402atlas.com",
+    "endpoint": "https://appstore.use.x402atlas.com/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

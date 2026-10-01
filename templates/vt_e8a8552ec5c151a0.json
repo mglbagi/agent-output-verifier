@@ -1,0 +1,57 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e8a8552ec5c151a0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "available": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        },
+        "mintFee": {
+          "properties": {
+            "eth": {
+              "type": "string"
+            },
+            "wei": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "eth",
+            "wei"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "registerUrl": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "name",
+        "available",
+        "registerUrl",
+        "message"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402id-availability.dmpay.workers.dev",
+    "endpoint": "https://x402id-availability.dmpay.workers.dev/v1/availability/:name",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

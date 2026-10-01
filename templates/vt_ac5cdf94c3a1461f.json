@@ -1,0 +1,103 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ac5cdf94c3a1461f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "coverage": {
+          "description": "0..1 fraction of the rubric that actually ran; meaningless to read score without it",
+          "type": "number"
+        },
+        "flags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "freshness": {
+          "description": "checked_at/age_seconds/stale. Pass max_age=<seconds> to get `unknown` + STALE_FOR_CALLER instead of an old answer — the observation still travels, so that response is billed normally. The scored fields are absent entirely (not null) on an `unknown` where we have no answer, and that one is free.",
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "reasons": {
+          "description": "stable machine-readable causes behind the verdict; see /v1/methodology → reason_codes",
+          "items": {
+            "properties": {
+              "check": {
+                "description": "on CHECK_FAILED",
+                "type": "string"
+              },
+              "code": {
+                "type": "string"
+              },
+              "detail": {
+                "type": "string"
+              },
+              "flag": {
+                "description": "on CRITICAL_FLAG",
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "code",
+              "detail"
+            ]
+          },
+          "type": "array"
+        },
+        "score": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "tier": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "verdict": {
+          "description": "decision-shaped: ok = proceed, caution = hold, avoid = abort, unknown = not rated (never read as safe)",
+          "enum": [
+            "ok",
+            "caution",
+            "avoid",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "verdict_reason": {
+          "description": "prose; wording not stable — branch on reasons[].code",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "coverage",
+        "flags",
+        "freshness",
+        "reasons",
+        "score",
+        "tier",
+        "verdict",
+        "verdict_reason"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "dappgrade.vercel.app",
+    "endpoint": "https://dappgrade.vercel.app/v1/score",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

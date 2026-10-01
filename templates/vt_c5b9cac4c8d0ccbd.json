@@ -1,0 +1,141 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c5b9cac4c8d0ccbd",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "candidate_count": {
+          "type": "integer"
+        },
+        "candidates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "address_id": {
+                "type": "integer"
+              },
+              "confidence": {
+                "type": "number"
+              },
+              "granularity": {
+                "type": "string"
+              },
+              "latitude": {
+                "type": "number"
+              },
+              "longitude": {
+                "type": "number"
+              },
+              "match_completeness": {
+                "type": "string"
+              },
+              "match_level": {
+                "type": "integer"
+              },
+              "normalized": {
+                "type": "string"
+              },
+              "reasons": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "source": {
+                "type": "string"
+              },
+              "unmatched_tail": {}
+            },
+            "required": [
+              "address_id",
+              "confidence",
+              "granularity",
+              "latitude",
+              "longitude",
+              "match_completeness",
+              "match_level",
+              "normalized",
+              "reasons",
+              "source"
+            ]
+          }
+        },
+        "dictionary_version": {},
+        "geocoder_status": {
+          "type": "string"
+        },
+        "matched": {
+          "type": "string"
+        },
+        "minimum_acceptable_level": {
+          "type": "integer"
+        },
+        "precision_satisfied": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string"
+        },
+        "upstream_matched": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "verified_level": {
+          "type": "integer"
+        },
+        "warnings": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "candidate_count",
+        "candidates",
+        "geocoder_status",
+        "matched",
+        "minimum_acceptable_level",
+        "precision_satisfied",
+        "status",
+        "upstream_matched",
+        "verified_level",
+        "warnings"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "candidates[].address_id"
+      }
+    ],
+    "bounds": {
+      "candidate_count": {
+        "min": 0
+      },
+      "candidates[].confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "candidates[].latitude": {
+        "min": -90,
+        "max": 90
+      },
+      "candidates[].longitude": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.jpverify.com",
+    "endpoint": "https://api.jpverify.com/jp-address/geocode",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

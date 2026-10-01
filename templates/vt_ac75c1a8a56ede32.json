@@ -1,0 +1,192 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ac75c1a8a56ede32",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "capital_structure": {
+          "type": "object",
+          "properties": {
+            "D_V": {
+              "type": "integer"
+            },
+            "D_m": {
+              "type": "integer"
+            },
+            "E_V": {
+              "type": "integer"
+            },
+            "E_m": {
+              "type": "integer"
+            },
+            "P_V": {
+              "type": "integer"
+            },
+            "P_m": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "D_V",
+            "D_m",
+            "E_V",
+            "E_m",
+            "P_V",
+            "P_m"
+          ]
+        },
+        "coverage_pct": {
+          "type": "integer"
+        },
+        "fye_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "inputs": {
+          "type": "object",
+          "properties": {
+            "beta": {
+              "type": "integer"
+            },
+            "beta_basis": {
+              "type": "string"
+            },
+            "erp": {
+              "type": "integer"
+            },
+            "fye_price": {
+              "type": "number"
+            },
+            "kd_method": {
+              "type": "string"
+            },
+            "kd_pretax": {
+              "type": "number"
+            },
+            "rf": {
+              "type": "integer"
+            },
+            "shares_m": {
+              "type": "integer"
+            },
+            "tax": {
+              "type": "number"
+            },
+            "total_debt_m": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "beta",
+            "beta_basis",
+            "erp",
+            "fye_price",
+            "kd_method",
+            "kd_pretax",
+            "rf",
+            "shares_m",
+            "tax",
+            "total_debt_m"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        },
+        "results": {
+          "type": "object",
+          "properties": {
+            "kd_after_tax": {
+              "type": "number"
+            },
+            "ke": {
+              "type": "integer"
+            },
+            "kp": {
+              "type": "integer"
+            },
+            "wacc": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "kd_after_tax",
+            "ke",
+            "kp",
+            "wacc"
+          ]
+        },
+        "servable": {
+          "type": "boolean"
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "tranches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "basis": {
+                "type": "string"
+              },
+              "coupon": {
+                "type": "integer"
+              },
+              "floating": {
+                "type": "boolean"
+              },
+              "name": {
+                "type": "string"
+              },
+              "principal": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "basis",
+              "coupon",
+              "floating",
+              "name",
+              "principal"
+            ]
+          }
+        }
+      },
+      "required": [
+        "capital_structure",
+        "coverage_pct",
+        "fye_date",
+        "inputs",
+        "notes",
+        "results",
+        "servable",
+        "ticker",
+        "tranches"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "coverage_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "inputs.fye_price": {
+        "min": 0
+      },
+      "inputs.total_debt_m": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "alpha402x.com",
+    "endpoint": "https://alpha402x.com/wacc-build/AAPL/fye-2025-09-27",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

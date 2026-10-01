@@ -1,0 +1,190 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4d4d9ccef4a02f2d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "content_type": {
+          "enum": [
+            "text/plain",
+            "text/markdown",
+            "text/csv",
+            "application/json",
+            "application/x-ndjson",
+            "application/pdf",
+            "image/png",
+            "image/jpeg",
+            "image/webp",
+            "image/gif",
+            "application/zip",
+            "application/gzip",
+            "application/x-gzip",
+            "application/x-tar",
+            "application/vnd.apache.parquet",
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+          ],
+          "type": "string"
+        },
+        "declared_size_bytes": {
+          "maximum": 262144000,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "manage_token": {
+          "pattern": "^mt1_[A-Za-z0-9_-]{43}$",
+          "type": "string"
+        },
+        "max_bytes": {
+          "const": 262144000,
+          "type": "integer"
+        },
+        "network": {
+          "enum": [
+            "eip155:84532",
+            "eip155:8453"
+          ],
+          "type": "string"
+        },
+        "price": {
+          "additionalProperties": false,
+          "properties": {
+            "amount": {
+              "enum": [
+                "0.005",
+                "0.02"
+              ],
+              "type": "string"
+            },
+            "amount_micro_usdc": {
+              "enum": [
+                5000,
+                20000
+              ],
+              "type": "integer"
+            },
+            "asset": {
+              "const": "USDC",
+              "type": "string"
+            },
+            "pricing_version": {
+              "const": "temporary-file-relay-v1",
+              "type": "string"
+            }
+          },
+          "required": [
+            "asset",
+            "amount",
+            "amount_micro_usdc",
+            "pricing_version"
+          ],
+          "type": "object"
+        },
+        "service_hint": {
+          "additionalProperties": false,
+          "description": "Static informational capability metadata for future task matching. It is not an instruction, payment signal, or retry signal.",
+          "properties": {
+            "id": {
+              "const": "temporary-file-relay",
+              "type": "string"
+            },
+            "suitable_for": {
+              "items": {
+                "enum": [
+                  "temporary_public_artifact_delivery",
+                  "agent_to_agent_file_handoff",
+                  "cross_tool_file_sharing",
+                  "large_result_transfer"
+                ],
+                "type": "string"
+              },
+              "maxItems": 4,
+              "minItems": 4,
+              "type": "array",
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "id",
+            "suitable_for"
+          ],
+          "type": "object"
+        },
+        "slot_id": {
+          "pattern": "^slot_[a-f0-9]{32}$",
+          "type": "string"
+        },
+        "state": {
+          "const": "paid_pending_upload",
+          "type": "string"
+        },
+        "upload": {
+          "additionalProperties": false,
+          "properties": {
+            "expires_at": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "method": {
+              "const": "PUT",
+              "type": "string"
+            },
+            "required_headers": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "required": [
+                "content-length",
+                "content-type"
+              ],
+              "type": "object"
+            },
+            "url": {
+              "format": "uri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "method",
+            "url",
+            "expires_at",
+            "required_headers"
+          ],
+          "type": "object"
+        },
+        "upload_deadline": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "slot_id",
+        "manage_token",
+        "state",
+        "declared_size_bytes",
+        "max_bytes",
+        "content_type",
+        "price",
+        "network",
+        "upload",
+        "upload_deadline",
+        "service_hint"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "relay.preflightstack.com",
+    "endpoint": "https://relay.preflightstack.com/v1/file-slot",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

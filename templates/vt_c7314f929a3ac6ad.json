@@ -1,0 +1,102 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c7314f929a3ac6ad",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "hostname": {
+          "type": "string"
+        },
+        "pricing": {
+          "properties": {
+            "base_fee": {
+              "type": "string"
+            },
+            "per_country": {
+              "type": "string"
+            },
+            "total_charged": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "base_fee",
+            "per_country",
+            "total_charged"
+          ]
+        },
+        "record_type": {
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "country": {
+                "description": "ISO 3166-1 alpha-2 code",
+                "type": "string"
+              },
+              "error": {
+                "description": "Error message if resolution failed",
+                "type": "string"
+              },
+              "records": {
+                "description": "Resolved DNS records",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "resolved_at": {
+                "description": "ISO 8601 timestamp",
+                "type": "string",
+                "format": "date-time"
+              },
+              "resolver": {
+                "description": "Resolver location label",
+                "type": "string"
+              },
+              "response_ms": {
+                "description": "Resolution time in milliseconds",
+                "type": "integer"
+              },
+              "ttl": {
+                "description": "Time to live in seconds",
+                "type": "integer"
+              }
+            },
+            "type": "object",
+            "required": [
+              "country",
+              "records",
+              "resolved_at",
+              "resolver",
+              "response_ms",
+              "ttl"
+            ]
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "hostname",
+        "pricing",
+        "record_type",
+        "results"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "geodns.iwsolutions.ca",
+    "endpoint": "https://geodns.iwsolutions.ca/api/resolve",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

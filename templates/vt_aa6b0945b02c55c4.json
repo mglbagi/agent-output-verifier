@@ -1,0 +1,205 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_aa6b0945b02c55c4",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "$defs": {
+        "accessibilityNode": {
+          "additionalProperties": false,
+          "properties": {
+            "children": {
+              "items": {
+                "$ref": "#/$defs/accessibilityNode"
+              },
+              "type": "array"
+            },
+            "description": {
+              "type": "string"
+            },
+            "level": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "role": {
+              "type": "string"
+            },
+            "states": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "role"
+          ],
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "integrity": {
+          "additionalProperties": false,
+          "properties": {
+            "extractionVersion": {
+              "type": "string"
+            },
+            "sha256": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "sha256",
+            "extractionVersion"
+          ],
+          "type": "object"
+        },
+        "page": {
+          "additionalProperties": false,
+          "properties": {
+            "accessibilityTree": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/accessibilityNode"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "canonical": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "language": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "links": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "format": "uri",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "url",
+                  "text"
+                ],
+                "type": "object"
+              },
+              "maxItems": 1000,
+              "type": "array"
+            },
+            "markdown": {
+              "maxLength": 30000,
+              "type": "string"
+            },
+            "title": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "title",
+            "canonical",
+            "language",
+            "markdown"
+          ],
+          "type": "object"
+        },
+        "source": {
+          "additionalProperties": false,
+          "properties": {
+            "finalUrl": {
+              "format": "uri",
+              "type": "string"
+            },
+            "requestedUrl": {
+              "format": "uri",
+              "type": "string"
+            },
+            "retrievedAt": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "status": {
+              "maximum": 599,
+              "minimum": 100,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "requestedUrl",
+            "finalUrl",
+            "status",
+            "retrievedAt"
+          ],
+          "type": "object"
+        },
+        "timings": {
+          "additionalProperties": false,
+          "properties": {
+            "extractMs": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "loadMs": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "loadMs",
+            "extractMs"
+          ],
+          "type": "object"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 32,
+          "type": "array"
+        }
+      },
+      "required": [
+        "source",
+        "page",
+        "integrity",
+        "timings",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "evidence.api.williamrobinson.dev",
+    "endpoint": "https://evidence.api.williamrobinson.dev/v1/web/evidence",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

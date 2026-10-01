@@ -1,0 +1,103 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8386398cc9de6b0c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "_tier": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "content_type": {
+          "type": "string"
+        },
+        "depth": {
+          "type": "integer"
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "relation": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "target": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "relation",
+              "source",
+              "target"
+            ]
+          }
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "capabilities": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "capabilities",
+              "id",
+              "name",
+              "type"
+            ]
+          }
+        }
+      },
+      "required": [
+        "@type",
+        "_tier",
+        "category",
+        "content_type",
+        "depth",
+        "edges",
+        "nodes"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "nodes[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "voidfeed.ai",
+    "endpoint": "https://voidfeed.ai/v1/tools/extract/graph",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

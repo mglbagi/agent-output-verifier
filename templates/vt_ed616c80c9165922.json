@@ -1,0 +1,76 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ed616c80c9165922",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "depositAmount": {
+          "type": "string"
+        },
+        "fee": {
+          "type": "string"
+        },
+        "feePercent": {
+          "type": "number"
+        },
+        "forwardStatus": {
+          "type": "string"
+        },
+        "grossPaid": {
+          "type": "string"
+        },
+        "paymentReceived": {
+          "type": "boolean"
+        },
+        "provisioned": {
+          "type": "boolean"
+        },
+        "receiptId": {
+          "type": "string"
+        },
+        "receiptUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "status": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        }
+      },
+      "required": [
+        "depositAmount",
+        "fee",
+        "feePercent",
+        "forwardStatus",
+        "grossPaid",
+        "paymentReceived",
+        "provisioned",
+        "receiptId",
+        "receiptUrl",
+        "status",
+        "target"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "feePercent": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "deposit.now",
+    "endpoint": "https://deposit.now/api/deposit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d937c07352109e2b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "alive": {
+          "type": "boolean"
+        },
+        "days_left": {
+          "type": "integer"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "report": {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string"
+            },
+            "cash": {
+              "type": "number"
+            },
+            "costs": {
+              "type": "object",
+              "properties": {
+                "one_off": {
+                  "type": "integer"
+                },
+                "total": {
+                  "type": "number"
+                },
+                "upkeep": {
+                  "type": "integer"
+                },
+                "wages": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "one_off",
+                "total",
+                "upkeep",
+                "wages"
+              ]
+            },
+            "day": {
+              "type": "integer"
+            },
+            "note": {
+              "type": "string"
+            },
+            "profit": {
+              "type": "number"
+            },
+            "revenue": {
+              "type": "number"
+            },
+            "unit_price": {
+              "type": "number"
+            },
+            "units_sold": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "action",
+            "cash",
+            "costs",
+            "day",
+            "note",
+            "profit",
+            "revenue",
+            "unit_price",
+            "units_sold"
+          ]
+        },
+        "score": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "alive",
+        "days_left",
+        "ok",
+        "report",
+        "score"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "report.costs.total": {
+        "min": 0
+      },
+      "report.unit_price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agentpaystore.com",
+    "endpoint": "https://agentpaystore.com/venture/api/act",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

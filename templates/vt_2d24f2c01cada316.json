@@ -1,0 +1,87 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2d24f2c01cada316",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "market": {
+          "type": "object",
+          "properties": {
+            "avg_payment_usd": {
+              "type": "number"
+            },
+            "computed_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "organic_sellers": {
+              "type": "integer"
+            },
+            "sellers": {
+              "type": "integer"
+            },
+            "source": {
+              "type": "string"
+            },
+            "top10_share": {
+              "type": "number"
+            },
+            "volume_usd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "avg_payment_usd",
+            "computed_at",
+            "organic_sellers",
+            "sellers",
+            "source",
+            "top10_share",
+            "volume_usd"
+          ]
+        },
+        "mechanic": {
+          "type": "string"
+        },
+        "payer": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "prophecy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "date",
+        "market",
+        "mechanic",
+        "payer",
+        "prophecy"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "market.avg_payment_usd": {
+        "min": 0
+      },
+      "market.volume_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "penny402.fun",
+    "endpoint": "https://penny402.fun/prophecy",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

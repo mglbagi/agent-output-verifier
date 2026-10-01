@@ -1,0 +1,96 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_76cc01d7da47487f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "items": {
+            "properties": {
+              "b_no": {
+                "type": "string"
+              },
+              "b_stt": {
+                "type": "string"
+              },
+              "b_stt_cd": {
+                "type": "string"
+              },
+              "end_dt": {
+                "type": "string"
+              },
+              "invoice_apply_dt": {
+                "type": "string"
+              },
+              "rbf_tax_type": {
+                "type": "string"
+              },
+              "rbf_tax_type_cd": {
+                "type": "string"
+              },
+              "tax_type": {
+                "type": "string"
+              },
+              "tax_type_cd": {
+                "type": "string"
+              },
+              "tax_type_change_dt": {
+                "type": "string"
+              },
+              "utcc_yn": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "b_no",
+              "b_stt",
+              "b_stt_cd",
+              "end_dt",
+              "invoice_apply_dt",
+              "rbf_tax_type",
+              "rbf_tax_type_cd",
+              "tax_type",
+              "tax_type_cd",
+              "tax_type_change_dt",
+              "utcc_yn"
+            ]
+          },
+          "type": "array"
+        },
+        "format": {
+          "type": "string"
+        },
+        "match_cnt": {
+          "type": "number"
+        },
+        "request_cnt": {
+          "type": "number"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "data",
+        "format",
+        "match_cnt",
+        "request_cnt",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "handsel-mandate-demo.vercel.app",
+    "endpoint": "https://handsel-mandate-demo.vercel.app/biz/status/sample",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4b8728c11e0c7540",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "byline": {
+          "type": "string"
+        },
+        "markdown": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "rendered": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        },
+        "words": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "byline",
+        "markdown",
+        "mode",
+        "rendered",
+        "title",
+        "words"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "md.fastdb.in",
+    "endpoint": "https://md.fastdb.in/md",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0dc9fda4fa1fc93c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "currency": {
+          "description": "Quote currency of the returned prices.",
+          "type": "string"
+        },
+        "prices": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "description": "Object containing all currently supported cryptocurrency assets and their current prices.",
+          "type": "object"
+        },
+        "timestamp": {
+          "description": "UTC timestamp of the price snapshot.",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "timestamp",
+        "currency",
+        "prices"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.ftso-yggdrassil.com",
+    "endpoint": "https://api.ftso-yggdrassil.com/v1/all-tickers",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

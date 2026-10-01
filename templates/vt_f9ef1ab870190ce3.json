@@ -1,0 +1,48 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f9ef1ab870190ce3",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "chain": {
+          "type": "string"
+        },
+        "gas_price_gwei": {
+          "type": "number"
+        },
+        "gas_price_wei": {
+          "type": "number"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "chain",
+        "gas_price_gwei",
+        "gas_price_wei",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "gas_price_gwei": {
+        "min": 0
+      },
+      "gas_price_wei": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mcpfax-markets.bowling-anthony.workers.dev",
+    "endpoint": "https://mcpfax-markets.bowling-anthony.workers.dev/gas",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

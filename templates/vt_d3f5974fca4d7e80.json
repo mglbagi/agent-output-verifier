@@ -1,0 +1,162 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d3f5974fca4d7e80",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "advisories": {
+          "properties": {
+            "count": {
+              "type": "number"
+            },
+            "ids": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "maxSeverity": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "count",
+            "ids"
+          ]
+        },
+        "ecosystem": {
+          "type": "string"
+        },
+        "flags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "installScripts": {
+          "nullable": true,
+          "properties": {
+            "install": {
+              "type": "boolean"
+            },
+            "postinstall": {
+              "type": "boolean"
+            },
+            "preinstall": {
+              "type": "boolean"
+            }
+          },
+          "type": "object",
+          "required": [
+            "install",
+            "postinstall",
+            "preinstall"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "registry": {
+          "properties": {
+            "ageDays": {
+              "type": "number"
+            },
+            "deprecated": {
+              "type": "boolean"
+            },
+            "exists": {
+              "type": "boolean"
+            },
+            "firstPublishedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "latestPublishedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "latestVersion": {
+              "type": "string"
+            },
+            "license": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "maintainerCount": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "ageDays",
+            "deprecated",
+            "exists",
+            "firstPublishedAt",
+            "latestPublishedAt",
+            "latestVersion",
+            "license",
+            "maintainerCount"
+          ]
+        },
+        "score": {
+          "type": "number"
+        },
+        "typosquat": {
+          "properties": {
+            "matches": {
+              "items": {
+                "properties": {
+                  "distance": {
+                    "type": "number"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object",
+          "required": [
+            "matches"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "advisories",
+        "ecosystem",
+        "flags",
+        "installScripts",
+        "name",
+        "registry",
+        "score",
+        "typosquat"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "advisories.count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-api-24223879872.us-east1.run.app",
+    "endpoint": "https://x402-api-24223879872.us-east1.run.app/v1/package-trust",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

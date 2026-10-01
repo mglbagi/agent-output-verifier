@@ -1,0 +1,133 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_63ea22df59e744e0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data_versions": {
+          "type": "object"
+        },
+        "evidence": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "policy_version": {
+          "type": "string",
+          "format": "date"
+        },
+        "request_hash": {
+          "type": "string"
+        },
+        "result": {
+          "properties": {
+            "classification": {
+              "description": "scope plus the basis naming the rule that produced it.",
+              "properties": {
+                "scope": {
+                  "enum": [
+                    "infinite",
+                    "effectively_infinite",
+                    "bounded"
+                  ],
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "required": [
+                "scope"
+              ]
+            },
+            "current": {
+              "description": "The allowance the spender already holds, or null.",
+              "type": "object"
+            },
+            "delta": {
+              "description": "increase, decrease, unchanged or unknown, plus whether it raises exposure.",
+              "type": "object"
+            },
+            "denylist_hits": {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "request": {
+              "description": "The normalised grant: owner, token, spender, amount.",
+              "type": "object"
+            },
+            "spender": {
+              "description": "Contract or account, plus proxy status.",
+              "type": "object"
+            },
+            "token": {
+              "type": "object"
+            },
+            "unresolved": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object",
+          "required": [
+            "classification",
+            "current",
+            "delta",
+            "denylist_hits",
+            "request",
+            "spender",
+            "token"
+          ]
+        },
+        "risk_codes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "verdict": {
+          "description": "Precedence: block, then unknown, then warn, then allow. unknown is a real answer and is never a safe one.",
+          "enum": [
+            "allow",
+            "warn",
+            "block",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "ok",
+        "verdict",
+        "result",
+        "request_hash",
+        "data_versions"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "allowance.schemasure.com",
+    "endpoint": "https://allowance.schemasure.com/v1/guard/allowance",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

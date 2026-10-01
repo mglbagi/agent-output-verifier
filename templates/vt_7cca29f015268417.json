@@ -1,0 +1,93 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7cca29f015268417",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "attestation": {
+          "type": "object",
+          "properties": {
+            "confidence": {
+              "type": "number"
+            },
+            "result": {
+              "type": "object",
+              "properties": {
+                "citations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "verdict": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "citations",
+                "verdict"
+              ]
+            },
+            "subject": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "claim"
+              ]
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "confidence",
+            "result",
+            "subject",
+            "type"
+          ]
+        },
+        "signature": {
+          "type": "object",
+          "properties": {
+            "alg": {
+              "type": "string"
+            },
+            "jwks": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "alg",
+            "jwks"
+          ]
+        }
+      },
+      "required": [
+        "attestation",
+        "signature"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "attestation.confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "402oracle.com",
+    "endpoint": "https://402oracle.com/verify/claim",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

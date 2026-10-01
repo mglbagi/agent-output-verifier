@@ -1,0 +1,45 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1acf4d9f0bfd1e93",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "base": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "rates": {
+          "type": "object"
+        },
+        "service": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "base",
+        "ok",
+        "rates",
+        "service",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "vending-machine-seven.vercel.app",
+    "endpoint": "https://vending-machine-seven.vercel.app/api/v/fx-rate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

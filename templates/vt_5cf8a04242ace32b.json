@@ -1,0 +1,94 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5cf8a04242ace32b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "ai_narrative": {
+          "type": "string"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "pair": {
+          "type": "string"
+        },
+        "pool": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "pool_type": {
+          "type": "string"
+        },
+        "token0": {
+          "type": "object",
+          "properties": {
+            "risk_label": {
+              "type": "string"
+            },
+            "risk_score": {
+              "type": "integer"
+            },
+            "symbol": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "risk_label",
+            "risk_score",
+            "symbol"
+          ]
+        },
+        "token1": {
+          "type": "object",
+          "properties": {
+            "risk_label": {
+              "type": "string"
+            },
+            "risk_score": {
+              "type": "integer"
+            },
+            "symbol": {
+              "type": "string"
+            },
+            "trust_list": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "risk_label",
+            "risk_score",
+            "symbol",
+            "trust_list"
+          ]
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ai_narrative",
+        "chain",
+        "pair",
+        "pool",
+        "pool_type",
+        "token0",
+        "token1",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "aero.lonestaroracle.xyz",
+    "endpoint": "https://aero.lonestaroracle.xyz/pool",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

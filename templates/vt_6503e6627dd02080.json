@@ -1,0 +1,137 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6503e6627dd02080",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "tks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "addr": {
+                    "type": "string",
+                    "pattern": "^0x[a-fA-F0-9]{40}$"
+                  },
+                  "cid": {
+                    "type": "integer"
+                  },
+                  "dec": {
+                    "type": "integer"
+                  },
+                  "liq": {
+                    "type": "number"
+                  },
+                  "mc": {
+                    "type": "number"
+                  },
+                  "n": {
+                    "type": "string"
+                  },
+                  "pc24h": {
+                    "type": "number"
+                  },
+                  "plt": {
+                    "type": "string"
+                  },
+                  "pltId": {
+                    "type": "integer"
+                  },
+                  "plti": {
+                    "type": "integer"
+                  },
+                  "pu": {
+                    "type": "string"
+                  },
+                  "s": {
+                    "type": "string"
+                  },
+                  "v24h": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "addr",
+                  "cid",
+                  "dec",
+                  "liq",
+                  "mc",
+                  "n",
+                  "pc24h",
+                  "plt",
+                  "pltId",
+                  "plti",
+                  "pu",
+                  "s",
+                  "v24h"
+                ]
+              }
+            },
+            "total": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "tks",
+            "total"
+          ]
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "credit_count": {
+              "type": "integer"
+            },
+            "elapsed": {
+              "type": "integer"
+            },
+            "error_code": {
+              "type": "string"
+            },
+            "error_message": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "credit_count",
+            "elapsed",
+            "error_code",
+            "error_message",
+            "timestamp"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.total": {
+        "min": 0
+      },
+      "status.credit_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "pro-api.coinmarketcap.com",
+    "endpoint": "https://pro-api.coinmarketcap.com/x402/v1/dex/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

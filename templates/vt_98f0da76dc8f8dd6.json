@@ -1,0 +1,36 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_98f0da76dc8f8dd6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "pong": {
+          "const": true,
+          "type": "boolean"
+        },
+        "settledDelivery": {
+          "const": true,
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "pong",
+        "settledDelivery"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agentresolver.vercel.app",
+    "endpoint": "https://agentresolver.vercel.app/api/x402-cdp-canary",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

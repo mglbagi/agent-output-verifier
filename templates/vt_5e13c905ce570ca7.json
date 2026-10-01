@@ -1,0 +1,138 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5e13c905ce570ca7",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "iv_skew_pct": {
+          "type": "number"
+        },
+        "iv_skew_signal": {
+          "type": "string"
+        },
+        "pcr_signal": {
+          "type": "string"
+        },
+        "put_call_ratio": {
+          "type": "number"
+        },
+        "put_call_ratio_oi": {
+          "type": "number"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "total_call_volume": {
+          "type": "number"
+        },
+        "total_put_volume": {
+          "type": "number"
+        },
+        "unusual_activity": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "expiry": {
+                "type": "string",
+                "format": "date"
+              },
+              "in_the_money": {
+                "type": "boolean"
+              },
+              "iv_pct": {
+                "type": "number"
+              },
+              "open_interest": {
+                "type": "integer"
+              },
+              "strike": {
+                "type": "integer"
+              },
+              "type": {
+                "type": "string"
+              },
+              "vol_oi_ratio": {
+                "type": "number"
+              },
+              "volume": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "expiry",
+              "in_the_money",
+              "iv_pct",
+              "open_interest",
+              "strike",
+              "type",
+              "vol_oi_ratio",
+              "volume"
+            ]
+          }
+        },
+        "unusual_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "iv_skew_pct",
+        "iv_skew_signal",
+        "pcr_signal",
+        "put_call_ratio",
+        "put_call_ratio_oi",
+        "summary",
+        "ticker",
+        "total_call_volume",
+        "total_put_volume",
+        "unusual_activity",
+        "unusual_count"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "iv_skew_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "put_call_ratio": {
+        "min": 0,
+        "max": 1
+      },
+      "put_call_ratio_oi": {
+        "min": 0,
+        "max": 1
+      },
+      "total_call_volume": {
+        "min": 0
+      },
+      "total_put_volume": {
+        "min": 0
+      },
+      "unusual_activity[].iv_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "unusual_activity[].volume": {
+        "min": 0
+      },
+      "unusual_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "options.lonestaroracle.xyz",
+    "endpoint": "https://options.lonestaroracle.xyz/flow",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_78254f56050c248d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "earnings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "eps_estimate": {
+                "type": "number"
+              },
+              "hour": {
+                "type": "string"
+              },
+              "quarter": {
+                "type": "integer"
+              },
+              "revenue_estimate": {
+                "type": "integer"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "year": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "date",
+              "eps_estimate",
+              "hour",
+              "quarter",
+              "revenue_estimate",
+              "symbol",
+              "year"
+            ]
+          }
+        },
+        "from": {
+          "type": "string",
+          "format": "date"
+        },
+        "to": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "count",
+        "earnings",
+        "from",
+        "to"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "from",
+        "other_field": "to"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.tickersfeed.net",
+    "endpoint": "https://api.tickersfeed.net/calendar/earnings",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

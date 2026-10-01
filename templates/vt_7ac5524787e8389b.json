@@ -1,0 +1,83 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7ac5524787e8389b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "compliance": {
+          "type": "object"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "receipt_status": {
+          "enum": [
+            "issued",
+            "unavailable",
+            "disabled"
+          ],
+          "type": "string"
+        },
+        "settlement_receipt": {
+          "anyOf": [
+            {
+              "properties": {
+                "idempotent": {
+                  "type": "boolean"
+                },
+                "receipt_id": {
+                  "pattern": "^fsr_",
+                  "type": "string"
+                },
+                "record": {
+                  "type": "object"
+                }
+              },
+              "required": [
+                "receipt_id",
+                "record",
+                "idempotent"
+              ],
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "signed_record": {
+          "type": "string"
+        },
+        "verdict": {
+          "enum": [
+            "allow",
+            "step_up",
+            "review",
+            "block"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "verdict",
+        "signed_record",
+        "receipt_status",
+        "settlement_receipt"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "flint.network",
+    "endpoint": "https://flint.network/api/x402/verify",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

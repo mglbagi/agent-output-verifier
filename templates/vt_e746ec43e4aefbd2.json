@@ -1,0 +1,109 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e746ec43e4aefbd2",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "blacklist": {
+          "description": "object operator blacklist and suspicious wallet hits",
+          "type": "object"
+        },
+        "confidence": {
+          "description": "number 0-1",
+          "type": "number"
+        },
+        "dexscreener_url": {
+          "description": "string",
+          "type": "string"
+        },
+        "evidence_receipt": {
+          "description": "object deterministic receipt id, observation window, recheck time, and validity time",
+          "type": "object"
+        },
+        "execution_authorized": {
+          "description": "boolean false",
+          "type": "boolean"
+        },
+        "grade": {
+          "description": "string avoid/watch/traction/high-risk hype",
+          "type": "string"
+        },
+        "holder_count": {
+          "description": "number",
+          "type": "number"
+        },
+        "market_cap_usd": {
+          "description": "number",
+          "type": "number"
+        },
+        "not_trade_advice": {
+          "description": "boolean true",
+          "type": "boolean"
+        },
+        "reasons": {
+          "description": "array machine-readable evidence reasons",
+          "type": "array"
+        },
+        "risk_flags": {
+          "description": "array machine-readable risk flags",
+          "type": "array"
+        },
+        "social_count": {
+          "description": "number",
+          "type": "number"
+        },
+        "survivor_acceleration": {
+          "description": "object observations, score, state, changes, reasons, and penalties; one observation remains unproven",
+          "type": "object"
+        },
+        "trend_state": {
+          "description": "string new_watch/accumulating/steady/fading/unknown",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "blacklist",
+        "confidence",
+        "dexscreener_url",
+        "evidence_receipt",
+        "execution_authorized",
+        "grade",
+        "holder_count",
+        "market_cap_usd",
+        "not_trade_advice",
+        "reasons",
+        "risk_flags",
+        "social_count",
+        "survivor_acceleration",
+        "trend_state"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "holder_count": {
+        "min": 0
+      },
+      "market_cap_usd": {
+        "min": 0
+      },
+      "social_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.sys84.org",
+    "endpoint": "https://api.sys84.org/v1/services/robinhood_token_traction_audit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_14648463c4878b81",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "confidence": {
+          "description": "high | medium | low. On \"avoid\" this is confidence IN THE TRIGGER, which is a measurement taken this call, so it is always \"high\" — a check that failed elsewhere does not make the measured trap less true. On \"clear\" it is how COMPLETE the checks were: fewer axes computed, lower confidence. On \"unknown\" it is capped at \"low\" by construction: the check the verdict depends on did not finish, so a high number there would contradict the verdict word next to it. Either way the gaps are reported explicitly — see `reasons` and the null fields in `risk_profile`.",
+          "type": "string"
+        },
+        "quote": {
+          "description": "Executable quote sub-result (realizable fill under size, not mid/spot)",
+          "type": "object"
+        },
+        "reasons": {
+          "description": "Human-readable reasons behind the verdict",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "risk_profile": {
+          "description": "Structural risk as measured DATA (age, concentration, liquidity incl. exitLiquidityUsd, oracle availability, transfer restrictions), each section with a plain-language note. Never a severity: these factors do not separate live from dead tokens [M, n=40].",
+          "type": "object"
+        },
+        "triggers": {
+          "description": "Proven traps that fired — CLOSED list (NO_EXIT_VENUE, EXIT_LIQUIDITY_DRAINED, TRADING_DISABLED), empty when verdict is \"clear\".",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "verdict": {
+          "description": "avoid | clear | unknown. \"avoid\" = a listed trap was PROVEN at this block (see `triggers`); \"clear\" = none of them fired AND the liquidity sweep reached a conclusion; \"unknown\" = none fired but the sweep did NOT reach a conclusion (`liquidityCoverage.conclusive: false`), so absence of a trap is not established — see the `exit-coverage-incomplete:<what>` line in `reasons`. \"clear\" is NOT a safety rating and NOT a prediction — structural risk lives in `risk_profile`. verdict semantics changed 2026-08-01 (v2): avoid = provable trap only; ok/caution are gone. 2026-08-27 (P67): a THIRD value \"unknown\" was added — it takes over the cases that used to answer \"clear\" while `liquidityCoverage.conclusive` was false. No existing value changed meaning; code branching on \"avoid\" is unaffected, and code branching on \"clear\" now gets strictly fewer, better-founded clears. 2026-09-21 (P96): a clear verdict now also requires the MEASURED sale of your position to return at least 90% of the size you asked about. Below that the answer is \"unknown\" with the reason exit-below-90pct — no trap was proven, but the exit we measured is not there at this size. Again strictly fewer clears; avoid is untouched.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "confidence",
+        "quote",
+        "reasons",
+        "risk_profile",
+        "triggers",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.getplexa.com",
+    "endpoint": "https://api.getplexa.com/v1/pretrade/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

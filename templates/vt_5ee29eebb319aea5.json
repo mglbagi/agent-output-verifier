@@ -1,0 +1,105 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5ee29eebb319aea5",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "daily_bars": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "close": {
+                "type": "integer"
+              },
+              "high": {
+                "type": "integer"
+              },
+              "low": {
+                "type": "integer"
+              },
+              "open": {
+                "type": "integer"
+              },
+              "source": {
+                "type": "string"
+              },
+              "time": {
+                "type": "string"
+              },
+              "volume": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "close",
+              "high",
+              "low",
+              "open",
+              "source",
+              "time",
+              "volume"
+            ]
+          }
+        },
+        "product": {
+          "type": "string"
+        },
+        "quote": {
+          "type": "object",
+          "properties": {
+            "price": {
+              "type": "number"
+            },
+            "provider": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "price",
+            "provider"
+          ]
+        },
+        "status": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "daily_bars",
+        "product",
+        "quote",
+        "status",
+        "symbol"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "daily_bars[].low",
+        "other_field": "daily_bars[].high"
+      }
+    ],
+    "bounds": {
+      "daily_bars[].volume": {
+        "min": 0
+      },
+      "quote.price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "squeezeos-api.onrender.com",
+    "endpoint": "https://squeezeos-api.onrender.com/api/market/snapshot",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

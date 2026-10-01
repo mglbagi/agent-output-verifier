@@ -1,0 +1,62 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4da4c4b6862d4783",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "cached": {
+          "type": "boolean"
+        },
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "current_truth": {
+          "type": "string"
+        },
+        "freshness": {
+          "type": "string"
+        },
+        "source_count": {
+          "type": "integer"
+        },
+        "verdict": {
+          "enum": [
+            "confirmed",
+            "stale",
+            "disputed",
+            "false",
+            "unknown"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "cached",
+        "confidence",
+        "current_truth",
+        "freshness",
+        "source_count",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "source_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "verify.agentutil.net",
+    "endpoint": "https://verify.agentutil.net/v1/verify",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

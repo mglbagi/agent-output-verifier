@@ -1,0 +1,78 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d7b68669ca19dba0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "advisory": {
+          "type": "string"
+        },
+        "count": {
+          "description": "Number of elements matching the selector.",
+          "type": "integer"
+        },
+        "elements": {
+          "items": {
+            "properties": {
+              "attrs": {
+                "type": "object"
+              },
+              "tag": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "attrs",
+              "tag",
+              "text"
+            ]
+          },
+          "type": "array"
+        },
+        "selector": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "untrusted": {
+          "type": "boolean"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "type": "object",
+      "required": [
+        "advisory",
+        "count",
+        "elements",
+        "selector",
+        "status",
+        "untrusted",
+        "url"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "web.cyberwarex.com",
+    "endpoint": "https://web.cyberwarex.com/extract",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

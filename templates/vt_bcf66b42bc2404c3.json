@@ -1,0 +1,125 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bcf66b42bc2404c3",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "active_alerts": {
+          "type": "object",
+          "properties": {
+            "green": {
+              "type": "integer"
+            },
+            "orange": {
+              "type": "integer"
+            },
+            "red": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "green",
+            "orange",
+            "red"
+          ]
+        },
+        "alert_score": {
+          "type": "integer"
+        },
+        "by_type": {
+          "type": "object",
+          "properties": {
+            "Earthquake": {
+              "type": "integer"
+            },
+            "Flood": {
+              "type": "integer"
+            },
+            "Tropical Cyclone": {
+              "type": "integer"
+            },
+            "Wildfire": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "Earthquake",
+            "Flood",
+            "Tropical Cyclone",
+            "Wildfire"
+          ]
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "alert": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "name": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "alert",
+              "country",
+              "date",
+              "name",
+              "source",
+              "type"
+            ]
+          }
+        },
+        "hazard_level": {
+          "type": "string"
+        },
+        "max_score": {
+          "type": "integer"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "active_alerts",
+        "alert_score",
+        "by_type",
+        "events",
+        "hazard_level",
+        "max_score",
+        "scope",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hazard.lonestaroracle.xyz",
+    "endpoint": "https://hazard.lonestaroracle.xyz/hazard",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_10edcc2b934ce952",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "discovery_signals": {
+          "type": "object",
+          "properties": {
+            "activity_by_category": {
+              "type": "array"
+            },
+            "provenance": {
+              "type": "string"
+            },
+            "summary": {
+              "type": "object",
+              "properties": {
+                "authenticated_profiles": {
+                  "type": "integer"
+                },
+                "new_listings": {
+                  "type": "integer"
+                },
+                "recent_bids": {
+                  "type": "integer"
+                },
+                "unique_recent_bidders": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "authenticated_profiles",
+                "new_listings",
+                "recent_bids",
+                "unique_recent_bidders"
+              ]
+            },
+            "top_authenticated_profile_skills": {
+              "type": "array"
+            },
+            "top_requested_skills": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "activity_by_category",
+            "provenance",
+            "summary",
+            "top_authenticated_profile_skills",
+            "top_requested_skills"
+          ]
+        },
+        "example_kind": {
+          "type": "string"
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "opportunity_by_category": {
+          "type": "array"
+        },
+        "qualification_rules": {
+          "type": "object",
+          "properties": {
+            "competition": {
+              "type": "string"
+            },
+            "demand": {
+              "type": "string"
+            },
+            "supply_identity": {
+              "type": "string"
+            },
+            "supply_profile_fields": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "competition",
+            "demand",
+            "supply_identity",
+            "supply_profile_fields"
+          ]
+        },
+        "summary": {
+          "type": "object",
+          "properties": {
+            "funded_jobs": {
+              "type": "integer"
+            },
+            "qualified_jobs": {
+              "type": "integer"
+            },
+            "recently_paid_agents_in_window": {
+              "type": "integer"
+            },
+            "total_volume_usdc": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "funded_jobs",
+            "qualified_jobs",
+            "recently_paid_agents_in_window",
+            "total_volume_usdc"
+          ]
+        },
+        "top_recently_paid_agent_profile_skills": {
+          "type": "array"
+        },
+        "top_required_skills": {
+          "type": "array"
+        },
+        "window_days": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "discovery_signals",
+        "example_kind",
+        "generated_at",
+        "opportunity_by_category",
+        "qualification_rules",
+        "summary",
+        "top_recently_paid_agent_profile_skills",
+        "top_required_skills",
+        "window_days"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "summary.total_volume_usdc": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "moltmarket.store",
+    "endpoint": "https://moltmarket.store/revenue/market-intelligence",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

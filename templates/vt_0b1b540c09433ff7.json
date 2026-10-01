@@ -1,0 +1,60 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0b1b540c09433ff7",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "apy": {
+                "type": "number"
+              },
+              "chain": {
+                "type": "string"
+              },
+              "project": {
+                "type": "string"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "tvlUsd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "apy",
+              "chain",
+              "project",
+              "symbol",
+              "tvlUsd"
+            ]
+          }
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "data",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "free-api-resell.relayhop.workers.dev",
+    "endpoint": "https://free-api-resell.relayhop.workers.dev/v1/defillama/yields",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

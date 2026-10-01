@@ -1,0 +1,109 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6d6ff5ab983196f7",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "canonicalProduct": {
+          "type": "string"
+        },
+        "cheapest": {
+          "type": "object",
+          "properties": {
+            "brand": {
+              "type": "string"
+            },
+            "chain": {
+              "type": "string"
+            },
+            "packageSize": {
+              "type": "string"
+            },
+            "product": {
+              "type": "string"
+            },
+            "store": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "brand",
+            "chain",
+            "packageSize",
+            "product",
+            "store"
+          ]
+        },
+        "freshnessWindowDays": {
+          "type": "integer"
+        },
+        "metro": {
+          "type": "string"
+        },
+        "query": {
+          "type": "string"
+        },
+        "staleStoresExcluded": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "chain": {
+                "type": "string"
+              },
+              "excluded": {
+                "type": "string"
+              },
+              "lastCheckedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "lastCheckedHoursAgo": {
+                "type": "number"
+              },
+              "store": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "chain",
+              "excluded",
+              "lastCheckedAt",
+              "lastCheckedHoursAgo",
+              "store"
+            ]
+          }
+        },
+        "storesCompared": {
+          "type": "integer"
+        },
+        "zip": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "canonicalProduct",
+        "cheapest",
+        "freshnessWindowDays",
+        "metro",
+        "query",
+        "staleStoresExcluded",
+        "storesCompared",
+        "zip"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "grocery-basket.bowling-anthony.workers.dev",
+    "endpoint": "https://grocery-basket.bowling-anthony.workers.dev/find",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

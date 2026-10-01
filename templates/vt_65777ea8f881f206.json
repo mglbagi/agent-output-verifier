@@ -1,0 +1,88 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_65777ea8f881f206",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "accepts_count": {
+          "type": "integer"
+        },
+        "base_mainnet_option": {
+          "type": "boolean"
+        },
+        "grade": {
+          "type": "string"
+        },
+        "has_bazaar_extension": {
+          "type": "boolean"
+        },
+        "http_status": {
+          "type": "integer"
+        },
+        "problems": {
+          "type": "array"
+        },
+        "quote": {
+          "type": "object",
+          "properties": {
+            "network": {
+              "type": "string"
+            },
+            "payTo": {
+              "type": "string"
+            },
+            "usd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "network",
+            "payTo",
+            "usd"
+          ]
+        },
+        "reachable": {
+          "type": "boolean"
+        },
+        "target": {
+          "type": "string"
+        },
+        "x402_version": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "accepts_count",
+        "base_mainnet_option",
+        "grade",
+        "has_bazaar_extension",
+        "http_status",
+        "problems",
+        "quote",
+        "reachable",
+        "target",
+        "x402_version"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "accepts_count": {
+        "min": 0
+      },
+      "quote.usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "numberintel.dev",
+    "endpoint": "https://numberintel.dev/v1/attest/preflight",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d658a4fdf84c774a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "properties": {
+            "analysis_id": {
+              "type": "string"
+            },
+            "note": {
+              "type": "string"
+            },
+            "poll_endpoint": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "analysis_id",
+            "note",
+            "poll_endpoint",
+            "status",
+            "target"
+          ]
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "required": [
+        "data",
+        "ok"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.relayshield.net",
+    "endpoint": "https://api.relayshield.net/v1/payg/scan-url",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

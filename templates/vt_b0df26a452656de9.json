@@ -1,0 +1,99 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b0df26a452656de9",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "analysisCompleteness": {
+          "enum": [
+            "FULL",
+            "PARTIAL"
+          ]
+        },
+        "baselineProfile": {
+          "type": "object"
+        },
+        "breakingChanges": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "comparison": {
+          "type": "object"
+        },
+        "currentProfile": {
+          "type": "object"
+        },
+        "findings": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "overallResult": {
+          "enum": [
+            "PASS",
+            "WARN",
+            "FAIL"
+          ]
+        },
+        "processingLatencyMs": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "recommendation": {
+          "enum": [
+            "CONTINUE",
+            "REVIEW_BEFORE_CONTINUE",
+            "BLOCK_PIPELINE"
+          ]
+        },
+        "schemaConformance": {
+          "type": "object"
+        },
+        "service": {
+          "const": "csv_pipeline_integrity"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "service",
+        "version",
+        "overallResult",
+        "recommendation",
+        "reasons",
+        "analysisCompleteness",
+        "baselineProfile",
+        "currentProfile",
+        "comparison",
+        "schemaConformance",
+        "breakingChanges",
+        "findings",
+        "processingLatencyMs"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "foundry-csv-pipeline-integrity-mainnet.inference-chip-index.workers.dev",
+    "endpoint": "https://foundry-csv-pipeline-integrity-mainnet.inference-chip-index.workers.dev/v1/csv/integrity",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

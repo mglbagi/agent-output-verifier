@@ -1,0 +1,137 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ac384ebb5f25068c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "borrowFee": {
+              "type": "object",
+              "properties": {
+                "asOfDate": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "feeRate": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "asOfDate",
+                "feeRate"
+              ]
+            },
+            "cik": {
+              "type": "string"
+            },
+            "company": {
+              "type": "string"
+            },
+            "ipoDetails": {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "exchange": {
+                  "type": "string"
+                },
+                "marketCap": {
+                  "type": "integer"
+                },
+                "shares": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "date",
+                "exchange",
+                "marketCap",
+                "shares"
+              ]
+            },
+            "lifecycleEvents": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "date": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "date",
+                  "status"
+                ]
+              }
+            },
+            "registration": {
+              "type": "object",
+              "properties": {
+                "filingDate": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "form": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "filingDate",
+                "form",
+                "url"
+              ]
+            },
+            "symbol": {
+              "type": "string"
+            },
+            "venue": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "borrowFee",
+            "cik",
+            "company",
+            "ipoDetails",
+            "lifecycleEvents",
+            "registration",
+            "symbol",
+            "venue"
+          ]
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "data",
+        "version"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "iposignal-dashboard-372lo399x-waltermelonlangs-projects.vercel.app",
+    "endpoint": "https://iposignal-dashboard-372lo399x-waltermelonlangs-projects.vercel.app/api/agent/ipo/by-symbol/CRCL",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

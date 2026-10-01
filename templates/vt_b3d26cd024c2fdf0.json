@@ -1,0 +1,40 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b3d26cd024c2fdf0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "findings": {
+          "type": "array"
+        },
+        "redactedText": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "clean",
+            "secrets_detected"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "findings",
+        "redactedText",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-hono-api.inraby.workers.dev",
+    "endpoint": "https://x402-hono-api.inraby.workers.dev/api/v1/secret-scan",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

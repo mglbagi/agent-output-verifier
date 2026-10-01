@@ -1,0 +1,258 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8d9412c1041b215f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "observed_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "result": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "freshness": {
+              "additionalProperties": false,
+              "properties": {
+                "cacheAgeSeconds": {
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "maximumCacheSeconds": {
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "recordAgeIsNotRetrievalAge": {
+                  "const": true,
+                  "type": "boolean"
+                },
+                "retrievedAt": {
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$",
+                  "type": "string"
+                },
+                "state": {
+                  "const": "CURRENT_RETRIEVAL",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "retrievedAt",
+                "cacheAgeSeconds",
+                "maximumCacheSeconds",
+                "state",
+                "recordAgeIsNotRetrievalAge"
+              ],
+              "type": "object"
+            },
+            "normalizedResult": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "completionDate": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "lastUpdatePostDate": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "nctId": {
+                    "type": "string"
+                  },
+                  "overallStatus": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "phases": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "sourceUrl": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "startDate": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "studyType": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "title": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "nctId",
+                  "title",
+                  "overallStatus",
+                  "studyType",
+                  "startDate",
+                  "completionDate",
+                  "lastUpdatePostDate",
+                  "phases",
+                  "sourceUrl"
+                ],
+                "type": "object"
+              },
+              "maxItems": 25,
+              "type": "array"
+            },
+            "observedAt": {
+              "format": "date-time",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$",
+              "type": "string"
+            },
+            "provenance": {
+              "additionalProperties": false,
+              "properties": {
+                "attribution": {
+                  "type": "string"
+                },
+                "documentationUrl": {
+                  "format": "uri",
+                  "type": "string"
+                },
+                "license": {
+                  "type": "string"
+                },
+                "limitations": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "modifications": {
+                  "type": "string"
+                },
+                "termsUrl": {
+                  "format": "uri",
+                  "type": "string"
+                },
+                "truncated": {
+                  "type": "boolean"
+                },
+                "upstreamCalls": {
+                  "maximum": 2,
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "attribution",
+                "license",
+                "termsUrl",
+                "documentationUrl",
+                "modifications",
+                "limitations",
+                "upstreamCalls",
+                "truncated"
+              ],
+              "type": "object"
+            },
+            "query": {
+              "additionalProperties": false,
+              "properties": {
+                "condition": {
+                  "maxLength": 120,
+                  "minLength": 2,
+                  "type": "string"
+                },
+                "limit": {
+                  "default": 10,
+                  "maximum": 20,
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "condition",
+                "limit"
+              ],
+              "type": "object"
+            },
+            "rawSourceIdentifiers": {
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 25,
+              "type": "array"
+            },
+            "source": {
+              "type": "string"
+            },
+            "sourceProcessedAt": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "sourceUpdatedAt": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "sourceUrl": {
+              "format": "uri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "observedAt",
+            "source",
+            "sourceUrl",
+            "sourceUpdatedAt",
+            "sourceProcessedAt",
+            "query",
+            "normalizedResult",
+            "rawSourceIdentifiers",
+            "freshness",
+            "provenance"
+          ],
+          "type": "object"
+        },
+        "route": {
+          "const": "clinicaltrials-search"
+        }
+      },
+      "required": [
+        "route",
+        "observed_at",
+        "result"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "foundry-par007-machine-revenue-mainnet.inference-chip-index.workers.dev",
+    "endpoint": "https://foundry-par007-machine-revenue-mainnet.inference-chip-index.workers.dev/v2/official/clinicaltrials-search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_69bd501ae3c4e75b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "monthlySpending": {
+              "type": "integer"
+            },
+            "opportunityCostFutureValue": {
+              "type": "number"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "costPerRide": {
+                  "type": "number"
+                },
+                "homeCostPerDrink": {
+                  "type": "number"
+                },
+                "homeDaysPerWeek": {
+                  "type": "integer"
+                },
+                "homeDrinksPerDay": {
+                  "type": "integer"
+                },
+                "investmentReturnRate": {
+                  "type": "number"
+                },
+                "outCostPerDrink": {
+                  "type": "number"
+                },
+                "outDaysPerWeek": {
+                  "type": "integer"
+                },
+                "outDrinksPerDay": {
+                  "type": "integer"
+                },
+                "rideshareFrequencyPercent": {
+                  "type": "number"
+                },
+                "years": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "costPerRide",
+                "homeCostPerDrink",
+                "homeDaysPerWeek",
+                "homeDrinksPerDay",
+                "investmentReturnRate",
+                "outCostPerDrink",
+                "outDaysPerWeek",
+                "outDrinksPerDay",
+                "rideshareFrequencyPercent",
+                "years"
+              ]
+            },
+            "yearlySpending": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "monthlySpending",
+            "opportunityCostFutureValue",
+            "params",
+            "yearlySpending"
+          ]
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "data",
+        "ok"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.params.rideshareFrequencyPercent": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ppu43fkyhimq5fiqpmo42eh5ri0yypid.lambda-url.us-east-1.on.aws",
+    "endpoint": "https://ppu43fkyhimq5fiqpmo42eh5ri0yypid.lambda-url.us-east-1.on.aws/alcoholSavingsCalculator",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

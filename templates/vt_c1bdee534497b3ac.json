@@ -1,0 +1,50 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c1bdee534497b3ac",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "closer": {
+          "type": "string"
+        },
+        "contract": {
+          "type": "object"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "proof": {
+          "type": "string"
+        },
+        "proofRuns": {
+          "type": "string"
+        },
+        "verdict": {
+          "enum": [
+            "HELD",
+            "BROKE",
+            "FINDINGS",
+            "DROP"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "verdict"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "kenoodl.com",
+    "endpoint": "https://kenoodl.com/api/verify",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

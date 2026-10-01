@@ -1,0 +1,144 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_dfd0e3e7f7a103d5",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "funding_rate": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "funding_rate_annualized_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "high_24h": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "index_price": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "long_short_ratio": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "low_24h": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "mark_price": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "next_funding_time": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "open_interest": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "open_interest_usd": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "perp": {
+          "type": "string"
+        },
+        "price_change_24h_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "source": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "volume_24h": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "funding_rate",
+        "funding_rate_annualized_pct",
+        "high_24h",
+        "index_price",
+        "long_short_ratio",
+        "low_24h",
+        "mark_price",
+        "next_funding_time",
+        "open_interest",
+        "open_interest_usd",
+        "perp",
+        "price_change_24h_pct",
+        "source",
+        "symbol",
+        "volume_24h"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "low_24h",
+        "other_field": "high_24h"
+      }
+    ],
+    "bounds": {
+      "funding_rate_annualized_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "index_price": {
+        "min": 0
+      },
+      "mark_price": {
+        "min": 0
+      },
+      "open_interest_usd": {
+        "min": 0
+      },
+      "volume_24h": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "chain.cyberwarex.com",
+    "endpoint": "https://chain.cyberwarex.com/derivatives",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

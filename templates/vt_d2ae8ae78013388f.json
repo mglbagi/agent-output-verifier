@@ -1,0 +1,83 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d2ae8ae78013388f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "analysis": {
+          "description": "AI-generated analysis of the image based on the selected mode.",
+          "type": "string"
+        },
+        "finish_reason": {
+          "description": "OpenAI finish reason (stop, length, content_filter).",
+          "type": "string"
+        },
+        "mode": {
+          "description": "The analysis mode that was applied.",
+          "type": "string"
+        },
+        "model": {
+          "description": "OpenAI model used for analysis.",
+          "type": "string"
+        },
+        "tokens": {
+          "properties": {
+            "completion": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "prompt": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "total": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "completion",
+            "prompt",
+            "total"
+          ]
+        },
+        "url": {
+          "description": "The image URL that was analyzed.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "analysis",
+        "finish_reason",
+        "mode",
+        "model",
+        "tokens",
+        "url"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "tokens.total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "the-stall.intuitek.ai",
+    "endpoint": "https://the-stall.intuitek.ai/cap/vision-analyze",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

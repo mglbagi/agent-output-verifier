@@ -1,0 +1,163 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_25230eb584e93983",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "as_of": {
+          "type": "string",
+          "format": "date"
+        },
+        "curve": {
+          "type": "object",
+          "properties": {
+            "10yr": {
+              "type": "number"
+            },
+            "1mo": {
+              "type": "number"
+            },
+            "1yr": {
+              "type": "number"
+            },
+            "2yr": {
+              "type": "number"
+            },
+            "30yr": {
+              "type": "number"
+            },
+            "3mo": {
+              "type": "number"
+            },
+            "5yr": {
+              "type": "number"
+            },
+            "6mo": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "10yr",
+            "1mo",
+            "1yr",
+            "2yr",
+            "30yr",
+            "3mo",
+            "5yr",
+            "6mo"
+          ]
+        },
+        "curve_dates": {
+          "type": "object",
+          "properties": {
+            "10yr": {
+              "type": "string",
+              "format": "date"
+            },
+            "1mo": {
+              "type": "string",
+              "format": "date"
+            },
+            "1yr": {
+              "type": "string",
+              "format": "date"
+            },
+            "2yr": {
+              "type": "string",
+              "format": "date"
+            },
+            "30yr": {
+              "type": "string",
+              "format": "date"
+            },
+            "3mo": {
+              "type": "string",
+              "format": "date"
+            },
+            "5yr": {
+              "type": "string",
+              "format": "date"
+            },
+            "6mo": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          "required": [
+            "10yr",
+            "1mo",
+            "1yr",
+            "2yr",
+            "30yr",
+            "3mo",
+            "5yr",
+            "6mo"
+          ]
+        },
+        "failed_maturities": {
+          "type": "array"
+        },
+        "inverted": {
+          "type": "object",
+          "properties": {
+            "10y_2y": {
+              "type": "boolean"
+            },
+            "10y_3mo": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "10y_2y",
+            "10y_3mo"
+          ]
+        },
+        "spreads": {
+          "type": "object",
+          "properties": {
+            "10y_minus_2y_pct": {
+              "type": "number"
+            },
+            "10y_minus_3mo_pct": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "10y_minus_2y_pct",
+            "10y_minus_3mo_pct"
+          ]
+        }
+      },
+      "required": [
+        "as_of",
+        "curve",
+        "curve_dates",
+        "failed_maturities",
+        "inverted",
+        "spreads"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "spreads.10y_minus_2y_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "spreads.10y_minus_3mo_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-stock-indicators.vercel.app",
+    "endpoint": "https://x402-stock-indicators.vercel.app/yield-curve",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

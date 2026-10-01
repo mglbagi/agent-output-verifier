@@ -1,0 +1,67 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9fca962cc02c5c04",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "age_seconds": {
+          "type": "integer"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "from": {
+          "type": "string"
+        },
+        "not_financial_advice": {
+          "type": "boolean"
+        },
+        "pair": {
+          "type": "string"
+        },
+        "rate": {
+          "type": "number"
+        },
+        "source": {
+          "type": "string"
+        },
+        "usd": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "age_seconds",
+        "amount",
+        "from",
+        "not_financial_advice",
+        "pair",
+        "rate",
+        "source",
+        "usd"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "age_seconds": {
+        "min": 0
+      },
+      "amount": {
+        "min": 0
+      },
+      "usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "oraclepost.higgsfield.app",
+    "endpoint": "https://oraclepost.higgsfield.app/api/premium/convert",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

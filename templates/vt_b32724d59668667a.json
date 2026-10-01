@@ -1,0 +1,104 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b32724d59668667a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "as_of": {
+          "description": "ISO-8601 timestamp of this response.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "earnings": {
+          "items": {
+            "properties": {
+              "currency": {
+                "description": "Reporting currency (usually USD).",
+                "type": "string"
+              },
+              "eps_estimate": {
+                "description": "Consensus EPS estimate (null if not available).",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "fiscal_period_end": {
+                "description": "Fiscal quarter/year end date.",
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date"
+              },
+              "name": {
+                "description": "Company name.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "report_date": {
+                "description": "Earnings report date (YYYY-MM-DD).",
+                "type": "string",
+                "format": "date"
+              },
+              "symbol": {
+                "description": "Ticker symbol.",
+                "type": "string"
+              },
+              "timing": {
+                "description": "pre-market | post-market | null",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": "object",
+            "required": [
+              "currency",
+              "fiscal_period_end",
+              "name",
+              "report_date",
+              "symbol"
+            ]
+          },
+          "type": "array"
+        },
+        "total": {
+          "description": "Total matching results before limit applied.",
+          "type": "integer"
+        },
+        "window_end": {
+          "description": "Last date included (YYYY-MM-DD).",
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "earnings",
+        "total",
+        "window_end",
+        "as_of"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "the-stall.intuitek.ai",
+    "endpoint": "https://the-stall.intuitek.ai/cap/earnings-calendar",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

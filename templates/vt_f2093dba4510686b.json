@@ -1,0 +1,158 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f2093dba4510686b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "Endpoint-specific response payload",
+      "properties": {
+        "book_id": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{64}$"
+        },
+        "book_label": {
+          "type": "string"
+        },
+        "book_slug": {
+          "type": "string"
+        },
+        "buckets": {
+          "items": {
+            "properties": {
+              "bucket": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "cancels": {
+                "type": "integer"
+              },
+              "l1_fee_raw": {
+                "type": "string"
+              },
+              "l1_share_pct": {
+                "type": "number"
+              },
+              "market_session": {
+                "type": "string"
+              },
+              "median_fee_raw": {
+                "type": "string"
+              },
+              "rests": {
+                "type": "integer"
+              },
+              "total_fee_raw": {
+                "type": "string"
+              },
+              "tx_count": {
+                "type": "integer"
+              }
+            },
+            "type": "object",
+            "required": [
+              "bucket",
+              "cancels",
+              "l1_fee_raw",
+              "l1_share_pct",
+              "market_session",
+              "median_fee_raw",
+              "rests",
+              "total_fee_raw",
+              "tx_count"
+            ]
+          },
+          "type": "array"
+        },
+        "from": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "resolution": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "totals": {
+          "properties": {
+            "cancels": {
+              "type": "integer"
+            },
+            "l1_fee_raw": {
+              "type": "string"
+            },
+            "l1_share_pct": {
+              "type": "number"
+            },
+            "median_fee_raw": {
+              "type": "string"
+            },
+            "rests": {
+              "type": "integer"
+            },
+            "total_fee_raw": {
+              "type": "string"
+            },
+            "tx_count": {
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "required": [
+            "cancels",
+            "l1_fee_raw",
+            "l1_share_pct",
+            "median_fee_raw",
+            "rests",
+            "total_fee_raw",
+            "tx_count"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "book_id",
+        "book_label",
+        "book_slug",
+        "buckets",
+        "from",
+        "resolution",
+        "to",
+        "totals"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "from",
+        "other_field": "to"
+      }
+    ],
+    "bounds": {
+      "buckets[].l1_share_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "buckets[].tx_count": {
+        "min": 0
+      },
+      "totals.l1_share_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "totals.tx_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.onesource.io",
+    "endpoint": "https://api.onesource.io/deepstate/v1/analytics/cost-to-quote",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

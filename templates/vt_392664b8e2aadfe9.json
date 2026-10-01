@@ -1,0 +1,29 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_392664b8e2aadfe9",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "results": {
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "results"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "seo.forgemesh.io",
+    "endpoint": "https://seo.forgemesh.io/v1/authority-compare",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

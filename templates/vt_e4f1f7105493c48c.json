@@ -1,0 +1,92 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e4f1f7105493c48c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "chain": {
+          "type": "string"
+        },
+        "flags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "detail": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "detail",
+              "id",
+              "severity"
+            ]
+          }
+        },
+        "market": {
+          "type": "object",
+          "properties": {
+            "liquidity_usd": {
+              "type": "number"
+            },
+            "volume_24h_usd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "liquidity_usd",
+            "volume_24h_usd"
+          ]
+        },
+        "score": {
+          "type": "integer"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "chain",
+        "flags",
+        "market",
+        "score",
+        "symbol",
+        "verdict"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "flags[].id"
+      }
+    ],
+    "bounds": {
+      "market.liquidity_usd": {
+        "min": 0
+      },
+      "market.volume_24h_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "intel.degenscan.io",
+    "endpoint": "https://intel.degenscan.io/v1/token/verdict/:address",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

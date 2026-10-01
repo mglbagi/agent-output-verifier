@@ -1,0 +1,119 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0a3cbb44c5794ae8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "buy_count": {
+          "type": "integer"
+        },
+        "buy_value": {
+          "type": "number"
+        },
+        "company": {
+          "type": "string"
+        },
+        "period_days": {
+          "type": "integer"
+        },
+        "sell_count": {
+          "type": "integer"
+        },
+        "sell_value": {
+          "type": "number"
+        },
+        "signal": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "trades": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "direction": {
+                "type": "string"
+              },
+              "owned_after": {
+                "type": "integer"
+              },
+              "owner": {
+                "type": "string"
+              },
+              "price": {
+                "type": "number"
+              },
+              "role": {
+                "type": "string"
+              },
+              "shares": {
+                "type": "integer"
+              },
+              "value": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "code",
+              "date",
+              "direction",
+              "owned_after",
+              "owner",
+              "price",
+              "role",
+              "shares",
+              "value"
+            ]
+          }
+        }
+      },
+      "required": [
+        "buy_count",
+        "buy_value",
+        "company",
+        "period_days",
+        "sell_count",
+        "sell_value",
+        "signal",
+        "summary",
+        "ticker",
+        "trades"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "buy_count": {
+        "min": 0
+      },
+      "sell_count": {
+        "min": 0
+      },
+      "trades[].price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "insider.lonestaroracle.xyz",
+    "endpoint": "https://insider.lonestaroracle.xyz/trades",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_41bcbefe19c7e282",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "cache_hit": {
+          "type": "boolean"
+        },
+        "disposable": {
+          "type": "boolean"
+        },
+        "domain": {
+          "nullable": true,
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "mx_found": {
+          "type": "boolean"
+        },
+        "mx_records": {
+          "items": {
+            "properties": {
+              "host": {
+                "type": "string"
+              },
+              "priority": {
+                "type": "integer"
+              }
+            },
+            "type": "object",
+            "required": [
+              "host",
+              "priority"
+            ]
+          },
+          "type": "array"
+        },
+        "quality": {
+          "enum": [
+            "valid",
+            "risky",
+            "invalid"
+          ],
+          "type": "string"
+        },
+        "request_id": {
+          "type": "string"
+        },
+        "response_time_ms": {
+          "nullable": true,
+          "type": "number"
+        },
+        "risk_reasons": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "risk_score": {
+          "type": "number"
+        },
+        "smtp_connectable": {
+          "nullable": true,
+          "type": "boolean"
+        },
+        "syntax_valid": {
+          "type": "boolean"
+        },
+        "valid": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "required": [
+        "cache_hit",
+        "disposable",
+        "domain",
+        "email",
+        "mx_found",
+        "mx_records",
+        "quality",
+        "request_id",
+        "response_time_ms",
+        "risk_reasons",
+        "risk_score",
+        "smtp_connectable",
+        "syntax_valid",
+        "valid"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.qonoro.ai",
+    "endpoint": "https://api.qonoro.ai/v1/email/validate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_01307092880826ae",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "brief": {
+          "type": "object",
+          "properties": {
+            "caveats": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "confidence": {
+              "type": "number"
+            },
+            "headline": {
+              "type": "string"
+            },
+            "key_points": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "summary": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "caveats",
+            "confidence",
+            "headline",
+            "key_points",
+            "summary"
+          ]
+        },
+        "citations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "published": {},
+              "publisher": {
+                "type": "string"
+              },
+              "snippet": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "publisher",
+              "snippet",
+              "title",
+              "url"
+            ]
+          }
+        },
+        "client_ref": {},
+        "endpoint": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "usage": {
+          "type": "object",
+          "properties": {
+            "floor_mult": {
+              "type": "number"
+            },
+            "latency_ms": {
+              "type": "integer"
+            },
+            "price_usdc": {
+              "type": "string"
+            },
+            "sources_used": {
+              "type": "integer"
+            },
+            "token_cost_est_usdc": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "floor_mult",
+            "latency_ms",
+            "price_usdc",
+            "sources_used",
+            "token_cost_est_usdc"
+          ]
+        }
+      },
+      "required": [
+        "brief",
+        "citations",
+        "endpoint",
+        "ok",
+        "usage"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "brief.confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.hydratrader.ai",
+    "endpoint": "https://x402.hydratrader.ai/v1/research-brief",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

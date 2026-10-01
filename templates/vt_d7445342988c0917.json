@@ -1,0 +1,155 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d7445342988c0917",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "record_id": {
+          "pattern": "^frv_",
+          "type": "string"
+        },
+        "scan": {
+          "properties": {
+            "bounded_paid_path_executed": {
+              "const": true
+            },
+            "external_provider_calls": {
+              "const": 0
+            },
+            "external_provider_path_executed": {
+              "const": false
+            },
+            "model_calls": {
+              "const": 0
+            },
+            "passport_upgraded": {
+              "type": "boolean"
+            },
+            "payer_wallet_commitment": {
+              "pattern": "^sha256_[a-f0-9]{64}$",
+              "type": "string"
+            },
+            "profile": {
+              "type": "string"
+            },
+            "record_persisted": {
+              "type": "boolean"
+            },
+            "record_persistence_status": {
+              "enum": [
+                "persisted",
+                "unavailable"
+              ],
+              "type": "string"
+            },
+            "replay_protection_status": {
+              "enum": [
+                "completed",
+                "unavailable"
+              ],
+              "type": "string"
+            },
+            "status": {
+              "const": "completed"
+            },
+            "transaction_intent_commitment": {
+              "pattern": "^sha256_[a-f0-9]{64}$",
+              "type": "string"
+            },
+            "trust_graph_ingest_attempted": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "profile",
+            "status",
+            "transaction_intent_commitment",
+            "payer_wallet_commitment",
+            "external_provider_calls",
+            "model_calls",
+            "bounded_paid_path_executed",
+            "external_provider_path_executed",
+            "record_persisted",
+            "record_persistence_status",
+            "replay_protection_status",
+            "trust_graph_ingest_attempted",
+            "passport_upgraded"
+          ],
+          "type": "object"
+        },
+        "score": {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "number"
+        },
+        "service_payment": {
+          "properties": {
+            "distinct_from_scanned_transaction": {
+              "const": true
+            },
+            "purpose": {
+              "const": "flint_transaction_scan_service_fee"
+            },
+            "receipt_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "receipt_status": {
+              "type": "string"
+            },
+            "status": {
+              "const": "settled"
+            }
+          },
+          "required": [
+            "purpose",
+            "status",
+            "distinct_from_scanned_transaction",
+            "receipt_status",
+            "receipt_id"
+          ],
+          "type": "object"
+        },
+        "signed_record": {
+          "type": "string"
+        },
+        "verdict": {
+          "enum": [
+            "allow",
+            "step_up",
+            "review",
+            "block"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "verdict",
+        "score",
+        "record_id",
+        "signed_record",
+        "scan",
+        "service_payment"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "flint.network",
+    "endpoint": "https://flint.network/api/x402/scan",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

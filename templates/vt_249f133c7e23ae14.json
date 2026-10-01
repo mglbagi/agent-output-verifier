@@ -1,0 +1,122 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_249f133c7e23ae14",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "checks": {
+          "description": "Mechanical checks only; they do not establish semantic accuracy.",
+          "type": "object"
+        },
+        "cues": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "direction": {
+          "enum": [
+            "zh-en",
+            "en-zh"
+          ]
+        },
+        "episodeId": {
+          "type": "string"
+        },
+        "format": {
+          "enum": [
+            "text",
+            "srt",
+            "vtt"
+          ]
+        },
+        "kind": {
+          "const": "cdrama.episode-translation/v1"
+        },
+        "model": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "productionContext": {
+          "description": "Production notes supplied with the source episode.",
+          "type": "string"
+        },
+        "reviewHistory": {
+          "description": "Ordered, content-addressed decisions for this episode: reviewId, token, recordedAt, corrections, terms, and approve.",
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "reviewRequired": {
+          "type": "boolean"
+        },
+        "seriesId": {
+          "type": "string"
+        },
+        "seriesKey": {
+          "description": "Bearer key returned only when a series is created; keep it private and send it with later episodes or reviews.",
+          "type": "string"
+        },
+        "seriesRevision": {
+          "type": "integer"
+        },
+        "seriesTerms": {
+          "description": "Approved series terminology available to both translation directions.",
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "sourceDigest": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "approved"
+          ]
+        },
+        "termCandidates": {
+          "description": "Model-suggested names from the source; candidates require human approval through review before they enter the series terms.",
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "translation": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "seriesId",
+        "episodeId",
+        "direction",
+        "format",
+        "sourceDigest",
+        "status",
+        "reviewRequired",
+        "translation",
+        "cues",
+        "checks",
+        "reviewHistory"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "market.561.group",
+    "endpoint": "https://market.561.group/v1/translate/zh-en/cdrama-subtitles",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

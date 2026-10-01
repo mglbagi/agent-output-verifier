@@ -1,0 +1,62 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2cd3b4a444f4ef6c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "items": {
+        "properties": {
+          "description": {
+            "description": "Market description",
+            "type": "string"
+          },
+          "liquidity": {
+            "description": "Current liquidity in the market",
+            "type": "number"
+          },
+          "outcomePrices": {
+            "description": "Current prices for each outcome (0-1)",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "outcomes": {
+            "description": "Possible outcomes (e.g. Yes/No)",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "question": {
+            "description": "The market question",
+            "type": "string"
+          },
+          "volume": {
+            "description": "Total trading volume",
+            "type": "number"
+          }
+        },
+        "required": [
+          "question",
+          "outcomes",
+          "outcomePrices",
+          "volume"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mechamanda.com",
+    "endpoint": "https://mechamanda.com/api/polymarket/trending",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

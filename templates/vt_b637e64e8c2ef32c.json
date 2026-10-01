@@ -1,0 +1,497 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b637e64e8c2ef32c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "partial_failures": {
+          "type": "array"
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "checks": {
+                "type": "object",
+                "properties": {
+                  "doi_syntax": {
+                    "type": "string"
+                  },
+                  "exists": {
+                    "type": "string"
+                  },
+                  "integrity": {
+                    "type": "object",
+                    "properties": {
+                      "note": {
+                        "type": "string"
+                      },
+                      "sources_checked": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "updates": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "date": {},
+                            "doi": {},
+                            "source": {},
+                            "type": {}
+                          },
+                          "required": [
+                            "date",
+                            "doi",
+                            "source",
+                            "type"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "note",
+                      "sources_checked",
+                      "status",
+                      "updates"
+                    ]
+                  },
+                  "match": {
+                    "type": "object",
+                    "properties": {
+                      "all_authors_match": {},
+                      "author_list_prefix": {
+                        "type": [
+                          "boolean",
+                          "null"
+                        ]
+                      },
+                      "candidates_considered": {
+                        "type": "integer"
+                      },
+                      "first_author_match": {
+                        "type": [
+                          "boolean",
+                          "null"
+                        ]
+                      },
+                      "method": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "title_similarity": {
+                        "type": [
+                          "integer",
+                          "null"
+                        ]
+                      },
+                      "venue_similarity": {},
+                      "year_delta": {
+                        "type": [
+                          "integer",
+                          "null"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "candidates_considered"
+                    ]
+                  },
+                  "resolves": {
+                    "type": "object",
+                    "properties": {
+                      "definition": {
+                        "type": "string"
+                      },
+                      "result": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "definition",
+                      "result"
+                    ]
+                  }
+                },
+                "required": [
+                  "doi_syntax",
+                  "exists",
+                  "integrity",
+                  "match",
+                  "resolves"
+                ]
+              },
+              "fabrication_risk": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "input": {
+                "type": "object",
+                "properties": {
+                  "authors": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "doi": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "year": {
+                    "type": "integer"
+                  },
+                  "venue": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "authors",
+                  "id",
+                  "title",
+                  "year"
+                ]
+              },
+              "integrity_flagged": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "integrity": {
+                    "type": "object",
+                    "properties": {
+                      "retrieved_at": {
+                        "type": "string"
+                      },
+                      "source": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "retrieved_at",
+                      "source"
+                    ]
+                  },
+                  "title": {
+                    "type": "object",
+                    "properties": {
+                      "retrieved_at": {
+                        "type": "string"
+                      },
+                      "source": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "retrieved_at",
+                      "source"
+                    ]
+                  }
+                }
+              },
+              "reasons": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "resolved": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "properties": {
+                  "authors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "orcid": {}
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    }
+                  },
+                  "doi": {
+                    "type": "string"
+                  },
+                  "openalex": {
+                    "type": "string"
+                  },
+                  "source_urls": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "venue": {
+                    "type": "string"
+                  },
+                  "year": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "authors",
+                  "doi",
+                  "openalex",
+                  "source_urls",
+                  "title",
+                  "type",
+                  "venue",
+                  "year"
+                ]
+              },
+              "verdict": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "checks",
+              "fabrication_risk",
+              "id",
+              "input",
+              "integrity_flagged",
+              "provenance",
+              "reasons",
+              "verdict"
+            ]
+          }
+        },
+        "report": {
+          "type": "object",
+          "properties": {
+            "input_hash": {
+              "type": "string"
+            },
+            "issued_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "issuer": {
+              "type": "object",
+              "properties": {
+                "kid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kid",
+                "name"
+              ]
+            },
+            "price_usd": {
+              "type": "string"
+            },
+            "reference_count": {
+              "type": "integer"
+            },
+            "ruleset_version": {
+              "type": "string"
+            },
+            "tier": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "input_hash",
+            "issued_at",
+            "issuer",
+            "price_usd",
+            "reference_count",
+            "ruleset_version",
+            "tier",
+            "version"
+          ]
+        },
+        "signature": {
+          "type": "object",
+          "properties": {
+            "alg": {
+              "type": "string"
+            },
+            "canonicalization": {
+              "type": "string"
+            },
+            "jws": {
+              "type": "string"
+            },
+            "kid": {
+              "type": "string"
+            },
+            "payload_hash": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "alg",
+            "canonicalization",
+            "jws",
+            "kid",
+            "payload_hash"
+          ]
+        },
+        "stats": {
+          "type": "object",
+          "properties": {
+            "cache": {
+              "type": "string"
+            },
+            "latency_ms": {
+              "type": "integer"
+            },
+            "upstream_calls": {
+              "type": "object",
+              "properties": {
+                "crossref": {
+                  "type": "integer"
+                },
+                "openalex": {
+                  "type": "integer"
+                },
+                "unpaywall": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "crossref",
+                "openalex",
+                "unpaywall"
+              ]
+            }
+          },
+          "required": [
+            "cache",
+            "latency_ms",
+            "upstream_calls"
+          ]
+        },
+        "summary": {
+          "type": "object",
+          "properties": {
+            "fabrication_risk": {
+              "type": "object",
+              "properties": {
+                "high": {
+                  "type": "integer"
+                },
+                "low": {
+                  "type": "integer"
+                },
+                "medium": {
+                  "type": "integer"
+                },
+                "n_a": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "high",
+                "low",
+                "medium",
+                "n_a"
+              ]
+            },
+            "integrity_flagged": {
+              "type": "integer"
+            },
+            "not_found": {
+              "type": "integer"
+            },
+            "unresolvable": {
+              "type": "integer"
+            },
+            "verified": {
+              "type": "integer"
+            },
+            "verified_with_discrepancies": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "fabrication_risk",
+            "integrity_flagged",
+            "not_found",
+            "unresolvable",
+            "verified",
+            "verified_with_discrepancies"
+          ]
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "partial_failures",
+        "references",
+        "report",
+        "signature",
+        "stats",
+        "summary",
+        "warnings"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "references[].id"
+      },
+      {
+        "type": "lte",
+        "field": "summary.fabrication_risk.low",
+        "other_field": "summary.fabrication_risk.high"
+      }
+    ],
+    "bounds": {
+      "report.reference_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "aep-api.fly.dev",
+    "endpoint": "https://aep-api.fly.dev/v1/citation-report/large",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

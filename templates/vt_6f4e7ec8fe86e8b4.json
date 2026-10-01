@@ -1,0 +1,111 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6f4e7ec8fe86e8b4",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "integer"
+            },
+            "indices": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "changePct": {
+                    "type": "number"
+                  },
+                  "symbol": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "changePct",
+                  "symbol",
+                  "value"
+                ]
+              }
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "tickers": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "tickers",
+                  "title"
+                ]
+              }
+            }
+          },
+          "required": [
+            "count",
+            "indices",
+            "items"
+          ]
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "node": {
+              "type": "string"
+            },
+            "schema": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "node",
+            "schema"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data.items[].id"
+      }
+    ],
+    "bounds": {
+      "data.count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-test.genesisblock.ai",
+    "endpoint": "https://x402-test.genesisblock.ai/api/market-news",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

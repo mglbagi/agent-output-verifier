@@ -1,0 +1,50 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e178ce45a478aaf9",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "disposable": {
+          "type": "boolean"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "free_provider": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mx_records": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "valid": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "required": [
+        "disposable",
+        "domain",
+        "mx_records",
+        "valid"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "email-verify-api-production-d262.up.railway.app",
+    "endpoint": "https://email-verify-api-production-d262.up.railway.app/domain-check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

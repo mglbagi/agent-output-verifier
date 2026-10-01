@@ -1,0 +1,130 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2c78a8774aa167d8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "attestation": {
+          "type": "object",
+          "properties": {
+            "basket_hash": {
+              "type": "string"
+            },
+            "block_number": {
+              "type": "integer"
+            },
+            "chain_id": {
+              "type": "integer"
+            },
+            "contract": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "defensive_cash_pct": {
+              "type": "integer"
+            },
+            "expires_at": {
+              "type": "integer"
+            },
+            "issued_at": {
+              "type": "integer"
+            },
+            "regime": {
+              "type": "string"
+            },
+            "regime_code": {
+              "type": "integer"
+            },
+            "risk_posture": {
+              "type": "string"
+            },
+            "severity_bps": {
+              "type": "integer"
+            },
+            "severity_pct": {
+              "type": "integer"
+            },
+            "shield_active": {
+              "type": "boolean"
+            },
+            "ttl_seconds": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "basket_hash",
+            "block_number",
+            "chain_id",
+            "contract",
+            "defensive_cash_pct",
+            "expires_at",
+            "issued_at",
+            "regime",
+            "regime_code",
+            "risk_posture",
+            "severity_bps",
+            "severity_pct",
+            "shield_active",
+            "ttl_seconds"
+          ]
+        },
+        "attestation_id": {
+          "type": "string"
+        },
+        "attestor": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "signed": {
+          "type": "boolean"
+        },
+        "verify": {
+          "type": "object",
+          "properties": {
+            "free_mcp_tool": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "free_mcp_tool"
+          ]
+        }
+      },
+      "required": [
+        "attestation",
+        "attestation_id",
+        "attestor",
+        "signature",
+        "signed",
+        "verify"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "attestation.block_number": {
+        "min": 0
+      },
+      "attestation.defensive_cash_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "attestation.severity_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "gblin.digital",
+    "endpoint": "https://gblin.digital/api/x402/attestation",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

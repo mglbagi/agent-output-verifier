@@ -1,0 +1,110 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3043c4d5e3c5762a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "niche": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "active": {
+              "type": "boolean"
+            },
+            "asset": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "chain_ok": {
+              "type": "boolean"
+            },
+            "checked_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "endpoint": {
+              "type": "string",
+              "format": "uri"
+            },
+            "expected_payTo": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "freshness_s": {
+              "type": "integer"
+            },
+            "live_payTo": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "match_kind": {
+              "type": "string"
+            },
+            "matched": {
+              "type": "boolean"
+            },
+            "network": {
+              "type": "string"
+            },
+            "price_usd": {
+              "type": "number"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string"
+            },
+            "verdict": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "active",
+            "asset",
+            "chain_ok",
+            "checked_at",
+            "endpoint",
+            "expected_payTo",
+            "freshness_s",
+            "live_payTo",
+            "match_kind",
+            "matched",
+            "network",
+            "price_usd",
+            "reason",
+            "source",
+            "verdict"
+          ]
+        }
+      },
+      "required": [
+        "niche",
+        "ok",
+        "result"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "result.price_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "payto-preflight.hergertsynthora.com",
+    "endpoint": "https://payto-preflight.hergertsynthora.com/service",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

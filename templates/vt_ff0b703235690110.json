@@ -1,0 +1,262 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ff0b703235690110",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "pass": {
+          "description": "Whether every rule in this dimension passed.",
+          "type": "boolean"
+        },
+        "performance": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "properties": {
+            "findings": {
+              "description": "One entry per rule that did not pass. Empty when the check is clean.",
+              "items": {
+                "properties": {
+                  "detail": {
+                    "description": "What failed and where.",
+                    "type": "string"
+                  },
+                  "id": {
+                    "description": "Stable rule identifier.",
+                    "type": "string"
+                  },
+                  "severity": {
+                    "description": "Rule severity.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "metrics": {
+              "properties": {
+                "dom_node_count": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "request_count": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "total_bytes_transferred": {
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "type": "object",
+              "required": [
+                "dom_node_count",
+                "request_count",
+                "total_bytes_transferred"
+              ]
+            },
+            "pass": {
+              "description": "Whether every rule in this dimension passed.",
+              "type": "boolean"
+            },
+            "status": {
+              "const": "ok",
+              "description": "Present only on a completed audit.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "pass"
+          ],
+          "type": "object"
+        },
+        "security": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "properties": {
+            "findings": {
+              "description": "One entry per rule that did not pass. Empty when the check is clean.",
+              "items": {
+                "properties": {
+                  "detail": {
+                    "description": "What failed and where.",
+                    "type": "string"
+                  },
+                  "id": {
+                    "description": "Stable rule identifier.",
+                    "type": "string"
+                  },
+                  "severity": {
+                    "description": "Rule severity.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "pass": {
+              "description": "Whether every rule in this dimension passed.",
+              "type": "boolean"
+            },
+            "status": {
+              "const": "ok",
+              "description": "Present only on a completed audit.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "pass"
+          ],
+          "type": "object"
+        },
+        "seo": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "properties": {
+            "findings": {
+              "description": "One entry per rule that did not pass. Empty when the check is clean.",
+              "items": {
+                "properties": {
+                  "detail": {
+                    "description": "What failed and where.",
+                    "type": "string"
+                  },
+                  "id": {
+                    "description": "Stable rule identifier.",
+                    "type": "string"
+                  },
+                  "severity": {
+                    "description": "Rule severity.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "pass": {
+              "description": "Whether every rule in this dimension passed.",
+              "type": "boolean"
+            },
+            "status": {
+              "const": "ok",
+              "description": "Present only on a completed audit.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "pass"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "const": "ok",
+          "description": "Present only on a completed audit.",
+          "type": "string"
+        },
+        "wcag": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "properties": {
+            "engine": {
+              "const": "axe-core",
+              "type": "string"
+            },
+            "pass": {
+              "description": "Whether every rule in this dimension passed.",
+              "type": "boolean"
+            },
+            "status": {
+              "const": "ok",
+              "description": "Present only on a completed audit.",
+              "type": "string"
+            },
+            "violations": {
+              "items": {
+                "properties": {
+                  "help": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "help_url": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "id": {
+                    "description": "axe-core rule id.",
+                    "type": "string"
+                  },
+                  "impact": {
+                    "description": "axe-core impact level.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "nodes_affected": {
+                    "minimum": 0,
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "pass"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "pass"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "performance.findings[].id",
+        "if_present": true
+      },
+      {
+        "type": "unique",
+        "field": "security.findings[].id",
+        "if_present": true
+      },
+      {
+        "type": "unique",
+        "field": "seo.findings[].id",
+        "if_present": true
+      },
+      {
+        "type": "unique",
+        "field": "wcag.violations[].id",
+        "if_present": true
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hubvibe-io.com",
+    "endpoint": "https://hubvibe-io.com/audit/bundle",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

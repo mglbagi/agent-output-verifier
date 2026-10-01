@@ -1,0 +1,465 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_36b11b4622fe8ada",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "asset": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "authorization": {
+          "additionalProperties": false,
+          "properties": {
+            "mechanism": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "status": {
+              "enum": [
+                "VERIFIED",
+                "MISMATCH",
+                "UNAVAILABLE"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "status",
+            "mechanism"
+          ],
+          "type": "object"
+        },
+        "checks": {
+          "additionalProperties": false,
+          "properties": {
+            "asset_address_valid": {
+              "type": "boolean"
+            },
+            "canonical_usdc": {
+              "type": "boolean"
+            },
+            "challenge_stable": {
+              "type": "boolean"
+            },
+            "content_type_sane": {
+              "type": "boolean"
+            },
+            "exact_payment": {
+              "type": "boolean"
+            },
+            "http_402": {
+              "type": "boolean"
+            },
+            "https": {
+              "type": "boolean"
+            },
+            "no_unsafe_redirect": {
+              "type": "boolean"
+            },
+            "pay_to_address_valid": {
+              "type": "boolean"
+            },
+            "pay_to_safe_receiver": {
+              "type": "boolean"
+            },
+            "positive_amount": {
+              "type": "boolean"
+            },
+            "reachable": {
+              "type": "boolean"
+            },
+            "reasonable_timeout": {
+              "type": "boolean"
+            },
+            "resource_binding": {
+              "type": "boolean"
+            },
+            "response_size_within_limit": {
+              "type": "boolean"
+            },
+            "structured_response_sane": {
+              "type": "boolean"
+            },
+            "supported_network": {
+              "type": "boolean"
+            },
+            "within_intended_spend": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "x402_v2": {
+              "type": "boolean"
+            },
+            "x402_valid": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "https",
+            "reachable",
+            "no_unsafe_redirect",
+            "http_402",
+            "x402_valid",
+            "x402_v2",
+            "exact_payment",
+            "supported_network",
+            "asset_address_valid",
+            "canonical_usdc",
+            "pay_to_address_valid",
+            "pay_to_safe_receiver",
+            "positive_amount",
+            "reasonable_timeout",
+            "resource_binding",
+            "response_size_within_limit",
+            "content_type_sane",
+            "structured_response_sane",
+            "challenge_stable",
+            "within_intended_spend"
+          ],
+          "type": "object"
+        },
+        "decision": {
+          "enum": [
+            "ALLOW",
+            "CAUTION",
+            "BLOCK"
+          ],
+          "type": "string"
+        },
+        "errors": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "code": {
+                "enum": [
+                  "HTTPS_REQUIRED",
+                  "INVALID_URL",
+                  "SELLER_UNREACHABLE",
+                  "SELLER_TIMEOUT",
+                  "UNSAFE_REDIRECT",
+                  "UNSAFE_REDIRECT_CREDENTIALS",
+                  "HTTPS_DOWNGRADE",
+                  "REDIRECT_LOOP",
+                  "EXCESSIVE_REDIRECTS",
+                  "EXPECTED_402",
+                  "INVALID_X402_CHALLENGE",
+                  "UNSUPPORTED_X402_VERSION",
+                  "UNSUPPORTED_PAYMENT_SCHEME",
+                  "NETWORK_MISMATCH",
+                  "DUPLICATE_PAYMENT_REQUIREMENTS",
+                  "CONFLICTING_PAYMENT_REQUIREMENTS",
+                  "AMBIGUOUS_PAYMENT_OPTIONS",
+                  "INVALID_PAYMENT_ASSET",
+                  "NON_CANONICAL_USDC",
+                  "INVALID_PAY_TO",
+                  "UNSAFE_RECEIVER",
+                  "RECIPIENT_RPC_UNAVAILABLE",
+                  "INVALID_PAYMENT_REQUIREMENT",
+                  "INVALID_PAYMENT_TIMEOUT",
+                  "RESOURCE_BINDING_MISMATCH",
+                  "INVALID_CONTENT_TYPE",
+                  "RESPONSE_TOO_LARGE",
+                  "MALFORMED_JSON",
+                  "INVALID_RESPONSE_SCHEMA",
+                  "NETWORK_CHANGED",
+                  "ASSET_CHANGED",
+                  "PAY_TO_CHANGED",
+                  "PRICE_CHANGED",
+                  "PAYMENT_REQUIREMENTS_MUTATED",
+                  "PAYMENT_CHALLENGE_BODY_MISMATCH",
+                  "INVALID_INTENDED_SPEND",
+                  "PRICE_EXCEEDS_INTENT",
+                  "AUTH_AMOUNT_MISMATCH",
+                  "AUTH_ASSET_MISMATCH",
+                  "AUTH_NETWORK_MISMATCH",
+                  "AUTH_RECIPIENT_MISMATCH",
+                  "CALLDATA_PAYER_MISMATCH",
+                  "AUTH_RESOURCE_MISMATCH",
+                  "AUTH_WINDOW_UNSAFE",
+                  "TRANSACTION_SIMULATION_REVERTED",
+                  "TRANSACTION_SIMULATION_RPC_UNAVAILABLE",
+                  "SAFE_REDIRECT_FOLLOWED"
+                ],
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "intended_spend_usdc": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "latency_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "methodology": {
+          "const": "live-security-v1",
+          "type": "string"
+        },
+        "network": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "payTo": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "payment_required": {
+          "type": "boolean"
+        },
+        "quoted_price_atomic": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "quoted_price_usdc": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "reachable": {
+          "type": "boolean"
+        },
+        "reason_codes": {
+          "items": {
+            "enum": [
+              "HTTPS_REQUIRED",
+              "INVALID_URL",
+              "SELLER_UNREACHABLE",
+              "SELLER_TIMEOUT",
+              "UNSAFE_REDIRECT",
+              "UNSAFE_REDIRECT_CREDENTIALS",
+              "HTTPS_DOWNGRADE",
+              "REDIRECT_LOOP",
+              "EXCESSIVE_REDIRECTS",
+              "EXPECTED_402",
+              "INVALID_X402_CHALLENGE",
+              "UNSUPPORTED_X402_VERSION",
+              "UNSUPPORTED_PAYMENT_SCHEME",
+              "NETWORK_MISMATCH",
+              "DUPLICATE_PAYMENT_REQUIREMENTS",
+              "CONFLICTING_PAYMENT_REQUIREMENTS",
+              "AMBIGUOUS_PAYMENT_OPTIONS",
+              "INVALID_PAYMENT_ASSET",
+              "NON_CANONICAL_USDC",
+              "INVALID_PAY_TO",
+              "UNSAFE_RECEIVER",
+              "RECIPIENT_RPC_UNAVAILABLE",
+              "INVALID_PAYMENT_REQUIREMENT",
+              "INVALID_PAYMENT_TIMEOUT",
+              "RESOURCE_BINDING_MISMATCH",
+              "INVALID_CONTENT_TYPE",
+              "RESPONSE_TOO_LARGE",
+              "MALFORMED_JSON",
+              "INVALID_RESPONSE_SCHEMA",
+              "NETWORK_CHANGED",
+              "ASSET_CHANGED",
+              "PAY_TO_CHANGED",
+              "PRICE_CHANGED",
+              "PAYMENT_REQUIREMENTS_MUTATED",
+              "PAYMENT_CHALLENGE_BODY_MISMATCH",
+              "INVALID_INTENDED_SPEND",
+              "PRICE_EXCEEDS_INTENT",
+              "AUTH_AMOUNT_MISMATCH",
+              "AUTH_ASSET_MISMATCH",
+              "AUTH_NETWORK_MISMATCH",
+              "AUTH_RECIPIENT_MISMATCH",
+              "CALLDATA_PAYER_MISMATCH",
+              "AUTH_RESOURCE_MISMATCH",
+              "AUTH_WINDOW_UNSAFE",
+              "TRANSACTION_SIMULATION_REVERTED",
+              "TRANSACTION_SIMULATION_RPC_UNAVAILABLE",
+              "SAFE_REDIRECT_FOLLOWED"
+            ],
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "scheme": {
+          "enum": [
+            "exact",
+            null
+          ],
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "simulation": {
+          "additionalProperties": false,
+          "properties": {
+            "failure": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "status": {
+              "enum": [
+                "SUCCESS",
+                "REVERTED",
+                "UNAVAILABLE",
+                "UNKNOWN"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "status",
+            "failure"
+          ],
+          "type": "object"
+        },
+        "warnings": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "code": {
+                "enum": [
+                  "HTTPS_REQUIRED",
+                  "INVALID_URL",
+                  "SELLER_UNREACHABLE",
+                  "SELLER_TIMEOUT",
+                  "UNSAFE_REDIRECT",
+                  "UNSAFE_REDIRECT_CREDENTIALS",
+                  "HTTPS_DOWNGRADE",
+                  "REDIRECT_LOOP",
+                  "EXCESSIVE_REDIRECTS",
+                  "EXPECTED_402",
+                  "INVALID_X402_CHALLENGE",
+                  "UNSUPPORTED_X402_VERSION",
+                  "UNSUPPORTED_PAYMENT_SCHEME",
+                  "NETWORK_MISMATCH",
+                  "DUPLICATE_PAYMENT_REQUIREMENTS",
+                  "CONFLICTING_PAYMENT_REQUIREMENTS",
+                  "AMBIGUOUS_PAYMENT_OPTIONS",
+                  "INVALID_PAYMENT_ASSET",
+                  "NON_CANONICAL_USDC",
+                  "INVALID_PAY_TO",
+                  "UNSAFE_RECEIVER",
+                  "RECIPIENT_RPC_UNAVAILABLE",
+                  "INVALID_PAYMENT_REQUIREMENT",
+                  "INVALID_PAYMENT_TIMEOUT",
+                  "RESOURCE_BINDING_MISMATCH",
+                  "INVALID_CONTENT_TYPE",
+                  "RESPONSE_TOO_LARGE",
+                  "MALFORMED_JSON",
+                  "INVALID_RESPONSE_SCHEMA",
+                  "NETWORK_CHANGED",
+                  "ASSET_CHANGED",
+                  "PAY_TO_CHANGED",
+                  "PRICE_CHANGED",
+                  "PAYMENT_REQUIREMENTS_MUTATED",
+                  "PAYMENT_CHALLENGE_BODY_MISMATCH",
+                  "INVALID_INTENDED_SPEND",
+                  "PRICE_EXCEEDS_INTENT",
+                  "AUTH_AMOUNT_MISMATCH",
+                  "AUTH_ASSET_MISMATCH",
+                  "AUTH_NETWORK_MISMATCH",
+                  "AUTH_RECIPIENT_MISMATCH",
+                  "CALLDATA_PAYER_MISMATCH",
+                  "AUTH_RESOURCE_MISMATCH",
+                  "AUTH_WINDOW_UNSAFE",
+                  "TRANSACTION_SIMULATION_REVERTED",
+                  "TRANSACTION_SIMULATION_RPC_UNAVAILABLE",
+                  "SAFE_REDIRECT_FOLLOWED"
+                ],
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "x402_valid": {
+          "type": "boolean"
+        },
+        "x402_version": {
+          "enum": [
+            2,
+            null
+          ],
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "decision",
+        "reason_codes",
+        "checks",
+        "warnings",
+        "errors",
+        "reachable",
+        "payment_required",
+        "x402_valid",
+        "x402_version",
+        "scheme",
+        "network",
+        "asset",
+        "payTo",
+        "quoted_price_atomic",
+        "quoted_price_usdc",
+        "intended_spend_usdc",
+        "authorization",
+        "simulation",
+        "latency_ms",
+        "methodology"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "quoted_price_usdc": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "arn-x402-payguard-payment-security.rajdeep-dutta-in.workers.dev",
+    "endpoint": "https://arn-x402-payguard-payment-security.rajdeep-dutta-in.workers.dev/preflight",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

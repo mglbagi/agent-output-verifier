@@ -1,0 +1,65 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_05515c72f71451f8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "bank": {
+          "description": "Matched bank name as the index records it",
+          "type": "string"
+        },
+        "changes": {
+          "description": "Every scored change for this bank: date, activity, old, new, origin, reason, source_url, event_date",
+          "type": "array"
+        },
+        "country": {
+          "description": "Headquarters country",
+          "type": "string"
+        },
+        "rank": {
+          "description": "Rank among the 100 banks in the index",
+          "type": "integer"
+        },
+        "report_date": {
+          "description": "Date of the report these scores come from",
+          "type": "string",
+          "format": "date"
+        },
+        "scores": {
+          "description": "Score per activity on the 0/25/50/75/100 ladder",
+          "type": "object"
+        },
+        "total": {
+          "description": "Weighted adoption score, 0-100",
+          "type": "number"
+        }
+      },
+      "required": [
+        "bank",
+        "country",
+        "report_date",
+        "total",
+        "rank",
+        "scores",
+        "changes"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "gibai.app",
+    "endpoint": "https://gibai.app/bank/:name",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

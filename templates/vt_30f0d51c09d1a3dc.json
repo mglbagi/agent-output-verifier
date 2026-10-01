@@ -1,0 +1,96 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_30f0d51c09d1a3dc",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "checked": {
+          "type": "integer"
+        },
+        "checks_performed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "note": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "checks": {
+                "type": "object",
+                "properties": {
+                  "disposable_domain": {
+                    "type": "boolean"
+                  },
+                  "domain_accepts_mail": {
+                    "type": "boolean"
+                  },
+                  "free_provider": {
+                    "type": "boolean"
+                  },
+                  "role_based_account": {
+                    "type": "boolean"
+                  },
+                  "syntax_valid": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "disposable_domain",
+                  "domain_accepts_mail",
+                  "free_provider",
+                  "role_based_account",
+                  "syntax_valid"
+                ]
+              },
+              "did_you_mean": {},
+              "email": {
+                "type": "string",
+                "format": "email"
+              },
+              "notes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "status": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "checks",
+              "email",
+              "notes",
+              "status"
+            ]
+          }
+        }
+      },
+      "required": [
+        "checked",
+        "checks_performed",
+        "note",
+        "results"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-tollbooth.onrender.com",
+    "endpoint": "https://x402-tollbooth.onrender.com/api/verify",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

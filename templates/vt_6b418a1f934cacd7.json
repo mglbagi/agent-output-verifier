@@ -1,0 +1,39 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6b418a1f934cacd7",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "golden_treat": {
+          "type": "object",
+          "properties": {}
+        },
+        "ledger_entry": {
+          "type": "object",
+          "properties": {}
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "golden_treat",
+        "ledger_entry",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-treats-production.up.railway.app",
+    "endpoint": "https://agent-treats-production.up.railway.app/api/golden-ticket/redeem",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

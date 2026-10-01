@@ -1,0 +1,56 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8eb7492ac7c051f8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "clauses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "payoutBaseUsdt": {
+                "type": "number"
+              },
+              "title": {
+                "type": "string"
+              },
+              "verifyMethod": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "payoutBaseUsdt",
+              "title",
+              "verifyMethod"
+            ]
+          }
+        },
+        "projectTitle": {
+          "type": "string"
+        },
+        "projectType": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "clauses",
+        "projectTitle",
+        "projectType"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.crackthe.work",
+    "endpoint": "https://x402.crackthe.work/v1/decompose",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

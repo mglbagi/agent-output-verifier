@@ -1,0 +1,174 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7d6a14c623747151",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "blockRange": {
+              "type": "object"
+            },
+            "contractExplorerUrl": {
+              "type": "string",
+              "format": "uri"
+            },
+            "detected": {
+              "type": "integer"
+            },
+            "disclaimer": {
+              "type": "string"
+            },
+            "duplicatesRemoved": {
+              "type": "integer"
+            },
+            "filter": {
+              "type": "object"
+            },
+            "limitations": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "logs": {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "network": {
+              "type": "string"
+            },
+            "networkRequestsMade": {
+              "type": "integer"
+            },
+            "queriedLogCount": {
+              "type": "integer"
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "removedSkipped": {
+              "type": "integer"
+            },
+            "returned": {
+              "type": "integer"
+            },
+            "rpcCallsMade": {
+              "type": "integer"
+            },
+            "source": {
+              "type": "string"
+            },
+            "transactionBroadcast": {
+              "type": "boolean"
+            },
+            "truncated": {
+              "type": "boolean"
+            },
+            "warnings": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "network",
+            "filter",
+            "blockRange",
+            "queriedLogCount",
+            "detected",
+            "returned",
+            "truncated",
+            "duplicatesRemoved",
+            "removedSkipped",
+            "logs",
+            "networkRequestsMade",
+            "rpcCallsMade",
+            "readOnly",
+            "transactionBroadcast",
+            "warnings",
+            "limitations",
+            "contractExplorerUrl",
+            "source",
+            "disclaimer"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "properties": {
+            "cached": {
+              "type": "boolean"
+            },
+            "duration_ms": {
+              "type": "integer"
+            },
+            "next_actions": {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "sources": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "warnings": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "duration_ms",
+            "cached",
+            "sources",
+            "warnings",
+            "next_actions"
+          ],
+          "type": "object"
+        },
+        "request_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "service": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "request_id",
+        "service",
+        "version",
+        "data",
+        "meta"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "meta.duration_ms": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "apiacre.com",
+    "endpoint": "https://apiacre.com/v1/crypto/base-event-logs",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

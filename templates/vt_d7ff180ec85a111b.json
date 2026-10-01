@@ -1,0 +1,53 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d7ff180ec85a111b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "cols": {
+          "type": "array"
+        },
+        "elapsed_ms": {
+          "type": "integer"
+        },
+        "encoding": {
+          "type": "string"
+        },
+        "errors": {
+          "type": "array"
+        },
+        "op": {
+          "type": "string"
+        },
+        "result": {},
+        "rows": {
+          "type": "integer"
+        },
+        "valid": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "required": [
+        "cols",
+        "elapsed_ms",
+        "encoding",
+        "op",
+        "result",
+        "rows"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "lin-desk-x402.lindesk.workers.dev",
+    "endpoint": "https://lin-desk-x402.lindesk.workers.dev/v1/dataformat",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

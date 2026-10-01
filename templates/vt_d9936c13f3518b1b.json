@@ -1,0 +1,47 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d9936c13f3518b1b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "charge_id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "locations": {
+          "items": {
+            "additionalProperties": true,
+            "description": "slug, display_name, address, timezone, hours, and status (is_open, current_count, wait_minutes, captured_at — nullable when closed or no reading)",
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "charge_id",
+        "count",
+        "locations"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agentres.dev",
+    "endpoint": "https://agentres.dev/api/wait-times",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_924fb41a3a32d0ec",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "asset": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "inCovenantCollection": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "id",
+            "inCovenantCollection"
+          ]
+        },
+        "attestation": {
+          "type": "object",
+          "properties": {
+            "evidenceSource": {
+              "type": "string"
+            },
+            "matchesConfiguredAuthority": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "evidenceSource",
+            "matchesConfiguredAuthority"
+          ]
+        },
+        "registry": {
+          "type": "object",
+          "properties": {
+            "registered": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "registered"
+          ]
+        }
+      },
+      "required": [
+        "asset",
+        "attestation",
+        "registry"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-seller.opencovenant.org",
+    "endpoint": "https://x402-seller.opencovenant.org/x402/passport/:asset",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

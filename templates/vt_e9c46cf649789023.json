@@ -1,0 +1,161 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e9c46cf649789023",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "hasNextPage": {
+              "type": "boolean"
+            },
+            "hasPreviousPage": {
+              "type": "boolean"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "chainId": {
+                    "type": "integer"
+                  },
+                  "chainName": {
+                    "type": "string"
+                  },
+                  "contractAddress": {
+                    "type": "string",
+                    "pattern": "^0x[a-fA-F0-9]{40}$"
+                  },
+                  "explorerUrl": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "legacyId": {},
+                  "logoUrl": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "metrics": {},
+                  "name": {
+                    "type": "string"
+                  },
+                  "network": {
+                    "type": "string"
+                  },
+                  "requiresWhitelist": {
+                    "type": "boolean"
+                  },
+                  "routeId": {
+                    "type": "string"
+                  },
+                  "rpcUrl": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "subgraphUrl": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "symbol": {
+                    "type": "string"
+                  },
+                  "underlyingAsset": {
+                    "type": "object",
+                    "properties": {
+                      "address": {
+                        "type": "string",
+                        "pattern": "^0x[a-fA-F0-9]{40}$"
+                      },
+                      "decimals": {
+                        "type": "integer"
+                      },
+                      "symbol": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "address",
+                      "decimals",
+                      "symbol"
+                    ]
+                  }
+                },
+                "required": [
+                  "chainId",
+                  "chainName",
+                  "contractAddress",
+                  "explorerUrl",
+                  "id",
+                  "logoUrl",
+                  "name",
+                  "network",
+                  "requiresWhitelist",
+                  "routeId",
+                  "rpcUrl",
+                  "status",
+                  "subgraphUrl",
+                  "symbol",
+                  "underlyingAsset"
+                ]
+              }
+            },
+            "page": {
+              "type": "integer"
+            },
+            "pageSize": {
+              "type": "integer"
+            },
+            "totalItems": {
+              "type": "number"
+            },
+            "totalPages": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "hasNextPage",
+            "hasPreviousPage",
+            "items",
+            "page",
+            "pageSize",
+            "totalItems",
+            "totalPages"
+          ]
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "data",
+        "ok"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data.items[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api-v2.ixs.finance",
+    "endpoint": "https://api-v2.ixs.finance/x402/vaults",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

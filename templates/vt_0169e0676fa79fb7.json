@@ -1,0 +1,92 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0169e0676fa79fb7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "approvals": {
+          "description": "Per allowance: token, spender (address, name, trusted, contract), amount, approvedAt, severity, codes, revoke",
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "checkedAt": {
+          "type": "string"
+        },
+        "grade": {
+          "enum": [
+            "SAFE",
+            "CAUTION",
+            "RISKY",
+            "AVOID"
+          ],
+          "type": "string"
+        },
+        "one_liner": {
+          "type": "string"
+        },
+        "reasons": {
+          "items": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "details": {},
+              "severity": {
+                "enum": [
+                  "red",
+                  "orange",
+                  "info"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "severity"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "revokeUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "summary": {
+          "description": "approvals, tokens, unlimited, toRevoke",
+          "type": "object"
+        },
+        "verdict": {
+          "enum": [
+            "green",
+            "orange",
+            "red"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "verdict",
+        "grade",
+        "one_liner",
+        "reasons",
+        "approvals"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "presign-guard.onrender.com",
+    "endpoint": "https://presign-guard.onrender.com/v1/approvals",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

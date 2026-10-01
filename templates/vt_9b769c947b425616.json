@@ -1,0 +1,61 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9b769c947b425616",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "additionalPayoutWallets": {
+          "description": "present only when the offers disagree about the recipient"
+        },
+        "components": {
+          "description": "per-rule scoring breakdown"
+        },
+        "flags": {
+          "description": "array of {code, severity, title, detail}"
+        },
+        "offers": {
+          "description": "every advertised offer: payTo, network, asset, amount, version"
+        },
+        "payoutWallet": {
+          "description": "the address scored"
+        },
+        "paywalled": {
+          "description": "whether the endpoint answered 402 with a parseable payment offer"
+        },
+        "recommendation": {
+          "description": "proceed | proceed_with_caution | hold | block | insufficient_data"
+        },
+        "trustScore": {
+          "description": "0-100 for the payout wallet; null when no rule could be evaluated"
+        },
+        "x402Versions": {
+          "description": "which protocol generations answered — [1], [2] or [1,2]"
+        }
+      },
+      "type": "object",
+      "required": [
+        "additionalPayoutWallets",
+        "components",
+        "flags",
+        "offers",
+        "payoutWallet",
+        "paywalled",
+        "recommendation",
+        "trustScore",
+        "x402Versions"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "trust-agent.io",
+    "endpoint": "https://trust-agent.io/v1/endpoint/screen",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f037ab80f0ccec76",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "boundaryAccuracyMetres": {
+          "type": "integer"
+        },
+        "boundaryUncertain": {
+          "type": "object",
+          "properties": {
+            "congressionalDistrict": {
+              "type": "boolean"
+            },
+            "county": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "congressionalDistrict",
+            "county"
+          ]
+        },
+        "cell": {
+          "type": "string"
+        },
+        "congressionalDistrict": {
+          "type": "object",
+          "properties": {
+            "congress": {
+              "type": "string"
+            },
+            "district": {
+              "type": "string"
+            },
+            "geoid": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "stateFips": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "congress",
+            "district",
+            "geoid",
+            "name",
+            "stateFips"
+          ]
+        },
+        "county": {
+          "type": "object",
+          "properties": {
+            "fips": {
+              "type": "string"
+            },
+            "geoid": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "nameWithLegalType": {
+              "type": "string"
+            },
+            "stateFips": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "fips",
+            "geoid",
+            "name",
+            "nameWithLegalType",
+            "stateFips"
+          ]
+        },
+        "coverage": {
+          "type": "object",
+          "properties": {
+            "answered": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "notAnswered": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "answered",
+            "notAnswered",
+            "reason"
+          ]
+        },
+        "found": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "array"
+        },
+        "query": {
+          "type": "object",
+          "properties": {
+            "lat": {
+              "type": "number"
+            },
+            "lon": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "lat",
+            "lon"
+          ]
+        },
+        "state": {
+          "type": "object",
+          "properties": {
+            "fips": {
+              "type": "string"
+            },
+            "geoid": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "usps": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "fips",
+            "geoid",
+            "name",
+            "usps"
+          ]
+        },
+        "vintage": {
+          "type": "object",
+          "properties": {
+            "congress": {
+              "type": "string"
+            },
+            "dataset": {
+              "type": "string"
+            },
+            "h3FineResolution": {
+              "type": "integer"
+            },
+            "h3Resolution": {
+              "type": "integer"
+            },
+            "publisher": {
+              "type": "string"
+            },
+            "rights": {
+              "type": "string"
+            },
+            "vintage": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "congress",
+            "dataset",
+            "h3FineResolution",
+            "h3Resolution",
+            "publisher",
+            "rights",
+            "vintage"
+          ]
+        }
+      },
+      "required": [
+        "boundaryAccuracyMetres",
+        "boundaryUncertain",
+        "cell",
+        "congressionalDistrict",
+        "county",
+        "coverage",
+        "found",
+        "notes",
+        "query",
+        "state",
+        "vintage"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "query.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "query.lon": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.geoprimitives.dev",
+    "endpoint": "https://api.geoprimitives.dev/v1/us/geographies",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

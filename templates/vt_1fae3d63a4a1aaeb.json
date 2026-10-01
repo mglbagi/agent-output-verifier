@@ -1,0 +1,233 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1fae3d63a4a1aaeb",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "Endpoint-specific response payload",
+      "properties": {
+        "base_token": {
+          "properties": {
+            "address": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "decimals": {
+              "type": "integer"
+            },
+            "symbol": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "address",
+            "decimals",
+            "symbol"
+          ]
+        },
+        "block_number": {
+          "type": "integer"
+        },
+        "book_id": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{64}$"
+        },
+        "book_label": {
+          "type": "string"
+        },
+        "book_slug": {
+          "type": "string"
+        },
+        "finality": {
+          "type": "string"
+        },
+        "last_price": {
+          "type": "number"
+        },
+        "last_price_raw": {
+          "type": "string"
+        },
+        "market_session": {
+          "type": "string"
+        },
+        "quote_token": {
+          "properties": {
+            "address": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "decimals": {
+              "type": "integer"
+            },
+            "symbol": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "address",
+            "decimals",
+            "symbol"
+          ]
+        },
+        "windows": {
+          "properties": {
+            "24h": {
+              "properties": {
+                "change_pct": {
+                  "type": "number"
+                },
+                "high_raw": {
+                  "type": "string"
+                },
+                "low_raw": {
+                  "type": "string"
+                },
+                "trades": {
+                  "type": "integer"
+                },
+                "volume_quote": {
+                  "type": "integer"
+                },
+                "volume_quote_raw": {
+                  "type": "string"
+                },
+                "vwap_raw": {
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "required": [
+                "change_pct",
+                "high_raw",
+                "low_raw",
+                "trades",
+                "volume_quote",
+                "volume_quote_raw",
+                "vwap_raw"
+              ]
+            },
+            "30d": {
+              "properties": {
+                "change_pct": {
+                  "type": "number"
+                },
+                "high_raw": {
+                  "type": "string"
+                },
+                "low_raw": {
+                  "type": "string"
+                },
+                "trades": {
+                  "type": "integer"
+                },
+                "volume_quote": {
+                  "type": "integer"
+                },
+                "volume_quote_raw": {
+                  "type": "string"
+                },
+                "vwap_raw": {
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "required": [
+                "change_pct",
+                "high_raw",
+                "low_raw",
+                "trades",
+                "volume_quote",
+                "volume_quote_raw",
+                "vwap_raw"
+              ]
+            },
+            "7d": {
+              "properties": {
+                "change_pct": {
+                  "type": "number"
+                },
+                "high_raw": {
+                  "type": "string"
+                },
+                "low_raw": {
+                  "type": "string"
+                },
+                "trades": {
+                  "type": "integer"
+                },
+                "volume_quote": {
+                  "type": "integer"
+                },
+                "volume_quote_raw": {
+                  "type": "string"
+                },
+                "vwap_raw": {
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "required": [
+                "change_pct",
+                "high_raw",
+                "low_raw",
+                "trades",
+                "volume_quote",
+                "volume_quote_raw",
+                "vwap_raw"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "24h",
+            "30d",
+            "7d"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "base_token",
+        "block_number",
+        "book_id",
+        "book_label",
+        "book_slug",
+        "finality",
+        "last_price",
+        "last_price_raw",
+        "market_session",
+        "quote_token",
+        "windows"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "block_number": {
+        "min": 0
+      },
+      "last_price": {
+        "min": 0
+      },
+      "windows.24h.volume_quote": {
+        "min": 0
+      },
+      "windows.30d.volume_quote": {
+        "min": 0
+      },
+      "windows.7d.volume_quote": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.onesource.io",
+    "endpoint": "https://api.onesource.io/deepstate/v1/stats/:book",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

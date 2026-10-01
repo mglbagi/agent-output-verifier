@@ -1,0 +1,354 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_80e8795a301a534f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "as_of": {
+          "type": "string",
+          "format": "date"
+        },
+        "compared_to": {
+          "type": "string",
+          "format": "date"
+        },
+        "engaged_listings": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "integer"
+            },
+            "min_payers": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "count",
+            "min_payers"
+          ]
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "movers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "calls_30d": {
+                "type": "integer"
+              },
+              "calls_delta": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "calls_30d",
+              "calls_delta",
+              "name"
+            ]
+          }
+        },
+        "networks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "calls_30d": {
+                "type": "integer"
+              },
+              "listings": {
+                "type": "integer"
+              },
+              "network": {
+                "type": "string"
+              },
+              "share": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "calls_30d",
+              "listings",
+              "network",
+              "share"
+            ]
+          }
+        },
+        "new_entrants": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "integer"
+            },
+            "sample": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "count",
+            "sample"
+          ]
+        },
+        "price": {
+          "type": "object",
+          "properties": {
+            "atomic": {
+              "type": "object",
+              "properties": {
+                "max": {
+                  "type": "integer"
+                },
+                "min": {
+                  "type": "integer"
+                },
+                "p25": {
+                  "type": "integer"
+                },
+                "p50": {
+                  "type": "integer"
+                },
+                "p75": {
+                  "type": "integer"
+                },
+                "p90": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "max",
+                "min",
+                "p25",
+                "p50",
+                "p75",
+                "p90"
+              ]
+            },
+            "bands": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "count": {
+                    "type": "integer"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "share": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "count",
+                  "label",
+                  "share"
+                ]
+              }
+            },
+            "n": {
+              "type": "integer"
+            },
+            "usd": {
+              "type": "object",
+              "properties": {
+                "max": {
+                  "type": "integer"
+                },
+                "min": {
+                  "type": "number"
+                },
+                "p25": {
+                  "type": "number"
+                },
+                "p50": {
+                  "type": "number"
+                },
+                "p75": {
+                  "type": "number"
+                },
+                "p90": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "max",
+                "min",
+                "p25",
+                "p50",
+                "p75",
+                "p90"
+              ]
+            }
+          },
+          "required": [
+            "atomic",
+            "bands",
+            "n",
+            "usd"
+          ]
+        },
+        "top_sellers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "calls_30d": {
+                "type": "integer"
+              },
+              "listings": {
+                "type": "integer"
+              },
+              "payers_30d": {
+                "type": "integer"
+              },
+              "seller": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "calls_30d",
+              "listings",
+              "payers_30d",
+              "seller"
+            ]
+          }
+        },
+        "top_services_by_calls": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "calls_30d": {
+                "type": "integer"
+              },
+              "listings": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "payers_30d": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "calls_30d",
+              "listings",
+              "name",
+              "payers_30d"
+            ]
+          }
+        },
+        "top_services_by_payers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "calls_30d": {
+                "type": "integer"
+              },
+              "listings": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "payers_30d": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "calls_30d",
+              "listings",
+              "name",
+              "payers_30d"
+            ]
+          }
+        },
+        "totals": {
+          "type": "object",
+          "properties": {
+            "calls_30d": {
+              "type": "integer"
+            },
+            "networks": {
+              "type": "integer"
+            },
+            "payers_30d": {
+              "type": "integer"
+            },
+            "resources": {
+              "type": "integer"
+            },
+            "sellers": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "calls_30d",
+            "networks",
+            "payers_30d",
+            "resources",
+            "sellers"
+          ]
+        }
+      },
+      "required": [
+        "as_of",
+        "compared_to",
+        "engaged_listings",
+        "generated_at",
+        "movers",
+        "networks",
+        "new_entrants",
+        "price",
+        "top_sellers",
+        "top_services_by_calls",
+        "top_services_by_payers",
+        "totals"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "price.atomic.min",
+        "other_field": "price.atomic.max"
+      },
+      {
+        "type": "lte",
+        "field": "price.usd.min",
+        "other_field": "price.usd.max"
+      }
+    ],
+    "bounds": {
+      "engaged_listings.count": {
+        "min": 0
+      },
+      "new_entrants.count": {
+        "min": 0
+      },
+      "price.bands[].count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.oblique.markets",
+    "endpoint": "https://api.oblique.markets/api/v1/paid/bazaar-market-report",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1b156ffb48404633",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "baseRank": {
+          "type": "integer"
+        },
+        "baseVsEthereum": {
+          "type": "string"
+        },
+        "basis": {
+          "type": "string"
+        },
+        "chains": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "baseFeePerGas": {
+                "type": "string"
+              },
+              "blockNumber": {
+                "type": "string"
+              },
+              "chain": {
+                "type": "string"
+              },
+              "chainId": {
+                "type": "integer"
+              },
+              "estimatedCost": {
+                "type": "object",
+                "properties": {
+                  "eth": {
+                    "type": "string"
+                  },
+                  "gasLimit": {
+                    "type": "integer"
+                  },
+                  "gwei": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "eth",
+                  "gasLimit",
+                  "gwei"
+                ]
+              },
+              "gasPrice": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "baseFeePerGas",
+              "blockNumber",
+              "chain",
+              "chainId",
+              "estimatedCost",
+              "gasPrice",
+              "label"
+            ]
+          }
+        },
+        "cheapest": {
+          "type": "string"
+        },
+        "fetchedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "gasLimit": {
+          "type": "integer"
+        },
+        "unavailable": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "baseRank",
+        "baseVsEthereum",
+        "basis",
+        "chains",
+        "cheapest",
+        "fetchedAt",
+        "gasLimit",
+        "unavailable"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "base-gas-x402-production.up.railway.app",
+    "endpoint": "https://base-gas-x402-production.up.railway.app/gas/compare",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

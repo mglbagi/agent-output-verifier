@@ -1,0 +1,115 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_425473f1bb357cb1",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "assets": {
+          "items": {
+            "properties": {
+              "day_ntl_vlm": {
+                "description": "24h notional volume (string for full precision)",
+                "type": "string"
+              },
+              "funding": {
+                "description": "Funding rate (string for full precision)",
+                "type": "string"
+              },
+              "impact_pxs": {
+                "description": "Impact bid/ask prices (strings for full precision)",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "mark_px": {
+                "description": "Mark price (string for full precision)",
+                "type": "string"
+              },
+              "max_leverage": {
+                "type": "integer"
+              },
+              "mid_px": {
+                "description": "Mid price (string for full precision)",
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "only_isolated": {
+                "type": "boolean"
+              },
+              "open_interest": {
+                "description": "Open interest (string for full precision)",
+                "type": "string"
+              },
+              "oracle_px": {
+                "description": "Oracle price (string for full precision)",
+                "type": "string"
+              },
+              "premium": {
+                "description": "Premium (string for full precision)",
+                "type": "string"
+              },
+              "prev_day_px": {
+                "description": "Previous day price (string for full precision)",
+                "type": "string"
+              },
+              "sz_decimals": {
+                "type": "integer"
+              }
+            },
+            "type": "object",
+            "required": [
+              "day_ntl_vlm",
+              "funding",
+              "impact_pxs",
+              "mark_px",
+              "max_leverage",
+              "mid_px",
+              "name",
+              "only_isolated",
+              "open_interest",
+              "oracle_px",
+              "premium",
+              "prev_day_px",
+              "sz_decimals"
+            ]
+          },
+          "type": "array"
+        },
+        "count": {
+          "description": "Number of assets returned",
+          "type": "integer"
+        },
+        "queried_at": {
+          "description": "When this response was generated",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "assets",
+        "count",
+        "queried_at"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hyperliquid.use.x402atlas.com",
+    "endpoint": "https://hyperliquid.use.x402atlas.com/perps",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

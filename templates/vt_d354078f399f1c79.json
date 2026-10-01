@@ -1,0 +1,108 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d354078f399f1c79",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "boundary": {
+          "type": "string"
+        },
+        "failure_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "failures": {
+          "items": {
+            "properties": {
+              "code": {
+                "enum": [
+                  "missing_column",
+                  "extra_columns",
+                  "row_width",
+                  "required",
+                  "type",
+                  "min",
+                  "max",
+                  "enum",
+                  "unique",
+                  "min_rows",
+                  "max_rows"
+                ],
+                "type": "string"
+              },
+              "column": {
+                "description": "Column name, or null when the error applies to the row or file.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "row": {
+                "description": "One-based data record, excluding header; null for file/header errors.",
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "code",
+              "row",
+              "column"
+            ],
+            "type": "object"
+          },
+          "maxItems": 50,
+          "type": "array"
+        },
+        "failures_truncated": {
+          "type": "boolean"
+        },
+        "receipt_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "rows_checked": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "schema_version": {
+          "enum": [
+            1
+          ],
+          "type": "integer"
+        },
+        "verdict": {
+          "enum": [
+            "pass",
+            "fail"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "verdict",
+        "rows_checked",
+        "failure_count",
+        "failures",
+        "failures_truncated",
+        "receipt_sha256",
+        "boundary"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "vme5zb7fll.execute-api.us-east-1.amazonaws.com",
+    "endpoint": "https://vme5zb7fll.execute-api.us-east-1.amazonaws.com/v1/accept/csv",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

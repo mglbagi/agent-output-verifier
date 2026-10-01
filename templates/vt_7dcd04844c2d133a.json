@@ -1,0 +1,126 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7dcd04844c2d133a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array"
+            },
+            "page": {
+              "type": "object",
+              "properties": {
+                "has_more": {
+                  "type": "boolean"
+                },
+                "limit": {
+                  "type": "integer"
+                },
+                "next_offset": {},
+                "offset": {
+                  "type": "integer"
+                },
+                "returned": {
+                  "type": "integer"
+                },
+                "total": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "has_more",
+                "limit",
+                "offset",
+                "returned",
+                "total"
+              ]
+            },
+            "query": {
+              "type": "object",
+              "properties": {
+                "detail": {
+                  "type": "string"
+                },
+                "lat": {
+                  "type": "number"
+                },
+                "lon": {
+                  "type": "number"
+                },
+                "state": {}
+              },
+              "required": [
+                "detail",
+                "lat",
+                "lon"
+              ]
+            }
+          },
+          "required": [
+            "items",
+            "page",
+            "query"
+          ]
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "capability": {
+              "type": "string"
+            },
+            "freshness": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "capability",
+            "freshness",
+            "source",
+            "version"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.page.limit": {
+        "min": 0
+      },
+      "data.page.total": {
+        "min": 0
+      },
+      "data.query.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "data.query.lon": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.eckari.com",
+    "endpoint": "https://api.eckari.com/v1/weather/us/alerts",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

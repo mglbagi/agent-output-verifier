@@ -1,0 +1,122 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_20d4c35c9a8f5edc",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "queried_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "query": {
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "address": {
+                "type": "string"
+              },
+              "data_id": {
+                "type": "string"
+              },
+              "gps_coordinates": {
+                "properties": {
+                  "latitude": {
+                    "type": "number"
+                  },
+                  "longitude": {
+                    "type": "number"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "latitude",
+                  "longitude"
+                ]
+              },
+              "hours": {
+                "description": "Opening hours, upstream shape passed through as-is",
+                "type": "object"
+              },
+              "open_state": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "place_id": {
+                "type": "string"
+              },
+              "position": {
+                "description": "Rank in the result list",
+                "type": "integer"
+              },
+              "price": {
+                "type": "string"
+              },
+              "rating": {
+                "type": "number"
+              },
+              "reviews": {
+                "type": "integer"
+              },
+              "service_options": {
+                "description": "Dine-in/takeout/delivery flags, upstream shape passed through as-is",
+                "type": "object"
+              },
+              "title": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "website": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "title"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "query",
+        "queried_at",
+        "results"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "results[].data_id"
+      }
+    ],
+    "bounds": {
+      "results[].gps_coordinates.latitude": {
+        "min": -90,
+        "max": 90,
+        "if_present": true
+      },
+      "results[].gps_coordinates.longitude": {
+        "min": -180,
+        "max": 180,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "places.use.x402atlas.com",
+    "endpoint": "https://places.use.x402atlas.com/local",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

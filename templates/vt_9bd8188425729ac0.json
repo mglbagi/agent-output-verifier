@@ -1,0 +1,183 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9bd8188425729ac0",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "history": {
+              "type": "object",
+              "properties": {
+                "snapshots": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "average_price": {
+                        "type": "number"
+                      },
+                      "date": {
+                        "type": "string",
+                        "format": "date"
+                      },
+                      "highest_price": {
+                        "type": "number"
+                      },
+                      "lowest_price": {
+                        "type": "number"
+                      },
+                      "offers_count": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "average_price",
+                      "date",
+                      "highest_price",
+                      "lowest_price",
+                      "offers_count"
+                    ]
+                  }
+                },
+                "summary": {
+                  "type": "object",
+                  "properties": {
+                    "change_amount": {
+                      "type": "number"
+                    },
+                    "change_pct": {
+                      "type": "number"
+                    },
+                    "currency": {
+                      "type": "string"
+                    },
+                    "current_price": {
+                      "type": "number"
+                    },
+                    "max_price": {
+                      "type": "number"
+                    },
+                    "min_price": {
+                      "type": "number"
+                    },
+                    "period": {
+                      "type": "string"
+                    },
+                    "points_count": {
+                      "type": "integer"
+                    },
+                    "start_price": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "change_amount",
+                    "change_pct",
+                    "currency",
+                    "current_price",
+                    "max_price",
+                    "min_price",
+                    "period",
+                    "points_count",
+                    "start_price"
+                  ]
+                }
+              },
+              "required": [
+                "snapshots",
+                "summary"
+              ]
+            },
+            "wine": {
+              "type": "object",
+              "properties": {
+                "countryCode": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "producer": {
+                  "type": "string"
+                },
+                "vintage": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "countryCode",
+                "id",
+                "name",
+                "producer",
+                "vintage"
+              ]
+            }
+          },
+          "required": [
+            "history",
+            "wine"
+          ]
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "data",
+        "success"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "data.history.summary.min_price",
+        "other_field": "data.history.summary.max_price"
+      }
+    ],
+    "bounds": {
+      "data.history.snapshots[].average_price": {
+        "min": 0
+      },
+      "data.history.snapshots[].highest_price": {
+        "min": 0
+      },
+      "data.history.snapshots[].lowest_price": {
+        "min": 0
+      },
+      "data.history.snapshots[].offers_count": {
+        "min": 0
+      },
+      "data.history.summary.current_price": {
+        "min": 0
+      },
+      "data.history.summary.max_price": {
+        "min": 0
+      },
+      "data.history.summary.min_price": {
+        "min": 0
+      },
+      "data.history.summary.points_count": {
+        "min": 0
+      },
+      "data.history.summary.start_price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.wines.bet",
+    "endpoint": "https://api.wines.bet/v1/wine/history",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

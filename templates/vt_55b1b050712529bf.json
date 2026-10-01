@@ -1,0 +1,59 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_55b1b050712529bf",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "authenticated": {
+          "description": "True when the resolver set the DoH AD (Authenticated Data) flag",
+          "type": "boolean"
+        },
+        "dnssec_enabled": {
+          "description": "True when a DNSKEY record is present",
+          "type": "boolean"
+        },
+        "domain": {
+          "description": "The queried domain",
+          "type": "string"
+        },
+        "has_ds": {
+          "description": "True when the parent zone publishes a DS record",
+          "type": "boolean"
+        },
+        "queried_at": {
+          "description": "UTC timestamp of the check",
+          "format": "date-time",
+          "type": "string"
+        },
+        "warnings": {
+          "description": "Advisory posture warnings; never affects the status code",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "domain",
+        "dnssec_enabled",
+        "has_ds",
+        "authenticated",
+        "warnings",
+        "queried_at"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "dns.use.x402atlas.com",
+    "endpoint": "https://dns.use.x402atlas.com/dnssec",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

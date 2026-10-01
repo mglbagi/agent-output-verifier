@@ -1,0 +1,80 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_051fbded271a35d3",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "diagnostics": {
+          "type": "array"
+        },
+        "dns_status": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "final_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "http_status": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "https_status": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "redirects": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "response_latency_ms": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "tls_certificate_expires_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "domain",
+        "dns_status",
+        "http_status",
+        "https_status",
+        "redirects",
+        "tls_certificate_expires_at",
+        "response_latency_ms",
+        "final_url",
+        "diagnostics"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "relay.straelo.com",
+    "endpoint": "https://relay.straelo.com/domain-health",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

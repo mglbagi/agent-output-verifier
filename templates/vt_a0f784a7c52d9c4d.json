@@ -1,0 +1,100 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a0f784a7c52d9c4d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "properties": {
+            "base_fee_gwei": {
+              "type": "number"
+            },
+            "base_fee_wei": {
+              "type": "number"
+            },
+            "block": {
+              "type": "number"
+            },
+            "chain": {
+              "type": "string"
+            },
+            "chain_id": {
+              "type": "number"
+            },
+            "gas_price_gwei": {
+              "type": "number"
+            },
+            "gas_price_wei": {
+              "type": "number"
+            },
+            "priority_fee_gwei": {
+              "type": "number"
+            },
+            "priority_fee_wei": {
+              "type": "number"
+            },
+            "source": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "base_fee_gwei",
+            "base_fee_wei",
+            "block",
+            "chain",
+            "chain_id",
+            "gas_price_gwei",
+            "gas_price_wei",
+            "priority_fee_gwei",
+            "priority_fee_wei",
+            "source"
+          ]
+        },
+        "paid": {
+          "type": "boolean"
+        },
+        "tool": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "data",
+        "paid",
+        "tool"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.base_fee_gwei": {
+        "min": 0
+      },
+      "data.base_fee_wei": {
+        "min": 0
+      },
+      "data.gas_price_gwei": {
+        "min": 0
+      },
+      "data.gas_price_wei": {
+        "min": 0
+      },
+      "data.priority_fee_gwei": {
+        "min": 0
+      },
+      "data.priority_fee_wei": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.ochinimus.app",
+    "endpoint": "https://x402.ochinimus.app/api/base-gas",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,352 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_633d24addea1fc86",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "fetchedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "found": {
+          "type": "boolean"
+        },
+        "method": {
+          "enum": [
+            "structured",
+            "ai"
+          ],
+          "type": "string"
+        },
+        "product": {
+          "description": "The main product on the page.",
+          "properties": {
+            "availability": {
+              "description": "e.g. InStock, OutOfStock, PreOrder.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "brand": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "condition": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "currency": {
+              "description": "ISO 4217 code as published, e.g. GBP.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "description": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "gtin": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "highPrice": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "image": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "lowPrice": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "mpn": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "price": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "priceValidUntil": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "rating": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "reviewCount": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "seller": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "sku": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "source": {
+              "enum": [
+                "json-ld",
+                "microdata",
+                "meta",
+                "ai"
+              ],
+              "type": "string"
+            },
+            "url": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "uri"
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "availability",
+            "brand",
+            "condition",
+            "currency",
+            "description",
+            "gtin",
+            "image",
+            "name",
+            "price",
+            "rating",
+            "reviewCount",
+            "seller",
+            "sku",
+            "source",
+            "url"
+          ]
+        },
+        "products": {
+          "description": "All products found (listing pages can have several).",
+          "items": {
+            "properties": {
+              "availability": {
+                "description": "e.g. InStock, OutOfStock, PreOrder.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "brand": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "condition": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "currency": {
+                "description": "ISO 4217 code as published, e.g. GBP.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "gtin": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "highPrice": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "image": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "lowPrice": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "mpn": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "price": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "priceValidUntil": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "rating": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "reviewCount": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "seller": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "sku": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "source": {
+                "enum": [
+                  "json-ld",
+                  "microdata",
+                  "meta",
+                  "ai"
+                ],
+                "type": "string"
+              },
+              "url": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "uri"
+              }
+            },
+            "type": "object",
+            "required": [
+              "availability",
+              "brand",
+              "condition",
+              "currency",
+              "description",
+              "gtin",
+              "image",
+              "name",
+              "price",
+              "rating",
+              "reviewCount",
+              "seller",
+              "sku",
+              "source",
+              "url"
+            ]
+          },
+          "type": "array"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "url",
+        "found",
+        "product",
+        "products",
+        "method"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "products[].sku"
+      }
+    ],
+    "bounds": {
+      "product.price": {
+        "min": 0
+      },
+      "products[].price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "aayatai.com",
+    "endpoint": "https://aayatai.com/product",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

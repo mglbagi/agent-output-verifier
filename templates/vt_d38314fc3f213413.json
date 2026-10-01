@@ -1,0 +1,92 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d38314fc3f213413",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "activity": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "integer"
+              },
+              "label": {
+                "type": "string"
+              },
+              "requests": {
+                "type": "integer"
+              },
+              "responses": {
+                "type": "integer"
+              },
+              "unique_customers": {
+                "type": "integer"
+              },
+              "unique_providers": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "kind",
+              "label",
+              "requests",
+              "responses",
+              "unique_customers",
+              "unique_providers"
+            ]
+          }
+        },
+        "generated_at": {
+          "type": "number"
+        },
+        "totals": {
+          "type": "object",
+          "properties": {
+            "distinct_feedback_providers": {
+              "type": "number"
+            },
+            "feedback_events": {
+              "type": "number"
+            },
+            "requests": {
+              "type": "integer"
+            },
+            "responses": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "distinct_feedback_providers",
+            "feedback_events",
+            "requests",
+            "responses"
+          ]
+        },
+        "window": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "activity",
+        "generated_at",
+        "totals",
+        "window"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "nostrpulse.xyz",
+    "endpoint": "https://nostrpulse.xyz/nostr/dvm-activity",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

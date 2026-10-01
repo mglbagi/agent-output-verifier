@@ -1,0 +1,50 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d39d6f09ec0b4af6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "disclaimer": {
+          "type": "string"
+        },
+        "grade": {
+          "enum": [
+            "BASED",
+            "MID",
+            "COOKED",
+            "RADIOACTIVE"
+          ]
+        },
+        "one_liner": {
+          "maxLength": 60,
+          "type": "string"
+        },
+        "price": {
+          "type": "string"
+        },
+        "roast": {
+          "maxLength": 220,
+          "type": "string"
+        }
+      },
+      "required": [
+        "grade",
+        "roast",
+        "one_liner"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ax1-new.vercel.app",
+    "endpoint": "https://ax1-new.vercel.app/api/dashboard/q-verdict/resource",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

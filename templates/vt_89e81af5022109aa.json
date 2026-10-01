@@ -1,0 +1,120 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_89e81af5022109aa",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "advisories": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "clipId": {
+                "type": "string"
+              },
+              "criterion": {
+                "type": "string"
+              },
+              "detail": {
+                "type": "string"
+              },
+              "fix": {
+                "type": "string"
+              },
+              "rule": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "clipId",
+              "criterion",
+              "detail",
+              "fix",
+              "rule"
+            ]
+          }
+        },
+        "contract": {
+          "type": "string"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "code": {
+                "type": "string"
+              },
+              "fix": {
+                "type": "object",
+                "properties": {}
+              },
+              "message": {
+                "type": "string"
+              },
+              "retryable": {
+                "type": "boolean"
+              },
+              "stage": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "category",
+              "code",
+              "fix",
+              "message",
+              "retryable",
+              "stage"
+            ]
+          }
+        },
+        "quote": {
+          "type": "object",
+          "properties": {
+            "estimatedJourneyTotalUsd": {
+              "type": "number"
+            },
+            "jobSpendSoFarUsd": {
+              "type": "number"
+            },
+            "thisStepUsd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "estimatedJourneyTotalUsd",
+            "jobSpendSoFarUsd",
+            "thisStepUsd"
+          ]
+        },
+        "valid": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "advisories",
+        "contract",
+        "errors",
+        "quote",
+        "valid"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.cueframe.ai",
+    "endpoint": "https://api.cueframe.ai/v1/composition/validate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

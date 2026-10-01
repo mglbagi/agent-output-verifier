@@ -1,0 +1,78 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d324af1d58ebd0d9",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "activeCoins": {
+          "type": "integer"
+        },
+        "activeMarkets": {
+          "type": "integer"
+        },
+        "attribution": {
+          "type": "string"
+        },
+        "btcDominancePct": {
+          "type": "number"
+        },
+        "ethDominancePct": {
+          "type": "number"
+        },
+        "marketCapChange24hPct": {
+          "type": "number"
+        },
+        "source": {
+          "type": "string"
+        },
+        "stale": {
+          "type": "boolean"
+        },
+        "total24hVolumeUsd": {
+          "type": "number"
+        },
+        "totalMarketCapUsd": {
+          "type": "number"
+        },
+        "volumeChange24hPct": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "activeCoins",
+        "activeMarkets",
+        "attribution",
+        "btcDominancePct",
+        "ethDominancePct",
+        "marketCapChange24hPct",
+        "source",
+        "stale",
+        "total24hVolumeUsd",
+        "totalMarketCapUsd",
+        "volumeChange24hPct"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "btcDominancePct": {
+        "min": 0,
+        "max": 100
+      },
+      "ethDominancePct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "crypto.openverbs.com",
+    "endpoint": "https://crypto.openverbs.com/v1/market-cap",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

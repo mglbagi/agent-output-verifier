@@ -1,0 +1,60 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_473212a0ddef9cc7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "Fast arbitrage-existence signal for a token swap graph: whether a profitable negative cycle exists and roughly how big, WITHOUT revealing the cycle path (that is the report tier).",
+      "properties": {
+        "edgesEvaluated": {
+          "type": "number"
+        },
+        "hasArbitrage": {
+          "description": "True if a profitable round-trip cycle exists.",
+          "type": "boolean"
+        },
+        "hops": {
+          "description": "Swaps in the detected cycle (0 if none).",
+          "type": "number"
+        },
+        "nodesEvaluated": {
+          "type": "number"
+        },
+        "profitBucket": {
+          "description": "Coarse magnitude of the best cycle gross profit.",
+          "enum": [
+            "none",
+            "<=0.1%",
+            "0.1-0.5%",
+            "0.5-2%",
+            ">2%"
+          ],
+          "type": "string"
+        },
+        "tier": {
+          "const": "probe"
+        }
+      },
+      "type": "object",
+      "required": [
+        "edgesEvaluated",
+        "hasArbitrage",
+        "hops",
+        "nodesEvaluated",
+        "profitBucket",
+        "tier"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-solvers.onrender.com",
+    "endpoint": "https://x402-solvers.onrender.com/v1/cycles/probe",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

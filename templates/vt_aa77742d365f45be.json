@@ -1,0 +1,205 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_aa77742d365f45be",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "elapsed_ms": {
+          "type": "integer"
+        },
+        "rows": {
+          "items": {
+            "properties": {
+              "behind": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "deprecated": {
+                "type": [
+                  "boolean",
+                  "string",
+                  "null"
+                ]
+              },
+              "ecosystem": {
+                "type": "string"
+              },
+              "latest": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "latest_published": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "license": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "max_severity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "name": {
+                "type": "string"
+              },
+              "notes": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "pinned": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "requested": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "vulnerabilities": {
+                "items": {
+                  "properties": {
+                    "aliases": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "fixed_in": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "severity": {
+                      "type": "string"
+                    },
+                    "summary": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object",
+                  "required": [
+                    "aliases",
+                    "fixed_in",
+                    "id",
+                    "severity",
+                    "summary"
+                  ]
+                },
+                "type": "array"
+              },
+              "vulnerability_count": {
+                "type": "integer"
+              },
+              "weekly_downloads": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              }
+            },
+            "type": "object",
+            "required": [
+              "deprecated",
+              "ecosystem",
+              "latest",
+              "latest_published",
+              "license",
+              "name",
+              "notes",
+              "requested",
+              "vulnerabilities",
+              "vulnerability_count"
+            ]
+          },
+          "type": "array"
+        },
+        "sources": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "summary": {
+          "properties": {
+            "behind_latest": {
+              "type": "integer"
+            },
+            "deprecated": {
+              "type": "integer"
+            },
+            "lookup_errors": {
+              "type": "integer"
+            },
+            "packages": {
+              "type": "integer"
+            },
+            "unpinned": {
+              "type": "integer"
+            },
+            "with_vulnerabilities": {
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "required": [
+            "behind_latest",
+            "deprecated",
+            "lookup_errors",
+            "packages",
+            "unpinned",
+            "with_vulnerabilities"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "elapsed_ms",
+        "rows",
+        "sources",
+        "summary"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "rows[].vulnerabilities[].id"
+      }
+    ],
+    "bounds": {
+      "rows[].vulnerability_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "audit.152-53-82-29.sslip.io",
+    "endpoint": "https://audit.152-53-82-29.sslip.io/v1/audit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

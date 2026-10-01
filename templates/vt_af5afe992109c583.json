@@ -1,0 +1,113 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_af5afe992109c583",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "aspect_ratio": {
+          "type": "string"
+        },
+        "bytes": {
+          "type": "integer"
+        },
+        "generation_id": {
+          "type": "string"
+        },
+        "gross_margin_usd": {
+          "type": "number"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "image_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "media_type": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "prompt_policy_version": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string"
+        },
+        "provider_source": {
+          "type": "string"
+        },
+        "quality_profile": {
+          "type": "string"
+        },
+        "sale_price_usdc": {
+          "type": "number"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "tier": {
+          "type": "string"
+        },
+        "upstream_cost_usd": {
+          "type": "number"
+        },
+        "width": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "aspect_ratio",
+        "bytes",
+        "generation_id",
+        "gross_margin_usd",
+        "height",
+        "image_url",
+        "media_type",
+        "model",
+        "prompt_policy_version",
+        "provider",
+        "provider_source",
+        "quality_profile",
+        "sale_price_usdc",
+        "sha256",
+        "tier",
+        "upstream_cost_usd",
+        "width"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "bytes": {
+        "min": 0
+      },
+      "gross_margin_usd": {
+        "min": 0
+      },
+      "height": {
+        "min": 0
+      },
+      "sale_price_usdc": {
+        "min": 0
+      },
+      "upstream_cost_usd": {
+        "min": 0
+      },
+      "width": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.delx.ai",
+    "endpoint": "https://api.delx.ai/api/v1/x402/image-budget",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

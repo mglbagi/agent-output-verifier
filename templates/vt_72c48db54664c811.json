@@ -1,0 +1,144 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_72c48db54664c811",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "boundary": {
+          "type": "string"
+        },
+        "schema_version": {
+          "enum": [
+            1
+          ],
+          "type": "integer"
+        },
+        "spec": {
+          "additionalProperties": false,
+          "properties": {
+            "allow_extra_columns": {
+              "default": false,
+              "type": "boolean"
+            },
+            "columns": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "enum": {
+                    "items": {
+                      "maxLength": 1000,
+                      "type": "string"
+                    },
+                    "maxItems": 100,
+                    "minItems": 1,
+                    "type": "array"
+                  },
+                  "max": {
+                    "oneOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "min": {
+                    "oneOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "name": {
+                    "maxLength": 100,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "required": {
+                    "default": false,
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "enum": [
+                      "string",
+                      "integer",
+                      "decimal",
+                      "boolean",
+                      "date"
+                    ],
+                    "type": "string"
+                  },
+                  "unique": {
+                    "default": false,
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "name",
+                  "type"
+                ],
+                "type": "object"
+              },
+              "maxItems": 50,
+              "minItems": 1,
+              "type": "array"
+            },
+            "max_rows": {
+              "default": 2000,
+              "maximum": 2000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "min_rows": {
+              "default": 0,
+              "maximum": 2000,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "columns"
+          ],
+          "type": "object"
+        },
+        "unsupported": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 0,
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "spec",
+        "unsupported",
+        "boundary"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "spec.min_rows",
+        "other_field": "spec.max_rows",
+        "if_present": true
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "vme5zb7fll.execute-api.us-east-1.amazonaws.com",
+    "endpoint": "https://vme5zb7fll.execute-api.us-east-1.amazonaws.com/v1/accept/compile",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

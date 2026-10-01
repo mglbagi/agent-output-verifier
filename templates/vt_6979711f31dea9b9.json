@@ -1,0 +1,70 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6979711f31dea9b9",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "address_input": {
+          "type": "string"
+        },
+        "address_type": {
+          "nullable": true,
+          "type": "string"
+        },
+        "cache_hit": {
+          "type": "boolean"
+        },
+        "components": {
+          "type": "object"
+        },
+        "confidence": {
+          "type": "number"
+        },
+        "normalized": {
+          "nullable": true,
+          "type": "string"
+        },
+        "parse_notes": {
+          "nullable": true,
+          "type": "string"
+        },
+        "request_id": {
+          "type": "string"
+        },
+        "response_time_ms": {
+          "nullable": true,
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "required": [
+        "address_input",
+        "address_type",
+        "cache_hit",
+        "components",
+        "confidence",
+        "normalized",
+        "parse_notes",
+        "request_id",
+        "response_time_ms"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.qonoro.ai",
+    "endpoint": "https://api.qonoro.ai/v1/address/normalize",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

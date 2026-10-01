@@ -1,0 +1,55 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f2fe50a3286d7f6c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "properties": {
+            "run_id": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "status_url": {
+              "format": "uri",
+              "type": "string"
+            },
+            "wait_url": {
+              "format": "uri",
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "run_id",
+            "status",
+            "status_url",
+            "wait_url"
+          ]
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "required": [
+        "data",
+        "success"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.miroshark.xyz",
+    "endpoint": "https://x402.miroshark.xyz/run",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

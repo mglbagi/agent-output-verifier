@@ -1,0 +1,85 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a977e3c1e72b62b7",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "markets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "liquidity": {
+                "type": "number"
+              },
+              "question": {
+                "type": "string"
+              },
+              "volume": {
+                "type": "number"
+              },
+              "volume24hr": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "id",
+              "liquidity",
+              "question",
+              "volume",
+              "volume24hr"
+            ]
+          }
+        },
+        "source": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "count",
+        "markets",
+        "source",
+        "success",
+        "timestamp"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "markets[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "markets[].volume": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.speccy.cloud",
+    "endpoint": "https://api.speccy.cloud/v1/predictions/polymarket",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_67295566d88f3391",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "components": {
+          "items": {
+            "properties": {
+              "ms": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "ok": {
+                "type": "boolean"
+              }
+            },
+            "type": "object",
+            "required": [
+              "ms",
+              "name",
+              "ok"
+            ]
+          },
+          "type": "array"
+        },
+        "composed_of": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "degraded": {
+          "type": "boolean"
+        },
+        "keywords": {
+          "properties": {
+            "count": {
+              "type": "integer"
+            },
+            "suggestions": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object",
+          "required": [
+            "count",
+            "suggestions"
+          ]
+        },
+        "links": {
+          "properties": {
+            "count": {
+              "type": "integer"
+            },
+            "external_count": {
+              "type": "integer"
+            },
+            "internal_count": {
+              "type": "integer"
+            },
+            "items": {
+              "items": {
+                "properties": {
+                  "href": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "is_external": {
+                    "type": "boolean"
+                  },
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "href",
+                  "is_external",
+                  "text"
+                ]
+              },
+              "type": "array"
+            }
+          },
+          "type": "object",
+          "required": [
+            "count",
+            "external_count",
+            "internal_count",
+            "items"
+          ]
+        },
+        "metadata": {
+          "properties": {
+            "canonical": {
+              "type": "null"
+            },
+            "description": {
+              "type": "string"
+            },
+            "language": {
+              "type": "string"
+            },
+            "og": {
+              "properties": {},
+              "type": "object"
+            },
+            "title": {
+              "type": "string"
+            },
+            "twitter": {
+              "properties": {},
+              "type": "object"
+            }
+          },
+          "type": "object",
+          "required": [
+            "description",
+            "language",
+            "og",
+            "title",
+            "twitter"
+          ]
+        },
+        "seed_keyword_used": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "type": "object",
+      "required": [
+        "components",
+        "composed_of",
+        "degraded",
+        "keywords",
+        "links",
+        "metadata",
+        "seed_keyword_used",
+        "url"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "keywords.count": {
+        "min": 0
+      },
+      "links.count": {
+        "min": 0
+      },
+      "links.external_count": {
+        "min": 0
+      },
+      "links.internal_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.agentutility.ai",
+    "endpoint": "https://x402.agentutility.ai/seo-snapshot",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

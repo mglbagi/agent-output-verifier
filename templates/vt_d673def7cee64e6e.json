@@ -1,0 +1,187 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d673def7cee64e6e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "allowance_adjusted": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "allowance_balance_exposure_adjusted": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "allowance_balance_exposure_raw": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "allowance_covers_current_balance": {
+          "type": "boolean"
+        },
+        "allowance_raw": {
+          "description": "uint256 as a decimal integer string",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "balance_adjusted": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "balance_raw": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "block_number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "effectively_unlimited": {
+          "type": "boolean"
+        },
+        "evidence": {
+          "properties": {
+            "block_number": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "same_block_reads": {
+              "type": "boolean"
+            },
+            "token_code_present": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "block_number",
+            "same_block_reads",
+            "token_code_present"
+          ]
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "machine": {
+          "enum": [
+            "VM02"
+          ],
+          "type": "string"
+        },
+        "max_uint256_approval": {
+          "type": "boolean"
+        },
+        "methodology_version": {
+          "enum": [
+            "allowance-exposure-0.1.0"
+          ],
+          "type": "string"
+        },
+        "network": {
+          "enum": [
+            "eip155:8453"
+          ],
+          "type": "string"
+        },
+        "owner": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "spender": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "status": {
+          "enum": [
+            "OK",
+            "HOLD"
+          ],
+          "type": "string"
+        },
+        "token": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "token_metadata": {
+          "properties": {
+            "decimals": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "symbol": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "decimals",
+            "symbol"
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "machine",
+        "methodology_version",
+        "network",
+        "block_number",
+        "owner",
+        "token",
+        "spender",
+        "token_metadata",
+        "allowance_raw",
+        "allowance_adjusted",
+        "balance_raw",
+        "balance_adjusted",
+        "allowance_balance_exposure_raw",
+        "allowance_balance_exposure_adjusted",
+        "allowance_covers_current_balance",
+        "max_uint256_approval",
+        "effectively_unlimited",
+        "evidence",
+        "limitations"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.agentmercantile.com",
+    "endpoint": "https://api.agentmercantile.com/v1/allowance-exposure",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6022134df63d7b28",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "as_of": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "checked": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "price_usd": {
+          "type": "number"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "risk_score": {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "tier": {
+          "enum": [
+            "quick",
+            "standard",
+            "deep"
+          ],
+          "type": "string"
+        },
+        "verdict": {
+          "description": "safe = no risk signals found by these checks (not a guarantee); caution = not enough evidence, or a data source was unavailable; danger = a risk signal matched (see reasons)",
+          "enum": [
+            "safe",
+            "caution",
+            "danger"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "address",
+        "as_of",
+        "chain",
+        "checked",
+        "price_usd",
+        "reasons",
+        "risk_score",
+        "tier",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "price_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.verdixapi.com",
+    "endpoint": "https://api.verdixapi.com/risk/address/deep",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

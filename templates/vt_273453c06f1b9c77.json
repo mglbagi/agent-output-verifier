@@ -1,0 +1,192 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_273453c06f1b9c77",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "attribution": {
+          "type": "string"
+        },
+        "available_scenes": {
+          "additionalProperties": true,
+          "properties": {
+            "after": {
+              "items": {},
+              "type": "array"
+            },
+            "before": {
+              "items": {},
+              "type": "array"
+            },
+            "selected": {
+              "additionalProperties": true,
+              "properties": {},
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "fulfillment_status": {
+          "type": "string"
+        },
+        "image": {
+          "additionalProperties": true,
+          "properties": {
+            "annotated_url": {
+              "type": "string"
+            },
+            "clean_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "format": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "clean_url"
+          ]
+        },
+        "mode": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "request": {
+          "additionalProperties": true,
+          "properties": {
+            "date": {
+              "type": "string"
+            },
+            "date_tolerance_days": {
+              "type": "integer"
+            },
+            "lat": {
+              "type": "number"
+            },
+            "lon": {
+              "type": "number"
+            },
+            "max_cloud_cover": {
+              "type": "integer"
+            },
+            "radius_m": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "selected_scene": {
+          "additionalProperties": true,
+          "properties": {
+            "cloud_cover": {
+              "type": "integer"
+            },
+            "date": {
+              "type": "string"
+            },
+            "datetime": {
+              "type": "string"
+            },
+            "scene_id": {
+              "type": "string"
+            },
+            "selection_reason": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "statistics": {
+          "additionalProperties": true,
+          "properties": {
+            "index": {
+              "type": "string"
+            },
+            "mndwi_mean": {
+              "type": "number"
+            },
+            "ndwi_mean": {
+              "type": "number"
+            },
+            "no_data_count": {
+              "type": "integer"
+            },
+            "resolution_m": {
+              "type": "integer"
+            },
+            "sample_count": {
+              "type": "integer"
+            },
+            "secondary_index": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "water_coverage_percent": {
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "tool": {
+          "type": "string"
+        },
+        "warnings": {
+          "items": {},
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "image",
+        "mode",
+        "ok",
+        "tool"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "request.lat": {
+        "min": -90,
+        "max": 90,
+        "if_present": true
+      },
+      "request.lon": {
+        "min": -180,
+        "max": 180,
+        "if_present": true
+      },
+      "statistics.no_data_count": {
+        "min": 0,
+        "if_present": true
+      },
+      "statistics.sample_count": {
+        "min": 0,
+        "if_present": true
+      },
+      "statistics.water_coverage_percent": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tools.ipintel.ai",
+    "endpoint": "https://tools.ipintel.ai/satellite",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

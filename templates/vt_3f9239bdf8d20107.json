@@ -1,0 +1,198 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3f9239bdf8d20107",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "type": "object",
+          "properties": {
+            "hasNextPage": {
+              "type": "boolean"
+            },
+            "hasPreviousPage": {
+              "type": "boolean"
+            },
+            "itemCount": {
+              "type": "integer"
+            },
+            "limit": {
+              "type": "integer"
+            },
+            "page": {
+              "type": "integer"
+            },
+            "pageCount": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "hasNextPage",
+            "hasPreviousPage",
+            "itemCount",
+            "limit",
+            "page",
+            "pageCount"
+          ]
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "availableSupply": {
+                "type": "integer"
+              },
+              "avgChange": {
+                "type": "number"
+              },
+              "contractAddress": {},
+              "contractAddresses": {
+                "type": "array"
+              },
+              "decimals": {
+                "type": "integer"
+              },
+              "explorers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "fullyDilutedValuation": {
+                "type": "integer"
+              },
+              "icon": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "liquidityScore": {
+                "type": "number"
+              },
+              "marketCap": {
+                "type": "integer"
+              },
+              "marketCapScore": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "price": {
+                "type": "number"
+              },
+              "priceBtc": {
+                "type": "number"
+              },
+              "priceChange1d": {
+                "type": "number"
+              },
+              "priceChange1h": {
+                "type": "number"
+              },
+              "priceChange1m": {
+                "type": "number"
+              },
+              "priceChange1w": {
+                "type": "number"
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "redditUrl": {
+                "type": "string",
+                "format": "uri"
+              },
+              "riskScore": {
+                "type": "number"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "totalSupply": {
+                "type": "number"
+              },
+              "twitterUrl": {
+                "type": "string",
+                "format": "uri"
+              },
+              "volatilityScore": {
+                "type": "number"
+              },
+              "volume": {
+                "type": "integer"
+              },
+              "websiteUrl": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "availableSupply",
+              "avgChange",
+              "contractAddresses",
+              "decimals",
+              "explorers",
+              "fullyDilutedValuation",
+              "icon",
+              "id",
+              "liquidityScore",
+              "marketCap",
+              "marketCapScore",
+              "name",
+              "price",
+              "priceBtc",
+              "priceChange1d",
+              "priceChange1h",
+              "priceChange1m",
+              "priceChange1w",
+              "rank",
+              "redditUrl",
+              "riskScore",
+              "symbol",
+              "totalSupply",
+              "twitterUrl",
+              "volatilityScore",
+              "volume",
+              "websiteUrl"
+            ]
+          }
+        }
+      },
+      "required": [
+        "meta",
+        "result"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "result[].id"
+      }
+    ],
+    "bounds": {
+      "meta.limit": {
+        "min": 0
+      },
+      "result[].price": {
+        "min": 0
+      },
+      "result[].volume": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.coinstats.app",
+    "endpoint": "https://x402.coinstats.app/coins",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

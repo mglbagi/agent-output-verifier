@@ -1,0 +1,98 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d572a7289621c626",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "asn": {
+          "type": "object",
+          "properties": {
+            "isp": {
+              "type": "string"
+            },
+            "number": {
+              "type": "string"
+            },
+            "org": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "isp",
+            "number",
+            "org"
+          ]
+        },
+        "geo": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "country_code": {
+              "type": "string"
+            },
+            "lat": {
+              "type": "number"
+            },
+            "lon": {
+              "type": "number"
+            },
+            "timezone": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "city",
+            "country",
+            "country_code",
+            "lat",
+            "lon",
+            "timezone"
+          ]
+        },
+        "hostname": {
+          "type": "string"
+        },
+        "ip": {
+          "type": "string"
+        },
+        "proxy": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "asn",
+        "geo",
+        "hostname",
+        "ip",
+        "proxy"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "geo.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "geo.lon": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ippulse.waltsoft.net",
+    "endpoint": "https://ippulse.waltsoft.net/v1/lookup/:ip",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_24c28c2e1555ce4b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "description": "Trivia Daily knowledge challenge envelope.",
+      "properties": {
+        "attribution": {
+          "additionalProperties": false,
+          "description": "Trivia Daily local dataset provenance.",
+          "properties": {
+            "dataset_sha256": {
+              "description": "SHA-256 of the packaged Trivia Daily dataset.",
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "dataset_version": {
+              "description": "Pinned Trivia Daily dataset version.",
+              "type": "string"
+            },
+            "license": {
+              "description": "Local dataset license.",
+              "type": "string"
+            },
+            "snapshot_date": {
+              "description": "Pinned Trivia Daily snapshot date.",
+              "format": "date",
+              "type": "string"
+            },
+            "source": {
+              "description": "Trivia Daily question source.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source",
+            "license",
+            "snapshot_date",
+            "dataset_version",
+            "dataset_sha256"
+          ],
+          "type": "object"
+        },
+        "challenge_id": {
+          "description": "Canonical content-addressed Trivia Daily challenge identity.",
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "date": {
+          "description": "UTC Trivia Daily challenge date.",
+          "format": "date",
+          "type": "string"
+        },
+        "difficulty": {
+          "description": "Trivia Daily challenge difficulty.",
+          "enum": [
+            "normal"
+          ],
+          "type": "string"
+        },
+        "game": {
+          "description": "Trivia Daily game identity.",
+          "enum": [
+            "trivia"
+          ],
+          "type": "string"
+        },
+        "generation_version": {
+          "description": "Pinned Trivia Daily dataset-selection version.",
+          "enum": [
+            "v1"
+          ],
+          "type": "string"
+        },
+        "prompt": {
+          "additionalProperties": false,
+          "description": "Trivia Daily question and four shuffled opaque choices.",
+          "properties": {
+            "answer_format": {
+              "description": "Submit exactly one displayed choice ID.",
+              "enum": [
+                "opaque_choice_id"
+              ],
+              "type": "string"
+            },
+            "category": {
+              "description": "Trivia Daily knowledge category.",
+              "type": "string"
+            },
+            "choices": {
+              "description": "Four deterministically shuffled choices.",
+              "items": {
+                "additionalProperties": false,
+                "description": "One Trivia Daily answer choice.",
+                "properties": {
+                  "id": {
+                    "description": "Opaque Trivia Daily choice ID to submit.",
+                    "pattern": "^choice_[0-9a-f]{16}$",
+                    "type": "string"
+                  },
+                  "text": {
+                    "description": "Displayed answer text.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "text"
+                ],
+                "type": "object"
+              },
+              "maxItems": 4,
+              "minItems": 4,
+              "type": "array"
+            },
+            "question": {
+              "description": "Trivia Daily question text.",
+              "type": "string"
+            },
+            "question_id": {
+              "description": "Pinned Trivia Daily question identifier.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "question_id",
+            "question",
+            "category",
+            "choices",
+            "answer_format"
+          ],
+          "type": "object"
+        },
+        "rules": {
+          "additionalProperties": false,
+          "description": "Trivia Daily single-choice rules.",
+          "properties": {
+            "choice_count": {
+              "enum": [
+                4
+              ],
+              "type": "integer"
+            },
+            "select_exactly_one": {
+              "const": true,
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "select_exactly_one",
+            "choice_count"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "challenge_id",
+        "game",
+        "generation_version",
+        "date",
+        "difficulty",
+        "prompt",
+        "rules",
+        "attribution"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "prompt.choices[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-arcade.use.x402atlas.com",
+    "endpoint": "https://agent-arcade.use.x402atlas.com/trivia/daily",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

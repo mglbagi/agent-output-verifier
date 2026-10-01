@@ -1,0 +1,96 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_795913fe1e76f1c3",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "index_updated": {
+          "type": "string"
+        },
+        "query": {
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "description": {
+                "type": "string"
+              },
+              "liveness": {
+                "description": "last probe result {at, alive, x402, latency_ms} or \"unprobed\"",
+                "type": "object"
+              },
+              "network": {
+                "type": "string"
+              },
+              "payTo": {
+                "type": "string"
+              },
+              "price_usd": {
+                "type": "number"
+              },
+              "relevance": {
+                "type": "number"
+              },
+              "source": {
+                "enum": [
+                  "bazaar",
+                  "payai"
+                ],
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "type": "object",
+            "required": [
+              "description",
+              "liveness",
+              "network",
+              "payTo",
+              "price_usd",
+              "relevance",
+              "source",
+              "url"
+            ]
+          },
+          "type": "array"
+        },
+        "returned": {
+          "type": "number"
+        },
+        "total_matches": {
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "required": [
+        "query",
+        "results",
+        "returned",
+        "total_matches"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "results[].price_usd": {
+        "min": 0
+      },
+      "total_matches": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ali-acids-helmet-cindy.trycloudflare.com",
+    "endpoint": "https://ali-acids-helmet-cindy.trycloudflare.com/api/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

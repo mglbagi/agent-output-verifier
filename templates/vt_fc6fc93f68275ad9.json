@@ -1,0 +1,45 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fc6fc93f68275ad9",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "agentId": {
+          "type": "string"
+        },
+        "feedbackCount": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "trustScore": {
+          "type": "integer"
+        },
+        "uniqueCallers": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "agentId",
+        "feedbackCount",
+        "name",
+        "trustScore",
+        "uniqueCallers"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.thetrustlayer.xyz",
+    "endpoint": "https://api.thetrustlayer.xyz/agent/base:0x13b1e9b460557417dcf97ce75fce5674423d573f",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

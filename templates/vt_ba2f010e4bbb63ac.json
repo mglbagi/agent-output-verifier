@@ -1,0 +1,57 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ba2f010e4bbb63ac",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "block": {
+          "type": "number"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "current": {
+          "description": "baseFeeGwei, congestion, gasUsedRatio",
+          "type": "object"
+        },
+        "forecast": {
+          "description": "centerGwei, lowGwei, highGwei, targetBlock, interval",
+          "type": "object"
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "recent": {
+          "description": "medianGwei, p10Gwei, p90Gwei, volatility, blocks",
+          "type": "object"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "required": [
+        "block",
+        "chain",
+        "current",
+        "forecast",
+        "observedAt",
+        "recent",
+        "success"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "lotusnetworkapi.com",
+    "endpoint": "https://lotusnetworkapi.com/api/v1/gas/preflight",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

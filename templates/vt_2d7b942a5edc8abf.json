@@ -1,0 +1,133 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2d7b942a5edc8abf",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string",
+              "format": "date"
+            },
+            "listings": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "currency": {
+                    "type": "string"
+                  },
+                  "date_local": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "event_id": {
+                    "type": "string"
+                  },
+                  "event_name": {
+                    "type": "string"
+                  },
+                  "max_price": {
+                    "type": "number"
+                  },
+                  "min_price": {
+                    "type": "number"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "time_local": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "venue_city": {
+                    "type": "string"
+                  },
+                  "venue_name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "currency",
+                  "date_local",
+                  "event_id",
+                  "event_name",
+                  "max_price",
+                  "min_price",
+                  "status",
+                  "time_local",
+                  "url",
+                  "venue_city",
+                  "venue_name"
+                ]
+              }
+            },
+            "venue_id": {
+              "type": "string"
+            },
+            "venue_name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "date",
+            "listings",
+            "venue_id",
+            "venue_name"
+          ]
+        },
+        "league": {
+          "type": "string"
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sport": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "data",
+        "league",
+        "retrieved_at",
+        "sport"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "data.listings[].min_price",
+        "other_field": "data.listings[].max_price"
+      },
+      {
+        "type": "unique",
+        "field": "data.listings[].event_id"
+      }
+    ],
+    "bounds": {
+      "data.listings[].max_price": {
+        "min": 0
+      },
+      "data.listings[].min_price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "fanfare.run",
+    "endpoint": "https://fanfare.run/nhl/tickets",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

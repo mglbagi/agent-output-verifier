@@ -1,0 +1,54 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e4e56ae941fde2bc",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "provider": {
+          "enum": [
+            "atlas",
+            "wavespeed",
+            "byteplus",
+            "selfhost",
+            "fal"
+          ],
+          "type": "string"
+        },
+        "requestId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "statusUrl": {
+          "description": "Free GET, no payment. Poll every few seconds: IN_QUEUE or IN_PROGRESS means keep polling (queuePosition may be set while queued); COMPLETED returns videoUrl; FAILED returns error.",
+          "format": "uri",
+          "type": "string"
+        },
+        "taskId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "provider",
+        "statusUrl"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "chat-api.memchat.io",
+    "endpoint": "https://chat-api.memchat.io/api/v1/x402/video-gen",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b2f13e89827e6713",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "checks": {
+          "type": "array"
+        },
+        "confidence": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "coverage_note": {
+          "type": "string"
+        },
+        "flags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "verdict": {
+          "enum": [
+            "VERIFIED",
+            "PARTIAL",
+            "UNVERIFIED",
+            "NOT_FOUND"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "checks",
+        "confidence",
+        "coverage_note",
+        "flags",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "business-verification-machine.onrender.com",
+    "endpoint": "https://business-verification-machine.onrender.com/v1/verify",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

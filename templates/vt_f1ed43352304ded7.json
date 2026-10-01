@@ -1,0 +1,194 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f1ed43352304ded7",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "anchor": {
+          "type": "object",
+          "properties": {
+            "eff": {
+              "type": "number"
+            },
+            "pct5": {
+              "type": "number"
+            },
+            "sym": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "eff",
+            "pct5",
+            "sym"
+          ]
+        },
+        "asof_daily": {
+          "type": "string",
+          "format": "date"
+        },
+        "cohorts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "anchor": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "anchor",
+              "id",
+              "label"
+            ]
+          }
+        },
+        "live_5m_window": {
+          "type": "boolean"
+        },
+        "product": {
+          "type": "string"
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "atr_pct": {
+                "type": "number"
+              },
+              "eff": {
+                "type": "number"
+              },
+              "ew": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "boolean"
+              },
+              "go": {
+                "type": "number"
+              },
+              "lights": {
+                "type": "object",
+                "properties": {
+                  "5m": {
+                    "type": "object",
+                    "properties": {
+                      "m": {
+                        "type": "string"
+                      },
+                      "p": {
+                        "type": "string"
+                      },
+                      "r": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "m",
+                      "p",
+                      "r"
+                    ]
+                  }
+                },
+                "required": [
+                  "5m"
+                ]
+              },
+              "room": {
+                "type": "object",
+                "properties": {
+                  "bars": {
+                    "type": "number"
+                  },
+                  "lab": {
+                    "type": "string"
+                  },
+                  "n": {
+                    "type": "integer"
+                  },
+                  "pct": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "bars",
+                  "lab",
+                  "n",
+                  "pct"
+                ]
+              },
+              "rs20": {
+                "type": "number"
+              },
+              "sym": {
+                "type": "string"
+              },
+              "vs_soxx": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "atr_pct",
+              "eff",
+              "ew",
+              "ext",
+              "go",
+              "lights",
+              "room",
+              "rs20",
+              "sym",
+              "vs_soxx"
+            ]
+          }
+        }
+      },
+      "required": [
+        "anchor",
+        "asof_daily",
+        "cohorts",
+        "live_5m_window",
+        "product",
+        "rows"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "cohorts[].id"
+      }
+    ],
+    "bounds": {
+      "anchor.pct5": {
+        "min": 0,
+        "max": 100
+      },
+      "rows[].atr_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "rows[].room.pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "coil.trade",
+    "endpoint": "https://coil.trade/api/board/day",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

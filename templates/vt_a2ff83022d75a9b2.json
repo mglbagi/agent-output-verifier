@@ -1,0 +1,126 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a2ff83022d75a9b2",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "cache": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "status"
+          ]
+        },
+        "coverage": {
+          "type": "object",
+          "properties": {
+            "sub_calls_attempted": {
+              "type": "integer"
+            },
+            "sub_calls_failed": {
+              "type": "array"
+            },
+            "sub_calls_succeeded": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "sub_calls_attempted",
+            "sub_calls_failed",
+            "sub_calls_succeeded"
+          ]
+        },
+        "methodology": {
+          "type": "object",
+          "properties": {
+            "model": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "model",
+            "version"
+          ]
+        },
+        "verdict": {
+          "type": "object",
+          "properties": {
+            "band": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "number"
+            },
+            "details": {
+              "type": "object",
+              "properties": {
+                "split": {
+                  "type": "object",
+                  "properties": {
+                    "high": {
+                      "type": "number"
+                    },
+                    "low": {
+                      "type": "number"
+                    },
+                    "med": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "high",
+                    "low",
+                    "med"
+                  ]
+                }
+              },
+              "required": [
+                "split"
+              ]
+            },
+            "summary": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "band",
+            "confidence",
+            "details",
+            "summary"
+          ]
+        }
+      },
+      "required": [
+        "cache",
+        "coverage",
+        "methodology",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "verdict.confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.hyperd.ai",
+    "endpoint": "https://api.hyperd.ai/api/yield/allocation",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

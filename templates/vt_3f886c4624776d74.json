@@ -1,0 +1,185 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3f886c4624776d74",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "description": "One row per upcoming FDA decision. One decision is ONE row even when several public companies file on it (sponsor, originator, royalty holder) — filter on the `tickers` array, not the single `ticker`, or you will miss catalysts a partner is exposed to.",
+          "items": {
+            "properties": {
+              "age_days": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "application_number": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "authority": {
+                "enum": [
+                  "human_lock",
+                  "llm_high",
+                  "regex",
+                  "llm_medium",
+                  "llm_low",
+                  null
+                ],
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "catalyst_id": {
+                "type": "integer"
+              },
+              "cik": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "company": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "confidence": {
+                "enum": [
+                  "high",
+                  "medium",
+                  "low",
+                  null
+                ],
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "date_confidence": {
+                "enum": [
+                  "confirmed",
+                  "reported",
+                  "estimated",
+                  null
+                ],
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "drug_name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "indication": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "last_updated": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "pdufa_date": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date"
+              },
+              "source_accession": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "source_quote": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "source_url": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "uri"
+              },
+              "stage": {
+                "enum": [
+                  "set",
+                  "extended",
+                  "resolved",
+                  "crl"
+                ],
+                "type": "string"
+              },
+              "ticker": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "tickers": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "catalyst_id",
+              "stage"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "meta": {
+          "description": "Result metadata, e.g. total count.",
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data[].catalyst_id"
+      }
+    ],
+    "bounds": {
+      "data[].age_days": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.biotechcatalystsentinel.com",
+    "endpoint": "https://api.biotechcatalystsentinel.com/v1/catalysts/upcoming",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

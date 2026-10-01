@@ -1,0 +1,78 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7f74d1ca066304d9",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "costMicros": {
+          "type": "number"
+        },
+        "format": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "format": {
+                "type": "string"
+              },
+              "model": {
+                "type": "string"
+              },
+              "priceMicros": {
+                "type": "number"
+              },
+              "status": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "format",
+              "model",
+              "priceMicros",
+              "status",
+              "url"
+            ]
+          }
+        },
+        "object": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "costMicros",
+        "format",
+        "id",
+        "images",
+        "object",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "thumbnailcreator.ai",
+    "endpoint": "https://thumbnailcreator.ai/api/x402/generations",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a54c4f2de4c6c9f0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "description": "Contenido limpio en el formato pedido",
+          "type": "string"
+        },
+        "fetched_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "final_url": {
+          "description": "URL tras redirecciones",
+          "format": "uri",
+          "type": "string"
+        },
+        "format": {
+          "enum": [
+            "markdown",
+            "html"
+          ]
+        },
+        "metadata": {
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "language": {
+              "type": "string"
+            },
+            "status_code": {
+              "type": "integer"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "language",
+            "status_code",
+            "title"
+          ]
+        },
+        "requested_url": {
+          "format": "uri",
+          "type": "string"
+        },
+        "usage": {
+          "properties": {
+            "credits": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "provider": {
+              "const": "firecrawl"
+            }
+          },
+          "required": [
+            "provider",
+            "credits"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "requested_url",
+        "final_url",
+        "fetched_at",
+        "format",
+        "content",
+        "metadata",
+        "usage"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "xl402.agentsats.org",
+    "endpoint": "https://xl402.agentsats.org/v1/web-extract",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

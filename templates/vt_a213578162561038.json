@@ -1,0 +1,164 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a213578162561038",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "billed": {
+          "type": "boolean"
+        },
+        "canonical": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "final_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "h1_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "https": {
+          "type": "boolean"
+        },
+        "issues": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "code": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "message": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "severity": {
+                "enum": [
+                  "info",
+                  "warn",
+                  "error"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "severity",
+              "message"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "json_ld": {
+          "type": "boolean"
+        },
+        "load_hints": {
+          "additionalProperties": false,
+          "properties": {
+            "elapsed_ms": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "html_bytes": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "html_bytes",
+            "elapsed_ms"
+          ],
+          "type": "object"
+        },
+        "meta_description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ok": {
+          "const": true,
+          "type": "boolean"
+        },
+        "receipt_id": {
+          "type": "string"
+        },
+        "robots": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "score": {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "warnings": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "x_robots": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "url",
+        "final_url",
+        "https",
+        "status",
+        "title",
+        "meta_description",
+        "robots",
+        "x_robots",
+        "canonical",
+        "json_ld",
+        "h1_count",
+        "load_hints",
+        "score",
+        "issues",
+        "ok",
+        "receipt_id",
+        "billed"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agentshelf.syntexa.ch",
+    "endpoint": "https://agentshelf.syntexa.ch/v1/page-audit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

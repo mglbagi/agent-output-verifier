@@ -1,0 +1,67 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b3058667bfc11c08",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "type": "number"
+        },
+        "convertedAmount": {
+          "type": "number"
+        },
+        "date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "from": {
+          "type": "string"
+        },
+        "payment": {
+          "type": "string"
+        },
+        "rate": {
+          "type": "number"
+        },
+        "source": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "from",
+        "to",
+        "amount",
+        "rate",
+        "convertedAmount"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "amount": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-trends-server.onrender.com",
+    "endpoint": "https://x402-trends-server.onrender.com/api/exchange-rate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

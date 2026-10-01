@@ -1,0 +1,72 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_783511d1c7ccea80",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "chain": {
+          "type": "string"
+        },
+        "gas": {
+          "type": "object"
+        },
+        "novelty": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "extreme"
+          ],
+          "type": "string"
+        },
+        "peak_window": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "pending_count": {
+          "type": "integer"
+        },
+        "pending_stats": {
+          "type": "object"
+        },
+        "sequence_score": {
+          "description": "0=normal mempool, 100=highly anomalous",
+          "type": "integer"
+        },
+        "story": {
+          "description": "Human-readable mempool anomaly label",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "chain",
+        "gas",
+        "novelty",
+        "peak_window",
+        "pending_count",
+        "pending_stats",
+        "sequence_score",
+        "story"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "pending_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "anomaly.forgemesh.io",
+    "endpoint": "https://anomaly.forgemesh.io/api/mempool-anomaly",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

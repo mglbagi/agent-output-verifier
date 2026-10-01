@@ -1,0 +1,95 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_85dda634b69b67fb",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "choices": {
+          "description": "Completion choices, OpenAI-shaped.",
+          "items": {
+            "properties": {
+              "finish_reason": {
+                "type": "string"
+              },
+              "index": {
+                "type": "integer"
+              },
+              "message": {
+                "properties": {
+                  "content": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "role",
+                  "content"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "message"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "Unique completion id.",
+          "type": "string"
+        },
+        "model": {
+          "description": "Model that produced the answer (resolved from \"auto\").",
+          "type": "string"
+        },
+        "object": {
+          "description": "Always \"chat.completion\".",
+          "type": "string"
+        },
+        "usage": {
+          "properties": {
+            "completion_tokens": {
+              "type": "integer"
+            },
+            "prompt_tokens": {
+              "type": "integer"
+            },
+            "total_tokens": {
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "required": [
+            "completion_tokens",
+            "prompt_tokens",
+            "total_tokens"
+          ]
+        }
+      },
+      "required": [
+        "choices"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "usage.total_tokens": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "pyfile-agent.taile3ff35.ts.net",
+    "endpoint": "https://pyfile-agent.taile3ff35.ts.net/v1/chat/completions",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

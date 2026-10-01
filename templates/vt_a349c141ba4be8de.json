@@ -1,0 +1,37 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a349c141ba4be8de",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "findings": {
+          "type": "array"
+        },
+        "ready": {
+          "type": "boolean"
+        },
+        "score": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "findings",
+        "ready",
+        "score"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-endpoint-readiness.ryannelson2000.workers.dev",
+    "endpoint": "https://agent-endpoint-readiness.ryannelson2000.workers.dev/v1/audit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

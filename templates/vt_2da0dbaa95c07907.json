@@ -1,0 +1,105 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2da0dbaa95c07907",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "best_observed_listing": {
+          "type": "object",
+          "properties": {
+            "price_jpy": {
+              "type": "number"
+            },
+            "source": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "price_jpy",
+            "source"
+          ]
+        },
+        "charged": {
+          "type": "boolean"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "market": {
+          "type": "object",
+          "properties": {
+            "currency": {
+              "type": "string"
+            },
+            "freshness": {
+              "type": "string"
+            },
+            "highest_price_jpy": {
+              "type": "number"
+            },
+            "lowest_price_jpy": {
+              "type": "number"
+            },
+            "median_price_jpy": {
+              "type": "number"
+            },
+            "offer_count": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "currency",
+            "freshness",
+            "highest_price_jpy",
+            "lowest_price_jpy",
+            "median_price_jpy",
+            "offer_count"
+          ]
+        },
+        "service": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "best_observed_listing",
+        "charged",
+        "endpoint",
+        "market",
+        "service",
+        "version"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "best_observed_listing.price_jpy": {
+        "min": 0
+      },
+      "market.highest_price_jpy": {
+        "min": 0
+      },
+      "market.lowest_price_jpy": {
+        "min": 0
+      },
+      "market.median_price_jpy": {
+        "min": 0
+      },
+      "market.offer_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "anime-intelligence.goodmy0312.workers.dev",
+    "endpoint": "https://anime-intelligence.goodmy0312.workers.dev/v1/market",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

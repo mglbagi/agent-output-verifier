@@ -1,0 +1,109 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1b2828378f98ad1c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "canonical_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "checked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "confidence": {
+          "type": "number"
+        },
+        "http_status": {
+          "type": "number"
+        },
+        "price_usd": {
+          "type": "number"
+        },
+        "signals": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "live",
+            "closed",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "watch": {
+          "description": "Present on paid 200 responses. Cross-sell hint to POST /v1/watch ($2.50, 30-day standard watcher). Default detector is status_change. Not included on unpaid 402.",
+          "properties": {
+            "detector": {
+              "enum": [
+                "status_change"
+              ],
+              "type": "string"
+            },
+            "price_usd": {
+              "type": "number"
+            },
+            "suggest": {
+              "enum": [
+                "/v1/watch"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "suggest",
+            "detector",
+            "price_usd"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "url",
+        "canonical_url",
+        "status",
+        "http_status",
+        "checked_at",
+        "signals",
+        "confidence",
+        "price_usd"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "price_usd": {
+        "min": 0
+      },
+      "watch.price_usd": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "livecheck.fly.dev",
+    "endpoint": "https://livecheck.fly.dev/v1/verify",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

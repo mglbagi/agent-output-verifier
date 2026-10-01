@@ -1,0 +1,92 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_583af56a513b025e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "algorithm": {
+          "type": "string"
+        },
+        "anchor": {
+          "properties": {
+            "status": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "status"
+          ]
+        },
+        "attestation_id": {
+          "type": "string"
+        },
+        "client_timestamp": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "content_hash": {
+          "description": "sha256 hex over canonical {prompt, response, model_id, client_timestamp}",
+          "type": "string"
+        },
+        "model_id": {
+          "type": "string"
+        },
+        "notarized_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "payload_stored": {
+          "description": "false by default: prompt/response/metadata are not persisted",
+          "type": "boolean"
+        },
+        "receipt_token": {
+          "description": "Private receipt token; payload is not stored by default",
+          "type": "string"
+        },
+        "receipt_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "signature": {
+          "description": "base64 Ed25519 signature by the notary key",
+          "type": "string"
+        },
+        "signer_pubkey": {
+          "description": "base64 raw Ed25519 public key",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "algorithm",
+        "anchor",
+        "attestation_id",
+        "client_timestamp",
+        "content_hash",
+        "model_id",
+        "notarized_at",
+        "payload_stored",
+        "receipt_token",
+        "receipt_url",
+        "signature",
+        "signer_pubkey"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "notary.forgemesh.io",
+    "endpoint": "https://notary.forgemesh.io/api/notarize",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_03d93a6deaf632dc",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data_updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "market": {
+          "type": "string"
+        },
+        "next_update_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "summary_en": {
+          "type": "string"
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string",
+                "format": "date"
+              },
+              "source_domain": {
+                "type": "string"
+              },
+              "source_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "summary_en": {
+                "type": "string"
+              },
+              "title_en": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "category",
+              "published_at",
+              "source_domain",
+              "source_url",
+              "summary_en",
+              "title_en"
+            ]
+          }
+        },
+        "update_frequency": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "data_updated_at",
+        "date",
+        "market",
+        "next_update_at",
+        "summary_en",
+        "topics",
+        "update_frequency"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-watcher-api-main.jpgame-intel.workers.dev",
+    "endpoint": "https://x402-watcher-api-main.jpgame-intel.workers.dev/latest",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

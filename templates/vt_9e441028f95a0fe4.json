@@ -1,0 +1,77 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9e441028f95a0fe4",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "coverage": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "credit_usd": {
+              "type": "number"
+            },
+            "key": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "use": {
+              "type": "object",
+              "properties": {
+                "balance": {
+                  "type": "string"
+                },
+                "header": {
+                  "type": "string"
+                },
+                "routes": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "balance",
+                "header",
+                "routes"
+              ]
+            }
+          },
+          "required": [
+            "credit_usd",
+            "key",
+            "status",
+            "use"
+          ]
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "coverage",
+        "data",
+        "ok"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.credit_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.loopholetape.com",
+    "endpoint": "https://api.loopholetape.com/v1/keys/trial",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8bce2e5e0731450e",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "changed": {
+          "type": "boolean"
+        },
+        "changes": {
+          "type": "array"
+        },
+        "current": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "incidents": {
+              "type": "array"
+            },
+            "indicator": {
+              "type": "string"
+            },
+            "status_page": {
+              "type": "string"
+            },
+            "vendor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "description",
+            "incidents",
+            "indicator",
+            "status_page",
+            "vendor"
+          ]
+        },
+        "first_seen": {
+          "type": "boolean"
+        },
+        "previous_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "query": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "changed",
+        "changes",
+        "current",
+        "first_seen",
+        "previous_at",
+        "query"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "monitor.intel.rallylive.ca",
+    "endpoint": "https://monitor.intel.rallylive.ca/watch/monitor/status/tailscale",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

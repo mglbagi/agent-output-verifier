@@ -1,0 +1,34 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0ab1a0f81c021b4d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "audio": {
+          "description": "Inline WAV bytes in the HTTP response body",
+          "type": "string"
+        },
+        "content_type": {
+          "const": "audio/wav",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "content_type"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "voice.forgemesh.io",
+    "endpoint": "https://voice.forgemesh.io/v1/tts/custom-long",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

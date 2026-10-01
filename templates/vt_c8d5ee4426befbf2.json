@@ -1,0 +1,264 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c8d5ee4426befbf2",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "items": {
+            "properties": {
+              "app_category": {
+                "nullable": true,
+                "type": "string"
+              },
+              "app_category_id": {
+                "nullable": true,
+                "type": "string"
+              },
+              "app_content_rating": {
+                "nullable": true,
+                "type": "string"
+              },
+              "app_description": {
+                "nullable": true,
+                "type": "string"
+              },
+              "app_developer": {
+                "type": "string"
+              },
+              "app_developer_email": {
+                "nullable": true,
+                "type": "string"
+              },
+              "app_developer_website": {
+                "nullable": true,
+                "type": "string"
+              },
+              "app_first_released_at_datetime_utc": {
+                "nullable": true,
+                "type": "string"
+              },
+              "app_first_released_at_timestamp": {
+                "nullable": true,
+                "type": "integer"
+              },
+              "app_icon": {
+                "nullable": true,
+                "type": "string"
+              },
+              "app_id": {
+                "type": "string"
+              },
+              "app_name": {
+                "type": "string"
+              },
+              "app_page_link": {
+                "type": "string"
+              },
+              "app_permissions": {
+                "items": {
+                  "type": "string"
+                },
+                "nullable": true,
+                "type": "array"
+              },
+              "app_updated_at_datetime_utc": {
+                "nullable": true,
+                "type": "string"
+              },
+              "app_updated_at_timestamp": {
+                "nullable": true,
+                "type": "integer"
+              },
+              "chart_label": {
+                "nullable": true,
+                "type": "string"
+              },
+              "chart_rank": {
+                "nullable": true,
+                "type": "integer"
+              },
+              "contains_ads": {
+                "nullable": true,
+                "type": "boolean"
+              },
+              "current_version": {
+                "nullable": true,
+                "type": "string"
+              },
+              "current_version_released_at_datetime_utc": {
+                "nullable": true,
+                "type": "string"
+              },
+              "current_version_released_at_timestamp": {
+                "nullable": true,
+                "type": "integer"
+              },
+              "current_version_whatsnew": {
+                "nullable": true,
+                "type": "string"
+              },
+              "data_collected_by_app_and_why": {
+                "additionalProperties": true,
+                "nullable": true,
+                "type": "object"
+              },
+              "data_shared_by_app_and_why": {
+                "additionalProperties": true,
+                "nullable": true,
+                "type": "object"
+              },
+              "is_paid": {
+                "nullable": true,
+                "type": "boolean"
+              },
+              "max_android_api_level": {
+                "nullable": true,
+                "type": "integer"
+              },
+              "max_android_version": {
+                "nullable": true,
+                "type": "string"
+              },
+              "min_android_api_level": {
+                "nullable": true,
+                "type": "integer"
+              },
+              "min_android_version": {
+                "nullable": true,
+                "type": "string"
+              },
+              "num_downloads": {
+                "nullable": true,
+                "type": "string"
+              },
+              "num_downloads_exact": {
+                "nullable": true,
+                "type": "integer"
+              },
+              "num_ratings": {
+                "nullable": true,
+                "type": "integer"
+              },
+              "num_reviews": {
+                "nullable": true,
+                "type": "integer"
+              },
+              "photos": {
+                "items": {
+                  "type": "string"
+                },
+                "nullable": true,
+                "type": "array"
+              },
+              "price": {
+                "nullable": true,
+                "type": "number"
+              },
+              "price_currency": {
+                "nullable": true,
+                "type": "string"
+              },
+              "privacy_policy_link": {
+                "nullable": true,
+                "type": "string"
+              },
+              "rating": {
+                "nullable": true,
+                "type": "number"
+              },
+              "reviews_per_rating": {
+                "nullable": true,
+                "properties": {
+                  "1": {
+                    "type": "integer"
+                  },
+                  "2": {
+                    "type": "integer"
+                  },
+                  "3": {
+                    "type": "integer"
+                  },
+                  "4": {
+                    "type": "integer"
+                  },
+                  "5": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "security_practices": {
+                "items": {
+                  "type": "string"
+                },
+                "nullable": true,
+                "type": "array"
+              },
+              "trailer": {
+                "nullable": true,
+                "type": "string"
+              }
+            },
+            "required": [
+              "app_id",
+              "app_name",
+              "app_developer",
+              "app_page_link"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "request_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "data[].min_android_api_level",
+        "other_field": "data[].max_android_api_level",
+        "if_present": true
+      },
+      {
+        "type": "unique",
+        "field": "data[].app_category_id",
+        "if_present": true
+      }
+    ],
+    "bounds": {
+      "data[].num_downloads_exact": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].num_ratings": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].num_reviews": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].price": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.openwebninja.com",
+    "endpoint": "https://x402.openwebninja.com/play-store-apps/top-paid-games",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3d7bdeb0142db232",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "confidence": {
+          "type": "number"
+        },
+        "data_versions": {
+          "type": "object"
+        },
+        "evidence": {
+          "description": "Per-span findings, each with a code, severity, and any decoded hidden payload.",
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "policy_version": {
+          "type": "string"
+        },
+        "request_hash": {
+          "type": "string"
+        },
+        "result": {
+          "properties": {
+            "anchors": {
+              "description": "W3C Web Annotation selectors plus a Text Fragment deep link per span.",
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "content_sha256": {
+              "type": "string"
+            },
+            "final_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "hops": {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "markdown": {
+              "type": "string"
+            },
+            "retrieved_at": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "robots": {
+              "type": "object"
+            },
+            "status": {
+              "type": "integer"
+            },
+            "title": {
+              "type": "string"
+            },
+            "word_count": {
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "required": [
+            "anchors",
+            "content_sha256",
+            "final_url",
+            "hops",
+            "markdown",
+            "retrieved_at",
+            "robots",
+            "status",
+            "title",
+            "word_count"
+          ]
+        },
+        "risk_codes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "verdict": {
+          "enum": [
+            "allow",
+            "warn",
+            "block",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "ok",
+        "verdict",
+        "evidence",
+        "result",
+        "request_hash"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1,
+        "if_present": true
+      },
+      "result.word_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "safefetch.schemasure.com",
+    "endpoint": "https://safefetch.schemasure.com/v1/fetch",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

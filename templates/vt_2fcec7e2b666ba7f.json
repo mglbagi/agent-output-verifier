@@ -1,0 +1,44 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2fcec7e2b666ba7f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "response": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "index": {
+                "type": "integer"
+              },
+              "score": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "index",
+              "score"
+            ]
+          }
+        }
+      },
+      "required": [
+        "response"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "embed.gedx402.com",
+    "endpoint": "https://embed.gedx402.com/v1/rerank",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

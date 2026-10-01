@@ -1,0 +1,48 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_439435c2c487fd8a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "collections": {
+          "type": "array"
+        },
+        "storage_bytes": {
+          "type": "number"
+        },
+        "total_rows": {
+          "type": "number"
+        },
+        "wallet": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "collections",
+        "storage_bytes",
+        "total_rows",
+        "wallet"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "storage_bytes": {
+        "min": 0
+      },
+      "total_rows": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.webbersites.com",
+    "endpoint": "https://api.webbersites.com/api/store",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cca759853135722d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "capabilityId": {
+          "type": "string"
+        },
+        "capabilityVersion": {
+          "type": "string"
+        },
+        "invocationId": {
+          "type": "string"
+        },
+        "pricing": {
+          "type": "object",
+          "properties": {
+            "currency": {
+              "type": "string"
+            },
+            "pricePaidUsd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "currency",
+            "pricePaidUsd"
+          ]
+        },
+        "receiptUrl": {
+          "type": "string"
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "agentNote": {
+              "type": "string"
+            },
+            "contradictions": {
+              "type": "array"
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "claim": {
+                    "type": "string"
+                  },
+                  "confidence": {
+                    "type": "number"
+                  },
+                  "direction": {
+                    "type": "string"
+                  },
+                  "observedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "source": {
+                    "type": "string"
+                  },
+                  "sourceUrl": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "verificationType": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "claim",
+                  "confidence",
+                  "direction",
+                  "observedAt",
+                  "source",
+                  "sourceUrl",
+                  "verificationType"
+                ]
+              }
+            },
+            "executionCostUsd": {
+              "type": "number"
+            },
+            "limitations": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "market": {
+              "type": "string"
+            },
+            "observedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "question": {
+              "type": "string"
+            },
+            "receipt": {
+              "type": "object",
+              "properties": {
+                "capabilityVersion": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "evidenceDigest": {
+                  "type": "string",
+                  "pattern": "^0x[a-fA-F0-9]{64}$"
+                },
+                "hash": {
+                  "type": "string",
+                  "pattern": "^0x[a-fA-F0-9]{64}$"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "observedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "question": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "capabilityVersion",
+                "createdAt",
+                "evidenceDigest",
+                "hash",
+                "id",
+                "observedAt",
+                "question"
+              ]
+            },
+            "summary": {
+              "type": "string"
+            },
+            "verdict": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "agentNote",
+            "contradictions",
+            "evidence",
+            "executionCostUsd",
+            "limitations",
+            "market",
+            "observedAt",
+            "question",
+            "receipt",
+            "summary",
+            "verdict"
+          ]
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "capabilityId",
+        "capabilityVersion",
+        "invocationId",
+        "pricing",
+        "receiptUrl",
+        "result",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "result.evidence[].confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tereno.xyz",
+    "endpoint": "https://www.tereno.xyz/api/v1/capabilities/prediction.evidence/invoke",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

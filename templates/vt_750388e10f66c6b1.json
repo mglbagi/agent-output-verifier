@@ -1,0 +1,76 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_750388e10f66c6b1",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "tapes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "tapemaker": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "track_count": {
+                "type": "integer"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "tapemaker",
+              "title",
+              "track_count",
+              "type"
+            ]
+          }
+        }
+      },
+      "required": [
+        "count",
+        "detail",
+        "tapes"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "tapes[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "tapes[].track_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "sftunes.com",
+    "endpoint": "https://sftunes.com/api/tapes",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

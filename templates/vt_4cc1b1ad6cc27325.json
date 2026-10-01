@@ -1,0 +1,64 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4cc1b1ad6cc27325",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "days": {
+          "type": "integer"
+        },
+        "network": {
+          "type": "string"
+        },
+        "paid": {
+          "type": "boolean"
+        },
+        "priceUsd": {
+          "type": "number"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "schemaVersion": {
+          "type": "integer"
+        },
+        "snapshots": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "paid",
+        "days",
+        "count",
+        "snapshots"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "machineobserver.com",
+    "endpoint": "https://machineobserver.com/api/x402/history",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

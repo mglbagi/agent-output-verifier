@@ -1,0 +1,693 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5b4c162ea0ebabce",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": {},
+      "properties": {
+        "companies": {
+          "additionalProperties": {
+            "additionalProperties": {},
+            "properties": {
+              "company_type": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "domain": {
+                "type": "string"
+              },
+              "headcount": {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              },
+              "headcount_range": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "industry": {
+                "additionalProperties": {},
+                "properties": {
+                  "main_industry": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "locations": {
+                "additionalProperties": {},
+                "properties": {
+                  "headquarters": {
+                    "additionalProperties": {},
+                    "properties": {
+                      "city": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string"
+                      },
+                      "country_code": {
+                        "type": "string"
+                      },
+                      "line1": {
+                        "type": "string"
+                      },
+                      "line2": {
+                        "type": "string"
+                      },
+                      "region": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "offices": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": {},
+                          "properties": {
+                            "line1": {
+                              "type": "string"
+                            },
+                            "line2": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "type": "object"
+              },
+              "name": {
+                "type": "string"
+              },
+              "social_profiles": {
+                "additionalProperties": {},
+                "properties": {
+                  "professional_network": {
+                    "additionalProperties": {},
+                    "properties": {
+                      "connection_count": {
+                        "maximum": 9007199254740991,
+                        "minimum": -9007199254740991,
+                        "type": "integer"
+                      },
+                      "handle": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "maximum": 9007199254740991,
+                        "minimum": -9007199254740991,
+                        "type": "integer"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "specialties": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "year_founded": {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "propertyNames": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "metadata": {
+          "additionalProperties": {},
+          "properties": {
+            "credits": {
+              "type": "number"
+            },
+            "offset": {
+              "type": "number"
+            },
+            "search_after": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "total": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "offset",
+            "total"
+          ]
+        },
+        "people": {
+          "items": {
+            "additionalProperties": {},
+            "properties": {
+              "educations": {
+                "items": {
+                  "additionalProperties": {},
+                  "properties": {
+                    "degree": {
+                      "type": "string"
+                    },
+                    "end_at": {
+                      "type": "string"
+                    },
+                    "school_name": {
+                      "type": "string"
+                    },
+                    "start_at": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "employment": {
+                "additionalProperties": {},
+                "properties": {
+                  "all": {
+                    "items": {
+                      "additionalProperties": {},
+                      "properties": {
+                        "company": {
+                          "additionalProperties": {},
+                          "properties": {
+                            "company_type": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "domain": {
+                              "type": "string"
+                            },
+                            "headcount": {
+                              "maximum": 9007199254740991,
+                              "minimum": -9007199254740991,
+                              "type": "integer"
+                            },
+                            "headcount_range": {
+                              "type": "string"
+                            },
+                            "id": {
+                              "type": "string"
+                            },
+                            "industry": {
+                              "additionalProperties": {},
+                              "properties": {
+                                "main_industry": {
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "locations": {
+                              "additionalProperties": {},
+                              "properties": {
+                                "headquarters": {
+                                  "additionalProperties": {},
+                                  "properties": {
+                                    "city": {
+                                      "type": "string"
+                                    },
+                                    "country": {
+                                      "type": "string"
+                                    },
+                                    "country_code": {
+                                      "type": "string"
+                                    },
+                                    "line1": {
+                                      "type": "string"
+                                    },
+                                    "line2": {
+                                      "type": "string"
+                                    },
+                                    "region": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "offices": {
+                                  "anyOf": [
+                                    {
+                                      "items": {
+                                        "additionalProperties": {},
+                                        "properties": {
+                                          "line1": {
+                                            "type": "string"
+                                          },
+                                          "line2": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "type": "object"
+                                      },
+                                      "type": "array"
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "social_profiles": {
+                              "additionalProperties": {},
+                              "properties": {
+                                "professional_network": {
+                                  "additionalProperties": {},
+                                  "properties": {
+                                    "connection_count": {
+                                      "maximum": 9007199254740991,
+                                      "minimum": -9007199254740991,
+                                      "type": "integer"
+                                    },
+                                    "handle": {
+                                      "type": "string"
+                                    },
+                                    "id": {
+                                      "maximum": 9007199254740991,
+                                      "minimum": -9007199254740991,
+                                      "type": "integer"
+                                    },
+                                    "url": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "specialties": {
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "year_founded": {
+                              "maximum": 9007199254740991,
+                              "minimum": -9007199254740991,
+                              "type": "integer"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "company_id": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "end_at": {
+                          "type": "string"
+                        },
+                        "is_current": {
+                          "type": "boolean"
+                        },
+                        "job_functions": {
+                          "items": {
+                            "additionalProperties": {},
+                            "properties": {
+                              "function": {
+                                "type": "string"
+                              },
+                              "sub_function": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "seniority": {
+                          "type": "string"
+                        },
+                        "start_at": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "current": {
+                    "additionalProperties": {},
+                    "properties": {
+                      "company": {
+                        "additionalProperties": {},
+                        "properties": {
+                          "company_type": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "domain": {
+                            "type": "string"
+                          },
+                          "headcount": {
+                            "maximum": 9007199254740991,
+                            "minimum": -9007199254740991,
+                            "type": "integer"
+                          },
+                          "headcount_range": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "industry": {
+                            "additionalProperties": {},
+                            "properties": {
+                              "main_industry": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "locations": {
+                            "additionalProperties": {},
+                            "properties": {
+                              "headquarters": {
+                                "additionalProperties": {},
+                                "properties": {
+                                  "city": {
+                                    "type": "string"
+                                  },
+                                  "country": {
+                                    "type": "string"
+                                  },
+                                  "country_code": {
+                                    "type": "string"
+                                  },
+                                  "line1": {
+                                    "type": "string"
+                                  },
+                                  "line2": {
+                                    "type": "string"
+                                  },
+                                  "region": {
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "offices": {
+                                "anyOf": [
+                                  {
+                                    "items": {
+                                      "additionalProperties": {},
+                                      "properties": {
+                                        "line1": {
+                                          "type": "string"
+                                        },
+                                        "line2": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "type": "object"
+                                    },
+                                    "type": "array"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "social_profiles": {
+                            "additionalProperties": {},
+                            "properties": {
+                              "professional_network": {
+                                "additionalProperties": {},
+                                "properties": {
+                                  "connection_count": {
+                                    "maximum": 9007199254740991,
+                                    "minimum": -9007199254740991,
+                                    "type": "integer"
+                                  },
+                                  "handle": {
+                                    "type": "string"
+                                  },
+                                  "id": {
+                                    "maximum": 9007199254740991,
+                                    "minimum": -9007199254740991,
+                                    "type": "integer"
+                                  },
+                                  "url": {
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "specialties": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "year_founded": {
+                            "maximum": 9007199254740991,
+                            "minimum": -9007199254740991,
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "company_id": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "end_at": {
+                        "type": "string"
+                      },
+                      "is_current": {
+                        "type": "boolean"
+                      },
+                      "job_functions": {
+                        "items": {
+                          "additionalProperties": {},
+                          "properties": {
+                            "function": {
+                              "type": "string"
+                            },
+                            "sub_function": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "seniority": {
+                        "type": "string"
+                      },
+                      "start_at": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object",
+                    "required": [
+                      "company_id",
+                      "is_current",
+                      "seniority",
+                      "title"
+                    ]
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "current"
+                ]
+              },
+              "first_name": {
+                "type": "string"
+              },
+              "full_name": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "languages": {
+                "items": {
+                  "additionalProperties": {},
+                  "properties": {
+                    "language": {
+                      "type": "string"
+                    },
+                    "proficiency": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "last_name": {
+                "type": "string"
+              },
+              "location": {
+                "additionalProperties": {},
+                "properties": {
+                  "city": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "country_code": {
+                    "type": "string"
+                  },
+                  "region": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "city",
+                  "country"
+                ]
+              },
+              "skills": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "social_profiles": {
+                "additionalProperties": {},
+                "properties": {
+                  "professional_network": {
+                    "additionalProperties": {},
+                    "properties": {
+                      "connection_count": {
+                        "maximum": 9007199254740991,
+                        "minimum": -9007199254740991,
+                        "type": "integer"
+                      },
+                      "handle": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "maximum": 9007199254740991,
+                        "minimum": -9007199254740991,
+                        "type": "integer"
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "type": "object",
+                    "required": [
+                      "url"
+                    ]
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "professional_network"
+                ]
+              }
+            },
+            "type": "object",
+            "required": [
+              "employment",
+              "full_name",
+              "location",
+              "social_profiles"
+            ]
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "companies",
+        "metadata",
+        "people"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "people[].employment.all[].company_id",
+        "if_present": true
+      },
+      {
+        "type": "unique",
+        "field": "people[].id"
+      }
+    ],
+    "bounds": {
+      "metadata.total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "stableenrich.dev",
+    "endpoint": "https://stableenrich.dev/api/fullenrich/people-search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

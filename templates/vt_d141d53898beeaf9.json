@@ -1,0 +1,235 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d141d53898beeaf9",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "next_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "request_id": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "accession_number": {
+                "type": "string"
+              },
+              "aff_10b5_one": {
+                "type": "boolean"
+              },
+              "date_of_original_submission": {},
+              "deemed_execution_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "direct_or_indirect": {
+                "type": "string"
+              },
+              "equity_swap_involved": {
+                "type": "boolean"
+              },
+              "exercise_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "exercise_price": {
+                "type": "number"
+              },
+              "expiration_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "filing_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "filing_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "footnotes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "description": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "description",
+                    "id"
+                  ]
+                }
+              },
+              "form_type": {
+                "type": "string"
+              },
+              "is_director": {
+                "type": "boolean"
+              },
+              "is_officer": {
+                "type": "boolean"
+              },
+              "is_other": {
+                "type": "boolean"
+              },
+              "is_ten_percent_owner": {
+                "type": "boolean"
+              },
+              "issuer_cik": {
+                "type": "string"
+              },
+              "issuer_name": {
+                "type": "string"
+              },
+              "not_subject_to_section_16": {
+                "type": "boolean"
+              },
+              "officer_title": {
+                "type": "string"
+              },
+              "owner_cik": {
+                "type": "string"
+              },
+              "owner_name": {
+                "type": "string"
+              },
+              "period_of_report": {
+                "type": "string",
+                "format": "date"
+              },
+              "record_type": {
+                "type": "string"
+              },
+              "security_title": {
+                "type": "string"
+              },
+              "security_type": {
+                "type": "string"
+              },
+              "shares_owned_following_transaction": {
+                "type": "integer"
+              },
+              "tickers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "transaction_acquired_disposed": {
+                "type": "string"
+              },
+              "transaction_code": {
+                "type": "string"
+              },
+              "transaction_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "transaction_price_per_share": {
+                "type": "number"
+              },
+              "transaction_shares": {
+                "type": "integer"
+              },
+              "transaction_timeliness": {
+                "type": "string"
+              },
+              "transaction_value": {
+                "type": "number"
+              },
+              "underlying_security_shares": {
+                "type": "integer"
+              },
+              "underlying_security_title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "accession_number",
+              "aff_10b5_one",
+              "deemed_execution_date",
+              "direct_or_indirect",
+              "equity_swap_involved",
+              "exercise_date",
+              "exercise_price",
+              "expiration_date",
+              "filing_date",
+              "filing_url",
+              "footnotes",
+              "form_type",
+              "is_director",
+              "is_officer",
+              "is_other",
+              "is_ten_percent_owner",
+              "issuer_cik",
+              "issuer_name",
+              "not_subject_to_section_16",
+              "officer_title",
+              "owner_cik",
+              "owner_name",
+              "period_of_report",
+              "record_type",
+              "security_title",
+              "security_type",
+              "shares_owned_following_transaction",
+              "tickers",
+              "transaction_acquired_disposed",
+              "transaction_code",
+              "transaction_date",
+              "transaction_price_per_share",
+              "transaction_shares",
+              "transaction_timeliness",
+              "transaction_value",
+              "underlying_security_shares",
+              "underlying_security_title"
+            ]
+          }
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "next_url",
+        "request_id",
+        "results",
+        "status"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "results[].footnotes[].id"
+      }
+    ],
+    "bounds": {
+      "results[].exercise_price": {
+        "min": 0
+      },
+      "results[].transaction_price_per_share": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent.massive.com",
+    "endpoint": "https://agent.massive.com/stocks/filings/vX/form-4",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

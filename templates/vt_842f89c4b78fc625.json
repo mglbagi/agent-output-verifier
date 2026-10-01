@@ -1,0 +1,89 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_842f89c4b78fc625",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "disclaimer": {
+          "type": "string"
+        },
+        "dispersion_z_30d": {
+          "type": "number"
+        },
+        "freshness": {
+          "type": "object"
+        },
+        "full_4venue_flag": {
+          "type": "boolean"
+        },
+        "median_z_30d": {
+          "type": "number"
+        },
+        "oracle": {
+          "type": "string"
+        },
+        "provenance": {
+          "type": "object"
+        },
+        "regime_state": {
+          "enum": [
+            "LONG_CROWDING",
+            "SHORT_CROWDING",
+            "CROSS_VENUE_DISLOCATION",
+            "REGIME_SHIFT",
+            "NEUTRAL"
+          ],
+          "type": "string"
+        },
+        "same_sign_share": {
+          "type": "number"
+        },
+        "surface_median": {
+          "type": "number"
+        },
+        "surface_spread": {
+          "type": "number"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "venue_count": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "disclaimer",
+        "dispersion_z_30d",
+        "freshness",
+        "full_4venue_flag",
+        "median_z_30d",
+        "oracle",
+        "provenance",
+        "regime_state",
+        "same_sign_share",
+        "surface_median",
+        "surface_spread",
+        "timestamp",
+        "venue_count"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "venue_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "data.rcqsignals.com",
+    "endpoint": "https://data.rcqsignals.com/v1/fetch/btc-funding-regime",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

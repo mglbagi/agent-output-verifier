@@ -1,0 +1,77 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cf44ecf3892ad100",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "biggestIssue": {
+          "type": "string"
+        },
+        "grade": {
+          "type": "string"
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "merchant": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "network": {
+          "type": "string"
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "score": {
+          "type": "integer"
+        },
+        "signals": {
+          "type": "object"
+        },
+        "snapshotId": {
+          "type": "string"
+        },
+        "upgrade": {
+          "type": "object"
+        },
+        "visibility": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "snapshotId",
+        "merchant",
+        "network",
+        "observedAt",
+        "score",
+        "grade",
+        "signals",
+        "visibility",
+        "biggestIssue",
+        "upgrade",
+        "limitations"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "anywaypossible.com",
+    "endpoint": "https://anywaypossible.com/api/merchant-snapshot",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

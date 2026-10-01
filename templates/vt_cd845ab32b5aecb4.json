@@ -1,0 +1,68 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cd845ab32b5aecb4",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "buyDisplay": {
+          "type": "object"
+        },
+        "buyWeightG": {
+          "type": "object"
+        },
+        "cost": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "foodCostPct": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "provenance": {
+          "properties": {
+            "dataVersion": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "label"
+          ]
+        },
+        "status": {
+          "type": "string"
+        },
+        "workings": {
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "buyDisplay",
+        "cost",
+        "foodCostPct",
+        "provenance",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "kitchen-pass.netlify.app",
+    "endpoint": "https://kitchen-pass.netlify.app/v1/how-much-to-buy",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

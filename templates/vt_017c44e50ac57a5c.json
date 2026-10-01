@@ -1,0 +1,42 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_017c44e50ac57a5c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "Supported countries. Each entry carries the ISO code, name, count of services offered, and the cheapest SKU price available there. Add ?service=<code> to get the per-country price and inventory pool for one service. List services with GET /services (filter with ?country=<iso>).",
+      "items": {
+        "properties": {
+          "code": {
+            "description": "ISO 3166-1 alpha-2.",
+            "type": "string"
+          },
+          "from_usdc": {
+            "description": "Cheapest SKU price available here (1, 2, or 5).",
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "services": {
+            "description": "Number of distinct services offered in this country.",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.phoneagent.xyz",
+    "endpoint": "https://api.phoneagent.xyz/countries",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

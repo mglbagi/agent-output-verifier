@@ -1,0 +1,45 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0e0ee0a74b0271e0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "financials": {
+          "type": "object"
+        },
+        "guidance": {
+          "type": "object"
+        },
+        "meta": {
+          "type": "object"
+        },
+        "risk_flags": {
+          "type": "array"
+        },
+        "segments": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "meta",
+        "financials",
+        "segments",
+        "guidance",
+        "risk_flags"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "filedge.io",
+    "endpoint": "https://filedge.io/v1/parse",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

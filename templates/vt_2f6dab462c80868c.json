@@ -1,0 +1,154 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2f6dab462c80868c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "by_category": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "count": {
+                "type": "integer"
+              },
+              "volume_usd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "category",
+              "count",
+              "volume_usd"
+            ]
+          }
+        },
+        "by_facilitator": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer"
+              },
+              "facilitator": {
+                "type": "string"
+              },
+              "volume_usd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "count",
+              "facilitator",
+              "volume_usd"
+            ]
+          }
+        },
+        "large_threshold_usd": {
+          "type": "number"
+        },
+        "size_bands": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "band": {
+                "type": "string"
+              },
+              "count": {
+                "type": "integer"
+              },
+              "min_usd": {
+                "type": "number"
+              },
+              "volume_usd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "band",
+              "count",
+              "min_usd",
+              "volume_usd"
+            ]
+          }
+        },
+        "tool": {
+          "type": "string"
+        },
+        "totals": {
+          "type": "object",
+          "properties": {
+            "large_settlement_providers": {
+              "type": "integer"
+            },
+            "large_settlement_volume_usd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "large_settlement_providers",
+            "large_settlement_volume_usd"
+          ]
+        },
+        "window_days": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "by_category",
+        "by_facilitator",
+        "large_threshold_usd",
+        "size_bands",
+        "tool",
+        "totals",
+        "window_days"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "by_category[].count": {
+        "min": 0
+      },
+      "by_category[].volume_usd": {
+        "min": 0
+      },
+      "by_facilitator[].count": {
+        "min": 0
+      },
+      "by_facilitator[].volume_usd": {
+        "min": 0
+      },
+      "large_threshold_usd": {
+        "min": 0
+      },
+      "size_bands[].count": {
+        "min": 0
+      },
+      "size_bands[].min_usd": {
+        "min": 0
+      },
+      "size_bands[].volume_usd": {
+        "min": 0
+      },
+      "totals.large_settlement_volume_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "paddock.finance",
+    "endpoint": "https://paddock.finance/api/paddock/mcp/whale-activity",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

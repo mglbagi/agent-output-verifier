@@ -1,0 +1,82 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c84f23b6b49a51d4",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "authority_boundary": {
+          "type": "string"
+        },
+        "decision": {
+          "enum": [
+            "ALLOW",
+            "DENY",
+            "ESCALATE"
+          ],
+          "type": "string"
+        },
+        "evidence_boundary": {
+          "const": "caller_supplied"
+        },
+        "matched_constraints": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "missing_evidence": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "operation_id": {
+          "type": "string"
+        },
+        "reason_code": {
+          "enum": [
+            "P001",
+            "P002",
+            "P003"
+          ],
+          "type": "string"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "receipt_hash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "operation_id",
+        "decision",
+        "reason_code",
+        "reasons",
+        "matched_constraints",
+        "missing_evidence",
+        "evidence_boundary",
+        "authority_boundary",
+        "receipt_hash"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "verifier.quantumshieldlabs.dev",
+    "endpoint": "https://verifier.quantumshieldlabs.dev/x402/preflight",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

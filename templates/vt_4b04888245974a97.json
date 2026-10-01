@@ -1,0 +1,710 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4b04888245974a97",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "check_in_date": {
+          "description": "Stay window actually priced",
+          "format": "date",
+          "type": "string"
+        },
+        "check_out_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "property": {
+          "properties": {
+            "address": {
+              "type": "string"
+            },
+            "amenities": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "amenities_detailed": {
+              "description": "Amenities grouped by category, plus the popular ones",
+              "type": "object"
+            },
+            "check_in_time": {
+              "type": "string"
+            },
+            "check_out_time": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "directions": {
+              "type": "string"
+            },
+            "excluded_amenities": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "extracted_hotel_class": {
+              "type": "integer"
+            },
+            "featured_prices": {
+              "description": "Highlighted booking offers, with per-room rates and inclusions",
+              "items": {
+                "properties": {
+                  "benefits": {
+                    "type": "string"
+                  },
+                  "discount_remarks": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "free_cancellation": {
+                    "type": "boolean"
+                  },
+                  "link": {
+                    "description": "Booking page for this offer",
+                    "type": "string"
+                  },
+                  "logo": {
+                    "type": "string"
+                  },
+                  "num_guests": {
+                    "type": "integer"
+                  },
+                  "official": {
+                    "description": "True when the source is the property itself",
+                    "type": "boolean"
+                  },
+                  "rate_per_night": {
+                    "properties": {
+                      "before_taxes_fees": {
+                        "type": "string"
+                      },
+                      "extracted_before_taxes_fees": {
+                        "type": "number"
+                      },
+                      "extracted_lowest": {
+                        "type": "number"
+                      },
+                      "lowest": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "rooms": {
+                    "description": "Room types this source offers, with per-room and per-rate pricing",
+                    "items": {
+                      "properties": {
+                        "images": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "link": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "num_guests": {
+                          "type": "integer"
+                        },
+                        "rate_per_night": {
+                          "properties": {
+                            "before_taxes_fees": {
+                              "type": "string"
+                            },
+                            "extracted_before_taxes_fees": {
+                              "type": "number"
+                            },
+                            "extracted_lowest": {
+                              "type": "number"
+                            },
+                            "lowest": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "rates": {
+                          "items": {
+                            "properties": {
+                              "breakfast_included": {
+                                "type": "boolean"
+                              },
+                              "free_cancellation": {
+                                "type": "boolean"
+                              },
+                              "inclusions": {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              },
+                              "link": {
+                                "type": "string"
+                              },
+                              "num_guests": {
+                                "type": "integer"
+                              },
+                              "rate_per_night": {
+                                "properties": {
+                                  "before_taxes_fees": {
+                                    "type": "string"
+                                  },
+                                  "extracted_before_taxes_fees": {
+                                    "type": "number"
+                                  },
+                                  "extracted_lowest": {
+                                    "type": "number"
+                                  },
+                                  "lowest": {
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "total_rate": {
+                                "properties": {
+                                  "before_taxes_fees": {
+                                    "type": "string"
+                                  },
+                                  "extracted_before_taxes_fees": {
+                                    "type": "number"
+                                  },
+                                  "extracted_lowest": {
+                                    "type": "number"
+                                  },
+                                  "lowest": {
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "total_rate": {
+                          "properties": {
+                            "before_taxes_fees": {
+                              "type": "string"
+                            },
+                            "extracted_before_taxes_fees": {
+                              "type": "number"
+                            },
+                            "extracted_lowest": {
+                              "type": "number"
+                            },
+                            "lowest": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "source": {
+                    "description": "Booking site offering this rate",
+                    "type": "string"
+                  },
+                  "total_rate": {
+                    "properties": {
+                      "before_taxes_fees": {
+                        "type": "string"
+                      },
+                      "extracted_before_taxes_fees": {
+                        "type": "number"
+                      },
+                      "extracted_lowest": {
+                        "type": "number"
+                      },
+                      "lowest": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "gps_coordinates": {
+              "properties": {
+                "latitude": {
+                  "type": "number"
+                },
+                "longitude": {
+                  "type": "number"
+                }
+              },
+              "type": "object",
+              "required": [
+                "latitude",
+                "longitude"
+              ]
+            },
+            "health_and_safety": {
+              "type": "object"
+            },
+            "hotel_class": {
+              "type": "string"
+            },
+            "images": {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "link": {
+              "description": "The hotel's own site",
+              "type": "string",
+              "format": "uri"
+            },
+            "location_rating": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "nearby_places": {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "other_reviews": {
+              "description": "Third-party review sites' scores and a quoted review",
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "overall_rating": {
+              "type": "number"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "phone_link": {
+              "type": "string"
+            },
+            "photos_link": {
+              "description": "This API's /photos URL for the hotel",
+              "type": "string",
+              "format": "uri"
+            },
+            "prices": {
+              "description": "All booking sources with their rates",
+              "items": {
+                "properties": {
+                  "benefits": {
+                    "type": "string"
+                  },
+                  "discount_remarks": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "free_cancellation": {
+                    "type": "boolean"
+                  },
+                  "link": {
+                    "description": "Booking page for this offer",
+                    "type": "string"
+                  },
+                  "logo": {
+                    "type": "string"
+                  },
+                  "num_guests": {
+                    "type": "integer"
+                  },
+                  "official": {
+                    "description": "True when the source is the property itself",
+                    "type": "boolean"
+                  },
+                  "rate_per_night": {
+                    "properties": {
+                      "before_taxes_fees": {
+                        "type": "string"
+                      },
+                      "extracted_before_taxes_fees": {
+                        "type": "number"
+                      },
+                      "extracted_lowest": {
+                        "type": "number"
+                      },
+                      "lowest": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object",
+                    "required": [
+                      "extracted_lowest",
+                      "lowest"
+                    ]
+                  },
+                  "rooms": {
+                    "description": "Room types this source offers, with per-room and per-rate pricing",
+                    "items": {
+                      "properties": {
+                        "images": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "link": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "num_guests": {
+                          "type": "integer"
+                        },
+                        "rate_per_night": {
+                          "properties": {
+                            "before_taxes_fees": {
+                              "type": "string"
+                            },
+                            "extracted_before_taxes_fees": {
+                              "type": "number"
+                            },
+                            "extracted_lowest": {
+                              "type": "number"
+                            },
+                            "lowest": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "rates": {
+                          "items": {
+                            "properties": {
+                              "breakfast_included": {
+                                "type": "boolean"
+                              },
+                              "free_cancellation": {
+                                "type": "boolean"
+                              },
+                              "inclusions": {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              },
+                              "link": {
+                                "type": "string"
+                              },
+                              "num_guests": {
+                                "type": "integer"
+                              },
+                              "rate_per_night": {
+                                "properties": {
+                                  "before_taxes_fees": {
+                                    "type": "string"
+                                  },
+                                  "extracted_before_taxes_fees": {
+                                    "type": "number"
+                                  },
+                                  "extracted_lowest": {
+                                    "type": "number"
+                                  },
+                                  "lowest": {
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "total_rate": {
+                                "properties": {
+                                  "before_taxes_fees": {
+                                    "type": "string"
+                                  },
+                                  "extracted_before_taxes_fees": {
+                                    "type": "number"
+                                  },
+                                  "extracted_lowest": {
+                                    "type": "number"
+                                  },
+                                  "lowest": {
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "total_rate": {
+                          "properties": {
+                            "before_taxes_fees": {
+                              "type": "string"
+                            },
+                            "extracted_before_taxes_fees": {
+                              "type": "number"
+                            },
+                            "extracted_lowest": {
+                              "type": "number"
+                            },
+                            "lowest": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "source": {
+                    "description": "Booking site offering this rate",
+                    "type": "string"
+                  },
+                  "total_rate": {
+                    "properties": {
+                      "before_taxes_fees": {
+                        "type": "string"
+                      },
+                      "extracted_before_taxes_fees": {
+                        "type": "number"
+                      },
+                      "extracted_lowest": {
+                        "type": "number"
+                      },
+                      "lowest": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "num_guests",
+                  "official",
+                  "rate_per_night",
+                  "source"
+                ]
+              },
+              "type": "array"
+            },
+            "property_token": {
+              "type": "string"
+            },
+            "rate_per_night": {
+              "properties": {
+                "before_taxes_fees": {
+                  "type": "string"
+                },
+                "extracted_before_taxes_fees": {
+                  "type": "number"
+                },
+                "extracted_lowest": {
+                  "type": "number"
+                },
+                "lowest": {
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "required": [
+                "before_taxes_fees",
+                "extracted_before_taxes_fees",
+                "extracted_lowest",
+                "lowest"
+              ]
+            },
+            "ratings": {
+              "description": "Review count per star bucket",
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "reviews": {
+              "type": "integer"
+            },
+            "reviews_breakdown": {
+              "description": "Themed sentiment breakdown; each entry links back to its filtered reviews",
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "reviews_link": {
+              "description": "This API's /reviews URL for the hotel",
+              "type": "string",
+              "format": "uri"
+            },
+            "sustainability": {
+              "type": "object"
+            },
+            "total_rate": {
+              "properties": {
+                "before_taxes_fees": {
+                  "type": "string"
+                },
+                "extracted_before_taxes_fees": {
+                  "type": "number"
+                },
+                "extracted_lowest": {
+                  "type": "number"
+                },
+                "lowest": {
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "required": [
+                "extracted_lowest",
+                "lowest"
+              ]
+            },
+            "type": {
+              "type": "string"
+            },
+            "typical_price_range": {
+              "description": "What the property usually costs, independent of the searched dates",
+              "type": "object"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object"
+        },
+        "queried_at": {
+          "description": "Time the lookup ran (UTC)",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "queried_at",
+        "property"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "property.featured_prices[].num_guests": {
+        "min": 0,
+        "if_present": true
+      },
+      "property.featured_prices[].rate_per_night.extracted_before_taxes_fees": {
+        "min": 0,
+        "if_present": true
+      },
+      "property.featured_prices[].rooms[].num_guests": {
+        "min": 0,
+        "if_present": true
+      },
+      "property.featured_prices[].rooms[].rate_per_night.extracted_before_taxes_fees": {
+        "min": 0,
+        "if_present": true
+      },
+      "property.featured_prices[].rooms[].rates[].num_guests": {
+        "min": 0,
+        "if_present": true
+      },
+      "property.featured_prices[].rooms[].rates[].rate_per_night.extracted_before_taxes_fees": {
+        "min": 0,
+        "if_present": true
+      },
+      "property.featured_prices[].rooms[].rates[].total_rate.extracted_before_taxes_fees": {
+        "min": 0,
+        "if_present": true
+      },
+      "property.featured_prices[].rooms[].total_rate.extracted_before_taxes_fees": {
+        "min": 0,
+        "if_present": true
+      },
+      "property.featured_prices[].total_rate.extracted_before_taxes_fees": {
+        "min": 0,
+        "if_present": true
+      },
+      "property.gps_coordinates.latitude": {
+        "min": -90,
+        "max": 90,
+        "if_present": true
+      },
+      "property.gps_coordinates.longitude": {
+        "min": -180,
+        "max": 180,
+        "if_present": true
+      },
+      "property.prices[].num_guests": {
+        "min": 0,
+        "if_present": true
+      },
+      "property.prices[].rate_per_night.extracted_before_taxes_fees": {
+        "min": 0,
+        "if_present": true
+      },
+      "property.prices[].rooms[].num_guests": {
+        "min": 0,
+        "if_present": true
+      },
+      "property.prices[].rooms[].rate_per_night.extracted_before_taxes_fees": {
+        "min": 0,
+        "if_present": true
+      },
+      "property.prices[].rooms[].rates[].num_guests": {
+        "min": 0,
+        "if_present": true
+      },
+      "property.prices[].rooms[].rates[].rate_per_night.extracted_before_taxes_fees": {
+        "min": 0,
+        "if_present": true
+      },
+      "property.prices[].rooms[].rates[].total_rate.extracted_before_taxes_fees": {
+        "min": 0,
+        "if_present": true
+      },
+      "property.prices[].rooms[].total_rate.extracted_before_taxes_fees": {
+        "min": 0,
+        "if_present": true
+      },
+      "property.prices[].total_rate.extracted_before_taxes_fees": {
+        "min": 0,
+        "if_present": true
+      },
+      "property.rate_per_night.extracted_before_taxes_fees": {
+        "min": 0,
+        "if_present": true
+      },
+      "property.total_rate.extracted_before_taxes_fees": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hotels.use.x402atlas.com",
+    "endpoint": "https://hotels.use.x402atlas.com/property",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

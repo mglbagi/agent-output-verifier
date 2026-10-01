@@ -1,0 +1,107 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_51f9a7d05cb3995e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "cached": {
+          "type": "boolean"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "items": {
+          "items": {
+            "properties": {
+              "age_minutes": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "engines": {
+                "type": "array"
+              },
+              "importance": {
+                "type": "number"
+              },
+              "published": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "snippet": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "type": "object",
+            "required": [
+              "age_minutes",
+              "engines",
+              "importance",
+              "published",
+              "rank",
+              "snippet",
+              "source",
+              "title",
+              "url"
+            ]
+          },
+          "type": "array"
+        },
+        "topic": {
+          "type": "string"
+        },
+        "window": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "cached",
+        "count",
+        "generated_at",
+        "items",
+        "topic",
+        "window"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "items[].age_minutes": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "search.cyberwarex.com",
+    "endpoint": "https://search.cyberwarex.com/news",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

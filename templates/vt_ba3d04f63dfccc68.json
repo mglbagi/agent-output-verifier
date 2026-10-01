@@ -1,0 +1,81 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ba3d04f63dfccc68",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "age_seconds": {
+          "type": "integer"
+        },
+        "base_fee_gwei": {
+          "type": "number"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "chain_id": {
+          "type": "integer"
+        },
+        "gas_limit": {
+          "type": "integer"
+        },
+        "gas_used": {
+          "type": "integer"
+        },
+        "hash": {
+          "type": "string"
+        },
+        "number": {
+          "type": "integer"
+        },
+        "timestamp": {
+          "type": "integer"
+        },
+        "tx_count": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "age_seconds",
+        "base_fee_gwei",
+        "chain",
+        "chain_id",
+        "gas_limit",
+        "gas_used",
+        "hash",
+        "number",
+        "timestamp",
+        "tx_count"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "age_seconds": {
+        "min": 0
+      },
+      "base_fee_gwei": {
+        "min": 0
+      },
+      "gas_limit": {
+        "min": 0
+      },
+      "number": {
+        "min": 0
+      },
+      "tx_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "chain.cyberwarex.com",
+    "endpoint": "https://chain.cyberwarex.com/block",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_929ec98e3711933b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "cache_age_seconds": {
+          "type": "number"
+        },
+        "change_24h": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "change_24h_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "findings": {
+          "type": "array"
+        },
+        "high_24h": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "last_updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "low_24h": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "market_cap": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "market_cap_rank": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "open_24h": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "price": {
+          "type": "number"
+        },
+        "source": {
+          "description": "coinbase+coingecko | coinbase | coingecko",
+          "type": "string"
+        },
+        "supply": {
+          "properties": {
+            "circulating": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "max": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "total": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "circulating",
+            "max",
+            "total"
+          ]
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "volume_24h": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "vs": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "cache_age_seconds",
+        "change_24h",
+        "change_24h_pct",
+        "findings",
+        "high_24h",
+        "last_updated",
+        "low_24h",
+        "market_cap",
+        "market_cap_rank",
+        "name",
+        "open_24h",
+        "price",
+        "source",
+        "supply",
+        "symbol",
+        "volume_24h",
+        "vs"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "low_24h",
+        "other_field": "high_24h"
+      }
+    ],
+    "bounds": {
+      "cache_age_seconds": {
+        "min": 0
+      },
+      "market_cap": {
+        "min": 0
+      },
+      "market_cap_rank": {
+        "min": 0
+      },
+      "price": {
+        "min": 0
+      },
+      "supply.total": {
+        "min": 0
+      },
+      "volume_24h": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "netintel.dev",
+    "endpoint": "https://netintel.dev/crypto/market",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

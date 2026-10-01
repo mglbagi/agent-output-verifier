@@ -1,0 +1,58 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5d6e4187a330a530",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "confirmation": {
+          "type": "string"
+        },
+        "nonce": {
+          "type": "string"
+        },
+        "receipt_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "signature": {
+          "type": "object",
+          "properties": {
+            "alg": {
+              "type": "string"
+            },
+            "kid": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "alg",
+            "kid"
+          ]
+        },
+        "tx_hash": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "confirmation",
+        "nonce",
+        "receipt_url",
+        "signature",
+        "tx_hash"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "gsc-x402.ai",
+    "endpoint": "https://gsc-x402.ai/api",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

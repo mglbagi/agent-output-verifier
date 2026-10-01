@@ -1,0 +1,184 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a5e3f62becaea836",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "query": {
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "addressLine": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "adminDistrict": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "adminDistrict2": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "adminDistrictCode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "confidence": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "country": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "countryCode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "formattedAddress": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "latitude": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "locality": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "longitude": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "matchCodes": {
+                "type": "array"
+              },
+              "postalCode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "streetName": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "streetNumber": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "timeZone": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "type": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "utcOffset": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "latitude",
+              "longitude",
+              "formattedAddress",
+              "addressLine",
+              "streetNumber",
+              "streetName",
+              "locality",
+              "postalCode",
+              "adminDistrict",
+              "adminDistrictCode",
+              "adminDistrict2",
+              "country",
+              "countryCode",
+              "type",
+              "confidence",
+              "matchCodes",
+              "timeZone",
+              "utcOffset"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "utcOffsetAt": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "query",
+        "utcOffsetAt",
+        "count",
+        "results"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "results[].latitude": {
+        "min": -90,
+        "max": 90
+      },
+      "results[].longitude": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "manyfish-seller.redcliff-d7368db1.westus2.azurecontainerapps.io",
+    "endpoint": "https://manyfish-seller.redcliff-d7368db1.westus2.azurecontainerapps.io/api/v1/maps/geocode",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

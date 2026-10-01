@@ -1,0 +1,226 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8f1a556f8674cf75",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "_atlas": {
+          "additionalProperties": false,
+          "description": "Atlas documentation and related-route metadata added after deployment",
+          "properties": {
+            "docs": {
+              "description": "Documentation URL for this bridge",
+              "format": "uri",
+              "maxLength": 512,
+              "type": "string"
+            },
+            "related": {
+              "description": "Bounded related Atlas routes",
+              "items": {
+                "additionalProperties": false,
+                "description": "One related Atlas route",
+                "properties": {
+                  "bridge": {
+                    "description": "Related bridge name",
+                    "maxLength": 64,
+                    "type": "string"
+                  },
+                  "docs": {
+                    "description": "Related bridge documentation URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  },
+                  "summary": {
+                    "description": "Short capability summary",
+                    "maxLength": 256,
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "Related route URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "bridge",
+                  "url",
+                  "docs",
+                  "summary"
+                ],
+                "type": "object"
+              },
+              "maxItems": 3,
+              "type": "array"
+            }
+          },
+          "required": [
+            "docs"
+          ],
+          "type": "object"
+        },
+        "alerts": {
+          "description": "Newest alerts in deterministic order",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "issued_at": {
+                "description": "Official issue time",
+                "format": "date-time",
+                "type": "string"
+              },
+              "kind": {
+                "description": "Kind from the explicit official product-code map; never prose-inferred severity",
+                "enum": [
+                  "watch",
+                  "alert",
+                  "warning",
+                  "summary",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              "message": {
+                "description": "Bounded human-authored source message",
+                "maxLength": 16384,
+                "type": "string"
+              },
+              "message_original_bytes": {
+                "description": "Complete source message byte length",
+                "minimum": 0,
+                "type": "integer"
+              },
+              "message_sha256": {
+                "description": "SHA-256 of complete pre-truncation source bytes",
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "message_truncated": {
+                "description": "Whether message was cut at a UTF-8 boundary",
+                "type": "boolean"
+              },
+              "product_id": {
+                "description": "Official NOAA product identity",
+                "type": "string"
+              }
+            },
+            "required": [
+              "product_id",
+              "issued_at",
+              "kind",
+              "message",
+              "message_truncated",
+              "message_original_bytes",
+              "message_sha256"
+            ],
+            "type": "object"
+          },
+          "maxItems": 50,
+          "type": "array"
+        },
+        "operation": {
+          "const": "space-weather-alerts",
+          "description": "Stable route operation",
+          "type": "string"
+        },
+        "query": {
+          "additionalProperties": false,
+          "description": "Normalized query identity after applying the default limit",
+          "properties": {
+            "limit": {
+              "description": "Applied maximum alert count",
+              "maximum": 50,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "limit"
+          ],
+          "type": "object"
+        },
+        "schema_version": {
+          "const": "noaa-swpc-normalized-v1",
+          "description": "Pinned NOAA SWPC normalization contract",
+          "type": "string"
+        },
+        "source": {
+          "additionalProperties": false,
+          "description": "Official NOAA SWPC provenance for the served normalized snapshot",
+          "properties": {
+            "name": {
+              "description": "Official source organization",
+              "type": "string"
+            },
+            "products": {
+              "description": "Fixed normalized NOAA SWPC products",
+              "items": {
+                "description": "Product identifier",
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "retrieved_at": {
+              "description": "Time the served normalized snapshot was retrieved",
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "products",
+            "retrieved_at"
+          ],
+          "type": "object"
+        },
+        "source_age_seconds": {
+          "description": "Age in whole seconds of the route's controlling freshness timestamp; retrieval time controls alerts and forecast",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "stale": {
+          "description": "True only when a validated cached snapshot was used",
+          "type": "boolean"
+        },
+        "warnings": {
+          "description": "Freshness, missing-component, provenance, and interpretation limitations",
+          "items": {
+            "description": "Actionable warning",
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "operation",
+        "schema_version",
+        "query",
+        "alerts",
+        "source",
+        "stale",
+        "source_age_seconds",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "alerts[].product_id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "space-weather.use.x402atlas.com",
+    "endpoint": "https://space-weather.use.x402atlas.com/alerts",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

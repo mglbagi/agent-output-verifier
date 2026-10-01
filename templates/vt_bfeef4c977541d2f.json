@@ -1,0 +1,204 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bfeef4c977541d2f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "bytes": {
+          "type": "integer"
+        },
+        "clipped": {
+          "description": "true when max_chars, the 100-page cap or the output size cut something",
+          "type": "boolean"
+        },
+        "content_type": {
+          "description": "media type as served, parameters dropped",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "error": {
+          "description": "set when the file beat the parse limits after it had been accepted",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fetched_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "final_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "http_status": {
+          "type": "integer"
+        },
+        "info": {
+          "properties": {
+            "author": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "created_at": {
+              "format": "date-time",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "creator": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "modified_at": {
+              "format": "date-time",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "producer": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "subject": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "title": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "author",
+            "created_at",
+            "creator",
+            "producer"
+          ]
+        },
+        "pages": {
+          "description": "where each read page sits in text",
+          "items": {
+            "properties": {
+              "chars": {
+                "type": "integer"
+              },
+              "page": {
+                "type": "integer"
+              },
+              "start": {
+                "type": "integer"
+              }
+            },
+            "type": "object",
+            "required": [
+              "chars",
+              "page",
+              "start"
+            ]
+          },
+          "type": "array"
+        },
+        "pages_read": {
+          "type": "integer"
+        },
+        "pages_total": {
+          "type": "integer"
+        },
+        "text": {
+          "description": "the read pages, separated by blank lines",
+          "type": "string"
+        },
+        "text_chars": {
+          "type": "integer"
+        },
+        "text_layer": {
+          "description": "false when no read page carried any text (a scan); null when the parse failed",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "total_chars": {
+          "description": "characters of the pages the parser read (it stops one page after the text budget is spent), before clipping and without separators; null when nothing was parsed",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "word_count": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "bytes",
+        "clipped",
+        "content_type",
+        "fetched_at",
+        "final_url",
+        "http_status",
+        "info",
+        "pages",
+        "pages_read",
+        "pages_total",
+        "text",
+        "text_chars",
+        "text_layer",
+        "total_chars",
+        "url",
+        "word_count"
+      ]
+    },
+    "rules": [
+      {
+        "type": "sum_equals",
+        "field": "pages[].chars",
+        "equals_field": "total_chars"
+      }
+    ],
+    "bounds": {
+      "bytes": {
+        "min": 0
+      },
+      "pages_total": {
+        "min": 0
+      },
+      "total_chars": {
+        "min": 0
+      },
+      "word_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.agentsouk.dev",
+    "endpoint": "https://api.agentsouk.dev/v1/x402/lst_01M2N6GWB06867BFMSKJATK2QC",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

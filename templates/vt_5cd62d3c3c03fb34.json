@@ -1,0 +1,281 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5cd62d3c3c03fb34",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "asOf": {
+          "type": "string",
+          "format": "date"
+        },
+        "coverage": {
+          "type": "object",
+          "properties": {
+            "authoritative": {
+              "type": "boolean"
+            },
+            "countries": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "availableYears": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "emptyYears": {
+                    "type": "array"
+                  },
+                  "key": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "scope": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "availableYears",
+                  "emptyYears",
+                  "key",
+                  "name",
+                  "scope"
+                ]
+              }
+            },
+            "end": {
+              "type": "string",
+              "format": "date"
+            },
+            "holidayTypes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "start": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          "required": [
+            "authoritative",
+            "countries",
+            "end",
+            "holidayTypes",
+            "start"
+          ]
+        },
+        "holidays": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "country": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "names": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "country",
+              "date",
+              "names"
+            ]
+          }
+        },
+        "input": {
+          "type": "object",
+          "properties": {
+            "additionalClosures": {
+              "type": "array"
+            },
+            "countries": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "end": {
+              "type": "string",
+              "format": "date"
+            },
+            "operation": {
+              "type": "string"
+            },
+            "start": {
+              "type": "string",
+              "format": "date"
+            },
+            "weekend": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            }
+          },
+          "required": [
+            "additionalClosures",
+            "countries",
+            "end",
+            "operation",
+            "start",
+            "weekend"
+          ]
+        },
+        "operation": {
+          "type": "string"
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "integer"
+            },
+            "date": {},
+            "dates": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "count",
+            "dates"
+          ]
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "asOf": {
+              "type": "string",
+              "format": "date"
+            },
+            "attribution": {
+              "type": "string"
+            },
+            "changes": {
+              "type": "string"
+            },
+            "license": {
+              "type": "string"
+            },
+            "licenseUrl": {
+              "type": "string",
+              "format": "uri"
+            },
+            "name": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "version": {
+              "type": "string",
+              "format": "email"
+            }
+          },
+          "required": [
+            "asOf",
+            "attribution",
+            "changes",
+            "license",
+            "licenseUrl",
+            "name",
+            "url",
+            "version"
+          ]
+        },
+        "trace": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "reasons": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "working": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "date",
+              "reasons",
+              "working"
+            ]
+          }
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "asOf",
+        "coverage",
+        "holidays",
+        "input",
+        "operation",
+        "result",
+        "source",
+        "trace",
+        "warnings"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "coverage.countries[].key"
+      },
+      {
+        "type": "lte",
+        "field": "coverage.start",
+        "other_field": "coverage.end"
+      },
+      {
+        "type": "lte",
+        "field": "input.start",
+        "other_field": "input.end"
+      }
+    ],
+    "bounds": {
+      "result.count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "toolvend.dev",
+    "endpoint": "https://toolvend.dev/calendar/business-days",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

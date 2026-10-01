@@ -1,0 +1,83 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_567c4f782c5f4bf7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "capabilityId": {
+          "const": "chain.snapshot"
+        },
+        "invocationId": {
+          "type": "string"
+        },
+        "pricing": {
+          "type": "object"
+        },
+        "receiptUrl": {
+          "type": "string"
+        },
+        "result": {
+          "properties": {
+            "baseFeePerGas": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "blockNumber": {
+              "type": "integer"
+            },
+            "blockTimestamp": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "chainId": {
+              "type": "integer"
+            },
+            "unixTimestamp": {
+              "type": "integer"
+            },
+            "validUntilBlock": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "chainId",
+            "blockNumber",
+            "unixTimestamp",
+            "validUntilBlock"
+          ],
+          "type": "object"
+        },
+        "verdict": {
+          "enum": [
+            "allow",
+            "review",
+            "block"
+          ]
+        }
+      },
+      "required": [
+        "capabilityId",
+        "invocationId",
+        "verdict",
+        "result",
+        "pricing",
+        "receiptUrl"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tereno.xyz",
+    "endpoint": "https://www.tereno.xyz/api/v1/capabilities/chain.snapshot/invoke",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

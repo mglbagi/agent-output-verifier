@@ -1,0 +1,184 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ccfb28e6ecb3ff07",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "known": {
+          "description": "False when the mint has never been scanned; the other fields are then empty",
+          "type": "boolean"
+        },
+        "latency_ms": {
+          "type": "number"
+        },
+        "mint": {
+          "type": "string"
+        },
+        "predictions": {
+          "items": {
+            "properties": {
+              "agent_id": {
+                "type": "string"
+              },
+              "dev_wallet": {
+                "type": "string"
+              },
+              "final_outcome": {
+                "type": "string"
+              },
+              "predicted_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "predicted_risk": {
+                "type": "number"
+              },
+              "resolved_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "scan_flags": {
+                "type": "object"
+              },
+              "tracking_id": {
+                "type": "string"
+              },
+              "was_correct": {
+                "type": "boolean"
+              }
+            },
+            "type": "object",
+            "required": [
+              "agent_id",
+              "dev_wallet",
+              "final_outcome",
+              "predicted_at",
+              "predicted_risk",
+              "resolved_at",
+              "scan_flags",
+              "tracking_id",
+              "was_correct"
+            ]
+          },
+          "type": "array"
+        },
+        "provenance": {
+          "description": "Freshness of this answer: when it was fetched/computed (UTC), whether it came from a cache layer, and the Solana slot it reflects when the underlying data source exposes one (null otherwise).",
+          "properties": {
+            "as_of_slot": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "cached": {
+              "type": "boolean"
+            },
+            "fetched_at": {
+              "description": "ISO-8601 UTC timestamp",
+              "type": "string",
+              "format": "date-time"
+            },
+            "source": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "cached",
+            "fetched_at"
+          ]
+        },
+        "scan_count": {
+          "description": "Present on the unknown-mint branch",
+          "type": "integer"
+        },
+        "summary": {
+          "properties": {
+            "correct_count": {
+              "type": "integer"
+            },
+            "ever_critical": {
+              "type": "boolean"
+            },
+            "ever_high": {
+              "type": "boolean"
+            },
+            "final_outcome": {
+              "type": "string"
+            },
+            "fp_event_count": {
+              "type": "integer"
+            },
+            "resolved_count": {
+              "type": "integer"
+            },
+            "risk_level_distribution": {
+              "type": "object"
+            },
+            "scan_count": {
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "required": [
+            "correct_count",
+            "ever_critical",
+            "ever_high",
+            "final_outcome",
+            "fp_event_count",
+            "resolved_count",
+            "risk_level_distribution",
+            "scan_count"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "known",
+        "latency_ms",
+        "mint",
+        "predictions",
+        "provenance",
+        "summary"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "predictions[].agent_id"
+      }
+    ],
+    "bounds": {
+      "scan_count": {
+        "min": 0,
+        "if_present": true
+      },
+      "summary.correct_count": {
+        "min": 0
+      },
+      "summary.fp_event_count": {
+        "min": 0
+      },
+      "summary.resolved_count": {
+        "min": 0
+      },
+      "summary.scan_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.solsentry.app",
+    "endpoint": "https://api.solsentry.app/x402/v1/predictions/:solana_address",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

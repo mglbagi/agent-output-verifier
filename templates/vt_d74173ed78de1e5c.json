@@ -1,0 +1,57 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d74173ed78de1e5c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "disclaimer": {
+          "type": "string"
+        },
+        "forecast": {
+          "type": "array"
+        },
+        "interval": {
+          "type": "string"
+        },
+        "model_id": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "service": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "symbol": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "disclaimer",
+        "forecast",
+        "interval",
+        "model_id",
+        "ok",
+        "service",
+        "summary",
+        "symbol"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "vendsdk.com",
+    "endpoint": "https://vendsdk.com/api/v/kronos-forecast",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

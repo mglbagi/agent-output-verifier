@@ -1,0 +1,145 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fdd6ad4e233f7a4a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "properties": {
+            "contract_address": {
+              "type": "string"
+            },
+            "logo": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "spot_metrics": {
+              "properties": {
+                "buy_volume_usd": {
+                  "type": "number"
+                },
+                "liquidity_usd": {
+                  "type": "number"
+                },
+                "sell_volume_usd": {
+                  "type": "number"
+                },
+                "total_buys": {
+                  "type": "integer"
+                },
+                "total_holders": {
+                  "type": "integer"
+                },
+                "total_sells": {
+                  "type": "integer"
+                },
+                "unique_buyers": {
+                  "type": "integer"
+                },
+                "unique_sellers": {
+                  "type": "integer"
+                },
+                "volume_total_usd": {
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            },
+            "symbol": {
+              "type": "string"
+            },
+            "token_details": {
+              "properties": {
+                "circulating_supply": {
+                  "type": "number"
+                },
+                "fdv_usd": {
+                  "type": "number"
+                },
+                "market_cap_usd": {
+                  "type": "number"
+                },
+                "telegram": {
+                  "type": "string"
+                },
+                "token_deployment_date": {
+                  "type": "string"
+                },
+                "total_supply": {
+                  "type": "number"
+                },
+                "website": {
+                  "type": "string"
+                },
+                "x": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "data.spot_metrics.buy_volume_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "data.spot_metrics.liquidity_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "data.spot_metrics.sell_volume_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "data.spot_metrics.total_buys": {
+        "min": 0,
+        "if_present": true
+      },
+      "data.spot_metrics.total_holders": {
+        "min": 0,
+        "if_present": true
+      },
+      "data.spot_metrics.total_sells": {
+        "min": 0,
+        "if_present": true
+      },
+      "data.spot_metrics.volume_total_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "data.token_details.fdv_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "data.token_details.market_cap_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "data.token_details.total_supply": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.nansen.ai",
+    "endpoint": "https://api.nansen.ai/api/v1/tgm/token-information",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

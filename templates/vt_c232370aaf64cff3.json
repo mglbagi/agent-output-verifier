@@ -1,0 +1,767 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c232370aaf64cff3",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "$defs": {
+        "edit": {
+          "oneOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "kind": {
+                  "const": "move_footprint"
+                },
+                "reference": {
+                  "description": "KiCad reference designator, e.g. \"R1\".",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_]{0,15}$",
+                  "type": "string"
+                },
+                "rotation": {
+                  "description": "Degrees.",
+                  "maximum": 360,
+                  "minimum": -360,
+                  "type": "number"
+                },
+                "x": {
+                  "description": "Millimetres in the board's coordinate system.",
+                  "maximum": 1000,
+                  "minimum": -1000,
+                  "type": "number"
+                },
+                "y": {
+                  "description": "Millimetres in the board's coordinate system.",
+                  "maximum": 1000,
+                  "minimum": -1000,
+                  "type": "number"
+                }
+              },
+              "required": [
+                "kind",
+                "reference",
+                "x",
+                "y"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "kind": {
+                  "const": "rotate_footprint"
+                },
+                "reference": {
+                  "description": "KiCad reference designator, e.g. \"R1\".",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_]{0,15}$",
+                  "type": "string"
+                },
+                "rotation": {
+                  "description": "Degrees.",
+                  "maximum": 360,
+                  "minimum": -360,
+                  "type": "number"
+                }
+              },
+              "required": [
+                "kind",
+                "reference",
+                "rotation"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "kind": {
+                  "const": "set_track_width"
+                },
+                "net": {
+                  "description": "KiCad net name; every track on this net is resized.",
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "widthMm": {
+                  "maximum": 20,
+                  "minimum": 0.01,
+                  "type": "number"
+                }
+              },
+              "required": [
+                "kind",
+                "net",
+                "widthMm"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "drillMm": {
+                  "description": "Desired drill diameter; the worker snaps this to the closest of its fixed mounting-hole footprint set and reports which one it chose.",
+                  "maximum": 25,
+                  "minimum": 0.01,
+                  "type": "number"
+                },
+                "kind": {
+                  "const": "add_mounting_hole"
+                },
+                "reference": {
+                  "description": "KiCad reference designator, e.g. \"R1\".",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_]{0,15}$",
+                  "type": "string"
+                },
+                "x": {
+                  "description": "Millimetres in the board's coordinate system.",
+                  "maximum": 1000,
+                  "minimum": -1000,
+                  "type": "number"
+                },
+                "y": {
+                  "description": "Millimetres in the board's coordinate system.",
+                  "maximum": 1000,
+                  "minimum": -1000,
+                  "type": "number"
+                }
+              },
+              "required": [
+                "kind",
+                "x",
+                "y",
+                "drillMm"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "field": {
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "kind": {
+                  "const": "set_field"
+                },
+                "reference": {
+                  "description": "KiCad reference designator, e.g. \"R1\".",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_]{0,15}$",
+                  "type": "string"
+                },
+                "value": {
+                  "maxLength": 1024,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "reference",
+                "field",
+                "value"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "footprint": {
+                  "description": "\"LibraryNickname:FootprintName\" from the shipped KiCad 9 footprint libraries or the project's own.",
+                  "pattern": "^[A-Za-z0-9_.-]{1,64}:[A-Za-z0-9_.+-]{1,80}$",
+                  "type": "string"
+                },
+                "kind": {
+                  "const": "swap_footprint"
+                },
+                "reference": {
+                  "description": "KiCad reference designator, e.g. \"R1\".",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_]{0,15}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "reference",
+                "footprint"
+              ],
+              "type": "object"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "artifacts": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "href": {
+                "format": "uri",
+                "type": "string"
+              },
+              "mediaType": {
+                "maxLength": 128,
+                "minLength": 1,
+                "type": "string"
+              },
+              "name": {
+                "enum": [
+                  "project.zip",
+                  "gerbers.zip",
+                  "bom.csv",
+                  "pos.csv",
+                  "schematic.pdf",
+                  "board.pdf",
+                  "board-top.svg",
+                  "board-top.png",
+                  "report.json"
+                ],
+                "type": "string"
+              },
+              "sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "sizeBytes": {
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "name",
+              "mediaType",
+              "sizeBytes",
+              "sha256",
+              "href"
+            ],
+            "type": "object"
+          },
+          "maxItems": 9,
+          "type": "array"
+        },
+        "board": {
+          "additionalProperties": false,
+          "properties": {
+            "copperLayers": {
+              "maximum": 8,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "footprints": {
+              "maximum": 500,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "libraries": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "symbol",
+                      "footprint"
+                    ],
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "resolved": {
+                    "type": "boolean"
+                  },
+                  "source": {
+                    "enum": [
+                      "kicad",
+                      "project"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "kind",
+                  "source",
+                  "resolved"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "name": {
+              "type": "string"
+            },
+            "nets": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "pads": {
+              "maximum": 4000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "sizeMm": {
+              "additionalProperties": false,
+              "properties": {
+                "height": {
+                  "type": "number"
+                },
+                "width": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "width",
+                "height"
+              ],
+              "type": "object"
+            },
+            "tracks": {
+              "maximum": 20000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "vias": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "zones": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "name",
+            "copperLayers",
+            "sizeMm",
+            "footprints",
+            "pads",
+            "nets",
+            "tracks",
+            "vias",
+            "zones",
+            "libraries"
+          ],
+          "type": "object"
+        },
+        "checks": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "detail": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "passed",
+                  "failed",
+                  "not_checked"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "status",
+              "detail"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "drc": {
+          "additionalProperties": false,
+          "properties": {
+            "errors": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "parity": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "unconnected": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "violations": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "items": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "position": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "x": {
+                        "type": "number"
+                      },
+                      "y": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "type": "object"
+                  },
+                  "severity": {
+                    "enum": [
+                      "error",
+                      "warning"
+                    ],
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "severity",
+                  "type",
+                  "description",
+                  "items"
+                ],
+                "type": "object"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            "warnings": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "errors",
+            "warnings",
+            "unconnected",
+            "parity",
+            "violations"
+          ],
+          "type": "object"
+        },
+        "edits": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "after": {
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    }
+                  ]
+                },
+                "type": "object"
+              },
+              "before": {
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    }
+                  ]
+                },
+                "type": "object"
+              },
+              "detail": {
+                "type": "string"
+              },
+              "edit": {
+                "$ref": "#/$defs/edit"
+              },
+              "status": {
+                "enum": [
+                  "applied",
+                  "rejected"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "edit",
+              "status",
+              "detail"
+            ],
+            "type": "object"
+          },
+          "maxItems": 50,
+          "type": "array"
+        },
+        "erc": {
+          "additionalProperties": false,
+          "properties": {
+            "errors": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "violations": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "items": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "position": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "x": {
+                        "type": "number"
+                      },
+                      "y": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "type": "object"
+                  },
+                  "severity": {
+                    "enum": [
+                      "error",
+                      "warning"
+                    ],
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "severity",
+                  "type",
+                  "description",
+                  "items"
+                ],
+                "type": "object"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            "warnings": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "errors",
+            "warnings",
+            "violations"
+          ],
+          "type": "object"
+        },
+        "expiresAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "exports": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "detail": {
+                "type": "string"
+              },
+              "name": {
+                "enum": [
+                  "project.zip",
+                  "gerbers.zip",
+                  "bom.csv",
+                  "pos.csv",
+                  "schematic.pdf",
+                  "board.pdf",
+                  "board-top.svg",
+                  "board-top.png",
+                  "report.json"
+                ],
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "generated",
+                  "failed"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "status",
+              "detail"
+            ],
+            "type": "object"
+          },
+          "maxItems": 9,
+          "type": "array"
+        },
+        "limitations": {
+          "items": {
+            "maxLength": 4096,
+            "type": "string"
+          },
+          "maxItems": 16,
+          "type": "array"
+        },
+        "profile": {
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "enum": [
+                "2-layer-standard",
+                "2-layer-fine",
+                "4-layer-standard"
+              ],
+              "type": "string"
+            },
+            "rules": {
+              "additionalProperties": false,
+              "properties": {
+                "copperLayers": {
+                  "maximum": 8,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "minAnnularRingMm": {
+                  "type": "number"
+                },
+                "minClearanceMm": {
+                  "type": "number"
+                },
+                "minCopperToEdgeMm": {
+                  "type": "number"
+                },
+                "minHoleToHoleMm": {
+                  "type": "number"
+                },
+                "minSilkToPadMm": {
+                  "type": "number"
+                },
+                "minTrackWidthMm": {
+                  "type": "number"
+                },
+                "minViaDiameterMm": {
+                  "type": "number"
+                },
+                "minViaDrillMm": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "copperLayers",
+                "minTrackWidthMm",
+                "minClearanceMm",
+                "minViaDiameterMm",
+                "minViaDrillMm",
+                "minAnnularRingMm",
+                "minHoleToHoleMm",
+                "minCopperToEdgeMm",
+                "minSilkToPadMm"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "name",
+            "rules"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "enum": [
+            "passed",
+            "failed"
+          ],
+          "type": "string"
+        },
+        "tools": {
+          "additionalProperties": false,
+          "properties": {
+            "kicad": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "kicad"
+          ],
+          "type": "object"
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "warnings": {
+          "items": {
+            "maxLength": 4096,
+            "type": "string"
+          },
+          "maxItems": 100,
+          "type": "array"
+        }
+      },
+      "required": [
+        "status",
+        "tools",
+        "profile",
+        "board",
+        "edits",
+        "erc",
+        "drc",
+        "exports",
+        "checks",
+        "warnings",
+        "limitations",
+        "truncated",
+        "expiresAt",
+        "artifacts"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "board.sizeMm.height": {
+        "min": 0
+      },
+      "board.sizeMm.width": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "pcb.api.williamrobinson.dev",
+    "endpoint": "https://pcb.api.williamrobinson.dev/v1/pcb/fabricate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

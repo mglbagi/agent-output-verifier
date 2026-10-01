@@ -1,0 +1,98 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f351d15fbb956f81",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "abi": {
+          "description": "the full ABI (JSON array).",
+          "type": "array"
+        },
+        "abi_entries": {
+          "type": "integer"
+        },
+        "address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "compiler": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "events": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "functions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "implementation": {
+          "description": "logic address if proxy.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "is_proxy": {
+          "type": "boolean"
+        },
+        "match": {
+          "description": "exact_match or match.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source": {
+          "type": "string"
+        },
+        "verified": {
+          "description": "true if Sourcify has verified source.",
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "required": [
+        "abi_entries",
+        "address",
+        "chain",
+        "compiler",
+        "events",
+        "functions",
+        "is_proxy",
+        "match",
+        "name",
+        "source",
+        "verified"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "abi.cyberwarex.com",
+    "endpoint": "https://abi.cyberwarex.com/abi",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

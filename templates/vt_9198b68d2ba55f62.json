@@ -1,0 +1,99 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9198b68d2ba55f62",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "clientRequestId": {
+          "maxLength": 120,
+          "minLength": 8,
+          "type": "string"
+        },
+        "compiledContextStored": {
+          "const": false,
+          "type": "boolean"
+        },
+        "context": {
+          "type": "string"
+        },
+        "includedPassages": {
+          "type": "array"
+        },
+        "inputHash": {
+          "type": "string"
+        },
+        "metrics": {
+          "type": "object"
+        },
+        "outputHash": {
+          "type": "string"
+        },
+        "packId": {
+          "type": "string"
+        },
+        "retentionBoundaries": {
+          "type": "object"
+        },
+        "sourceTextStored": {
+          "const": false,
+          "type": "boolean"
+        },
+        "sources": {
+          "maxItems": 8,
+          "minItems": 1,
+          "type": "array"
+        },
+        "task": {
+          "type": "string"
+        },
+        "tokenBudget": {
+          "maximum": 16000,
+          "minimum": 64,
+          "type": "integer"
+        },
+        "version": {
+          "const": "0.1.0",
+          "type": "string"
+        },
+        "warningCodes": {
+          "type": "array"
+        },
+        "warnings": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "version",
+        "packId",
+        "clientRequestId",
+        "task",
+        "tokenBudget",
+        "context",
+        "metrics",
+        "includedPassages",
+        "sources",
+        "warnings",
+        "warningCodes",
+        "retentionBoundaries",
+        "inputHash",
+        "outputHash",
+        "sourceTextStored",
+        "compiledContextStored"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mahastrategies.com",
+    "endpoint": "https://www.mahastrategies.com/api/v1/compress",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

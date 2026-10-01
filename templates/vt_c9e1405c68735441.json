@@ -1,0 +1,90 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c9e1405c68735441",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "chargedCredits": {
+          "type": "integer"
+        },
+        "followUp": {
+          "type": "object",
+          "properties": {
+            "apiKey": {
+              "type": "string"
+            },
+            "remainingCredits": {
+              "type": "integer"
+            },
+            "use": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "apiKey",
+            "remainingCredits",
+            "use"
+          ]
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "operationId": {
+          "type": "string"
+        },
+        "result": {
+          "type": "object",
+          "properties": {}
+        },
+        "serviceId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "x402": {
+          "type": "object",
+          "properties": {
+            "charged": {
+              "type": "boolean"
+            },
+            "priceUsd": {
+              "type": "number"
+            },
+            "receiptId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "charged",
+            "priceUsd",
+            "receiptId"
+          ]
+        }
+      },
+      "required": [
+        "chargedCredits",
+        "followUp",
+        "ok",
+        "operationId",
+        "result",
+        "serviceId",
+        "status",
+        "x402"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.hivemindos.app",
+    "endpoint": "https://api.hivemindos.app/v1/x402/miroshark/runs.create",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fb3cb5b4499999ec",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string"
+              },
+              "category": {
+                "type": "string"
+              },
+              "cid": {
+                "type": "string"
+              },
+              "claimed": {
+                "type": "boolean"
+              },
+              "domain": {
+                "type": "string"
+              },
+              "latitude": {
+                "type": "number"
+              },
+              "longitude": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "placeId": {
+                "type": "string"
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "rating": {
+                "type": "number"
+              },
+              "reviewsCount": {
+                "type": "integer"
+              },
+              "website": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "address",
+              "category",
+              "cid",
+              "claimed",
+              "domain",
+              "latitude",
+              "longitude",
+              "name",
+              "phone",
+              "placeId",
+              "rank",
+              "rating",
+              "reviewsCount",
+              "website"
+            ]
+          }
+        },
+        "total": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "count",
+        "results",
+        "total"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "results[].latitude": {
+        "min": -90,
+        "max": 90
+      },
+      "results[].longitude": {
+        "min": -180,
+        "max": 180
+      },
+      "total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "places.openverbs.com",
+    "endpoint": "https://places.openverbs.com/v1/business-search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

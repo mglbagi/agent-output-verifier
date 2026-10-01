@@ -1,0 +1,92 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f189bb1c22e6921f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "aggregation": {
+          "type": "string"
+        },
+        "buckets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "avg_funding_rate": {
+                "type": "number"
+              },
+              "avg_price": {
+                "type": "number"
+              },
+              "bucket_start": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "samples": {
+                "type": "integer"
+              },
+              "venue": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "avg_funding_rate",
+              "avg_price",
+              "bucket_start",
+              "samples",
+              "venue"
+            ]
+          }
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "venues_count": {
+          "type": "integer"
+        },
+        "window_end": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "window_start": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "aggregation",
+        "buckets",
+        "ticker",
+        "venues_count",
+        "window_end",
+        "window_start"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "window_start",
+        "other_field": "window_end"
+      }
+    ],
+    "bounds": {
+      "buckets[].avg_price": {
+        "min": 0
+      },
+      "venues_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.usenami.io",
+    "endpoint": "https://api.usenami.io/v1/funding/historical",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

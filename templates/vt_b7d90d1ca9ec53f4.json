@@ -1,0 +1,68 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b7d90d1ca9ec53f4",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "coins": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "change_24h_pct": {
+                "type": "number"
+              },
+              "deviation_pct": {
+                "type": "number"
+              },
+              "price_usd": {
+                "type": "number"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "verdict": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "change_24h_pct",
+              "deviation_pct",
+              "price_usd",
+              "symbol",
+              "verdict"
+            ]
+          }
+        },
+        "deep_read": {
+          "type": "string"
+        },
+        "market_verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "coins",
+        "deep_read",
+        "market_verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "coins[].price_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "stablecoinpulse.theaslangroupllc.com",
+    "endpoint": "https://stablecoinpulse.theaslangroupllc.com/api/depeg-tick",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

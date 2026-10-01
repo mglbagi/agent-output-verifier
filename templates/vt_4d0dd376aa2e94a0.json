@@ -1,0 +1,46 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4d0dd376aa2e94a0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "expires_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "links": {
+          "type": "object"
+        },
+        "reads_remaining": {
+          "type": "integer"
+        },
+        "secret": {
+          "description": "Bearer credential for every later call on this item. Shown once.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "secret",
+        "expires_at",
+        "links"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "fileshareforagents.online",
+    "endpoint": "https://fileshareforagents.online/v1/items",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d41d0e821233b64d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "freshest_age_seconds": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "generated_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "launches": {
+          "items": {
+            "properties": {
+              "age_minutes": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "age_seconds": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "buys_1h": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "deep_dive": {
+                "description": "URL of the paid security report for this mint.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "fdv_usd": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "flags": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "liquidity_usd": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "mint": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "pool_name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "price_usd": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "sells_1h": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "volume_24h_usd": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "type": "object",
+            "required": [
+              "age_minutes",
+              "age_seconds",
+              "buys_1h",
+              "deep_dive",
+              "fdv_usd",
+              "flags",
+              "liquidity_usd",
+              "mint",
+              "pool_name",
+              "price_usd",
+              "sells_1h",
+              "volume_24h_usd"
+            ]
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "count",
+        "freshest_age_seconds",
+        "generated_at",
+        "launches"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "freshest_age_seconds": {
+        "min": 0
+      },
+      "launches[].age_minutes": {
+        "min": 0
+      },
+      "launches[].age_seconds": {
+        "min": 0
+      },
+      "launches[].fdv_usd": {
+        "min": 0
+      },
+      "launches[].liquidity_usd": {
+        "min": 0
+      },
+      "launches[].price_usd": {
+        "min": 0
+      },
+      "launches[].volume_24h_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "saylorinnovations.com",
+    "endpoint": "https://saylorinnovations.com/api/launches",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

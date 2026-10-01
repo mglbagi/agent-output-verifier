@@ -1,0 +1,66 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ce576614395ac0ae",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "comparisons": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "experiment": {
+          "type": "string"
+        },
+        "geography": {
+          "type": "object"
+        },
+        "metrics": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "notice": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "price_usd": {
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "required": [
+        "experiment",
+        "geography",
+        "metrics",
+        "mode",
+        "notice",
+        "ok",
+        "price_usd"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "price_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-vending-production.up.railway.app",
+    "endpoint": "https://agent-vending-production.up.railway.app/v1/us-demographics",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

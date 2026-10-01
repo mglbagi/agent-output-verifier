@@ -1,0 +1,108 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_dabb19833af00c31",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "properties": {
+            "analyzed_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "business_type": {
+              "type": "string"
+            },
+            "canonical_host": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "number"
+            },
+            "contact_channels": {
+              "type": "object"
+            },
+            "evidence": {
+              "type": "array"
+            },
+            "lead_generation_fit": {
+              "type": "object"
+            },
+            "marketing_observations": {
+              "type": "array"
+            },
+            "opportunity_signals": {
+              "type": "array"
+            },
+            "prospect_qualification": {
+              "type": "object"
+            },
+            "public_site_summary": {
+              "type": "object"
+            },
+            "recommendation": {
+              "enum": [
+                "skip",
+                "review",
+                "qualify"
+              ],
+              "type": "string"
+            },
+            "service_name": {
+              "type": "string"
+            },
+            "service_slug": {
+              "type": "string"
+            },
+            "trust_or_friction_observations": {
+              "type": "array"
+            },
+            "use_case": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "analyzed_url",
+            "business_type",
+            "canonical_host",
+            "confidence",
+            "contact_channels",
+            "evidence",
+            "marketing_observations",
+            "opportunity_signals",
+            "prospect_qualification",
+            "recommendation",
+            "service_name",
+            "service_slug",
+            "trust_or_friction_observations",
+            "use_case"
+          ]
+        },
+        "meta": {
+          "type": "object"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "required": [
+        "data",
+        "success"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "signalforgestudios.com",
+    "endpoint": "https://signalforgestudios.com/x402/prospect-qualifier",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

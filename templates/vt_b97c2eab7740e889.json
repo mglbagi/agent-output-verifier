@@ -1,0 +1,104 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b97c2eab7740e889",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "next_step": {
+          "type": "object",
+          "properties": {
+            "body": {
+              "type": "object",
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "package_value": {
+                        "type": "string"
+                      },
+                      "product_id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "package_value",
+                      "product_id"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "items"
+              ]
+            },
+            "url": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "body",
+            "url"
+          ]
+        },
+        "packages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "package_currency": {
+                "type": "string"
+              },
+              "package_value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "package_currency",
+              "package_value"
+            ]
+          }
+        },
+        "recipient_required": {
+          "type": "boolean"
+        },
+        "recipient_type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "next_step",
+        "packages",
+        "recipient_required",
+        "recipient_type"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "next_step.body.items[].product_id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.bitrefill.com",
+    "endpoint": "https://api.bitrefill.com/x402/products/detail",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

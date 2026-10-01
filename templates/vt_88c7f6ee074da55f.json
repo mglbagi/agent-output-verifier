@@ -1,0 +1,110 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_88c7f6ee074da55f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "banco_central": {
+          "type": "object",
+          "properties": {
+            "autorizada": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "autorizada"
+          ]
+        },
+        "cadastro": {
+          "type": "object",
+          "properties": {
+            "razao_social": {
+              "type": "string"
+            },
+            "socios": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "razao_social",
+            "socios"
+          ]
+        },
+        "cnpj": {
+          "type": "string"
+        },
+        "contratos_publicos": {
+          "type": "object",
+          "properties": {
+            "resumo": {
+              "type": "object",
+              "properties": {
+                "total_contratos": {
+                  "type": "number"
+                },
+                "valor_total": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "total_contratos",
+                "valor_total"
+              ]
+            }
+          },
+          "required": [
+            "resumo"
+          ]
+        },
+        "integridade": {
+          "type": "object",
+          "properties": {
+            "ficha_limpa": {
+              "type": "boolean"
+            },
+            "total_apontamentos": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "ficha_limpa",
+            "total_apontamentos"
+          ]
+        }
+      },
+      "required": [
+        "banco_central",
+        "cadastro",
+        "cnpj",
+        "contratos_publicos",
+        "integridade"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "contratos_publicos.resumo.total_contratos": {
+        "min": 0
+      },
+      "contratos_publicos.resumo.valor_total": {
+        "min": 0
+      },
+      "integridade.total_apontamentos": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.brazilayer.com",
+    "endpoint": "https://api.brazilayer.com/v1/empresa/enriquecer/:cnpj",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

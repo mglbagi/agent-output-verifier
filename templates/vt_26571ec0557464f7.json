@@ -1,0 +1,126 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_26571ec0557464f7",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "matches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cheaperYesOn": {
+                "type": "string"
+              },
+              "divergencePct": {
+                "type": "number"
+              },
+              "kalshi": {
+                "type": "object",
+                "properties": {
+                  "subTitle": {},
+                  "ticker": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "yesProbability": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "ticker",
+                  "title",
+                  "yesProbability"
+                ]
+              },
+              "matchScore": {
+                "type": "number"
+              },
+              "polymarket": {
+                "type": "object",
+                "properties": {
+                  "question": {
+                    "type": "string"
+                  },
+                  "slug": {
+                    "type": "string"
+                  },
+                  "volume24hr": {
+                    "type": "number"
+                  },
+                  "yesProbability": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "question",
+                  "slug",
+                  "volume24hr",
+                  "yesProbability"
+                ]
+              }
+            },
+            "required": [
+              "cheaperYesOn",
+              "divergencePct",
+              "kalshi",
+              "matchScore",
+              "polymarket"
+            ]
+          }
+        },
+        "minDivergencePct": {
+          "type": "integer"
+        },
+        "note": {
+          "type": "string"
+        },
+        "query": {}
+      },
+      "required": [
+        "count",
+        "matches",
+        "minDivergencePct",
+        "note"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "matches[].divergencePct": {
+        "min": 0,
+        "max": 100
+      },
+      "matches[].kalshi.yesProbability": {
+        "min": 0,
+        "max": 1
+      },
+      "matches[].polymarket.yesProbability": {
+        "min": 0,
+        "max": 1
+      },
+      "minDivergencePct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402tap.com",
+    "endpoint": "https://x402tap.com/api/prediction-arb",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

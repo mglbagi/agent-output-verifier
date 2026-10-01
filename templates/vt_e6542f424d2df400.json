@@ -1,0 +1,346 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e6542f424d2df400",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": {},
+      "description": "Masters database aggregate stats for the position.",
+      "properties": {
+        "black": {
+          "description": "Total black wins at this position.",
+          "maximum": 9007199254740991,
+          "minimum": -9007199254740991,
+          "type": "integer"
+        },
+        "draws": {
+          "description": "Total draws at this position.",
+          "maximum": 9007199254740991,
+          "minimum": -9007199254740991,
+          "type": "integer"
+        },
+        "moves": {
+          "description": "Top moves ordered by frequency.",
+          "items": {
+            "additionalProperties": {},
+            "properties": {
+              "averageRating": {
+                "description": "Average rating of players who played this move.",
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              },
+              "black": {
+                "description": "Games won by black from this move.",
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              },
+              "draws": {
+                "description": "Drawn games from this move.",
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              },
+              "game": {
+                "anyOf": [
+                  {
+                    "additionalProperties": {},
+                    "properties": {
+                      "black": {
+                        "additionalProperties": false,
+                        "description": "Black player.",
+                        "properties": {
+                          "name": {
+                            "description": "Player name.",
+                            "type": "string"
+                          },
+                          "rating": {
+                            "description": "Player rating.",
+                            "maximum": 9007199254740991,
+                            "minimum": -9007199254740991,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "rating"
+                        ],
+                        "type": "object"
+                      },
+                      "id": {
+                        "description": "Lichess game id.",
+                        "type": "string"
+                      },
+                      "month": {
+                        "description": "Month string (YYYY-MM).",
+                        "type": "string"
+                      },
+                      "uci": {
+                        "description": "UCI move played in this game.",
+                        "type": "string"
+                      },
+                      "white": {
+                        "additionalProperties": false,
+                        "description": "White player.",
+                        "properties": {
+                          "name": {
+                            "description": "Player name.",
+                            "type": "string"
+                          },
+                          "rating": {
+                            "description": "Player rating.",
+                            "maximum": 9007199254740991,
+                            "minimum": -9007199254740991,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "rating"
+                        ],
+                        "type": "object"
+                      },
+                      "winner": {
+                        "anyOf": [
+                          {
+                            "enum": [
+                              "white",
+                              "black"
+                            ],
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "description": "Winner, or null for a draw."
+                      },
+                      "year": {
+                        "description": "Year the game was played.",
+                        "maximum": 9007199254740991,
+                        "minimum": -9007199254740991,
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "uci",
+                      "id",
+                      "winner",
+                      "white",
+                      "black",
+                      "year"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Representative game for this move, if available."
+              },
+              "opening": {
+                "anyOf": [
+                  {
+                    "additionalProperties": {},
+                    "properties": {
+                      "eco": {
+                        "description": "ECO opening code.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Opening name.",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "eco",
+                      "name"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "ECO opening classification for this move, when recognized."
+              },
+              "san": {
+                "description": "SAN move string.",
+                "type": "string"
+              },
+              "uci": {
+                "description": "UCI move string.",
+                "type": "string"
+              },
+              "white": {
+                "description": "Games won by white from this move.",
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "uci",
+              "san",
+              "white",
+              "draws",
+              "black"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "opening": {
+          "anyOf": [
+            {
+              "additionalProperties": {},
+              "properties": {
+                "eco": {
+                  "description": "ECO opening code.",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Opening name.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "eco",
+                "name"
+              ],
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "ECO opening classification for the position, when recognized."
+        },
+        "topGames": {
+          "description": "Recent top master games at this position.",
+          "items": {
+            "additionalProperties": {},
+            "properties": {
+              "black": {
+                "additionalProperties": false,
+                "description": "Black player.",
+                "properties": {
+                  "name": {
+                    "description": "Player name.",
+                    "type": "string"
+                  },
+                  "rating": {
+                    "description": "Player rating.",
+                    "maximum": 9007199254740991,
+                    "minimum": -9007199254740991,
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "name",
+                  "rating"
+                ],
+                "type": "object"
+              },
+              "id": {
+                "description": "Lichess game id.",
+                "type": "string"
+              },
+              "month": {
+                "description": "Month string (YYYY-MM).",
+                "type": "string"
+              },
+              "uci": {
+                "description": "UCI move played in this game.",
+                "type": "string"
+              },
+              "white": {
+                "additionalProperties": false,
+                "description": "White player.",
+                "properties": {
+                  "name": {
+                    "description": "Player name.",
+                    "type": "string"
+                  },
+                  "rating": {
+                    "description": "Player rating.",
+                    "maximum": 9007199254740991,
+                    "minimum": -9007199254740991,
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "name",
+                  "rating"
+                ],
+                "type": "object"
+              },
+              "winner": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      "white",
+                      "black"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Winner, or null for a draw."
+              },
+              "year": {
+                "description": "Year the game was played.",
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "uci",
+              "id",
+              "winner",
+              "white",
+              "black",
+              "year"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "white": {
+          "description": "Total white wins at this position.",
+          "maximum": 9007199254740991,
+          "minimum": -9007199254740991,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "white",
+        "draws",
+        "black",
+        "moves"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "topGames[].id",
+        "if_present": true
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "chess402.vercel.app",
+    "endpoint": "https://chess402.vercel.app/api/masters",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

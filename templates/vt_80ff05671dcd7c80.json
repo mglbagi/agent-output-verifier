@@ -1,0 +1,186 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_80ff05671dcd7c80",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "country": {
+          "description": "Resolved ISO 3166-1 alpha-2 market, upper-case",
+          "type": "string"
+        },
+        "featured_snippet": {
+          "description": "The answer box / featured snippet at the top of the page; null when the page has none",
+          "properties": {
+            "snippet": {
+              "description": "Snippet text; a list-type snippet is joined with newlines",
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "type": {
+              "description": "Kind of answer box as reported by Google (e.g. organic_result, paragraph, list)",
+              "type": "string"
+            },
+            "url": {
+              "description": "Page that owns the snippet",
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "snippet",
+            "title",
+            "type",
+            "url"
+          ]
+        },
+        "keyword": {
+          "description": "Echoed keyword (trimmed)",
+          "type": "string"
+        },
+        "language": {
+          "description": "Result language used, lower-case",
+          "type": "string"
+        },
+        "note": {
+          "description": "Present only on a sample response (empty/omitted keyword): a hint to pass a real keyword. The paid request ran; no search was made.",
+          "type": "string"
+        },
+        "organic": {
+          "description": "Organic results in ranking order; empty when nothing matched (still HTTP 200)",
+          "items": {
+            "properties": {
+              "position": {
+                "description": "1-based rank on the results page",
+                "type": "integer"
+              },
+              "snippet": {
+                "description": "Snippet as shown by Google; may be empty",
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "position",
+              "title",
+              "url",
+              "snippet"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "people_also_ask": {
+          "description": "People Also Ask questions with the answer text Google shows and its source page",
+          "items": {
+            "properties": {
+              "answer": {
+                "description": "Answer text shown under the question; may be empty",
+                "type": "string"
+              },
+              "question": {
+                "type": "string"
+              },
+              "title": {
+                "description": "Source page title",
+                "type": "string"
+              },
+              "url": {
+                "description": "Source page URL",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "question",
+              "answer",
+              "title",
+              "url"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "queried_at": {
+          "description": "Time the search was executed (UTC)",
+          "format": "date-time",
+          "type": "string"
+        },
+        "related_searches": {
+          "description": "Related search queries suggested at the bottom of the page",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "serp_features": {
+          "description": "SERP features present on the page, in a fixed order; empty when the page is organic-only",
+          "items": {
+            "enum": [
+              "featured_snippet",
+              "ai_overview",
+              "people_also_ask",
+              "knowledge_graph",
+              "top_stories",
+              "videos",
+              "images",
+              "shopping",
+              "local_pack",
+              "ads",
+              "discussions_and_forums",
+              "recipes",
+              "twitter",
+              "related_searches"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "total_results": {
+          "description": "Google's reported total result count; 0 when not reported",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "queried_at",
+        "keyword",
+        "country",
+        "language",
+        "total_results",
+        "organic",
+        "featured_snippet",
+        "people_also_ask",
+        "related_searches",
+        "serp_features"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "total_results": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "serp.use.x402atlas.com",
+    "endpoint": "https://serp.use.x402atlas.com/analyze",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

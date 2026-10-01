@@ -1,0 +1,61 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_47dcc3b03f30cccc",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "completion": {
+          "type": "string"
+        },
+        "usage": {
+          "properties": {
+            "actualChargedAtomic": {
+              "type": "string"
+            },
+            "maxAuthorizedAtomic": {
+              "type": "string"
+            },
+            "maxOutputTokens": {
+              "type": "number"
+            },
+            "outputTokens": {
+              "type": "number"
+            },
+            "pricePerOutputTokenAtomic": {
+              "type": "string"
+            },
+            "promptChars": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "promptChars",
+            "outputTokens",
+            "maxOutputTokens",
+            "pricePerOutputTokenAtomic",
+            "maxAuthorizedAtomic",
+            "actualChargedAtomic"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "completion",
+        "usage"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mechamanda.com",
+    "endpoint": "https://mechamanda.com/api/upto/complete/testnet",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

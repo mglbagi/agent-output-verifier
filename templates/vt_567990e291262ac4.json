@@ -1,0 +1,108 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_567990e291262ac4",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "attribution": {
+          "type": "string"
+        },
+        "closeTime": {
+          "description": "Scheduled close time for markets that have not settled.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "confidence": {
+          "description": "0..1 confidence that this market is the event you asked about.",
+          "type": "number"
+        },
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "outcome": {
+          "description": "Settled outcome as published, e.g. \"Yes\".",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "query": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resolutionSource": {
+          "description": "Venue that published the settlement.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resolved": {
+          "description": "True once the venue has settled the market.",
+          "type": "boolean"
+        },
+        "resolvedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "venue": {
+          "enum": [
+            "polymarket",
+            "kalshi",
+            null
+          ],
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "resolved",
+        "outcome",
+        "resolvedAt",
+        "resolutionSource",
+        "venue",
+        "url",
+        "confidence",
+        "attribution"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.fenixfoundry.com",
+    "endpoint": "https://x402.fenixfoundry.com/resolution",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

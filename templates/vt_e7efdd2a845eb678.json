@@ -1,0 +1,75 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e7efdd2a845eb678",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "check": {
+          "const": "site",
+          "description": "Identifies which check produced this result."
+        },
+        "network": {
+          "description": "CAIP-2 id of the chain the payment settled on (e.g. eip155:8453 = Base).",
+          "type": "string"
+        },
+        "result": {
+          "properties": {
+            "checkedAt": {
+              "description": "ISO-8601 timestamp the snapshot was taken.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "dns": {
+              "description": "DNS sub-result: { status, records }.",
+              "type": "object"
+            },
+            "domain": {
+              "description": "Domain-expiry sub-result: { status, daysUntilExpiry }.",
+              "type": "object"
+            },
+            "http": {
+              "description": "HTTP sub-result: { up, statusCode, responseMs }.",
+              "type": "object"
+            },
+            "ssl": {
+              "description": "SSL sub-result: { status, daysUntilExpiry }.",
+              "type": "object"
+            },
+            "url": {
+              "description": "The normalized URL that was checked.",
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "type": "object",
+          "required": [
+            "checkedAt",
+            "dns",
+            "domain",
+            "http",
+            "ssl",
+            "url"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "check",
+        "network",
+        "result"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.cloudpulsepoint.com",
+    "endpoint": "https://x402.cloudpulsepoint.com/agent/check/site",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

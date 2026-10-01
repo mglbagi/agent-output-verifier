@@ -1,0 +1,63 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c11a24e7d2c68496",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "pair": {
+          "type": "string"
+        },
+        "signal": {
+          "enum": [
+            "BUY",
+            "SELL",
+            "HOLD"
+          ],
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "signed_by": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "timeframe": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "pair",
+        "signal",
+        "confidence",
+        "timeframe",
+        "generated_at"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "signals.nsgoods.org",
+    "endpoint": "https://signals.nsgoods.org/signals",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

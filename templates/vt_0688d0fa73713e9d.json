@@ -1,0 +1,50 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0688d0fa73713e9d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "chapter_id": {
+          "type": "string"
+        },
+        "full_text": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "section_ref": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "chapter_id",
+        "full_text",
+        "id",
+        "section_ref",
+        "source_url",
+        "title"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "fda-iom-api.canvas-cart.workers.dev",
+    "endpoint": "https://fda-iom-api.canvas-cart.workers.dev/section/:id/full",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_059de278dc13bf05",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "changes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "assets": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "chains": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "changeCategory": {
+                "type": "string"
+              },
+              "changeType": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "diffs": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "currentValue": {
+                      "type": "string"
+                    },
+                    "field": {
+                      "type": "string"
+                    },
+                    "previousValue": {}
+                  },
+                  "required": [
+                    "currentValue",
+                    "field"
+                  ]
+                }
+              },
+              "provider": {
+                "type": "string"
+              },
+              "sourceUrl": {
+                "type": "string",
+                "format": "uri"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "summaryJa": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "assets",
+              "chains",
+              "changeCategory",
+              "changeType",
+              "date",
+              "diffs",
+              "provider",
+              "sourceUrl",
+              "summary",
+              "summaryJa"
+            ]
+          }
+        },
+        "generatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "hasMore": {
+          "type": "boolean"
+        },
+        "licenseNotice": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "nextChangedSince": {
+          "type": "string",
+          "format": "date"
+        },
+        "notice": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "detail": {
+              "type": "string"
+            },
+            "termsUrl": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "code",
+            "detail",
+            "termsUrl"
+          ]
+        },
+        "providers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "announcedAt": {
+                "type": "string",
+                "format": "date"
+              },
+              "assets": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "chains": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "integrations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "lastEventDate": {
+                "type": "string",
+                "format": "date"
+              },
+              "merchantFee": {},
+              "plannedPeriod": {},
+              "posIntegration": {},
+              "provider": {
+                "type": "string"
+              },
+              "region": {
+                "type": "string"
+              },
+              "settlementCurrency": {},
+              "slug": {
+                "type": "string"
+              },
+              "sourceUrl": {
+                "type": "string",
+                "format": "uri"
+              },
+              "stage": {
+                "type": "string"
+              },
+              "startedAt": {
+                "type": "string",
+                "format": "date"
+              },
+              "verifiedAt": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "required": [
+              "announcedAt",
+              "assets",
+              "chains",
+              "integrations",
+              "lastEventDate",
+              "provider",
+              "region",
+              "slug",
+              "sourceUrl",
+              "stage",
+              "startedAt",
+              "verifiedAt"
+            ]
+          }
+        },
+        "query": {
+          "type": "object",
+          "properties": {
+            "changedSince": {
+              "type": "string",
+              "format": "date"
+            },
+            "limit": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "changedSince",
+            "limit"
+          ]
+        },
+        "schemaVersion": {
+          "type": "string"
+        },
+        "totalEvents": {
+          "type": "number"
+        },
+        "totalProviders": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "changes",
+        "generatedAt",
+        "hasMore",
+        "licenseNotice",
+        "mode",
+        "nextChangedSince",
+        "notice",
+        "providers",
+        "query",
+        "schemaVersion",
+        "totalEvents",
+        "totalProviders"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "query.limit": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "open-pay.jp",
+    "endpoint": "https://open-pay.jp/api/paid/usdc/stablecoin-payments",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

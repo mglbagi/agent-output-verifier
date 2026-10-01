@@ -1,0 +1,203 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_21538a6eba89c76b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "pricePaid": {
+          "type": "object"
+        },
+        "result": {
+          "properties": {
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ],
+              "type": "string"
+            },
+            "dataNotes": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "dataSourceStatus": {
+              "description": "Blockchain data mode, independent of AI-generation provenance.",
+              "enum": [
+                "Live",
+                "Partial",
+                "Demo"
+              ],
+              "type": "string"
+            },
+            "generation": {
+              "description": "AI-assisted reports include validated AI sections and deterministic sections. Missing provenance in older reports is explicitly unknown; blockchain Live mode does not prove AI success.",
+              "oneOf": [
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "aiStatus": {
+                      "enum": [
+                        "succeeded"
+                      ]
+                    },
+                    "mode": {
+                      "enum": [
+                        "ai_assisted"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "mode",
+                    "aiStatus"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "aiStatus": {
+                      "enum": [
+                        "not_attempted"
+                      ]
+                    },
+                    "mode": {
+                      "enum": [
+                        "deterministic"
+                      ]
+                    },
+                    "reason": {
+                      "enum": [
+                        "not_configured"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "mode",
+                    "aiStatus",
+                    "reason"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "aiStatus": {
+                      "enum": [
+                        "failed"
+                      ]
+                    },
+                    "mode": {
+                      "enum": [
+                        "deterministic"
+                      ]
+                    },
+                    "reason": {
+                      "enum": [
+                        "provider_error",
+                        "timeout",
+                        "invalid_response"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "mode",
+                    "aiStatus",
+                    "reason"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "aiStatus": {
+                      "enum": [
+                        "unknown"
+                      ]
+                    },
+                    "mode": {
+                      "enum": [
+                        "unknown"
+                      ]
+                    },
+                    "reason": {
+                      "enum": [
+                        "provenance_not_recorded"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "mode",
+                    "aiStatus",
+                    "reason"
+                  ],
+                  "type": "object"
+                }
+              ],
+              "type": "object"
+            },
+            "limitations": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "nftExposure": {
+              "type": "array"
+            },
+            "recentFlows": {
+              "type": "array"
+            },
+            "recommendedNextAction": {
+              "type": "string"
+            },
+            "riskLabel": {
+              "type": "string"
+            },
+            "riskScore": {
+              "type": "number"
+            },
+            "savedReportUrl": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "summary": {
+              "type": "string"
+            },
+            "tokenExposure": {
+              "type": "array"
+            },
+            "topCounterparties": {
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "tool": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.blockchainmoneymap.com",
+    "endpoint": "https://api.blockchainmoneymap.com/api/x402/wallet-audit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

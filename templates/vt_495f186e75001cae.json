@@ -1,0 +1,83 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_495f186e75001cae",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "answer": {
+          "description": "Tavily's short synthesized answer, null if unavailable",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "count": {
+          "description": "Number of results returned",
+          "type": "integer"
+        },
+        "query": {
+          "description": "Query as sent to Tavily",
+          "type": "string"
+        },
+        "responseTimeMs": {
+          "description": "Upstream Tavily response time in milliseconds",
+          "type": "integer"
+        },
+        "results": {
+          "description": "Ranked search results, most relevant first",
+          "items": {
+            "properties": {
+              "score": {
+                "description": "Tavily relevance score for this result (higher = more relevant)",
+                "type": "number"
+              },
+              "snippet": {
+                "description": "Tavily's extracted content for this result, capped to 500 characters",
+                "type": "string"
+              },
+              "title": {
+                "description": "Page title as indexed by Tavily",
+                "type": "string"
+              },
+              "url": {
+                "description": "Source URL",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "title",
+              "url",
+              "snippet",
+              "score"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "query",
+        "count",
+        "results"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "4yearcycle.com",
+    "endpoint": "https://4yearcycle.com/x402/web-search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

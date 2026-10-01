@@ -1,0 +1,77 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ca5d198fcd33c12e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "domain_age_days": {
+          "description": "best-effort via RDAP.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "host": {
+          "type": "string"
+        },
+        "labels": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "registrable_domain": {
+          "type": "string"
+        },
+        "risk_score": {
+          "description": "0 (clean) to 100.",
+          "type": "integer"
+        },
+        "signals": {
+          "type": "object"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "verdict": {
+          "description": "SAFE | SUSPICIOUS | DANGEROUS.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "domain_age_days",
+        "host",
+        "labels",
+        "reasons",
+        "registrable_domain",
+        "risk_score",
+        "url",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "domain_age_days": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "safe.cyberwarex.com",
+    "endpoint": "https://safe.cyberwarex.com/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

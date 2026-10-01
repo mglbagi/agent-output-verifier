@@ -1,0 +1,105 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f6877905c2ce0ca6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "provenance": {
+          "additionalProperties": false,
+          "properties": {
+            "execution": {
+              "const": "deterministic_local"
+            },
+            "model_used": {
+              "const": false
+            },
+            "network_request_performed": {
+              "const": false
+            }
+          },
+          "required": [
+            "execution",
+            "model_used",
+            "network_request_performed"
+          ],
+          "type": "object"
+        },
+        "request_id": {
+          "maxLength": 100,
+          "type": "string"
+        },
+        "result": {
+          "additionalProperties": false,
+          "properties": {
+            "added_lines": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "line_endings_normalized": {
+              "const": true
+            },
+            "operations": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "equal",
+                      "delete",
+                      "insert"
+                    ]
+                  },
+                  "text": {
+                    "maxLength": 20000,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "text"
+                ],
+                "type": "object"
+              },
+              "maxItems": 400,
+              "type": "array"
+            },
+            "removed_lines": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "operations",
+            "added_lines",
+            "removed_lines",
+            "line_endings_normalized"
+          ],
+          "type": "object"
+        },
+        "utility": {
+          "const": "text_line_compare"
+        }
+      },
+      "required": [
+        "request_id",
+        "utility",
+        "result",
+        "provenance"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tradepilotusa.com",
+    "endpoint": "https://www.tradepilotusa.com/api/agent-commerce/v1/services/text_line_compare/execute",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

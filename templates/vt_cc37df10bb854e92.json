@@ -1,0 +1,86 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cc37df10bb854e92",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "days": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "condition": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "temperature_max_c": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "condition",
+              "date",
+              "temperature_max_c"
+            ]
+          }
+        },
+        "forge_feedback": {
+          "type": "object",
+          "properties": {
+            "feedback_id": {
+              "type": "string"
+            },
+            "feedback_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "rate_this_call": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "feedback_id",
+            "feedback_url",
+            "rate_this_call"
+          ]
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "country": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "country",
+            "name"
+          ]
+        }
+      },
+      "required": [
+        "days",
+        "forge_feedback",
+        "location"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "skycast.clawca.sh",
+    "endpoint": "https://skycast.clawca.sh/forecast",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

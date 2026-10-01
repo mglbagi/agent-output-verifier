@@ -1,0 +1,136 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f690df1847d8698c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "job_id": {
+          "type": "string"
+        },
+        "receipt": {
+          "description": "Ed25519-signed receipt: body (canonical JSON), hash (sha256 hex), sig (base64url)",
+          "properties": {
+            "body": {
+              "type": "object"
+            },
+            "hash": {
+              "type": "string"
+            },
+            "sig": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "body",
+            "hash",
+            "sig"
+          ]
+        },
+        "result_token": {
+          "type": "string"
+        },
+        "result_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "retry_after_seconds": {
+          "type": "integer"
+        },
+        "status": {
+          "enum": [
+            "done",
+            "pending",
+            "unserved",
+            "rejected"
+          ],
+          "type": "string"
+        },
+        "verdict": {
+          "properties": {
+            "accept": {
+              "description": "True only when every requirement is met",
+              "type": "boolean"
+            },
+            "decision": {
+              "description": "verify_externally: nothing is wrong except requirements the text alone cannot confirm",
+              "enum": [
+                "accept",
+                "reject",
+                "verify_externally"
+              ],
+              "type": "string"
+            },
+            "injection_suspected": {
+              "type": "boolean"
+            },
+            "requirements": {
+              "items": {
+                "properties": {
+                  "blocking": {
+                    "description": "This requirement alone is enough to reject",
+                    "type": "boolean"
+                  },
+                  "evidence": {
+                    "type": "string"
+                  },
+                  "met": {
+                    "enum": [
+                      "yes",
+                      "no",
+                      "partly",
+                      "cannot_tell"
+                    ],
+                    "type": "string"
+                  },
+                  "requirement": {
+                    "type": "string"
+                  },
+                  "subjective": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "requirement",
+                  "met",
+                  "evidence",
+                  "subjective",
+                  "blocking"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "summary": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "accept",
+            "summary",
+            "requirements",
+            "injection_suspected"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "job_id",
+        "status"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "crosscheckapi.com",
+    "endpoint": "https://crosscheckapi.com/v1/accept",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

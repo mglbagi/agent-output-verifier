@@ -1,0 +1,92 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c142ce5a1196fbe3",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "csv_sample_row": {
+          "type": "string"
+        },
+        "format": {
+          "type": "string"
+        },
+        "json_example": {
+          "type": "object",
+          "properties": {
+            "Code": {
+              "type": "string"
+            },
+            "ErrorCount": {
+              "type": "integer"
+            },
+            "Function": {
+              "type": "string"
+            },
+            "OutputFields": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "RecordCount": {
+              "type": "integer"
+            },
+            "Records": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "Domain": {
+                    "type": "string"
+                  },
+                  "company": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "Domain",
+                  "company",
+                  "id"
+                ]
+              }
+            }
+          },
+          "required": [
+            "Code",
+            "ErrorCount",
+            "Function",
+            "OutputFields",
+            "RecordCount",
+            "Records"
+          ]
+        }
+      },
+      "required": [
+        "csv_sample_row",
+        "format",
+        "json_example"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "json_example.Records[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "enrich-api.interzoid.com",
+    "endpoint": "https://enrich-api.interzoid.com/enrich",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

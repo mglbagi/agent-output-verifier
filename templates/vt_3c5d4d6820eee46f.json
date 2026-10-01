@@ -1,0 +1,57 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3c5d4d6820eee46f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "canonical": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "checks": {
+          "type": "object"
+        },
+        "cost": {
+          "type": "object"
+        },
+        "evidence": {
+          "type": "array"
+        },
+        "latency_ms": {
+          "type": "integer"
+        },
+        "verdict": {
+          "enum": [
+            "confirmed",
+            "contradicted",
+            "unknown"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "canonical",
+        "checks",
+        "cost",
+        "evidence",
+        "latency_ms",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "goodsong.dev",
+    "endpoint": "https://goodsong.dev/verify/citation",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

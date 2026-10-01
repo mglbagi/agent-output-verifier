@@ -1,0 +1,64 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1942adadfc624abf",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "hhi": {
+          "type": "integer"
+        },
+        "holders": {
+          "type": "integer"
+        },
+        "largest": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string"
+              },
+              "balance": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "address",
+              "balance"
+            ]
+          }
+        },
+        "top10Pct": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "hhi",
+        "holders",
+        "largest",
+        "top10Pct"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "largest[].balance": {
+        "min": 0
+      },
+      "top10Pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "preview-chat-c6089071-758a-449d-b4a7-6fa19ebc955c.space-z.ai",
+    "endpoint": "https://preview-chat-c6089071-758a-449d-b4a7-6fa19ebc955c.space-z.ai/api/x402/aman-holder-stats",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

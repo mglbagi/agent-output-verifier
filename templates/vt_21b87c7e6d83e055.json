@@ -1,0 +1,335 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_21b87c7e6d83e055",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "_apex": {
+          "properties": {
+            "evolution_runs": {
+              "type": "integer"
+            },
+            "instance": {
+              "type": "string"
+            },
+            "live_capital_deployed": {
+              "type": "boolean"
+            },
+            "live_trading": {
+              "type": "boolean"
+            },
+            "signal": {
+              "type": "string"
+            },
+            "signal_hash": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string"
+            },
+            "trades_backing_signal": {
+              "type": "integer"
+            },
+            "verify_at": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "apex_composite": {
+          "properties": {
+            "action": {
+              "type": "string"
+            },
+            "coin": {
+              "type": "string"
+            },
+            "components": {
+              "additionalProperties": {
+                "properties": {
+                  "contribution": {
+                    "type": "integer"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "object"
+            },
+            "composite_score": {
+              "type": "number"
+            },
+            "direction": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "bundle": {
+          "type": "string"
+        },
+        "bundle_savings_pct": {
+          "type": "number"
+        },
+        "combined_alpha": {
+          "properties": {
+            "bb_label": {
+              "type": "string"
+            },
+            "cached_at": {
+              "type": "string"
+            },
+            "fg": {
+              "type": "integer"
+            },
+            "funding_label": {
+              "type": "string"
+            },
+            "interpretation": {
+              "type": "string"
+            },
+            "overall_signal": {
+              "type": "string"
+            },
+            "pair": {
+              "type": "string"
+            },
+            "regime": {
+              "type": "string"
+            },
+            "score": {
+              "type": "integer"
+            },
+            "signal_breakdown": {
+              "properties": {
+                "bb_expanded": {
+                  "type": "integer"
+                },
+                "fg_neutral_zone": {
+                  "type": "integer"
+                },
+                "funding_confirms": {
+                  "type": "integer"
+                },
+                "trend_confirmed": {
+                  "type": "integer"
+                },
+                "volume_high": {
+                  "type": "integer"
+                },
+                "whale_confirms": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "trend_confirmed": {
+              "type": "boolean"
+            },
+            "volume_label": {
+              "type": "string"
+            },
+            "whale_bias": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "overall_signal"
+          ]
+        },
+        "cross_exchange_spread": {
+          "properties": {
+            "active_arbs": {
+              "type": "integer"
+            },
+            "arb_threshold_pct": {
+              "type": "number"
+            },
+            "best_net_spread_pct": {
+              "type": "number"
+            },
+            "best_spread_asset": {
+              "type": "string"
+            },
+            "cached_at": {
+              "type": "string"
+            },
+            "interpretation": {
+              "type": "string"
+            },
+            "pairs": {
+              "properties": {
+                "ETH": {
+                  "properties": {
+                    "arb_active": {
+                      "type": "boolean"
+                    },
+                    "asset": {
+                      "type": "string"
+                    },
+                    "direction": {
+                      "type": "string"
+                    },
+                    "gross_spread_pct": {
+                      "type": "number"
+                    },
+                    "hl_mid": {
+                      "type": "number"
+                    },
+                    "kr_mid": {
+                      "type": "number"
+                    },
+                    "net_spread_pct": {
+                      "type": "number"
+                    },
+                    "spread_vs_threshold": {
+                      "type": "number"
+                    },
+                    "timestamp": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "momentum_status": {
+          "properties": {
+            "active_trades": {
+              "items": {},
+              "type": "array"
+            },
+            "cached_at": {
+              "type": "string"
+            },
+            "interpretation": {
+              "type": "string"
+            },
+            "momentum_available": {
+              "type": "boolean"
+            },
+            "open_count": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "regime_confluence": {
+          "properties": {
+            "cached_at": {
+              "type": "string"
+            },
+            "coin_regimes": {
+              "additionalProperties": {
+                "properties": {
+                  "confidence": {
+                    "type": "number"
+                  },
+                  "regime": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "object"
+            },
+            "confluence_label": {
+              "type": "string"
+            },
+            "confluence_score": {
+              "type": "integer"
+            },
+            "dominant_regime": {
+              "type": "string"
+            },
+            "fear_greed": {
+              "type": "integer"
+            },
+            "interpretation": {
+              "type": "string"
+            },
+            "recommended_action": {
+              "type": "string"
+            },
+            "strongest_pair": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "confluence_label",
+            "dominant_regime"
+          ]
+        },
+        "timestamp": {
+          "type": "string"
+        },
+        "valid_for_seconds": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "bundle",
+        "bundle_savings_pct",
+        "combined_alpha",
+        "regime_confluence"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "bundle_savings_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "combined_alpha.signal_breakdown.volume_high": {
+        "min": 0,
+        "if_present": true
+      },
+      "cross_exchange_spread.arb_threshold_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "cross_exchange_spread.best_net_spread_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "cross_exchange_spread.pairs.ETH.gross_spread_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "cross_exchange_spread.pairs.ETH.net_spread_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "momentum_status.open_count": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "apexrunner.ai",
+    "endpoint": "https://apexrunner.ai/signals/trading-intelligence-bundle",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

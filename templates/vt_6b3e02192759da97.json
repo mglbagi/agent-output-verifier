@@ -1,0 +1,67 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6b3e02192759da97",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "assessment": {
+          "description": "Synthesized market state assessment",
+          "type": "string"
+        },
+        "data_freshness": {
+          "description": "Age of the data used",
+          "type": "string"
+        },
+        "environment": {
+          "description": "Current market environment state",
+          "enum": [
+            "stable",
+            "elevated",
+            "stressed",
+            "crisis"
+          ],
+          "type": "string"
+        },
+        "key_factors": {
+          "description": "Key factors influencing the assessment",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "sources_used": {
+          "description": "Data sources consulted",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "timestamp": {
+          "description": "Timestamp of synthesis",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "timestamp",
+        "environment",
+        "assessment",
+        "key_factors",
+        "sources_used"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.blackswan.wtf",
+    "endpoint": "https://x402.blackswan.wtf/smart-agents/core",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3e341221244967d3",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "analysis": {
+          "type": "object",
+          "properties": {
+            "buyerProtectionScore": {
+              "type": "integer"
+            },
+            "keyFindings": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "riskLevel": {
+              "type": "string"
+            },
+            "summary": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "buyerProtectionScore",
+            "keyFindings",
+            "riskLevel",
+            "summary"
+          ]
+        },
+        "payment": {
+          "type": "object",
+          "properties": {
+            "network": {
+              "type": "string"
+            },
+            "payer": {
+              "type": "string"
+            },
+            "settled": {
+              "type": "boolean"
+            },
+            "transaction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "network",
+            "payer",
+            "settled",
+            "transaction"
+          ]
+        }
+      },
+      "required": [
+        "analysis",
+        "payment"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "policycheck.tools",
+    "endpoint": "https://policycheck.tools/api/x402/analyze",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

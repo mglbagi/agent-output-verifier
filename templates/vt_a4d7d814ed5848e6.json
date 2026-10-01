@@ -1,0 +1,135 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a4d7d814ed5848e6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "answer": {
+          "description": "Google's own direct answer for the query, when it has one, with the page it came from.",
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "attribution": {
+          "description": "Where the data comes from. Keep it with the results if you pass them on.",
+          "type": "object"
+        },
+        "entity": {
+          "description": "Knowledge-panel facts about the thing the query names, when it names one.",
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "latencyMs": {
+          "type": "integer"
+        },
+        "meta": {
+          "description": "Results returned, duplicates removed, upstream credits spent.",
+          "type": "object"
+        },
+        "paid": {
+          "description": "The settled transaction and network.",
+          "type": "object"
+        },
+        "query": {
+          "type": "string"
+        },
+        "related": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "results": {
+          "description": "Every search type in one shape. URLs are canonicalised (tracking parameters, AMP and www stripped) and duplicates removed.",
+          "items": {
+            "properties": {
+              "extra": {
+                "description": "Per-type fields: price and seller for shopping, address, rating and coordinates for places, publication and citedBy for scholar, duration and channel for videos, imageUrl for images.",
+                "type": "object"
+              },
+              "position": {
+                "type": "integer"
+              },
+              "publishedAt": {
+                "description": "ISO date, normalised from whatever the source reported.",
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date"
+              },
+              "publishedLabel": {
+                "description": "The date as the source reported it.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "site": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "snippet": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "uri"
+              }
+            },
+            "type": "object",
+            "required": [
+              "position",
+              "publishedAt",
+              "publishedLabel",
+              "site",
+              "snippet",
+              "title",
+              "url"
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "answer",
+        "latencyMs",
+        "meta",
+        "query",
+        "related",
+        "results",
+        "type"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "serp402.com",
+    "endpoint": "https://serp402.com/api/v1/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f05ddf75f9863fb5",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "alive": {
+          "type": "boolean"
+        },
+        "contentType": {
+          "type": "string"
+        },
+        "finalUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "redirects": {
+          "type": "array"
+        },
+        "requestedUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "robots": {
+          "type": "object",
+          "properties": {
+            "allowed": {
+              "type": "boolean"
+            },
+            "fetched": {
+              "type": "boolean"
+            },
+            "group": {
+              "type": "string"
+            },
+            "matchedRule": {}
+          },
+          "required": [
+            "allowed",
+            "fetched",
+            "group"
+          ]
+        },
+        "status": {
+          "type": "integer"
+        },
+        "timingMs": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "alive",
+        "contentType",
+        "finalUrl",
+        "redirects",
+        "requestedUrl",
+        "robots",
+        "status",
+        "timingMs",
+        "title"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "toolbelt402.tpoborne.workers.dev",
+    "endpoint": "https://toolbelt402.tpoborne.workers.dev/url/preflight",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

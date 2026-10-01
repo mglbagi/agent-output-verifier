@@ -1,0 +1,137 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3bfafe4e2c6d8f57",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "properties": {
+            "body": {
+              "type": "string"
+            },
+            "contentType": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "url": {
+              "format": "uri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "url",
+            "body"
+          ],
+          "type": "object"
+        },
+        "receipt": {
+          "properties": {
+            "attestation": {
+              "properties": {
+                "algorithm": {
+                  "const": "Ed25519",
+                  "type": "string"
+                },
+                "keyId": {
+                  "type": "string"
+                },
+                "signature": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "algorithm",
+                "keyId",
+                "signature"
+              ],
+              "type": "object"
+            },
+            "country": {
+              "enum": [
+                "US",
+                "DE",
+                "JP",
+                "BR",
+                "IN"
+              ],
+              "type": "string"
+            },
+            "maxTier": {
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ],
+              "type": "string"
+            },
+            "mode": {
+              "enum": [
+                "http",
+                "browser"
+              ],
+              "type": "string"
+            },
+            "quotedAmount": {
+              "type": "string"
+            },
+            "requestId": {
+              "type": "string"
+            },
+            "resolvedTier": {
+              "enum": [
+                "L0",
+                "L1",
+                "L2"
+              ],
+              "type": "string"
+            },
+            "status": {
+              "enum": [
+                "succeeded",
+                "failed"
+              ],
+              "type": "string"
+            },
+            "supplier": {
+              "enum": [
+                "decodo",
+                "iproyal"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "requestId",
+            "supplier",
+            "country",
+            "mode",
+            "maxTier",
+            "resolvedTier",
+            "status",
+            "attestation"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "data",
+        "receipt"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "regionfetch.dev",
+    "endpoint": "https://regionfetch.dev/api/fetch",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

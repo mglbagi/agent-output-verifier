@@ -1,0 +1,442 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_02f06c40d98d3cec",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "billing": {
+          "type": "object",
+          "properties": {
+            "charged": {
+              "type": "boolean"
+            },
+            "charges_for_decision": {
+              "type": "integer"
+            },
+            "maximum_charges": {
+              "type": "integer"
+            },
+            "model": {
+              "type": "string"
+            },
+            "settlement_reference": {
+              "type": "string"
+            },
+            "settlement_state": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "charged",
+            "charges_for_decision",
+            "maximum_charges",
+            "model",
+            "settlement_reference",
+            "settlement_state"
+          ]
+        },
+        "checks_executed": {
+          "type": "array"
+        },
+        "checks_waived": {
+          "type": "array"
+        },
+        "conditions": {
+          "type": "array"
+        },
+        "coverage": {
+          "type": "object",
+          "properties": {
+            "jurisdiction": {
+              "type": "string"
+            },
+            "limitations": {
+              "type": "array"
+            },
+            "scope": {
+              "type": "string"
+            },
+            "state_coverage": {
+              "type": "string"
+            },
+            "state_good_standing": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "jurisdiction",
+            "limitations",
+            "scope",
+            "state_coverage",
+            "state_good_standing"
+          ]
+        },
+        "decision": {
+          "type": "string"
+        },
+        "decision_cost": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "string"
+            },
+            "amount_atomic": {
+              "type": "string"
+            },
+            "asset": {
+              "type": "string"
+            },
+            "network": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount",
+            "amount_atomic",
+            "asset",
+            "network"
+          ]
+        },
+        "decision_id": {
+          "type": "string"
+        },
+        "decision_request_id": {
+          "type": "string"
+        },
+        "delivery": {
+          "type": "object",
+          "properties": {
+            "delivery_reference": {
+              "type": "string"
+            },
+            "response_digest": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "delivery_reference",
+            "response_digest",
+            "state"
+          ]
+        },
+        "economic_risk": {
+          "type": "object",
+          "properties": {
+            "assessed_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "assessment_digest": {
+              "type": "string"
+            },
+            "assessment_id": {
+              "type": "string"
+            },
+            "assumptions": {
+              "type": "array"
+            },
+            "break_even_risk_rate": {
+              "type": "string"
+            },
+            "break_even_risk_rate_ppm": {
+              "type": "string"
+            },
+            "decision_fee": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "string"
+                },
+                "amount_atomic": {
+                  "type": "string"
+                },
+                "asset": {
+                  "type": "string"
+                },
+                "network": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "amount",
+                "amount_atomic",
+                "asset",
+                "network"
+              ]
+            },
+            "exposure_valuation_basis": {
+              "type": "string"
+            },
+            "mandatory_verifications": {
+              "type": "array"
+            },
+            "mandatory_verifications_may_be_skipped": {
+              "type": "boolean"
+            },
+            "mode": {
+              "type": "string"
+            },
+            "observed_risk_range": {
+              "type": "object",
+              "properties": {
+                "lower_ppm": {
+                  "type": "string"
+                },
+                "upper_ppm": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "lower_ppm",
+                "upper_ppm"
+              ]
+            },
+            "payment_exposure_usdc_equivalent_atomic": {
+              "type": "string"
+            },
+            "policy_version": {
+              "type": "string"
+            },
+            "verification_economically_justified": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "assessed_at",
+            "assessment_digest",
+            "assessment_id",
+            "assumptions",
+            "break_even_risk_rate",
+            "break_even_risk_rate_ppm",
+            "decision_fee",
+            "exposure_valuation_basis",
+            "mandatory_verifications",
+            "mandatory_verifications_may_be_skipped",
+            "mode",
+            "observed_risk_range",
+            "payment_exposure_usdc_equivalent_atomic",
+            "policy_version",
+            "verification_economically_justified"
+          ]
+        },
+        "evidence_bundle": {
+          "type": "object",
+          "properties": {
+            "digest": {
+              "type": "string"
+            },
+            "references": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "digest",
+            "references"
+          ]
+        },
+        "freshness": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string"
+            },
+            "valid_as_of": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "valid_until": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "status",
+            "valid_as_of",
+            "valid_until"
+          ]
+        },
+        "machine_action": {
+          "type": "string"
+        },
+        "payment_executed": {
+          "type": "boolean"
+        },
+        "policy": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "version"
+          ]
+        },
+        "product": {
+          "type": "string"
+        },
+        "product_version": {
+          "type": "string"
+        },
+        "proof_capsule": {
+          "type": "object",
+          "properties": {
+            "capsule_digest": {
+              "type": "string"
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "payment_executed": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "payment_executed"
+              ]
+            },
+            "signature": {
+              "type": "object",
+              "properties": {
+                "algorithm": {
+                  "type": "string"
+                },
+                "key_id": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "algorithm",
+                "key_id",
+                "value"
+              ]
+            }
+          },
+          "required": [
+            "capsule_digest",
+            "payload",
+            "signature"
+          ]
+        },
+        "reason_codes": {
+          "type": "array"
+        },
+        "remediation": {
+          "type": "array"
+        },
+        "replay": {
+          "type": "object",
+          "properties": {
+            "additional_charge": {
+              "type": "boolean"
+            },
+            "deterministic": {
+              "type": "boolean"
+            },
+            "reference": {
+              "type": "string"
+            },
+            "sources_reexecuted": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "additional_charge",
+            "deterministic",
+            "reference",
+            "sources_reexecuted"
+          ]
+        },
+        "request_digest": {
+          "type": "string"
+        },
+        "request_id": {
+          "type": "string"
+        },
+        "risk_signals": {
+          "type": "array"
+        },
+        "schema_version": {
+          "type": "string"
+        },
+        "uncertainty": {
+          "type": "object",
+          "properties": {
+            "present": {
+              "type": "boolean"
+            },
+            "reason_codes": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "present",
+            "reason_codes"
+          ]
+        },
+        "valid_as_of": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "valid_until": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "billing",
+        "checks_executed",
+        "checks_waived",
+        "conditions",
+        "coverage",
+        "decision",
+        "decision_cost",
+        "decision_id",
+        "decision_request_id",
+        "delivery",
+        "economic_risk",
+        "evidence_bundle",
+        "freshness",
+        "machine_action",
+        "payment_executed",
+        "policy",
+        "product",
+        "product_version",
+        "proof_capsule",
+        "reason_codes",
+        "remediation",
+        "replay",
+        "request_digest",
+        "request_id",
+        "risk_signals",
+        "schema_version",
+        "uncertainty",
+        "valid_as_of",
+        "valid_until"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.runonproof.com",
+    "endpoint": "https://api.runonproof.com/v1/us/decision-gates/release-payment-to-supplier",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,315 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d31e52ba6ccdb125",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "as_of": {
+          "format": "date-time",
+          "title": "As Of",
+          "type": "string"
+        },
+        "coverage": {
+          "items": {
+            "properties": {
+              "board": {
+                "title": "Board",
+                "type": "string"
+              },
+              "error": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Error"
+              },
+              "evaluated_at": {
+                "anyOf": [
+                  {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Evaluated At"
+              },
+              "first_observation": {
+                "anyOf": [
+                  {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "First Observation"
+              },
+              "latest_collection_at": {
+                "anyOf": [
+                  {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Latest Collection At"
+              },
+              "latest_collection_status": {
+                "title": "Latest Collection Status",
+                "type": "string"
+              },
+              "latest_successful_observation": {
+                "anyOf": [
+                  {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Latest Successful Observation"
+              },
+              "source_url": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Source Url"
+              },
+              "status": {
+                "title": "Status",
+                "type": "string"
+              }
+            },
+            "title": "DeltaCoverage",
+            "type": "object"
+          },
+          "title": "Coverage",
+          "type": "array"
+        },
+        "coverage_start": {
+          "format": "date-time",
+          "title": "Coverage Start",
+          "type": "string"
+        },
+        "jobs": {
+          "items": {
+            "properties": {
+              "actionable_at": {
+                "format": "date-time",
+                "title": "Actionable At",
+                "type": "string"
+              },
+              "board": {
+                "title": "Board",
+                "type": "string"
+              },
+              "fields": {
+                "additionalProperties": true,
+                "title": "Fields",
+                "type": "object"
+              },
+              "first_seen_at": {
+                "format": "date-time",
+                "title": "First Seen At",
+                "type": "string"
+              },
+              "id": {
+                "title": "Id",
+                "type": "string"
+              },
+              "latest_seen_at": {
+                "format": "date-time",
+                "title": "Latest Seen At",
+                "type": "string"
+              },
+              "open_transitions_after_cursor": {
+                "items": {
+                  "properties": {
+                    "from_state": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "From State"
+                    },
+                    "observed_at": {
+                      "format": "date-time",
+                      "title": "Observed At",
+                      "type": "string"
+                    },
+                    "source_url": {
+                      "title": "Source Url",
+                      "type": "string"
+                    },
+                    "to_state": {
+                      "title": "To State",
+                      "type": "string"
+                    }
+                  },
+                  "title": "StateChange",
+                  "type": "object"
+                },
+                "title": "Open Transitions After Cursor",
+                "type": "array"
+              },
+              "pass_count": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Pass Count"
+              },
+              "reason": {
+                "title": "Reason",
+                "type": "string"
+              },
+              "source_url": {
+                "title": "Source Url",
+                "type": "string"
+              },
+              "state": {
+                "title": "State",
+                "type": "string"
+              },
+              "submission_count": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Submission Count"
+              }
+            },
+            "title": "FundedWorkDeltaItem",
+            "type": "object"
+          },
+          "title": "Jobs",
+          "type": "array"
+        },
+        "limits": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Limits",
+          "type": "array"
+        },
+        "next_cursor": {
+          "format": "date-time",
+          "title": "Next Cursor",
+          "type": "string"
+        },
+        "observation_age_seconds": {
+          "title": "Observation Age Seconds",
+          "type": "integer"
+        },
+        "since": {
+          "format": "date-time",
+          "title": "Since",
+          "type": "string"
+        },
+        "store_depth": {
+          "properties": {
+            "first": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "First"
+            },
+            "last": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Last"
+            },
+            "observations": {
+              "title": "Observations",
+              "type": "integer"
+            },
+            "subjects": {
+              "title": "Subjects",
+              "type": "integer"
+            }
+          },
+          "title": "StoreDepth",
+          "type": "object",
+          "required": [
+            "observations",
+            "subjects"
+          ]
+        }
+      },
+      "title": "FundedWorkDeltaResponse",
+      "type": "object",
+      "required": [
+        "as_of",
+        "coverage",
+        "coverage_start",
+        "jobs",
+        "limits",
+        "next_cursor",
+        "observation_age_seconds",
+        "since",
+        "store_depth"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "jobs[].id"
+      }
+    ],
+    "bounds": {
+      "observation_age_seconds": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "bounty-signals.krimskrams.xyz",
+    "endpoint": "https://bounty-signals.krimskrams.xyz/v1/funded-work/delta",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

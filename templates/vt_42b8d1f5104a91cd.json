@@ -1,0 +1,120 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_42b8d1f5104a91cd",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "jobs": {
+          "items": {
+            "properties": {
+              "apply_options": {
+                "items": {
+                  "properties": {
+                    "link": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "title": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object",
+                  "required": [
+                    "link",
+                    "title"
+                  ]
+                },
+                "type": "array"
+              },
+              "company": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "highlights": {
+                "items": {
+                  "properties": {
+                    "items": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "title": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "location": {
+                "type": "string"
+              },
+              "position": {
+                "type": "integer"
+              },
+              "posted_at": {
+                "type": "string"
+              },
+              "qualifications": {
+                "type": "string"
+              },
+              "salary": {
+                "type": "string"
+              },
+              "schedule_type": {
+                "type": "string"
+              },
+              "source": {
+                "description": "Original job board or employer source",
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "title"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "next_page_token": {
+          "type": "string"
+        },
+        "note": {
+          "description": "Present only when query is empty and the sample is returned",
+          "type": "string"
+        },
+        "query": {
+          "type": "string"
+        },
+        "searched_at": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "query",
+        "searched_at",
+        "jobs"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "jobs.use.x402atlas.com",
+    "endpoint": "https://jobs.use.x402atlas.com/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

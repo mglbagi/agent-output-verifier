@@ -1,0 +1,100 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_07e9cde5473ec66d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "citations": {
+          "type": "array"
+        },
+        "conversationId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "message": {
+          "properties": {
+            "citations": {
+              "type": "array"
+            },
+            "finishReason": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "role": {
+              "type": "string"
+            },
+            "suggestedPrompts": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "citations",
+            "finishReason",
+            "id",
+            "role",
+            "suggestedPrompts",
+            "text"
+          ]
+        },
+        "model": {
+          "type": "string"
+        },
+        "persona": {
+          "properties": {
+            "displayName": {
+              "type": "string"
+            },
+            "slug": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "displayName",
+            "slug"
+          ]
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "suggestedPrompts": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "requestId",
+        "conversationId",
+        "persona",
+        "message",
+        "model"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "chatrip.app",
+    "endpoint": "https://chatrip.app/api/v1/legends/chat/x402",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

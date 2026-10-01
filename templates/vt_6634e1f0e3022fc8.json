@@ -1,0 +1,39 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6634e1f0e3022fc8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "credits": {
+          "type": "integer"
+        },
+        "id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "statusUrl": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "statusUrl",
+        "credits"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "cron402-api.user-defaults.workers.dev",
+    "endpoint": "https://cron402-api.user-defaults.workers.dev/v1/crons",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

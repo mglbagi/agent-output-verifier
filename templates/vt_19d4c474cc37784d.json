@@ -1,0 +1,101 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_19d4c474cc37784d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "ecosystem": {
+          "type": "string"
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "license": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "license",
+            "name",
+            "version"
+          ]
+        },
+        "package": {
+          "type": "string"
+        },
+        "typosquat_risk": {
+          "type": "object",
+          "properties": {
+            "risk_level": {
+              "type": "string"
+            },
+            "signals": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "risk_level",
+            "signals"
+          ]
+        },
+        "vulnerabilities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "fixed_in": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string"
+              },
+              "summary": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "fixed_in",
+              "id",
+              "severity",
+              "summary"
+            ]
+          }
+        }
+      },
+      "required": [
+        "ecosystem",
+        "metadata",
+        "package",
+        "typosquat_risk",
+        "vulnerabilities"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "vulnerabilities[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "codepulse.waltsoft.net",
+    "endpoint": "https://codepulse.waltsoft.net/v1/scan",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

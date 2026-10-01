@@ -1,0 +1,85 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f5f75b1f84f266ac",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "analysis": {
+          "description": "Product-specific findings calculated from eligible evidence.",
+          "type": "object"
+        },
+        "dataStatus": {
+          "description": "Completeness of eligible evidence used by the live report.",
+          "enum": [
+            "complete",
+            "partial",
+            "unavailable"
+          ],
+          "type": "string"
+        },
+        "deliveryId": {
+          "description": "Unique delivery identifier returned after a successful paid request.",
+          "type": "string"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "evidence": {
+          "description": "Observed evidence, providers, timestamps and source lineage supporting the analysis.",
+          "type": "object"
+        },
+        "generatedAt": {
+          "description": "RFC3339 date-time timestamp.",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$",
+          "type": "string"
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "provenance": {
+          "description": "Issuer and signature/verification status when available.",
+          "type": "object"
+        },
+        "quality": {
+          "description": "Evidence-quality assessment; not probability of profit.",
+          "type": "object"
+        },
+        "reportId": {
+          "description": "Product report identifier when the service exposes one.",
+          "type": "string"
+        },
+        "schemaVersion": {
+          "description": "Version of the machine-readable report contract.",
+          "type": "string"
+        },
+        "serviceId": {
+          "const": "data-vintage-revision-risk",
+          "type": "string"
+        }
+      },
+      "required": [
+        "serviceId",
+        "generatedAt",
+        "dataStatus",
+        "analysis"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "pay.edge-agents.ai",
+    "endpoint": "https://pay.edge-agents.ai/v1/services/data-vintage-revision-risk",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

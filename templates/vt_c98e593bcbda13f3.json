@@ -1,0 +1,91 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c98e593bcbda13f3",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "as_of": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "ecosystem": {
+          "type": "string"
+        },
+        "exists": {
+          "type": "boolean"
+        },
+        "last_release": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "date",
+            "version"
+          ]
+        },
+        "months_since_update": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "recommendation": {
+          "type": "string"
+        },
+        "registry": {
+          "type": "object",
+          "properties": {}
+        },
+        "score": {
+          "type": "integer"
+        },
+        "score_breakdown": {
+          "type": "array"
+        },
+        "signals": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "as_of",
+        "ecosystem",
+        "exists",
+        "last_release",
+        "months_since_update",
+        "name",
+        "recommendation",
+        "registry",
+        "score",
+        "score_breakdown",
+        "signals",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "cf-package-check.cf-exclusion-check.workers.dev",
+    "endpoint": "https://cf-package-check.cf-exclusion-check.workers.dev/v1/report",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

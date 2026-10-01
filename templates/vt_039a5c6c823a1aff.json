@@ -1,0 +1,267 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_039a5c6c823a1aff",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "as_of": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "cross_issuer": {
+          "properties": {
+            "deepest_issuer": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "direct_pools": {
+              "type": "array"
+            },
+            "st0x_vs_coinbase_bps": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "deepest_issuer",
+            "direct_pools",
+            "st0x_vs_coinbase_bps"
+          ]
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "impostors": {
+          "items": {
+            "properties": {
+              "address": {
+                "type": "string",
+                "pattern": "^0x[a-fA-F0-9]{40}$"
+              },
+              "dex": {
+                "type": "string"
+              },
+              "liquidity_usd": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "reason": {
+                "type": "string"
+              },
+              "symbol": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "address",
+              "dex",
+              "liquidity_usd",
+              "name",
+              "reason",
+              "symbol"
+            ]
+          },
+          "type": "array"
+        },
+        "issuers": {
+          "items": {
+            "properties": {
+              "address": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^0x[a-fA-F0-9]{40}$"
+              },
+              "available": {
+                "type": "boolean"
+              },
+              "best_pool": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "genuine": {
+                "properties": {
+                  "by": {
+                    "type": "string"
+                  },
+                  "verified": {
+                    "type": "boolean"
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "required": [
+                  "by",
+                  "verified"
+                ]
+              },
+              "issuer": {
+                "type": "string"
+              },
+              "liquidity_total_usd": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "multiplier": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "note": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "paused": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "premium_bps": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "premium_rate_adjusted_bps": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "price_usd": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "raindex_last_trade": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "standard": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "symbol": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "volume_24h_usd": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "wrapper_rate": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "type": "object",
+            "required": [
+              "available",
+              "issuer"
+            ]
+          },
+          "type": "array"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "read": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "object"
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "underlying": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "as_of",
+        "chain",
+        "cross_issuer",
+        "disclaimer",
+        "impostors",
+        "issuers",
+        "kind",
+        "read",
+        "sources",
+        "ticker",
+        "underlying"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "impostors[].liquidity_usd": {
+        "min": 0
+      },
+      "issuers[].liquidity_total_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "issuers[].price_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "issuers[].volume_24h_usd": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-accelerometer-feed.fly.dev",
+    "endpoint": "https://x402-accelerometer-feed.fly.dev/tokenized-equities/same-stock/:ticker",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

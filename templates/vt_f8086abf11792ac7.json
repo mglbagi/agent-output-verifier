@@ -1,0 +1,55 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f8086abf11792ac7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "control_flags": {
+          "description": "Number of notable issuer-control disclosures (not vulnerabilities)",
+          "type": "number"
+        },
+        "detectors": {
+          "description": "Per-check findings, each tagged threat / control / informational",
+          "type": "object"
+        },
+        "overall_risk": {
+          "description": "Overall Risk Level (Informational · Low · Medium · High)",
+          "type": "string"
+        },
+        "report_url": {
+          "description": "Shareable report URL. Renders an HTML report in a browser, returns JSON to API clients.",
+          "type": "string",
+          "format": "uri"
+        },
+        "threats_count": {
+          "description": "Number of holder-harm threats found (honeypot, armed freeze-and-seize, live pause, fake B20, ticker impersonation)",
+          "type": "number"
+        }
+      },
+      "required": [
+        "overall_risk",
+        "threats_count",
+        "control_flags",
+        "detectors",
+        "report_url"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "threats_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "centry.cybercentry.co.uk",
+    "endpoint": "https://centry.cybercentry.co.uk/api/services/base_token_verification",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2342a7742354a348",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "items": {
+            "properties": {
+              "date_human_readable": {
+                "nullable": true,
+                "type": "string"
+              },
+              "description": {
+                "nullable": true,
+                "type": "string"
+              },
+              "end_time": {
+                "nullable": true,
+                "type": "string"
+              },
+              "end_time_precision_sec": {
+                "nullable": true,
+                "type": "integer"
+              },
+              "end_time_utc": {
+                "nullable": true,
+                "type": "string"
+              },
+              "event_id": {
+                "type": "string"
+              },
+              "info_links": {
+                "items": {
+                  "properties": {
+                    "link": {
+                      "type": "string"
+                    },
+                    "source": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "source",
+                    "link"
+                  ],
+                  "type": "object"
+                },
+                "nullable": true,
+                "type": "array"
+              },
+              "is_virtual": {
+                "type": "boolean"
+              },
+              "language": {
+                "nullable": true,
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "publisher": {
+                "nullable": true,
+                "type": "string"
+              },
+              "publisher_domain": {
+                "nullable": true,
+                "type": "string"
+              },
+              "publisher_favicon": {
+                "nullable": true,
+                "type": "string"
+              },
+              "start_time": {
+                "nullable": true,
+                "type": "string"
+              },
+              "start_time_precision_sec": {
+                "nullable": true,
+                "type": "integer"
+              },
+              "start_time_utc": {
+                "nullable": true,
+                "type": "string"
+              },
+              "thumbnail": {
+                "nullable": true,
+                "type": "string"
+              },
+              "ticket_links": {
+                "items": {
+                  "properties": {
+                    "fav_icon": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "link": {
+                      "type": "string"
+                    },
+                    "source": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "source",
+                    "link"
+                  ],
+                  "type": "object"
+                },
+                "nullable": true,
+                "type": "array"
+              },
+              "venue": {
+                "nullable": true,
+                "properties": {
+                  "city": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "country": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "district": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "full_address": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "google_id": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "google_mid": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "latitude": {
+                    "nullable": true,
+                    "type": "number"
+                  },
+                  "longitude": {
+                    "nullable": true,
+                    "type": "number"
+                  },
+                  "name": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "phone_number": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "rating": {
+                    "nullable": true,
+                    "type": "number"
+                  },
+                  "review_count": {
+                    "nullable": true,
+                    "type": "integer"
+                  },
+                  "state": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "street": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "street_number": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "subtype": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "subtypes": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "nullable": true,
+                    "type": "array"
+                  },
+                  "timezone": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "website": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "zipcode": {
+                    "nullable": true,
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "event_id",
+              "name",
+              "link"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "parameters": {
+          "properties": {
+            "date": {
+              "type": "string"
+            },
+            "query": {
+              "type": "string"
+            },
+            "start": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "request_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "data[].start_time_precision_sec",
+        "other_field": "data[].end_time_precision_sec",
+        "if_present": true
+      },
+      {
+        "type": "unique",
+        "field": "data[].event_id",
+        "if_present": true
+      }
+    ],
+    "bounds": {
+      "data[].venue.latitude": {
+        "min": -90,
+        "max": 90,
+        "if_present": true
+      },
+      "data[].venue.longitude": {
+        "min": -180,
+        "max": 180,
+        "if_present": true
+      },
+      "data[].venue.review_count": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.openwebninja.com",
+    "endpoint": "https://x402.openwebninja.com/realtime-events-data/search-events",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

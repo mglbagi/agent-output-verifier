@@ -1,0 +1,144 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_412a8f5fc9b7a44f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "available_transcripts": {
+          "description": "Every track this video offers; feed language_code/type/title back to fetch one. A language may appear twice — the authored track and the asr one.",
+          "items": {
+            "properties": {
+              "language_code": {
+                "type": "string"
+              },
+              "selected": {
+                "description": "True on the track this response served",
+                "type": "boolean"
+              },
+              "title": {
+                "description": "Track title, on videos with named tracks",
+                "type": "string"
+              },
+              "type": {
+                "description": "asr on auto-generated tracks; absent on authored ones",
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "language_code"
+            ]
+          },
+          "type": "array"
+        },
+        "chapters": {
+          "description": "Chapter markers; empty for videos without chapters",
+          "items": {
+            "properties": {
+              "end_ms": {
+                "type": "integer"
+              },
+              "start_ms": {
+                "type": "integer"
+              },
+              "start_time_text": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "end_ms",
+              "start_ms",
+              "start_time_text",
+              "title"
+            ]
+          },
+          "type": "array"
+        },
+        "language_code": {
+          "description": "Language of the track actually served; omitted when the upstream identifies none — never an echo of the request",
+          "type": "string"
+        },
+        "note": {
+          "description": "Present only on the sample response (a call with no v): a hint that this is a canned example. The paid request ran; no upstream call was made.",
+          "type": "string"
+        },
+        "queried_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "segments": {
+          "items": {
+            "properties": {
+              "end_ms": {
+                "description": "Line end offset in milliseconds; absent on tracks that carry only starts",
+                "type": "integer"
+              },
+              "start_ms": {
+                "description": "Line start offset in milliseconds",
+                "type": "integer"
+              },
+              "start_time_text": {
+                "description": "Line start as displayed, e.g. 0:43",
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "start_ms",
+              "text"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "text": {
+          "description": "Whole transcript as one plain-text block",
+          "type": "string"
+        },
+        "video_id": {
+          "description": "Normalized 11-character video id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "video_id",
+        "queried_at",
+        "text",
+        "segments",
+        "chapters",
+        "available_transcripts"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "chapters[].start_ms",
+        "other_field": "chapters[].end_ms"
+      },
+      {
+        "type": "lte",
+        "field": "segments[].start_ms",
+        "other_field": "segments[].end_ms",
+        "if_present": true
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "youtube.use.x402atlas.com",
+    "endpoint": "https://youtube.use.x402atlas.com/transcript",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

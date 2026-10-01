@@ -1,0 +1,94 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_88dbbe54d2232ede",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "canonical_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "content_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "content_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fetched_bytes": {
+          "type": "integer"
+        },
+        "final_url": {
+          "format": "uri",
+          "type": "string"
+        },
+        "language": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "requested_url": {
+          "format": "uri",
+          "type": "string"
+        },
+        "status_code": {
+          "type": "integer"
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "word_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "requested_url",
+        "final_url",
+        "status_code",
+        "content_type",
+        "title",
+        "description",
+        "canonical_url",
+        "language",
+        "word_count",
+        "content_hash",
+        "fetched_bytes"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "fetched_bytes": {
+        "min": 0
+      },
+      "word_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "pixels.gateway.clawca.sh",
+    "endpoint": "https://pixels.gateway.clawca.sh/v1/link-inspect",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

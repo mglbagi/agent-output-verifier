@@ -1,0 +1,83 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5a64e275b9d75029",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "assets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "asset": {
+                "type": "string"
+              },
+              "biggest": {
+                "type": "object",
+                "properties": {
+                  "side": {
+                    "type": "string"
+                  },
+                  "usd": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "side",
+                  "usd"
+                ]
+              },
+              "long_usd": {
+                "type": "number"
+              },
+              "signal": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "asset",
+              "biggest",
+              "long_usd",
+              "signal"
+            ]
+          }
+        },
+        "signal": {
+          "type": "string"
+        },
+        "total_long_usd": {
+          "type": "number"
+        },
+        "total_short_usd": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "assets",
+        "signal",
+        "total_long_usd",
+        "total_short_usd"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "assets[].biggest.usd": {
+        "min": 0
+      },
+      "total_short_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "liq.lonestaroracle.xyz",
+    "endpoint": "https://liq.lonestaroracle.xyz/liquidations",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

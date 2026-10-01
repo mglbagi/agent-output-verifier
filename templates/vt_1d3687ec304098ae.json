@@ -1,0 +1,51 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1d3687ec304098ae",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "activity": {
+          "description": "Matched activity key",
+          "type": "string"
+        },
+        "average": {
+          "description": "Mean score on this activity across the 100 banks",
+          "type": "number"
+        },
+        "definition": {
+          "description": "What this activity measures",
+          "type": "string"
+        },
+        "ranking": {
+          "description": "Banks ranked on this activity: rank, bank, country, score",
+          "type": "array"
+        },
+        "report_date": {
+          "description": "Date of the report, YYYY-MM-DD",
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "activity",
+        "definition",
+        "report_date",
+        "average",
+        "ranking"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "gibai.app",
+    "endpoint": "https://gibai.app/activity/:name",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

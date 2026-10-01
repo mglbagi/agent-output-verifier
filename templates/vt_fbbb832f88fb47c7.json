@@ -1,0 +1,75 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fbbb832f88fb47c7",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "type": "integer"
+        },
+        "asof": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "creator": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "died": {
+          "type": "integer"
+        },
+        "failure_rate": {
+          "type": "number"
+        },
+        "known_bad": {
+          "type": "boolean"
+        },
+        "launched": {
+          "type": "integer"
+        },
+        "resolved": {
+          "type": "integer"
+        },
+        "rug_rate": {
+          "type": "number"
+        },
+        "rugged": {
+          "type": "integer"
+        },
+        "survived": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "active",
+        "asof",
+        "chain",
+        "creator",
+        "died",
+        "failure_rate",
+        "known_bad",
+        "launched",
+        "resolved",
+        "rug_rate",
+        "rugged",
+        "survived"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.groundtruths.xyz",
+    "endpoint": "https://api.groundtruths.xyz/x402/v1/flag",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

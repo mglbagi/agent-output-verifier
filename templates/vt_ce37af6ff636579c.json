@@ -1,0 +1,193 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ce37af6ff636579c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "alive": {
+          "type": "boolean"
+        },
+        "archive": {
+          "type": "object",
+          "properties": {
+            "available": {
+              "type": "boolean"
+            },
+            "closest_timestamp": {
+              "type": "string"
+            },
+            "closest_url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "available",
+            "closest_timestamp",
+            "closest_url"
+          ]
+        },
+        "bytes": {
+          "type": "integer"
+        },
+        "checked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "confidence": {
+          "type": "number"
+        },
+        "content_type": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "object",
+          "properties": {
+            "age_days": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "rdap_ok": {
+              "type": "boolean"
+            },
+            "registered_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "registrar": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "age_days",
+            "name",
+            "rdap_ok",
+            "registered_at",
+            "registrar"
+          ]
+        },
+        "final_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "http_status": {
+          "type": "integer"
+        },
+        "https": {
+          "type": "boolean"
+        },
+        "ms": {
+          "type": "integer"
+        },
+        "redirect_chain": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "integer"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "status",
+              "url"
+            ]
+          }
+        },
+        "robots": {
+          "type": "object",
+          "properties": {
+            "agents": {
+              "type": "object",
+              "properties": {
+                "*": {
+                  "type": "boolean"
+                },
+                "ClaudeBot": {
+                  "type": "boolean"
+                },
+                "GPTBot": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "*",
+                "ClaudeBot",
+                "GPTBot"
+              ]
+            },
+            "fetched": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "agents",
+            "fetched"
+          ]
+        },
+        "soft_404": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "warnings": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "alive",
+        "archive",
+        "bytes",
+        "checked_at",
+        "confidence",
+        "content_type",
+        "domain",
+        "final_url",
+        "http_status",
+        "https",
+        "ms",
+        "redirect_chain",
+        "robots",
+        "soft_404",
+        "title",
+        "url",
+        "warnings"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "bytes": {
+        "min": 0
+      },
+      "confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "domain.age_days": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "offercheck.offercheck.workers.dev",
+    "endpoint": "https://offercheck.offercheck.workers.dev/v1/check/url",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

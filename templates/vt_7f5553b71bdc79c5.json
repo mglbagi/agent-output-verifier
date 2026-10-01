@@ -1,0 +1,108 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7f5553b71bdc79c5",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "candidate_count": {
+          "type": "integer"
+        },
+        "data_version": {},
+        "matches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "city": {
+                "type": "string"
+              },
+              "confidence": {
+                "type": "integer"
+              },
+              "kana": {
+                "type": "string"
+              },
+              "postal_code": {
+                "type": "string"
+              },
+              "prefecture": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "town": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "city",
+              "confidence",
+              "kana",
+              "postal_code",
+              "prefecture",
+              "source",
+              "town"
+            ]
+          }
+        },
+        "postal_code_match": {
+          "type": "boolean"
+        },
+        "query": {
+          "type": "object",
+          "properties": {
+            "postal_code": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "postal_code"
+          ]
+        },
+        "record_count": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "string"
+        },
+        "warnings": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "candidate_count",
+        "matches",
+        "postal_code_match",
+        "query",
+        "record_count",
+        "status",
+        "warnings"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "candidate_count": {
+        "min": 0
+      },
+      "matches[].confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "record_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.jpverify.com",
+    "endpoint": "https://api.jpverify.com/jp-address/postal-lookup",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

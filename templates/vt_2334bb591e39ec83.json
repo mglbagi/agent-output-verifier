@@ -1,0 +1,78 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2334bb591e39ec83",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "answer": {
+          "description": "LLM-generated answer grounded in the results (only when include_answer was set)",
+          "type": "string"
+        },
+        "note": {
+          "description": "Present only on a sample response (empty/omitted query): a hint to pass a real query. The paid request ran; no upstream call was made.",
+          "type": "string"
+        },
+        "queried_at": {
+          "description": "Time the search was executed (UTC)",
+          "format": "date-time",
+          "type": "string"
+        },
+        "query": {
+          "description": "The upstream-normalized query that was executed",
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "content": {
+                "description": "Relevant snippet from the page",
+                "type": "string"
+              },
+              "raw_content": {
+                "description": "Cleaned full page content (only when include_raw_content was set)",
+                "type": "string"
+              },
+              "score": {
+                "description": "Relevance score",
+                "type": "number"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "title",
+              "url",
+              "content",
+              "score"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "queried_at",
+        "query",
+        "results"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "websearch.use.x402atlas.com",
+    "endpoint": "https://websearch.use.x402atlas.com/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5fb7fa473db800f0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "expiresAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "resultUrl": {
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "required": [
+        "resultUrl",
+        "expiresAt"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "clearcut-production-bcc0.up.railway.app",
+    "endpoint": "https://clearcut-production-bcc0.up.railway.app/api/remove-background",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

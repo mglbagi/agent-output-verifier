@@ -1,0 +1,63 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f4bff34a9c094870",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "as_of": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "composite_score": {
+          "description": "SYRI 0–100; higher = lower risk.",
+          "type": "number"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "entity": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "methodology_version": {
+          "type": "string"
+        },
+        "tier": {
+          "enum": [
+            "Conservative",
+            "Moderate",
+            "Speculative"
+          ],
+          "type": "string"
+        },
+        "tier_label": {
+          "type": "string"
+        },
+        "view": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "entity",
+        "composite_score",
+        "tier",
+        "as_of"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "syri.rfsrisk.ai",
+    "endpoint": "https://syri.rfsrisk.ai/api/score",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

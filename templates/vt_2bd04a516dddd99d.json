@@ -1,0 +1,142 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2bd04a516dddd99d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "ok": {
+          "const": true,
+          "type": "boolean"
+        },
+        "outil": {
+          "const": "fair_draw",
+          "type": "string"
+        },
+        "resultat": {
+          "properties": {
+            "algorithm": {
+              "type": "string"
+            },
+            "already_drawn": {
+              "type": "boolean"
+            },
+            "client_seed": {
+              "type": "string"
+            },
+            "commitment_id": {
+              "type": "string"
+            },
+            "committed_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "count": {
+              "type": "number"
+            },
+            "drawn_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "max": {
+              "type": "number"
+            },
+            "min": {
+              "type": "number"
+            },
+            "note": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "numbers": {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            "server_seed": {
+              "type": "string"
+            },
+            "server_seed_hash": {
+              "type": "string"
+            },
+            "verify_code": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "commitment_id",
+            "algorithm",
+            "server_seed_hash",
+            "server_seed",
+            "client_seed",
+            "count",
+            "min",
+            "max",
+            "numbers",
+            "drawn_at",
+            "verify_code",
+            "already_drawn"
+          ],
+          "type": "object"
+        },
+        "texte": {
+          "type": "string"
+        },
+        "x402": {
+          "properties": {
+            "amount": {
+              "type": "string"
+            },
+            "asset": {
+              "type": "string"
+            },
+            "network": {
+              "type": "string"
+            },
+            "transaction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "transaction",
+            "network",
+            "amount",
+            "asset"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "ok",
+        "outil"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "resultat.min",
+        "other_field": "resultat.max",
+        "if_present": true
+      }
+    ],
+    "bounds": {
+      "resultat.count": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "web-production-220a3.up.railway.app",
+    "endpoint": "https://web-production-220a3.up.railway.app/agentic/call/fair_draw",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

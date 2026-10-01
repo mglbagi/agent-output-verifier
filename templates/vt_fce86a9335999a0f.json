@@ -1,0 +1,44 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fce86a9335999a0f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "description": "Number of QR/barcodes detected in the image.",
+          "type": "integer"
+        },
+        "image_size": {
+          "description": "Decoded image dimensions in pixels.",
+          "type": "object"
+        },
+        "results": {
+          "description": "One record per detected code: type, decoded data, bounding rect, and polygon points.",
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "count",
+        "image_size",
+        "results"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "qr-api-production-1836.up.railway.app",
+    "endpoint": "https://qr-api-production-1836.up.railway.app/decode",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

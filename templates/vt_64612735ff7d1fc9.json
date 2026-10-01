@@ -1,0 +1,210 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_64612735ff7d1fc9",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "object",
+                "properties": {
+                  "count": {
+                    "type": "integer"
+                  },
+                  "relations": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    }
+                  }
+                }
+              },
+              "reason_code": {
+                "type": "string"
+              },
+              "statement_index": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "id",
+              "status"
+            ]
+          }
+        },
+        "coverage": {
+          "type": "object",
+          "properties": {
+            "assessment_scope": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "checks_not_performed": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "checks_performed": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "complete_for_declared_scope": {
+              "type": "boolean"
+            },
+            "dialect": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "assessment_scope",
+            "checks_not_performed",
+            "checks_performed",
+            "complete_for_declared_scope",
+            "dialect"
+          ]
+        },
+        "decision": {
+          "type": "string"
+        },
+        "input_fingerprint": {
+          "type": "string"
+        },
+        "machine_action": {
+          "type": "string"
+        },
+        "reason_codes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ruleset_version": {
+          "type": "string"
+        },
+        "statement_count": {
+          "type": "integer"
+        },
+        "statements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "administrative": {
+                "type": "boolean"
+              },
+              "changes_privileges": {
+                "type": "boolean"
+              },
+              "changes_schema": {
+                "type": "boolean"
+              },
+              "decision": {
+                "type": "string"
+              },
+              "index": {
+                "type": "integer"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "mutates_data": {
+                "type": "boolean"
+              },
+              "reason_codes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "relations": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "administrative",
+              "changes_privileges",
+              "changes_schema",
+              "decision",
+              "index",
+              "kind",
+              "mutates_data",
+              "reason_codes",
+              "relations"
+            ]
+          }
+        }
+      },
+      "required": [
+        "checks",
+        "coverage",
+        "decision",
+        "input_fingerprint",
+        "machine_action",
+        "reason_codes",
+        "ruleset_version",
+        "statement_count",
+        "statements"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "checks[].id"
+      }
+    ],
+    "bounds": {
+      "checks[].evidence.count": {
+        "min": 0,
+        "if_present": true
+      },
+      "statement_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.vrsai.tech",
+    "endpoint": "https://api.vrsai.tech/v1/capabilities/sql_preflight",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

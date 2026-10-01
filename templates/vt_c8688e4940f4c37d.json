@@ -1,0 +1,155 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c8688e4940f4c37d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "description": "Shortest Path answer-check validity and optimality verdict.",
+      "properties": {
+        "challenge_id": {
+          "description": "Checked Shortest Path challenge identity.",
+          "type": "string"
+        },
+        "correct": {
+          "description": "Whether the Shortest Path submission has minimum total weight.",
+          "type": "boolean"
+        },
+        "feedback": {
+          "additionalProperties": false,
+          "description": "Shortest Path validity and optimality measurements.",
+          "properties": {
+            "absolute_gap": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "first_invalid_node": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "message": {
+              "type": "string"
+            },
+            "optimal_total_weight": {
+              "type": "integer"
+            },
+            "percentage_gap_percent": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "submitted_edge_sequence": {
+              "items": {
+                "additionalProperties": false,
+                "description": "One Shortest Path edge used by the submitted path.",
+                "properties": {
+                  "from": {
+                    "description": "Traversal source node.",
+                    "type": "string"
+                  },
+                  "to": {
+                    "description": "Traversal destination node.",
+                    "type": "string"
+                  },
+                  "weight": {
+                    "description": "Declared edge weight.",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "from",
+                  "to",
+                  "weight"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "submitted_total_weight": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "message",
+            "first_invalid_node",
+            "submitted_edge_sequence",
+            "submitted_total_weight",
+            "optimal_total_weight",
+            "absolute_gap",
+            "percentage_gap_percent"
+          ],
+          "type": "object"
+        },
+        "game": {
+          "description": "Shortest Path game identity.",
+          "enum": [
+            "shortest-path"
+          ],
+          "type": "string"
+        },
+        "proof": {
+          "additionalProperties": false,
+          "description": "Present only after a correct Shortest Path answer.",
+          "properties": {
+            "optimal_path": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "optimal_path"
+          ],
+          "type": "object"
+        },
+        "score": {
+          "description": "Informational Shortest Path score: 100 when correct, otherwise 0.",
+          "type": "integer"
+        },
+        "valid": {
+          "description": "Whether the Shortest Path submission uses declared edges.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "challenge_id",
+        "game",
+        "valid",
+        "correct",
+        "score",
+        "feedback"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "feedback.optimal_total_weight": {
+        "min": 0
+      },
+      "feedback.percentage_gap_percent": {
+        "min": 0,
+        "max": 100
+      },
+      "feedback.submitted_total_weight": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-arcade.use.x402atlas.com",
+    "endpoint": "https://agent-arcade.use.x402atlas.com/shortest-path/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

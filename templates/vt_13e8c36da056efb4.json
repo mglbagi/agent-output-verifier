@@ -1,0 +1,37 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_13e8c36da056efb4",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "dstAmount": {
+          "type": "string"
+        },
+        "gas": {
+          "type": "integer"
+        },
+        "srcAmount": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "dstAmount",
+        "gas",
+        "srcAmount"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "3route.agents.bakingbad.dev",
+    "endpoint": "https://3route.agents.bakingbad.dev/v1/pro/:chainId/quote",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

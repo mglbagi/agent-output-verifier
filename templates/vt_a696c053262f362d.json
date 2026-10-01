@@ -1,0 +1,70 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a696c053262f362d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "macro": {
+          "type": "object"
+        },
+        "marks": {
+          "items": {
+            "properties": {
+              "change24h": {
+                "type": "string"
+              },
+              "price": {
+                "type": "string"
+              },
+              "symbol": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "change24h",
+              "price",
+              "symbol"
+            ]
+          },
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "sentiment": {
+          "properties": {
+            "index": {
+              "type": "number"
+            },
+            "label": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "index",
+            "label"
+          ]
+        }
+      },
+      "required": [
+        "ok"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "conc-exe.xyz",
+    "endpoint": "https://conc-exe.xyz/api/concierge-intel-macro",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

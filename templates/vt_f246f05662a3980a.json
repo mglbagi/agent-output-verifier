@@ -1,0 +1,136 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f246f05662a3980a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "description": "Number of results returned",
+          "type": "integer"
+        },
+        "coverageComplete": {
+          "description": "False if some days in the requested range are not in the copy yet",
+          "type": "boolean"
+        },
+        "lastSynced": {
+          "description": "The copy holds every notice posted up to this time (ISO 8601): when it was last synced from SAM.gov",
+          "type": "string",
+          "format": "date-time"
+        },
+        "query": {
+          "description": "The effective query, including the postedFrom/postedTo dates used (UTC)",
+          "type": "object"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "agency": {
+                "description": "Department",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "naics": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "noticeId": {
+                "type": "string"
+              },
+              "placeOfPerformanceState": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "postedDate": {
+                "description": "YYYY-MM-DD",
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date"
+              },
+              "responseDeadline": {
+                "description": "ISO 8601, often with a UTC offset; null if none",
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "setAside": {
+                "description": "Set-aside code, null if none",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "setAsideDescription": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "subAgency": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "title": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "url": {
+                "description": "SAM.gov page for the notice",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "noticeId",
+              "url"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "source": {
+          "type": "string"
+        },
+        "totalMatches": {
+          "description": "Open, de-duplicated matches in the requested range",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "lastSynced",
+        "count",
+        "results"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-data-api.agentdata.workers.dev",
+    "endpoint": "https://agent-data-api.agentdata.workers.dev/v1/contracts/opportunities",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

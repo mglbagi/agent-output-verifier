@@ -1,0 +1,42 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f6a1c9f2958ddc6b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "cachedAt": {
+          "description": "ISO timestamp the entry was cached, or null when freshly fetched",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "data": {
+          "description": "get_content: provider profile fields for the alias/subject. The rep_* tools answer their own JSON object (rank, achievements, persona matches, profile report) instead of this envelope.",
+          "type": "object"
+        },
+        "fromCache": {
+          "description": "Whether the result was served from cache",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "data",
+        "fromCache"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "app.r3p.xyz",
+    "endpoint": "https://app.r3p.xyz/mcp/x402",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

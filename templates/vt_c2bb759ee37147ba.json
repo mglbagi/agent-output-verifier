@@ -1,0 +1,101 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c2bb759ee37147ba",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "confidence": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number"
+            },
+            "company": {
+              "type": "number"
+            },
+            "email": {
+              "type": "number"
+            },
+            "invoice_no": {
+              "type": "number"
+            },
+            "phone": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "amount",
+            "company",
+            "email",
+            "invoice_no",
+            "phone"
+          ]
+        },
+        "extracted": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "string"
+            },
+            "company": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string",
+              "format": "email"
+            },
+            "invoice_no": {
+              "type": "string"
+            },
+            "phone": {}
+          },
+          "required": [
+            "amount",
+            "company",
+            "email",
+            "invoice_no"
+          ]
+        },
+        "found": {
+          "type": "integer"
+        },
+        "missing": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "total": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "confidence",
+        "extracted",
+        "found",
+        "missing",
+        "total"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "confidence.amount": {
+        "min": 0
+      },
+      "total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-extract-wg5z.onrender.com",
+    "endpoint": "https://x402-extract-wg5z.onrender.com/extract-fields",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

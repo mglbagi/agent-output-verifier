@@ -1,0 +1,65 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_49d040f6a3d2a05a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "affectedPackages": {
+          "type": "array"
+        },
+        "cveId": {
+          "type": "string"
+        },
+        "issues": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "references": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "severity": {
+          "nullable": true,
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "found",
+            "not_found",
+            "invalid"
+          ]
+        },
+        "summary": {
+          "nullable": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "affectedPackages",
+        "cveId",
+        "issues",
+        "references",
+        "severity",
+        "status",
+        "summary"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-hono-api.inraby.workers.dev",
+    "endpoint": "https://x402-hono-api.inraby.workers.dev/api/v1/cve-lookup",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

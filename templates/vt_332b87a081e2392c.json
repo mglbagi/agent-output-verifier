@@ -1,0 +1,119 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_332b87a081e2392c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "amazon_link": {
+          "type": "string",
+          "format": "uri"
+        },
+        "amazon_search": {
+          "type": "string"
+        },
+        "concerns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "health_score": {
+          "type": "string"
+        },
+        "highest_leverage_moves": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "effort": {
+                "type": "string"
+              },
+              "impact": {
+                "type": "string"
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "why": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "action",
+              "effort",
+              "impact",
+              "rank",
+              "why"
+            ]
+          }
+        },
+        "key_ratios": {
+          "type": "object",
+          "properties": {
+            "debt_to_income": {
+              "type": "string"
+            },
+            "emergency_fund_months": {
+              "type": "string"
+            },
+            "savings_rate": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "debt_to_income",
+            "emergency_fund_months",
+            "savings_rate"
+          ]
+        },
+        "net_worth_estimate": {
+          "type": "string"
+        },
+        "rate_context": {
+          "type": "string"
+        },
+        "strengths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "summary": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "amazon_link",
+        "amazon_search",
+        "concerns",
+        "disclaimer",
+        "health_score",
+        "highest_leverage_moves",
+        "key_ratios",
+        "net_worth_estimate",
+        "rate_context",
+        "strengths",
+        "summary"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "wealthpulse.theaslangroupllc.com",
+    "endpoint": "https://wealthpulse.theaslangroupllc.com/api/wealth/snapshot",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d781f3dcf7dd251e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "auditoria": {
+          "properties": {
+            "coverage": {
+              "anyOf": [
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Coverage"
+            },
+            "elapsed_ms": {
+              "title": "Elapsed Ms",
+              "type": "integer"
+            },
+            "evidence": {
+              "anyOf": [
+                {
+                  "items": {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Evidence"
+            },
+            "findings": {
+              "items": {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "title": "Findings",
+              "type": "array"
+            },
+            "grade": {
+              "title": "Grade",
+              "type": "string"
+            },
+            "infrastructure": {
+              "anyOf": [
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Infrastructure"
+            },
+            "observed": {
+              "anyOf": [
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Observed"
+            },
+            "receipt": {
+              "anyOf": [
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Receipt"
+            },
+            "recommended_actions": {
+              "items": {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "title": "Recommended Actions",
+              "type": "array"
+            },
+            "report_hash": {
+              "title": "Report Hash",
+              "type": "string"
+            },
+            "rule_pack_version": {
+              "title": "Rule Pack Version",
+              "type": "string"
+            },
+            "rule_packs_applied": {
+              "additionalProperties": {
+                "type": "integer"
+              },
+              "title": "Rule Packs Applied",
+              "type": "object"
+            },
+            "score": {
+              "title": "Score",
+              "type": "integer"
+            },
+            "summary": {
+              "additionalProperties": {
+                "type": "integer"
+              },
+              "title": "Summary",
+              "type": "object"
+            }
+          },
+          "required": [
+            "score",
+            "grade",
+            "summary",
+            "rule_pack_version",
+            "rule_packs_applied",
+            "findings",
+            "recommended_actions",
+            "report_hash",
+            "elapsed_ms"
+          ],
+          "title": "RespuestaAuditoria",
+          "type": "object"
+        },
+        "coinbase_veredicto": {
+          "additionalProperties": true,
+          "description": "Veredicto del validador público x402 de Coinbase.",
+          "title": "Coinbase Veredicto",
+          "type": "object"
+        },
+        "plan_remediacion": {
+          "description": "Pasos priorizados escritos por IA a partir de los findings.",
+          "items": {
+            "type": "string"
+          },
+          "title": "Plan Remediacion",
+          "type": "array"
+        },
+        "uso": {
+          "additionalProperties": true,
+          "title": "Uso",
+          "type": "object"
+        }
+      },
+      "required": [
+        "auditoria",
+        "coinbase_veredicto",
+        "uso"
+      ],
+      "title": "RespuestaLaunchAuditPro",
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agente.revenuerecoveryai.app",
+    "endpoint": "https://agente.revenuerecoveryai.app/v1/x402/launch-audit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

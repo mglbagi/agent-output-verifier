@@ -1,0 +1,187 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b086e08c66b7357c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "decision": {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "string"
+            },
+            "priority": {
+              "type": "integer"
+            },
+            "score": {
+              "type": "integer"
+            },
+            "target": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "action",
+            "confidence",
+            "priority",
+            "score",
+            "target"
+          ]
+        },
+        "evidence": {
+          "type": "object",
+          "properties": {
+            "acceleration": {
+              "type": "integer"
+            },
+            "acceleration_delta": {
+              "type": "integer"
+            },
+            "acceleration_status": {
+              "type": "string"
+            },
+            "conviction": {
+              "type": "integer"
+            },
+            "evolution_status": {
+              "type": "string"
+            },
+            "fresh_opportunities_24h": {
+              "type": "integer"
+            },
+            "snapshot_count": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "acceleration",
+            "acceleration_delta",
+            "acceleration_status",
+            "conviction",
+            "evolution_status",
+            "fresh_opportunities_24h",
+            "snapshot_count"
+          ]
+        },
+        "fresh_opportunity": {
+          "type": "object",
+          "properties": {
+            "link": {
+              "type": "string",
+              "format": "uri"
+            },
+            "signal_score": {
+              "type": "integer"
+            },
+            "tier": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "link",
+            "signal_score",
+            "tier",
+            "title"
+          ]
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "next_action": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "urgency": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "target",
+            "type",
+            "urgency"
+          ]
+        },
+        "price_usd": {
+          "type": "number"
+        },
+        "stop_conditions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "metric": {
+                "type": "string"
+              },
+              "operator": {
+                "type": "string"
+              },
+              "value": {
+                "type": [
+                  "integer",
+                  "string"
+                ]
+              }
+            },
+            "required": [
+              "metric",
+              "operator",
+              "value"
+            ]
+          }
+        },
+        "valid_for_seconds": {
+          "type": "integer"
+        },
+        "why_now": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "decision",
+        "evidence",
+        "fresh_opportunity",
+        "generated_at",
+        "next_action",
+        "price_usd",
+        "stop_conditions",
+        "valid_for_seconds",
+        "why_now"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "evidence.snapshot_count": {
+        "min": 0
+      },
+      "price_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-economy-signal-x402-mainnet.bronzetti-andrea.workers.dev",
+    "endpoint": "https://agent-economy-signal-x402-mainnet.bronzetti-andrea.workers.dev/premium/agent-brief",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_111513ba747ef7b1",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "accepts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "amount_usd": {
+                "type": "number"
+              },
+              "network": {
+                "type": "string"
+              },
+              "pay_to": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "amount_usd",
+              "network",
+              "pay_to"
+            ]
+          }
+        },
+        "failures": {
+          "type": "array"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "receipt": {
+          "type": "object",
+          "properties": {
+            "algorithm": {
+              "type": "string"
+            },
+            "key_id": {
+              "type": "string"
+            },
+            "receipt_id": {
+              "type": "string"
+            },
+            "signature": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "algorithm",
+            "key_id",
+            "receipt_id",
+            "signature"
+          ]
+        },
+        "status_code": {
+          "type": "integer"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "accepts",
+        "failures",
+        "protocol",
+        "receipt",
+        "status_code",
+        "url",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "accepts[].amount_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "sentinel.rootstuff.io",
+    "endpoint": "https://sentinel.rootstuff.io/x402/payment-envelope",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

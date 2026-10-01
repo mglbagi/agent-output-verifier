@@ -1,0 +1,65 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_72233a4b28e0eb31",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "id": {
+          "description": "Session id — poll GET /api/v3/sessions/{session_id} for progress.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "isTaskSuccessful": {
+          "description": "Agent self-assessment of whether the task succeeded.",
+          "type": "boolean"
+        },
+        "liveUrl": {
+          "description": "Watch the browser session live.",
+          "type": "string",
+          "format": "uri"
+        },
+        "output": {
+          "description": "Agent's final result: free-form text, or structured data when outputSchema was requested."
+        },
+        "recordingUrls": {
+          "description": "Video recordings of the session when enableRecording was set.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "created",
+            "idle",
+            "running",
+            "stopped",
+            "timed_out",
+            "error"
+          ],
+          "type": "string"
+        },
+        "stepCount": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "status"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.api.browser-use.com",
+    "endpoint": "https://x402.api.browser-use.com/api/v3/sessions",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

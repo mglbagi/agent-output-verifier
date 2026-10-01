@@ -1,0 +1,85 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b45c86ad6ec50f4a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "author": {
+          "type": "string"
+        },
+        "book_id": {
+          "type": "integer"
+        },
+        "bookshelves": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "chapter_detection": {
+          "type": "string"
+        },
+        "chapter_range": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "chapters_available": {
+          "type": "integer"
+        },
+        "chunk_count": {
+          "type": "integer"
+        },
+        "download_count": {
+          "type": "integer"
+        },
+        "subjects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "title": {
+          "type": "string"
+        },
+        "year": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "author",
+        "book_id",
+        "bookshelves",
+        "chapter_detection",
+        "chapter_range",
+        "chapters_available",
+        "chunk_count",
+        "download_count",
+        "subjects",
+        "title",
+        "year"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "chunk_count": {
+        "min": 0
+      },
+      "download_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "library.forgemesh.io",
+    "endpoint": "https://library.forgemesh.io/book-metadata",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

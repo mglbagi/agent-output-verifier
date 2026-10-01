@@ -1,0 +1,37 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3d232140a06986f7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "evidence": {
+          "type": "array"
+        },
+        "meta": {
+          "type": "object"
+        },
+        "turn": {
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "required": [
+        "evidence",
+        "meta",
+        "turn"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.kviria.com",
+    "endpoint": "https://api.kviria.com/mcp",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

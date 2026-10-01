@@ -1,0 +1,79 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_54b20af12a2d0691",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "api_version": {
+          "type": "string"
+        },
+        "closed_or_filtered_count": {
+          "type": "integer"
+        },
+        "complete": {
+          "type": "boolean"
+        },
+        "duration_ms": {
+          "type": "integer"
+        },
+        "open_ports": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "ports_requested": {
+          "type": "integer"
+        },
+        "ports_scanned": {
+          "type": "integer"
+        },
+        "resolved_ip": {
+          "type": "string"
+        },
+        "scan_type": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        },
+        "warning": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "api_version",
+        "target",
+        "resolved_ip",
+        "scan_type",
+        "duration_ms",
+        "complete",
+        "ports_requested",
+        "ports_scanned",
+        "open_ports",
+        "closed_or_filtered_count",
+        "warning"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "closed_or_filtered_count": {
+        "min": 0
+      },
+      "duration_ms": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "port-scanner.underscoredone.com",
+    "endpoint": "https://port-scanner.underscoredone.com/scan",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

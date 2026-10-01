@@ -1,0 +1,222 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d46e5292e5e01fa2",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": {},
+      "description": "Lichess user profile snapshot.",
+      "properties": {
+        "count": {
+          "additionalProperties": {},
+          "description": "Game count breakdown.",
+          "properties": {
+            "all": {
+              "description": "Total games.",
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
+              "type": "integer"
+            },
+            "bookmark": {
+              "description": "Bookmarked games.",
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
+              "type": "integer"
+            },
+            "draw": {
+              "description": "Draws.",
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
+              "type": "integer"
+            },
+            "import": {
+              "description": "Imported games.",
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
+              "type": "integer"
+            },
+            "loss": {
+              "description": "Losses.",
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
+              "type": "integer"
+            },
+            "rated": {
+              "description": "Rated games.",
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
+              "type": "integer"
+            },
+            "win": {
+              "description": "Wins.",
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "all",
+            "rated",
+            "win",
+            "loss",
+            "draw"
+          ],
+          "type": "object"
+        },
+        "createdAt": {
+          "description": "Account creation timestamp (ms epoch).",
+          "maximum": 9007199254740991,
+          "minimum": -9007199254740991,
+          "type": "integer"
+        },
+        "flair": {
+          "description": "User flair emoji slug.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Lowercase Lichess user id.",
+          "type": "string"
+        },
+        "online": {
+          "description": "Whether the user is online now.",
+          "type": "boolean"
+        },
+        "patron": {
+          "description": "Whether the user is a Lichess patron.",
+          "type": "boolean"
+        },
+        "perfs": {
+          "additionalProperties": {
+            "additionalProperties": {},
+            "properties": {
+              "games": {
+                "description": "Total games played.",
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              },
+              "prog": {
+                "description": "Rating progression (last 12 games).",
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              },
+              "prov": {
+                "description": "Whether the rating is provisional.",
+                "type": "boolean"
+              },
+              "rating": {
+                "description": "Current rating.",
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              },
+              "rd": {
+                "description": "Rating deviation.",
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "games",
+              "rating"
+            ],
+            "type": "object"
+          },
+          "description": "Per-variant performance objects keyed by perf name (bullet, blitz, rapid, classical, puzzle, …).",
+          "propertyNames": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "playTime": {
+          "additionalProperties": false,
+          "description": "Cumulative play time.",
+          "properties": {
+            "total": {
+              "description": "Total seconds played on Lichess.",
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
+              "type": "integer"
+            },
+            "tv": {
+              "description": "Seconds streamed on Lichess TV.",
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "total",
+            "tv"
+          ],
+          "type": "object"
+        },
+        "profile": {
+          "additionalProperties": {},
+          "description": "Free-form profile fields set by the user.",
+          "properties": {
+            "bio": {
+              "description": "User biography.",
+              "type": "string"
+            },
+            "firstName": {
+              "type": "string"
+            },
+            "flag": {
+              "description": "ISO 3166-1 alpha-2 country code.",
+              "type": "string"
+            },
+            "lastName": {
+              "type": "string"
+            },
+            "links": {
+              "description": "User-provided links.",
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "flag"
+          ]
+        },
+        "seenAt": {
+          "description": "Last activity timestamp (ms epoch).",
+          "maximum": 9007199254740991,
+          "minimum": -9007199254740991,
+          "type": "integer"
+        },
+        "title": {
+          "description": "FIDE title (GM, IM, FM, ...), if any.",
+          "type": "string"
+        },
+        "url": {
+          "description": "Lichess profile URL.",
+          "type": "string",
+          "format": "uri"
+        },
+        "username": {
+          "description": "Display username.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "username"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "chess402.vercel.app",
+    "endpoint": "https://chess402.vercel.app/api/user",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

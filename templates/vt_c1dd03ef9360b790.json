@@ -1,0 +1,122 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c1dd03ef9360b790",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "daily": {
+          "type": "object",
+          "properties": {
+            "ALLSKY_SFC_SW_DWN": {
+              "type": "object",
+              "properties": {
+                "20260601": {
+                  "type": "number"
+                },
+                "20260602": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "20260601",
+                "20260602"
+              ]
+            },
+            "T2M": {
+              "type": "object",
+              "properties": {
+                "20260601": {
+                  "type": "number"
+                },
+                "20260602": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "20260601",
+                "20260602"
+              ]
+            }
+          },
+          "required": [
+            "ALLSKY_SFC_SW_DWN",
+            "T2M"
+          ]
+        },
+        "end": {
+          "type": "string",
+          "format": "date"
+        },
+        "fill_value": {
+          "type": "number"
+        },
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "source": {
+          "type": "string"
+        },
+        "start": {
+          "type": "string",
+          "format": "date"
+        },
+        "units": {
+          "type": "object",
+          "properties": {
+            "ALLSKY_SFC_SW_DWN": {
+              "type": "string"
+            },
+            "T2M": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "ALLSKY_SFC_SW_DWN",
+            "T2M"
+          ]
+        }
+      },
+      "required": [
+        "daily",
+        "end",
+        "fill_value",
+        "latitude",
+        "longitude",
+        "source",
+        "start",
+        "units"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "start",
+        "other_field": "end"
+      }
+    ],
+    "bounds": {
+      "latitude": {
+        "min": -90,
+        "max": 90
+      },
+      "longitude": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "data.greeneris.io",
+    "endpoint": "https://data.greeneris.io/v1/solar/history",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

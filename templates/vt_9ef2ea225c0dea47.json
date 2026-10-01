@@ -1,0 +1,206 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9ef2ea225c0dea47",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "default_symbol": {
+          "type": "string"
+        },
+        "liq_radar": {
+          "type": "object",
+          "properties": {
+            "liq_density": {
+              "type": "object",
+              "properties": {
+                "asymmetry": {
+                  "type": "number"
+                },
+                "clusters_above": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "distance_pct": {
+                        "type": "number"
+                      },
+                      "price": {
+                        "type": "number"
+                      },
+                      "size_btc": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "distance_pct",
+                      "price",
+                      "size_btc"
+                    ]
+                  }
+                },
+                "clusters_below": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "distance_pct": {
+                        "type": "number"
+                      },
+                      "price": {
+                        "type": "number"
+                      },
+                      "size_btc": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "distance_pct",
+                      "price",
+                      "size_btc"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "asymmetry",
+                "clusters_above",
+                "clusters_below"
+              ]
+            },
+            "ls_ratio": {
+              "type": "object",
+              "properties": {
+                "long_pct": {
+                  "type": "integer"
+                },
+                "short_pct": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "long_pct",
+                "short_pct"
+              ]
+            },
+            "magnet": {
+              "type": "object",
+              "properties": {
+                "bias": {
+                  "type": "string"
+                },
+                "score": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "bias",
+                "score"
+              ]
+            },
+            "real_liquidations": {
+              "type": "object",
+              "properties": {
+                "window_1h": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    },
+                    "dominant": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "count",
+                    "dominant"
+                  ]
+                }
+              },
+              "required": [
+                "window_1h"
+              ]
+            }
+          },
+          "required": [
+            "liq_density",
+            "ls_ratio",
+            "magnet",
+            "real_liquidations"
+          ]
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "payload_schema": {
+          "type": "string"
+        },
+        "product": {
+          "type": "string"
+        },
+        "supported_symbols": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "symbol": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "default_symbol",
+        "liq_radar",
+        "ok",
+        "payload_schema",
+        "product",
+        "supported_symbols",
+        "symbol"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "liq_radar.liq_density.clusters_above[].distance_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "liq_radar.liq_density.clusters_above[].price": {
+        "min": 0
+      },
+      "liq_radar.liq_density.clusters_above[].size_btc": {
+        "min": 0
+      },
+      "liq_radar.liq_density.clusters_below[].distance_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "liq_radar.liq_density.clusters_below[].price": {
+        "min": 0
+      },
+      "liq_radar.liq_density.clusters_below[].size_btc": {
+        "min": 0
+      },
+      "liq_radar.ls_ratio.long_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "liq_radar.ls_ratio.short_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "liq_radar.real_liquidations.window_1h.count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hypernatt.com",
+    "endpoint": "https://hypernatt.com/api/m2m/liq-radar",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

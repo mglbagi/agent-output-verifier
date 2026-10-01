@@ -1,0 +1,136 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_530b0bff8a6dc879",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "confidence": {
+          "type": "string"
+        },
+        "notice": {
+          "type": "string"
+        },
+        "query": {
+          "type": "object",
+          "properties": {
+            "project": {
+              "type": "object",
+              "properties": {
+                "org_type": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "org_type",
+                "region"
+              ]
+            }
+          },
+          "required": [
+            "project"
+          ]
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "considered": {
+              "type": "integer"
+            },
+            "excluded": {
+              "type": "object",
+              "properties": {
+                "closed": {
+                  "type": "integer"
+                },
+                "ineligible": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "closed",
+                "ineligible"
+              ]
+            },
+            "matches": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "eligibility": {
+                    "type": "object",
+                    "properties": {
+                      "band": {
+                        "type": "string"
+                      },
+                      "missing": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "score": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "band",
+                      "missing",
+                      "score"
+                    ]
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "relevance": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "eligibility",
+                  "id",
+                  "name",
+                  "relevance"
+                ]
+              }
+            }
+          },
+          "required": [
+            "considered",
+            "excluded",
+            "matches"
+          ]
+        }
+      },
+      "required": [
+        "confidence",
+        "notice",
+        "query",
+        "result"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "result.matches[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.ukintel.uk",
+    "endpoint": "https://api.ukintel.uk/v1/grants/match",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

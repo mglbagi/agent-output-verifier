@@ -1,0 +1,153 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_28ae8a8c0d317c6c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "operation": {
+          "enum": [
+            "search",
+            "read",
+            "search_and_read",
+            "news_search",
+            "company_search",
+            "product_search",
+            "geographic_search"
+          ],
+          "type": "string"
+        },
+        "query": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "requested_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "result_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "results": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "author": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "content": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "content_sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "published_at": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "rank": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "retrieval_status": {
+                "enum": [
+                  "complete",
+                  "metadata_only",
+                  "failed"
+                ],
+                "type": "string"
+              },
+              "score": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "snippet": {
+                "type": "string"
+              },
+              "title": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "url": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "rank",
+              "title",
+              "url",
+              "published_at",
+              "author",
+              "score",
+              "snippet",
+              "content",
+              "content_sha256",
+              "retrieval_status"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "retrieved_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0",
+          "type": "string"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "operation",
+        "query",
+        "requested_url",
+        "retrieved_at",
+        "result_count",
+        "results",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "web-access-gateway.mattskowronis.workers.dev",
+    "endpoint": "https://web-access-gateway.mattskowronis.workers.dev/v1/product",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

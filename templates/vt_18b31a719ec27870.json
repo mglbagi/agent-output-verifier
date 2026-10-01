@@ -1,0 +1,136 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_18b31a719ec27870",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "crude_oil": {
+          "type": "object",
+          "properties": {
+            "as_of": {
+              "type": "string",
+              "format": "date"
+            },
+            "unit": {
+              "type": "string"
+            },
+            "value": {
+              "type": "number"
+            },
+            "vs_5yr_avg_pct": {
+              "type": "number"
+            },
+            "vs_year_ago_pct": {
+              "type": "number"
+            },
+            "weekly_change": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "as_of",
+            "unit",
+            "value",
+            "vs_5yr_avg_pct",
+            "vs_year_ago_pct",
+            "weekly_change"
+          ]
+        },
+        "interpretation": {
+          "type": "string"
+        },
+        "natgas_signal": {
+          "type": "string"
+        },
+        "natural_gas": {
+          "type": "object",
+          "properties": {
+            "as_of": {
+              "type": "string",
+              "format": "date"
+            },
+            "unit": {
+              "type": "string"
+            },
+            "value": {
+              "type": "number"
+            },
+            "vs_5yr_avg_pct": {
+              "type": "integer"
+            },
+            "weekly_change": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "as_of",
+            "unit",
+            "value",
+            "vs_5yr_avg_pct",
+            "weekly_change"
+          ]
+        },
+        "next_catalysts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "days_out": {
+                "type": "number"
+              },
+              "event": {
+                "type": "string"
+              },
+              "moves": {
+                "type": "string"
+              },
+              "next_release": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "days_out",
+              "event",
+              "moves",
+              "next_release"
+            ]
+          }
+        },
+        "petroleum_signal": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "crude_oil",
+        "interpretation",
+        "natgas_signal",
+        "natural_gas",
+        "next_catalysts",
+        "petroleum_signal",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "natural_gas.vs_5yr_avg_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "energy.lonestaroracle.xyz",
+    "endpoint": "https://energy.lonestaroracle.xyz/energy",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

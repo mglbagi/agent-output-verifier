@@ -1,0 +1,53 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_26c6851e256aed6b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "booth": {
+          "type": "string"
+        },
+        "campfire": {
+          "type": "object",
+          "properties": {
+            "followed": {
+              "type": "string"
+            },
+            "remaining": {
+              "type": "integer"
+            },
+            "tale": {
+              "type": "integer"
+            },
+            "your_spark": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "followed",
+            "remaining",
+            "tale",
+            "your_spark"
+          ]
+        }
+      },
+      "required": [
+        "booth",
+        "campfire"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "midway.lol",
+    "endpoint": "https://midway.lol/booth/campfire",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_da62e7e0c321ec90",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "check_after_seconds": {
+          "type": "number"
+        },
+        "image_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "job_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "model": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "prediction_id": {
+          "type": "string"
+        },
+        "price_paid": {
+          "type": "string"
+        },
+        "prompt": {
+          "type": "string"
+        },
+        "result_url": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "image_url",
+        "job_id",
+        "model",
+        "note",
+        "parameters",
+        "prediction_id",
+        "price_paid",
+        "prompt",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "pixel402.dylan-caponi.workers.dev",
+    "endpoint": "https://pixel402.dylan-caponi.workers.dev/generate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

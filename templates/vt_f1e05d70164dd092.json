@@ -1,0 +1,332 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f1e05d70164dd092",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "_atlas": {
+          "additionalProperties": false,
+          "description": "Atlas documentation and related-route metadata added after deployment",
+          "properties": {
+            "docs": {
+              "description": "Documentation URL for this bridge",
+              "format": "uri",
+              "maxLength": 512,
+              "type": "string"
+            },
+            "related": {
+              "description": "Bounded related Atlas routes",
+              "items": {
+                "additionalProperties": false,
+                "description": "One related Atlas route",
+                "properties": {
+                  "bridge": {
+                    "description": "Related bridge name",
+                    "maxLength": 64,
+                    "type": "string"
+                  },
+                  "docs": {
+                    "description": "Related bridge documentation URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  },
+                  "summary": {
+                    "description": "Short capability summary",
+                    "maxLength": 256,
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "Related route URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "bridge",
+                  "url",
+                  "docs",
+                  "summary"
+                ],
+                "type": "object"
+              },
+              "maxItems": 3,
+              "type": "array"
+            }
+          },
+          "required": [
+            "docs"
+          ],
+          "type": "object"
+        },
+        "count": {
+          "description": "Number of normalized events returned",
+          "maximum": 200,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "events": {
+          "description": "Deduplicated events ordered by occurred time descending then ID",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "alert_level": {
+                "description": "USGS PAGER alert level when supplied, or null",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "depth_km": {
+                "description": "Reported source depth in kilometers",
+                "maximum": 1000,
+                "minimum": -100,
+                "type": "number"
+              },
+              "event_type": {
+                "description": "USGS seismic event type when supplied, or null",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "felt_reports": {
+                "description": "Number of USGS DYFI felt reports, or null",
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "id": {
+                "description": "Preferred public event identifier",
+                "type": "string"
+              },
+              "latitude": {
+                "description": "Epicenter latitude in decimal degrees",
+                "maximum": 90,
+                "minimum": -90,
+                "type": "number"
+              },
+              "longitude": {
+                "description": "Epicenter longitude in decimal degrees",
+                "maximum": 180,
+                "minimum": -180,
+                "type": "number"
+              },
+              "magnitude": {
+                "description": "USGS preferred magnitude, or null when unknown",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "magnitude_type": {
+                "description": "USGS preferred magnitude method, or null when unknown",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "occurred_at": {
+                "description": "UTC origin time when rupture began",
+                "format": "date-time",
+                "type": "string"
+              },
+              "official_url": {
+                "description": "Validated inert official USGS HTTPS event-page URL, or null; never fetched by this bridge",
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "uri"
+              },
+              "place": {
+                "description": "USGS textual place description, or null when unknown",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "significance": {
+                "description": "USGS significance score; not probability, damage, or danger",
+                "minimum": 0,
+                "type": "integer"
+              },
+              "source_network": {
+                "description": "Preferred contributing network code, or null",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "description": "USGS review status when supplied, or null",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "tsunami": {
+                "description": "USGS tsunami flag; it is not a tsunami warning or prediction",
+                "type": "boolean"
+              },
+              "updated_at": {
+                "description": "UTC time the preferred event record was last revised",
+                "format": "date-time",
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "occurred_at",
+              "updated_at",
+              "magnitude",
+              "magnitude_type",
+              "place",
+              "longitude",
+              "latitude",
+              "depth_km",
+              "tsunami",
+              "significance",
+              "felt_reports",
+              "alert_level",
+              "status",
+              "event_type",
+              "official_url",
+              "source_network"
+            ],
+            "type": "object"
+          },
+          "maxItems": 200,
+          "type": "array"
+        },
+        "operation": {
+          "const": "recent-earthquakes",
+          "description": "Stable route operation",
+          "type": "string"
+        },
+        "query": {
+          "additionalProperties": false,
+          "description": "Normalized effective query identity used for source and cache selection",
+          "properties": {
+            "hours": {
+              "description": "Applied rolling hours",
+              "maximum": 720,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "limit": {
+              "description": "Applied event limit",
+              "maximum": 200,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "min_magnitude": {
+              "description": "Applied minimum preferred magnitude",
+              "maximum": 10,
+              "minimum": -2,
+              "type": "number"
+            },
+            "window_end": {
+              "description": "Inclusive UTC end bucket used for source query and cache identity",
+              "format": "date-time",
+              "type": "string"
+            },
+            "window_start": {
+              "description": "Inclusive UTC start of the effective bucketed window",
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "window_start",
+            "window_end",
+            "hours",
+            "min_magnitude",
+            "limit"
+          ],
+          "type": "object"
+        },
+        "retrieved_at": {
+          "description": "UTC time this validated snapshot was retrieved",
+          "format": "date-time",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "usgs-earthquake-v1",
+          "description": "Pinned USGS normalization contract",
+          "type": "string"
+        },
+        "source": {
+          "additionalProperties": false,
+          "description": "Official USGS provenance for the served normalized snapshot",
+          "properties": {
+            "generated_at": {
+              "description": "USGS source-generation or event-update time",
+              "format": "date-time",
+              "type": "string"
+            },
+            "name": {
+              "const": "USGS",
+              "description": "Official source organization",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "generated_at"
+          ],
+          "type": "object"
+        },
+        "stale": {
+          "description": "True only when an older validated exact-query snapshot was served after source failure",
+          "type": "boolean"
+        },
+        "warnings": {
+          "description": "Revision, freshness, source-link, and safety limitations",
+          "items": {
+            "description": "Actionable interpretation warning",
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "operation",
+        "schema_version",
+        "query",
+        "count",
+        "events",
+        "source",
+        "retrieved_at",
+        "stale",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "events[].id"
+      },
+      {
+        "type": "lte",
+        "field": "query.window_start",
+        "other_field": "query.window_end"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "earthquakes.use.x402atlas.com",
+    "endpoint": "https://earthquakes.use.x402atlas.com/recent",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

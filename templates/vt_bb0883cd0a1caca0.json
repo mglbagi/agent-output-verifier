@@ -1,0 +1,32 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bb0883cd0a1caca0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "content_id": {
+          "type": "string"
+        },
+        "payment_verified": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "required": [
+        "payment_verified"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.jubjubapp.com",
+    "endpoint": "https://api.jubjubapp.com/v2/paid/purchase_metadata",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

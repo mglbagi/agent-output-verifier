@@ -1,0 +1,92 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_289ffef9b13fd35f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {},
+        "generatedAt": {
+          "description": "ISO 8601 generation timestamp.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "product": {
+          "additionalProperties": false,
+          "properties": {
+            "chainUid": {
+              "enum": [
+                "ethereum"
+              ],
+              "type": "string"
+            },
+            "coinUid": {
+              "enum": [
+                "tether"
+              ],
+              "type": "string"
+            },
+            "currency": {
+              "enum": [
+                "usd"
+              ],
+              "type": "string"
+            },
+            "flowType": {
+              "enum": [
+                "bridge"
+              ],
+              "type": "string"
+            },
+            "id": {
+              "enum": [
+                "ethereum-tether-bridge-flows-7d"
+              ],
+              "type": "string"
+            },
+            "name": {
+              "enum": [
+                "Ethereum Tether Bridge Flows — 7 Days"
+              ],
+              "type": "string"
+            },
+            "timeframe": {
+              "enum": [
+                "7d"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "chainUid",
+            "timeframe",
+            "currency",
+            "flowType",
+            "coinUid"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "product",
+        "generatedAt",
+        "data"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-stablecoin-data-demo.ryan-ee4.workers.dev",
+    "endpoint": "https://x402-stablecoin-data-demo.ryan-ee4.workers.dev/v1/reports/stablecoin-bridge-flows",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

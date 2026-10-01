@@ -1,0 +1,73 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_51adb9eea9b9f2b8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "median_home_value": {
+                "type": "number"
+              },
+              "median_household_income": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "population": {
+                "type": "integer"
+              },
+              "poverty_rate_pct": {
+                "type": "number"
+              },
+              "unemployment_rate_pct": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "median_home_value",
+              "median_household_income",
+              "name",
+              "population",
+              "poverty_rate_pct",
+              "unemployment_rate_pct"
+            ]
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "data",
+        "success"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data[].poverty_rate_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "data[].unemployment_rate_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "econ.memoryapi.org",
+    "endpoint": "https://econ.memoryapi.org/x402/econ/demographics",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

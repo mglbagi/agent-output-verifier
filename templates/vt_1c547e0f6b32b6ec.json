@@ -1,0 +1,84 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1c547e0f6b32b6ec",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "drift_detected": {
+          "type": "boolean"
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "drift": {
+                "type": "boolean"
+              },
+              "feature": {
+                "type": "string"
+              },
+              "jensen_shannon": {
+                "type": "number"
+              },
+              "ks": {
+                "type": "number"
+              },
+              "psi": {
+                "type": "number"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "drift",
+              "feature",
+              "jensen_shannon",
+              "ks",
+              "psi",
+              "type"
+            ]
+          }
+        },
+        "summary": {
+          "type": "object",
+          "properties": {
+            "features_checked": {
+              "type": "integer"
+            },
+            "flagged_features": {
+              "type": "integer"
+            },
+            "threshold": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "features_checked",
+            "flagged_features",
+            "threshold"
+          ]
+        }
+      },
+      "required": [
+        "drift_detected",
+        "features",
+        "summary"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "modell.halowerk.com",
+    "endpoint": "https://modell.halowerk.com/v1/drift-check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

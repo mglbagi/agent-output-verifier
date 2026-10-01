@@ -1,0 +1,342 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7e733e2c0e3f99fe",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "The 200 body of every paid /work call. `result` is the worker's own output (its schema is per route); everything else is the same on every /work route. A receipt for the job is at `receipt_url`.",
+      "properties": {
+        "billing_warning": {
+          "description": "Present only when the charge was recorded with a caveat.",
+          "type": "string"
+        },
+        "price_usd": {
+          "description": "What this call cost, in USD.",
+          "type": "number"
+        },
+        "provenance": {
+          "description": "How the result was produced: which providers ran and how long each took.",
+          "properties": {
+            "attempts": {
+              "description": "Provider attempts made, including retries and failovers.",
+              "type": "integer"
+            },
+            "elapsed_ms": {
+              "description": "Wall-clock milliseconds for the whole job.",
+              "type": "integer"
+            },
+            "providers_used": {
+              "description": "Providers that served the job.",
+              "items": {
+                "description": "Provider name.",
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "steps": {
+              "description": "Every step the job ran, in order.",
+              "items": {
+                "description": "One step of the job.",
+                "properties": {
+                  "ms": {
+                    "description": "Milliseconds the step took.",
+                    "type": "integer"
+                  },
+                  "ok": {
+                    "description": "Whether the step succeeded.",
+                    "type": "boolean"
+                  },
+                  "provider": {
+                    "description": "Provider that served the step.",
+                    "type": "string"
+                  },
+                  "reason": {
+                    "description": "Failure reason, on a failed step.",
+                    "type": "string"
+                  },
+                  "step": {
+                    "description": "Step name inside the worker.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "step",
+                  "ok",
+                  "ms"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "steps",
+            "providers_used",
+            "attempts",
+            "elapsed_ms"
+          ],
+          "type": "object"
+        },
+        "receipt_id": {
+          "description": "Receipt id for this job.",
+          "type": "string"
+        },
+        "receipt_url": {
+          "description": "Where to fetch the machine-readable receipt (free, no payment).",
+          "type": "string"
+        },
+        "result": {
+          "properties": {
+            "as_of": {
+              "description": "The source's own timestamp for the price (ISO 8601; a date, or a time with its zone).",
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date-time"
+            },
+            "asset_class": {
+              "description": "stocks, etf, equity...",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "change": {
+              "description": "Change on the day.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "change_pct": {
+              "description": "Change on the day, percent.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "checked_at": {
+              "description": "When this node read the source (UTC). Nothing here is cached.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "currency": {
+              "description": "Quote currency.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "day_high": {
+              "description": "Day high.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "day_low": {
+              "description": "Day low.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "delayed_minutes": {
+              "description": "How delayed the source says the quote is; null when it does not say.",
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "exchange": {
+              "description": "Listing exchange as the source names it.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "history": {
+              "description": "Daily bars, oldest first; empty when include_history is false.",
+              "items": {
+                "description": "One trading day.",
+                "properties": {
+                  "close": {
+                    "description": "Close.",
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "date": {
+                    "description": "Trading day (YYYY-MM-DD).",
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "high": {
+                    "description": "High.",
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "low": {
+                    "description": "Low.",
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "open": {
+                    "description": "Open.",
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "volume": {
+                    "description": "Shares traded.",
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "date",
+                  "close"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "history_range": {
+              "description": "The range the history covers.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "history_rows": {
+              "description": "Bars returned.",
+              "type": "integer"
+            },
+            "market_state": {
+              "description": "Open, Closed, Pre-Market... as the source reports it.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "name": {
+              "description": "Company or instrument name.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "previous_close": {
+              "description": "Previous close.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "price": {
+              "description": "Last price.",
+              "type": "number"
+            },
+            "source": {
+              "description": "The provider that answered.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "symbol": {
+              "description": "Ticker.",
+              "type": "string"
+            },
+            "volume": {
+              "description": "Volume.",
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "symbol",
+            "price",
+            "as_of",
+            "delayed_minutes",
+            "history",
+            "history_rows",
+            "source",
+            "checked_at"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "const": "ok",
+          "description": "Present only on a delivered result.",
+          "type": "string"
+        },
+        "worker": {
+          "description": "Catalog name of the worker that ran.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "worker",
+        "price_usd",
+        "result",
+        "provenance",
+        "receipt_id",
+        "receipt_url"
+      ],
+      "title": "market.stock response",
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "result.history[].low",
+        "other_field": "result.history[].high",
+        "if_present": true
+      },
+      {
+        "type": "lte",
+        "field": "result.day_low",
+        "other_field": "result.day_high",
+        "if_present": true
+      }
+    ],
+    "bounds": {
+      "price_usd": {
+        "min": 0
+      },
+      "result.history[].volume": {
+        "min": 0,
+        "if_present": true
+      },
+      "result.price": {
+        "min": 0
+      },
+      "result.volume": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hubvibe-io.com",
+    "endpoint": "https://hubvibe-io.com/work/market/stock",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

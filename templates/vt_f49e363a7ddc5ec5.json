@@ -1,0 +1,132 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f49e363a7ddc5ec5",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "agentReadiness": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "format": {
+          "enum": [
+            "openapi",
+            "swagger",
+            "invalid"
+          ],
+          "type": "string"
+        },
+        "issues": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "fix": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "severity": {
+                "enum": [
+                  "error",
+                  "warning"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "severity",
+              "message",
+              "fix"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "limitation": {
+          "type": "string"
+        },
+        "operations": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "issues": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "method": {
+                "type": "string"
+              },
+              "operationId": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "path": {
+                "type": "string"
+              },
+              "score": {
+                "maximum": 1,
+                "minimum": 0,
+                "type": "number"
+              }
+            },
+            "required": [
+              "method",
+              "path",
+              "operationId",
+              "score",
+              "issues"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "score": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "valid": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "valid",
+        "score",
+        "format",
+        "issues",
+        "operations",
+        "agentReadiness",
+        "limitation"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "i3p3mgbsn54dvlivnk6wbumal40eqtsn.lambda-url.us-east-1.on.aws",
+    "endpoint": "https://i3p3mgbsn54dvlivnk6wbumal40eqtsn.lambda-url.us-east-1.on.aws/v1/openapi-agent-auditor",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_918ecc790f50c2c6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "latencyMs": {
+          "properties": {
+            "p50": {
+              "type": "number"
+            },
+            "p99": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "p50",
+            "p99"
+          ]
+        },
+        "priceUsd": {
+          "type": "number"
+        },
+        "problems": {
+          "items": {
+            "properties": {
+              "detail": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "detail",
+              "id",
+              "status"
+            ]
+          },
+          "type": "array"
+        },
+        "risk": {
+          "type": "number"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "latencyMs",
+        "priceUsd",
+        "problems",
+        "risk",
+        "url",
+        "verdict"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "problems[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "deadchannel.vercel.app",
+    "endpoint": "https://deadchannel.vercel.app/probe",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

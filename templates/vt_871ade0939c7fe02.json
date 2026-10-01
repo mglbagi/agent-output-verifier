@@ -1,0 +1,78 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_871ade0939c7fe02",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "citations_per_work": {
+          "type": "number"
+        },
+        "cited_by_count": {
+          "type": "integer"
+        },
+        "h_index": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "topic_strengths": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "field": {
+                "type": "string"
+              },
+              "topic": {
+                "type": "string"
+              },
+              "works_count": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "field",
+              "topic",
+              "works_count"
+            ]
+          }
+        },
+        "works_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "citations_per_work",
+        "cited_by_count",
+        "h_index",
+        "name",
+        "topic_strengths",
+        "works_count"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "cited_by_count": {
+        "min": 0
+      },
+      "topic_strengths[].works_count": {
+        "min": 0
+      },
+      "works_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "citepulse.theaslangroupllc.com",
+    "endpoint": "https://citepulse.theaslangroupllc.com/api/institution",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

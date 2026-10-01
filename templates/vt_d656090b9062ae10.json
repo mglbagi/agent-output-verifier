@@ -1,0 +1,138 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d656090b9062ae10",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "capability": {
+          "const": "commerce.quantity-preflight"
+        },
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "allowed": {
+              "type": "boolean"
+            },
+            "available_quantity": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "blockers": {
+              "type": "array"
+            },
+            "increment": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "max": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "min": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "requested_quantity": {
+              "type": "integer"
+            },
+            "stock_known": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "allowed",
+            "requested_quantity",
+            "min",
+            "max",
+            "increment",
+            "stock_known",
+            "available_quantity",
+            "blockers"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "additionalProperties": false,
+          "properties": {
+            "cache": {
+              "enum": [
+                "hit",
+                "miss",
+                "bypass"
+              ]
+            },
+            "checked_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "duration_ms": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "provider": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "provider",
+            "checked_at",
+            "cache",
+            "duration_ms"
+          ],
+          "type": "object"
+        },
+        "ok": {
+          "const": true
+        },
+        "version": {
+          "const": "1"
+        }
+      },
+      "required": [
+        "ok",
+        "capability",
+        "version",
+        "data",
+        "meta"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "data.min",
+        "other_field": "data.max"
+      }
+    ],
+    "bounds": {
+      "data.available_quantity": {
+        "min": 0
+      },
+      "data.requested_quantity": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "http--forest-gas-station--lcjl27p8lmjs.code.run",
+    "endpoint": "https://http--forest-gas-station--lcjl27p8lmjs.code.run/commerce/quantity-preflight",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

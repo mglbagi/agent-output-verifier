@@ -1,0 +1,117 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bb338bfe38b2854d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "amount": {
+          "type": "number"
+        },
+        "applicableCountry": {
+          "description": "The member state whose VAT rate applies.",
+          "type": "string"
+        },
+        "buyerCountry": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "crossBorder": {
+          "type": "boolean"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "grossAmount": {
+          "description": "amount + vatAmount.",
+          "type": "number"
+        },
+        "ossThresholdEur": {
+          "const": 10000,
+          "type": "integer"
+        },
+        "rateNote": {
+          "type": "string"
+        },
+        "scheme": {
+          "enum": [
+            "domestic",
+            "OSS",
+            "IOSS"
+          ],
+          "type": "string"
+        },
+        "sellerCountry": {
+          "type": "string"
+        },
+        "sellerInEu": {
+          "type": "boolean"
+        },
+        "source": {
+          "format": "uri",
+          "type": "string"
+        },
+        "taxationPlace": {
+          "description": "origin = seller's country; destination = consumer's country.",
+          "enum": [
+            "origin",
+            "destination"
+          ],
+          "type": "string"
+        },
+        "thresholdExceeded": {
+          "description": "True when cumulative cross-border B2C sales incl. this one exceed €10,000.",
+          "type": "boolean"
+        },
+        "vatAmount": {
+          "description": "VAT due on the sale (EUR, 2dp).",
+          "type": "number"
+        },
+        "vatRate": {
+          "description": "Applied VAT rate (%).",
+          "type": "number"
+        },
+        "vatRatesAsOf": {
+          "format": "date",
+          "type": "string"
+        },
+        "vatRatesSource": {
+          "format": "uri",
+          "type": "string"
+        },
+        "ytdCrossBorderEur": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "scheme",
+        "taxationPlace",
+        "applicableCountry",
+        "vatRate",
+        "vatAmount",
+        "ossThresholdEur",
+        "thresholdExceeded",
+        "disclaimer"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "amount": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "402utils.com",
+    "endpoint": "https://402utils.com/v1/vat-oss",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

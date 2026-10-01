@@ -1,0 +1,162 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ff58d3571fd53beb",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "_atlas": {
+          "additionalProperties": false,
+          "description": "Atlas documentation and related-route metadata added after deployment",
+          "properties": {
+            "docs": {
+              "description": "Documentation URL for this bridge",
+              "format": "uri",
+              "maxLength": 512,
+              "type": "string"
+            },
+            "related": {
+              "description": "Bounded related Atlas routes",
+              "items": {
+                "additionalProperties": false,
+                "description": "One related Atlas route",
+                "properties": {
+                  "bridge": {
+                    "description": "Related bridge name",
+                    "maxLength": 64,
+                    "type": "string"
+                  },
+                  "docs": {
+                    "description": "Related bridge documentation URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  },
+                  "summary": {
+                    "description": "Short capability summary",
+                    "maxLength": 256,
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "Related route URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "bridge",
+                  "url",
+                  "docs",
+                  "summary"
+                ],
+                "type": "object"
+              },
+              "maxItems": 3,
+              "type": "array"
+            }
+          },
+          "required": [
+            "docs"
+          ],
+          "type": "object"
+        },
+        "address": {
+          "description": "Lower-case final 20-byte address",
+          "maxLength": 42,
+          "minLength": 42,
+          "pattern": "^0x[0-9a-fA-F]+$",
+          "type": "string"
+        },
+        "algorithm_version": {
+          "const": "eip1014-create2-v1",
+          "description": "Pinned EIP-1014 contract",
+          "type": "string"
+        },
+        "checksum_address": {
+          "description": "EIP-55 checksum address",
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "deployer": {
+          "description": "Normalized lower-case deployer",
+          "maxLength": 42,
+          "minLength": 42,
+          "pattern": "^0x[0-9a-fA-F]+$",
+          "type": "string"
+        },
+        "init_code": {
+          "description": "Normalized init code when supplied",
+          "type": "string"
+        },
+        "init_code_hash": {
+          "description": "Keccak-256 of init code or supplied hash",
+          "maxLength": 66,
+          "minLength": 66,
+          "pattern": "^0x[0-9a-fA-F]+$",
+          "type": "string"
+        },
+        "operation": {
+          "const": "create2",
+          "description": "Stable route operation",
+          "type": "string"
+        },
+        "preimage": {
+          "description": "Exact 0xff + deployer + salt + init-code-hash bytes",
+          "maxLength": 172,
+          "minLength": 172,
+          "pattern": "^0x[0-9a-fA-F]+$",
+          "type": "string"
+        },
+        "preimage_hash": {
+          "description": "Keccak-256 of the 85-byte preimage",
+          "maxLength": 66,
+          "minLength": 66,
+          "pattern": "^0x[0-9a-fA-F]+$",
+          "type": "string"
+        },
+        "salt": {
+          "description": "Normalized salt",
+          "maxLength": 66,
+          "minLength": 66,
+          "pattern": "^0x[0-9a-fA-F]+$",
+          "type": "string"
+        },
+        "warnings": {
+          "description": "Always empty",
+          "items": {
+            "description": "Warning",
+            "type": "string"
+          },
+          "maxItems": 0,
+          "type": "array"
+        }
+      },
+      "required": [
+        "operation",
+        "algorithm_version",
+        "deployer",
+        "salt",
+        "init_code_hash",
+        "preimage",
+        "preimage_hash",
+        "address",
+        "checksum_address",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "chain-tools.use.x402atlas.com",
+    "endpoint": "https://chain-tools.use.x402atlas.com/evm/create2",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

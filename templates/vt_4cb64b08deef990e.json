@@ -1,0 +1,76 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4cb64b08deef990e",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "deployment_blockscout_base_url": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "docs_url": {
+                "type": "string"
+              },
+              "icon_url": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "short_name": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "tld_list": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "deployment_blockscout_base_url",
+              "description",
+              "docs_url",
+              "icon_url",
+              "id",
+              "short_name",
+              "title",
+              "tld_list"
+            ]
+          }
+        }
+      },
+      "required": [
+        "items"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "items[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.k8s-dev.blockscout.com",
+    "endpoint": "https://api.k8s-dev.blockscout.com/services/bens/api/v1/protocols",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

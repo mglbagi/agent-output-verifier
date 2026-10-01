@@ -1,0 +1,45 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_94351898c1311fd8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "confessionId": {
+          "type": "string"
+        },
+        "recordedSchema": {
+          "properties": {
+            "schema_version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "schema_version"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "confessionId",
+        "recordedSchema"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "kari.mayim-mayim.com",
+    "endpoint": "https://kari.mayim-mayim.com/api/bazaar/confession",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

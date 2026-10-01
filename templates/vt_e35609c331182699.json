@@ -1,0 +1,224 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e35609c331182699",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "as_of": {
+                "type": "string",
+                "format": "date"
+              },
+              "deadline_basis": {
+                "type": "string"
+              },
+              "deadline_iso": {
+                "type": "string",
+                "format": "date"
+              },
+              "envelope_version": {
+                "type": "string"
+              },
+              "events": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "basis_new": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "basis_old": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "deadline_basis": {},
+                    "deadline_iso": {
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "format": "date"
+                    },
+                    "field": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "kind": {
+                      "type": "string"
+                    },
+                    "new": {
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "format": "date"
+                    },
+                    "observed_at": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "old": {
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "format": "date"
+                    },
+                    "prev_observed_at": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "flip_flop": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "observed_at",
+                    "prev_observed_at"
+                  ]
+                }
+              },
+              "events_truncated": {
+                "type": "boolean"
+              },
+              "first_seen": {
+                "type": "string",
+                "format": "date"
+              },
+              "last_seen": {
+                "type": "string",
+                "format": "date"
+              },
+              "last_shard_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "observations": {
+                "type": "integer"
+              },
+              "present_in_latest": {
+                "type": "boolean"
+              },
+              "rolling_deadline": {
+                "type": "boolean"
+              },
+              "source": {
+                "type": "string"
+              },
+              "source_id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "as_of",
+              "deadline_basis",
+              "deadline_iso",
+              "envelope_version",
+              "events",
+              "events_truncated",
+              "first_seen",
+              "last_seen",
+              "last_shard_date",
+              "observations",
+              "present_in_latest",
+              "rolling_deadline",
+              "source",
+              "source_id",
+              "status",
+              "title",
+              "url"
+            ]
+          }
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "as_of": {
+              "type": "object",
+              "properties": {
+                "ftop_sedia": {
+                  "type": "string",
+                  "format": "date"
+                }
+              },
+              "required": [
+                "ftop_sedia"
+              ]
+            },
+            "attribution": {
+              "type": "string"
+            },
+            "degraded": {
+              "type": "boolean"
+            },
+            "license": {
+              "type": "string"
+            },
+            "row_count": {
+              "type": "integer"
+            },
+            "truncated": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "as_of",
+            "attribution",
+            "degraded",
+            "license",
+            "row_count",
+            "truncated"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data[].source_id"
+      }
+    ],
+    "bounds": {
+      "meta.row_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "wailand.tailf99551.ts.net",
+    "endpoint": "https://wailand.tailf99551.ts.net/v1/opportunity-changes",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

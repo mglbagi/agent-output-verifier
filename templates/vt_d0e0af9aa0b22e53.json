@@ -1,0 +1,297 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d0e0af9aa0b22e53",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "allowance": {
+          "properties": {
+            "status": {
+              "const": "wallet_required_for_check",
+              "type": "string"
+            }
+          },
+          "required": [
+            "status"
+          ],
+          "type": "object"
+        },
+        "amount": {
+          "properties": {
+            "human": {
+              "type": "string"
+            },
+            "raw": {
+              "pattern": "^\\d+$",
+              "type": "string"
+            },
+            "usdcEquivalentRaw": {
+              "pattern": "^\\d+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "human",
+            "raw",
+            "usdcEquivalentRaw"
+          ],
+          "type": "object"
+        },
+        "attribution": {
+          "additionalProperties": false,
+          "properties": {
+            "intentId": {
+              "maxLength": 128,
+              "minLength": 16,
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "type": "string"
+            },
+            "referralCode": {
+              "maxLength": 64,
+              "minLength": 3,
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "type": "string"
+            },
+            "sourceAgentId": {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "chainId": {
+          "const": 8453,
+          "type": "integer"
+        },
+        "checkId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "estimatedOutput": {
+          "properties": {
+            "minimumRaw": {
+              "pattern": "^\\d+$",
+              "type": "string"
+            },
+            "raw": {
+              "pattern": "^\\d+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "raw"
+          ],
+          "type": "object"
+        },
+        "expectedSafeRouteFee": {
+          "properties": {
+            "amountRaw": {
+              "pattern": "^\\d+$",
+              "type": "string"
+            },
+            "bps": {
+              "const": 10,
+              "type": "integer"
+            },
+            "indicative": {
+              "const": true,
+              "type": "boolean"
+            },
+            "token": {
+              "pattern": "^0x[a-fA-F0-9]{40}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "bps",
+            "amountRaw",
+            "token",
+            "indicative"
+          ],
+          "type": "object"
+        },
+        "expiresAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "liquidity": {
+          "properties": {
+            "available": {
+              "const": true,
+              "type": "boolean"
+            },
+            "sources": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "available",
+            "sources"
+          ],
+          "type": "object"
+        },
+        "nextAction": {
+          "properties": {
+            "endpoint": {
+              "format": "uri",
+              "type": "string"
+            },
+            "method": {
+              "const": "POST",
+              "type": "string"
+            },
+            "price": {
+              "const": "$0.01",
+              "type": "string"
+            },
+            "requiredAdditionalField": {
+              "const": "wallet",
+              "type": "string"
+            }
+          },
+          "required": [
+            "method",
+            "endpoint",
+            "price",
+            "requiredAdditionalField"
+          ],
+          "type": "object"
+        },
+        "pair": {
+          "properties": {
+            "buyToken": {
+              "pattern": "^0x[a-fA-F0-9]{40}$",
+              "type": "string"
+            },
+            "from": {
+              "enum": [
+                "USDC",
+                "WETH",
+                "EURC",
+                "CBETH",
+                "CBBTC",
+                "VIRTUAL",
+                "AERO"
+              ],
+              "type": "string"
+            },
+            "sellToken": {
+              "pattern": "^0x[a-fA-F0-9]{40}$",
+              "type": "string"
+            },
+            "to": {
+              "enum": [
+                "USDC",
+                "WETH",
+                "EURC",
+                "CBETH",
+                "CBBTC",
+                "VIRTUAL",
+                "AERO"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "from",
+            "to",
+            "sellToken",
+            "buyToken"
+          ],
+          "type": "object"
+        },
+        "priceImpact": {
+          "properties": {
+            "status": {
+              "const": "checked_on_full_quote",
+              "type": "string"
+            },
+            "warning": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "status",
+            "warning"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "const": "eligible",
+          "type": "string"
+        },
+        "tokenVerification": {
+          "properties": {
+            "buyTokenApproved": {
+              "const": true,
+              "type": "boolean"
+            },
+            "buyTokenDecimals": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "sellTokenApproved": {
+              "const": true,
+              "type": "boolean"
+            },
+            "sellTokenDecimals": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "sellTokenApproved",
+            "buyTokenApproved",
+            "sellTokenDecimals",
+            "buyTokenDecimals"
+          ],
+          "type": "object"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "checkId",
+        "status",
+        "chainId",
+        "createdAt",
+        "expiresAt",
+        "pair",
+        "amount",
+        "estimatedOutput",
+        "tokenVerification",
+        "liquidity",
+        "priceImpact",
+        "allowance",
+        "expectedSafeRouteFee",
+        "warnings",
+        "nextAction"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.usesaferoute.com",
+    "endpoint": "https://api.usesaferoute.com/v1/swap-safety-check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

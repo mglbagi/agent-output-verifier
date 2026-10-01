@@ -1,0 +1,56 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a1b3b097e007a135",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "Generative-engine visibility snapshot (geo_score and estimated_llm_mention_rate).",
+      "properties": {
+        "estimated_llm_mention_rate": {
+          "description": "Estimated LLM mention rate for the URL.",
+          "type": "number"
+        },
+        "geo_score": {
+          "description": "0–100 generative-engine visibility score.",
+          "type": "number"
+        },
+        "ok": {
+          "description": "True when the tool completed without a validation error.",
+          "type": "boolean"
+        },
+        "payment": {
+          "description": "Settlement receipt after x402 or sandbox payment.",
+          "type": "object"
+        },
+        "tool": {
+          "description": "Tool name that produced this payload.",
+          "type": "string"
+        },
+        "url": {
+          "description": "Queried URL.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "estimated_llm_mention_rate",
+        "geo_score",
+        "ok",
+        "payment",
+        "tool",
+        "url"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "edge.innovalyxx.com",
+    "endpoint": "https://edge.innovalyxx.com/mcp/tools/get_agent_visibility",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

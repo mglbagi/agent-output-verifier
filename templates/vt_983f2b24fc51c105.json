@@ -1,0 +1,177 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_983f2b24fc51c105",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "as_of": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "attribution": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "context": {
+          "additionalProperties": {
+            "properties": {
+              "max": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "median": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "min": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "percentile": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "sample_count": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "unit": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "vs_median_pct": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "window_days_actual": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "context_window_requested_days": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "coverage_note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "current": {
+          "additionalProperties": {
+            "properties": {
+              "ts": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "unit": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "value": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "license": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "summary": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "zone": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "zone_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "as_of",
+        "attribution",
+        "context",
+        "context_window_requested_days",
+        "coverage_note",
+        "current",
+        "license",
+        "summary",
+        "zone",
+        "zone_name"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.grid-hub.app",
+    "endpoint": "https://api.grid-hub.app/v1/brief/:zone",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

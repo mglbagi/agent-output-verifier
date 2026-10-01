@@ -1,0 +1,185 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_17ae220cce29cf27",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "hallucination_risk": {
+          "description": "LOW when every citation verified, MEDIUM at 1-2 not found, HIGH at 3 or more.",
+          "enum": [
+            "LOW",
+            "MEDIUM",
+            "HIGH"
+          ],
+          "type": "string"
+        },
+        "not_found_count": {
+          "type": "integer"
+        },
+        "results": {
+          "description": "One entry per submitted citation, in order.",
+          "items": {
+            "properties": {
+              "api_call_made": {
+                "type": "boolean"
+              },
+              "cached": {
+                "description": "Only verified results are ever cached; suspicious and not_found answers are re-checked on every call.",
+                "type": "boolean"
+              },
+              "case_name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "citation": {
+                "description": "The citation exactly as submitted, echoed back.",
+                "type": "string"
+              },
+              "confidence": {
+                "type": "string"
+              },
+              "court": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "courtlistener_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "courtlistener_url": {
+                "description": "Full opinion on CourtListener. Never truncate it.",
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "uri"
+              },
+              "date_filed": {
+                "description": "ISO 8601 date.",
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date"
+              },
+              "message": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "name_match": {
+                "description": "confirmed: the submitted name matches the case found. mismatch: a DIFFERENT case. not_checked: a bare citation carried no name to check.",
+                "enum": [
+                  "confirmed",
+                  "mismatch",
+                  "not_checked",
+                  null
+                ],
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "source": {
+                "description": "Which lookup tier answered.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "description": "verified: resolves to a real case and any submitted name matched. suspicious: the volume/reporter/page resolves but to a DIFFERENT case than the name given - the signature of a fabricated citation. not_found: no case matches.",
+                "enum": [
+                  "verified",
+                  "suspicious",
+                  "not_found"
+                ],
+                "type": "string"
+              },
+              "tier": {
+                "description": "Importance: 1=landmark, 2=highly cited, 3=standard.",
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "verified": {
+                "description": "True only for status=verified. False is a finding, not an error.",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "citation",
+              "status",
+              "verified"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "suspicious_count": {
+          "type": "integer"
+        },
+        "total_citations": {
+          "type": "integer"
+        },
+        "verification_time_ms": {
+          "type": "integer"
+        },
+        "verified_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "success",
+        "total_citations",
+        "results",
+        "hallucination_risk"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "results[].courtlistener_id"
+      }
+    ],
+    "bounds": {
+      "not_found_count": {
+        "min": 0,
+        "if_present": true
+      },
+      "suspicious_count": {
+        "min": 0,
+        "if_present": true
+      },
+      "total_citations": {
+        "min": 0
+      },
+      "verified_count": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "veridictum.legal",
+    "endpoint": "https://veridictum.legal/api/v1/agent/verify/bulk",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

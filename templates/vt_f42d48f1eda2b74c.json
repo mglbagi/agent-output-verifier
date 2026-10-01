@@ -1,0 +1,49 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f42d48f1eda2b74c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "computer_choice": {
+          "type": "string"
+        },
+        "network": {
+          "type": "string"
+        },
+        "payout": {
+          "type": "integer"
+        },
+        "player_choice": {
+          "type": "string"
+        },
+        "result": {
+          "type": "string"
+        },
+        "txHash": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "computer_choice",
+        "network",
+        "payout",
+        "player_choice",
+        "result",
+        "txHash"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "play.0000402.xyz",
+    "endpoint": "https://play.0000402.xyz/rps",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

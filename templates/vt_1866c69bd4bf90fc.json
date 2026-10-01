@@ -1,0 +1,71 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1866c69bd4bf90fc",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "awards": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "award_amount_krw": {
+                "type": "number"
+              },
+              "award_dt": {
+                "type": "string"
+              },
+              "bid_ntce_no": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "winner": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "award_amount_krw",
+              "award_dt",
+              "bid_ntce_no",
+              "title",
+              "winner"
+            ]
+          }
+        },
+        "count": {
+          "type": "integer"
+        },
+        "cursor": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "awards",
+        "count",
+        "cursor"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "awards[].award_amount_krw": {
+        "min": 0
+      },
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "dartapi.ljaysk.com",
+    "endpoint": "https://dartapi.ljaysk.com/v1/awards",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

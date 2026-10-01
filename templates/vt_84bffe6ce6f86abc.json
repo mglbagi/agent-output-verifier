@@ -1,0 +1,408 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_84bffe6ce6f86abc",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "$defs": {
+        "check": {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "detail": {
+              "maxLength": 2048,
+              "type": "string"
+            },
+            "status": {
+              "enum": [
+                "passed",
+                "failed",
+                "not_checked"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "code",
+            "status",
+            "detail"
+          ],
+          "type": "object"
+        },
+        "dimensions3": {
+          "description": "[length, width, height] in the request's length unit; each value is positive and at most the equivalent of 10 m.",
+          "items": {
+            "exclusiveMinimum": 0,
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "type": "array"
+        },
+        "placement": {
+          "additionalProperties": false,
+          "properties": {
+            "itemId": {
+              "type": "string"
+            },
+            "orientation": {
+              "maximum": 5,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "origin": {
+              "$ref": "#/$defs/point3"
+            },
+            "size": {
+              "$ref": "#/$defs/dimensions3"
+            },
+            "step": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "supportRatio": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "unit": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "itemId",
+            "unit",
+            "step",
+            "origin",
+            "size",
+            "orientation",
+            "supportRatio"
+          ],
+          "type": "object"
+        },
+        "point3": {
+          "description": "[x, y, z] min-corner coordinates in the request's length unit, relative to the carton's inner floor corner.",
+          "items": {
+            "minimum": 0,
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "type": "array"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "artifacts": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "href": {
+                "format": "uri",
+                "type": "string"
+              },
+              "mediaType": {
+                "maxLength": 128,
+                "minLength": 1,
+                "type": "string"
+              },
+              "name": {
+                "enum": [
+                  "packing.json",
+                  "packing-list.csv",
+                  "preview.svg",
+                  "preview.png"
+                ],
+                "type": "string"
+              },
+              "sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "sizeBytes": {
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "name",
+              "mediaType",
+              "sizeBytes",
+              "sha256",
+              "href"
+            ],
+            "type": "object"
+          },
+          "maxItems": 4,
+          "type": "array"
+        },
+        "cartons": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "actualWeight": {
+                "minimum": 0,
+                "type": "number"
+              },
+              "billableWeight": {
+                "minimum": 0,
+                "type": "number"
+              },
+              "cartonId": {
+                "type": "string"
+              },
+              "checks": {
+                "items": {
+                  "$ref": "#/$defs/check"
+                },
+                "type": "array"
+              },
+              "contentsWeight": {
+                "minimum": 0,
+                "type": "number"
+              },
+              "dimensionalWeight": {
+                "minimum": 0,
+                "type": "number"
+              },
+              "id": {
+                "type": "string"
+              },
+              "innerDimensions": {
+                "$ref": "#/$defs/dimensions3"
+              },
+              "placements": {
+                "items": {
+                  "$ref": "#/$defs/placement"
+                },
+                "maxItems": 100,
+                "type": "array"
+              },
+              "volumeUtilization": {
+                "maximum": 1,
+                "minimum": 0,
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "cartonId",
+              "innerDimensions",
+              "placements",
+              "contentsWeight",
+              "actualWeight",
+              "dimensionalWeight",
+              "billableWeight",
+              "volumeUtilization",
+              "checks"
+            ],
+            "type": "object"
+          },
+          "maxItems": 100,
+          "type": "array"
+        },
+        "checks": {
+          "items": {
+            "$ref": "#/$defs/check"
+          },
+          "type": "array"
+        },
+        "expiresAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "limitations": {
+          "items": {
+            "maxLength": 4096,
+            "type": "string"
+          },
+          "maxItems": 16,
+          "type": "array"
+        },
+        "recommendations": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "maxLength": 2048,
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "maxItems": 100,
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "passed",
+            "failed"
+          ],
+          "type": "string"
+        },
+        "summary": {
+          "additionalProperties": false,
+          "properties": {
+            "averageUtilization": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "cartonsUsed": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "totalActualWeight": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "totalBillableWeight": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "totalCost": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "unitsPacked": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "unitsRequested": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "unitsRequested",
+            "unitsPacked",
+            "cartonsUsed",
+            "totalActualWeight",
+            "totalBillableWeight",
+            "totalCost",
+            "averageUtilization"
+          ],
+          "type": "object"
+        },
+        "tools": {
+          "additionalProperties": false,
+          "properties": {
+            "solver": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "solver"
+          ],
+          "type": "object"
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "units": {
+          "additionalProperties": false,
+          "properties": {
+            "length": {
+              "enum": [
+                "mm",
+                "cm",
+                "in"
+              ],
+              "type": "string"
+            },
+            "weight": {
+              "enum": [
+                "g",
+                "kg",
+                "oz",
+                "lb"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "length",
+            "weight"
+          ],
+          "type": "object"
+        },
+        "unpacked": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "reason": {
+                "maxLength": 2048,
+                "type": "string"
+              },
+              "units": {
+                "minimum": 1,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "itemId",
+              "units",
+              "reason"
+            ],
+            "type": "object"
+          },
+          "maxItems": 100,
+          "type": "array"
+        },
+        "warnings": {
+          "items": {
+            "maxLength": 4096,
+            "type": "string"
+          },
+          "maxItems": 100,
+          "type": "array"
+        }
+      },
+      "required": [
+        "status",
+        "tools",
+        "units",
+        "summary",
+        "cartons",
+        "unpacked",
+        "checks",
+        "warnings",
+        "recommendations",
+        "limitations",
+        "truncated",
+        "expiresAt",
+        "artifacts"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "cartons[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "pack.api.williamrobinson.dev",
+    "endpoint": "https://pack.api.williamrobinson.dev/v1/pack/plan",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

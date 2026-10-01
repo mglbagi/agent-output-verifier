@@ -1,0 +1,91 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_548f96fc72a1dd81",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "changes": {
+          "items": {
+            "properties": {
+              "detail": {
+                "type": "object"
+              },
+              "detectedAt": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "effectiveDate": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "entityId": {
+                "type": "string"
+              },
+              "significance": {
+                "maximum": 10,
+                "minimum": 1,
+                "type": "integer"
+              },
+              "sourceUrl": {
+                "description": "Primary-source link for verification",
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "uri"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "entityId",
+              "significance",
+              "sourceUrl",
+              "title",
+              "type"
+            ]
+          },
+          "type": "array"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "changes",
+        "count",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "oracles-production.up.railway.app",
+    "endpoint": "https://oracles-production.up.railway.app/v1/reg-ai-governance/changes",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

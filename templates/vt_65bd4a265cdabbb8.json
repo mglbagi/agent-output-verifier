@@ -1,0 +1,564 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_65bd4a265cdabbb8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "agent_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Echo of the agent_id label supplied in the request; null if none. Identifies the agent that produced submitted_output (for example, the seller): this receipt, and any reputation or trust score it feeds, belongs to that producer. It is an unauthenticated label chosen by the caller, not a proven identity, and not the identity of whoever called this endpoint.",
+          "title": "Agent Id"
+        },
+        "attestation": {
+          "description": "Ed25519 signature over this response (every field above, including the receipt fields) plus the timestamp and key_version. The timestamp is this service's own clock, not an externally verified one. Public key and verification steps: /.well-known/agent-card.json, capabilities.extensions (attestation entry).",
+          "properties": {
+            "algorithm": {
+              "const": "Ed25519",
+              "title": "Algorithm",
+              "type": "string"
+            },
+            "key_version": {
+              "title": "Key Version",
+              "type": "string"
+            },
+            "signature": {
+              "title": "Signature",
+              "type": "string"
+            },
+            "timestamp": {
+              "title": "Timestamp",
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "algorithm",
+            "key_version",
+            "timestamp",
+            "signature"
+          ],
+          "title": "Attestation",
+          "type": "object"
+        },
+        "enforce_rules": {
+          "description": "Whether the request had enforce_rules on: true means every rule and bound had to hold (violations and unrunnable rules fail the result); false means they were only flags.",
+          "title": "Enforce Rules",
+          "type": "boolean"
+        },
+        "errors": {
+          "description": "Every violation (schema, then strict-content, then enforce_rules), capped at the first 100 schema-validation errors; see errors_total / errors_omitted. Non-schema errors (strict-content, enforce_rules) are never capped.",
+          "items": {
+            "type": "string"
+          },
+          "title": "Errors",
+          "type": "array"
+        },
+        "errors_detail": {
+          "description": "The structured form of the leading entries in `errors`, same order, so a caller can act (check, path, expected, found) without parsing text; `errors` itself is unchanged, for compatibility. See errors_detail_total / errors_detail_omitted for how many entries in `errors` this covers.",
+          "items": {
+            "description": "The structured form of one entry in `errors`, at the same index, so a caller can act\non a violation without parsing its text (verifier_version 0.4.0). Same shape as the\nmatching `Hint` (check, path, expected, found), plus the original text for compatibility.\nOnly the first errors_detail_total entries get one, same cap as hints (MAX_DETAILS /\nMAX_STRICT_ERRORS below) - a formatted string is far cheaper to keep than a structured\none; see errors_detail_total / errors_detail_omitted.",
+            "properties": {
+              "check": {
+                "description": "Same meaning as Hint.check.",
+                "title": "Check",
+                "type": "string"
+              },
+              "expected": {
+                "description": "Same meaning as Hint.expected.",
+                "title": "Expected",
+                "type": "string"
+              },
+              "found": {
+                "description": "Same meaning as Hint.found.",
+                "title": "Found",
+                "type": "string"
+              },
+              "message": {
+                "description": "The matching entry in `errors`, verbatim.",
+                "title": "Message",
+                "type": "string"
+              },
+              "path": {
+                "description": "Same meaning as Hint.path.",
+                "title": "Path",
+                "type": "string"
+              }
+            },
+            "required": [
+              "check",
+              "path",
+              "expected",
+              "found",
+              "message"
+            ],
+            "title": "ErrorDetail",
+            "type": "object"
+          },
+          "title": "Errors Detail",
+          "type": "array"
+        },
+        "errors_detail_omitted": {
+          "description": "errors_total minus errors_detail_total; 0 when every error has a structured form.",
+          "title": "Errors Detail Omitted",
+          "type": "integer"
+        },
+        "errors_detail_total": {
+          "description": "How many entries in `errors` have a structured form available. Same cap as `hints` (a structured form costs more to build than the text alone).",
+          "title": "Errors Detail Total",
+          "type": "integer"
+        },
+        "errors_omitted": {
+          "description": "errors_total minus len(errors); 0 when nothing was cut off.",
+          "title": "Errors Omitted",
+          "type": "integer"
+        },
+        "errors_total": {
+          "description": "How many errors exist in total. Equal to len(errors) unless the 100-error schema cap above was hit.",
+          "title": "Errors Total",
+          "type": "integer"
+        },
+        "flags": {
+          "description": "Integrity findings (placeholder text, possible truncation, bounds and consistency-rule violations). severity is 'error' for a finding that enforce_rules made fail the result, 'info' otherwise; either way, a flag never itself changes 'result' - it is `errors` that does.",
+          "items": {
+            "properties": {
+              "check": {
+                "title": "Check",
+                "type": "string"
+              },
+              "detail": {
+                "title": "Detail",
+                "type": "string"
+              },
+              "field": {
+                "title": "Field",
+                "type": "string"
+              },
+              "severity": {
+                "default": "info",
+                "description": "'error' when enforce_rules made this specific bound/rule finding fail the result (see VerifySchemaRequest.enforce_rules); 'info' otherwise. Never affects `result` itself - `result` is decided by `errors`, of which this finding is then also a member.",
+                "enum": [
+                  "info",
+                  "error"
+                ],
+                "title": "Severity",
+                "type": "string"
+              }
+            },
+            "required": [
+              "check",
+              "field",
+              "detail"
+            ],
+            "title": "Flag",
+            "type": "object"
+          },
+          "title": "Flags",
+          "type": "array"
+        },
+        "flags_omitted": {
+          "description": "Integrity flags beyond the 100 returned; 0 when nothing was cut off.",
+          "title": "Flags Omitted",
+          "type": "integer"
+        },
+        "flags_total": {
+          "description": "How many flags exist in total (flags holds at most the first 100, plus a flags_truncated marker when there are more), counting an unhashable_input flag if present.",
+          "title": "Flags Total",
+          "type": "integer"
+        },
+        "hints": {
+          "description": "Machine-actionable, template-based fix hints: one per schema validation failure (first, in the same order as `errors`), then per strict-content failure and integrity flag. At most 20; see hints_total / hints_omitted. Where, what was expected, what was found. Never a guessed corrected value.",
+          "items": {
+            "properties": {
+              "check": {
+                "description": "The JSON Schema keyword that failed (type, required, minimum, ...), or the integrity check (strict_content_check, placeholder_content, truncation, bounds, consistency:*, unhashable_input).",
+                "title": "Check",
+                "type": "string"
+              },
+              "expected": {
+                "description": "What the check wanted at that path, from a fixed template (e.g. 'number').",
+                "title": "Expected",
+                "type": "string"
+              },
+              "found": {
+                "description": "What was there instead, from a fixed template (e.g. 'string', 'missing', '-1'). Long values are shortened; whole values are never echoed.",
+                "title": "Found",
+                "type": "string"
+              },
+              "path": {
+                "description": "Where, as a JSON path: '$.items[3].price'. For a missing required property, the path where it should be. Integrity hints use the flag's own field notation with a '$.' prefix.",
+                "title": "Path",
+                "type": "string"
+              },
+              "source": {
+                "description": "'schema': a JSON Schema validation failure (one per entry in `errors`, same order). 'integrity': a strict-content failure or an informational flag.",
+                "enum": [
+                  "schema",
+                  "integrity"
+                ],
+                "title": "Source",
+                "type": "string"
+              }
+            },
+            "required": [
+              "source",
+              "check",
+              "path",
+              "expected",
+              "found"
+            ],
+            "title": "Hint",
+            "type": "object"
+          },
+          "title": "Hints",
+          "type": "array"
+        },
+        "hints_omitted": {
+          "description": "hints_total minus len(hints).",
+          "title": "Hints Omitted",
+          "type": "integer"
+        },
+        "hints_total": {
+          "description": "How many hints exist in total (hints holds at most the first 20).",
+          "title": "Hints Total",
+          "type": "integer"
+        },
+        "integrity_checks": {
+          "description": "Integrity checks that passed out of those evaluated (per string: placeholder and truncation, plus strict content when enabled; per schema-described object: completeness; per configured bound and consistency-rule comparison). Informational: only strict_content_check failures (and enforce_rules violations, if enabled) can change `result`.",
+          "properties": {
+            "passed": {
+              "title": "Passed",
+              "type": "integer"
+            },
+            "ratio": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "passed / total, a raw float in [0, 1]; null when total is 0 (nothing was checked). Informational only: never affects `result`.",
+              "title": "Ratio"
+            },
+            "total": {
+              "title": "Total",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "ratio",
+            "passed",
+            "total"
+          ],
+          "title": "SubScore",
+          "type": "object"
+        },
+        "next_actions": {
+          "description": "What to do next, machine-readable. On 'fail': [{\"action\": \"repair_and_reverify\", \"using\": \"hints\"}]. On 'pass': [{\"action\": \"attach_receipt\", \"for\": \"seller\"}, {\"action\": \"proceed_to_payment\", \"for\": \"buyer\"}]. A plain list of string-keyed objects (not a stricter per-action model): the two shapes share only `action`, and a `for` field could not be a Python attribute name without an alias that REST and MCP risk serializing differently.",
+          "items": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "title": "Next Actions",
+          "type": "array"
+        },
+        "output_hash": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "SHA-256 (64 lowercase hex chars = 32 bytes; add 0x to use it as a bytes32) of the JCS canonical JSON of submitted_output, the data that was verified. Key order and whitespace in what you sent do not change it. null only if it has no JCS form (NaN/Infinity, a lone surrogate).",
+          "title": "Output Hash"
+        },
+        "overall": {
+          "description": "A pooled count across both groups: (schema_compliance.passed + integrity_checks.passed) / (schema_compliance.total + integrity_checks.total), with those two sums as passed and total. It is NOT an average of the two ratios (the larger group weighs more), and it says nothing about whether the content is right. null ratio when the total is 0. Informational only: never changes `result`.",
+          "properties": {
+            "passed": {
+              "title": "Passed",
+              "type": "integer"
+            },
+            "ratio": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "passed / total, a raw float in [0, 1]; null when total is 0 (nothing was checked). Informational only: never affects `result`.",
+              "title": "Ratio"
+            },
+            "total": {
+              "title": "Total",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "ratio",
+            "passed",
+            "total"
+          ],
+          "title": "SubScore",
+          "type": "object"
+        },
+        "request_hash": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "SHA-256 (64 lowercase hex chars, no 0x prefix) of the RFC 8785 (JCS) canonical JSON of the request as parsed: task_id, agent_id, expected_schema, submitted_output, strict_content_check, bounds, rules, enforce_rules, with defaults filled in (agent_id/bounds/rules null, strict_content_check and enforce_rules false). null only if the request contains data with no JCS form (NaN/Infinity, a lone surrogate).",
+          "title": "Request Hash"
+        },
+        "result": {
+          "enum": [
+            "pass",
+            "fail"
+          ],
+          "title": "Result",
+          "type": "string"
+        },
+        "rules_hash": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "SHA-256 (64 lowercase hex chars) of the RFC 8785 (JCS) canonical JSON of {\"bounds\": <the bounds you supplied or null>, \"rules\": <the rules you supplied or null>}, containing exactly the fields you supplied (fields left at their defaults are not included), so you can hash your own rules JSON in that shape and compare. It lets a buyer confirm which rules were applied. null when no bounds or rules were supplied (or they contain NaN/Infinity).",
+          "title": "Rules Hash"
+        },
+        "schema_compliance": {
+          "description": "JSON Schema assertions that passed out of those evaluated (each keyword such as type/required/minimum, at each place it applies; anyOf/oneOf/not/if count once, applicators like properties and items are not counted themselves). A separate figure from integrity_checks: the two ratios are never averaged (see `overall` for the pooled count). Informational: `result` is decided by errors, not by this.",
+          "properties": {
+            "passed": {
+              "title": "Passed",
+              "type": "integer"
+            },
+            "ratio": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "passed / total, a raw float in [0, 1]; null when total is 0 (nothing was checked). Informational only: never affects `result`.",
+              "title": "Ratio"
+            },
+            "total": {
+              "title": "Total",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "ratio",
+            "passed",
+            "total"
+          ],
+          "title": "SubScore",
+          "type": "object"
+        },
+        "schema_hash": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "SHA-256 (64 lowercase hex chars) of the JCS canonical JSON of expected_schema. null only if it has no JCS form.",
+          "title": "Schema Hash"
+        },
+        "strict_content_check": {
+          "description": "Whether the request had strict_content_check on: true means control characters and embedded HTML/script markup in submitted_output failed the result; false means that check did not run.",
+          "title": "Strict Content Check",
+          "type": "boolean"
+        },
+        "summary": {
+          "description": "Compact digest of the verdict: the same `result`, and `blocking_checks` (the distinct check codes that caused a 'fail', empty on 'pass') - for a caller that wants the headline without reading `errors`/`flags`.",
+          "properties": {
+            "blocking_checks": {
+              "description": "Distinct check codes that caused 'fail' (the same codes used in `errors_detail[].check`, `flags[].check` and `hints[].check`), in first-seen order; empty on 'pass'.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Blocking Checks",
+              "type": "array"
+            },
+            "result": {
+              "description": "Same value as the top-level `result`.",
+              "enum": [
+                "pass",
+                "fail"
+              ],
+              "title": "Result",
+              "type": "string"
+            }
+          },
+          "required": [
+            "result",
+            "blocking_checks"
+          ],
+          "title": "Summary",
+          "type": "object"
+        },
+        "task_id": {
+          "title": "Task Id",
+          "type": "string"
+        },
+        "verification_id": {
+          "description": "Unique UUID (v4) for this verification. Part of the signed receipt.",
+          "title": "Verification Id",
+          "type": "string",
+          "format": "uuid"
+        },
+        "verified_at": {
+          "description": "ISO-8601 UTC time this service ran the verification. Identical to attestation.timestamp (the same value, read once); this service's own clock, not an externally verified time.",
+          "title": "Verified At",
+          "type": "string",
+          "format": "date-time"
+        },
+        "verifier_version": {
+          "title": "Verifier Version",
+          "type": "string"
+        },
+        "verify": {
+          "description": "How to verify this receipt without any other lookup than this response and public_key_url: canonicalization and hash algorithm behind every hash and the signature itself, this service's name, and its MCP endpoint.",
+          "properties": {
+            "canonicalization": {
+              "description": "How every hash below, and the signed bytes themselves, are computed.",
+              "title": "Canonicalization",
+              "type": "string"
+            },
+            "hash_algorithm": {
+              "description": "Algorithm behind every *_hash field in this response.",
+              "title": "Hash Algorithm",
+              "type": "string"
+            },
+            "key_version": {
+              "description": "Matches attestation.key_version.",
+              "title": "Key Version",
+              "type": "string"
+            },
+            "mcp": {
+              "description": "This service's MCP (Model Context Protocol) endpoint.",
+              "title": "Mcp",
+              "type": "string"
+            },
+            "public_key_url": {
+              "description": "Agent-card URL listing the public key for key_version below, and every key this service has ever signed with.",
+              "title": "Public Key Url",
+              "type": "string",
+              "format": "uri"
+            },
+            "service": {
+              "description": "This service's name.",
+              "title": "Service",
+              "type": "string"
+            }
+          },
+          "required": [
+            "public_key_url",
+            "key_version",
+            "canonicalization",
+            "hash_algorithm",
+            "service",
+            "mcp"
+          ],
+          "title": "VerifySection",
+          "type": "object"
+        }
+      },
+      "required": [
+        "task_id",
+        "agent_id",
+        "result",
+        "errors",
+        "errors_total",
+        "errors_omitted",
+        "errors_detail_total",
+        "errors_detail_omitted",
+        "summary",
+        "next_actions",
+        "verified_at",
+        "verifier_version",
+        "verification_id",
+        "request_hash",
+        "output_hash",
+        "schema_hash",
+        "rules_hash",
+        "enforce_rules",
+        "strict_content_check",
+        "flags_total",
+        "flags_omitted",
+        "hints",
+        "hints_total",
+        "hints_omitted",
+        "schema_compliance",
+        "integrity_checks",
+        "overall",
+        "verify",
+        "attestation"
+      ],
+      "title": "VerifySchemaResponse",
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "errors_detail_total": {
+        "min": 0
+      },
+      "errors_total": {
+        "min": 0
+      },
+      "flags_total": {
+        "min": 0
+      },
+      "hints_total": {
+        "min": 0
+      },
+      "integrity_checks.total": {
+        "min": 0
+      },
+      "overall.total": {
+        "min": 0
+      },
+      "schema_compliance.total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "fastapi-service-5ag4.onrender.com",
+    "endpoint": "https://fastapi-service-5ag4.onrender.com/verify/schema",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

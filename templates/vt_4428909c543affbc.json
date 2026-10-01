@@ -1,0 +1,85 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4428909c543affbc",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "markets_checked": {
+          "type": "integer"
+        },
+        "opportunities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "edge_pct": {
+                "type": "integer"
+              },
+              "expected_prob": {
+                "type": "number"
+              },
+              "market_prob": {
+                "type": "number"
+              },
+              "outcome": {
+                "type": "string"
+              },
+              "platform": {
+                "type": "string"
+              },
+              "price_diff": {
+                "type": "number"
+              },
+              "question": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "edge_pct",
+              "expected_prob",
+              "market_prob",
+              "outcome",
+              "platform",
+              "price_diff",
+              "question",
+              "type"
+            ]
+          }
+        },
+        "opportunities_found": {
+          "type": "integer"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "markets_checked",
+        "opportunities",
+        "opportunities_found",
+        "success"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "opportunities[].edge_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "predict.memoryapi.org",
+    "endpoint": "https://predict.memoryapi.org/x402/predict/mispricing",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,273 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_178511d4ed1e345a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "demand": {
+          "type": "object",
+          "properties": {
+            "totalBuyers": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "totalBuyers"
+          ]
+        },
+        "ecosystem": {
+          "type": "object",
+          "properties": {
+            "composition": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "chain": {
+                    "type": "string"
+                  },
+                  "grade": {
+                    "type": "string"
+                  },
+                  "measurementContract": {
+                    "type": "string"
+                  },
+                  "provenFloorUsd": {
+                    "type": "number"
+                  },
+                  "volumeUsd": {
+                    "type": "object",
+                    "properties": {
+                      "movedTo": {
+                        "type": "string"
+                      },
+                      "why": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "movedTo",
+                      "why"
+                    ]
+                  },
+                  "withheldReason": {}
+                },
+                "required": [
+                  "chain",
+                  "grade",
+                  "measurementContract",
+                  "provenFloorUsd",
+                  "volumeUsd"
+                ]
+              }
+            },
+            "floor": {
+              "type": "object",
+              "properties": {
+                "byContract": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "chains": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "contract": {
+                        "type": "string"
+                      },
+                      "usd": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "chains",
+                      "contract",
+                      "usd"
+                    ]
+                  }
+                },
+                "chains": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "grades": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "total": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "value"
+                  ]
+                }
+              },
+              "required": [
+                "byContract",
+                "chains",
+                "grades",
+                "total"
+              ]
+            },
+            "notASum": {
+              "type": "boolean"
+            },
+            "upperBound": {
+              "type": "object",
+              "properties": {
+                "byContract": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "chains": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "contract": {
+                        "type": "string"
+                      },
+                      "usd": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "chains",
+                      "contract",
+                      "usd"
+                    ]
+                  }
+                },
+                "chains": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "total": {
+                  "type": "object",
+                  "properties": {
+                    "reason": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "contracts": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "required": [
+                        "code",
+                        "contracts"
+                      ]
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "value": {}
+                  },
+                  "required": [
+                    "reason",
+                    "status"
+                  ]
+                }
+              },
+              "required": [
+                "byContract",
+                "chains",
+                "total"
+              ]
+            },
+            "withheldChains": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "composition",
+            "floor",
+            "notASum",
+            "upperBound",
+            "withheldChains"
+          ]
+        },
+        "generatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "market": {
+          "type": "object",
+          "properties": {
+            "sellersOnBase": {
+              "type": "integer"
+            },
+            "sellersWithAttributedActivity": {
+              "type": "integer"
+            },
+            "sellersWithRealActivity": {
+              "type": "integer"
+            },
+            "universeChains": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "sellersOnBase",
+            "sellersWithAttributedActivity",
+            "sellersWithRealActivity",
+            "universeChains"
+          ]
+        }
+      },
+      "required": [
+        "demand",
+        "ecosystem",
+        "generatedAt",
+        "market"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "ecosystem.floor.byContract[].usd": {
+        "min": 0
+      },
+      "ecosystem.upperBound.byContract[].usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.x402intel.uk",
+    "endpoint": "https://api.x402intel.uk/x402-market",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

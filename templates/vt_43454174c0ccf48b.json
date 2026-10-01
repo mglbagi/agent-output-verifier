@@ -1,0 +1,41 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_43454174c0ccf48b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "basedOnChanges": {
+          "type": "integer"
+        },
+        "brief": {
+          "type": "string"
+        },
+        "generatedBy": {
+          "enum": [
+            "llm",
+            "template"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "basedOnChanges",
+        "brief",
+        "generatedBy"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "oracles-production.up.railway.app",
+    "endpoint": "https://oracles-production.up.railway.app/v1/reg-ai-governance/brief",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

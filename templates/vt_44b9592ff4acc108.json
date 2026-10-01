@@ -1,0 +1,134 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_44b9592ff4acc108",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "cdbg": {
+          "type": "object",
+          "properties": {
+            "areaBenefitEligible": {
+              "type": "boolean"
+            },
+            "lowModPercent": {
+              "type": "number"
+            },
+            "tract": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "areaBenefitEligible",
+            "lowModPercent",
+            "tract"
+          ]
+        },
+        "corpusVersion": {
+          "type": "string"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "opportunities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "string"
+              },
+              "citation": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "amount",
+              "citation",
+              "id",
+              "title"
+            ]
+          }
+        },
+        "parcel": {
+          "type": "object",
+          "properties": {
+            "annualTax": {
+              "type": "number"
+            },
+            "assessedValue": {
+              "type": "number"
+            },
+            "improvementValue": {
+              "type": "number"
+            },
+            "landValue": {
+              "type": "number"
+            },
+            "owner": {
+              "type": "string"
+            },
+            "propertyClass": {
+              "type": "string"
+            },
+            "situs": {
+              "type": "string"
+            },
+            "taxSaleStatus": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "annualTax",
+            "assessedValue",
+            "improvementValue",
+            "landValue",
+            "owner",
+            "propertyClass",
+            "situs",
+            "taxSaleStatus"
+          ]
+        },
+        "parcelId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "cdbg",
+        "corpusVersion",
+        "disclaimer",
+        "opportunities",
+        "parcel",
+        "parcelId"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "opportunities[].id"
+      }
+    ],
+    "bounds": {
+      "cdbg.lowModPercent": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "buildscottsbluff.com",
+    "endpoint": "https://buildscottsbluff.com/v1/parcel/010070362",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

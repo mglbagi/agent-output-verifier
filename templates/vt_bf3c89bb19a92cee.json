@@ -1,0 +1,150 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bf3c89bb19a92cee",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "breakdown": {
+          "properties": {
+            "envelopeCompliance": {
+              "type": "integer"
+            },
+            "latency": {
+              "type": "number"
+            },
+            "observedAge": {
+              "type": "number"
+            },
+            "priceStability": {
+              "type": "integer"
+            },
+            "settlementActivity": {
+              "type": "number"
+            },
+            "uptime": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "uptime",
+            "envelopeCompliance",
+            "latency",
+            "observedAge",
+            "settlementActivity",
+            "priceStability"
+          ],
+          "type": "object"
+        },
+        "confidence": {
+          "type": "number"
+        },
+        "dataCompleteSince": {
+          "type": "integer"
+        },
+        "description": {
+          "type": "string"
+        },
+        "flags": {
+          "type": "array"
+        },
+        "grade": {
+          "type": "string"
+        },
+        "resource": {
+          "type": "string"
+        },
+        "schemaType": {
+          "type": "string"
+        },
+        "schemaVersion": {
+          "type": "string"
+        },
+        "score": {
+          "type": "number"
+        },
+        "serviceName": {
+          "type": "string"
+        },
+        "stats": {
+          "properties": {
+            "avgLatencyMs": {
+              "type": "integer"
+            },
+            "delisted": {
+              "type": "boolean"
+            },
+            "distinctPayers30d": {
+              "type": "integer"
+            },
+            "observedDays": {
+              "type": "integer"
+            },
+            "payTo": {
+              "type": "string"
+            },
+            "probeOk30d": {
+              "type": "integer"
+            },
+            "probes30d": {
+              "type": "integer"
+            },
+            "settledVolumeUnits30d": {
+              "type": "string"
+            },
+            "settlements30d": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "observedDays",
+            "probes30d",
+            "probeOk30d",
+            "avgLatencyMs",
+            "payTo",
+            "settlements30d",
+            "distinctPayers30d",
+            "settledVolumeUnits30d",
+            "delisted"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "$schema",
+        "schemaVersion",
+        "schemaType",
+        "resource",
+        "serviceName",
+        "description",
+        "score",
+        "grade",
+        "confidence",
+        "breakdown",
+        "flags",
+        "dataCompleteSince",
+        "stats"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-trust.com",
+    "endpoint": "https://x402-trust.com/v1/x402-trust",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

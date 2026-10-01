@@ -1,0 +1,437 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_61426203c3d63dd9",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "contact": {
+          "additionalProperties": false,
+          "properties": {
+            "phones": {
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 5,
+              "type": "array"
+            },
+            "role_emails": {
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 10,
+              "type": "array"
+            }
+          },
+          "required": [
+            "role_emails",
+            "phones"
+          ],
+          "type": "object"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "domain": {
+          "type": "string"
+        },
+        "domain_facts": {
+          "additionalProperties": false,
+          "properties": {
+            "dmarc_policy": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "email_provider": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "mx": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "registered": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date-time"
+            },
+            "registrar": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "spf": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "registered",
+            "registrar",
+            "email_provider",
+            "mx",
+            "spf",
+            "dmarc_policy"
+          ],
+          "type": "object"
+        },
+        "employees": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "evidence": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "field": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "field",
+              "source",
+              "url"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "founded": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "headquarters": {
+          "additionalProperties": false,
+          "properties": {
+            "address": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "city": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "country": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "address",
+            "city",
+            "country"
+          ],
+          "type": "object"
+        },
+        "industry": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "legal_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "null_reasons": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "pack_version": {
+          "const": "company-evidence-pack-v1"
+        },
+        "registry": {
+          "additionalProperties": false,
+          "properties": {
+            "jurisdiction": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "lei": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "lei_status": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "sec_cik": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "ticker": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "wikidata_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "lei",
+            "lei_status",
+            "jurisdiction",
+            "sec_cik",
+            "ticker",
+            "wikidata_id"
+          ],
+          "type": "object"
+        },
+        "request_id": {
+          "description": "Delivery request identifier; also returned in x-foundry-request-id.",
+          "type": "string"
+        },
+        "resolved_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sanctions": {
+          "additionalProperties": false,
+          "properties": {
+            "lists_checked": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "aliases_loaded": {
+                    "type": "boolean"
+                  },
+                  "entity_records": {
+                    "type": "integer"
+                  },
+                  "list": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "retrieved_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "source_url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "list",
+                  "name",
+                  "source_url",
+                  "retrieved_at",
+                  "entity_records",
+                  "aliases_loaded"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "lists_unavailable": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "matches": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "entry_id": {
+                    "type": "string"
+                  },
+                  "list": {
+                    "type": "string"
+                  },
+                  "listed_name": {
+                    "type": "string"
+                  },
+                  "match_type": {
+                    "const": "exact_normalized_name"
+                  },
+                  "matched_name": {
+                    "type": "string"
+                  },
+                  "program": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "screened_name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "screened_name",
+                  "list",
+                  "entry_id",
+                  "listed_name",
+                  "matched_name",
+                  "program",
+                  "match_type"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "note": {
+              "type": "string"
+            },
+            "screened_names": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "status": {
+              "enum": [
+                "no_exact_name_match",
+                "potential_match"
+              ]
+            }
+          },
+          "required": [
+            "status",
+            "screened_names",
+            "lists_checked",
+            "lists_unavailable",
+            "matches",
+            "note"
+          ],
+          "type": "object"
+        },
+        "service_id": {
+          "description": "Canonical service identifier.",
+          "type": "string"
+        },
+        "service_version": {
+          "description": "Version of the invoked service.",
+          "type": "string"
+        },
+        "socials": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "tech_hints": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 12,
+          "type": "array"
+        }
+      },
+      "required": [
+        "request_id",
+        "service_id",
+        "service_version",
+        "pack_version",
+        "domain",
+        "resolved_url",
+        "retrieved_at",
+        "name",
+        "legal_name",
+        "description",
+        "industry",
+        "founded",
+        "headquarters",
+        "employees",
+        "contact",
+        "socials",
+        "domain_facts",
+        "registry",
+        "tech_hints",
+        "confidence",
+        "evidence",
+        "null_reasons",
+        "sanctions"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "sanctions.matches[].entry_id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.zfinia.com",
+    "endpoint": "https://api.zfinia.com/x402/v1/company-evidence-pack",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

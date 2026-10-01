@@ -1,0 +1,203 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_dbfc126dbe3547f5",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "checkedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "country": {
+          "pattern": "^[A-Z]{2}$",
+          "type": "string"
+        },
+        "currency": {
+          "pattern": "^[A-Z]{3}$",
+          "type": "string"
+        },
+        "maxPriceMinor": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "products": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "checkoutUrl": {
+                "type": "string",
+                "format": "uri"
+              },
+              "currency": {
+                "pattern": "^[A-Z]{3}$",
+                "type": "string"
+              },
+              "priceMinor": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "productId": {
+                "type": "string"
+              },
+              "productTitle": {
+                "type": "string"
+              },
+              "productUrl": {
+                "type": "string",
+                "format": "uri"
+              },
+              "rating": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "count": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "value": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "count"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "searchRank": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "seller": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "domain": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "name": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "url": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "domain",
+                      "url"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "variantId": {
+                "type": "string"
+              },
+              "variantTitle": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "productId",
+              "variantId",
+              "productTitle",
+              "variantTitle",
+              "priceMinor",
+              "currency",
+              "productUrl",
+              "checkoutUrl",
+              "seller",
+              "rating",
+              "searchRank"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "query": {
+          "type": "string"
+        },
+        "source": {
+          "const": "shopify-global-catalog",
+          "type": "string"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "source",
+        "country",
+        "currency",
+        "query",
+        "maxPriceMinor",
+        "products",
+        "warnings",
+        "checkedAt"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-api-production.tim1712.workers.dev",
+    "endpoint": "https://agent-api-production.tim1712.workers.dev/v1/shopping/product-search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

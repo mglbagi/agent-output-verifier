@@ -1,0 +1,110 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_95f18073b17011b5",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "public_metrics": {
+                "type": "object",
+                "properties": {
+                  "followers_count": {
+                    "type": "integer"
+                  },
+                  "following_count": {
+                    "type": "integer"
+                  },
+                  "like_count": {
+                    "type": "integer"
+                  },
+                  "tweet_count": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "followers_count",
+                  "following_count",
+                  "like_count",
+                  "tweet_count"
+                ]
+              },
+              "username": {
+                "type": "string"
+              },
+              "verified": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "description",
+              "id",
+              "name",
+              "public_metrics",
+              "username",
+              "verified"
+            ]
+          }
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "next_token": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "next_token"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data[].id"
+      }
+    ],
+    "bounds": {
+      "data[].public_metrics.followers_count": {
+        "min": 0
+      },
+      "data[].public_metrics.following_count": {
+        "min": 0
+      },
+      "data[].public_metrics.like_count": {
+        "min": 0
+      },
+      "data[].public_metrics.tweet_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.twit.sh",
+    "endpoint": "https://x402.twit.sh/users/followers",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

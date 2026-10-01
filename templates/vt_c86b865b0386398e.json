@@ -1,0 +1,38 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c86b865b0386398e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "remaining_seconds": {
+          "type": "integer"
+        },
+        "session_token": {
+          "type": "string"
+        },
+        "ws_url": {
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "required": [
+        "session_token",
+        "ws_url",
+        "remaining_seconds"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "dicta-notes.com",
+    "endpoint": "https://dicta-notes.com/routes/x402/stt-session/30",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

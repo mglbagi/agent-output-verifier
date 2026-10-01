@@ -1,0 +1,112 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2ee3440db081e71c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "audit_signature": {
+          "type": "string"
+        },
+        "audit_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "is_blacklisted": {
+          "type": "boolean"
+        },
+        "is_sanctioned": {
+          "type": "boolean"
+        },
+        "memo": {
+          "type": "string"
+        },
+        "profile": {
+          "properties": {
+            "active": {
+              "type": "boolean"
+            },
+            "age_days": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "first_seen_block": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "tx_count": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "risk_score": {
+          "type": "integer"
+        },
+        "signer_address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "snapshot_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "verdict": {
+          "enum": [
+            "PASS",
+            "FAIL"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "verdict",
+        "is_sanctioned",
+        "is_blacklisted",
+        "risk_score",
+        "reasons",
+        "memo",
+        "audit_timestamp",
+        "snapshot_timestamp",
+        "audit_signature",
+        "signer_address"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "profile.age_days": {
+        "min": 0,
+        "if_present": true
+      },
+      "profile.tx_count": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "eagle.quickai.build",
+    "endpoint": "https://eagle.quickai.build/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

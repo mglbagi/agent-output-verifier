@@ -1,0 +1,193 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e6515d47b1d67b68",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "addresses": {
+          "items": {
+            "properties": {
+              "addressCountry": {
+                "type": "string"
+              },
+              "addressLocality": {
+                "type": "string"
+              },
+              "addressRegion": {
+                "type": "string"
+              },
+              "postalCode": {
+                "type": "string"
+              },
+              "sourceUrl": {
+                "type": "string"
+              },
+              "streetAddress": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "sourceUrl"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "companyName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "contactPages": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "emails": {
+          "items": {
+            "properties": {
+              "sourceUrl": {
+                "type": "string",
+                "format": "uri"
+              },
+              "value": {
+                "type": "string",
+                "format": "email"
+              }
+            },
+            "required": [
+              "value",
+              "sourceUrl"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "inputUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "meta": {
+          "properties": {
+            "durationMs": {
+              "type": "number"
+            },
+            "pagesFetched": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "pagesFetched",
+            "durationMs"
+          ],
+          "type": "object"
+        },
+        "pagesScanned": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "phones": {
+          "items": {
+            "properties": {
+              "sourceUrl": {
+                "type": "string",
+                "format": "uri"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value",
+              "sourceUrl"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "requestId": {
+          "type": "string"
+        },
+        "socials": {
+          "properties": {
+            "facebook": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "instagram": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "linkedin": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "x": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "youtube": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "linkedin",
+            "facebook",
+            "instagram",
+            "x",
+            "youtube"
+          ],
+          "type": "object"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success",
+        "inputUrl",
+        "domain",
+        "companyName",
+        "emails",
+        "phones",
+        "socials",
+        "addresses",
+        "contactPages",
+        "pagesScanned",
+        "meta",
+        "requestId"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.stackgoai.com",
+    "endpoint": "https://api.stackgoai.com/api/v1/extract-contact",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ef10cf1168875724",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "agent_id": {
+          "type": "integer"
+        },
+        "erc8004_public": {
+          "type": "object",
+          "properties": {
+            "available": {
+              "type": "boolean"
+            },
+            "raw": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "reviewer_count_considered": {
+                  "type": "integer"
+                },
+                "source": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "count",
+                "reviewer_count_considered",
+                "source",
+                "value"
+              ]
+            },
+            "sybil_adjusted": {
+              "type": "object",
+              "properties": {
+                "note": {
+                  "type": "string"
+                },
+                "score": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "note",
+                "score"
+              ]
+            }
+          },
+          "required": [
+            "available",
+            "raw",
+            "sybil_adjusted"
+          ]
+        },
+        "vadium_native": {
+          "type": "object",
+          "properties": {
+            "disputes": {
+              "type": "integer"
+            },
+            "note": {
+              "type": "string"
+            },
+            "objective_slashes": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "disputes",
+            "note",
+            "objective_slashes"
+          ]
+        }
+      },
+      "required": [
+        "agent_id",
+        "erc8004_public",
+        "vadium_native"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "erc8004_public.raw.count": {
+        "min": 0
+      },
+      "erc8004_public.raw.reviewer_count_considered": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "vadium-lookup.onrender.com",
+    "endpoint": "https://vadium-lookup.onrender.com/lookup-paid/:agent_id",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

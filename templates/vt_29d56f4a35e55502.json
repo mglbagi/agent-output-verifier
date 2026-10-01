@@ -1,0 +1,532 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_29d56f4a35e55502",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "airports": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "arrival": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "airport": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "time": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "city": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "country_code": {
+                      "type": "string"
+                    },
+                    "image": {
+                      "type": "string"
+                    },
+                    "thumbnail": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "departure": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "airport": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "time": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "city": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "country_code": {
+                      "type": "string"
+                    },
+                    "image": {
+                      "type": "string"
+                    },
+                    "thumbnail": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "best_flights": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "airline_logo": {
+                "type": "string"
+              },
+              "carbon_emissions": {
+                "additionalProperties": false,
+                "properties": {
+                  "difference_percent": {
+                    "type": "number"
+                  },
+                  "this_flight": {
+                    "type": "number"
+                  },
+                  "typical_for_this_route": {
+                    "type": "number"
+                  }
+                },
+                "type": "object"
+              },
+              "departure_token": {
+                "type": "string"
+              },
+              "extensions": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "flights": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "airline": {
+                      "type": "string"
+                    },
+                    "airline_logo": {
+                      "type": "string"
+                    },
+                    "airplane": {
+                      "type": "string"
+                    },
+                    "arrival_airport": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "time": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "name",
+                        "time"
+                      ]
+                    },
+                    "departure_airport": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "time": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "name",
+                        "time"
+                      ]
+                    },
+                    "duration": {
+                      "type": "number"
+                    },
+                    "extensions": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "flight_number": {
+                      "type": "string"
+                    },
+                    "legroom": {
+                      "type": "string"
+                    },
+                    "often_delayed_by_over_30_min": {
+                      "type": "boolean"
+                    },
+                    "overnight": {
+                      "type": "boolean"
+                    },
+                    "travel_class": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object",
+                  "required": [
+                    "airline",
+                    "arrival_airport",
+                    "departure_airport",
+                    "duration",
+                    "flight_number",
+                    "travel_class"
+                  ]
+                },
+                "type": "array"
+              },
+              "layovers": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "duration": {
+                      "type": "number"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "overnight": {
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "price": {
+                "type": "number"
+              },
+              "total_duration": {
+                "type": "number"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "flights",
+              "price",
+              "total_duration",
+              "type"
+            ]
+          },
+          "type": "array"
+        },
+        "other_flights": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "airline_logo": {
+                "type": "string"
+              },
+              "carbon_emissions": {
+                "additionalProperties": false,
+                "properties": {
+                  "difference_percent": {
+                    "type": "number"
+                  },
+                  "this_flight": {
+                    "type": "number"
+                  },
+                  "typical_for_this_route": {
+                    "type": "number"
+                  }
+                },
+                "type": "object"
+              },
+              "departure_token": {
+                "type": "string"
+              },
+              "extensions": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "flights": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "airline": {
+                      "type": "string"
+                    },
+                    "airline_logo": {
+                      "type": "string"
+                    },
+                    "airplane": {
+                      "type": "string"
+                    },
+                    "arrival_airport": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "time": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "departure_airport": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "time": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "duration": {
+                      "type": "number"
+                    },
+                    "extensions": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "flight_number": {
+                      "type": "string"
+                    },
+                    "legroom": {
+                      "type": "string"
+                    },
+                    "often_delayed_by_over_30_min": {
+                      "type": "boolean"
+                    },
+                    "overnight": {
+                      "type": "boolean"
+                    },
+                    "travel_class": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "layovers": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "duration": {
+                      "type": "number"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "overnight": {
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "price": {
+                "type": "number"
+              },
+              "total_duration": {
+                "type": "number"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "price_insights": {
+          "additionalProperties": false,
+          "properties": {
+            "lowest_price": {
+              "type": "number"
+            },
+            "price_history": {
+              "items": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "type": "array"
+            },
+            "price_level": {
+              "type": "string"
+            },
+            "typical_price_range": {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "search_metadata": {
+          "additionalProperties": false,
+          "properties": {
+            "created_at": {
+              "type": "string"
+            },
+            "google_flights_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "id": {
+              "type": "string"
+            },
+            "json_endpoint": {
+              "type": "string"
+            },
+            "processed_at": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "total_time_taken": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "created_at",
+            "google_flights_url",
+            "id",
+            "status"
+          ]
+        },
+        "search_parameters": {
+          "additionalProperties": {},
+          "propertyNames": {
+            "type": "string"
+          },
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "required": [
+        "best_flights",
+        "search_metadata"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "best_flights[].layovers[].id",
+        "if_present": true
+      },
+      {
+        "type": "unique",
+        "field": "other_flights[].layovers[].id",
+        "if_present": true
+      }
+    ],
+    "bounds": {
+      "best_flights[].flights[].duration": {
+        "min": 0
+      },
+      "best_flights[].layovers[].duration": {
+        "min": 0,
+        "if_present": true
+      },
+      "best_flights[].price": {
+        "min": 0
+      },
+      "best_flights[].total_duration": {
+        "min": 0
+      },
+      "other_flights[].flights[].duration": {
+        "min": 0,
+        "if_present": true
+      },
+      "other_flights[].layovers[].duration": {
+        "min": 0,
+        "if_present": true
+      },
+      "other_flights[].price": {
+        "min": 0,
+        "if_present": true
+      },
+      "other_flights[].total_duration": {
+        "min": 0,
+        "if_present": true
+      },
+      "price_insights.lowest_price": {
+        "min": 0,
+        "if_present": true
+      },
+      "search_metadata.total_time_taken": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "stabletravel.dev",
+    "endpoint": "https://stabletravel.dev/api/google-flights/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

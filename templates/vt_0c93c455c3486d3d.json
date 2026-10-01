@@ -1,0 +1,151 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0c93c455c3486d3d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "categories": {
+          "description": "Project category labels",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "homepage": {
+          "description": "Project homepage URL",
+          "type": "string"
+        },
+        "id": {
+          "description": "CoinGecko coin id slug",
+          "type": "string"
+        },
+        "image": {
+          "description": "URL of the coin's large logo image",
+          "type": "string"
+        },
+        "market_cap_rank": {
+          "description": "Rank by market cap",
+          "type": "integer"
+        },
+        "market_data": {
+          "description": "Headline USD market figures",
+          "properties": {
+            "ath_usd": {
+              "description": "All-time high price in USD",
+              "type": "number"
+            },
+            "atl_usd": {
+              "description": "All-time low price in USD",
+              "type": "number"
+            },
+            "circulating_supply": {
+              "description": "Circulating supply",
+              "type": "number"
+            },
+            "current_price_usd": {
+              "description": "Current price in USD",
+              "type": "number"
+            },
+            "market_cap_usd": {
+              "description": "Market cap in USD",
+              "type": "number"
+            },
+            "max_supply": {
+              "description": "Max supply",
+              "type": "number"
+            },
+            "price_change_pct_24h": {
+              "description": "Price change percent over 24h",
+              "type": "number"
+            },
+            "price_change_pct_30d": {
+              "description": "Price change percent over 30d",
+              "type": "number"
+            },
+            "price_change_pct_7d": {
+              "description": "Price change percent over 7d",
+              "type": "number"
+            },
+            "total_supply": {
+              "description": "Total supply",
+              "type": "number"
+            },
+            "total_volume_usd": {
+              "description": "24h trading volume in USD",
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "current_price_usd",
+            "market_cap_usd"
+          ]
+        },
+        "name": {
+          "description": "Coin name",
+          "type": "string"
+        },
+        "queried_at": {
+          "description": "UTC timestamp the upstream was queried",
+          "format": "date-time",
+          "type": "string"
+        },
+        "symbol": {
+          "description": "Ticker symbol",
+          "type": "string"
+        }
+      },
+      "required": [
+        "queried_at",
+        "id",
+        "symbol",
+        "name",
+        "market_data"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "market_cap_rank": {
+        "min": 0,
+        "if_present": true
+      },
+      "market_data.ath_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "market_data.atl_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "market_data.current_price_usd": {
+        "min": 0
+      },
+      "market_data.market_cap_usd": {
+        "min": 0
+      },
+      "market_data.max_supply": {
+        "min": 0,
+        "if_present": true
+      },
+      "market_data.total_supply": {
+        "min": 0,
+        "if_present": true
+      },
+      "market_data.total_volume_usd": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "coingecko.use.x402atlas.com",
+    "endpoint": "https://coingecko.use.x402atlas.com/coin",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

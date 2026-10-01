@@ -1,0 +1,133 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0d9fc38a5e8024f0",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "bearish_pct": {
+          "type": "integer"
+        },
+        "bullish_pct": {
+          "type": "integer"
+        },
+        "distribution": {
+          "type": "object",
+          "properties": {
+            "bearish": {
+              "type": "integer"
+            },
+            "bullish": {
+              "type": "integer"
+            },
+            "mixed": {
+              "type": "integer"
+            },
+            "neutral": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "bearish",
+            "bullish",
+            "mixed",
+            "neutral"
+          ]
+        },
+        "headline_count": {
+          "type": "integer"
+        },
+        "headlines": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "headline": {
+                "type": "string"
+              },
+              "published": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "signal": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "headline",
+              "published",
+              "reason",
+              "signal",
+              "source",
+              "url"
+            ]
+          }
+        },
+        "neutral_pct": {
+          "type": "integer"
+        },
+        "note": {
+          "type": "string"
+        },
+        "query": {
+          "type": "string"
+        },
+        "scored_count": {
+          "type": "integer"
+        },
+        "tone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "bearish_pct",
+        "bullish_pct",
+        "distribution",
+        "headline_count",
+        "headlines",
+        "neutral_pct",
+        "note",
+        "query",
+        "scored_count",
+        "tone"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "bearish_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "bullish_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "headline_count": {
+        "min": 0
+      },
+      "neutral_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "news.lonestaroracle.xyz",
+    "endpoint": "https://news.lonestaroracle.xyz/news",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

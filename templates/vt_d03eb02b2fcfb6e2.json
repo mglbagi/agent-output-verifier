@@ -1,0 +1,108 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d03eb02b2fcfb6e2",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "author": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "canonical": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "favicon": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "final_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "keywords": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "language": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "modified": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "open_graph": {
+          "description": "OpenGraph tags: title, description, image, url, type, site_name.",
+          "type": "object"
+        },
+        "published": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "twitter": {
+          "description": "Twitter card tags: card, title, description, image, site, creator.",
+          "type": "object"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "type": "object",
+      "required": [
+        "canonical",
+        "description",
+        "favicon",
+        "final_url",
+        "language",
+        "modified",
+        "open_graph",
+        "published",
+        "title",
+        "twitter",
+        "url"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "web-scraper-api-production-bf20.up.railway.app",
+    "endpoint": "https://web-scraper-api-production-bf20.up.railway.app/scrape/metadata",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

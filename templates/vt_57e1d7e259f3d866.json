@@ -1,0 +1,98 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_57e1d7e259f3d866",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "cache_hit": {
+          "type": "boolean"
+        },
+        "ratios": {
+          "type": "object",
+          "properties": {
+            "current_ratio_mrq": {
+              "type": "number"
+            },
+            "debt_to_equity_mrq": {
+              "type": "number"
+            },
+            "ev_to_ebitda_ttm": {
+              "type": "number"
+            },
+            "interest_coverage_ttm": {
+              "type": "number"
+            },
+            "price_to_book_mrq": {
+              "type": "number"
+            },
+            "price_to_earnings_ttm": {
+              "type": "number"
+            },
+            "price_to_free_cash_flow_ttm": {
+              "type": "number"
+            },
+            "price_to_operating_cash_flow_ttm": {
+              "type": "number"
+            },
+            "roic_ttm_pct": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "current_ratio_mrq",
+            "debt_to_equity_mrq",
+            "ev_to_ebitda_ttm",
+            "interest_coverage_ttm",
+            "price_to_book_mrq",
+            "price_to_earnings_ttm",
+            "price_to_free_cash_flow_ttm",
+            "price_to_operating_cash_flow_ttm",
+            "roic_ttm_pct"
+          ]
+        },
+        "ticker": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "cache_hit",
+        "ratios",
+        "ticker"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "ratios.current_ratio_mrq": {
+        "min": 0,
+        "max": 1
+      },
+      "ratios.price_to_book_mrq": {
+        "min": 0
+      },
+      "ratios.price_to_earnings_ttm": {
+        "min": 0
+      },
+      "ratios.price_to_free_cash_flow_ttm": {
+        "min": 0
+      },
+      "ratios.price_to_operating_cash_flow_ttm": {
+        "min": 0
+      },
+      "ratios.roic_ttm_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mtbandy--sec-ratio-engine-serve-app.modal.run",
+    "endpoint": "https://mtbandy--sec-ratio-engine-serve-app.modal.run/ratios",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

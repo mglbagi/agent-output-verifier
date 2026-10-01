@@ -1,0 +1,140 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_acae2988fbe2dffe",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "btc_usd": {
+          "type": "number"
+        },
+        "core_cpi_yoy": {
+          "type": "number"
+        },
+        "core_pce_yoy": {
+          "type": "number"
+        },
+        "cpi_yoy": {
+          "type": "number"
+        },
+        "dxy": {
+          "type": "number"
+        },
+        "fear_greed": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "value": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "label",
+            "value"
+          ]
+        },
+        "fed_funds_rate": {
+          "type": "number"
+        },
+        "gdp_growth_qoq": {
+          "type": "number"
+        },
+        "gold_usd": {
+          "type": "number"
+        },
+        "m2_yoy": {
+          "type": "number"
+        },
+        "macro_tone": {
+          "type": "string"
+        },
+        "mortgage_30y": {
+          "type": "number"
+        },
+        "narrative": {
+          "type": "string"
+        },
+        "oil_wti": {
+          "type": "number"
+        },
+        "spy": {
+          "type": "integer"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "treasury_10y": {
+          "type": "number"
+        },
+        "treasury_2y": {
+          "type": "number"
+        },
+        "treasury_3m": {
+          "type": "number"
+        },
+        "unemployment": {
+          "type": "number"
+        },
+        "vix": {
+          "type": "number"
+        },
+        "vix_signal": {
+          "type": "string"
+        },
+        "yield_curve_signal": {
+          "type": "string"
+        },
+        "yield_curve_spread": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "btc_usd",
+        "core_cpi_yoy",
+        "core_pce_yoy",
+        "cpi_yoy",
+        "dxy",
+        "fear_greed",
+        "fed_funds_rate",
+        "gdp_growth_qoq",
+        "gold_usd",
+        "m2_yoy",
+        "macro_tone",
+        "mortgage_30y",
+        "narrative",
+        "oil_wti",
+        "spy",
+        "summary",
+        "treasury_10y",
+        "treasury_2y",
+        "treasury_3m",
+        "unemployment",
+        "vix",
+        "vix_signal",
+        "yield_curve_signal",
+        "yield_curve_spread"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "btc_usd": {
+        "min": 0
+      },
+      "gold_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "macro.lonestaroracle.xyz",
+    "endpoint": "https://macro.lonestaroracle.xyz/macro",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

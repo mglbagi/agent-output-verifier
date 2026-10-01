@@ -1,0 +1,64 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9d28d78cf4392828",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "case_number": {
+                "type": "string"
+              },
+              "county": {
+                "type": "string"
+              },
+              "judgment_type": {
+                "type": "string"
+              },
+              "ordered_date": {
+                "type": "string"
+              },
+              "party_name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "case_number",
+              "county",
+              "judgment_type",
+              "ordered_date",
+              "party_name"
+            ]
+          }
+        },
+        "total_hits": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "results",
+        "total_hits"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "total_hits": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mcp.courtdelta.com",
+    "endpoint": "https://mcp.courtdelta.com/x402/search-judgments",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

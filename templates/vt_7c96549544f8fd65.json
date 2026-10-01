@@ -1,0 +1,84 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7c96549544f8fd65",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "average": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "current": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "max": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "min": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "sampleCount": {
+          "type": "integer"
+        },
+        "stdDev": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "trend": {
+          "enum": [
+            "up",
+            "down",
+            "flat",
+            "insufficient-data"
+          ],
+          "type": "string"
+        },
+        "windowMinutes": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "average",
+        "current",
+        "max",
+        "min",
+        "sampleCount",
+        "stdDev",
+        "trend",
+        "windowMinutes"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "min",
+        "other_field": "max"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "lab.paidapis.net",
+    "endpoint": "https://lab.paidapis.net/api/gas-metrics",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

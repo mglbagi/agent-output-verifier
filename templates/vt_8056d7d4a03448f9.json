@@ -1,0 +1,129 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8056d7d4a03448f9",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "compared": {
+          "maximum": 4,
+          "minimum": 2,
+          "type": "integer"
+        },
+        "comparison": {
+          "properties": {
+            "buyable_product_indices": {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            "currencies": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "highest_rating_by_scale": {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "identity_matches": {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "lowest_listed_price_by_currency": {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "lowest_shipping_cost_by_currency": {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "same_product_proven": {
+              "type": "boolean"
+            },
+            "unavailable_product_indices": {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            "warnings": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object",
+          "required": [
+            "currencies",
+            "identity_matches",
+            "lowest_listed_price_by_currency",
+            "same_product_proven",
+            "warnings"
+          ]
+        },
+        "failed": {
+          "maximum": 2,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "failures": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "fetched_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "methodology": {
+          "type": "object"
+        },
+        "products": {
+          "items": {
+            "type": "object"
+          },
+          "minItems": 2,
+          "type": "array"
+        },
+        "requested": {
+          "maximum": 4,
+          "minimum": 2,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "requested",
+        "compared",
+        "products",
+        "comparison",
+        "methodology",
+        "fetched_at"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "fetch.halowerk.com",
+    "endpoint": "https://fetch.halowerk.com/product/compare",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

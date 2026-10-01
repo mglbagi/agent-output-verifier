@@ -1,0 +1,75 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6e6cc6b74cfb2db0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "access_expires_at": {
+          "type": "string"
+        },
+        "poll_after_seconds": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "success": {
+          "const": true,
+          "type": "boolean"
+        },
+        "task": {
+          "properties": {
+            "results_url": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "status": {
+              "type": "string"
+            },
+            "status_url": {
+              "type": "string"
+            },
+            "task_id": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "task_id",
+            "status",
+            "status_url"
+          ],
+          "type": "object"
+        },
+        "task_token": {
+          "description": "Task-scoped bearer credential. Keep it private and send it only to the returned Xcatcher status and results URLs.",
+          "type": "string"
+        },
+        "x402_version": {
+          "const": 2,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "success",
+        "x402_version",
+        "task",
+        "task_token",
+        "access_expires_at",
+        "poll_after_seconds"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "xcatcher.top",
+    "endpoint": "https://xcatcher.top/api/v1/x402/crawl",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

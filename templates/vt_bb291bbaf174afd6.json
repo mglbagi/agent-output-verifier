@@ -1,0 +1,97 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bb291bbaf174afd6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "description": "Deterministic counts of own top-level keys. Blank means a string whose trim() is empty. Zero, false, empty arrays and empty objects are populated. Duplicate field names are counted once in first-occurrence order. At most 128 rows and 64 field names, subject to shared byte/complexity limits. No nested-path, type, schema, factual or source validation. Same valid input and implementation version produce the same result; this is not an external correctness certification. No upstream API or model call. Results may contain supplied fields and are retained in the shared result store. Do not submit secrets or private data. Recovery expires 24 hours after claim; physical deletion/backups follow existing environment policy.",
+      "properties": {
+        "result": {
+          "additionalProperties": false,
+          "properties": {
+            "columns": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "absent": {
+                    "maximum": 9007199254740991,
+                    "minimum": -9007199254740991,
+                    "type": "integer"
+                  },
+                  "blanks": {
+                    "maximum": 9007199254740991,
+                    "minimum": -9007199254740991,
+                    "type": "integer"
+                  },
+                  "field": {
+                    "type": "string"
+                  },
+                  "nulls": {
+                    "maximum": 9007199254740991,
+                    "minimum": -9007199254740991,
+                    "type": "integer"
+                  },
+                  "populated": {
+                    "maximum": 9007199254740991,
+                    "minimum": -9007199254740991,
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "field",
+                  "absent",
+                  "nulls",
+                  "blanks",
+                  "populated"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "rows": {
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "rows",
+            "columns"
+          ],
+          "type": "object"
+        },
+        "schema_version": {
+          "const": "research-1",
+          "type": "string"
+        },
+        "test_only": {
+          "const": false,
+          "type": "boolean"
+        },
+        "utility_id": {
+          "const": "column-completeness",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "utility_id",
+        "test_only",
+        "result"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "penny-army-reference-mainnet.spruceboundgranitestudio.workers.dev",
+    "endpoint": "https://penny-army-reference-mainnet.spruceboundgranitestudio.workers.dev/v1/probes/column-completeness",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

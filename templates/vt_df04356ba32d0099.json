@@ -1,0 +1,84 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_df04356ba32d0099",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "iqr": {
+          "type": "number"
+        },
+        "max": {
+          "type": "integer"
+        },
+        "mean": {
+          "type": "number"
+        },
+        "median": {
+          "type": "number"
+        },
+        "min": {
+          "type": "integer"
+        },
+        "mode": {},
+        "q1": {
+          "type": "number"
+        },
+        "q3": {
+          "type": "number"
+        },
+        "range": {
+          "type": "integer"
+        },
+        "stddev": {
+          "type": "number"
+        },
+        "sum": {
+          "type": "integer"
+        },
+        "variance": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "count",
+        "sum",
+        "mean",
+        "median",
+        "stddev",
+        "variance",
+        "min",
+        "max",
+        "range",
+        "q1",
+        "q3",
+        "iqr"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "min",
+        "other_field": "max"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent402.tools",
+    "endpoint": "https://agent402.tools/api/stats-summary",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,274 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a599968e4418c381",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "chains": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "baseFeeGwei": {
+                "type": "number"
+              },
+              "chain": {
+                "type": "string"
+              },
+              "chainId": {
+                "type": "integer"
+              },
+              "costs": {
+                "type": "object",
+                "properties": {
+                  "erc20Transfer": {
+                    "type": "object",
+                    "properties": {
+                      "native": {
+                        "type": "number"
+                      },
+                      "usd": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "native",
+                      "usd"
+                    ]
+                  },
+                  "swap": {
+                    "type": "object",
+                    "properties": {
+                      "native": {
+                        "type": "number"
+                      },
+                      "usd": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "native",
+                      "usd"
+                    ]
+                  },
+                  "transfer": {
+                    "type": "object",
+                    "properties": {
+                      "native": {
+                        "type": "number"
+                      },
+                      "usd": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "native",
+                      "usd"
+                    ]
+                  }
+                },
+                "required": [
+                  "erc20Transfer",
+                  "swap",
+                  "transfer"
+                ]
+              },
+              "gasPriceGwei": {
+                "type": "number"
+              },
+              "nativeSymbol": {
+                "type": "string"
+              },
+              "nativeUsd": {
+                "type": "number"
+              },
+              "tiers": {
+                "type": "object",
+                "properties": {
+                  "fast": {
+                    "type": "object",
+                    "properties": {
+                      "costs": {
+                        "type": "object",
+                        "properties": {
+                          "transfer": {
+                            "type": "object",
+                            "properties": {
+                              "native": {},
+                              "usd": {}
+                            },
+                            "required": [
+                              "native",
+                              "usd"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "transfer"
+                        ]
+                      },
+                      "effectiveGwei": {
+                        "type": "number"
+                      },
+                      "maxFeeGwei": {
+                        "type": "number"
+                      },
+                      "priorityFeeGwei": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "costs",
+                      "effectiveGwei",
+                      "maxFeeGwei",
+                      "priorityFeeGwei"
+                    ]
+                  },
+                  "slow": {
+                    "type": "object",
+                    "properties": {
+                      "costs": {
+                        "type": "object",
+                        "properties": {
+                          "transfer": {
+                            "type": "object",
+                            "properties": {
+                              "native": {},
+                              "usd": {}
+                            },
+                            "required": [
+                              "native",
+                              "usd"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "transfer"
+                        ]
+                      },
+                      "effectiveGwei": {
+                        "type": "number"
+                      },
+                      "maxFeeGwei": {
+                        "type": "number"
+                      },
+                      "priorityFeeGwei": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "costs",
+                      "effectiveGwei",
+                      "maxFeeGwei",
+                      "priorityFeeGwei"
+                    ]
+                  },
+                  "standard": {
+                    "type": "object",
+                    "properties": {
+                      "costs": {
+                        "type": "object",
+                        "properties": {
+                          "transfer": {
+                            "type": "object",
+                            "properties": {
+                              "native": {},
+                              "usd": {}
+                            },
+                            "required": [
+                              "native",
+                              "usd"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "transfer"
+                        ]
+                      },
+                      "effectiveGwei": {
+                        "type": "number"
+                      },
+                      "maxFeeGwei": {
+                        "type": "number"
+                      },
+                      "priorityFeeGwei": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "costs",
+                      "effectiveGwei",
+                      "maxFeeGwei",
+                      "priorityFeeGwei"
+                    ]
+                  }
+                },
+                "required": [
+                  "fast",
+                  "slow",
+                  "standard"
+                ]
+              }
+            },
+            "required": [
+              "baseFeeGwei",
+              "chain",
+              "chainId",
+              "costs",
+              "gasPriceGwei",
+              "nativeSymbol",
+              "nativeUsd",
+              "tiers"
+            ]
+          }
+        },
+        "gasUsed": {
+          "type": "object",
+          "properties": {
+            "erc20Transfer": {
+              "type": "integer"
+            },
+            "swap": {
+              "type": "integer"
+            },
+            "transfer": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "erc20Transfer",
+            "swap",
+            "transfer"
+          ]
+        }
+      },
+      "required": [
+        "chains",
+        "gasUsed"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "chains[].costs.erc20Transfer.usd": {
+        "min": 0
+      },
+      "chains[].costs.swap.usd": {
+        "min": 0
+      },
+      "chains[].costs.transfer.usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-tools-production-2755.up.railway.app",
+    "endpoint": "https://x402-tools-production-2755.up.railway.app/tools/gas",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

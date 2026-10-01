@@ -1,0 +1,54 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5de0b29cf211b8d3",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "botanical": {
+          "type": "string"
+        },
+        "evidence_fingerprint": {
+          "type": "string"
+        },
+        "evidence_version": {
+          "type": "string"
+        },
+        "payload": {
+          "type": "object"
+        },
+        "product_id": {
+          "type": "string"
+        },
+        "product_type": {
+          "type": "string"
+        },
+        "scientific_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "product_id",
+        "product_type",
+        "botanical",
+        "scientific_name",
+        "evidence_fingerprint",
+        "evidence_version",
+        "payload"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "web-production-7442b.up.railway.app",
+    "endpoint": "https://web-production-7442b.up.railway.app/v1/commerce/:botanical_id/product/:product_id",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

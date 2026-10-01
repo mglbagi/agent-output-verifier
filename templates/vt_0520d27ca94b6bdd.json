@@ -1,0 +1,75 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0520d27ca94b6bdd",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "byline": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "excerpt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "finalUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "markdown": {
+          "type": "string"
+        },
+        "markdownCharacters": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "requestedUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "retrievedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "truncated": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "requestedUrl",
+        "finalUrl",
+        "title",
+        "byline",
+        "excerpt",
+        "markdown",
+        "markdownCharacters",
+        "truncated",
+        "retrievedAt"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "manyfish-seller.redcliff-d7368db1.westus2.azurecontainerapps.io",
+    "endpoint": "https://manyfish-seller.redcliff-d7368db1.westus2.azurecontainerapps.io/api/v1/content/url-to-markdown",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ae5a9c51aa8579c2",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "instrument": {
+          "type": "string"
+        },
+        "payload_sha256": {
+          "type": "string"
+        },
+        "price": {
+          "type": "string"
+        },
+        "quote_currency": {
+          "type": "string"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "seq": {
+          "type": "integer"
+        },
+        "source": {
+          "type": "string"
+        },
+        "ts": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "instrument",
+        "payload_sha256",
+        "price",
+        "quote_currency",
+        "schema",
+        "seq",
+        "source",
+        "ts"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tick.twzrd.xyz",
+    "endpoint": "https://tick.twzrd.xyz/sku/DIGITAL.ATOM.1",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

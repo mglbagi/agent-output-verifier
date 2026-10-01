@@ -1,0 +1,53 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6c3c64c4686510e0",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "network": {
+          "type": "string"
+        },
+        "paid": {
+          "type": "boolean"
+        },
+        "service": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "whales": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "count",
+        "network",
+        "paid",
+        "service",
+        "token",
+        "whales"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "digital-myto.onrender.com",
+    "endpoint": "https://digital-myto.onrender.com/api/whales/latest",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

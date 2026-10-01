@@ -1,0 +1,68 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c1984c7cf7d0ed84",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "funding_annualized_pct": {
+          "type": "number"
+        },
+        "market_cap_change_24h_pct": {
+          "type": "number"
+        },
+        "market_cap_usd": {
+          "type": "number"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "positioning": {
+          "type": "string"
+        },
+        "regime": {
+          "type": "string"
+        },
+        "sentiment_label": {
+          "type": "string"
+        },
+        "sentiment_score": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "funding_annualized_pct",
+        "market_cap_change_24h_pct",
+        "market_cap_usd",
+        "notes",
+        "positioning",
+        "regime",
+        "sentiment_label",
+        "sentiment_score"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "funding_annualized_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "market_cap_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "eltociear-tokenguard.hf.space",
+    "endpoint": "https://eltociear-tokenguard.hf.space/brief/market",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

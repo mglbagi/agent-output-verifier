@@ -1,0 +1,161 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b10b9c132bde06ea",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "capability": {
+          "const": "http.latency",
+          "description": "Public capability value used to scope this lookup."
+        },
+        "data": {
+          "additionalProperties": false,
+          "description": "Public data value used to scope this lookup.",
+          "properties": {
+            "connect_ms_if_available": {
+              "description": "Public connect ms if available value used to scope this lookup.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "max": {
+              "description": "Public max value used to scope this lookup.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "median": {
+              "description": "Public median value used to scope this lookup.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "min": {
+              "description": "Public min value used to scope this lookup.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "samples": {
+              "description": "Number of sequential timing samples to collect.",
+              "type": "integer"
+            },
+            "success_count": {
+              "description": "Public success count value used to scope this lookup.",
+              "type": "integer"
+            },
+            "total_ms": {
+              "description": "Public total ms value used to scope this lookup.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "ttfb_ms": {
+              "description": "Public ttfb ms value used to scope this lookup.",
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "samples",
+            "success_count",
+            "connect_ms_if_available",
+            "ttfb_ms",
+            "total_ms",
+            "min",
+            "median",
+            "max"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "additionalProperties": false,
+          "description": "Public meta value used to scope this lookup.",
+          "properties": {
+            "cache": {
+              "description": "Public cache value used to scope this lookup.",
+              "enum": [
+                "hit",
+                "miss",
+                "bypass"
+              ]
+            },
+            "checked_at": {
+              "description": "Public checked at value used to scope this lookup.",
+              "type": "string",
+              "format": "date-time"
+            },
+            "duration_ms": {
+              "description": "Public duration ms value used to scope this lookup.",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "provider": {
+              "description": "Public provider value used to scope this lookup.",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "provider",
+            "checked_at",
+            "cache",
+            "duration_ms"
+          ],
+          "type": "object"
+        },
+        "ok": {
+          "const": true,
+          "description": "Public ok value used to scope this lookup."
+        },
+        "version": {
+          "const": "1",
+          "description": "Package version whose public metadata should be checked."
+        }
+      },
+      "required": [
+        "ok",
+        "capability",
+        "version",
+        "data",
+        "meta"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "data.min",
+        "other_field": "data.max"
+      }
+    ],
+    "bounds": {
+      "data.success_count": {
+        "min": 0
+      },
+      "data.total_ms": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "http--forest-gas-station-mainnet--lcjl27p8lmjs.code.run",
+    "endpoint": "https://http--forest-gas-station-mainnet--lcjl27p8lmjs.code.run/http/latency",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

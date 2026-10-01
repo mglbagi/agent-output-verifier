@@ -1,0 +1,85 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_699d57013312eb41",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "Illustrative response; never live market data.",
+      "properties": {
+        "data": {
+          "description": "Precious/base metal spot price data.",
+          "properties": {
+            "currency": {
+              "default": "USD",
+              "description": "Quote currency",
+              "title": "Currency",
+              "type": "string"
+            },
+            "name": {
+              "default": "",
+              "description": "Metal name (e.g., Gold)",
+              "title": "Name",
+              "type": "string"
+            },
+            "price": {
+              "description": "Spot price in USD",
+              "title": "Price",
+              "type": "number"
+            },
+            "source": {
+              "default": "blocksize",
+              "description": "Data provider",
+              "title": "Source",
+              "type": "string"
+            },
+            "ticker": {
+              "description": "Metal ticker (e.g., XAUUSD)",
+              "title": "Ticker",
+              "type": "string"
+            },
+            "timestamp": {
+              "description": "Data timestamp (UTC)",
+              "format": "date-time",
+              "title": "Timestamp",
+              "type": "string"
+            }
+          },
+          "required": [
+            "ticker",
+            "price",
+            "timestamp"
+          ],
+          "title": "MetalData",
+          "type": "object"
+        },
+        "meta": {
+          "type": "object"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "data",
+        "meta"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "data.price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mcp.blocksize.info",
+    "endpoint": "https://mcp.blocksize.info/v1/metal/XAUUSD",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6dee7ac279bfaef7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "properties": {
+            "dominant": {
+              "type": "string"
+            },
+            "min_usd": {
+              "type": "number"
+            },
+            "net_usd": {
+              "type": "number"
+            },
+            "symbol": {
+              "type": "string"
+            },
+            "tape_size": {
+              "type": "number"
+            },
+            "trades": {
+              "type": "array"
+            },
+            "whale_buy_usd": {
+              "type": "number"
+            },
+            "whale_count": {
+              "type": "number"
+            },
+            "whale_sell_usd": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "dominant",
+            "min_usd",
+            "net_usd",
+            "symbol",
+            "tape_size",
+            "trades",
+            "whale_buy_usd",
+            "whale_count",
+            "whale_sell_usd"
+          ]
+        },
+        "paid": {
+          "type": "boolean"
+        },
+        "tool": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "data",
+        "paid",
+        "tool"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.min_usd": {
+        "min": 0
+      },
+      "data.tape_size": {
+        "min": 0
+      },
+      "data.whale_buy_usd": {
+        "min": 0
+      },
+      "data.whale_count": {
+        "min": 0
+      },
+      "data.whale_sell_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.ochinimus.app",
+    "endpoint": "https://x402.ochinimus.app/api/whale-trades",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

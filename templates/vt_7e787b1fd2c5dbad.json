@@ -1,0 +1,112 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7e787b1fd2c5dbad",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "data": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "agency": {
+                "type": "string"
+              },
+              "award_id": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "recipient": {
+                "type": "string"
+              },
+              "source_url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "award_id",
+              "recipient",
+              "description",
+              "agency",
+              "source_url"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "marketplace_metadata": {
+          "additionalProperties": true,
+          "properties": {
+            "availability": {
+              "type": "string"
+            },
+            "billable": {
+              "type": "boolean"
+            },
+            "data_mode": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "data_mode",
+            "billable",
+            "availability",
+            "source"
+          ],
+          "type": "object"
+        },
+        "source": {
+          "type": "string"
+        },
+        "source_verified_count": {
+          "type": "integer"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success",
+        "source",
+        "source_verified_count",
+        "count",
+        "data",
+        "marketplace_metadata"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data[].award_id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "source_verified_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ai-data-marketplace-1042299154756.us-central1.run.app",
+    "endpoint": "https://ai-data-marketplace-1042299154756.us-central1.run.app/api/v1/contracts",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

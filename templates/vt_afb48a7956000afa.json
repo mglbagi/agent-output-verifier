@@ -1,0 +1,222 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_afb48a7956000afa",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "pack": {
+          "type": "string"
+        },
+        "payment": {
+          "type": "string"
+        },
+        "snapshot": {
+          "type": "object",
+          "properties": {
+            "categories": {
+              "type": "object",
+              "properties": {
+                "tool": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "tool"
+              ]
+            },
+            "count": {
+              "type": "integer"
+            },
+            "counts": {
+              "type": "object",
+              "properties": {
+                "described": {
+                  "type": "integer"
+                },
+                "fetchOnly": {
+                  "type": "integer"
+                },
+                "reviewed": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "described",
+                "fetchOnly",
+                "reviewed"
+              ]
+            },
+            "generatedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "sites": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "bySeverity": {
+                    "type": "object",
+                    "properties": {
+                      "critical": {
+                        "type": "integer"
+                      },
+                      "high": {
+                        "type": "integer"
+                      },
+                      "info": {
+                        "type": "integer"
+                      },
+                      "low": {
+                        "type": "integer"
+                      },
+                      "medium": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "critical",
+                      "high",
+                      "info",
+                      "low",
+                      "medium"
+                    ]
+                  },
+                  "category": {
+                    "type": "string"
+                  },
+                  "checkedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "facts": {
+                    "type": "object",
+                    "properties": {
+                      "botControlStatus": {
+                        "type": "integer"
+                      },
+                      "botProbes": {
+                        "type": "object",
+                        "properties": {
+                          "ClaudeBot": {
+                            "type": "integer"
+                          },
+                          "GPTBot": {
+                            "type": "integer"
+                          },
+                          "OAI-SearchBot": {
+                            "type": "integer"
+                          },
+                          "PerplexityBot": {
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "ClaudeBot",
+                          "GPTBot",
+                          "OAI-SearchBot",
+                          "PerplexityBot"
+                        ]
+                      },
+                      "visibleLength": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "botControlStatus",
+                      "botProbes",
+                      "visibleLength"
+                    ]
+                  },
+                  "findings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "severity": {
+                          "type": "string"
+                        },
+                        "what": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "severity",
+                        "what"
+                      ]
+                    }
+                  },
+                  "host": {
+                    "type": "string"
+                  },
+                  "score": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "bySeverity",
+                  "category",
+                  "checkedAt",
+                  "description",
+                  "facts",
+                  "findings",
+                  "host",
+                  "score"
+                ]
+              }
+            },
+            "truncated": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "categories",
+            "count",
+            "counts",
+            "generatedAt",
+            "sites",
+            "truncated"
+          ]
+        }
+      },
+      "required": [
+        "ok",
+        "pack",
+        "payment",
+        "snapshot"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "snapshot.sites[].findings[].id"
+      }
+    ],
+    "bounds": {
+      "snapshot.count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "402registry.com",
+    "endpoint": "https://402registry.com/buy/catalog",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

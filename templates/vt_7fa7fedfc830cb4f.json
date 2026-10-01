@@ -1,0 +1,91 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7fa7fedfc830cb4f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "campaign": {
+          "type": "object",
+          "properties": {
+            "action_type": {
+              "type": "string"
+            },
+            "campaign_number": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "platform": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "action_type",
+            "campaign_number",
+            "id",
+            "platform",
+            "url"
+          ]
+        },
+        "items_generated": {
+          "type": "number"
+        },
+        "payment": {
+          "type": "object",
+          "properties": {
+            "amount_usd": {
+              "type": "number"
+            },
+            "network": {
+              "type": "string"
+            },
+            "settled": {
+              "type": "boolean"
+            },
+            "transaction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount_usd",
+            "network",
+            "settled",
+            "transaction"
+          ]
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "campaign",
+        "items_generated",
+        "payment",
+        "success"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "payment.amount_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "productclank.com",
+    "endpoint": "https://www.productclank.com/api/x402/boost-trial",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

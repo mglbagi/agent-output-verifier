@@ -1,0 +1,101 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_01fa360e7fe2f432",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "gasOptimization": {
+          "description": "Gas optimization report (when focus includes gas)",
+          "type": "object"
+        },
+        "issues": {
+          "items": {
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "line": {
+                "type": "number"
+              },
+              "severity": {
+                "enum": [
+                  "info",
+                  "low",
+                  "medium",
+                  "high",
+                  "critical"
+                ],
+                "type": "string"
+              },
+              "suggestion": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "category",
+              "description",
+              "line",
+              "severity",
+              "suggestion"
+            ]
+          },
+          "type": "array"
+        },
+        "metadata": {
+          "properties": {
+            "linesAnalyzed": {
+              "type": "number"
+            },
+            "model": {
+              "type": "string"
+            },
+            "processingTimeMs": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "linesAnalyzed",
+            "model",
+            "processingTimeMs"
+          ]
+        },
+        "overallRisk": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "critical"
+          ],
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "overallRisk",
+        "issues",
+        "summary",
+        "metadata"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agentforge-taupe.vercel.app",
+    "endpoint": "https://agentforge-taupe.vercel.app/v1/code-review",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

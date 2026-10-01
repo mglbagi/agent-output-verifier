@@ -1,0 +1,152 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e02ddc2196f4f728",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "page": {
+              "type": "object",
+              "properties": {
+                "hasMore": {
+                  "type": "boolean"
+                },
+                "nextCursor": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "hasMore",
+                "nextCursor"
+              ]
+            },
+            "posts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "_truncated": {
+                    "type": "boolean"
+                  },
+                  "author": {
+                    "type": "string"
+                  },
+                  "bodyText": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "permalink": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "score": {
+                    "type": "integer"
+                  },
+                  "subreddit": {
+                    "type": "string"
+                  },
+                  "subredditPrefixedName": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "upvoteRatio": {
+                    "type": "number"
+                  },
+                  "upvotes": {
+                    "type": "integer"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "_truncated",
+                  "author",
+                  "bodyText",
+                  "id",
+                  "name",
+                  "permalink",
+                  "score",
+                  "subreddit",
+                  "subredditPrefixedName",
+                  "title",
+                  "upvoteRatio",
+                  "upvotes",
+                  "url"
+                ]
+              }
+            },
+            "query": {
+              "type": "string"
+            },
+            "totalResults": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "page",
+            "posts",
+            "query",
+            "totalResults"
+          ]
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "creditsCharged": {
+              "type": "integer"
+            },
+            "requestId": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "creditsCharged",
+            "requestId",
+            "version"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data.posts[].id"
+      }
+    ],
+    "bounds": {
+      "data.posts[].upvoteRatio": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.socialfetch.dev",
+    "endpoint": "https://api.socialfetch.dev/v1/reddit/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

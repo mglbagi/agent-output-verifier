@@ -1,0 +1,143 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_91d22749eeca98b8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "market_visibility": {
+          "type": "object",
+          "properties": {
+            "coverage_pct_listed": {
+              "type": "number"
+            },
+            "listed_txns": {
+              "type": "integer"
+            },
+            "resolved_txns": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "coverage_pct_listed",
+            "listed_txns",
+            "resolved_txns"
+          ]
+        },
+        "providers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "domain": {
+                "type": "string"
+              },
+              "revenue_usd": {
+                "type": "number"
+              },
+              "tx_count": {
+                "type": "integer"
+              },
+              "unique_buyers": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "category",
+              "domain",
+              "revenue_usd",
+              "tx_count",
+              "unique_buyers"
+            ]
+          }
+        },
+        "retroactive_exclusion_caveat": {},
+        "tool": {
+          "type": "string"
+        },
+        "unattributed": {
+          "type": "object",
+          "properties": {
+            "revenue_usd": {},
+            "share_of_listed_txns": {
+              "type": "number"
+            },
+            "tx_count": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "share_of_listed_txns",
+            "tx_count"
+          ]
+        },
+        "universe": {
+          "type": "string"
+        },
+        "window": {
+          "type": "object",
+          "properties": {
+            "dates": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "days_aggregated": {
+              "type": "integer"
+            },
+            "days_requested": {
+              "type": "integer"
+            },
+            "list_complete_all_days": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "dates",
+            "days_aggregated",
+            "days_requested",
+            "list_complete_all_days"
+          ]
+        }
+      },
+      "required": [
+        "market_visibility",
+        "providers",
+        "tool",
+        "unattributed",
+        "universe",
+        "window"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "market_visibility.coverage_pct_listed": {
+        "min": 0,
+        "max": 100
+      },
+      "providers[].revenue_usd": {
+        "min": 0
+      },
+      "providers[].tx_count": {
+        "min": 0
+      },
+      "unattributed.tx_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "paddock.finance",
+    "endpoint": "https://paddock.finance/api/paddock/mcp/provider-revenue",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

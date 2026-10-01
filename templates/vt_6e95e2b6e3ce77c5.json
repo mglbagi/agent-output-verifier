@@ -1,0 +1,93 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6e95e2b6e3ce77c5",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "description": "Number of pairs returned",
+          "type": "integer"
+        },
+        "pairs": {
+          "items": {
+            "properties": {
+              "base_token": {
+                "type": "string"
+              },
+              "circulating_supply": {
+                "description": "Circulating supply (string for full precision)",
+                "type": "string"
+              },
+              "day_ntl_vlm": {
+                "description": "24h notional volume (string for full precision)",
+                "type": "string"
+              },
+              "mark_px": {
+                "description": "Mark price (string for full precision)",
+                "type": "string"
+              },
+              "mid_px": {
+                "description": "Mid price (string for full precision)",
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "prev_day_px": {
+                "description": "Previous day price (string for full precision)",
+                "type": "string"
+              },
+              "quote_token": {
+                "type": "string"
+              },
+              "total_supply": {
+                "description": "Total supply (string for full precision)",
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "base_token",
+              "circulating_supply",
+              "day_ntl_vlm",
+              "mark_px",
+              "mid_px",
+              "name",
+              "prev_day_px",
+              "quote_token",
+              "total_supply"
+            ]
+          },
+          "type": "array"
+        },
+        "queried_at": {
+          "description": "When this response was generated",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "count",
+        "pairs",
+        "queried_at"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hyperliquid.use.x402atlas.com",
+    "endpoint": "https://hyperliquid.use.x402atlas.com/spot",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

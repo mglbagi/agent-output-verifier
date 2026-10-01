@@ -1,0 +1,56 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e2c8b6bfd823af8c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "items": {
+          "items": {
+            "properties": {
+              "audio_base64": {
+                "type": "string"
+              },
+              "duration_s": {
+                "type": "number"
+              },
+              "format": {
+                "type": "string"
+              },
+              "sample_rate": {
+                "type": "integer"
+              }
+            },
+            "type": "object",
+            "required": [
+              "audio_base64",
+              "duration_s",
+              "format",
+              "sample_rate"
+            ]
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "items"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "items[].duration_s": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "voice.forgemesh.io",
+    "endpoint": "https://voice.forgemesh.io/v1/tts/batch",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

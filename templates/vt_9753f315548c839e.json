@@ -1,0 +1,55 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9753f315548c839e",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "fee": {
+          "type": "number"
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "shareAmount": {
+          "type": "number"
+        },
+        "status": {
+          "type": "string"
+        },
+        "statusUrl": {
+          "type": "string"
+        },
+        "wallet": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        }
+      },
+      "required": [
+        "fee",
+        "requestId",
+        "shareAmount",
+        "status",
+        "statusUrl",
+        "wallet"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "fee": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-vault-service.vercel.app",
+    "endpoint": "https://x402-vault-service.vercel.app/api/veda-kraken-boosted/withdraw",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

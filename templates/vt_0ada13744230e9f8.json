@@ -1,0 +1,171 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0ada13744230e9f8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "_atlas": {
+          "additionalProperties": false,
+          "description": "Atlas documentation and related-route metadata added after deployment",
+          "properties": {
+            "docs": {
+              "description": "Documentation URL for this bridge",
+              "format": "uri",
+              "maxLength": 512,
+              "type": "string"
+            },
+            "related": {
+              "description": "Bounded related Atlas routes",
+              "items": {
+                "additionalProperties": false,
+                "description": "One related Atlas route",
+                "properties": {
+                  "bridge": {
+                    "description": "Related bridge name",
+                    "maxLength": 64,
+                    "type": "string"
+                  },
+                  "docs": {
+                    "description": "Related bridge documentation URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  },
+                  "summary": {
+                    "description": "Short capability summary",
+                    "maxLength": 256,
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "Related route URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "bridge",
+                  "url",
+                  "docs",
+                  "summary"
+                ],
+                "type": "object"
+              },
+              "maxItems": 3,
+              "type": "array"
+            }
+          },
+          "required": [
+            "docs"
+          ],
+          "type": "object"
+        },
+        "algorithm_version": {
+          "const": "keccak256-sorted-pairs-v1",
+          "description": "Atlas domain-separated sorted-pair profile",
+          "type": "string"
+        },
+        "leaf_count": {
+          "description": "Number of original leaves",
+          "maximum": 1024,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "leaf_hashes": {
+          "description": "Domain-separated leaf hashes in original order",
+          "items": {
+            "description": "Leaf hash",
+            "pattern": "^0x[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "maxItems": 1024,
+          "minItems": 1,
+          "type": "array"
+        },
+        "operation": {
+          "const": "merkle-build",
+          "description": "Stable route operation",
+          "type": "string"
+        },
+        "proofs": {
+          "description": "Exactly one proof for every original index",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "index": {
+                "description": "Zero-based original leaf index",
+                "maximum": 1023,
+                "minimum": 0,
+                "type": "integer"
+              },
+              "steps": {
+                "description": "Sibling hashes in leaf-to-root order; odd promotions add no step",
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "hash": {
+                      "description": "Sibling node hash; direction is unnecessary because pairs sort by hash",
+                      "pattern": "^0x[0-9a-f]{64}$",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "hash"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 10,
+                "type": "array"
+              }
+            },
+            "required": [
+              "index",
+              "steps"
+            ],
+            "type": "object"
+          },
+          "maxItems": 1024,
+          "minItems": 1,
+          "type": "array"
+        },
+        "root": {
+          "description": "Tree root",
+          "pattern": "^0x[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "warnings": {
+          "description": "Always empty",
+          "items": {
+            "description": "Warning",
+            "type": "string"
+          },
+          "maxItems": 0,
+          "type": "array"
+        }
+      },
+      "required": [
+        "operation",
+        "algorithm_version",
+        "leaf_count",
+        "root",
+        "leaf_hashes",
+        "proofs",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "chain-tools.use.x402atlas.com",
+    "endpoint": "https://chain-tools.use.x402atlas.com/merkle/build",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

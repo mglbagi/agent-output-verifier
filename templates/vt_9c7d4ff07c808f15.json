@@ -1,0 +1,75 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9c7d4ff07c808f15",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "market_count": {
+          "type": "integer"
+        },
+        "markets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "direction": {
+                "type": "string"
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "rank_score": {
+                "type": "number"
+              },
+              "reasons": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "slug": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "direction",
+              "rank",
+              "rank_score",
+              "reasons",
+              "slug"
+            ]
+          }
+        },
+        "ranking_method": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "market_count",
+        "markets",
+        "ranking_method",
+        "service"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "market_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "polymarket-signal-api.pwnker-polymarket-signals.workers.dev",
+    "endpoint": "https://polymarket-signal-api.pwnker-polymarket-signals.workers.dev/v1/markets/rank",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_45f4503e8a35b33e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "changed": {
+          "type": "boolean"
+        },
+        "endpoint": {
+          "const": "json.repair",
+          "type": "string"
+        },
+        "parsed": {
+          "description": "Any JSON value."
+        },
+        "repairedText": {
+          "type": "string"
+        },
+        "service": {
+          "const": "AgentProof",
+          "type": "string"
+        },
+        "valid": {
+          "type": "boolean"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "service",
+        "endpoint",
+        "valid",
+        "changed",
+        "repairedText",
+        "parsed",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agentproof-murex.vercel.app",
+    "endpoint": "https://agentproof-murex.vercel.app/json/repair",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fb321df414a1fda9",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "result": {
+          "required": [
+            "address",
+            "account",
+            "proxy",
+            "interfaces",
+            "token",
+            "balances",
+            "unresolved"
+          ],
+          "type": "object"
+        },
+        "verdict": {
+          "description": "Precedence: block, then unknown, then warn, then allow.",
+          "enum": [
+            "allow",
+            "warn",
+            "block",
+            "unknown"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "verdict",
+        "risk_codes",
+        "evidence",
+        "result",
+        "request_hash"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "chainstate.schemasure.com",
+    "endpoint": "https://chainstate.schemasure.com/v1/chain/state",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b475d917bd8f299f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "range_80": {
+          "type": "object"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "upside_probability": {
+          "type": "number"
+        },
+        "why_not_high": {
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "range_80",
+        "symbol",
+        "upside_probability",
+        "why_not_high"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "upside_probability": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "kronos.forgemesh.io",
+    "endpoint": "https://kronos.forgemesh.io/api/kronos/forecast",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

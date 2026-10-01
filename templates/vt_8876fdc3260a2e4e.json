@@ -1,0 +1,96 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8876fdc3260a2e4e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "format": {
+          "enum": [
+            "structured",
+            "narrative"
+          ],
+          "type": "string"
+        },
+        "generatedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "length": {
+          "enum": [
+            "short",
+            "medium",
+            "long"
+          ],
+          "type": "string"
+        },
+        "summary": {
+          "description": "Structured summary object (JSON mode) or narrative text",
+          "properties": {
+            "actionItems": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "documentType": {
+              "type": "string"
+            },
+            "executiveSummary": {
+              "type": "string"
+            },
+            "keyPoints": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "keywords": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "sentiment": {
+              "enum": [
+                "positive",
+                "negative",
+                "neutral",
+                "mixed"
+              ],
+              "type": "string"
+            }
+          },
+          "type": [
+            "object",
+            "string"
+          ],
+          "required": [
+            "actionItems",
+            "documentType",
+            "executiveSummary",
+            "keyPoints",
+            "keywords",
+            "sentiment"
+          ]
+        }
+      },
+      "required": [
+        "summary",
+        "format"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "gpt.558686.xyz",
+    "endpoint": "https://gpt.558686.xyz/v1/doc/summary",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

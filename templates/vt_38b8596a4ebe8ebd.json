@@ -1,0 +1,61 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_38b8596a4ebe8ebd",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "disclaimer": {
+          "type": "string"
+        },
+        "exposure": {
+          "type": "integer"
+        },
+        "inputs": {
+          "type": "object",
+          "properties": {
+            "vix": {
+              "type": "number"
+            },
+            "vix_thresh_p75_60d": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "vix",
+            "vix_thresh_p75_60d"
+          ]
+        },
+        "risk_off": {
+          "type": "boolean"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "stale": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "disclaimer",
+        "exposure",
+        "inputs",
+        "risk_off",
+        "schema",
+        "stale"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.babyblueviper.com",
+    "endpoint": "https://api.babyblueviper.com/regime",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

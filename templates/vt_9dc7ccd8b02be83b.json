@@ -1,0 +1,315 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9dc7ccd8b02be83b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "confidence": {
+          "type": "number"
+        },
+        "data_versions": {
+          "type": "object"
+        },
+        "evidence": {
+          "items": {
+            "properties": {
+              "code": {
+                "description": "Stable reason code, e.g. DATA_MODIFYING_CTE.",
+                "type": "string"
+              },
+              "data": {
+                "type": "object"
+              },
+              "detail": {
+                "type": "string"
+              },
+              "disposition": {
+                "enum": [
+                  "block",
+                  "warn",
+                  "info"
+                ],
+                "type": "string"
+              },
+              "severity": {
+                "enum": [
+                  "info",
+                  "low",
+                  "medium",
+                  "high",
+                  "critical"
+                ],
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "span": {
+                "properties": {
+                  "end": {
+                    "type": "integer"
+                  },
+                  "start": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "severity",
+              "detail",
+              "disposition"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "policy_version": {
+          "type": "string"
+        },
+        "request_hash": {
+          "type": "string"
+        },
+        "result": {
+          "properties": {
+            "classification": {
+              "enum": [
+                "read_only",
+                "write",
+                "ddl",
+                "mixed"
+              ],
+              "type": "string"
+            },
+            "findings": {
+              "items": {
+                "properties": {
+                  "code": {
+                    "description": "Stable reason code, e.g. DATA_MODIFYING_CTE.",
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object"
+                  },
+                  "detail": {
+                    "type": "string"
+                  },
+                  "disposition": {
+                    "enum": [
+                      "block",
+                      "warn",
+                      "info"
+                    ],
+                    "type": "string"
+                  },
+                  "severity": {
+                    "enum": [
+                      "info",
+                      "low",
+                      "medium",
+                      "high",
+                      "critical"
+                    ],
+                    "type": "string"
+                  },
+                  "source": {
+                    "type": "string"
+                  },
+                  "span": {
+                    "properties": {
+                      "end": {
+                        "type": "integer"
+                      },
+                      "start": {
+                        "type": "integer"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "code",
+                  "severity",
+                  "detail",
+                  "disposition"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "grammar": {
+              "type": "string",
+              "format": "email"
+            },
+            "normalized_sql": {
+              "description": "Deparsed canonical statement. This, not your original text, is what a permit binds.",
+              "type": "string"
+            },
+            "obligations": {
+              "properties": {
+                "max_rows": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "require_read_only_tx": {
+                  "type": "boolean"
+                },
+                "statement_timeout_ms": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "max_rows",
+                "statement_timeout_ms",
+                "require_read_only_tx"
+              ],
+              "type": "object"
+            },
+            "permit": {
+              "description": "Compact JWS. Present only when requested and the verdict is not block.",
+              "type": "string"
+            },
+            "permit_expires_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "permit_kid": {
+              "type": "string"
+            },
+            "policy_hash": {
+              "type": "string"
+            },
+            "referenced_functions": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "referenced_schemas": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "referenced_tables": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "statement_count": {
+              "type": "integer"
+            },
+            "statement_types": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "stmt_fingerprint": {
+              "description": "ADVISORY ONLY — never authorize on this. libpg-query fingerprints discard literal constants, so 'WHERE id = 1' and 'WHERE id = 999999' share one fingerprint.",
+              "type": "string"
+            },
+            "stmt_hash": {
+              "description": "BINDING. sha256 of normalized_sql. The executor recomputes this from the statement it is about to run.",
+              "type": "string"
+            },
+            "target_pg_major": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "statement_count",
+            "statement_types",
+            "referenced_schemas",
+            "referenced_tables",
+            "referenced_functions",
+            "classification",
+            "findings",
+            "normalized_sql",
+            "stmt_hash",
+            "stmt_fingerprint",
+            "policy_hash",
+            "grammar",
+            "target_pg_major",
+            "obligations"
+          ],
+          "type": "object"
+        },
+        "risk_codes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "verdict": {
+          "enum": [
+            "pass",
+            "warn",
+            "block"
+          ],
+          "type": "string"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "ok",
+        "verdict",
+        "confidence",
+        "risk_codes",
+        "evidence",
+        "result",
+        "policy_version",
+        "request_hash",
+        "data_versions",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "evidence[].span.start",
+        "other_field": "evidence[].span.end",
+        "if_present": true
+      },
+      {
+        "type": "lte",
+        "field": "result.findings[].span.start",
+        "other_field": "result.findings[].span.end",
+        "if_present": true
+      }
+    ],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "result.statement_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "sqlpermit.schemasure.com",
+    "endpoint": "https://sqlpermit.schemasure.com/v1/guard/sql",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

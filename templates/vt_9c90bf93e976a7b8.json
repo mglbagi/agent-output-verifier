@@ -1,0 +1,137 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9c90bf93e976a7b8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "cache_age_seconds": {
+          "type": "number"
+        },
+        "end": {
+          "type": "string",
+          "format": "date"
+        },
+        "findings": {
+          "type": "array"
+        },
+        "from": {
+          "type": "string"
+        },
+        "point_count": {
+          "type": "number"
+        },
+        "series": {
+          "items": {
+            "properties": {
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "rate": {
+                "description": "units of `to` per 1 `from` on that date",
+                "type": "number"
+              }
+            },
+            "type": "object",
+            "required": [
+              "date",
+              "rate"
+            ]
+          },
+          "type": "array"
+        },
+        "source": {
+          "description": "frankfurter | ecb-xml | currency-api | coinbase",
+          "type": "string"
+        },
+        "stale": {
+          "type": "boolean"
+        },
+        "start": {
+          "type": "string",
+          "format": "date"
+        },
+        "stats": {
+          "properties": {
+            "average": {
+              "type": "number"
+            },
+            "change_pct": {
+              "description": "first→last point, %",
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            },
+            "min": {
+              "type": "number"
+            },
+            "volatility_pct": {
+              "description": "stdev of daily % changes",
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "average",
+            "change_pct",
+            "max",
+            "min",
+            "volatility_pct"
+          ]
+        },
+        "to": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "cache_age_seconds",
+        "end",
+        "findings",
+        "from",
+        "point_count",
+        "series",
+        "source",
+        "stale",
+        "start",
+        "stats",
+        "to"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "stats.min",
+        "other_field": "stats.max"
+      },
+      {
+        "type": "lte",
+        "field": "start",
+        "other_field": "end"
+      }
+    ],
+    "bounds": {
+      "cache_age_seconds": {
+        "min": 0
+      },
+      "point_count": {
+        "min": 0
+      },
+      "stats.volatility_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "netintel.dev",
+    "endpoint": "https://netintel.dev/currency-exchange/history",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

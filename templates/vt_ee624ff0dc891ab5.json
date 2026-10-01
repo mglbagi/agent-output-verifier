@@ -1,0 +1,45 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ee624ff0dc891ab5",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string"
+        },
+        "spent_usd": {
+          "type": "number"
+        },
+        "status": {
+          "type": "string"
+        },
+        "steps": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "result",
+        "spent_usd",
+        "status",
+        "steps"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "spent_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agents.dexl.io",
+    "endpoint": "https://agents.dexl.io/v1/agents/:id/autonomous",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6c4872059b2fc1f5",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "defi": {
+          "type": "object",
+          "properties": {
+            "topChains": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "dominance": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "tvl": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "dominance",
+                  "name",
+                  "tvl"
+                ]
+              }
+            },
+            "totalTvlUsd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "topChains",
+            "totalTvlUsd"
+          ]
+        },
+        "fearGreed": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "value": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "label",
+            "value"
+          ]
+        },
+        "generatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "price": {
+          "type": "object",
+          "properties": {
+            "btc": {
+              "type": "integer"
+            },
+            "eth": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "btc",
+            "eth"
+          ]
+        },
+        "topStableYields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "apy": {
+                "type": "number"
+              },
+              "chain": {
+                "type": "string"
+              },
+              "project": {
+                "type": "string"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "tvlUsd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "apy",
+              "chain",
+              "project",
+              "symbol",
+              "tvlUsd"
+            ]
+          }
+        }
+      },
+      "required": [
+        "defi",
+        "fearGreed",
+        "generatedAt",
+        "price",
+        "topStableYields"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "defi.topChains[].tvl": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-market.kore-app.workers.dev",
+    "endpoint": "https://x402-market.kore-app.workers.dev/v1/market",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

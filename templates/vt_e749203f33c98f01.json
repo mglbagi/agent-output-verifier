@@ -1,0 +1,131 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e749203f33c98f01",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "ok": {
+          "const": true,
+          "type": "boolean"
+        },
+        "outil": {
+          "const": "fair_verify",
+          "type": "string"
+        },
+        "resultat": {
+          "properties": {
+            "algorithm": {
+              "type": "string"
+            },
+            "cards": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "count": {
+              "type": "number"
+            },
+            "deck": {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            "hash_matches": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "max": {
+              "type": "number"
+            },
+            "min": {
+              "type": "number"
+            },
+            "nonce": {
+              "type": "number"
+            },
+            "numbers": {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            "numbers_match": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "server_seed_hash_computed": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "algorithm",
+            "server_seed_hash_computed",
+            "hash_matches"
+          ],
+          "type": "object"
+        },
+        "texte": {
+          "type": "string"
+        },
+        "x402": {
+          "properties": {
+            "amount": {
+              "type": "string"
+            },
+            "asset": {
+              "type": "string"
+            },
+            "network": {
+              "type": "string"
+            },
+            "transaction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "transaction",
+            "network",
+            "amount",
+            "asset"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "ok",
+        "outil"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "resultat.min",
+        "other_field": "resultat.max",
+        "if_present": true
+      }
+    ],
+    "bounds": {
+      "resultat.count": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "web-production-220a3.up.railway.app",
+    "endpoint": "https://web-production-220a3.up.railway.app/agentic/call/fair_verify",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

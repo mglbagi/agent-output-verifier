@@ -1,0 +1,166 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fec734cf73a9e9c3",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "age_years": {
+                "type": "integer"
+              },
+              "citation": {
+                "type": "object",
+                "properties": {
+                  "authors": {
+                    "type": "string"
+                  },
+                  "doi": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "pmid": {
+                    "type": "string"
+                  },
+                  "source": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "authors",
+                  "doi",
+                  "id",
+                  "pmid",
+                  "source",
+                  "title"
+                ]
+              },
+              "components": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "factor": {
+                      "type": "string"
+                    },
+                    "points": {
+                      "type": "integer"
+                    },
+                    "present": {
+                      "type": "boolean"
+                    },
+                    "value": {
+                      "type": [
+                        "integer",
+                        "string"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "factor",
+                    "points",
+                    "present"
+                  ]
+                }
+              },
+              "disclaimer": {
+                "type": "string"
+              },
+              "disposition": {
+                "type": "string"
+              },
+              "estimated_readmission_percent": {
+                "type": "number"
+              },
+              "formula": {
+                "type": "string"
+              },
+              "formula_expression": {
+                "type": "string"
+              },
+              "max_score": {
+                "type": "integer"
+              },
+              "min_score": {
+                "type": "integer"
+              },
+              "primary_payer": {
+                "type": "string"
+              },
+              "readmission_band": {
+                "type": "string"
+              },
+              "score": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "age_years",
+              "citation",
+              "components",
+              "disclaimer",
+              "disposition",
+              "estimated_readmission_percent",
+              "formula",
+              "formula_expression",
+              "max_score",
+              "min_score",
+              "primary_payer",
+              "readmission_band",
+              "score"
+            ]
+          }
+        },
+        "path": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "count",
+        "items",
+        "path"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "items[].min_score",
+        "other_field": "items[].max_score"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "items[].age_years": {
+        "min": 0
+      },
+      "items[].estimated_readmission_percent": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.magentlab.com",
+    "endpoint": "https://api.magentlab.com/api/calc/mumtaz",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

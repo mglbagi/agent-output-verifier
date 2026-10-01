@@ -1,0 +1,186 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_02c297de50ee4af4",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "airports": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "forecast_24h": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "precip_mm": {
+                      "type": "integer"
+                    },
+                    "temp_c": {
+                      "type": "integer"
+                    },
+                    "time": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "wind_dir": {
+                      "type": "integer"
+                    },
+                    "wind_kt": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "precip_mm",
+                    "temp_c",
+                    "time",
+                    "wind_dir",
+                    "wind_kt"
+                  ]
+                }
+              },
+              "icao": {
+                "type": "string"
+              },
+              "lat": {
+                "type": "number"
+              },
+              "lon": {
+                "type": "number"
+              },
+              "metar": {
+                "type": "object",
+                "properties": {
+                  "altimeter_inhg": {
+                    "type": "number"
+                  },
+                  "dewpoint_c": {
+                    "type": "integer"
+                  },
+                  "flight_category": {
+                    "type": "string"
+                  },
+                  "observed_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "raw": {
+                    "type": "string"
+                  },
+                  "temp_c": {
+                    "type": "integer"
+                  },
+                  "visibility_sm": {
+                    "type": "integer"
+                  },
+                  "wind_dir": {
+                    "type": "integer"
+                  },
+                  "wind_kt": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "altimeter_inhg",
+                  "dewpoint_c",
+                  "flight_category",
+                  "observed_at",
+                  "raw",
+                  "temp_c",
+                  "visibility_sm",
+                  "wind_dir",
+                  "wind_kt"
+                ]
+              },
+              "name": {
+                "type": "string"
+              },
+              "sigmets": {
+                "type": "array"
+              },
+              "source": {
+                "type": "string"
+              },
+              "taf": {
+                "type": "object",
+                "properties": {
+                  "raw": {
+                    "type": "string"
+                  },
+                  "valid_from": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "valid_to": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "raw",
+                  "valid_from",
+                  "valid_to"
+                ]
+              }
+            },
+            "required": [
+              "forecast_24h",
+              "icao",
+              "lat",
+              "lon",
+              "metar",
+              "name",
+              "sigmets",
+              "source",
+              "taf"
+            ]
+          }
+        },
+        "fetched_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "receipt_tx": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{64}$"
+        },
+        "request_id": {
+          "type": "string"
+        },
+        "ttl_seconds": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "airports",
+        "fetched_at",
+        "receipt_tx",
+        "request_id",
+        "ttl_seconds"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "airports[].lat": {
+        "min": -90,
+        "max": 90
+      },
+      "airports[].lon": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "jtifhcvbgxqwlywugvjv.supabase.co",
+    "endpoint": "https://jtifhcvbgxqwlywugvjv.supabase.co/functions/v1/cortex402-aviation-weather",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0f5f82feb986a5fc",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "read_only_inspection": {
+          "const": true,
+          "type": "boolean"
+        },
+        "status": {
+          "enum": [
+            "reachable"
+          ],
+          "type": "string"
+        },
+        "tool_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "status",
+        "tool_count",
+        "read_only_inspection"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "tool_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mcp.dropenginehq.com",
+    "endpoint": "https://mcp.dropenginehq.com/api/mcp-server-inspect",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

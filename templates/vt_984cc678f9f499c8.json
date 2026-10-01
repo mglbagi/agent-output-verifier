@@ -1,0 +1,530 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_984cc678f9f499c8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "criteria": {
+              "type": "object",
+              "properties": {
+                "includeIndicative": {
+                  "type": "boolean"
+                },
+                "limit": {
+                  "type": "integer"
+                },
+                "minEdge": {},
+                "outcome": {
+                  "type": "string"
+                },
+                "sources": {
+                  "type": "array"
+                },
+                "strategy": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "includeIndicative",
+                "limit",
+                "outcome",
+                "sources",
+                "strategy"
+              ]
+            },
+            "markets": {
+              "type": "integer"
+            },
+            "returned": {
+              "type": "integer"
+            },
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "buy": {
+                    "type": "object",
+                    "properties": {
+                      "conditionId": {
+                        "type": "string"
+                      },
+                      "endDateIso": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "eventTicker": {},
+                      "eventTitle": {
+                        "type": "string"
+                      },
+                      "indicative": {
+                        "type": "boolean"
+                      },
+                      "marketSlug": {
+                        "type": "string"
+                      },
+                      "marketTicker": {},
+                      "marketUrl": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "outcome": {
+                        "type": "string"
+                      },
+                      "price": {
+                        "type": "number"
+                      },
+                      "priceType": {
+                        "type": "string"
+                      },
+                      "question": {
+                        "type": "string"
+                      },
+                      "seriesTicker": {},
+                      "side": {
+                        "type": "string"
+                      },
+                      "size": {},
+                      "source": {
+                        "type": "string"
+                      },
+                      "tokenId": {
+                        "type": "string"
+                      },
+                      "totalDepth": {}
+                    },
+                    "required": [
+                      "conditionId",
+                      "endDateIso",
+                      "eventTitle",
+                      "indicative",
+                      "marketSlug",
+                      "marketUrl",
+                      "outcome",
+                      "price",
+                      "priceType",
+                      "question",
+                      "side",
+                      "source",
+                      "tokenId"
+                    ]
+                  },
+                  "edge": {
+                    "type": "number"
+                  },
+                  "feeBuffer": {
+                    "type": "number"
+                  },
+                  "grossEdge": {
+                    "type": "number"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": "string"
+                  },
+                  "legs": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "conditionId": {
+                          "type": "string"
+                        },
+                        "endDateIso": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "eventTicker": {},
+                        "eventTitle": {
+                          "type": "string"
+                        },
+                        "indicative": {
+                          "type": "boolean"
+                        },
+                        "marketSlug": {
+                          "type": "string"
+                        },
+                        "marketTicker": {},
+                        "marketUrl": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "outcome": {
+                          "type": "string"
+                        },
+                        "price": {
+                          "type": "number"
+                        },
+                        "priceType": {
+                          "type": "string"
+                        },
+                        "question": {
+                          "type": "string"
+                        },
+                        "seriesTicker": {},
+                        "side": {
+                          "type": "string"
+                        },
+                        "size": {},
+                        "source": {
+                          "type": "string"
+                        },
+                        "tokenId": {
+                          "type": "string"
+                        },
+                        "totalDepth": {}
+                      },
+                      "required": [
+                        "conditionId",
+                        "endDateIso",
+                        "eventTitle",
+                        "indicative",
+                        "marketSlug",
+                        "marketUrl",
+                        "outcome",
+                        "price",
+                        "priceType",
+                        "question",
+                        "side",
+                        "source",
+                        "tokenId"
+                      ]
+                    }
+                  },
+                  "matchedOn": {
+                    "type": "object",
+                    "properties": {
+                      "dateKey": {
+                        "type": "string",
+                        "format": "date"
+                      },
+                      "directionKey": {},
+                      "eventKey": {
+                        "type": "string"
+                      },
+                      "numericKey": {},
+                      "subjectKey": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "dateKey",
+                      "eventKey",
+                      "subjectKey"
+                    ]
+                  },
+                  "outcome": {
+                    "type": "string"
+                  },
+                  "question": {
+                    "type": "string"
+                  },
+                  "requiresShort": {
+                    "type": "boolean"
+                  },
+                  "sell": {
+                    "type": "object",
+                    "properties": {
+                      "conditionId": {
+                        "type": "string"
+                      },
+                      "endDateIso": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "eventTicker": {},
+                      "eventTitle": {
+                        "type": "string"
+                      },
+                      "indicative": {
+                        "type": "boolean"
+                      },
+                      "marketSlug": {
+                        "type": "string"
+                      },
+                      "marketTicker": {},
+                      "marketUrl": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "outcome": {
+                        "type": "string"
+                      },
+                      "price": {
+                        "type": "number"
+                      },
+                      "priceType": {
+                        "type": "string"
+                      },
+                      "question": {
+                        "type": "string"
+                      },
+                      "seriesTicker": {},
+                      "side": {
+                        "type": "string"
+                      },
+                      "size": {},
+                      "source": {
+                        "type": "string"
+                      },
+                      "tokenId": {
+                        "type": "string"
+                      },
+                      "totalDepth": {}
+                    },
+                    "required": [
+                      "conditionId",
+                      "endDateIso",
+                      "eventTitle",
+                      "indicative",
+                      "marketSlug",
+                      "marketUrl",
+                      "outcome",
+                      "price",
+                      "priceType",
+                      "question",
+                      "side",
+                      "source",
+                      "tokenId"
+                    ]
+                  },
+                  "sources": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "spread": {
+                    "type": "number"
+                  },
+                  "strategy": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "buy",
+                  "edge",
+                  "feeBuffer",
+                  "grossEdge",
+                  "id",
+                  "key",
+                  "legs",
+                  "matchedOn",
+                  "outcome",
+                  "question",
+                  "requiresShort",
+                  "sell",
+                  "sources",
+                  "spread",
+                  "strategy"
+                ]
+              }
+            },
+            "sourceTimestamps": {
+              "type": "object",
+              "properties": {
+                "gemini": {
+                  "type": "integer"
+                },
+                "kalshi": {
+                  "type": "integer"
+                },
+                "polymarket": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "gemini",
+                "kalshi",
+                "polymarket"
+              ]
+            },
+            "totalCandidates": {
+              "type": "number"
+            },
+            "totals": {
+              "type": "object",
+              "properties": {
+                "fullCover": {
+                  "type": "integer"
+                },
+                "gemini": {
+                  "type": "integer"
+                },
+                "groups": {
+                  "type": "integer"
+                },
+                "kalshi": {
+                  "type": "integer"
+                },
+                "polymarket": {
+                  "type": "integer"
+                },
+                "sameOutcomeSpread": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "fullCover",
+                "gemini",
+                "groups",
+                "kalshi",
+                "polymarket",
+                "sameOutcomeSpread"
+              ]
+            },
+            "updatedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "warnings": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "criteria",
+            "markets",
+            "returned",
+            "rows",
+            "sourceTimestamps",
+            "totalCandidates",
+            "totals",
+            "updatedAt",
+            "warnings"
+          ]
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "freshnessMs": {
+              "type": "integer"
+            },
+            "generatedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "requestId": {
+              "type": "string"
+            },
+            "updatedAt": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "freshnessMs",
+            "generatedAt",
+            "requestId",
+            "updatedAt"
+          ]
+        },
+        "product": {
+          "type": "object",
+          "properties": {
+            "accepts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "network": {
+                    "type": "string"
+                  },
+                  "payTo": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "string"
+                  },
+                  "scheme": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "network",
+                  "payTo",
+                  "price",
+                  "scheme"
+                ]
+              }
+            },
+            "id": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "networks": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "path": {
+              "type": "string"
+            },
+            "price": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "accepts",
+            "id",
+            "method",
+            "name",
+            "networks",
+            "path",
+            "price"
+          ]
+        },
+        "service": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "data",
+        "meta",
+        "product",
+        "service"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data.rows[].id"
+      }
+    ],
+    "bounds": {
+      "data.criteria.limit": {
+        "min": 0
+      },
+      "data.rows[].buy.price": {
+        "min": 0
+      },
+      "data.rows[].legs[].price": {
+        "min": 0
+      },
+      "data.rows[].sell.price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.seerium.xyz",
+    "endpoint": "https://api.seerium.xyz/v1/prediction/arb/same-outcome-spread",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

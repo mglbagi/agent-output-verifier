@@ -1,0 +1,99 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a25642eeda15a4ca",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "entidades": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "nombre": {
+                "type": "string"
+              },
+              "tipo": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "nombre",
+              "tipo"
+            ]
+          }
+        },
+        "idioma_detectado": {
+          "type": "string"
+        },
+        "palabras_entrada": {
+          "type": "integer"
+        },
+        "puntos_clave": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "resumen": {
+          "type": "string"
+        },
+        "sentimiento": {
+          "type": "string"
+        },
+        "uso": {
+          "type": "object",
+          "properties": {
+            "coste_estimado_usd": {
+              "type": "number"
+            },
+            "modelo": {
+              "type": "string"
+            },
+            "tokens_entrada": {
+              "type": "integer"
+            },
+            "tokens_entrada_cacheados": {
+              "type": "integer"
+            },
+            "tokens_salida": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "coste_estimado_usd",
+            "modelo",
+            "tokens_entrada",
+            "tokens_entrada_cacheados",
+            "tokens_salida"
+          ]
+        }
+      },
+      "required": [
+        "entidades",
+        "idioma_detectado",
+        "palabras_entrada",
+        "puntos_clave",
+        "resumen",
+        "sentimiento",
+        "uso"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "uso.coste_estimado_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agente.revenuerecoveryai.app",
+    "endpoint": "https://agente.revenuerecoveryai.app/v1/resumen",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

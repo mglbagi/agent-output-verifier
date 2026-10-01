@@ -1,0 +1,121 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cd1a3cf532af942f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "charged": {
+          "type": "boolean"
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "cache": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "cache",
+            "source"
+          ]
+        },
+        "vehicle": {
+          "type": "object",
+          "properties": {
+            "bodyClass": {
+              "type": "string"
+            },
+            "make": {
+              "type": "string"
+            },
+            "model": {
+              "type": "string"
+            },
+            "year": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "bodyClass",
+            "make",
+            "model",
+            "year"
+          ]
+        },
+        "vin": {
+          "type": "string"
+        },
+        "warranty": {
+          "type": "object",
+          "properties": {
+            "basic": {
+              "type": "object",
+              "properties": {
+                "miles": {
+                  "type": "integer"
+                },
+                "years": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "miles",
+                "years"
+              ]
+            },
+            "make": {
+              "type": "string"
+            },
+            "matched": {
+              "type": "boolean"
+            },
+            "powertrain": {
+              "type": "object",
+              "properties": {
+                "miles": {
+                  "type": "integer"
+                },
+                "years": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "miles",
+                "years"
+              ]
+            }
+          },
+          "required": [
+            "basic",
+            "make",
+            "matched",
+            "powertrain"
+          ]
+        }
+      },
+      "required": [
+        "charged",
+        "provenance",
+        "vehicle",
+        "vin",
+        "warranty"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.vindexapi.dev",
+    "endpoint": "https://api.vindexapi.dev/v1/decode",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

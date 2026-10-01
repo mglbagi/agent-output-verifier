@@ -1,0 +1,42 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_579557e28d577331",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "current": {
+          "type": "object"
+        },
+        "fetchedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "location": {
+          "type": "object"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "location",
+        "current",
+        "source",
+        "fetchedAt"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "wallets-demo-seller-server.calebgcarithers.workers.dev",
+    "endpoint": "https://wallets-demo-seller-server.calebgcarithers.workers.dev/weather",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

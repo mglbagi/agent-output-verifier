@@ -1,0 +1,56 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ba093aeca5f222a4",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string"
+        },
+        "result": {
+          "type": "string"
+        },
+        "tokens": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "pos": {
+                "type": "string"
+              },
+              "reading": {
+                "type": "string"
+              },
+              "surface": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "pos",
+              "reading",
+              "surface"
+            ]
+          }
+        }
+      },
+      "required": [
+        "input",
+        "result",
+        "tokens"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "furigana.agentic-jp.com",
+    "endpoint": "https://furigana.agentic-jp.com/furigana",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

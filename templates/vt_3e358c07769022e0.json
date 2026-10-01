@@ -1,0 +1,95 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3e358c07769022e0",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "check_status": {
+          "type": "string"
+        },
+        "company": {
+          "type": "object",
+          "properties": {
+            "ateco_code": {},
+            "country": {
+              "type": "string"
+            },
+            "legal_form": {},
+            "lei": {},
+            "municipality": {},
+            "nace_code": {},
+            "name": {},
+            "postal_code": {},
+            "province": {},
+            "registered_address": {},
+            "registration_date": {},
+            "status": {},
+            "tax_code": {
+              "type": "string"
+            },
+            "vat_number": {}
+          },
+          "required": [
+            "country",
+            "tax_code"
+          ]
+        },
+        "enrichments": {
+          "type": "object",
+          "properties": {}
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "source_statuses": {
+          "type": "object",
+          "properties": {
+            "registro_imprese_hvd": {
+              "type": "object",
+              "properties": {
+                "configured": {
+                  "type": "boolean"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "configured",
+                "success"
+              ]
+            }
+          },
+          "required": [
+            "registro_imprese_hvd"
+          ]
+        },
+        "verifications": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      "required": [
+        "check_status",
+        "company",
+        "enrichments",
+        "identifier",
+        "source_statuses",
+        "verifications"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "italian-company-check-fdsbh7p2bq-oc.a.run.app",
+    "endpoint": "https://italian-company-check-fdsbh7p2bq-oc.a.run.app/v1/x402/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

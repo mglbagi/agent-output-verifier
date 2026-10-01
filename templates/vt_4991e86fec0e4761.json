@@ -1,0 +1,131 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4991e86fec0e4761",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "positions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "active": {
+                "type": "boolean"
+              },
+              "avg_buy_price": {
+                "type": "number"
+              },
+              "buys": {
+                "type": "integer"
+              },
+              "condition_id": {
+                "type": "string"
+              },
+              "current_price": {
+                "type": "number"
+              },
+              "market_slug": {
+                "type": "string"
+              },
+              "net_position": {
+                "type": "integer"
+              },
+              "outcome": {
+                "type": "string"
+              },
+              "pnl_pct": {
+                "type": "number"
+              },
+              "realized_pnl_usdc": {
+                "type": "number"
+              },
+              "sells": {
+                "type": "integer"
+              },
+              "total_pnl_usdc": {
+                "type": "number"
+              },
+              "unrealized_pnl_usdc": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "active",
+              "avg_buy_price",
+              "buys",
+              "condition_id",
+              "current_price",
+              "market_slug",
+              "net_position",
+              "outcome",
+              "pnl_pct",
+              "realized_pnl_usdc",
+              "sells",
+              "total_pnl_usdc",
+              "unrealized_pnl_usdc"
+            ]
+          }
+        },
+        "scores": {
+          "type": "object",
+          "properties": {
+            "classification": {
+              "type": "string"
+            },
+            "sample_size": {
+              "type": "integer"
+            },
+            "skill_score": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "classification",
+            "sample_size",
+            "skill_score"
+          ]
+        },
+        "wallet": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "positions",
+        "scores",
+        "wallet"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "positions[].condition_id"
+      }
+    ],
+    "bounds": {
+      "positions[].avg_buy_price": {
+        "min": 0
+      },
+      "positions[].current_price": {
+        "min": 0
+      },
+      "positions[].pnl_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "scores.sample_size": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "graphadvocate.com",
+    "endpoint": "https://graphadvocate.com/polymarket/pnl",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_43f1e0778dec637b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "expiresAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string"
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "events": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "events",
+            "status"
+          ]
+        },
+        "opsCap": {
+          "type": "integer"
+        },
+        "opsUsed": {
+          "type": "integer"
+        },
+        "secret": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "expiresAt",
+        "id",
+        "links",
+        "opsCap",
+        "opsUsed",
+        "secret",
+        "state"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.datasieve.xyz",
+    "endpoint": "https://api.datasieve.xyz/coord/workspace",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

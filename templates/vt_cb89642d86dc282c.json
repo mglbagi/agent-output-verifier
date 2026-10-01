@@ -1,0 +1,58 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cb89642d86dc282c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "conclusion": {
+          "type": "string"
+        },
+        "safety_summary": {
+          "additionalProperties": true,
+          "properties": {
+            "complaint_count": {
+              "type": "integer"
+            },
+            "recall_count": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "recall_count",
+            "complaint_count"
+          ],
+          "type": "object"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success",
+        "conclusion",
+        "safety_summary"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "safety_summary.complaint_count": {
+        "min": 0
+      },
+      "safety_summary.recall_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ai-data-marketplace-1042299154756.us-central1.run.app",
+    "endpoint": "https://ai-data-marketplace-1042299154756.us-central1.run.app/api/v1/vehicle_safety_report",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

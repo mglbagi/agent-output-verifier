@@ -1,0 +1,67 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1b868d093775db97",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "einheit": {
+          "const": "ms",
+          "type": "string"
+        },
+        "meta": {
+          "additionalProperties": false,
+          "properties": {
+            "hinweis": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "methode": {
+              "type": "string"
+            },
+            "objektart": {
+              "const": "stylesheet",
+              "type": "string"
+            },
+            "partial": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "partial",
+            "methode",
+            "hinweis",
+            "objektart"
+          ],
+          "type": "object"
+        },
+        "ttfb_ms": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "ttfb_ms",
+        "einheit",
+        "meta"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tempo.halowerk.com",
+    "endpoint": "https://tempo.halowerk.com/v1/pruef/tempo/ttfb/stylesheet",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

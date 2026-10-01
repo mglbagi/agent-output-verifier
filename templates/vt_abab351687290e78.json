@@ -1,0 +1,825 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_abab351687290e78",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "clusters": {
+          "type": "object",
+          "properties": {
+            "available_buy_count": {
+              "type": "integer"
+            },
+            "available_sell_count": {
+              "type": "integer"
+            },
+            "buy": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "absolute_distance_from_reference_pct": {
+                    "type": "number"
+                  },
+                  "distance_from_reference_bps": {
+                    "type": "number"
+                  },
+                  "distance_from_reference_pct": {
+                    "type": "number"
+                  },
+                  "distance_from_reference_usd": {
+                    "type": "number"
+                  },
+                  "liquidation_flow": {
+                    "type": "string"
+                  },
+                  "liquidation_price": {
+                    "type": "number"
+                  },
+                  "position_count": {
+                    "type": "integer"
+                  },
+                  "position_side": {
+                    "type": "string"
+                  },
+                  "reference_price": {
+                    "type": "number"
+                  },
+                  "reference_price_source": {
+                    "type": "string"
+                  },
+                  "relative_to_reference": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "number"
+                  },
+                  "value": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "absolute_distance_from_reference_pct",
+                  "distance_from_reference_bps",
+                  "distance_from_reference_pct",
+                  "distance_from_reference_usd",
+                  "liquidation_flow",
+                  "liquidation_price",
+                  "position_count",
+                  "position_side",
+                  "reference_price",
+                  "reference_price_source",
+                  "relative_to_reference",
+                  "size",
+                  "value"
+                ]
+              }
+            },
+            "complete": {
+              "type": "boolean"
+            },
+            "order": {
+              "type": "string"
+            },
+            "published_buy_count": {
+              "type": "integer"
+            },
+            "published_sell_count": {
+              "type": "integer"
+            },
+            "sell": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "absolute_distance_from_reference_pct": {
+                    "type": "number"
+                  },
+                  "distance_from_reference_bps": {
+                    "type": "number"
+                  },
+                  "distance_from_reference_pct": {
+                    "type": "number"
+                  },
+                  "distance_from_reference_usd": {
+                    "type": "number"
+                  },
+                  "liquidation_flow": {
+                    "type": "string"
+                  },
+                  "liquidation_price": {
+                    "type": "number"
+                  },
+                  "position_count": {
+                    "type": "integer"
+                  },
+                  "position_side": {
+                    "type": "string"
+                  },
+                  "reference_price": {
+                    "type": "number"
+                  },
+                  "reference_price_source": {
+                    "type": "string"
+                  },
+                  "relative_to_reference": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "number"
+                  },
+                  "value": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "absolute_distance_from_reference_pct",
+                  "distance_from_reference_bps",
+                  "distance_from_reference_pct",
+                  "distance_from_reference_usd",
+                  "liquidation_flow",
+                  "liquidation_price",
+                  "position_count",
+                  "position_side",
+                  "reference_price",
+                  "reference_price_source",
+                  "relative_to_reference",
+                  "size",
+                  "value"
+                ]
+              }
+            },
+            "side_meaning": {
+              "type": "object",
+              "properties": {
+                "buy": {
+                  "type": "string"
+                },
+                "sell": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "buy",
+                "sell"
+              ]
+            },
+            "side_semantics": {
+              "type": "object",
+              "properties": {
+                "buy": {
+                  "type": "object",
+                  "properties": {
+                    "liquidation_flow": {
+                      "type": "string"
+                    },
+                    "position_side": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "liquidation_flow",
+                    "position_side"
+                  ]
+                },
+                "sell": {
+                  "type": "object",
+                  "properties": {
+                    "liquidation_flow": {
+                      "type": "string"
+                    },
+                    "position_side": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "liquidation_flow",
+                    "position_side"
+                  ]
+                }
+              },
+              "required": [
+                "buy",
+                "sell"
+              ]
+            }
+          },
+          "required": [
+            "available_buy_count",
+            "available_sell_count",
+            "buy",
+            "complete",
+            "order",
+            "published_buy_count",
+            "published_sell_count",
+            "sell",
+            "side_meaning",
+            "side_semantics"
+          ]
+        },
+        "data_as_of": {
+          "type": "integer"
+        },
+        "freshness": {
+          "type": "object",
+          "properties": {
+            "age_seconds": {
+              "type": "integer"
+            },
+            "data_as_of": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "max_age_seconds": {
+              "type": "integer"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "age_seconds",
+            "data_as_of",
+            "max_age_seconds",
+            "status"
+          ]
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "levels": {
+          "type": "object",
+          "properties": {
+            "available_buy_count": {
+              "type": "integer"
+            },
+            "available_sell_count": {
+              "type": "integer"
+            },
+            "buy": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "absolute_distance_from_reference_pct": {
+                    "type": "number"
+                  },
+                  "distance_from_reference_bps": {
+                    "type": "number"
+                  },
+                  "distance_from_reference_pct": {
+                    "type": "number"
+                  },
+                  "distance_from_reference_usd": {
+                    "type": "number"
+                  },
+                  "liquidation_flow": {
+                    "type": "string"
+                  },
+                  "liquidation_price": {
+                    "type": "number"
+                  },
+                  "position_count": {
+                    "type": "integer"
+                  },
+                  "position_side": {
+                    "type": "string"
+                  },
+                  "reference_price": {
+                    "type": "number"
+                  },
+                  "reference_price_source": {
+                    "type": "string"
+                  },
+                  "relative_to_reference": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "number"
+                  },
+                  "value": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "absolute_distance_from_reference_pct",
+                  "distance_from_reference_bps",
+                  "distance_from_reference_pct",
+                  "distance_from_reference_usd",
+                  "liquidation_flow",
+                  "liquidation_price",
+                  "position_count",
+                  "position_side",
+                  "reference_price",
+                  "reference_price_source",
+                  "relative_to_reference",
+                  "size",
+                  "value"
+                ]
+              }
+            },
+            "complete": {
+              "type": "boolean"
+            },
+            "order": {
+              "type": "string"
+            },
+            "published_buy_count": {
+              "type": "integer"
+            },
+            "published_sell_count": {
+              "type": "integer"
+            },
+            "sell": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "absolute_distance_from_reference_pct": {
+                    "type": "number"
+                  },
+                  "distance_from_reference_bps": {
+                    "type": "number"
+                  },
+                  "distance_from_reference_pct": {
+                    "type": "number"
+                  },
+                  "distance_from_reference_usd": {
+                    "type": "number"
+                  },
+                  "liquidation_flow": {
+                    "type": "string"
+                  },
+                  "liquidation_price": {
+                    "type": "number"
+                  },
+                  "position_count": {
+                    "type": "integer"
+                  },
+                  "position_side": {
+                    "type": "string"
+                  },
+                  "reference_price": {
+                    "type": "number"
+                  },
+                  "reference_price_source": {
+                    "type": "string"
+                  },
+                  "relative_to_reference": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "number"
+                  },
+                  "value": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "absolute_distance_from_reference_pct",
+                  "distance_from_reference_bps",
+                  "distance_from_reference_pct",
+                  "distance_from_reference_usd",
+                  "liquidation_flow",
+                  "liquidation_price",
+                  "position_count",
+                  "position_side",
+                  "reference_price",
+                  "reference_price_source",
+                  "relative_to_reference",
+                  "size",
+                  "value"
+                ]
+              }
+            },
+            "side_meaning": {
+              "type": "object",
+              "properties": {
+                "buy": {
+                  "type": "string"
+                },
+                "sell": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "buy",
+                "sell"
+              ]
+            },
+            "side_semantics": {
+              "type": "object",
+              "properties": {
+                "buy": {
+                  "type": "object",
+                  "properties": {
+                    "liquidation_flow": {
+                      "type": "string"
+                    },
+                    "position_side": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "liquidation_flow",
+                    "position_side"
+                  ]
+                },
+                "sell": {
+                  "type": "object",
+                  "properties": {
+                    "liquidation_flow": {
+                      "type": "string"
+                    },
+                    "position_side": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "liquidation_flow",
+                    "position_side"
+                  ]
+                }
+              },
+              "required": [
+                "buy",
+                "sell"
+              ]
+            }
+          },
+          "required": [
+            "available_buy_count",
+            "available_sell_count",
+            "buy",
+            "complete",
+            "order",
+            "published_buy_count",
+            "published_sell_count",
+            "sell",
+            "side_meaning",
+            "side_semantics"
+          ]
+        },
+        "margin_stress": {
+          "type": "object",
+          "properties": {
+            "interpretation": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "reference_price": {
+              "type": "number"
+            },
+            "reference_price_source": {
+              "type": "string"
+            },
+            "scenarios": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "crossed_bucket_count": {
+                    "type": "integer"
+                  },
+                  "estimated_liquidation_notional_usd": {
+                    "type": "number"
+                  },
+                  "estimated_liquidation_size": {
+                    "type": "number"
+                  },
+                  "estimated_position_count": {
+                    "type": "integer"
+                  },
+                  "liquidated_side": {
+                    "type": "string"
+                  },
+                  "move_pct": {
+                    "type": "integer"
+                  },
+                  "target_price": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "crossed_bucket_count",
+                  "estimated_liquidation_notional_usd",
+                  "estimated_liquidation_size",
+                  "estimated_position_count",
+                  "liquidated_side",
+                  "move_pct",
+                  "target_price"
+                ]
+              }
+            },
+            "trigger_basis": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "interpretation",
+            "method",
+            "reference_price",
+            "reference_price_source",
+            "scenarios",
+            "trigger_basis"
+          ]
+        },
+        "market_reference": {
+          "type": "object",
+          "properties": {
+            "mark": {
+              "type": "integer"
+            },
+            "midpoint": {
+              "type": "integer"
+            },
+            "oracle": {
+              "type": "integer"
+            },
+            "price": {
+              "type": "number"
+            },
+            "source": {
+              "type": "string"
+            },
+            "trigger_basis": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "mark",
+            "midpoint",
+            "oracle",
+            "price",
+            "source",
+            "trigger_basis"
+          ]
+        },
+        "product_version": {
+          "type": "string"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "object",
+          "properties": {
+            "buy_lvwap_by_value": {
+              "type": "number"
+            },
+            "legacy_liquidation_distribution_mid_proxy": {
+              "type": "integer"
+            },
+            "positions_with_liquidation_price": {
+              "type": "number"
+            },
+            "reference_price": {
+              "type": "number"
+            },
+            "reference_price_source": {
+              "type": "string"
+            },
+            "sell_lvwap_by_value": {
+              "type": "number"
+            },
+            "total_positions": {
+              "type": "number"
+            },
+            "total_size": {
+              "type": "number"
+            },
+            "total_value": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "buy_lvwap_by_value",
+            "legacy_liquidation_distribution_mid_proxy",
+            "positions_with_liquidation_price",
+            "reference_price",
+            "reference_price_source",
+            "sell_lvwap_by_value",
+            "total_positions",
+            "total_size",
+            "total_value"
+          ]
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "usage": {
+          "type": "object",
+          "properties": {
+            "item_limit": {
+              "type": "integer"
+            },
+            "published_level_count": {
+              "type": "integer"
+            },
+            "published_levels_complete": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "item_limit",
+            "published_level_count",
+            "published_levels_complete"
+          ]
+        },
+        "view": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "clusters",
+        "data_as_of",
+        "freshness",
+        "generated_at",
+        "levels",
+        "margin_stress",
+        "market_reference",
+        "product_version",
+        "schema",
+        "scope",
+        "service",
+        "summary",
+        "symbol",
+        "usage",
+        "view"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "clusters.available_buy_count": {
+        "min": 0
+      },
+      "clusters.available_sell_count": {
+        "min": 0
+      },
+      "clusters.buy[].absolute_distance_from_reference_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "clusters.buy[].liquidation_price": {
+        "min": 0
+      },
+      "clusters.buy[].position_count": {
+        "min": 0
+      },
+      "clusters.buy[].reference_price": {
+        "min": 0
+      },
+      "clusters.buy[].size": {
+        "min": 0
+      },
+      "clusters.published_buy_count": {
+        "min": 0
+      },
+      "clusters.published_sell_count": {
+        "min": 0
+      },
+      "clusters.sell[].absolute_distance_from_reference_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "clusters.sell[].distance_from_reference_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "clusters.sell[].distance_from_reference_usd": {
+        "min": 0
+      },
+      "clusters.sell[].liquidation_price": {
+        "min": 0
+      },
+      "clusters.sell[].position_count": {
+        "min": 0
+      },
+      "clusters.sell[].reference_price": {
+        "min": 0
+      },
+      "clusters.sell[].size": {
+        "min": 0
+      },
+      "freshness.age_seconds": {
+        "min": 0
+      },
+      "freshness.max_age_seconds": {
+        "min": 0
+      },
+      "levels.available_buy_count": {
+        "min": 0
+      },
+      "levels.available_sell_count": {
+        "min": 0
+      },
+      "levels.buy[].absolute_distance_from_reference_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "levels.buy[].liquidation_price": {
+        "min": 0
+      },
+      "levels.buy[].position_count": {
+        "min": 0
+      },
+      "levels.buy[].reference_price": {
+        "min": 0
+      },
+      "levels.buy[].size": {
+        "min": 0
+      },
+      "levels.published_buy_count": {
+        "min": 0
+      },
+      "levels.published_sell_count": {
+        "min": 0
+      },
+      "levels.sell[].absolute_distance_from_reference_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "levels.sell[].distance_from_reference_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "levels.sell[].distance_from_reference_usd": {
+        "min": 0
+      },
+      "levels.sell[].liquidation_price": {
+        "min": 0
+      },
+      "levels.sell[].position_count": {
+        "min": 0
+      },
+      "levels.sell[].reference_price": {
+        "min": 0
+      },
+      "levels.sell[].size": {
+        "min": 0
+      },
+      "margin_stress.reference_price": {
+        "min": 0
+      },
+      "margin_stress.scenarios[].crossed_bucket_count": {
+        "min": 0
+      },
+      "margin_stress.scenarios[].estimated_liquidation_notional_usd": {
+        "min": 0
+      },
+      "margin_stress.scenarios[].estimated_liquidation_size": {
+        "min": 0
+      },
+      "margin_stress.scenarios[].estimated_position_count": {
+        "min": 0
+      },
+      "margin_stress.scenarios[].target_price": {
+        "min": 0
+      },
+      "market_reference.price": {
+        "min": 0
+      },
+      "summary.positions_with_liquidation_price": {
+        "min": 0
+      },
+      "summary.reference_price": {
+        "min": 0
+      },
+      "summary.total_positions": {
+        "min": 0
+      },
+      "summary.total_size": {
+        "min": 0
+      },
+      "summary.total_value": {
+        "min": 0
+      },
+      "usage.item_limit": {
+        "min": 0
+      },
+      "usage.published_level_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "omniterminal.app",
+    "endpoint": "https://omniterminal.app/api/x402/v1/liquidations/:symbol",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

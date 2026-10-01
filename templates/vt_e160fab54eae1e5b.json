@@ -1,0 +1,244 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e160fab54eae1e5b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "_atlas": {
+          "additionalProperties": false,
+          "description": "Atlas documentation and related-route metadata added after deployment",
+          "properties": {
+            "docs": {
+              "description": "Documentation URL for this bridge",
+              "format": "uri",
+              "maxLength": 512,
+              "type": "string"
+            },
+            "related": {
+              "description": "Bounded related Atlas routes",
+              "items": {
+                "additionalProperties": false,
+                "description": "One related Atlas route",
+                "properties": {
+                  "bridge": {
+                    "description": "Related bridge name",
+                    "maxLength": 64,
+                    "type": "string"
+                  },
+                  "docs": {
+                    "description": "Related bridge documentation URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  },
+                  "summary": {
+                    "description": "Short capability summary",
+                    "maxLength": 256,
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "Related route URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "bridge",
+                  "url",
+                  "docs",
+                  "summary"
+                ],
+                "type": "object"
+              },
+              "maxItems": 3,
+              "type": "array"
+            }
+          },
+          "required": [
+            "docs"
+          ],
+          "type": "object"
+        },
+        "algorithm_version": {
+          "const": "jwt-unverified-decode-v1",
+          "description": "Pinned strict decode contract",
+          "type": "string"
+        },
+        "at_time": {
+          "description": "Applied advisory comparison instant",
+          "format": "date-time",
+          "type": "string"
+        },
+        "claims": {
+          "additionalProperties": true,
+          "description": "Decoded untrusted JWT claims with JSON numbers preserved",
+          "type": "object"
+        },
+        "header": {
+          "additionalProperties": true,
+          "description": "Decoded untrusted JOSE header; arbitrary members are preserved",
+          "type": "object"
+        },
+        "operation": {
+          "const": "jwt-decode",
+          "description": "Stable operation name",
+          "type": "string"
+        },
+        "signature_bytes": {
+          "description": "Decoded signature segment size; not a validity result",
+          "maximum": 32768,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "signature_status": {
+          "const": "not_verified",
+          "description": "Prominent statement that no signature check occurred",
+          "type": "string"
+        },
+        "temporal": {
+          "additionalProperties": false,
+          "description": "Advisory exp, nbf, and iat comparisons against at_time",
+          "properties": {
+            "expiration": {
+              "additionalProperties": false,
+              "description": "One advisory NumericDate comparison",
+              "properties": {
+                "status": {
+                  "description": "Advisory comparison status only",
+                  "enum": [
+                    "absent",
+                    "invalid",
+                    "valid",
+                    "expired",
+                    "active",
+                    "not_yet_active",
+                    "past_or_present",
+                    "future"
+                  ],
+                  "type": "string"
+                },
+                "value": {
+                  "description": "Integral NumericDate or null when absent/invalid",
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "status",
+                "value"
+              ],
+              "type": "object"
+            },
+            "issued_at": {
+              "additionalProperties": false,
+              "description": "One advisory NumericDate comparison",
+              "properties": {
+                "status": {
+                  "description": "Advisory comparison status only",
+                  "enum": [
+                    "absent",
+                    "invalid",
+                    "valid",
+                    "expired",
+                    "active",
+                    "not_yet_active",
+                    "past_or_present",
+                    "future"
+                  ],
+                  "type": "string"
+                },
+                "value": {
+                  "description": "Integral NumericDate or null when absent/invalid",
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "status",
+                "value"
+              ],
+              "type": "object"
+            },
+            "not_before": {
+              "additionalProperties": false,
+              "description": "One advisory NumericDate comparison",
+              "properties": {
+                "status": {
+                  "description": "Advisory comparison status only",
+                  "enum": [
+                    "absent",
+                    "invalid",
+                    "valid",
+                    "expired",
+                    "active",
+                    "not_yet_active",
+                    "past_or_present",
+                    "future"
+                  ],
+                  "type": "string"
+                },
+                "value": {
+                  "description": "Integral NumericDate or null when absent/invalid",
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "status",
+                "value"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "expiration",
+            "not_before",
+            "issued_at"
+          ],
+          "type": "object"
+        },
+        "warnings": {
+          "description": "Unverified-token, URL, critical-header, NumericDate, and deterministic overflow-summary warnings",
+          "items": {
+            "description": "Human-readable warning",
+            "type": "string"
+          },
+          "maxItems": 40,
+          "type": "array"
+        }
+      },
+      "required": [
+        "operation",
+        "algorithm_version",
+        "at_time",
+        "signature_status",
+        "header",
+        "claims",
+        "signature_bytes",
+        "temporal",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "artifact-inspector.use.x402atlas.com",
+    "endpoint": "https://artifact-inspector.use.x402atlas.com/jwt",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

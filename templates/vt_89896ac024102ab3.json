@@ -1,0 +1,65 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_89896ac024102ab3",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "composite": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "sub": {
+          "type": "object",
+          "properties": {
+            "domain": {
+              "type": "integer"
+            },
+            "geo": {
+              "type": "integer"
+            },
+            "seo": {
+              "type": "integer"
+            },
+            "social": {
+              "type": "integer"
+            },
+            "trademark": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "domain",
+            "geo",
+            "seo",
+            "social",
+            "trademark"
+          ]
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "composite",
+        "name",
+        "sub",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.nameintel.io",
+    "endpoint": "https://api.nameintel.io/api/v1/score",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

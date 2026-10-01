@@ -1,0 +1,56 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2b36100139a1c87e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "domain": {
+          "type": "string"
+        },
+        "flags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "riskScore": {
+          "description": "0-100; higher = more stable",
+          "type": "number"
+        },
+        "riskTier": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "critical"
+          ],
+          "type": "string"
+        },
+        "signals": {
+          "description": "Per-signal detail: whois, ssl, dns, news",
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "required": [
+        "domain",
+        "flags",
+        "riskScore",
+        "riskTier",
+        "signals"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "supplier-risk-api-production.up.railway.app",
+    "endpoint": "https://supplier-risk-api-production.up.railway.app/supplier-risk",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

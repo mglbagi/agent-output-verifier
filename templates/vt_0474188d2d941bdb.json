@@ -1,0 +1,54 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0474188d2d941bdb",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "description": "Job UUID",
+          "type": "string",
+          "format": "uuid"
+        },
+        "paymentMode": {
+          "description": "Payment mode used for this job",
+          "enum": [
+            "testnet",
+            "production"
+          ],
+          "type": "string"
+        },
+        "pollUrl": {
+          "description": "URL to poll for job status and results",
+          "type": "string"
+        },
+        "status": {
+          "description": "Initial job status",
+          "enum": [
+            "queued"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "status",
+        "pollUrl",
+        "paymentMode"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "qa.honeygate.app",
+    "endpoint": "https://qa.honeygate.app/v1/checks",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

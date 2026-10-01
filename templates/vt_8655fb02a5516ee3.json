@@ -1,0 +1,73 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8655fb02a5516ee3",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "const": "solgiery-random-v1",
+          "type": "string"
+        },
+        "entropy": {
+          "additionalProperties": false,
+          "properties": {
+            "hex": {
+              "maxLength": 262144,
+              "pattern": "^([0-9a-f]{2})*$",
+              "type": "string"
+            },
+            "source": {
+              "const": "os-csprng",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source",
+            "hex"
+          ],
+          "type": "object"
+        },
+        "result": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "index": {
+                "maximum": 999,
+                "minimum": 0,
+                "type": "integer"
+              },
+              "item": {}
+            },
+            "required": [
+              "index",
+              "item"
+            ],
+            "type": "object"
+          },
+          "maxItems": 1000,
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "algorithm",
+        "result",
+        "entropy"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.solgiery.com",
+    "endpoint": "https://api.solgiery.com/v1/random/sample",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

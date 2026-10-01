@@ -1,0 +1,37 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c13419710dd60860",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "item_name": {
+          "type": "string"
+        },
+        "query": {
+          "type": "string"
+        },
+        "usage": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "item_name",
+        "query",
+        "usage"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402endpoint-924155002144.us-west2.run.app",
+    "endpoint": "https://x402endpoint-924155002144.us-west2.run.app/nuclear-prep/:query",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

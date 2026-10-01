@@ -1,0 +1,308 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_938aba851e98e875",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "articles": {
+          "description": "Array of article objects with metadata, content, and engagement metrics",
+          "items": {
+            "properties": {
+              "author": {
+                "properties": {
+                  "authorTranslates": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "name"
+                      ]
+                    },
+                    "type": "array"
+                  },
+                  "author_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "required": [
+                  "authorTranslates",
+                  "author_url",
+                  "id"
+                ]
+              },
+              "category": {
+                "properties": {
+                  "categoryTranslates": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "title"
+                      ]
+                    },
+                    "type": "array"
+                  },
+                  "category_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "required": [
+                  "categoryTranslates",
+                  "category_url",
+                  "id"
+                ]
+              },
+              "full_text": {
+                "description": "Plain-text article body (present only if full_text=true in request)",
+                "type": "string"
+              },
+              "id": {
+                "description": "Article ID",
+                "type": "string"
+              },
+              "postBadge": {
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "postBadgeTranslates": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "title"
+                      ]
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "required": [
+                  "id",
+                  "label",
+                  "postBadgeTranslates"
+                ]
+              },
+              "postTranslate": {
+                "properties": {
+                  "author": {
+                    "properties": {
+                      "authorTranslates": {
+                        "items": {
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object",
+                          "required": [
+                            "id",
+                            "name"
+                          ]
+                        },
+                        "type": "array"
+                      },
+                      "author_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "id": {
+                        "type": "string"
+                      },
+                      "innovationCircleUrl": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "required": [
+                      "authorTranslates",
+                      "author_url",
+                      "id"
+                    ]
+                  },
+                  "avatar": {
+                    "description": "Featured image URL",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "leadText": {
+                    "description": "Article lead/summary",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "published": {
+                    "description": "ISO8601 publication timestamp",
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "publishedHumanFormat": {
+                    "description": "Human-readable time ago (e.g., '2 hours ago')",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "title": {
+                    "description": "Article headline",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "title",
+                  "published"
+                ],
+                "type": "object"
+              },
+              "post_url": {
+                "description": "Full URL to the article on Cointelegraph",
+                "type": "string",
+                "format": "uri"
+              },
+              "views": {
+                "description": "Article view count (present only if views=true in request)",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "id",
+              "post_url",
+              "postTranslate"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "count": {
+          "description": "Number of articles in the response array",
+          "type": "integer"
+        },
+        "lang": {
+          "description": "Locale code (e.g., 'en', 'de', 'es', 'fr', 'jp', 'kr', 'br', 'cn', 'ar', 'in', 'tw', 'ru', 'it', 'tr')",
+          "type": "string"
+        },
+        "query": {
+          "description": "Search query string if ?search= was provided, otherwise null",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source": {
+          "description": "Content source identifier (always 'cointelegraph')",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "articles",
+        "count",
+        "lang",
+        "source"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "articles[].author.authorTranslates[].id",
+        "if_present": true
+      },
+      {
+        "type": "unique",
+        "field": "articles[].category.categoryTranslates[].id",
+        "if_present": true
+      },
+      {
+        "type": "unique",
+        "field": "articles[].postBadge.postBadgeTranslates[].id",
+        "if_present": true
+      },
+      {
+        "type": "unique",
+        "field": "articles[].postTranslate.author.authorTranslates[].id",
+        "if_present": true
+      },
+      {
+        "type": "unique",
+        "field": "articles[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "news.apitoll.cloud",
+    "endpoint": "https://news.apitoll.cloud/v1/cointelegraph/news",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

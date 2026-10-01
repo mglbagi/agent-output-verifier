@@ -1,0 +1,222 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9a759c7579b05a27",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "base_token": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string",
+                    "pattern": "^0x[a-fA-F0-9]{40}$"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "symbol": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "address",
+                  "name",
+                  "symbol"
+                ]
+              },
+              "contract_address": {
+                "type": "string",
+                "pattern": "^0x[a-fA-F0-9]{40}$"
+              },
+              "dex": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "slug": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "slug"
+                ]
+              },
+              "id": {
+                "type": "integer"
+              },
+              "last_updated": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "liquidity": {
+                "type": "integer"
+              },
+              "pair_created_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "platform": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "network_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "name",
+                  "network_id"
+                ]
+              },
+              "quote": {
+                "type": "object",
+                "properties": {
+                  "USD": {
+                    "type": "object",
+                    "properties": {
+                      "depth_negative_two": {
+                        "type": "integer"
+                      },
+                      "depth_positive_two": {
+                        "type": "integer"
+                      },
+                      "last_updated": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "percent_change_1h": {
+                        "type": "number"
+                      },
+                      "percent_change_24h": {
+                        "type": "number"
+                      },
+                      "price": {
+                        "type": "number"
+                      },
+                      "volume_24h": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "depth_negative_two",
+                      "depth_positive_two",
+                      "last_updated",
+                      "percent_change_1h",
+                      "percent_change_24h",
+                      "price",
+                      "volume_24h"
+                    ]
+                  }
+                },
+                "required": [
+                  "USD"
+                ]
+              },
+              "quote_token": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string",
+                    "pattern": "^0x[a-fA-F0-9]{40}$"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "symbol": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "address",
+                  "name",
+                  "symbol"
+                ]
+              }
+            },
+            "required": [
+              "base_token",
+              "contract_address",
+              "dex",
+              "id",
+              "last_updated",
+              "liquidity",
+              "pair_created_at",
+              "platform",
+              "quote",
+              "quote_token"
+            ]
+          }
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "credit_count": {
+              "type": "integer"
+            },
+            "elapsed": {
+              "type": "integer"
+            },
+            "error_code": {
+              "type": "integer"
+            },
+            "error_message": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "credit_count",
+            "elapsed",
+            "error_code",
+            "error_message",
+            "timestamp"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "status"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data[].id"
+      }
+    ],
+    "bounds": {
+      "data[].quote.USD.price": {
+        "min": 0
+      },
+      "data[].quote.USD.volume_24h": {
+        "min": 0
+      },
+      "status.credit_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "pro-api.coinmarketcap.com",
+    "endpoint": "https://pro-api.coinmarketcap.com/x402/v4/dex/pairs/quotes/latest",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

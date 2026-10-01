@@ -1,0 +1,162 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_dffa8f33a4f755b4",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "inspect_url": {
+          "pattern": "^/v1/invocations/[A-Za-z0-9][A-Za-z0-9._:-]*$",
+          "type": "string"
+        },
+        "invocation": {
+          "properties": {
+            "invocation_id": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+              "type": "string"
+            },
+            "offer_revision_digest": {
+              "const": "sha256:0cafa81ab1948b57713a28613490fa52f551a1db4c96e3140b85dd265e7ba7ab"
+            },
+            "output": {
+              "additionalProperties": false,
+              "properties": {
+                "language_code": {
+                  "type": "string"
+                },
+                "schema": {
+                  "const": "ausca.transcription.output.v1"
+                },
+                "segments": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "end_seconds": {
+                        "exclusiveMaximum": 1000000,
+                        "minimum": 0,
+                        "type": "number"
+                      },
+                      "start_seconds": {
+                        "exclusiveMaximum": 1000000,
+                        "minimum": 0,
+                        "type": "number"
+                      },
+                      "text": {
+                        "maxLength": 8000000,
+                        "minLength": 1,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "start_seconds",
+                      "end_seconds",
+                      "text"
+                    ],
+                    "type": "object"
+                  },
+                  "maxItems": 100000,
+                  "type": "array"
+                },
+                "source_digest": {
+                  "pattern": "^sha256:[a-f0-9]{64}$",
+                  "type": "string"
+                },
+                "text": {
+                  "maxLength": 8000000,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "schema",
+                "source_digest",
+                "language_code",
+                "text",
+                "segments"
+              ],
+              "type": "object"
+            },
+            "output_digest": {
+              "pattern": "^sha256:[a-f0-9]{64}$",
+              "type": "string"
+            },
+            "receipt_ref": {
+              "properties": {
+                "public_url": {
+                  "format": "uri",
+                  "maxLength": 2048,
+                  "pattern": "^https://[^?#]+/r/[a-f0-9]{64}$",
+                  "type": "string"
+                },
+                "type": {
+                  "const": "receipt"
+                },
+                "uri": {
+                  "maxLength": 512,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "uri"
+              ],
+              "type": "object"
+            },
+            "state": {
+              "enum": [
+                "admitted",
+                "running",
+                "succeeded",
+                "failed",
+                "cancellation_requested",
+                "cancelled"
+              ],
+              "type": "string"
+            },
+            "updated_at": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "invocation_id",
+            "offer_revision_digest",
+            "state",
+            "updated_at"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "const": "accepted"
+        }
+      },
+      "required": [
+        "status",
+        "invocation",
+        "inspect_url"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "invocation.output.segments[].start_seconds",
+        "other_field": "invocation.output.segments[].end_seconds",
+        "if_present": true
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ausca.com",
+    "endpoint": "https://ausca.com/v1/transcribe-media",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,339 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b57c43f381c64818",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "aggregates": {
+          "type": "object",
+          "properties": {
+            "active_count": {
+              "type": "integer"
+            },
+            "award_count": {
+              "type": "integer"
+            },
+            "by_agency": {
+              "type": "object",
+              "properties": {
+                "NIH": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "NIH"
+              ]
+            },
+            "by_year": {
+              "type": "object",
+              "properties": {
+                "2024": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "2024"
+              ]
+            },
+            "non_dilutive_total": {
+              "type": "number"
+            },
+            "tech_clusters": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "awards": {
+                    "type": "integer"
+                  },
+                  "term": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "awards",
+                  "term"
+                ]
+              }
+            },
+            "total_funding": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "active_count",
+            "award_count",
+            "by_agency",
+            "by_year",
+            "non_dilutive_total",
+            "tech_clusters",
+            "total_funding"
+          ]
+        },
+        "attribution": {
+          "type": "string"
+        },
+        "award_count": {
+          "type": "integer"
+        },
+        "awards": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "abstract": {
+                "type": "string"
+              },
+              "agency": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "number"
+              },
+              "citation": {
+                "type": "object",
+                "properties": {
+                  "source": {
+                    "type": "string"
+                  },
+                  "source_url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "source",
+                  "source_url"
+                ]
+              },
+              "core_id": {
+                "type": "string"
+              },
+              "end": {
+                "type": "string",
+                "format": "date"
+              },
+              "fiscal_year": {
+                "type": "integer"
+              },
+              "id": {
+                "type": "string"
+              },
+              "is_active": {
+                "type": "boolean"
+              },
+              "org_state": {
+                "type": "string"
+              },
+              "organization": {
+                "type": "string"
+              },
+              "phase": {
+                "type": "string"
+              },
+              "pi": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "program": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "start": {
+                "type": "string",
+                "format": "date"
+              },
+              "sub_agency": {
+                "type": "string"
+              },
+              "tech_terms": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "title": {
+                "type": "string"
+              },
+              "uei": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "abstract",
+              "agency",
+              "amount",
+              "citation",
+              "core_id",
+              "end",
+              "fiscal_year",
+              "id",
+              "is_active",
+              "org_state",
+              "organization",
+              "phase",
+              "pi",
+              "program",
+              "source",
+              "start",
+              "sub_agency",
+              "tech_terms",
+              "title",
+              "uei"
+            ]
+          }
+        },
+        "found": {
+          "type": "boolean"
+        },
+        "query": {
+          "type": "object",
+          "properties": {
+            "agencies": {},
+            "company": {
+              "type": "string"
+            },
+            "min_year": {},
+            "organization": {},
+            "pi": {}
+          },
+          "required": [
+            "company"
+          ]
+        },
+        "source_status": {
+          "type": "object",
+          "properties": {
+            "nih": {
+              "type": "object",
+              "properties": {
+                "available": {
+                  "type": "boolean"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "reason": {}
+              },
+              "required": [
+                "available",
+                "count"
+              ]
+            },
+            "nsf": {
+              "type": "object",
+              "properties": {
+                "available": {
+                  "type": "boolean"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "reason": {}
+              },
+              "required": [
+                "available",
+                "count"
+              ]
+            },
+            "sbir": {
+              "type": "object",
+              "properties": {
+                "available": {
+                  "type": "boolean"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "reason": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "available",
+                "count",
+                "reason"
+              ]
+            }
+          },
+          "required": [
+            "nih",
+            "nsf",
+            "sbir"
+          ]
+        },
+        "sources_used": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "aggregates",
+        "attribution",
+        "award_count",
+        "awards",
+        "found",
+        "query",
+        "source_status",
+        "sources_used"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "awards[].start",
+        "other_field": "awards[].end"
+      },
+      {
+        "type": "unique",
+        "field": "awards[].core_id"
+      }
+    ],
+    "bounds": {
+      "aggregates.active_count": {
+        "min": 0
+      },
+      "aggregates.award_count": {
+        "min": 0
+      },
+      "aggregates.non_dilutive_total": {
+        "min": 0
+      },
+      "aggregates.total_funding": {
+        "min": 0
+      },
+      "award_count": {
+        "min": 0
+      },
+      "awards[].amount": {
+        "min": 0
+      },
+      "source_status.nih.count": {
+        "min": 0
+      },
+      "source_status.nsf.count": {
+        "min": 0
+      },
+      "source_status.sbir.count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.agentstools.dev",
+    "endpoint": "https://api.agentstools.dev/funding/profile",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

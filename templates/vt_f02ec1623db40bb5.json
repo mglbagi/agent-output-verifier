@@ -1,0 +1,88 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f02ec1623db40bb5",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "portfolio": {
+          "type": "object",
+          "properties": {
+            "covered": {
+              "type": "integer"
+            },
+            "total_estimated_liability_eur": {
+              "type": "number"
+            },
+            "total_shipments": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "covered",
+            "total_estimated_liability_eur",
+            "total_shipments"
+          ]
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "result": {
+                "type": "object",
+                "properties": {
+                  "sector": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "sector"
+                ]
+              },
+              "status": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "result",
+              "status"
+            ]
+          }
+        }
+      },
+      "required": [
+        "portfolio",
+        "results"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "results[].id"
+      }
+    ],
+    "bounds": {
+      "portfolio.total_estimated_liability_eur": {
+        "min": 0
+      },
+      "portfolio.total_shipments": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.myco2suite.io",
+    "endpoint": "https://api.myco2suite.io/api/v1/cbam/batch",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bf5f2c98a92a834a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "basis": {
+          "type": "string"
+        },
+        "feed": {
+          "type": "string"
+        },
+        "page": {
+          "type": "object",
+          "properties": {
+            "has_more": {
+              "type": "boolean"
+            },
+            "limit": {
+              "type": "integer"
+            },
+            "next_cursor": {
+              "type": "string"
+            },
+            "returned": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "has_more",
+            "limit",
+            "next_cursor",
+            "returned"
+          ]
+        },
+        "query": {
+          "type": "object",
+          "properties": {
+            "certification": {
+              "type": "string"
+            },
+            "min_va_award": {
+              "type": "string"
+            },
+            "naics": {
+              "type": "string"
+            },
+            "since": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "certification",
+            "min_va_award",
+            "naics",
+            "since",
+            "state"
+          ]
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "as_published_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "award_count": {
+                "type": "integer"
+              },
+              "certification": {
+                "type": "string"
+              },
+              "entity_id": {},
+              "event_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "event_key": {
+                "type": "string"
+              },
+              "first_award_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "last_award_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "naics": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "recipient_uei": {},
+              "state": {
+                "type": "string"
+              },
+              "total_award_amount": {
+                "type": "number"
+              },
+              "total_award_amount_band": {
+                "type": "string"
+              },
+              "va_award_amount": {
+                "type": "number"
+              },
+              "va_award_amount_band": {
+                "type": "string"
+              },
+              "va_award_count": {
+                "type": "integer"
+              },
+              "vendor": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "as_published_date",
+              "award_count",
+              "certification",
+              "event_date",
+              "event_key",
+              "first_award_date",
+              "last_award_date",
+              "naics",
+              "state",
+              "total_award_amount",
+              "total_award_amount_band",
+              "va_award_amount",
+              "va_award_amount_band",
+              "va_award_count",
+              "vendor"
+            ]
+          }
+        }
+      },
+      "required": [
+        "basis",
+        "feed",
+        "page",
+        "query",
+        "rows"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "rows[].entity_id"
+      }
+    ],
+    "bounds": {
+      "page.limit": {
+        "min": 0
+      },
+      "rows[].award_count": {
+        "min": 0
+      },
+      "rows[].total_award_amount": {
+        "min": 0
+      },
+      "rows[].va_award_amount": {
+        "min": 0
+      },
+      "rows[].va_award_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.govparse.io",
+    "endpoint": "https://api.govparse.io/v1/feeds/sdvosb",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

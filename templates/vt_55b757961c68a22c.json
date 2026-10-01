@@ -1,0 +1,272 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_55b757961c68a22c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "_atlas": {
+          "additionalProperties": false,
+          "description": "Atlas documentation and related-route metadata added after deployment",
+          "properties": {
+            "docs": {
+              "description": "Documentation URL for this bridge",
+              "format": "uri",
+              "maxLength": 512,
+              "type": "string"
+            },
+            "related": {
+              "description": "Bounded related Atlas routes",
+              "items": {
+                "additionalProperties": false,
+                "description": "One related Atlas route",
+                "properties": {
+                  "bridge": {
+                    "description": "Related bridge name",
+                    "maxLength": 64,
+                    "type": "string"
+                  },
+                  "docs": {
+                    "description": "Related bridge documentation URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  },
+                  "summary": {
+                    "description": "Short capability summary",
+                    "maxLength": 256,
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "Related route URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "bridge",
+                  "url",
+                  "docs",
+                  "summary"
+                ],
+                "type": "object"
+              },
+              "maxItems": 3,
+              "type": "array"
+            }
+          },
+          "required": [
+            "docs"
+          ],
+          "type": "object"
+        },
+        "algorithm_version": {
+          "const": "schedule-v1",
+          "description": "Pinned RFC subset and timezone-resolution contract",
+          "type": "string"
+        },
+        "ambiguous_time": {
+          "description": "Applied DST-fold policy",
+          "enum": [
+            "earlier",
+            "later",
+            "reject"
+          ],
+          "type": "string"
+        },
+        "dtstart_local": {
+          "description": "Civil DTSTART anchor",
+          "type": "string"
+        },
+        "go_toolchain_version": {
+          "const": "go1.26.3",
+          "description": "Reviewed Go toolchain",
+          "type": "string"
+        },
+        "iana_tzdata_version": {
+          "const": "2026a",
+          "description": "Reviewed IANA timezone release",
+          "type": "string"
+        },
+        "limit": {
+          "description": "Maximum requested result count",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "nonexistent_time": {
+          "description": "Applied DST-gap policy",
+          "enum": [
+            "reject",
+            "shift_forward"
+          ],
+          "type": "string"
+        },
+        "normalized_rrule": {
+          "description": "Canonical supported RRULE parts and defaults",
+          "type": "string"
+        },
+        "occurrence_count": {
+          "description": "Number of returned occurrences",
+          "maximum": 100,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "occurrences": {
+          "description": "Occurrences in ascending instant order; [] when none fall in the window",
+          "items": {
+            "additionalProperties": false,
+            "description": "One resolved recurrence occurrence",
+            "properties": {
+              "local": {
+                "additionalProperties": false,
+                "description": "Localized representation",
+                "properties": {
+                  "abbreviation": {
+                    "description": "Display-only abbreviation",
+                    "type": "string"
+                  },
+                  "local_time": {
+                    "description": "RFC3339 local form with numeric offset",
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "offset_seconds": {
+                    "description": "UTC offset seconds",
+                    "maximum": 86400,
+                    "minimum": -86400,
+                    "type": "integer"
+                  },
+                  "timezone": {
+                    "description": "IANA timezone",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "local_time",
+                  "timezone",
+                  "offset_seconds",
+                  "abbreviation"
+                ],
+                "type": "object"
+              },
+              "utc": {
+                "description": "UTC instant",
+                "format": "date-time",
+                "type": "string"
+              }
+            },
+            "required": [
+              "utc",
+              "local"
+            ],
+            "type": "object"
+          },
+          "maxItems": 100,
+          "type": "array"
+        },
+        "operation": {
+          "const": "rrule-expand",
+          "description": "Stable route operation",
+          "type": "string"
+        },
+        "timezone": {
+          "description": "IANA timezone used for recurrence resolution",
+          "type": "string"
+        },
+        "tzdata_source": {
+          "const": "bridge-embedded",
+          "description": "Timezone data source",
+          "type": "string"
+        },
+        "warnings": {
+          "description": "Distinct DST gap shift warnings; [] when no shift occurred",
+          "items": {
+            "description": "Warning",
+            "type": "string"
+          },
+          "maxItems": 100,
+          "type": "array"
+        },
+        "window_end": {
+          "description": "Normalized exclusive UTC window end",
+          "format": "date-time",
+          "type": "string"
+        },
+        "window_start": {
+          "description": "Normalized inclusive UTC window start",
+          "format": "date-time",
+          "type": "string"
+        },
+        "work": {
+          "additionalProperties": false,
+          "description": "Cooperative bounded-iteration counters",
+          "properties": {
+            "candidate_occurrences": {
+              "description": "Rule occurrences emitted before window filtering",
+              "maximum": 100000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "combination_checks": {
+              "description": "Rule-period and BY-part checks",
+              "maximum": 1000000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "periods_checked": {
+              "description": "Frequency periods visited",
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "candidate_occurrences",
+            "combination_checks",
+            "periods_checked"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "operation",
+        "algorithm_version",
+        "tzdata_source",
+        "go_toolchain_version",
+        "iana_tzdata_version",
+        "dtstart_local",
+        "timezone",
+        "normalized_rrule",
+        "window_start",
+        "window_end",
+        "limit",
+        "ambiguous_time",
+        "nonexistent_time",
+        "occurrences",
+        "occurrence_count",
+        "work",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "window_start",
+        "other_field": "window_end"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "schedule-tools.use.x402atlas.com",
+    "endpoint": "https://schedule-tools.use.x402atlas.com/rrule-expand",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

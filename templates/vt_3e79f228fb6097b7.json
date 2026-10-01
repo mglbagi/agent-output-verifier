@@ -1,0 +1,277 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3e79f228fb6097b7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "artifacts": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "href": {
+                "format": "uri",
+                "type": "string"
+              },
+              "mediaType": {
+                "maxLength": 128,
+                "minLength": 1,
+                "type": "string"
+              },
+              "name": {
+                "enum": [
+                  "model.scad",
+                  "model.stl",
+                  "model.gcode",
+                  "profile.ini",
+                  "preview.png",
+                  "report.json"
+                ],
+                "type": "string"
+              },
+              "sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "sizeBytes": {
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "name",
+              "mediaType",
+              "sizeBytes",
+              "sha256",
+              "href"
+            ],
+            "type": "object"
+          },
+          "maxItems": 6,
+          "type": "array"
+        },
+        "checks": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "code": {
+                "maxLength": 128,
+                "minLength": 1,
+                "type": "string"
+              },
+              "detail": {
+                "maxLength": 4096,
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "passed",
+                  "failed",
+                  "not_checked"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "status",
+              "detail"
+            ],
+            "type": "object"
+          },
+          "maxItems": 32,
+          "type": "array"
+        },
+        "expiresAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "limitations": {
+          "items": {
+            "maxLength": 4096,
+            "type": "string"
+          },
+          "maxItems": 16,
+          "type": "array"
+        },
+        "model": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "boundsMm": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "max": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "min": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "size": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "min",
+                    "max",
+                    "size"
+                  ],
+                  "type": "object"
+                },
+                "triangleCount": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "volumeMm3": {
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "watertight": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "triangleCount",
+                "boundsMm",
+                "volumeMm3",
+                "watertight"
+              ],
+              "type": "object"
+            }
+          ]
+        },
+        "parametersApplied": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "description": "Maximum 512 UTF-8 bytes.",
+                "maxLength": 512,
+                "type": "string"
+              },
+              {
+                "maximum": 1000000,
+                "minimum": -1000000,
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          },
+          "default": {},
+          "description": "Overrides must name unique top-level scalar literal assignments, not derived expressions or reserved names.",
+          "maxProperties": 64,
+          "propertyNames": {
+            "pattern": "^[A-Za-z_][A-Za-z0-9_]{0,63}$"
+          },
+          "type": "object"
+        },
+        "profile": {
+          "enum": [
+            "fdm-pla-0.4",
+            "fdm-petg-0.4"
+          ],
+          "type": "string"
+        },
+        "recommendations": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "code": {
+                "maxLength": 128,
+                "type": "string"
+              },
+              "message": {
+                "maxLength": 4096,
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "maxItems": 32,
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "passed",
+            "rejected"
+          ],
+          "type": "string"
+        },
+        "tools": {
+          "additionalProperties": false,
+          "properties": {
+            "openscad": {
+              "type": "string"
+            },
+            "slicer": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "openscad",
+            "slicer"
+          ],
+          "type": "object"
+        },
+        "warnings": {
+          "items": {
+            "maxLength": 4096,
+            "type": "string"
+          },
+          "maxItems": 32,
+          "type": "array"
+        }
+      },
+      "required": [
+        "status",
+        "profile",
+        "parametersApplied",
+        "tools",
+        "model",
+        "checks",
+        "warnings",
+        "recommendations",
+        "limitations",
+        "expiresAt",
+        "artifacts"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "print.api.williamrobinson.dev",
+    "endpoint": "https://print.api.williamrobinson.dev/v1/print/validate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

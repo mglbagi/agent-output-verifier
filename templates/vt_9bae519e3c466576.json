@@ -1,0 +1,97 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9bae519e3c466576",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "check": {
+          "const": "perf",
+          "description": "Identifies which check produced this result."
+        },
+        "network": {
+          "description": "CAIP-2 id of the chain the payment settled on (e.g. eip155:8453 = Base).",
+          "type": "string"
+        },
+        "result": {
+          "properties": {
+            "contentSize": {
+              "description": "Bytes downloaded (capped at 5,242,880 = 5 MB).",
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "error": {
+              "description": "Human-readable failure reason, or null on success.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "loadTimeMs": {
+              "description": "Total time to download the page body (up to the 5 MB cap), in milliseconds.",
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "status": {
+              "description": "UP = loaded within threshold; WARN = slow (over the load-time threshold); DOWN = failed or timed out.",
+              "enum": [
+                "UP",
+                "WARN",
+                "DOWN"
+              ],
+              "type": "string"
+            },
+            "ttfbMs": {
+              "description": "Time to first byte, in milliseconds.",
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "url": {
+              "description": "The normalized URL that was checked.",
+              "type": "string",
+              "format": "uri"
+            },
+            "warning": {
+              "description": "Human-readable warning when the check passed but a threshold was crossed, else null.",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "contentSize",
+            "loadTimeMs",
+            "status",
+            "ttfbMs",
+            "url"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "check",
+        "network",
+        "result"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.cloudpulsepoint.com",
+    "endpoint": "https://x402.cloudpulsepoint.com/agent/check/perf",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

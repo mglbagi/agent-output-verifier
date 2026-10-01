@@ -1,0 +1,73 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_167eaaa6ae53760a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "rates": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "buy": {
+                    "type": "number"
+                  },
+                  "currency": {
+                    "type": "string"
+                  },
+                  "mid": {
+                    "type": "number"
+                  },
+                  "sell": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "buy",
+                  "currency",
+                  "mid",
+                  "sell"
+                ]
+              }
+            }
+          },
+          "required": [
+            "rates"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "scrapedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "data",
+        "name",
+        "scrapedAt",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mru-oracle.com",
+    "endpoint": "https://mru-oracle.com/forex",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

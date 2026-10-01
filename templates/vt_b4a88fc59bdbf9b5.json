@@ -1,0 +1,63 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b4a88fc59bdbf9b5",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "country": {
+          "description": "Echoed country code, lower-cased",
+          "type": "string"
+        },
+        "keyword": {
+          "description": "Echoed search keyword",
+          "type": "string"
+        },
+        "queried_at": {
+          "description": "UTC timestamp the upstream was queried",
+          "format": "date-time",
+          "type": "string"
+        },
+        "regions": {
+          "description": "Interest broken down by subregion within the country",
+          "items": {
+            "properties": {
+              "region": {
+                "description": "Subregion name",
+                "type": "string"
+              },
+              "value": {
+                "description": "Relative search-popularity index (0-100)",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "region",
+              "value"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "keyword",
+        "country",
+        "queried_at",
+        "regions"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "google-trends.use.x402atlas.com",
+    "endpoint": "https://google-trends.use.x402atlas.com/interest-by-region",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

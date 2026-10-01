@@ -1,0 +1,803 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_18dab0d9edd0852d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "compositeTriggeredDays": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "durationMs": {
+          "type": "integer"
+        },
+        "metricSeries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "metric_id": {
+                "type": "string"
+              },
+              "timeseries": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "asof_day": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "pctl": {
+                      "type": "number"
+                    },
+                    "triggered": {
+                      "type": "boolean"
+                    },
+                    "z": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "asof_day",
+                    "pctl",
+                    "triggered",
+                    "z"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "metric_id",
+              "timeseries"
+            ]
+          }
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "asset": {
+              "type": "string"
+            },
+            "conditions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "metric_id": {
+                    "type": "string"
+                  },
+                  "operator": {
+                    "type": "string"
+                  },
+                  "threshold": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "metric_id",
+                  "operator",
+                  "threshold"
+                ]
+              }
+            },
+            "cooldown_days": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "asset",
+            "conditions",
+            "cooldown_days"
+          ]
+        },
+        "priceSeries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "asof_day": {
+                "type": "string",
+                "format": "date"
+              },
+              "close_px": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "asof_day",
+              "close_px"
+            ]
+          }
+        },
+        "summary": {
+          "type": "object",
+          "properties": {
+            "horizons": {
+              "type": "object",
+              "properties": {
+                "14d": {
+                  "type": "object",
+                  "properties": {
+                    "hit_rate": {
+                      "type": "number"
+                    },
+                    "max_dd_mean": {
+                      "type": "number"
+                    },
+                    "max_dd_p95": {
+                      "type": "number"
+                    },
+                    "max_dd_worst": {
+                      "type": "number"
+                    },
+                    "max_return": {
+                      "type": "number"
+                    },
+                    "mean_return": {
+                      "type": "number"
+                    },
+                    "median_return": {
+                      "type": "number"
+                    },
+                    "min_return": {
+                      "type": "number"
+                    },
+                    "n": {
+                      "type": "integer"
+                    },
+                    "sharpe": {
+                      "type": "number"
+                    },
+                    "std_return": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "hit_rate",
+                    "max_dd_mean",
+                    "max_dd_p95",
+                    "max_dd_worst",
+                    "max_return",
+                    "mean_return",
+                    "median_return",
+                    "min_return",
+                    "n",
+                    "sharpe",
+                    "std_return"
+                  ]
+                },
+                "180d": {
+                  "type": "object",
+                  "properties": {
+                    "hit_rate": {
+                      "type": "number"
+                    },
+                    "max_dd_mean": {
+                      "type": "number"
+                    },
+                    "max_dd_p95": {
+                      "type": "number"
+                    },
+                    "max_dd_worst": {
+                      "type": "number"
+                    },
+                    "max_return": {
+                      "type": "number"
+                    },
+                    "mean_return": {
+                      "type": "number"
+                    },
+                    "median_return": {
+                      "type": "number"
+                    },
+                    "min_return": {
+                      "type": "number"
+                    },
+                    "n": {
+                      "type": "integer"
+                    },
+                    "sharpe": {
+                      "type": "number"
+                    },
+                    "std_return": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "hit_rate",
+                    "max_dd_mean",
+                    "max_dd_p95",
+                    "max_dd_worst",
+                    "max_return",
+                    "mean_return",
+                    "median_return",
+                    "min_return",
+                    "n",
+                    "sharpe",
+                    "std_return"
+                  ]
+                },
+                "1d": {
+                  "type": "object",
+                  "properties": {
+                    "hit_rate": {
+                      "type": "number"
+                    },
+                    "max_dd_mean": {
+                      "type": "number"
+                    },
+                    "max_dd_p95": {
+                      "type": "number"
+                    },
+                    "max_dd_worst": {
+                      "type": "number"
+                    },
+                    "max_return": {
+                      "type": "number"
+                    },
+                    "mean_return": {
+                      "type": "number"
+                    },
+                    "median_return": {
+                      "type": "number"
+                    },
+                    "min_return": {
+                      "type": "number"
+                    },
+                    "n": {
+                      "type": "integer"
+                    },
+                    "sharpe": {
+                      "type": "number"
+                    },
+                    "std_return": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "hit_rate",
+                    "max_dd_mean",
+                    "max_dd_p95",
+                    "max_dd_worst",
+                    "max_return",
+                    "mean_return",
+                    "median_return",
+                    "min_return",
+                    "n",
+                    "sharpe",
+                    "std_return"
+                  ]
+                },
+                "30d": {
+                  "type": "object",
+                  "properties": {
+                    "hit_rate": {
+                      "type": "number"
+                    },
+                    "max_dd_mean": {
+                      "type": "number"
+                    },
+                    "max_dd_p95": {
+                      "type": "number"
+                    },
+                    "max_dd_worst": {
+                      "type": "number"
+                    },
+                    "max_return": {
+                      "type": "number"
+                    },
+                    "mean_return": {
+                      "type": "number"
+                    },
+                    "median_return": {
+                      "type": "number"
+                    },
+                    "min_return": {
+                      "type": "number"
+                    },
+                    "n": {
+                      "type": "integer"
+                    },
+                    "sharpe": {
+                      "type": "number"
+                    },
+                    "std_return": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "hit_rate",
+                    "max_dd_mean",
+                    "max_dd_p95",
+                    "max_dd_worst",
+                    "max_return",
+                    "mean_return",
+                    "median_return",
+                    "min_return",
+                    "n",
+                    "sharpe",
+                    "std_return"
+                  ]
+                },
+                "365d": {
+                  "type": "object",
+                  "properties": {
+                    "hit_rate": {
+                      "type": "number"
+                    },
+                    "max_dd_mean": {
+                      "type": "number"
+                    },
+                    "max_dd_p95": {
+                      "type": "number"
+                    },
+                    "max_dd_worst": {
+                      "type": "number"
+                    },
+                    "max_return": {
+                      "type": "number"
+                    },
+                    "mean_return": {
+                      "type": "number"
+                    },
+                    "median_return": {
+                      "type": "number"
+                    },
+                    "min_return": {
+                      "type": "number"
+                    },
+                    "n": {
+                      "type": "integer"
+                    },
+                    "sharpe": {
+                      "type": "number"
+                    },
+                    "std_return": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "hit_rate",
+                    "max_dd_mean",
+                    "max_dd_p95",
+                    "max_dd_worst",
+                    "max_return",
+                    "mean_return",
+                    "median_return",
+                    "min_return",
+                    "n",
+                    "sharpe",
+                    "std_return"
+                  ]
+                },
+                "60d": {
+                  "type": "object",
+                  "properties": {
+                    "hit_rate": {
+                      "type": "number"
+                    },
+                    "max_dd_mean": {
+                      "type": "number"
+                    },
+                    "max_dd_p95": {
+                      "type": "number"
+                    },
+                    "max_dd_worst": {
+                      "type": "number"
+                    },
+                    "max_return": {
+                      "type": "number"
+                    },
+                    "mean_return": {
+                      "type": "number"
+                    },
+                    "median_return": {
+                      "type": "number"
+                    },
+                    "min_return": {
+                      "type": "number"
+                    },
+                    "n": {
+                      "type": "integer"
+                    },
+                    "sharpe": {
+                      "type": "number"
+                    },
+                    "std_return": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "hit_rate",
+                    "max_dd_mean",
+                    "max_dd_p95",
+                    "max_dd_worst",
+                    "max_return",
+                    "mean_return",
+                    "median_return",
+                    "min_return",
+                    "n",
+                    "sharpe",
+                    "std_return"
+                  ]
+                },
+                "7d": {
+                  "type": "object",
+                  "properties": {
+                    "hit_rate": {
+                      "type": "number"
+                    },
+                    "max_dd_mean": {
+                      "type": "number"
+                    },
+                    "max_dd_p95": {
+                      "type": "number"
+                    },
+                    "max_dd_worst": {
+                      "type": "number"
+                    },
+                    "max_return": {
+                      "type": "number"
+                    },
+                    "mean_return": {
+                      "type": "number"
+                    },
+                    "median_return": {
+                      "type": "number"
+                    },
+                    "min_return": {
+                      "type": "number"
+                    },
+                    "n": {
+                      "type": "integer"
+                    },
+                    "sharpe": {
+                      "type": "number"
+                    },
+                    "std_return": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "hit_rate",
+                    "max_dd_mean",
+                    "max_dd_p95",
+                    "max_dd_worst",
+                    "max_return",
+                    "mean_return",
+                    "median_return",
+                    "min_return",
+                    "n",
+                    "sharpe",
+                    "std_return"
+                  ]
+                },
+                "90d": {
+                  "type": "object",
+                  "properties": {
+                    "hit_rate": {
+                      "type": "number"
+                    },
+                    "max_dd_mean": {
+                      "type": "number"
+                    },
+                    "max_dd_p95": {
+                      "type": "number"
+                    },
+                    "max_dd_worst": {
+                      "type": "number"
+                    },
+                    "max_return": {
+                      "type": "number"
+                    },
+                    "mean_return": {
+                      "type": "number"
+                    },
+                    "median_return": {
+                      "type": "number"
+                    },
+                    "min_return": {
+                      "type": "number"
+                    },
+                    "n": {
+                      "type": "integer"
+                    },
+                    "sharpe": {
+                      "type": "number"
+                    },
+                    "std_return": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "hit_rate",
+                    "max_dd_mean",
+                    "max_dd_p95",
+                    "max_dd_worst",
+                    "max_return",
+                    "mean_return",
+                    "median_return",
+                    "min_return",
+                    "n",
+                    "sharpe",
+                    "std_return"
+                  ]
+                }
+              },
+              "required": [
+                "14d",
+                "180d",
+                "1d",
+                "30d",
+                "365d",
+                "60d",
+                "7d",
+                "90d"
+              ]
+            },
+            "n_observations": {
+              "type": "integer"
+            },
+            "n_suppressed": {
+              "type": "integer"
+            },
+            "n_triggers": {
+              "type": "integer"
+            },
+            "n_triggers_raw": {
+              "type": "integer"
+            },
+            "perMetric": {
+              "type": "object",
+              "properties": {
+                "TR_MOMO_CONT_14D": {
+                  "type": "object",
+                  "properties": {
+                    "n_triggers": {
+                      "type": "integer"
+                    },
+                    "trigger_rate": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "n_triggers",
+                    "trigger_rate"
+                  ]
+                },
+                "VOL_COMPRESSION_7v30": {
+                  "type": "object",
+                  "properties": {
+                    "n_triggers": {
+                      "type": "integer"
+                    },
+                    "trigger_rate": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "n_triggers",
+                    "trigger_rate"
+                  ]
+                }
+              },
+              "required": [
+                "TR_MOMO_CONT_14D",
+                "VOL_COMPRESSION_7v30"
+              ]
+            },
+            "trigger_rate": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "horizons",
+            "n_observations",
+            "n_suppressed",
+            "n_triggers",
+            "n_triggers_raw",
+            "perMetric",
+            "trigger_rate"
+          ]
+        },
+        "triggers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "asof_day": {
+                "type": "string",
+                "format": "date"
+              },
+              "fwd_14d": {
+                "type": "number"
+              },
+              "fwd_180d": {
+                "type": "number"
+              },
+              "fwd_1d": {
+                "type": "number"
+              },
+              "fwd_30d": {
+                "type": "number"
+              },
+              "fwd_365d": {
+                "type": "number"
+              },
+              "fwd_60d": {
+                "type": "number"
+              },
+              "fwd_7d": {
+                "type": "number"
+              },
+              "fwd_90d": {
+                "type": "number"
+              },
+              "max_dd_14d": {
+                "type": "number"
+              },
+              "max_dd_180d": {
+                "type": "number"
+              },
+              "max_dd_1d": {
+                "type": "number"
+              },
+              "max_dd_30d": {
+                "type": "number"
+              },
+              "max_dd_365d": {
+                "type": "number"
+              },
+              "max_dd_60d": {
+                "type": "number"
+              },
+              "max_dd_7d": {
+                "type": "number"
+              },
+              "max_dd_90d": {
+                "type": "number"
+              },
+              "metrics": {
+                "type": "object",
+                "properties": {
+                  "TR_MOMO_CONT_14D": {
+                    "type": "object",
+                    "properties": {
+                      "pctl": {
+                        "type": "number"
+                      },
+                      "z": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "pctl",
+                      "z"
+                    ]
+                  },
+                  "VOL_COMPRESSION_7v30": {
+                    "type": "object",
+                    "properties": {
+                      "pctl": {
+                        "type": "number"
+                      },
+                      "z": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "pctl",
+                      "z"
+                    ]
+                  }
+                },
+                "required": [
+                  "TR_MOMO_CONT_14D",
+                  "VOL_COMPRESSION_7v30"
+                ]
+              }
+            },
+            "required": [
+              "asof_day",
+              "fwd_14d",
+              "fwd_180d",
+              "fwd_1d",
+              "fwd_30d",
+              "fwd_365d",
+              "fwd_60d",
+              "fwd_7d",
+              "fwd_90d",
+              "max_dd_14d",
+              "max_dd_180d",
+              "max_dd_1d",
+              "max_dd_30d",
+              "max_dd_365d",
+              "max_dd_60d",
+              "max_dd_7d",
+              "max_dd_90d",
+              "metrics"
+            ]
+          }
+        }
+      },
+      "required": [
+        "compositeTriggeredDays",
+        "durationMs",
+        "metricSeries",
+        "ok",
+        "params",
+        "priceSeries",
+        "summary",
+        "triggers"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "metricSeries[].metric_id"
+      },
+      {
+        "type": "unique",
+        "field": "params.conditions[].metric_id"
+      },
+      {
+        "type": "lte",
+        "field": "summary.horizons.14d.min_return",
+        "other_field": "summary.horizons.14d.max_return"
+      },
+      {
+        "type": "lte",
+        "field": "summary.horizons.180d.min_return",
+        "other_field": "summary.horizons.180d.max_return"
+      },
+      {
+        "type": "lte",
+        "field": "summary.horizons.1d.min_return",
+        "other_field": "summary.horizons.1d.max_return"
+      },
+      {
+        "type": "lte",
+        "field": "summary.horizons.30d.min_return",
+        "other_field": "summary.horizons.30d.max_return"
+      },
+      {
+        "type": "lte",
+        "field": "summary.horizons.365d.min_return",
+        "other_field": "summary.horizons.365d.max_return"
+      },
+      {
+        "type": "lte",
+        "field": "summary.horizons.60d.min_return",
+        "other_field": "summary.horizons.60d.max_return"
+      },
+      {
+        "type": "lte",
+        "field": "summary.horizons.7d.min_return",
+        "other_field": "summary.horizons.7d.max_return"
+      },
+      {
+        "type": "lte",
+        "field": "summary.horizons.90d.min_return",
+        "other_field": "summary.horizons.90d.max_return"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "cryptyx.ai",
+    "endpoint": "https://cryptyx.ai/api/metrics/slicer/composite",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

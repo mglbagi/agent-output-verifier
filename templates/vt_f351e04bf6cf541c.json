@@ -1,0 +1,45 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f351e04bf6cf541c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "holdings": {
+          "type": "object"
+        },
+        "insider": {
+          "type": "object"
+        },
+        "recentFilings": {
+          "type": "object"
+        },
+        "resolved": {
+          "type": "object"
+        },
+        "source": {
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "required": [
+        "holdings",
+        "insider",
+        "recentFilings",
+        "resolved",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "edgar.apitoll.cloud",
+    "endpoint": "https://edgar.apitoll.cloud/v1/edgar/smart-money",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

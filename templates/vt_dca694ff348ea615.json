@@ -1,0 +1,56 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_dca694ff348ea615",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "marketPrice": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "set": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "marketPrice",
+              "name",
+              "set"
+            ]
+          }
+        }
+      },
+      "required": [
+        "count",
+        "results"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "marketplace-price-api-production.up.railway.app",
+    "endpoint": "https://marketplace-price-api-production.up.railway.app/tcg/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

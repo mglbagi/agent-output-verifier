@@ -1,0 +1,145 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8472c58dad5c1747",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "object",
+          "properties": {
+            "death_type": {
+              "type": "string"
+            },
+            "lifespan_days": {
+              "type": "integer"
+            },
+            "ongoing": {
+              "type": "boolean"
+            },
+            "state": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "death_type",
+            "lifespan_days",
+            "ongoing",
+            "state"
+          ]
+        },
+        "data_age_hours": {
+          "type": "integer"
+        },
+        "entity": {
+          "type": "string"
+        },
+        "entity_name": {
+          "type": "string"
+        },
+        "hash_core_version": {
+          "type": "integer"
+        },
+        "lifecycle": {
+          "type": "object",
+          "properties": {
+            "birth_at": {
+              "type": "string",
+              "format": "date"
+            },
+            "context": {
+              "type": "string"
+            },
+            "death_type": {
+              "type": "string"
+            },
+            "end_at": {
+              "type": "string",
+              "format": "date"
+            },
+            "issuer": {
+              "type": "string"
+            },
+            "lifespan_days": {
+              "type": "integer"
+            },
+            "mechanism": {
+              "type": "string"
+            },
+            "ongoing": {
+              "type": "boolean"
+            },
+            "peg": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "birth_at",
+            "context",
+            "death_type",
+            "end_at",
+            "issuer",
+            "lifespan_days",
+            "mechanism",
+            "ongoing",
+            "peg",
+            "state"
+          ]
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "record_hash": {
+          "type": "string"
+        },
+        "signal_id": {
+          "type": "string"
+        },
+        "snapshot_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "source_ref": {
+          "type": "string"
+        },
+        "source_tier": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "current",
+        "data_age_hours",
+        "entity",
+        "entity_name",
+        "hash_core_version",
+        "lifecycle",
+        "observed_at",
+        "record_hash",
+        "signal_id",
+        "snapshot_date",
+        "source_ref",
+        "source_tier"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data_age_hours": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "aeml-x402.zeabur.app",
+    "endpoint": "https://aeml-x402.zeabur.app/stable/graveyard",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

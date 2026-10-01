@@ -1,0 +1,36 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8609dc79f8cfe8a1",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "prices": {
+          "description": "OHLCV bars: open, close, high, low, volume, time.",
+          "items": {},
+          "type": "array"
+        },
+        "ticker": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ticker",
+        "prices"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "stablefinance.dev",
+    "endpoint": "https://stablefinance.dev/api/prices",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

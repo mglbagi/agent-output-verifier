@@ -1,0 +1,39 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_51fe956ccaade727",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "funnel": {
+          "type": "object"
+        },
+        "service": {
+          "type": "string"
+        },
+        "top_abandoned_endpoints": {
+          "type": "array"
+        },
+        "traffic_classes": {
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "funnel",
+        "service"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ads.forgemesh.io",
+    "endpoint": "https://ads.forgemesh.io/api/intent/report",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

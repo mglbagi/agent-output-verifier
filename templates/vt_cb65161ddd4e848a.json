@@ -1,0 +1,65 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cb65161ddd4e848a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "claim_id": {
+          "type": "string"
+        },
+        "earned_usdc": {
+          "type": "string"
+        },
+        "payment_tx": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{64}$"
+        },
+        "payout_address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "payout_tx": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{64}$"
+        },
+        "payout_tx_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "receipt": {
+          "type": "object"
+        },
+        "status": {
+          "description": "completed, or paid if the payout is still being broadcast",
+          "type": "string"
+        },
+        "status_url": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "claim_id",
+        "earned_usdc",
+        "payment_tx",
+        "payout_address",
+        "payout_tx",
+        "payout_tx_url",
+        "receipt",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ai-agents-make-money-here.com",
+    "endpoint": "https://ai-agents-make-money-here.com/api/x402/earn",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

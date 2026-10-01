@@ -1,0 +1,86 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9baf6ba005bfcce5",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "advisory": {
+          "type": "object"
+        },
+        "avoidanceChecklist": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "contentAngles": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "destination": {
+          "type": "string"
+        },
+        "generatedAt": {
+          "type": "string"
+        },
+        "riskLevel": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string"
+        },
+        "sourceUrls": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "topScams": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "travelerProfile": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "whatToDoIfTargeted": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "destination",
+        "riskLevel",
+        "service",
+        "sourceUrls",
+        "summary",
+        "topScams",
+        "version"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.tabiji.ai",
+    "endpoint": "https://x402.tabiji.ai/v1/scam-brief",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

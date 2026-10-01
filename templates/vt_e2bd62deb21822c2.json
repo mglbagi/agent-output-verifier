@@ -1,0 +1,259 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e2bd62deb21822c2",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "as_of": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "As Of"
+        },
+        "claim_eligibility": {
+          "properties": {
+            "observed_at": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Observed At"
+            },
+            "source_url": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Source Url"
+            },
+            "value": {
+              "title": "Value",
+              "type": "string"
+            }
+          },
+          "title": "ClaimEligibilityFact",
+          "type": "object",
+          "required": [
+            "observed_at",
+            "source_url",
+            "value"
+          ]
+        },
+        "job_id": {
+          "title": "Job Id",
+          "type": "string",
+          "format": "uuid"
+        },
+        "observations": {
+          "title": "Observations",
+          "type": "integer"
+        },
+        "pass_counts": {
+          "items": {
+            "properties": {
+              "count": {
+                "title": "Count",
+                "type": "integer"
+              },
+              "observed_at": {
+                "format": "date-time",
+                "title": "Observed At",
+                "type": "string"
+              },
+              "source_url": {
+                "title": "Source Url",
+                "type": "string"
+              }
+            },
+            "title": "CountObservation",
+            "type": "object"
+          },
+          "title": "Pass Counts",
+          "type": "array"
+        },
+        "platform": {
+          "title": "Platform",
+          "type": "string"
+        },
+        "reopen_after_accept_events": {
+          "items": {
+            "properties": {
+              "accepted_at": {
+                "format": "date-time",
+                "title": "Accepted At",
+                "type": "string"
+              },
+              "accepted_source_url": {
+                "title": "Accepted Source Url",
+                "type": "string"
+              },
+              "reopened_at": {
+                "format": "date-time",
+                "title": "Reopened At",
+                "type": "string"
+              },
+              "reopened_source_url": {
+                "title": "Reopened Source Url",
+                "type": "string"
+              }
+            },
+            "title": "ReopenEvent",
+            "type": "object"
+          },
+          "title": "Reopen After Accept Events",
+          "type": "array"
+        },
+        "seen_accepted": {
+          "properties": {
+            "source_urls": {
+              "items": {
+                "type": "string"
+              },
+              "title": "Source Urls",
+              "type": "array"
+            },
+            "value": {
+              "title": "Value",
+              "type": "boolean"
+            }
+          },
+          "title": "ObservedFact",
+          "type": "object",
+          "required": [
+            "source_urls",
+            "value"
+          ]
+        },
+        "seen_open": {
+          "properties": {
+            "source_urls": {
+              "items": {
+                "type": "string"
+              },
+              "title": "Source Urls",
+              "type": "array"
+            },
+            "value": {
+              "title": "Value",
+              "type": "boolean"
+            }
+          },
+          "title": "ObservedFact",
+          "type": "object",
+          "required": [
+            "source_urls",
+            "value"
+          ]
+        },
+        "state_transitions": {
+          "items": {
+            "properties": {
+              "from_state": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "From State"
+              },
+              "observed_at": {
+                "format": "date-time",
+                "title": "Observed At",
+                "type": "string"
+              },
+              "source_url": {
+                "title": "Source Url",
+                "type": "string"
+              },
+              "to_state": {
+                "title": "To State",
+                "type": "string"
+              }
+            },
+            "title": "StateTransition",
+            "type": "object"
+          },
+          "title": "State Transitions",
+          "type": "array"
+        },
+        "submission_counts": {
+          "items": {
+            "properties": {
+              "count": {
+                "title": "Count",
+                "type": "integer"
+              },
+              "observed_at": {
+                "format": "date-time",
+                "title": "Observed At",
+                "type": "string"
+              },
+              "source_url": {
+                "title": "Source Url",
+                "type": "string"
+              }
+            },
+            "title": "CountObservation",
+            "type": "object"
+          },
+          "title": "Submission Counts",
+          "type": "array"
+        }
+      },
+      "title": "JobHealthResponse",
+      "type": "object",
+      "required": [
+        "as_of",
+        "claim_eligibility",
+        "job_id",
+        "observations",
+        "pass_counts",
+        "platform",
+        "reopen_after_accept_events",
+        "seen_accepted",
+        "seen_open",
+        "state_transitions",
+        "submission_counts"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "pass_counts[].count": {
+        "min": 0,
+        "if_present": true
+      },
+      "submission_counts[].count": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "bounty-signals.krimskrams.xyz",
+    "endpoint": "https://bounty-signals.krimskrams.xyz/v1/job-health",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

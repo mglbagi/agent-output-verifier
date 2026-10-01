@@ -1,0 +1,79 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_21646fd830bef3ab",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "charged": {
+          "type": "boolean"
+        },
+        "fetchedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "opportunities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "lastSeen": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "score": {
+                "type": "number"
+              },
+              "signalCount": {
+                "type": "integer"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "category",
+              "id",
+              "lastSeen",
+              "score",
+              "signalCount",
+              "slug",
+              "title"
+            ]
+          }
+        }
+      },
+      "required": [
+        "charged",
+        "fetchedAt",
+        "opportunities"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "opportunities[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.demandex.dev",
+    "endpoint": "https://api.demandex.dev/v1/opportunities/trending",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

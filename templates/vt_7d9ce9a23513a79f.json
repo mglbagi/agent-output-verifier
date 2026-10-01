@@ -1,0 +1,89 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7d9ce9a23513a79f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": {},
+      "description": "Daily puzzle response.",
+      "properties": {
+        "game": {
+          "additionalProperties": {},
+          "description": "Source game for the puzzle.",
+          "properties": {
+            "id": {
+              "description": "Lichess game id the puzzle was extracted from.",
+              "type": "string"
+            },
+            "pgn": {
+              "description": "PGN of the game up to the puzzle position.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "type": "object"
+        },
+        "puzzle": {
+          "additionalProperties": {},
+          "description": "Puzzle metadata and solution.",
+          "properties": {
+            "id": {
+              "description": "Puzzle id.",
+              "type": "string"
+            },
+            "initialPly": {
+              "description": "Ply count at puzzle start position.",
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
+              "type": "integer"
+            },
+            "rating": {
+              "description": "Puzzle difficulty rating.",
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
+              "type": "integer"
+            },
+            "solution": {
+              "description": "Sequence of UCI moves that solve the puzzle.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "themes": {
+              "description": "Tactical themes labeled on this puzzle.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "id",
+            "rating",
+            "solution"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "game",
+        "puzzle"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "chess402.vercel.app",
+    "endpoint": "https://chess402.vercel.app/api/puzzle/daily",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

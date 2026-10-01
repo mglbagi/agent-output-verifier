@@ -1,0 +1,69 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1c648b342582af18",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "description": "Number of ideas generated.",
+          "type": "integer"
+        },
+        "ideas": {
+          "description": "Random collisions of real business elements.",
+          "items": {
+            "properties": {
+              "asset": {
+                "type": "string"
+              },
+              "asset_type": {
+                "type": "string"
+              },
+              "channel": {
+                "type": "string"
+              },
+              "pain": {
+                "type": "string"
+              },
+              "revenue_model": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "asset",
+              "pain",
+              "channel",
+              "revenue_model"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok",
+        "count",
+        "ideas"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "pyfile-agent.taile3ff35.ts.net",
+    "endpoint": "https://pyfile-agent.taile3ff35.ts.net/data/ideas",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

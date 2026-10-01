@@ -1,0 +1,56 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_77be8f9e4a76b038",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "imageUrl": {
+          "description": "Generated image URL when the render is complete; null until then.",
+          "format": "uri",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "jobId": {
+          "description": "Job identifier for the render.",
+          "type": "string"
+        },
+        "pollUrl": {
+          "description": "Absolute URL to GET for the finished render, returned on the async accept. Needs no further payment. Null on a poll response.",
+          "format": "uri",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "provider": {
+          "description": "Provider handling the render.",
+          "type": "string"
+        },
+        "status": {
+          "description": "Current render status: 'queued' or 'processing' while the render runs, then the terminal 'completed' or 'failed'.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "jobId",
+        "status",
+        "provider"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "app.suedeai.ai",
+    "endpoint": "https://app.suedeai.ai/agent/image",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

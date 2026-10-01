@@ -1,0 +1,35 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9a35dc60fee4e33c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "type": "object"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "price": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "gblin-sentinel.vercel.app",
+    "endpoint": "https://gblin-sentinel.vercel.app/api/data/keeper-opps",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

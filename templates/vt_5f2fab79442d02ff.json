@@ -1,0 +1,397 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5f2fab79442d02ff",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "billing": {
+          "properties": {
+            "amount_usdc": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "mode": {
+              "enum": [
+                "local",
+                "staging",
+                "production"
+              ]
+            },
+            "status": {
+              "enum": [
+                "settled",
+                "not_charged"
+              ]
+            }
+          },
+          "required": [
+            "mode",
+            "status",
+            "amount_usdc"
+          ],
+          "type": "object"
+        },
+        "cache_age_seconds": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "conflicts": {
+          "items": {
+            "properties": {
+              "evidence": {
+                "items": {
+                  "properties": {
+                    "evidence_type": {
+                      "enum": [
+                        "official_site_json_ld",
+                        "official_site_meta_description",
+                        "official_site_brand_metadata",
+                        "official_site_logo"
+                      ],
+                      "type": "string"
+                    },
+                    "retrieved_at": {
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "source_url": {
+                      "format": "uri",
+                      "pattern": "^https://",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "source_url",
+                    "evidence_type",
+                    "retrieved_at"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "field": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "field",
+              "evidence"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "data": {
+          "properties": {
+            "comparison": {
+              "properties": {
+                "changes": {
+                  "items": {
+                    "properties": {
+                      "after": {},
+                      "before": {},
+                      "field": {
+                        "type": "string"
+                      },
+                      "plan": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "plan",
+                      "field",
+                      "before",
+                      "after"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "previous_retrieved_at": {
+                  "anyOf": [
+                    {
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "previous_snapshot_id": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "status": {
+                  "enum": [
+                    "baseline_created",
+                    "changed",
+                    "unchanged",
+                    "not_comparable"
+                  ]
+                }
+              },
+              "required": [
+                "status",
+                "previous_snapshot_id",
+                "previous_retrieved_at",
+                "changes"
+              ],
+              "type": "object"
+            },
+            "content_hash": {
+              "type": "string"
+            },
+            "coverage": {
+              "type": "string"
+            },
+            "history_scope": {
+              "type": "string"
+            },
+            "language": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "parser_version": {
+              "type": "string"
+            },
+            "plans": {
+              "items": {
+                "properties": {
+                  "amount": {
+                    "anyOf": [
+                      {
+                        "minimum": 0,
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "billing_commitment": {
+                    "enum": [
+                      "annual",
+                      "monthly",
+                      "unknown"
+                    ]
+                  },
+                  "currency": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "currency_symbol": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "evidence_quote": {
+                    "maxLength": 1200,
+                    "type": "string"
+                  },
+                  "features": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "maxItems": 30,
+                    "type": "array"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "price_kind": {
+                    "enum": [
+                      "free",
+                      "fixed_display",
+                      "starting_at",
+                      "custom"
+                    ]
+                  },
+                  "price_period": {
+                    "anyOf": [
+                      {
+                        "const": "month"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "retrieved_at": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "source_url": {
+                    "format": "uri",
+                    "pattern": "^https://",
+                    "type": "string"
+                  },
+                  "unit": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "name",
+                  "amount",
+                  "currency",
+                  "currency_symbol",
+                  "price_period",
+                  "billing_commitment",
+                  "price_kind",
+                  "unit",
+                  "features",
+                  "evidence_quote",
+                  "source_url",
+                  "retrieved_at"
+                ],
+                "type": "object"
+              },
+              "maxItems": 20,
+              "minItems": 1,
+              "type": "array"
+            },
+            "product": {
+              "enum": [
+                "linear",
+                "supabase",
+                "firecrawl",
+                "clerk"
+              ]
+            },
+            "retrieved_at": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "snapshot_id": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "source_url": {
+              "format": "uri",
+              "pattern": "^https://",
+              "type": "string"
+            }
+          },
+          "required": [
+            "snapshot_id",
+            "product",
+            "source_url",
+            "retrieved_at",
+            "language",
+            "parser_version",
+            "plans",
+            "content_hash",
+            "comparison",
+            "coverage",
+            "history_scope"
+          ],
+          "type": "object"
+        },
+        "missing_fields": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "request_id": {
+          "type": "string"
+        },
+        "retrieved_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0"
+        },
+        "sources": {
+          "items": {
+            "properties": {
+              "provider": {
+                "type": "string"
+              },
+              "retrieved_at": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "url": {
+                "format": "uri",
+                "pattern": "^https://",
+                "type": "string"
+              }
+            },
+            "required": [
+              "retrieved_at"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "request_id",
+        "schema_version",
+        "data",
+        "sources",
+        "retrieved_at",
+        "missing_fields",
+        "conflicts",
+        "warnings",
+        "cache_age_seconds",
+        "billing"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-research-api.onrender.com",
+    "endpoint": "https://agent-research-api.onrender.com/v1/saas-pricing",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_785ce25c8fd22956",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "access_token": {
+          "type": "string"
+        },
+        "poll_after_ms": {
+          "type": "integer"
+        },
+        "result": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "status": {
+          "enum": [
+            "queued",
+            "compiling",
+            "settling",
+            "completed",
+            "refused",
+            "failed",
+            "payment_review"
+          ]
+        },
+        "workflow_id": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "required": [
+        "workflow_id",
+        "status"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "zoningverdict.com",
+    "endpoint": "https://zoningverdict.com/api/v1/preflights",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

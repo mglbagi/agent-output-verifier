@@ -1,0 +1,78 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_24222f8d1b4da200",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "as_of": {
+          "type": "string",
+          "format": "date"
+        },
+        "fact": {
+          "type": "object",
+          "properties": {
+            "buyers": {
+              "type": "integer"
+            },
+            "co_sellers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "lift": {
+                    "type": "number"
+                  },
+                  "seller": {
+                    "type": "string",
+                    "pattern": "^0x[a-fA-F0-9]{40}$"
+                  },
+                  "shared_buyers": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "lift",
+                  "seller",
+                  "shared_buyers"
+                ]
+              }
+            },
+            "multi_seller_share": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "buyers",
+            "co_sellers",
+            "multi_seller_share"
+          ]
+        },
+        "frame": {
+          "type": "string"
+        },
+        "tier": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "as_of",
+        "fact",
+        "frame",
+        "tier"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "parallax402.com",
+    "endpoint": "https://parallax402.com/v1/basket",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

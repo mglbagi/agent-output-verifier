@@ -1,0 +1,81 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_64147415d7eaa2a4",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "number"
+              },
+              "county": {
+                "type": "string"
+              },
+              "owner_name": {
+                "type": "string"
+              },
+              "parcel_id": {
+                "type": "string"
+              },
+              "signal_type": {
+                "type": "string"
+              },
+              "source_url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "address",
+              "amount",
+              "county",
+              "owner_name",
+              "parcel_id",
+              "signal_type",
+              "source_url"
+            ]
+          }
+        }
+      },
+      "required": [
+        "count",
+        "records"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "records[].parcel_id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "records[].amount": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "dwelldata.io",
+    "endpoint": "https://dwelldata.io/api/signals",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

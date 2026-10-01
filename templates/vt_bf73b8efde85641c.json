@@ -1,0 +1,57 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bf73b8efde85641c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "bots": {
+          "type": "object",
+          "properties": {
+            "BTC": {
+              "type": "number"
+            },
+            "SOL": {
+              "type": "number"
+            },
+            "XLM": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "BTC",
+            "SOL",
+            "XLM"
+          ]
+        },
+        "source": {
+          "type": "string"
+        },
+        "total_pnl_usd": {
+          "type": "number"
+        },
+        "updated_at": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "bots",
+        "source",
+        "total_pnl_usd",
+        "updated_at"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.stelardigital.com",
+    "endpoint": "https://api.stelardigital.com/telemetry",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

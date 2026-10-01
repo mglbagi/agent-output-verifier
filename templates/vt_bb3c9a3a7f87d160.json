@@ -1,0 +1,167 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bb3c9a3a7f87d160",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "attribution": {
+          "description": "CC-BY-SA attribution block; must be carried when reusing the extract.",
+          "properties": {
+            "license": {
+              "type": "string"
+            },
+            "license_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "source_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "text",
+            "license",
+            "license_url",
+            "source_url"
+          ],
+          "type": "object"
+        },
+        "content_url": {
+          "description": "Canonical desktop URL of the article.",
+          "type": "string",
+          "format": "uri"
+        },
+        "coordinates": {
+          "description": "Latitude/longitude, present only for geolocated topics.",
+          "properties": {
+            "lat": {
+              "type": "number"
+            },
+            "lon": {
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "description": {
+          "description": "Short one-line description of the topic.",
+          "type": "string"
+        },
+        "dir": {
+          "description": "Text direction: ltr or rtl.",
+          "type": "string"
+        },
+        "extract": {
+          "description": "Plain-text summary extract.",
+          "type": "string"
+        },
+        "extract_html": {
+          "description": "HTML-formatted summary extract.",
+          "type": "string"
+        },
+        "lang": {
+          "description": "Wikipedia language code (e.g. en).",
+          "type": "string"
+        },
+        "original_image": {
+          "description": "Full-resolution image, present when the article has one.",
+          "properties": {
+            "height": {
+              "type": "integer"
+            },
+            "source": {
+              "type": "string"
+            },
+            "width": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "queried_at": {
+          "description": "UTC timestamp of the request.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "thumbnail": {
+          "description": "Thumbnail image, present when the article has one.",
+          "properties": {
+            "height": {
+              "type": "integer"
+            },
+            "source": {
+              "type": "string"
+            },
+            "width": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "title": {
+          "description": "Resolved article title (post-redirect unless redirect=false).",
+          "type": "string"
+        },
+        "type": {
+          "description": "Wikipedia page type: standard, disambiguation, no-extract, or mainpage.",
+          "type": "string"
+        },
+        "wikibase_item": {
+          "description": "Wikidata QID for the topic (e.g. Q937).",
+          "type": "string"
+        }
+      },
+      "required": [
+        "queried_at",
+        "type",
+        "title",
+        "extract",
+        "attribution"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "coordinates.lat": {
+        "min": -90,
+        "max": 90,
+        "if_present": true
+      },
+      "coordinates.lon": {
+        "min": -180,
+        "max": 180,
+        "if_present": true
+      },
+      "original_image.height": {
+        "min": 0,
+        "if_present": true
+      },
+      "original_image.width": {
+        "min": 0,
+        "if_present": true
+      },
+      "thumbnail.height": {
+        "min": 0,
+        "if_present": true
+      },
+      "thumbnail.width": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "wiki.use.x402atlas.com",
+    "endpoint": "https://wiki.use.x402atlas.com/summary",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

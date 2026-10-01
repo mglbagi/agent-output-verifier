@@ -1,0 +1,93 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e6e38c8edfeab4fb",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "evidence": {
+          "type": "object",
+          "properties": {
+            "registered_office_address": {
+              "type": "string"
+            },
+            "resolved_by": {
+              "type": "string"
+            },
+            "sic_codes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "source": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "registered_office_address",
+            "resolved_by",
+            "sic_codes",
+            "source"
+          ]
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "company_number": {
+              "type": "string"
+            },
+            "date_of_creation": {
+              "type": "string",
+              "format": "date"
+            },
+            "exists": {
+              "type": "boolean"
+            },
+            "jurisdiction": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "company_number",
+            "date_of_creation",
+            "exists",
+            "jurisdiction",
+            "name",
+            "status",
+            "type"
+          ]
+        }
+      },
+      "required": [
+        "evidence",
+        "ok",
+        "result"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.resetparatodos.com",
+    "endpoint": "https://api.resetparatodos.com/x402/v1/uk/company/verify",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

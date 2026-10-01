@@ -1,0 +1,67 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_34381752c0ff2904",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "frameworks": {
+          "type": "object",
+          "properties": {
+            "geval": {
+              "type": "integer"
+            },
+            "peem": {
+              "type": "number"
+            },
+            "ragas": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "geval",
+            "peem",
+            "ragas"
+          ]
+        },
+        "grade": {
+          "type": "string"
+        },
+        "methodology_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "score": {
+          "type": "integer"
+        },
+        "upgrade_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "frameworks",
+        "grade",
+        "methodology_url",
+        "score",
+        "upgrade_url",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "promptqualityscore.com",
+    "endpoint": "https://promptqualityscore.com/api/pqs-grade",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

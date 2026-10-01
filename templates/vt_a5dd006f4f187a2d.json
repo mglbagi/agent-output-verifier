@@ -1,0 +1,249 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a5dd006f4f187a2d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "asOf": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "attestation": {
+          "description": "EIP-712 signature over slug, asOf, lean, confidence and impliedProbability by the published attestor; null when unconfigured",
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "confidence": {
+          "description": "How much the reading can be trusted, per the stated rules",
+          "maximum": 100,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "confidenceBand": {
+          "enum": [
+            "HIGH",
+            "MEDIUM",
+            "LOW"
+          ],
+          "type": "string"
+        },
+        "daysToResolution": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "impliedProbability": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "lean": {
+          "description": "Where the crowd sits at the lean thresholds",
+          "enum": [
+            "YES",
+            "NO",
+            "TOSS_UP"
+          ],
+          "type": "string"
+        },
+        "market": {
+          "additionalProperties": false,
+          "properties": {
+            "bestAsk": {
+              "description": "Best ask for the first outcome",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "bestBid": {
+              "description": "Best bid for the first outcome",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "conditionId": {
+              "description": "On-chain condition id (bytes32 hex)",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "endDate": {
+              "description": "ISO-8601 market end date",
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date-time"
+            },
+            "id": {
+              "description": "Polymarket market id",
+              "type": "string"
+            },
+            "impliedProbability": {
+              "description": "Price of the first outcome (YES) in [0,1]",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "liquidity": {
+              "description": "Order-book liquidity in USD",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "momentum": {
+              "description": "Deterministic label: RISING if 24h change >= +0.02, FALLING if <= -0.02, else FLAT",
+              "enum": [
+                "RISING",
+                "FALLING",
+                "FLAT",
+                "UNKNOWN"
+              ],
+              "type": "string"
+            },
+            "oneDayPriceChange": {
+              "description": "24h change of the first outcome price (absolute, in probability points)",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "outcomePrices": {
+              "description": "Current outcome prices in [0,1] (implied probabilities)",
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            "outcomes": {
+              "description": "Outcome labels, index-aligned with outcomePrices",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "question": {
+              "description": "Market question text",
+              "type": "string"
+            },
+            "slug": {
+              "description": "URL slug of the market",
+              "type": "string"
+            },
+            "spread": {
+              "description": "bestAsk - bestBid",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "volume24hr": {
+              "description": "24h notional volume in USD",
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "slug",
+            "question",
+            "outcomes",
+            "outcomePrices",
+            "impliedProbability",
+            "momentum"
+          ],
+          "type": "object"
+        },
+        "method": {
+          "description": "The exact rules and thresholds used, so the verdict is reproducible",
+          "type": "string"
+        },
+        "question": {
+          "type": "string"
+        },
+        "reasons": {
+          "description": "Every rule that fired and its effect on the verdict",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "effect": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "effect",
+              "message"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "settled": {
+          "type": "boolean"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "ts": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "slug",
+        "question",
+        "lean",
+        "confidence",
+        "confidenceBand",
+        "impliedProbability",
+        "daysToResolution",
+        "reasons",
+        "method",
+        "market",
+        "asOf",
+        "settled",
+        "ts"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "impliedProbability": {
+        "min": 0,
+        "max": 1
+      },
+      "market.impliedProbability": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "enclave402.com",
+    "endpoint": "https://enclave402.com/api/market/verdict",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

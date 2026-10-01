@@ -1,0 +1,68 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_34a1ad6aa86d5fbd",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "receipt": {
+          "properties": {
+            "eth_balance": {
+              "type": "string"
+            },
+            "genesis_deploy_tx": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "payer": {
+              "type": "string"
+            },
+            "prev_settlement_tx": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "tx_hash": {
+              "type": "string"
+            },
+            "usdc_balance": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "tx_hash",
+            "payer",
+            "usdc_balance",
+            "eth_balance"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "enum": [
+            "settled"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "receipt"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "kenoodl.com",
+    "endpoint": "https://kenoodl.com/preflight",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

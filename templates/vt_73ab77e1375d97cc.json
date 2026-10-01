@@ -1,0 +1,160 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_73ab77e1375d97cc",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "notFound": {
+          "type": "array"
+        },
+        "tokens": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ath": {
+                "type": "number"
+              },
+              "athChangePct": {
+                "type": "number"
+              },
+              "athDate": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "atl": {
+                "type": "number"
+              },
+              "atlChangePct": {
+                "type": "number"
+              },
+              "atlDate": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "change1hPct": {
+                "type": "number"
+              },
+              "change24hPct": {
+                "type": "number"
+              },
+              "change30dPct": {
+                "type": "number"
+              },
+              "change7dPct": {
+                "type": "number"
+              },
+              "circulatingSupply": {
+                "type": "integer"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "fdv": {
+                "type": "integer"
+              },
+              "high24h": {
+                "type": "number"
+              },
+              "id": {
+                "type": "string"
+              },
+              "lastUpdated": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "low24h": {
+                "type": "number"
+              },
+              "marketCap": {
+                "type": "integer"
+              },
+              "maxSupply": {},
+              "name": {
+                "type": "string"
+              },
+              "price": {
+                "type": "number"
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "totalSupply": {
+                "type": "number"
+              },
+              "volume24h": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "ath",
+              "athChangePct",
+              "athDate",
+              "atl",
+              "atlChangePct",
+              "atlDate",
+              "change1hPct",
+              "change24hPct",
+              "change30dPct",
+              "change7dPct",
+              "circulatingSupply",
+              "currency",
+              "fdv",
+              "high24h",
+              "id",
+              "lastUpdated",
+              "low24h",
+              "marketCap",
+              "name",
+              "price",
+              "rank",
+              "symbol",
+              "totalSupply",
+              "volume24h"
+            ]
+          }
+        }
+      },
+      "required": [
+        "count",
+        "currency",
+        "notFound",
+        "tokens"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "tokens[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "tokens[].price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-tools-production-2755.up.railway.app",
+    "endpoint": "https://x402-tools-production-2755.up.railway.app/tools/token-price",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

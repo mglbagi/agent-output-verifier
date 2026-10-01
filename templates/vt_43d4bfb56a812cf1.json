@@ -1,0 +1,181 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_43d4bfb56a812cf1",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "assessment_complete": {
+          "type": "boolean"
+        },
+        "charges": {
+          "type": "object",
+          "properties": {
+            "outstanding_count": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "outstanding_count"
+          ]
+        },
+        "company_number": {
+          "type": "string"
+        },
+        "director_track_record": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "other_companies": {
+                "type": "integer"
+              },
+              "other_dissolved": {
+                "type": "integer"
+              },
+              "other_in_insolvency": {
+                "type": "integer"
+              },
+              "role": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "other_companies",
+              "other_dissolved",
+              "other_in_insolvency",
+              "role"
+            ]
+          }
+        },
+        "insolvency": {
+          "type": "object",
+          "properties": {
+            "cases": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "cases"
+          ]
+        },
+        "missing": {
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        },
+        "officers": {
+          "type": "object",
+          "properties": {
+            "active_count": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "active_count"
+          ]
+        },
+        "persons_with_significant_control": {
+          "type": "object",
+          "properties": {
+            "active_count": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "active_count"
+          ]
+        },
+        "profile": {
+          "type": "object",
+          "properties": {
+            "incorporated_on": {
+              "type": "string",
+              "format": "date"
+            },
+            "sic_codes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "incorporated_on",
+            "sic_codes",
+            "status"
+          ]
+        },
+        "risk_flags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "detail": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "detail",
+              "severity",
+              "source"
+            ]
+          }
+        },
+        "risk_level": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "assessment_complete",
+        "charges",
+        "company_number",
+        "director_track_record",
+        "insolvency",
+        "missing",
+        "name",
+        "officers",
+        "persons_with_significant_control",
+        "profile",
+        "risk_flags",
+        "risk_level"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "charges.outstanding_count": {
+        "min": 0
+      },
+      "officers.active_count": {
+        "min": 0
+      },
+      "persons_with_significant_control.active_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "uk-company-check.fly.dev",
+    "endpoint": "https://uk-company-check.fly.dev/v1/uk/company/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

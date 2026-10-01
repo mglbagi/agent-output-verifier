@@ -1,0 +1,116 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_258540007595f2f4",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data_sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "freshness": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "net_change": {
+          "type": "string"
+        },
+        "new_actor_activity": {
+          "type": "array"
+        },
+        "new_advisories": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cvss_max": {
+                "type": "number"
+              },
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "cvss_max",
+              "id",
+              "title"
+            ]
+          }
+        },
+        "new_cves": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "affected_vendors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "cvss": {
+                "type": "number"
+              },
+              "id": {
+                "type": "string"
+              },
+              "ot_severity": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "affected_vendors",
+              "cvss",
+              "id",
+              "ot_severity"
+            ]
+          }
+        },
+        "sector": {
+          "type": "string"
+        },
+        "since": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "data_sources",
+        "freshness",
+        "net_change",
+        "new_actor_activity",
+        "new_advisories",
+        "new_cves",
+        "sector",
+        "since"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "new_advisories[].id"
+      },
+      {
+        "type": "unique",
+        "field": "new_cves[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ot-intel-api.onrender.com",
+    "endpoint": "https://ot-intel-api.onrender.com/ot/delta",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

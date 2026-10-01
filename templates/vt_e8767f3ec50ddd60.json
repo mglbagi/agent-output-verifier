@@ -1,0 +1,402 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e8767f3ec50ddd60",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "$defs": {
+        "artifact": {
+          "additionalProperties": false,
+          "properties": {
+            "href": {
+              "format": "uri",
+              "type": "string"
+            },
+            "mediaType": {
+              "type": "string"
+            },
+            "name": {
+              "enum": [
+                "reduced.zip",
+                "entry.txt",
+                "replay.sh",
+                "runs.jsonl",
+                "report.json"
+              ],
+              "type": "string"
+            },
+            "sha256": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            "sizeBytes": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "name",
+            "mediaType",
+            "sizeBytes",
+            "sha256",
+            "href"
+          ],
+          "type": "object"
+        },
+        "check": {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "detail": {
+              "type": "string"
+            },
+            "status": {
+              "enum": [
+                "passed",
+                "failed",
+                "not_checked"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "code",
+            "status",
+            "detail"
+          ],
+          "type": "object"
+        },
+        "predicate": {
+          "additionalProperties": false,
+          "anyOf": [
+            {
+              "properties": {
+                "exitCode": true
+              },
+              "required": [
+                "exitCode"
+              ]
+            },
+            {
+              "properties": {
+                "stdoutPattern": true
+              },
+              "required": [
+                "stdoutPattern"
+              ]
+            },
+            {
+              "properties": {
+                "stderrPattern": true
+              },
+              "required": [
+                "stderrPattern"
+              ]
+            },
+            {
+              "properties": {
+                "timeoutIsFailure": true
+              },
+              "required": [
+                "timeoutIsFailure"
+              ]
+            }
+          ],
+          "properties": {
+            "exitCode": {
+              "description": "Exact exit code, or \"nonzero\" to match any non-zero code including signals and timeouts.",
+              "oneOf": [
+                {
+                  "maximum": 255,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                {
+                  "const": "nonzero"
+                }
+              ]
+            },
+            "stderrPattern": {
+              "description": "ECMAScript regular expression (compiled with the \"u\" flag) tested against the captured, capped stderr.",
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "stdoutPattern": {
+              "description": "ECMAScript regular expression (compiled with the \"u\" flag) tested against the captured, capped stdout.",
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "timeoutIsFailure": {
+              "description": "Treat a run that exceeds timeoutMs as satisfying the predicate.",
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
+        "runOutcome": {
+          "additionalProperties": false,
+          "properties": {
+            "durationMs": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "exitCode": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "failing": {
+              "type": "boolean"
+            },
+            "signal": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "stderrBytes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "stdoutBytes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "timedOut": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "exitCode",
+            "signal",
+            "timedOut",
+            "durationMs",
+            "stdoutBytes",
+            "stderrBytes",
+            "failing"
+          ],
+          "type": "object"
+        },
+        "runSummary": {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "entryBytes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "entryLines": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "files": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "run": {
+              "$ref": "#/$defs/runOutcome"
+            }
+          },
+          "required": [
+            "files",
+            "bytes",
+            "entryBytes",
+            "entryLines",
+            "run"
+          ],
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "artifacts": {
+          "items": {
+            "$ref": "#/$defs/artifact"
+          },
+          "maxItems": 5,
+          "type": "array"
+        },
+        "checks": {
+          "items": {
+            "$ref": "#/$defs/check"
+          },
+          "type": "array"
+        },
+        "command": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "entry": {
+          "type": "string"
+        },
+        "expiresAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 100,
+          "type": "array"
+        },
+        "original": {
+          "$ref": "#/$defs/runSummary"
+        },
+        "passes": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "removedBytes": {
+                "type": "integer"
+              },
+              "removedFiles": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "runs": {
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "name",
+              "runs",
+              "removedBytes",
+              "removedFiles"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "predicate": {
+          "$ref": "#/$defs/predicate"
+        },
+        "prunedFiles": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 100,
+          "type": "array"
+        },
+        "reduced": {
+          "$ref": "#/$defs/runSummary"
+        },
+        "reductionRatio": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "runs": {
+          "additionalProperties": false,
+          "properties": {
+            "budgetExhausted": {
+              "type": "boolean"
+            },
+            "failing": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "passing": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "timedOut": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "total": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "total",
+            "failing",
+            "passing",
+            "timedOut",
+            "budgetExhausted"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "enum": [
+            "passed",
+            "failed"
+          ],
+          "type": "string"
+        },
+        "tools": {
+          "additionalProperties": false,
+          "properties": {
+            "reducer": {
+              "type": "string"
+            },
+            "runner": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "reducer",
+            "runner"
+          ],
+          "type": "object"
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 100,
+          "type": "array"
+        }
+      },
+      "required": [
+        "status",
+        "tools",
+        "entry",
+        "command",
+        "predicate",
+        "original",
+        "reduced",
+        "reductionRatio",
+        "passes",
+        "runs",
+        "prunedFiles",
+        "checks",
+        "warnings",
+        "limitations",
+        "truncated",
+        "expiresAt",
+        "artifacts"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "reduce.api.williamrobinson.dev",
+    "endpoint": "https://reduce.api.williamrobinson.dev/v1/reduce/minimize",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

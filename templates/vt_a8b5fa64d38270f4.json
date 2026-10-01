@@ -1,0 +1,93 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a8b5fa64d38270f4",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "iban": {
+          "type": "object",
+          "properties": {
+            "accountNumber": {
+              "type": "string"
+            },
+            "bankIdentifier": {
+              "type": "string"
+            },
+            "bban": {
+              "type": "string"
+            },
+            "branchIdentifier": {
+              "type": "string"
+            },
+            "countryCode": {
+              "type": "string"
+            },
+            "errors": {
+              "type": "array"
+            },
+            "formatted": {
+              "type": "string"
+            },
+            "iban": {
+              "type": "string"
+            },
+            "inRegistry": {
+              "type": "boolean"
+            },
+            "input": {
+              "type": "string"
+            },
+            "length": {
+              "type": "integer"
+            },
+            "sepa": {
+              "type": "boolean"
+            },
+            "valid": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "accountNumber",
+            "bankIdentifier",
+            "bban",
+            "branchIdentifier",
+            "countryCode",
+            "errors",
+            "formatted",
+            "iban",
+            "inRegistry",
+            "input",
+            "length",
+            "sepa",
+            "valid"
+          ]
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "iban",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "iban.length": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "workbot1.oddsys.org",
+    "endpoint": "https://workbot1.oddsys.org/iban",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

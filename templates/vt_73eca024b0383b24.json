@@ -1,0 +1,111 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_73eca024b0383b24",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "budget_strategy": {
+          "type": "string"
+        },
+        "children_note": {
+          "type": "string"
+        },
+        "clean_fifteen": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "produce": {
+                "type": "string"
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "why_safe": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "produce",
+              "rank",
+              "why_safe"
+            ]
+          }
+        },
+        "current_year": {
+          "type": "string"
+        },
+        "data_source": {
+          "type": "string"
+        },
+        "dirty_dozen": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "alternatives_if_budget_limited": {
+                "type": "string"
+              },
+              "organic_premium_worth_it": {
+                "type": "boolean"
+              },
+              "produce": {
+                "type": "string"
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "why": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "alternatives_if_budget_limited",
+              "organic_premium_worth_it",
+              "produce",
+              "rank",
+              "why"
+            ]
+          }
+        },
+        "key_insight": {
+          "type": "string"
+        },
+        "methodology_caveat": {
+          "type": "string"
+        },
+        "pulse_suggestions": {
+          "type": "array"
+        },
+        "washing_note": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "budget_strategy",
+        "children_note",
+        "clean_fifteen",
+        "current_year",
+        "data_source",
+        "dirty_dozen",
+        "key_insight",
+        "methodology_caveat",
+        "pulse_suggestions",
+        "washing_note"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "harvestpulse.theaslangroupllc.com",
+    "endpoint": "https://harvestpulse.theaslangroupllc.com/api/harvest/dirty-dozen",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

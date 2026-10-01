@@ -1,0 +1,101 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0f9c8d36db22c380",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "metered": {
+          "type": "boolean"
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "ci_failed": {
+              "type": "boolean"
+            },
+            "do_this_first": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "fix": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "fix",
+                  "id",
+                  "title"
+                ]
+              }
+            },
+            "label": {
+              "type": "string"
+            },
+            "score": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "ci_failed",
+            "do_this_first",
+            "label",
+            "score"
+          ]
+        },
+        "tool": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "price_version": {
+              "type": "number"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "price_version",
+            "title"
+          ]
+        }
+      },
+      "required": [
+        "metered",
+        "result",
+        "tool"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "result.do_this_first[].id"
+      }
+    ],
+    "bounds": {
+      "tool.price_version": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "quietstore-production.edge-7e13f.workers.dev",
+    "endpoint": "https://quietstore-production.edge-7e13f.workers.dev/v1/tools/claim-check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

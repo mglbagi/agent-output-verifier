@@ -1,0 +1,52 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e88ff56a73a3c4bd",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "hashrate": {
+          "type": "number"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "stakedAman": {
+          "type": "integer"
+        },
+        "supply": {
+          "type": "integer"
+        },
+        "txCount": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "hashrate",
+        "height",
+        "stakedAman",
+        "supply",
+        "txCount"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "height": {
+        "min": 0
+      },
+      "supply": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "amanchain-relay.gitajhd.workers.dev",
+    "endpoint": "https://amanchain-relay.gitajhd.workers.dev/api/x402/aman-network-stats",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

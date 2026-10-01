@@ -1,0 +1,36 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e810cb982b0953c4",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "message": {
+          "const": "pong",
+          "type": "string"
+        },
+        "servedAtUtc": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "message",
+        "servedAtUtc"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.problocks.io",
+    "endpoint": "https://x402.problocks.io/paid/ping",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

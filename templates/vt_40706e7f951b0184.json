@@ -1,0 +1,61 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_40706e7f951b0184",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "deduplicated": {
+          "type": "boolean"
+        },
+        "invite_id": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "membership": {
+          "type": "object",
+          "properties": {
+            "org_id": {
+              "type": "string"
+            },
+            "role": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "org_id",
+            "role",
+            "status"
+          ]
+        },
+        "org_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "deduplicated",
+        "invite_id",
+        "kind",
+        "membership",
+        "org_id"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.run402.com",
+    "endpoint": "https://api.run402.com/rooms/v1/invites/:invite_id/claim",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

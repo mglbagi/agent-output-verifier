@@ -1,0 +1,51 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2e07a7529d2b5d42",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "current_price_ct_kwh": {
+          "type": "string"
+        },
+        "current_price_eur_mwh": {
+          "type": "number"
+        },
+        "source": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "valid_until": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "current_price_ct_kwh",
+        "current_price_eur_mwh",
+        "source",
+        "timestamp",
+        "valid_until"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "current_price_eur_mwh": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "energy.halowerk.com",
+    "endpoint": "https://energy.halowerk.com/price/spot",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

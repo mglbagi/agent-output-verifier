@@ -1,0 +1,73 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_416395a36b711df9",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "commercial": {
+          "type": "object",
+          "properties": {
+            "payment_mode": {
+              "type": "string"
+            },
+            "product_code": {
+              "type": "string"
+            },
+            "unit_price_usd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "payment_mode",
+            "product_code",
+            "unit_price_usd"
+          ]
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "evidence": {
+              "type": "array"
+            },
+            "execution_authority": {
+              "type": "string"
+            },
+            "latest_research_cycle_id": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "evidence",
+            "execution_authority",
+            "latest_research_cycle_id"
+          ]
+        },
+        "schema_version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "commercial",
+        "result",
+        "schema_version"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "commercial.unit_price_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "sigma-api-oracle.tailae0cf3.ts.net",
+    "endpoint": "https://sigma-api-oracle.tailae0cf3.ts.net/v1/strategies/:strategy_id/evidence",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

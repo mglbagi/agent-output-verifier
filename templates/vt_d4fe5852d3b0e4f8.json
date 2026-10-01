@@ -1,0 +1,80 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d4fe5852d3b0e4f8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "changed": {
+          "type": "boolean"
+        },
+        "color": {
+          "type": "integer"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "paidTo": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "payer": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "plot": {
+          "type": "integer"
+        },
+        "plotOwned": {
+          "type": "boolean"
+        },
+        "settled": {
+          "type": "boolean"
+        },
+        "transaction": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{64}$"
+        },
+        "username": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer"
+        },
+        "x": {
+          "type": "integer"
+        },
+        "y": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "changed",
+        "color",
+        "ok",
+        "paidTo",
+        "payer",
+        "plot",
+        "plotOwned",
+        "settled",
+        "transaction",
+        "username",
+        "version",
+        "x",
+        "y"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "21millionpixels.art",
+    "endpoint": "https://21millionpixels.art/api/agent/paint",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

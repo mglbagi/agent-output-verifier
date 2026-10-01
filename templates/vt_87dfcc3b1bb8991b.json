@@ -1,0 +1,70 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_87dfcc3b1bb8991b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "quality": {
+          "description": "object partial/degraded state, unavailable sources, provider status, provider coverage, data age seconds; confidence is null until calibrated",
+          "type": "object"
+        },
+        "reasons": {
+          "description": "array of machine-readable reasons including contract_requires_separate_assessment, no_outgoing_transactions, few_outgoing_transactions, wallet_security_flags, and provider_data_partial",
+          "type": "array"
+        },
+        "refresh": {
+          "description": "boolean whether fresh upstream checks were requested",
+          "type": "boolean"
+        },
+        "risk_level": {
+          "description": "string minimal/low/medium/high/invalid",
+          "type": "string"
+        },
+        "risk_score": {
+          "description": "number 0-100, higher is riskier",
+          "type": "number"
+        },
+        "signals": {
+          "description": "object account nonce, outgoing transaction count for EOAs only, token positions and security flags; whale tier and unproven safety are null",
+          "type": "object"
+        },
+        "sources": {
+          "description": "object provider and risk-model identifiers",
+          "type": "object"
+        },
+        "ts": {
+          "description": "number Unix observation timestamp",
+          "type": "number"
+        },
+        "verdict": {
+          "description": "string allow/allow_with_limits/review/deny",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "quality",
+        "reasons",
+        "refresh",
+        "risk_level",
+        "risk_score",
+        "signals",
+        "sources",
+        "ts",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.sys84.org",
+    "endpoint": "https://api.sys84.org/v1/services/wallet_risk_snapshot",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

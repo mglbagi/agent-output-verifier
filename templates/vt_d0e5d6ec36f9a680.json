@@ -1,0 +1,127 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d0e5d6ec36f9a680",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "matches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "list": {
+                "type": "string"
+              },
+              "matchedName": {
+                "type": "string"
+              },
+              "matchedNameKind": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "programs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "score": {
+                "type": "integer"
+              },
+              "type": {
+                "type": "string"
+              },
+              "uid": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "list",
+              "matchedName",
+              "matchedNameKind",
+              "name",
+              "programs",
+              "score",
+              "type",
+              "uid"
+            ]
+          }
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "entryCount": {
+              "type": "integer"
+            },
+            "ingestedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "listPublished": {
+              "type": "string"
+            },
+            "lists": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "matcher": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "entryCount",
+            "ingestedAt",
+            "listPublished",
+            "lists",
+            "matcher"
+          ]
+        },
+        "query": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "normalized": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "normalized",
+            "type"
+          ]
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "matches",
+        "provenance",
+        "query",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agentreader.dev",
+    "endpoint": "https://agentreader.dev/screen",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

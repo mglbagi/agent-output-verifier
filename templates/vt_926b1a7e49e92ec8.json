@@ -1,0 +1,181 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_926b1a7e49e92ec8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "crypto": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "change24h": {
+                "type": "number"
+              },
+              "id": {
+                "type": "string"
+              },
+              "marketCap": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "price": {
+                "type": "number"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "volume24h": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "change24h",
+              "id",
+              "marketCap",
+              "name",
+              "price",
+              "symbol",
+              "volume24h"
+            ]
+          }
+        },
+        "defiYields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "apy": {
+                "type": "number"
+              },
+              "chain": {
+                "type": "string"
+              },
+              "protocol": {
+                "type": "string"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "tvlUsd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "apy",
+              "chain",
+              "protocol",
+              "symbol",
+              "tvlUsd"
+            ]
+          }
+        },
+        "fx": {
+          "type": "object",
+          "properties": {
+            "base": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string",
+              "format": "date"
+            },
+            "rates": {
+              "type": "object",
+              "properties": {
+                "EUR": {
+                  "type": "number"
+                },
+                "GBP": {
+                  "type": "number"
+                },
+                "JPY": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "EUR",
+                "GBP",
+                "JPY"
+              ]
+            }
+          },
+          "required": [
+            "base",
+            "date",
+            "rates"
+          ]
+        },
+        "gas": {
+          "type": "object",
+          "properties": {
+            "baseFeeGwei": {
+              "type": "string"
+            },
+            "chain": {
+              "type": "string"
+            },
+            "estimatedTransferCostUSD": {
+              "type": "string"
+            },
+            "gasPriceGwei": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "baseFeeGwei",
+            "chain",
+            "estimatedTransferCostUSD",
+            "gasPriceGwei"
+          ]
+        },
+        "processingTime": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "crypto",
+        "defiYields",
+        "fx",
+        "gas",
+        "processingTime",
+        "sources",
+        "timestamp"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "crypto[].id"
+      }
+    ],
+    "bounds": {
+      "crypto[].price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "vibesprings.net",
+    "endpoint": "https://vibesprings.net/api/market-pulse",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

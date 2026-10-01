@@ -1,0 +1,100 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_38a4c91eeb04d81e",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "decisionSignals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "confidence": {
+                "type": "number"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "recommendedAction": {
+                "type": "string"
+              },
+              "whatChanged": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "confidence",
+              "kind",
+              "recommendedAction",
+              "whatChanged"
+            ]
+          }
+        },
+        "schemaVersion": {
+          "type": "string"
+        },
+        "topMovers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "currentL30Calls": {
+                "type": "integer"
+              },
+              "delta": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "category",
+              "currentL30Calls",
+              "delta"
+            ]
+          }
+        },
+        "underservedOpportunity": {
+          "type": "object",
+          "properties": {
+            "category": {
+              "type": "string"
+            },
+            "score": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "category",
+            "score"
+          ]
+        }
+      },
+      "required": [
+        "decisionSignals",
+        "schemaVersion",
+        "topMovers",
+        "underservedOpportunity"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "decisionSignals[].confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "srv1334799.hstgr.cloud",
+    "endpoint": "https://srv1334799.hstgr.cloud/v1/x402/demand/snapshot",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

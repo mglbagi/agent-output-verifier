@@ -1,0 +1,66 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_899969423c471439",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "items": {
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "chain": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "tvl": {
+                "type": "number"
+              }
+            },
+            "type": "object",
+            "required": [
+              "category",
+              "chain",
+              "name",
+              "slug",
+              "tvl"
+            ]
+          },
+          "type": "array"
+        },
+        "queried_at": {
+          "description": "Time the upstream was queried",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "queried_at",
+        "data"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "data[].tvl": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "defillama.use.x402atlas.com",
+    "endpoint": "https://defillama.use.x402atlas.com/protocols",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

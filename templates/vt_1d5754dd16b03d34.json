@@ -1,0 +1,46 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1d5754dd16b03d34",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "callback_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "inbox_id": {
+          "type": "string"
+        },
+        "read_token": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "write_token": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "callback_url",
+        "inbox_id",
+        "read_token",
+        "status",
+        "write_token"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "relaybox-phcqcexu4a-uc.a.run.app",
+    "endpoint": "https://relaybox-phcqcexu4a-uc.a.run.app/v1/inboxes",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

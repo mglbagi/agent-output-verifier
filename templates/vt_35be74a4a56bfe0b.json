@@ -1,0 +1,92 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_35be74a4a56bfe0b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "catalog": {
+          "type": "object",
+          "properties": {
+            "services": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "status"
+                ]
+              }
+            }
+          },
+          "required": [
+            "services"
+          ]
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "storefront": {
+          "type": "object",
+          "properties": {
+            "products": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "priceUsd": {
+                    "type": "number"
+                  },
+                  "service": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "path",
+                  "priceUsd",
+                  "service"
+                ]
+              }
+            }
+          },
+          "required": [
+            "products"
+          ]
+        }
+      },
+      "required": [
+        "catalog",
+        "ok",
+        "storefront"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "catalog.services[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hivemindos-paid-agent-gateway.hivemindos.workers.dev",
+    "endpoint": "https://hivemindos-paid-agent-gateway.hivemindos.workers.dev/api/x402/catalog",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

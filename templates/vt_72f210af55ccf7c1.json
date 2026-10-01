@@ -1,0 +1,78 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_72f210af55ccf7c1",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "description": {
+          "type": "string"
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "board": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "reward": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "board",
+              "id",
+              "reward",
+              "title"
+            ]
+          }
+        },
+        "lane": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "count",
+        "description",
+        "generated_at",
+        "items",
+        "lane"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "items[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mini-tollbooth.onrender.com",
+    "endpoint": "https://mini-tollbooth.onrender.com/bounties",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

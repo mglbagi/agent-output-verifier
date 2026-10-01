@@ -1,0 +1,281 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_050fde56c4ae3fa4",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "firstYear": {
+              "type": "object",
+              "properties": {
+                "NOI": {
+                  "type": "integer"
+                },
+                "capRate": {
+                  "type": "number"
+                },
+                "cashFlow": {
+                  "type": "integer"
+                },
+                "cashOnCashReturn": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "NOI",
+                "capRate",
+                "cashFlow",
+                "cashOnCashReturn"
+              ]
+            },
+            "investedCash": {
+              "type": "integer"
+            },
+            "irr": {
+              "type": "number"
+            },
+            "monthlyMortgagePayment": {
+              "type": "number"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "annualInsurance": {
+                  "type": "integer"
+                },
+                "annualMaintenance": {
+                  "type": "integer"
+                },
+                "annualPropertyTaxes": {
+                  "type": "number"
+                },
+                "closingCosts": {
+                  "type": "number"
+                },
+                "downPaymentPercent": {
+                  "type": "number"
+                },
+                "hoaAnnualIncrease": {
+                  "type": "integer"
+                },
+                "holdingLengthYears": {
+                  "type": "integer"
+                },
+                "insuranceAnnualIncrease": {
+                  "type": "integer"
+                },
+                "interestRate": {
+                  "type": "number"
+                },
+                "loanTermYears": {
+                  "type": "integer"
+                },
+                "maintenanceAnnualIncrease": {
+                  "type": "integer"
+                },
+                "monthlyHOA": {
+                  "type": "integer"
+                },
+                "monthlyRent": {
+                  "type": "integer"
+                },
+                "otherAnnualExpenses": {
+                  "type": "integer"
+                },
+                "otherAnnualIncrease": {
+                  "type": "integer"
+                },
+                "propertyManagementFeeRate": {
+                  "type": "number"
+                },
+                "purchasePrice": {
+                  "type": "number"
+                },
+                "rehabCosts": {
+                  "type": "number"
+                },
+                "rentAnnualIncrease": {
+                  "type": "integer"
+                },
+                "saleExpensesRate": {
+                  "type": "number"
+                },
+                "salePrice": {
+                  "type": "number"
+                },
+                "taxesAnnualIncrease": {
+                  "type": "number"
+                },
+                "vacancyRate": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "annualInsurance",
+                "annualMaintenance",
+                "annualPropertyTaxes",
+                "closingCosts",
+                "downPaymentPercent",
+                "hoaAnnualIncrease",
+                "holdingLengthYears",
+                "insuranceAnnualIncrease",
+                "interestRate",
+                "loanTermYears",
+                "maintenanceAnnualIncrease",
+                "monthlyHOA",
+                "monthlyRent",
+                "otherAnnualExpenses",
+                "otherAnnualIncrease",
+                "propertyManagementFeeRate",
+                "purchasePrice",
+                "rehabCosts",
+                "rentAnnualIncrease",
+                "saleExpensesRate",
+                "salePrice",
+                "taxesAnnualIncrease",
+                "vacancyRate"
+              ]
+            },
+            "sale": {
+              "type": "object",
+              "properties": {
+                "impliedAnnualGrowthRate": {
+                  "type": "number"
+                },
+                "netProceeds": {
+                  "type": "integer"
+                },
+                "totalProfitAfterSale": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "impliedAnnualGrowthRate",
+                "netProceeds",
+                "totalProfitAfterSale"
+              ]
+            },
+            "totals": {
+              "type": "object",
+              "properties": {
+                "NOI": {
+                  "type": "integer"
+                },
+                "expenses": {
+                  "type": "integer"
+                },
+                "mortgagePayments": {
+                  "type": "integer"
+                },
+                "operatingCashFlow": {
+                  "type": "integer"
+                },
+                "rentalIncome": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "NOI",
+                "expenses",
+                "mortgagePayments",
+                "operatingCashFlow",
+                "rentalIncome"
+              ]
+            },
+            "yearByYear": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "NOI": {
+                    "type": "integer"
+                  },
+                  "annualCashFlow": {
+                    "type": "integer"
+                  },
+                  "annualCoCReturn": {
+                    "type": "number"
+                  },
+                  "annualExpenses": {
+                    "type": "integer"
+                  },
+                  "annualIncome": {
+                    "type": "integer"
+                  },
+                  "annualMortgagePayment": {
+                    "type": "integer"
+                  },
+                  "interestPortion": {
+                    "type": "integer"
+                  },
+                  "loanBalance": {
+                    "type": "number"
+                  },
+                  "principalPortion": {
+                    "type": "integer"
+                  },
+                  "totalEquity": {
+                    "type": "number"
+                  },
+                  "year": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "NOI",
+                  "annualCashFlow",
+                  "annualCoCReturn",
+                  "annualExpenses",
+                  "annualIncome",
+                  "annualMortgagePayment",
+                  "interestPortion",
+                  "loanBalance",
+                  "principalPortion",
+                  "totalEquity",
+                  "year"
+                ]
+              }
+            }
+          },
+          "required": [
+            "firstYear",
+            "investedCash",
+            "irr",
+            "monthlyMortgagePayment",
+            "params",
+            "sale",
+            "totals",
+            "yearByYear"
+          ]
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "data",
+        "ok"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.params.downPaymentPercent": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ppu43fkyhimq5fiqpmo42eh5ri0yypid.lambda-url.us-east-1.on.aws",
+    "endpoint": "https://ppu43fkyhimq5fiqpmo42eh5ri0yypid.lambda-url.us-east-1.on.aws/rentalPropertyCalculator",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

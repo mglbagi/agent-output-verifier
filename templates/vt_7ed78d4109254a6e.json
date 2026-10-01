@@ -1,0 +1,221 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7ed78d4109254a6e",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "country": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "eu": {
+              "type": "object",
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "uri": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "uri"
+                    ]
+                  }
+                },
+                "source": {
+                  "type": "string"
+                },
+                "total": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "items",
+                "source",
+                "total"
+              ]
+            },
+            "jp": {
+              "type": "object",
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "law_id": {
+                        "type": "string"
+                      },
+                      "snippets": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "title": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "law_id",
+                      "snippets",
+                      "title"
+                    ]
+                  }
+                },
+                "source": {
+                  "type": "string"
+                },
+                "total": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "items",
+                "source",
+                "total"
+              ]
+            },
+            "uk": {
+              "type": "object",
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "url"
+                    ]
+                  }
+                },
+                "source": {
+                  "type": "string"
+                },
+                "total": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "items",
+                "source",
+                "total"
+              ]
+            },
+            "us": {
+              "type": "object",
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "cfr_ref": {
+                        "type": "string"
+                      },
+                      "excerpt": {
+                        "type": "string"
+                      },
+                      "heading": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "cfr_ref",
+                      "excerpt",
+                      "heading"
+                    ]
+                  }
+                },
+                "source": {
+                  "type": "string"
+                },
+                "total": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "items",
+                "source",
+                "total"
+              ]
+            }
+          },
+          "required": [
+            "eu",
+            "jp",
+            "uk",
+            "us"
+          ]
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "query": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "country",
+        "data",
+        "disclaimer",
+        "query",
+        "timestamp"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data.jp.items[].law_id"
+      }
+    ],
+    "bounds": {
+      "data.eu.total": {
+        "min": 0
+      },
+      "data.jp.total": {
+        "min": 0
+      },
+      "data.uk.total": {
+        "min": 0
+      },
+      "data.us.total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "law-mcp.toulaw.workers.dev",
+    "endpoint": "https://law-mcp.toulaw.workers.dev/api/v1/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

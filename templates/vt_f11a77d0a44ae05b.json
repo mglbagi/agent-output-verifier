@@ -1,0 +1,78 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f11a77d0a44ae05b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "amount": {
+          "type": "number"
+        },
+        "auth": {
+          "properties": {
+            "expires_in": {
+              "type": "string"
+            },
+            "id_token": {
+              "description": "Firebase ID token for the callable APIs",
+              "type": "string"
+            },
+            "refresh_token": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "expires_in",
+            "id_token",
+            "refresh_token"
+          ]
+        },
+        "message": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "recipient_id": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "user_id": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "amount",
+        "auth",
+        "message",
+        "platform",
+        "recipient_id",
+        "state",
+        "success",
+        "user_id"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "amount": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "laso.finance",
+    "endpoint": "https://laso.finance/send-payment",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

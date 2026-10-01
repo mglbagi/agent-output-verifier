@@ -1,0 +1,94 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9c164195ff8777f8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "excerpt": {
+          "type": "string"
+        },
+        "headings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "markdown": {
+          "type": "string"
+        },
+        "monitoringUpgrade": {
+          "type": "object",
+          "properties": {
+            "checkoutUrl": {
+              "type": "string",
+              "format": "uri"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "durationDays": {
+              "type": "integer"
+            },
+            "maxUrls": {
+              "type": "integer"
+            },
+            "method": {
+              "type": "string"
+            },
+            "price": {
+              "type": "string"
+            },
+            "product": {
+              "type": "string"
+            },
+            "protocol": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "checkoutUrl",
+            "currency",
+            "description",
+            "durationDays",
+            "maxUrls",
+            "method",
+            "price",
+            "product",
+            "protocol"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "excerpt",
+        "headings",
+        "markdown",
+        "monitoringUpgrade",
+        "title",
+        "url"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "fetchdelta.com",
+    "endpoint": "https://fetchdelta.com/api/resolve",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

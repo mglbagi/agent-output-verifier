@@ -1,0 +1,43 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7e6d768e65f7d953",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "poll_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "state": {
+          "type": "string"
+        },
+        "watch_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "expires_at",
+        "poll_url",
+        "state",
+        "watch_id"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "dnsdoctor.dev",
+    "endpoint": "https://dnsdoctor.dev/api/v1/watch/propagation",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

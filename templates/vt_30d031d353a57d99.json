@@ -1,0 +1,344 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_30d031d353a57d99",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "activos": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "apy_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "comisiones": {
+          "properties": {
+            "deposito_pct": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "rendimiento_pct": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "retirada_pct": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "deposito_pct",
+            "rendimiento_pct",
+            "retirada_pct"
+          ]
+        },
+        "contratos": {
+          "properties": {
+            "estrategia": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "vault": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "estrategia",
+            "vault"
+          ]
+        },
+        "creado": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "enlaces": {
+          "properties": {
+            "añadir_liquidez": {},
+            "retirar_liquidez": {}
+          },
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "estado": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "estrategia": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fuente": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "nombre": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "onchain": {
+          "properties": {
+            "token_depositado_total": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "valor_participacion": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "token_depositado_total",
+            "valor_participacion"
+          ]
+        },
+        "plataforma": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "red": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rentabilidad": {
+          "properties": {
+            "apr_comisiones_pool_pct": {},
+            "apr_liquidez_concentrada_pct": {},
+            "apr_vault_pct": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "apy_total_pct": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "reinversiones_al_año": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "apr_vault_pct",
+            "apy_total_pct",
+            "reinversiones_al_año"
+          ]
+        },
+        "riesgos": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "token_depositado": {
+          "properties": {
+            "contrato": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "decimales": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "precio_usd": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "simbolo": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "contrato",
+            "decimales",
+            "precio_usd",
+            "simbolo"
+          ]
+        },
+        "tvl_usd": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "ultima_cosecha": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "activos",
+        "apy_pct",
+        "comisiones",
+        "contratos",
+        "creado",
+        "enlaces",
+        "estado",
+        "estrategia",
+        "fuente",
+        "id",
+        "nombre",
+        "onchain",
+        "plataforma",
+        "red",
+        "rentabilidad",
+        "riesgos",
+        "token_depositado",
+        "tvl_usd",
+        "ultima_cosecha",
+        "url"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "apy_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "comisiones.deposito_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "comisiones.rendimiento_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "comisiones.retirada_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "onchain.token_depositado_total": {
+        "min": 0
+      },
+      "rentabilidad.apr_vault_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "rentabilidad.apy_total_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "token_depositado.precio_usd": {
+        "min": 0
+      },
+      "tvl_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.vextorium.com",
+    "endpoint": "https://api.vextorium.com/beefy-vault-pago",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

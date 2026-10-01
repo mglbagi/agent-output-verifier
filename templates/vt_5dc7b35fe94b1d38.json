@@ -1,0 +1,111 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5dc7b35fe94b1d38",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "agent_decision_support": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "as_of": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "beta": {
+          "type": "boolean"
+        },
+        "caveat": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "confidence_score": {
+          "type": "number"
+        },
+        "coverage": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "creator_in_known_creator_network": {
+          "type": "boolean"
+        },
+        "creator_wallet": {},
+        "evidence_items_count": {
+          "type": "number"
+        },
+        "evidence_pack": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "holder_concentration_basis": {},
+        "holder_concentration_pct_proxy": {},
+        "methodology": {
+          "type": "string"
+        },
+        "mint": {
+          "type": "string"
+        },
+        "product": {
+          "type": "string"
+        },
+        "risk": {
+          "type": "string"
+        },
+        "risk_score": {
+          "type": "number"
+        },
+        "sample_size": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "sources": {
+          "type": "array"
+        },
+        "spend_rationale": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "status": {
+          "type": "string"
+        },
+        "supported": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "status",
+        "product",
+        "coverage",
+        "evidence_pack",
+        "agent_decision_support",
+        "methodology"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "confidence_score": {
+        "min": 0,
+        "max": 1,
+        "if_present": true
+      },
+      "evidence_items_count": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "scry.solanahub.de",
+    "endpoint": "https://scry.solanahub.de/x402/mint-risk",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

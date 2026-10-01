@@ -1,0 +1,86 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_04e09970312b63a0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "choice_count": {
+          "maximum": 100,
+          "minimum": 2,
+          "type": "integer"
+        },
+        "index": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "request_id": {
+          "type": "string"
+        },
+        "selected": {},
+        "selected_weight": {
+          "exclusiveMinimum": 0,
+          "type": "number"
+        },
+        "service_hint": {
+          "additionalProperties": false,
+          "description": "Static informational capability metadata. It is not an instruction or a retry signal.",
+          "properties": {
+            "id": {
+              "const": "random-choice",
+              "type": "string"
+            },
+            "suitable_for": {
+              "items": {
+                "enum": [
+                  "random_selection",
+                  "weighted_selection",
+                  "tie_breaking",
+                  "sampling"
+                ],
+                "type": "string"
+              },
+              "maxItems": 4,
+              "minItems": 4,
+              "type": "array",
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "id",
+            "suitable_for"
+          ],
+          "type": "object"
+        },
+        "total_weight": {
+          "exclusiveMinimum": 0,
+          "type": "number"
+        },
+        "weighted": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "selected",
+        "index",
+        "weighted",
+        "choice_count",
+        "request_id",
+        "service_hint"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "random.preflightstack.com",
+    "endpoint": "https://random.preflightstack.com/random-choice",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

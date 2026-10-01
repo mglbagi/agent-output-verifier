@@ -1,0 +1,230 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5fc6188272a86ac4",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "benchmarkCoverage": {
+          "additionalProperties": false,
+          "properties": {
+            "completeFetch": {
+              "type": "boolean"
+            },
+            "coverageRatio": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "effectiveWindowMinutes": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "errorMessage": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "partialData": {
+              "type": "boolean"
+            },
+            "requestedWindowMinutes": {
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "requestedWindowMinutes",
+            "effectiveWindowMinutes",
+            "coverageRatio",
+            "partialData",
+            "completeFetch",
+            "errorMessage"
+          ],
+          "type": "object"
+        },
+        "components": {
+          "additionalProperties": false,
+          "properties": {
+            "bucketSize": {
+              "type": "number"
+            },
+            "buckets": {
+              "type": "integer"
+            },
+            "buyTrades": {
+              "type": "integer"
+            },
+            "buyVolume": {
+              "type": "number"
+            },
+            "estimatedNullVpin": {
+              "description": "Approximate finite-sample VPIN baseline under independent, equally likely buy/sell signs.",
+              "type": "number"
+            },
+            "excessVpin": {
+              "description": "Raw VPIN minus estimatedNullVpin; this signed value is not clamped at zero. Raw VPIN is sample-size dependent and comparable only within the same market and window, so use excessVpin and the bucket-density fields for broader comparisons.",
+              "type": "number"
+            },
+            "meanImbalance": {
+              "type": "number"
+            },
+            "meanTradeContributionsPerBucket": {
+              "type": "number"
+            },
+            "minimumTradeContributionsPerBucket": {
+              "type": "integer"
+            },
+            "minimumTradeCount": {
+              "type": "integer"
+            },
+            "oneSidedBuckets": {
+              "type": "integer"
+            },
+            "sellTrades": {
+              "type": "integer"
+            },
+            "sellVolume": {
+              "type": "number"
+            },
+            "targetBuckets": {
+              "type": "integer"
+            },
+            "totalVolume": {
+              "type": "number"
+            },
+            "tradeCount": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "buckets",
+            "bucketSize",
+            "meanImbalance",
+            "totalVolume",
+            "tradeCount",
+            "minimumTradeCount",
+            "targetBuckets",
+            "buyTrades",
+            "sellTrades",
+            "buyVolume",
+            "sellVolume",
+            "oneSidedBuckets",
+            "minimumTradeContributionsPerBucket",
+            "meanTradeContributionsPerBucket",
+            "estimatedNullVpin",
+            "excessVpin"
+          ],
+          "type": "object"
+        },
+        "computedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "coverage": {
+          "additionalProperties": false,
+          "properties": {
+            "completeFetch": {
+              "type": "boolean"
+            },
+            "coverageRatio": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "effectiveWindowMinutes": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "errorMessage": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "partialData": {
+              "type": "boolean"
+            },
+            "requestedWindowMinutes": {
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "requestedWindowMinutes",
+            "effectiveWindowMinutes",
+            "coverageRatio",
+            "partialData",
+            "completeFetch",
+            "errorMessage"
+          ],
+          "type": "object"
+        },
+        "exchange": {
+          "enum": [
+            "binance",
+            "coinbase",
+            "hyperliquid"
+          ],
+          "type": "string"
+        },
+        "firstTradeTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastTradeTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "metric": {
+          "type": "string"
+        },
+        "pair": {
+          "type": "string"
+        },
+        "tradeCount": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "value": {
+          "type": "number"
+        },
+        "window": {
+          "enum": [
+            "30m",
+            "1h",
+            "2h",
+            "3h"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "metric",
+        "pair",
+        "exchange",
+        "window",
+        "value",
+        "computedAt",
+        "tradeCount",
+        "firstTradeTime",
+        "lastTradeTime",
+        "coverage"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.dripmetrics.ai",
+    "endpoint": "https://api.dripmetrics.ai/metrics/vpin",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

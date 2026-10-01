@@ -1,0 +1,200 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5f33654d1f38721e",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "asOf": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string"
+        },
+        "network": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "price": {
+          "type": "object",
+          "properties": {
+            "fdvUsd": {},
+            "liquidityUsd": {
+              "type": "number"
+            },
+            "marketCapUsd": {},
+            "priceChange": {
+              "type": "object",
+              "properties": {
+                "h1": {
+                  "type": "integer"
+                },
+                "h24": {
+                  "type": "number"
+                },
+                "h6": {
+                  "type": "integer"
+                },
+                "m5": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "h1",
+                "h24",
+                "h6",
+                "m5"
+              ]
+            },
+            "priceUsd": {
+              "type": "number"
+            },
+            "topPair": {
+              "type": "object",
+              "properties": {
+                "dex": {
+                  "type": "string"
+                },
+                "pairAddress": {
+                  "type": "string"
+                },
+                "quote": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "dex",
+                "pairAddress",
+                "quote",
+                "url"
+              ]
+            },
+            "volume24hUsd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "liquidityUsd",
+            "priceChange",
+            "priceUsd",
+            "topPair",
+            "volume24hUsd"
+          ]
+        },
+        "safety": {
+          "type": "object",
+          "properties": {
+            "buyTaxPct": {
+              "type": "number"
+            },
+            "holderCount": {
+              "type": "integer"
+            },
+            "isHoneypot": {
+              "type": "boolean"
+            },
+            "isMintable": {
+              "type": "boolean"
+            },
+            "isOpenSource": {
+              "type": "boolean"
+            },
+            "isProxy": {
+              "type": "boolean"
+            },
+            "listedOnCex": {
+              "type": "boolean"
+            },
+            "lpLockedPct": {},
+            "risks": {
+              "type": "array"
+            },
+            "sellTaxPct": {
+              "type": "number"
+            },
+            "topHolderPct": {
+              "type": "number"
+            },
+            "verdict": {
+              "type": "string"
+            },
+            "verdictReason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "buyTaxPct",
+            "holderCount",
+            "isHoneypot",
+            "isMintable",
+            "isOpenSource",
+            "isProxy",
+            "listedOnCex",
+            "risks",
+            "sellTaxPct",
+            "topHolderPct",
+            "verdict",
+            "verdictReason"
+          ]
+        },
+        "source": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "asOf",
+        "name",
+        "network",
+        "note",
+        "price",
+        "safety",
+        "source",
+        "symbol",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "safety.buyTaxPct": {
+        "min": 0,
+        "max": 100
+      },
+      "safety.sellTaxPct": {
+        "min": 0,
+        "max": 100
+      },
+      "safety.topHolderPct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "fiatdock.com",
+    "endpoint": "https://fiatdock.com/v1/chain/token-report",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

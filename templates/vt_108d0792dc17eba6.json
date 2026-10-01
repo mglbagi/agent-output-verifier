@@ -1,0 +1,98 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_108d0792dc17eba6",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "days": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "condition": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "precipitation_mm": {
+                "type": "number"
+              },
+              "precipitation_probability_pct": {
+                "type": "integer"
+              },
+              "temp_max_c": {
+                "type": "number"
+              },
+              "temp_min_c": {
+                "type": "number"
+              },
+              "weather_code": {
+                "type": "integer"
+              },
+              "wind_max_kmh": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "condition",
+              "date",
+              "precipitation_mm",
+              "precipitation_probability_pct",
+              "temp_max_c",
+              "temp_min_c",
+              "weather_code",
+              "wind_max_kmh"
+            ]
+          }
+        },
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "city",
+        "country",
+        "days",
+        "latitude",
+        "longitude"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "days[].precipitation_probability_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "latitude": {
+        "min": -90,
+        "max": 90
+      },
+      "longitude": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "weather.hugen.tokyo",
+    "endpoint": "https://weather.hugen.tokyo/weather/forecast",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

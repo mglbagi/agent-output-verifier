@@ -1,0 +1,94 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c912a6963cc40778",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "chain": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": 8453,
+              "type": "integer"
+            },
+            "name": {
+              "const": "Base",
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "type": "object"
+        },
+        "network": {
+          "const": "eip155:8453",
+          "type": "string"
+        },
+        "observed_at": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$",
+          "type": "string"
+        },
+        "observed_block": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "observed_block_hash": {
+          "pattern": "^0x[0-9a-fA-F]{64}$",
+          "type": "string"
+        },
+        "provider_consistency": {
+          "additionalProperties": false,
+          "properties": {
+            "agreement": {
+              "const": true,
+              "type": "boolean"
+            },
+            "provider_count": {
+              "const": 2,
+              "type": "integer"
+            },
+            "providers": {
+              "items": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 2,
+              "minItems": 2,
+              "type": "array"
+            }
+          },
+          "required": [
+            "agreement",
+            "provider_count",
+            "providers"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "network",
+        "chain",
+        "observed_block",
+        "observed_block_hash",
+        "observed_at",
+        "provider_consistency"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "obol.danieldutoit.net",
+    "endpoint": "https://obol.danieldutoit.net/v1/base/network-status",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

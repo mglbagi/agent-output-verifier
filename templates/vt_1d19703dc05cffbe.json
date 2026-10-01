@@ -1,0 +1,156 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1d19703dc05cffbe",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "as_of": {
+          "type": "string",
+          "format": "date"
+        },
+        "coins": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ath": {
+                "type": "integer"
+              },
+              "ath_change_pct": {
+                "type": "number"
+              },
+              "ath_date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "change_24h": {
+                "type": "number"
+              },
+              "change_24h_pct": {
+                "type": "number"
+              },
+              "circulating_supply": {
+                "type": "integer"
+              },
+              "coingecko_id": {
+                "type": "string"
+              },
+              "high_24h": {
+                "type": "integer"
+              },
+              "last_updated": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "low_24h": {
+                "type": "integer"
+              },
+              "market_cap": {
+                "type": "integer"
+              },
+              "market_cap_rank": {
+                "type": "integer"
+              },
+              "max_supply": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "price": {
+                "type": "number"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "total_supply": {
+                "type": "number"
+              },
+              "volume_24h": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "ath",
+              "ath_change_pct",
+              "ath_date",
+              "change_24h",
+              "change_24h_pct",
+              "circulating_supply",
+              "coingecko_id",
+              "high_24h",
+              "last_updated",
+              "low_24h",
+              "market_cap",
+              "market_cap_rank",
+              "max_supply",
+              "name",
+              "price",
+              "symbol",
+              "total_supply",
+              "volume_24h"
+            ]
+          }
+        },
+        "errors": {
+          "type": "array"
+        },
+        "source": {
+          "type": "string"
+        },
+        "vs_currency": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "as_of",
+        "coins",
+        "errors",
+        "source",
+        "vs_currency"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "coins[].low_24h",
+        "other_field": "coins[].high_24h"
+      },
+      {
+        "type": "unique",
+        "field": "coins[].coingecko_id"
+      }
+    ],
+    "bounds": {
+      "coins[].market_cap": {
+        "min": 0
+      },
+      "coins[].market_cap_rank": {
+        "min": 0
+      },
+      "coins[].max_supply": {
+        "min": 0
+      },
+      "coins[].price": {
+        "min": 0
+      },
+      "coins[].total_supply": {
+        "min": 0
+      },
+      "coins[].volume_24h": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402financialdata.com",
+    "endpoint": "https://www.x402financialdata.com/crypto-prices",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

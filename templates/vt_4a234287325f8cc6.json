@@ -1,0 +1,71 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4a234287325f8cc6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "lang": {
+          "type": "string"
+        },
+        "segments": {
+          "description": "Timed caption segments in seconds.",
+          "items": {
+            "properties": {
+              "dur": {
+                "type": "number"
+              },
+              "start": {
+                "type": "number"
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "dur",
+              "start",
+              "text"
+            ]
+          },
+          "type": "array"
+        },
+        "source": {
+          "description": "Whether captions were creator-supplied or auto-generated.",
+          "enum": [
+            "manual",
+            "auto"
+          ],
+          "type": "string"
+        },
+        "text": {
+          "description": "Full transcript as plain text.",
+          "type": "string"
+        },
+        "video_id": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "lang",
+        "segments",
+        "source",
+        "text",
+        "video_id"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "video.cyberwarex.com",
+    "endpoint": "https://video.cyberwarex.com/transcript",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

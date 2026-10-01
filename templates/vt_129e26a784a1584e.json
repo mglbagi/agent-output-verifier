@@ -1,0 +1,85 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_129e26a784a1584e",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "comps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string"
+              },
+              "implied_cap_rate": {
+                "type": "number"
+              },
+              "price_per_sf": {
+                "type": "number"
+              },
+              "sale_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "sale_price": {
+                "type": "number"
+              },
+              "state": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "address",
+              "implied_cap_rate",
+              "price_per_sf",
+              "sale_date",
+              "sale_price",
+              "state"
+            ]
+          }
+        },
+        "count": {
+          "type": "integer"
+        },
+        "total_available": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "comps",
+        "count",
+        "total_available"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "comps[].implied_cap_rate": {
+        "min": 0
+      },
+      "comps[].price_per_sf": {
+        "min": 0
+      },
+      "comps[].sale_price": {
+        "min": 0
+      },
+      "count": {
+        "min": 0
+      },
+      "total_available": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.northeastdealintel.com",
+    "endpoint": "https://api.northeastdealintel.com/v1/agent/comps-search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e37174ff418c87e8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string"
+        },
+        "asset": {
+          "type": "string"
+        },
+        "charged": {
+          "type": "string"
+        },
+        "drand_round": {},
+        "entry_hash": {
+          "type": "string"
+        },
+        "follows": {},
+        "message": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "network": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "number_source": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "pay_to": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "receipt": {
+          "type": "string"
+        },
+        "remembered_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "seq": {
+          "type": "integer"
+        },
+        "tx": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{64}$"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "amount",
+        "asset",
+        "charged",
+        "entry_hash",
+        "message",
+        "name",
+        "network",
+        "number",
+        "number_source",
+        "ok",
+        "pay_to",
+        "receipt",
+        "remembered_at",
+        "seq",
+        "tx",
+        "url"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "memorial.rjhst.workers.dev",
+    "endpoint": "https://memorial.rjhst.workers.dev/v1/remember",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

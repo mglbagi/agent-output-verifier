@@ -1,0 +1,139 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3f7daaf262c52eed",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "asOf": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "crawl": {
+          "type": "object",
+          "properties": {
+            "durationMs": {
+              "type": "integer"
+            },
+            "lastCrawlAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "durationMs",
+            "lastCrawlAt",
+            "status"
+          ]
+        },
+        "feed": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "id": {
+                "type": "integer"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "payload": {
+                "type": "object",
+                "properties": {
+                  "comments": {
+                    "type": "integer"
+                  },
+                  "discussionUrl": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "hnId": {
+                    "type": "integer"
+                  },
+                  "score": {
+                    "type": "integer"
+                  },
+                  "publishedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "vendor": {
+                    "type": "string"
+                  }
+                }
+              },
+              "source": {
+                "type": "string"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "at",
+              "id",
+              "kind",
+              "payload",
+              "source",
+              "summary",
+              "title",
+              "url"
+            ]
+          }
+        },
+        "ttlSeconds": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "asOf",
+        "count",
+        "crawl",
+        "feed",
+        "items",
+        "ttlSeconds"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "items[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "skim402.com",
+    "endpoint": "https://skim402.com/api/v2/signal/ai-news/latest",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

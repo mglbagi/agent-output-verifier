@@ -1,0 +1,146 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_84b1bd8bb8c5d91f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "buckets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "feeUsd": {
+                "type": "number"
+              },
+              "pricedShare": {
+                "type": "number"
+              },
+              "txCount": {
+                "type": "integer"
+              },
+              "uniqueUsers": {
+                "type": "integer"
+              },
+              "volumeUsd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "date",
+              "feeUsd",
+              "pricedShare",
+              "txCount",
+              "uniqueUsers",
+              "volumeUsd"
+            ]
+          }
+        },
+        "days": {
+          "type": "integer"
+        },
+        "from": {
+          "type": "string",
+          "format": "date"
+        },
+        "gate": {
+          "type": "object",
+          "properties": {
+            "daysAboveThreshold": {
+              "type": "integer"
+            },
+            "evaluatedThrough": {
+              "type": "string",
+              "format": "date"
+            },
+            "qualifies": {
+              "type": "boolean"
+            },
+            "streak": {
+              "type": "integer"
+            },
+            "thresholdUsdPerDay": {
+              "type": "number"
+            },
+            "windowDays": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "daysAboveThreshold",
+            "evaluatedThrough",
+            "qualifies",
+            "streak",
+            "thresholdUsdPerDay",
+            "windowDays"
+          ]
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "to": {
+          "type": "string",
+          "format": "date"
+        },
+        "totals": {
+          "type": "object",
+          "properties": {
+            "feeUsd": {
+              "type": "number"
+            },
+            "pricedShare": {
+              "type": "number"
+            },
+            "txCount": {
+              "type": "integer"
+            },
+            "volumeUsd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "feeUsd",
+            "pricedShare",
+            "txCount",
+            "volumeUsd"
+          ]
+        },
+        "updatedAt": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "buckets",
+        "days",
+        "from",
+        "gate",
+        "ok",
+        "to",
+        "totals",
+        "updatedAt"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "from",
+        "other_field": "to"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "app.fortiblox.com",
+    "endpoint": "https://app.fortiblox.com/api/router/volume",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

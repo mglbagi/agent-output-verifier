@@ -1,0 +1,91 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_38285efa48e75476",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "capabilities_heuristic": {
+          "type": "object"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "contract": {
+          "type": "object"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "errors": {
+          "type": "array"
+        },
+        "flags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "holders": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "liquidity": {
+          "type": "object"
+        },
+        "risk_level": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "schema_version": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "ok",
+            "partial",
+            "error"
+          ],
+          "type": "string"
+        },
+        "token": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "token_info": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "schema_version",
+        "token",
+        "status",
+        "risk_level",
+        "flags",
+        "disclaimer"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.x402risk.com",
+    "endpoint": "https://api.x402risk.com/v1/token-check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

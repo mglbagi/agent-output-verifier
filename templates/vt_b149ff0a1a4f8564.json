@@ -1,0 +1,104 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b149ff0a1a4f8564",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "provenance": {
+          "additionalProperties": false,
+          "properties": {
+            "execution": {
+              "const": "deterministic_local"
+            },
+            "model_used": {
+              "const": false
+            },
+            "network_request_performed": {
+              "const": false
+            }
+          },
+          "required": [
+            "execution",
+            "model_used",
+            "network_request_performed"
+          ],
+          "type": "object"
+        },
+        "request_id": {
+          "maxLength": 100,
+          "type": "string"
+        },
+        "result": {
+          "additionalProperties": false,
+          "properties": {
+            "heading_count": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "headings": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "level": {
+                    "maximum": 6,
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "line": {
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "title": {
+                    "maxLength": 48000,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "level",
+                  "title",
+                  "line"
+                ],
+                "type": "object"
+              },
+              "maxItems": 24001,
+              "type": "array"
+            },
+            "syntax": {
+              "maxLength": 200,
+              "type": "string"
+            }
+          },
+          "required": [
+            "headings",
+            "heading_count",
+            "syntax"
+          ],
+          "type": "object"
+        },
+        "utility": {
+          "const": "markdown_heading_outline"
+        }
+      },
+      "required": [
+        "request_id",
+        "utility",
+        "result",
+        "provenance"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tradepilotusa.com",
+    "endpoint": "https://www.tradepilotusa.com/api/agent-commerce/v1/services/markdown_heading_outline/execute",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

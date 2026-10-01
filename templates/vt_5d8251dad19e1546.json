@@ -1,0 +1,89 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5d8251dad19e1546",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "description": "Bounded first-party JSON result; input is processed in memory and not retained.",
+      "properties": {
+        "operation_count": {
+          "type": "integer"
+        },
+        "operations": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "deprecated": {
+                "type": "boolean"
+              },
+              "method": {
+                "type": "string"
+              },
+              "operation_id": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "tags": {
+                "items": {},
+                "type": "array"
+              }
+            },
+            "type": "object",
+            "required": [
+              "deprecated",
+              "method",
+              "operation_id",
+              "path",
+              "summary",
+              "tags"
+            ]
+          },
+          "type": "array"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "truncated": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "required": [
+        "operation_count",
+        "operations",
+        "schema",
+        "title",
+        "truncated"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "operations[].operation_id"
+      }
+    ],
+    "bounds": {
+      "operation_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.delx.ai",
+    "endpoint": "https://api.delx.ai/api/v1/x402/openapi-operation-index",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

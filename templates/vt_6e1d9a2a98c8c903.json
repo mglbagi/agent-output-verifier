@@ -1,0 +1,31 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6e1d9a2a98c8c903",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "coverage": {},
+        "data": {},
+        "ok": {}
+      },
+      "required": [
+        "ok",
+        "coverage",
+        "data"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.loopholetape.com",
+    "endpoint": "https://api.loopholetape.com/v1/base/keys/trial",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

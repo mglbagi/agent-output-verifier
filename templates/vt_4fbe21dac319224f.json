@@ -1,0 +1,78 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4fbe21dac319224f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "coin": {
+          "type": "string"
+        },
+        "neutral_count": {
+          "type": "integer"
+        },
+        "retail_count": {
+          "type": "integer"
+        },
+        "sharp_count": {
+          "type": "integer"
+        },
+        "traders": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "rank": {
+                "type": "integer"
+              },
+              "skill_score": {
+                "type": "number"
+              },
+              "user": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "rank",
+              "skill_score",
+              "user"
+            ]
+          }
+        },
+        "traders_screened": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "coin",
+        "neutral_count",
+        "retail_count",
+        "sharp_count",
+        "traders",
+        "traders_screened"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "neutral_count": {
+        "min": 0
+      },
+      "retail_count": {
+        "min": 0
+      },
+      "sharp_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "graphadvocate.com",
+    "endpoint": "https://graphadvocate.com/hyperliquid/screen",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

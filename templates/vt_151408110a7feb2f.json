@@ -1,0 +1,68 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_151408110a7feb2f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "billionaire": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "fund": {
+                "type": "string"
+              },
+              "latestDate": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "required": [
+              "fund",
+              "latestDate"
+            ]
+          }
+        },
+        "insider": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "owner": {
+                "type": "string"
+              },
+              "shares": {
+                "type": "string"
+              },
+              "ticker": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "owner",
+              "shares",
+              "ticker"
+            ]
+          }
+        }
+      },
+      "required": [
+        "billionaire",
+        "insider"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "whale.memoryapi.org",
+    "endpoint": "https://whale.memoryapi.org/x402/whale/digest",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e8cb2e398cef4c96",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "address_input": {
+          "type": "string"
+        },
+        "address_normalized": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "confidence_score": {
+          "type": "number"
+        },
+        "data_quality_score": {
+          "type": "number"
+        },
+        "flood_proximity": {
+          "type": "object"
+        },
+        "flood_zone": {
+          "type": "object"
+        },
+        "land_use": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "match_status": {
+          "type": "object"
+        },
+        "parcel": {
+          "type": "object"
+        },
+        "permit_history": {
+          "type": "object"
+        },
+        "quality_breakdown": {
+          "type": "object"
+        },
+        "result_status": {
+          "type": "string"
+        },
+        "risk_breakdown": {
+          "type": "object"
+        },
+        "risk_score": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "schema_version": {
+          "type": "string"
+        },
+        "tax_jurisdictions": {
+          "type": "object"
+        },
+        "taxing_entities": {
+          "type": "object"
+        },
+        "zoning": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "result_status",
+        "address_input",
+        "match_status",
+        "parcel",
+        "flood_zone",
+        "flood_proximity",
+        "tax_jurisdictions",
+        "risk_score",
+        "confidence_score",
+        "data_quality_score"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "property-risk-passport-api.lifebite-app.workers.dev",
+    "endpoint": "https://property-risk-passport-api.lifebite-app.workers.dev/v1/property-risk-full",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

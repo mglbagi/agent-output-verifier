@@ -1,0 +1,70 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c386fdf70f2ea13c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "methodology": {
+          "type": "object",
+          "properties": {}
+        },
+        "risk": {
+          "type": "object",
+          "properties": {
+            "band": {
+              "type": "string"
+            },
+            "score": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "band",
+            "score"
+          ]
+        },
+        "suggestions": {
+          "type": "array"
+        },
+        "totals": {
+          "type": "object",
+          "properties": {
+            "stablecoinShare": {
+              "type": "integer"
+            },
+            "valueUsd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "stablecoinShare",
+            "valueUsd"
+          ]
+        }
+      },
+      "required": [
+        "address",
+        "methodology",
+        "risk",
+        "suggestions",
+        "totals"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "horizonpulse.dev",
+    "endpoint": "https://horizonpulse.dev/api/portfolio",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

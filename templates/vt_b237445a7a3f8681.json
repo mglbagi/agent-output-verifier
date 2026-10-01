@@ -1,0 +1,83 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b237445a7a3f8681",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "last_updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "pmcs_stats": {
+          "type": "object",
+          "properties": {
+            "category_codes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string"
+                  },
+                  "count": {
+                    "type": "integer"
+                  },
+                  "entityCodes": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "count": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "code",
+                        "count"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "code",
+                  "count",
+                  "entityCodes"
+                ]
+              }
+            }
+          },
+          "required": [
+            "category_codes"
+          ]
+        }
+      },
+      "required": [
+        "last_updated",
+        "pmcs_stats"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "pmcs_stats.category_codes[].count": {
+        "min": 0
+      },
+      "pmcs_stats.category_codes[].entityCodes[].count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.predictionmarketdata.io",
+    "endpoint": "https://api.predictionmarketdata.io/prediction-markets/pmcs-stats",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

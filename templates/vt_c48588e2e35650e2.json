@@ -1,0 +1,83 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c48588e2e35650e2",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "areas": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "children": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "name_en": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "name",
+                    "name_en"
+                  ]
+                }
+              },
+              "code": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "name_en": {
+                "type": "string"
+              },
+              "office_name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "children",
+              "code",
+              "name",
+              "name_en",
+              "office_name"
+            ]
+          }
+        },
+        "count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "areas",
+        "count"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "weather.agentic-jp.com",
+    "endpoint": "https://weather.agentic-jp.com/areas",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

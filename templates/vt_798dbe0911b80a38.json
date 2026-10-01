@@ -1,0 +1,238 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_798dbe0911b80a38",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "$defs": {
+        "d0": {
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "d1": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "order": {
+              "additionalProperties": false,
+              "properties": {
+                "amount": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "currency": {
+                      "pattern": "^[a-z]{3}$",
+                      "type": "string"
+                    },
+                    "minor_units": {
+                      "exclusiveMinimum": 0,
+                      "maximum": 100000000,
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "currency",
+                    "minor_units"
+                  ],
+                  "type": "object"
+                },
+                "created_at": {
+                  "$ref": "#/$defs/d1"
+                },
+                "failure_receipt_digest": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/d0"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "fulfilment_receipt_digest": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/d0"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "funded_work_intent_digest": {
+                  "$ref": "#/$defs/d0"
+                },
+                "order_id": {
+                  "pattern": "^ord_[a-f0-9]{64}$",
+                  "type": "string"
+                },
+                "paid_at": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/d1"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "payment_rail": {
+                  "enum": [
+                    "stripe",
+                    "x402"
+                  ],
+                  "type": "string"
+                },
+                "payment_state": {
+                  "enum": [
+                    "payment_pending",
+                    "paid",
+                    "refund_pending",
+                    "refunded",
+                    "cancelled"
+                  ],
+                  "type": "string"
+                },
+                "product_code": {
+                  "type": "string"
+                },
+                "product_definition_digest": {
+                  "$ref": "#/$defs/d0"
+                },
+                "purchase_kind": {
+                  "const": "one_off",
+                  "type": "string"
+                },
+                "refund_reason": {
+                  "anyOf": [
+                    {
+                      "enum": [
+                        "scope_superseded",
+                        "service_level_missed",
+                        "sourcey_error",
+                        "duplicate_charge"
+                      ],
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "refund_requested_at": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/d1"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "refunded_at": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/d1"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "sla_due_at": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/d1"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "status_contract": {
+                  "const": "sourcey.commercial-order-status/v1alpha1",
+                  "type": "string"
+                },
+                "updated_at": {
+                  "$ref": "#/$defs/d1"
+                },
+                "work_state": {
+                  "enum": [
+                    "blocked",
+                    "queued",
+                    "in_review",
+                    "fulfilled",
+                    "failed",
+                    "cancelled"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "status_contract",
+                "order_id",
+                "product_code",
+                "purchase_kind",
+                "product_definition_digest",
+                "funded_work_intent_digest",
+                "amount",
+                "payment_rail",
+                "payment_state",
+                "work_state",
+                "paid_at",
+                "sla_due_at",
+                "refund_reason",
+                "refund_requested_at",
+                "refunded_at",
+                "fulfilment_receipt_digest",
+                "failure_receipt_digest",
+                "created_at",
+                "updated_at"
+              ],
+              "type": "object"
+            },
+            "request_id": {
+              "pattern": "^[A-Za-z0-9_-]{32,128}$",
+              "type": "string"
+            },
+            "status_url": {
+              "format": "uri",
+              "type": "string"
+            },
+            "submission_id": {
+              "pattern": "^sub_[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "request_id",
+            "submission_id",
+            "order",
+            "status_url"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.sourcey.com",
+    "endpoint": "https://api.sourcey.com/v1/startup-credits/reviews",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_109f49d0df7e208a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "inspect_url": {
+          "pattern": "^/v1/invocations/[A-Za-z0-9][A-Za-z0-9._:-]*$",
+          "type": "string"
+        },
+        "invocation": {
+          "properties": {
+            "invocation_id": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+              "type": "string"
+            },
+            "offer_revision_digest": {
+              "const": "sha256:99391570fee1ffa5752f5c02582e773fbf9f96d379f9e5859ef9d24af58d6832"
+            },
+            "output": {
+              "additionalProperties": false,
+              "properties": {
+                "extension": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "additional_duration_seconds": {
+                      "type": "integer"
+                    },
+                    "address": {
+                      "format": "email",
+                      "maxLength": 320,
+                      "minLength": 3,
+                      "type": "string"
+                    },
+                    "expires_at": {
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "extended_at": {
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "inbox_id": {
+                      "pattern": "^inb_[A-Za-z0-9_-]{22,64}$",
+                      "type": "string"
+                    },
+                    "previous_expires_at": {
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "schema": {
+                      "const": "ausca.agent_inbox.extension.v1"
+                    },
+                    "state": {
+                      "const": "active"
+                    }
+                  },
+                  "required": [
+                    "schema",
+                    "inbox_id",
+                    "address",
+                    "state",
+                    "additional_duration_seconds",
+                    "previous_expires_at",
+                    "expires_at",
+                    "extended_at"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "extension"
+              ],
+              "type": "object"
+            },
+            "output_digest": {
+              "pattern": "^sha256:[a-f0-9]{64}$",
+              "type": "string"
+            },
+            "receipt_ref": {
+              "properties": {
+                "public_url": {
+                  "format": "uri",
+                  "maxLength": 2048,
+                  "pattern": "^https://[^?#]+/r/[a-f0-9]{64}$",
+                  "type": "string"
+                },
+                "type": {
+                  "const": "receipt"
+                },
+                "uri": {
+                  "maxLength": 512,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "uri"
+              ],
+              "type": "object"
+            },
+            "state": {
+              "enum": [
+                "admitted",
+                "running",
+                "succeeded",
+                "failed",
+                "cancellation_requested",
+                "cancelled"
+              ],
+              "type": "string"
+            },
+            "updated_at": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "invocation_id",
+            "offer_revision_digest",
+            "state",
+            "updated_at"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "const": "accepted"
+        }
+      },
+      "required": [
+        "status",
+        "invocation",
+        "inspect_url"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "invocation.output.extension.additional_duration_seconds": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ausca.com",
+    "endpoint": "https://ausca.com/v1/extend-inbox",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

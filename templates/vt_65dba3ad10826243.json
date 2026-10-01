@@ -1,0 +1,99 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_65dba3ad10826243",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "checked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "reachable_regions": {
+          "type": "integer"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "dns_ms": {
+                "type": "integer"
+              },
+              "error": {},
+              "name": {
+                "type": "string"
+              },
+              "region": {
+                "type": "string"
+              },
+              "response_time_ms": {
+                "type": "integer"
+              },
+              "status": {
+                "type": "string"
+              },
+              "status_code": {
+                "type": "integer"
+              },
+              "tcp_ms": {
+                "type": "integer"
+              },
+              "tls_ms": {
+                "type": "integer"
+              },
+              "ttfb_ms": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "dns_ms",
+              "name",
+              "region",
+              "response_time_ms",
+              "status",
+              "status_code",
+              "tcp_ms",
+              "tls_ms",
+              "ttfb_ms"
+            ]
+          }
+        },
+        "total_regions": {
+          "type": "number"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "checked_at",
+        "reachable_regions",
+        "results",
+        "total_regions",
+        "url",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "total_regions": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "sentinel.rootstuff.io",
+    "endpoint": "https://sentinel.rootstuff.io/x402/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

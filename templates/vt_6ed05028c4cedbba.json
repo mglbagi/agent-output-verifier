@@ -1,0 +1,172 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6ed05028c4cedbba",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "explanation": {
+          "properties": {
+            "lang": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "reasons": {
+          "items": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "details": {},
+              "severity": {
+                "enum": [
+                  "red",
+                  "orange",
+                  "info"
+                ],
+                "type": "string"
+              },
+              "subject": {
+                "type": "string",
+                "pattern": "^0x[a-fA-F0-9]{40}$"
+              }
+            },
+            "required": [
+              "code",
+              "severity"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "receipt": {
+          "description": "Signature over this whole answer (without receipt.signature), so the verdict can be verified later: EIP-191 personal_sign over canonical JSON (sorted keys, compact, ASCII-escaped). Signer addresses: /.well-known/presign-guard-signer.json; free check: POST /v1/verify.",
+          "properties": {
+            "algorithm": {
+              "enum": [
+                "eip191-canonical-json-v1"
+              ],
+              "type": "string"
+            },
+            "cert": {
+              "description": "The payout wallet's certificate for this signing key: personal_sign by authority over 'fizzl receipt signer\\nservice: <service>\\nsigner: <signer>\\nvalid_from: <date>'. Pin the payout wallet and a rotated key still verifies.",
+              "properties": {
+                "authority": {
+                  "type": "string"
+                },
+                "service": {
+                  "type": "string"
+                },
+                "signature": {
+                  "type": "string"
+                },
+                "signer": {
+                  "type": "string"
+                },
+                "valid_from": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "input_sha256": {
+              "description": "sha256 of canonical JSON {route, input}: your body (POST) or query parameters (GET)",
+              "type": "string"
+            },
+            "payment": {
+              "description": "The payment behind this answer, from your x402 payment payload. EVM: payer + EIP-3009 nonce; find the settlement as AuthorizationUsed(payer, nonce) on the asset contract. Solana: payer + sha256 of the signed transaction you sent.",
+              "properties": {
+                "amount": {
+                  "type": "string"
+                },
+                "asset": {
+                  "type": "string"
+                },
+                "network": {
+                  "type": "string"
+                },
+                "nonce": {
+                  "type": "string"
+                },
+                "pay_to": {
+                  "type": "string"
+                },
+                "payer": {
+                  "type": "string"
+                },
+                "proof": {
+                  "enum": [
+                    "eip3009",
+                    "svm-transaction"
+                  ],
+                  "type": "string"
+                },
+                "transaction_sha256": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "request_id": {
+              "type": "string"
+            },
+            "route": {
+              "type": "string"
+            },
+            "signature": {
+              "type": "string"
+            },
+            "signed_at": {
+              "type": "string"
+            },
+            "signer": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "request_id",
+            "route",
+            "input_sha256",
+            "signed_at",
+            "signer",
+            "algorithm",
+            "signature"
+          ],
+          "type": "object"
+        },
+        "subject": {
+          "type": "object"
+        },
+        "verdict": {
+          "enum": [
+            "green",
+            "orange",
+            "red"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "verdict",
+        "reasons"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "presign-guard.onrender.com",
+    "endpoint": "https://presign-guard.onrender.com/v1/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

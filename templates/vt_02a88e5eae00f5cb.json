@@ -1,0 +1,48 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_02a88e5eae00f5cb",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "best": {
+          "type": "object"
+        },
+        "matchCount": {
+          "type": "number"
+        },
+        "matches": {
+          "type": "array"
+        },
+        "price": {
+          "type": "string"
+        },
+        "runnerUp": {
+          "type": "object"
+        },
+        "service": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "best",
+        "matchCount",
+        "price",
+        "runnerUp",
+        "service"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402dir.com",
+    "endpoint": "https://x402dir.com/api/recommend",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

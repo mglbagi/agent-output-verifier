@@ -1,0 +1,212 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f97f644e7731a10e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "coins_scanned": {
+          "type": "number"
+        },
+        "filters": {
+          "properties": {
+            "direction": {
+              "type": "string"
+            },
+            "min_risk_reward": {
+              "type": "number"
+            },
+            "top": {
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "required": [
+            "direction",
+            "min_risk_reward",
+            "top"
+          ]
+        },
+        "interval": {
+          "type": "string"
+        },
+        "median_atr_percent": {
+          "type": "number"
+        },
+        "setups": {
+          "description": "Best first",
+          "items": {
+            "properties": {
+              "atr_percent": {
+                "type": "number"
+              },
+              "confidence": {
+                "enum": [
+                  "high",
+                  "medium",
+                  "low"
+                ],
+                "type": "string"
+              },
+              "direction": {
+                "enum": [
+                  "long",
+                  "short"
+                ],
+                "type": "string"
+              },
+              "entry": {
+                "type": "number"
+              },
+              "exchange": {
+                "type": "string"
+              },
+              "obstacle_before_target": {
+                "description": "Support/resistance between entry and target 1, if any",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "pair": {
+                "type": "string"
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "rank_score": {
+                "description": "Signal strength x risk/reward (up to 3), lower for above-median volatility and for support/resistance close after the entry",
+                "type": "number"
+              },
+              "risk_reward_1": {
+                "type": "number"
+              },
+              "risk_reward_2": {
+                "type": "number"
+              },
+              "signal_from": {
+                "description": "e.g. \"5 of 6 indicators bullish\"",
+                "type": "string"
+              },
+              "stop": {
+                "type": "number"
+              },
+              "stop_basis": {
+                "type": "string"
+              },
+              "target_1": {
+                "type": "number"
+              },
+              "target_2": {
+                "type": "number"
+              },
+              "volume_24h_usd": {
+                "description": "On the listed exchange only",
+                "type": "number"
+              },
+              "warning": {
+                "description": "Set when that obstacle is in the first quarter of the way to target 1",
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "atr_percent",
+              "confidence",
+              "direction",
+              "entry",
+              "exchange",
+              "obstacle_before_target",
+              "pair",
+              "rank",
+              "rank_score",
+              "risk_reward_1",
+              "risk_reward_2",
+              "signal_from",
+              "stop",
+              "stop_basis",
+              "target_1",
+              "target_2",
+              "volume_24h_usd"
+            ]
+          },
+          "type": "array"
+        },
+        "setups_found": {
+          "type": "number"
+        },
+        "skipped": {
+          "items": {
+            "properties": {
+              "pair": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "summary": {
+          "properties": {
+            "long": {
+              "type": "number"
+            },
+            "neutral_coins": {
+              "type": "number"
+            },
+            "short": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "long",
+            "neutral_coins",
+            "short"
+          ]
+        },
+        "timestamp": {
+          "description": "ISO 8601 UTC",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "interval",
+        "timestamp",
+        "coins_scanned",
+        "filters",
+        "setups_found",
+        "setups"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "median_atr_percent": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "setups[].atr_percent": {
+        "min": 0,
+        "max": 100
+      },
+      "setups[].volume_24h_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ichimoku-signal.onrender.com",
+    "endpoint": "https://ichimoku-signal.onrender.com/setups",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_abd630f326801269",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "commercial_receipt": {
+          "properties": {
+            "capability": {
+              "type": "string"
+            },
+            "capability_version": {
+              "type": "string"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "invocation_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "network": {
+              "type": "string"
+            },
+            "network_class": {
+              "type": "string"
+            },
+            "purchase_id": {
+              "type": "string"
+            },
+            "quoted_amount_usd": {
+              "type": "string"
+            },
+            "rail": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "work_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "purchase_id",
+            "invocation_id",
+            "capability",
+            "rail",
+            "network",
+            "quoted_amount_usd",
+            "currency",
+            "work_id",
+            "status"
+          ],
+          "type": "object"
+        },
+        "newly_charged": {
+          "type": "boolean"
+        },
+        "newly_executed": {
+          "type": "boolean"
+        },
+        "result": {
+          "properties": {
+            "breakdown_by_resource_class": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "breakdown_by_supplier": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "capability_version": {
+              "type": "string"
+            },
+            "event_count": {
+              "type": "integer"
+            },
+            "exact_total_known": {
+              "type": "boolean"
+            },
+            "known_total_cost_usd": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "outcome_status": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "price_provenance": {
+              "additionalProperties": {
+                "type": "integer"
+              },
+              "type": "object"
+            },
+            "unknown_event_count": {
+              "type": "integer"
+            },
+            "work_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "work_id",
+            "known_total_cost_usd",
+            "exact_total_known",
+            "event_count",
+            "unknown_event_count",
+            "breakdown_by_resource_class",
+            "breakdown_by_supplier",
+            "price_provenance",
+            "outcome_status",
+            "capability_version"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "result",
+        "commercial_receipt",
+        "newly_charged",
+        "newly_executed"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "result.event_count": {
+        "min": 0
+      },
+      "result.unknown_event_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "inferrail-x402-seller-testnet.onrender.com",
+    "endpoint": "https://inferrail-x402-seller-testnet.onrender.com/invoke",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

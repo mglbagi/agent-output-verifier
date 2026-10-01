@@ -1,0 +1,68 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6d5bfde983306876",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "byteLength": {
+          "description": "UTF-8 byte length of the svg string.",
+          "type": "integer"
+        },
+        "pointCount": {
+          "type": "integer"
+        },
+        "svg": {
+          "description": "Complete, well-formed SVG document.",
+          "type": "string"
+        },
+        "yAxis": {
+          "properties": {
+            "max": {
+              "type": "number"
+            },
+            "min": {
+              "type": "number"
+            },
+            "ticks": {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "min",
+            "max",
+            "ticks"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "svg",
+        "byteLength",
+        "yAxis",
+        "pointCount"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "yAxis.min",
+        "other_field": "yAxis.max"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "svg-bar-chart-renderer.jannioura.workers.dev",
+    "endpoint": "https://svg-bar-chart-renderer.jannioura.workers.dev/",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

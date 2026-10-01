@@ -1,0 +1,313 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_633f96abbadea7a9",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "1": {
+              "type": "object",
+              "properties": {
+                "circulating_supply": {
+                  "type": "integer"
+                },
+                "cmc_rank": {
+                  "type": "integer"
+                },
+                "date_added": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "is_active": {
+                  "type": "integer"
+                },
+                "last_updated": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "max_supply": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "quote": {
+                  "type": "object",
+                  "properties": {
+                    "USD": {
+                      "type": "object",
+                      "properties": {
+                        "fully_diluted_market_cap": {
+                          "type": "string"
+                        },
+                        "last_updated": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "market_cap": {
+                          "type": "string"
+                        },
+                        "market_cap_dominance": {
+                          "type": "number"
+                        },
+                        "percent_change_1h": {
+                          "type": "number"
+                        },
+                        "percent_change_24h": {
+                          "type": "number"
+                        },
+                        "percent_change_30d": {
+                          "type": "number"
+                        },
+                        "percent_change_7d": {
+                          "type": "number"
+                        },
+                        "price": {
+                          "type": "number"
+                        },
+                        "volume_24h": {
+                          "type": "string"
+                        },
+                        "volume_change_24h": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "fully_diluted_market_cap",
+                        "last_updated",
+                        "market_cap",
+                        "market_cap_dominance",
+                        "percent_change_1h",
+                        "percent_change_24h",
+                        "percent_change_30d",
+                        "percent_change_7d",
+                        "price",
+                        "volume_24h",
+                        "volume_change_24h"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "USD"
+                  ]
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "symbol": {
+                  "type": "string"
+                },
+                "total_supply": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "circulating_supply",
+                "cmc_rank",
+                "date_added",
+                "id",
+                "is_active",
+                "last_updated",
+                "max_supply",
+                "name",
+                "quote",
+                "slug",
+                "symbol",
+                "total_supply"
+              ]
+            },
+            "1027": {
+              "type": "object",
+              "properties": {
+                "circulating_supply": {
+                  "type": "integer"
+                },
+                "cmc_rank": {
+                  "type": "integer"
+                },
+                "date_added": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "is_active": {
+                  "type": "integer"
+                },
+                "last_updated": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "quote": {
+                  "type": "object",
+                  "properties": {
+                    "USD": {
+                      "type": "object",
+                      "properties": {
+                        "fully_diluted_market_cap": {
+                          "type": "string"
+                        },
+                        "last_updated": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "market_cap": {
+                          "type": "string"
+                        },
+                        "market_cap_dominance": {
+                          "type": "number"
+                        },
+                        "percent_change_1h": {
+                          "type": "number"
+                        },
+                        "percent_change_24h": {
+                          "type": "number"
+                        },
+                        "percent_change_30d": {
+                          "type": "number"
+                        },
+                        "percent_change_7d": {
+                          "type": "number"
+                        },
+                        "price": {
+                          "type": "number"
+                        },
+                        "volume_24h": {
+                          "type": "string"
+                        },
+                        "volume_change_24h": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "fully_diluted_market_cap",
+                        "last_updated",
+                        "market_cap",
+                        "market_cap_dominance",
+                        "percent_change_1h",
+                        "percent_change_24h",
+                        "percent_change_30d",
+                        "percent_change_7d",
+                        "price",
+                        "volume_24h",
+                        "volume_change_24h"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "USD"
+                  ]
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "symbol": {
+                  "type": "string"
+                },
+                "total_supply": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "circulating_supply",
+                "cmc_rank",
+                "date_added",
+                "id",
+                "is_active",
+                "last_updated",
+                "name",
+                "quote",
+                "slug",
+                "symbol",
+                "total_supply"
+              ]
+            }
+          },
+          "required": [
+            "1",
+            "1027"
+          ]
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "credit_count": {
+              "type": "integer"
+            },
+            "elapsed": {
+              "type": "integer"
+            },
+            "error_code": {
+              "type": "integer"
+            },
+            "error_message": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "credit_count",
+            "elapsed",
+            "error_code",
+            "error_message",
+            "timestamp"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.1.max_supply": {
+        "min": 0
+      },
+      "data.1.quote.USD.market_cap_dominance": {
+        "min": 0
+      },
+      "data.1.quote.USD.price": {
+        "min": 0
+      },
+      "data.1.total_supply": {
+        "min": 0
+      },
+      "data.1027.quote.USD.market_cap_dominance": {
+        "min": 0
+      },
+      "data.1027.quote.USD.price": {
+        "min": 0
+      },
+      "data.1027.total_supply": {
+        "min": 0
+      },
+      "status.credit_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "pro-api.coinmarketcap.com",
+    "endpoint": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_859cd508ac28c9f5",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "markets": {
+          "description": "Coins ranked by market cap, descending",
+          "items": {
+            "properties": {
+              "ath": {
+                "description": "All-time high price",
+                "type": "number"
+              },
+              "ath_change_pct": {
+                "description": "Percent change from all-time high",
+                "type": "number"
+              },
+              "circulating_supply": {
+                "description": "Circulating supply",
+                "type": "number"
+              },
+              "current_price": {
+                "description": "Current price",
+                "type": "number"
+              },
+              "high_24h": {
+                "description": "24h high price",
+                "type": "number"
+              },
+              "id": {
+                "description": "CoinGecko coin id slug",
+                "type": "string"
+              },
+              "image": {
+                "description": "URL of the coin's logo image",
+                "type": "string"
+              },
+              "low_24h": {
+                "description": "24h low price",
+                "type": "number"
+              },
+              "market_cap": {
+                "description": "Market cap",
+                "type": "number"
+              },
+              "market_cap_rank": {
+                "description": "Rank by market cap",
+                "type": "integer"
+              },
+              "max_supply": {
+                "description": "Max supply",
+                "type": "number"
+              },
+              "name": {
+                "description": "Coin name",
+                "type": "string"
+              },
+              "price_change_pct_24h": {
+                "description": "Price change percent over 24h",
+                "type": "number"
+              },
+              "symbol": {
+                "description": "Ticker symbol",
+                "type": "string"
+              },
+              "total_supply": {
+                "description": "Total supply",
+                "type": "number"
+              },
+              "total_volume": {
+                "description": "24h trading volume",
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "symbol",
+              "name"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "page": {
+          "description": "Page number returned",
+          "type": "integer"
+        },
+        "per_page": {
+          "description": "Rows per page returned",
+          "type": "integer"
+        },
+        "queried_at": {
+          "description": "UTC timestamp the upstream was queried",
+          "format": "date-time",
+          "type": "string"
+        },
+        "vs_currency": {
+          "description": "Currency the figures are quoted in",
+          "type": "string"
+        }
+      },
+      "required": [
+        "queried_at",
+        "vs_currency",
+        "page",
+        "per_page",
+        "markets"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "markets[].low_24h",
+        "other_field": "markets[].high_24h",
+        "if_present": true
+      },
+      {
+        "type": "unique",
+        "field": "markets[].id"
+      }
+    ],
+    "bounds": {
+      "markets[].current_price": {
+        "min": 0,
+        "if_present": true
+      },
+      "markets[].market_cap": {
+        "min": 0,
+        "if_present": true
+      },
+      "markets[].market_cap_rank": {
+        "min": 0,
+        "if_present": true
+      },
+      "markets[].max_supply": {
+        "min": 0,
+        "if_present": true
+      },
+      "markets[].total_supply": {
+        "min": 0,
+        "if_present": true
+      },
+      "markets[].total_volume": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "coingecko.use.x402atlas.com",
+    "endpoint": "https://coingecko.use.x402atlas.com/markets",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1cf285ea84a84de7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "answer": {
+          "additionalProperties": false,
+          "properties": {
+            "business_phone": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "cik": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "coverage_note": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "domain": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "ein": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "employees": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "entity_status": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "entity_type": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "exchanges": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "fiscal_year_end": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "founded": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "hq_address": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "jurisdiction": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "last_filing_date": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "legal_address": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "legal_name": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "lei": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "revenue_latest": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "sic": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "sic_description": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "sources": {
+              "minItems": 1,
+              "type": "array"
+            },
+            "state_of_incorporation": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "tickers": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "website": {
+              "type": [
+                "object",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "legal_name",
+            "lei",
+            "cik",
+            "ein",
+            "tickers",
+            "exchanges",
+            "sic",
+            "sic_description",
+            "entity_type",
+            "state_of_incorporation",
+            "jurisdiction",
+            "legal_address",
+            "hq_address",
+            "business_phone",
+            "fiscal_year_end",
+            "website",
+            "domain",
+            "revenue_latest",
+            "employees",
+            "founded",
+            "entity_status",
+            "last_filing_date",
+            "sources",
+            "coverage_note"
+          ],
+          "type": "object"
+        },
+        "delivered_at": {
+          "minLength": 1,
+          "type": "string",
+          "format": "date-time"
+        },
+        "schema_version": {
+          "const": "company-lookup.v1",
+          "type": "string"
+        },
+        "source": {
+          "additionalProperties": false,
+          "properties": {
+            "coverage": {
+              "const": "3508642 entities as of 2026-09-28: 1758 joined LEI to CIK via Wikidata, 3434618 GLEIF-only, 72266 SEC-only (filers with a SIC code). Excludes GLEIF DUPLICATE or ANNULLED records and non-Latin-script names. Look up by LEI, CIK, ticker, legal name or domain. The domain index covers only the 22574 companies Wikidata links to a website, over 21270 distinct domains, 825 of them shared. A name or a shared domain matching several companies is refused free (409, up to 5 candidates). Revenue is the latest annual 10-K or 20-F fact. Answers are verified against this snapshot_sha256.",
+              "type": "string"
+            },
+            "name": {
+              "const": "Company profile joined from the GLEIF golden copy (Level 1), SEC EDGAR (submissions, company tickers, companyfacts) and Wikidata",
+              "type": "string"
+            },
+            "snapshot_sha256": {
+              "const": "2204da1e5319ac551e286850578f2f5080b23cb26cd50d6b4682d9b26262c91b",
+              "type": "string"
+            },
+            "vintage": {
+              "const": "2026-09-28",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "vintage",
+            "snapshot_sha256",
+            "coverage"
+          ],
+          "type": "object"
+        },
+        "subject": {
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "company",
+              "type": "string"
+            },
+            "value": {
+              "description": "a company domain, legal name, CIK, ticker or 20-character LEI, 1 to 200 characters; detected in that spirit unless kind names it",
+              "maxLength": 200,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "value"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "schema_version",
+        "subject",
+        "answer",
+        "source",
+        "delivered_at"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "lookups.alienprobe.ai",
+    "endpoint": "https://lookups.alienprobe.ai/v1/lookup/company",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

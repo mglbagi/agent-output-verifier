@@ -1,0 +1,149 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_900e49f84563666d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "archive": {
+          "description": "Raw USC/ISI archive months (AWS legacy types only), unadjusted.",
+          "items": {
+            "properties": {
+              "avg": {
+                "type": "number"
+              },
+              "close": {
+                "type": "number"
+              },
+              "date": {
+                "format": "date",
+                "type": "string"
+              },
+              "high": {
+                "type": "number"
+              },
+              "low": {
+                "type": "number"
+              },
+              "open": {
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "archive_note": {
+          "description": "Standing of the archive rows.",
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "instance": {
+          "type": "string"
+        },
+        "months": {
+          "items": {
+            "properties": {
+              "avg": {
+                "description": "Median of the month's daily averages (or the adjusted archive value), USD per hour.",
+                "type": "number"
+              },
+              "close": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "date": {
+                "description": "First day of the month.",
+                "format": "date",
+                "type": "string"
+              },
+              "days": {
+                "description": "Days of daily data behind the month; null for uscisi-adjusted months.",
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "high": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "low": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "open": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "source": {
+                "description": "Where a row comes from; see `sources` in /catalog for the legend and standing of each.",
+                "enum": [
+                  "direct",
+                  "titans",
+                  "pauley",
+                  "uscisi-adjusted",
+                  "archive"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "date",
+              "avg",
+              "source"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "provider": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "archive[].low",
+        "other_field": "archive[].high",
+        "if_present": true
+      },
+      {
+        "type": "lte",
+        "field": "months[].low",
+        "other_field": "months[].high",
+        "if_present": true
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "cloud.trycorpus.ai",
+    "endpoint": "https://cloud.trycorpus.ai/v1/spot/monthly",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

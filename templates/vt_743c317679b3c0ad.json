@@ -1,0 +1,239 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_743c317679b3c0ad",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "chain": {
+          "enum": [
+            "base"
+          ],
+          "type": "string"
+        },
+        "chain_id": {
+          "type": "integer"
+        },
+        "fetched_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "gas_price_gwei": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "pairs_on_base": {
+          "description": "pools DEX Screener listed for the token on Base (it lists at most 30)",
+          "type": "integer"
+        },
+        "pools_listed_capped": {
+          "description": "true when DEX Screener returned its maximum of 30 pools, so a deeper pool may exist beyond the list",
+          "type": "boolean"
+        },
+        "price_note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "price_source": {
+          "properties": {
+            "base": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "dex": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "liquidity_usd": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "pair_address": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "pair_url": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "uri"
+            },
+            "price_change_24h_pct": {
+              "description": "only when the token is the base of the pool; null when it is the quote",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "quote": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "token_is": {
+              "enum": [
+                "base",
+                "quote",
+                null
+              ],
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "volume_24h_usd": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "base",
+            "dex",
+            "liquidity_usd",
+            "pair_address",
+            "pair_url",
+            "price_change_24h_pct",
+            "quote",
+            "token_is",
+            "volume_24h_usd"
+          ]
+        },
+        "price_usd": {
+          "description": "USD, six significant digits",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "sources": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "token": {
+          "properties": {
+            "address": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "decimals": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "symbol": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "total_supply": {
+              "description": "whole tokens, decimal string",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "address",
+            "decimals",
+            "name",
+            "symbol",
+            "total_supply"
+          ]
+        },
+        "wallet": {
+          "properties": {
+            "address": {
+              "type": "string"
+            },
+            "eth_balance": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "token_balance": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "chain",
+        "chain_id",
+        "fetched_at",
+        "gas_price_gwei",
+        "pairs_on_base",
+        "pools_listed_capped",
+        "price_source",
+        "price_usd",
+        "sources",
+        "token"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "gas_price_gwei": {
+        "min": 0
+      },
+      "price_source.liquidity_usd": {
+        "min": 0
+      },
+      "price_source.volume_24h_usd": {
+        "min": 0
+      },
+      "price_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.agentsouk.dev",
+    "endpoint": "https://api.agentsouk.dev/v1/x402/lst_01M2ER4Q7KTYH6WYWWXRT0XT0X",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

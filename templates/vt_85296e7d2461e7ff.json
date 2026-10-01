@@ -1,0 +1,150 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_85296e7d2461e7ff",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "model": {
+          "type": "string"
+        },
+        "report": {
+          "properties": {
+            "as_of": {
+              "type": "string",
+              "format": "date"
+            },
+            "catalysts": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "confidence": {
+              "enum": [
+                "low",
+                "medium",
+                "high"
+              ],
+              "type": "string"
+            },
+            "disclaimer": {
+              "type": "string"
+            },
+            "evidence": {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "executive_summary": {
+              "type": "string"
+            },
+            "invalidation_conditions": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "monitoring_triggers": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "next_steps": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "red_flags": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "risks": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "subject": {
+              "type": "string"
+            },
+            "thesis": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "thesis_status": {
+              "enum": [
+                "supported",
+                "contradicted",
+                "mixed",
+                "insufficient_evidence"
+              ],
+              "type": "string"
+            },
+            "unknowns": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "verdict": {
+              "enum": [
+                "avoid",
+                "watch",
+                "neutral",
+                "consider"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "subject",
+            "as_of",
+            "verdict",
+            "thesis_status",
+            "confidence",
+            "executive_summary",
+            "thesis",
+            "catalysts",
+            "risks",
+            "red_flags",
+            "invalidation_conditions",
+            "monitoring_triggers",
+            "evidence",
+            "unknowns",
+            "next_steps",
+            "disclaimer"
+          ],
+          "type": "object"
+        },
+        "report_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "report_id",
+        "model",
+        "report"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "research.lumenhouse.xyz",
+    "endpoint": "https://research.lumenhouse.xyz/v1/research",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

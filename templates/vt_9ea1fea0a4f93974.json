@@ -1,0 +1,115 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9ea1fea0a4f93974",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "properties": {
+            "categories": {
+              "items": {
+                "properties": {
+                  "category": {
+                    "type": "string"
+                  },
+                  "delta7d": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "services": {
+                    "type": "number"
+                  },
+                  "share": {
+                    "type": "number"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "category",
+                  "services",
+                  "share"
+                ]
+              },
+              "type": "array"
+            },
+            "observedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "source": {
+              "type": "string"
+            },
+            "totalServices": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "observedAt",
+            "totalServices",
+            "categories"
+          ],
+          "type": "object"
+        },
+        "endpoint": {
+          "description": "Always \"/v1/category-breakdown\".",
+          "type": "string"
+        },
+        "meta": {
+          "properties": {
+            "attribution": {
+              "description": "Licensing attribution when the source requires it.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "cached": {
+              "description": "Whether this response was served from cache.",
+              "type": "boolean"
+            },
+            "fetchedAt": {
+              "description": "ISO 8601 time the data was actually retrieved from the upstream.",
+              "type": "string",
+              "format": "date-time"
+            },
+            "source": {
+              "description": "Upstream source: Aye Pulse market collector (archived public-source observations).",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source",
+            "cached",
+            "fetchedAt"
+          ],
+          "type": "object"
+        },
+        "ok": {
+          "description": "true on success.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok",
+        "endpoint",
+        "data",
+        "meta"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "gateway.stride20k.com",
+    "endpoint": "https://gateway.stride20k.com/v1/category-breakdown",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

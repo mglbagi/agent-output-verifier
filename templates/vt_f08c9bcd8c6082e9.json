@@ -1,0 +1,66 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f08c9bcd8c6082e9",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "ageYears": {
+          "type": "number"
+        },
+        "dmarc": {
+          "type": "boolean"
+        },
+        "dnsProvider": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "https": {
+          "type": "boolean"
+        },
+        "mailProvider": {
+          "type": "string"
+        },
+        "registeredOn": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "registrar": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "vendorCount": {
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "required": [
+        "ageYears",
+        "dmarc",
+        "dnsProvider",
+        "domain",
+        "https",
+        "mailProvider",
+        "registeredOn",
+        "registrar",
+        "title",
+        "vendorCount"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hosaka-agents.vercel.app",
+    "endpoint": "https://hosaka-agents.vercel.app/lookup",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

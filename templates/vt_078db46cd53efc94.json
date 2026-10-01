@@ -1,0 +1,85 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_078db46cd53efc94",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "census": {
+          "description": "Per level, how many lines read at each point and how many witnesses each check told against.",
+          "type": "object"
+        },
+        "format": {
+          "enum": [
+            "text",
+            "srt",
+            "vtt"
+          ]
+        },
+        "kind": {
+          "const": "mandarin-english-translation/v1"
+        },
+        "memory": {
+          "description": "The series memory to send with the next episode.",
+          "type": "object"
+        },
+        "models": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "module": {
+          "type": "string"
+        },
+        "reading": {
+          "description": "Per level, the FOUR reading of the whole response, the knowledge join of its lines: held (every check passed), denied, contested (told both ways) or unknown.",
+          "type": "object"
+        },
+        "segments": {
+          "description": "Each paragraph or cue's source beside its English at each level, with the evidence for and against that English: glossary, untranslated, fit and module-rule checks as SignChain { for, against } witness sets and their FOUR reading.",
+          "items": {
+            "properties": {
+              "source": {
+                "type": "string"
+              },
+              "target": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "source",
+              "target"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "translation": {
+          "description": "The English, in the request's own form: text, or a subtitle file in the source's format.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "module",
+        "format",
+        "models",
+        "translation",
+        "segments"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "market.561.group",
+    "endpoint": "https://market.561.group/v1/translate/zh-en",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

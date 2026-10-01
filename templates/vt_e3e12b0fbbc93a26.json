@@ -1,0 +1,93 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e3e12b0fbbc93a26",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string"
+              },
+              "cap_rate": {
+                "type": "number"
+              },
+              "city": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "last_verified": {
+                "type": "string",
+                "format": "date"
+              },
+              "list_price": {
+                "type": "number"
+              },
+              "listing_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "state": {
+                "type": "string"
+              },
+              "units": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "address",
+              "cap_rate",
+              "city",
+              "id",
+              "last_verified",
+              "list_price",
+              "listing_url",
+              "state",
+              "units"
+            ]
+          }
+        }
+      },
+      "required": [
+        "count",
+        "records"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "records[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "records[].cap_rate": {
+        "min": 0
+      },
+      "records[].list_price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "dwelldata.io",
+    "endpoint": "https://dwelldata.io/api/deals/basic",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

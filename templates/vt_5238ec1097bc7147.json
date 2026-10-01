@@ -1,0 +1,156 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5238ec1097bc7147",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data_versions": {
+          "description": "Declares the pinned IANA tzdb release, holiday dataset, and Temporal source.",
+          "type": "object"
+        },
+        "evidence": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "policy_version": {
+          "type": "string"
+        },
+        "request_hash": {
+          "type": "string"
+        },
+        "result": {
+          "properties": {
+            "ambiguity": {
+              "enum": [
+                "unique",
+                "ambiguous",
+                "nonexistent"
+              ],
+              "type": "string"
+            },
+            "business_days_result": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "candidates": {
+              "description": "Both candidate instants when the local time is ambiguous or nonexistent.",
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "comparisons": {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "coverage": {
+              "type": "object"
+            },
+            "is_holiday": {
+              "type": "boolean"
+            },
+            "is_weekend": {
+              "type": "boolean"
+            },
+            "is_working_day": {
+              "type": "boolean"
+            },
+            "next_valid_working_instant": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date-time"
+            },
+            "offset": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "overlap": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "timezone": {
+              "type": "string"
+            },
+            "utc_instant": {
+              "format": "date-time",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "ambiguity",
+            "candidates",
+            "comparisons",
+            "coverage",
+            "is_holiday",
+            "is_weekend",
+            "is_working_day",
+            "next_valid_working_instant",
+            "offset",
+            "overlap",
+            "timezone",
+            "utc_instant"
+          ]
+        },
+        "risk_codes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "verdict": {
+          "description": "unknown when the local time is ambiguous or nonexistent under a reject policy.",
+          "enum": [
+            "resolved",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "ok",
+        "verdict",
+        "result",
+        "request_hash",
+        "data_versions"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "chrono.schemasure.com",
+    "endpoint": "https://chrono.schemasure.com/v1/business-time",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

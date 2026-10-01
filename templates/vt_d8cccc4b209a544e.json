@@ -1,0 +1,37 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d8cccc4b209a544e",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data_source": {
+          "type": "string"
+        },
+        "tx_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data_source",
+        "tx_count"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "tx_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "finance-api.kdlcfa.workers.dev",
+    "endpoint": "https://finance-api.kdlcfa.workers.dev/btc-tx-count-recent",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9e7cf6ea9bf343c2",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "adjusted": {
+          "description": "Whether the price is split-adjusted.",
+          "type": "boolean"
+        },
+        "candle": {
+          "description": "Previous trading day's OHLCV bar.",
+          "properties": {
+            "close": {
+              "type": "number"
+            },
+            "high": {
+              "type": "number"
+            },
+            "low": {
+              "type": "number"
+            },
+            "open": {
+              "type": "number"
+            },
+            "time": {
+              "description": "Bar start timestamp.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "transactions": {
+              "description": "Number of upstream transactions in the bar.",
+              "type": "integer"
+            },
+            "volume": {
+              "type": "number"
+            },
+            "vwap": {
+              "description": "Volume-weighted average price.",
+              "type": "number"
+            }
+          },
+          "required": [
+            "time",
+            "open",
+            "high",
+            "low",
+            "close",
+            "volume",
+            "vwap",
+            "transactions"
+          ],
+          "type": "object"
+        },
+        "queried_at": {
+          "description": "UTC timestamp when this bridge queried the upstream.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "ticker": {
+          "description": "Echo of the requested ticker.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "queried_at",
+        "ticker",
+        "adjusted",
+        "candle"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "candle.low",
+        "other_field": "candle.high"
+      }
+    ],
+    "bounds": {
+      "candle.volume": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "marketdata.use.x402atlas.com",
+    "endpoint": "https://marketdata.use.x402atlas.com/prev-close",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

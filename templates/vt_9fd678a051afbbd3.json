@@ -1,0 +1,106 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9fd678a051afbbd3",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "codingTool": {
+                "type": "object",
+                "properties": {
+                  "lock": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "lock",
+                  "name"
+                ]
+              },
+              "id": {
+                "type": "string"
+              },
+              "lastChecked": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "models": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "name": {
+                "type": "string"
+              },
+              "priceUsd": {
+                "type": "number"
+              },
+              "providerId": {
+                "type": "string"
+              },
+              "rateLimit": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "codingTool",
+              "id",
+              "lastChecked",
+              "models",
+              "name",
+              "priceUsd",
+              "providerId",
+              "rateLimit",
+              "source"
+            ]
+          }
+        },
+        "last_modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "projection": {
+          "type": "string"
+        },
+        "schema_version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "data",
+        "last_modified",
+        "projection",
+        "schema_version"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.tokenplans.dev",
+    "endpoint": "https://api.tokenplans.dev/plans/full",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d52c797b99011307",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "balanceBasis": {
+              "type": "string"
+            },
+            "holderCount": {
+              "type": "integer"
+            },
+            "holders": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string",
+                    "pattern": "^0x[a-fA-F0-9]{40}$"
+                  },
+                  "balance": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "address",
+                  "balance"
+                ]
+              }
+            },
+            "token": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            }
+          },
+          "required": [
+            "balanceBasis",
+            "holderCount",
+            "holders",
+            "token"
+          ]
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mpp.tracefast.xyz",
+    "endpoint": "https://mpp.tracefast.xyz/api/v1/chains/1/tokens/:token/holders",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

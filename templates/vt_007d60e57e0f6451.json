@@ -1,0 +1,143 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_007d60e57e0f6451",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "BTC": {
+          "type": "object",
+          "properties": {
+            "biggestTrackedPosition": {
+              "type": "object",
+              "properties": {
+                "liquidationPx": {
+                  "type": "number"
+                },
+                "notionalUsd": {
+                  "type": "number"
+                },
+                "side": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "liquidationPx",
+                "notionalUsd",
+                "side"
+              ]
+            },
+            "closestToLiquidation": {
+              "type": "object",
+              "properties": {
+                "liquidationPx": {
+                  "type": "number"
+                },
+                "notionalUsd": {
+                  "type": "number"
+                },
+                "pctMoveToLiquidation": {
+                  "type": "number"
+                },
+                "side": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "liquidationPx",
+                "notionalUsd",
+                "pctMoveToLiquidation",
+                "side"
+              ]
+            },
+            "dataAsOf": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "funding": {
+              "type": "number"
+            },
+            "longNotionalAtRiskUsd": {
+              "type": "object",
+              "properties": {
+                "1%": {
+                  "type": "integer"
+                },
+                "3%": {
+                  "type": "number"
+                },
+                "5%": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "1%",
+                "3%",
+                "5%"
+              ]
+            },
+            "markPx": {
+              "type": "integer"
+            },
+            "shortNotionalAtRiskUsd": {
+              "type": "object",
+              "properties": {
+                "1%": {
+                  "type": "integer"
+                },
+                "3%": {
+                  "type": "number"
+                },
+                "5%": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "1%",
+                "3%",
+                "5%"
+              ]
+            },
+            "trackedPositions": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "biggestTrackedPosition",
+            "closestToLiquidation",
+            "dataAsOf",
+            "funding",
+            "longNotionalAtRiskUsd",
+            "markPx",
+            "shortNotionalAtRiskUsd",
+            "trackedPositions"
+          ]
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "BTC",
+        "note"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "BTC.closestToLiquidation.pctMoveToLiquidation": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hlrisk.paidapis.net",
+    "endpoint": "https://hlrisk.paidapis.net/api/hl-liquidation-risk",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

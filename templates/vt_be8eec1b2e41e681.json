@@ -1,0 +1,162 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_be8eec1b2e41e681",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "properties": {
+            "address": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "bytes": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "checksumAddress": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "checksumStatus": {
+              "type": "string"
+            },
+            "inputCase": {
+              "type": "string"
+            },
+            "inputIsChecksum": {
+              "type": "boolean"
+            },
+            "isZero": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "normalizedAddress": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "reason": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "valid": {
+              "type": "boolean"
+            },
+            "verification": {
+              "type": "object"
+            },
+            "warnings": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object",
+          "required": [
+            "address",
+            "bytes",
+            "checksumAddress",
+            "checksumStatus",
+            "inputCase",
+            "inputIsChecksum",
+            "isZero",
+            "normalizedAddress",
+            "source",
+            "valid",
+            "verification",
+            "warnings"
+          ]
+        },
+        "meta": {
+          "properties": {
+            "cached": {
+              "type": "boolean"
+            },
+            "duration_ms": {
+              "type": "integer"
+            },
+            "next_actions": {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "sources": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "warnings": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "duration_ms",
+            "cached",
+            "sources",
+            "warnings",
+            "next_actions"
+          ],
+          "type": "object"
+        },
+        "request_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "service": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "request_id",
+        "service",
+        "version",
+        "data",
+        "meta"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "data.bytes": {
+        "min": 0
+      },
+      "meta.duration_ms": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "apiacre.com",
+    "endpoint": "https://apiacre.com/v1/crypto/address-inspect",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

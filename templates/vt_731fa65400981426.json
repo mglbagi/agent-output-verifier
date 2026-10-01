@@ -1,0 +1,290 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_731fa65400981426",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "asof_day": {
+          "type": "string",
+          "format": "date"
+        },
+        "cache_hit": {
+          "type": "boolean"
+        },
+        "evidence": {
+          "type": "object",
+          "properties": {
+            "active_signals": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "class": {
+                    "type": "string"
+                  },
+                  "confidence": {
+                    "type": "number"
+                  },
+                  "grade": {
+                    "type": "string"
+                  },
+                  "hit_rate": {
+                    "type": "number"
+                  },
+                  "ic": {
+                    "type": "number"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "signal_id": {
+                    "type": "string"
+                  },
+                  "z": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "class",
+                  "confidence",
+                  "grade",
+                  "hit_rate",
+                  "ic",
+                  "name",
+                  "signal_id",
+                  "z"
+                ]
+              }
+            },
+            "active_signals_high_grade": {
+              "type": "integer"
+            },
+            "active_signals_total": {
+              "type": "number"
+            },
+            "asof_day": {
+              "type": "string",
+              "format": "date"
+            },
+            "composite": {
+              "type": "object",
+              "properties": {
+                "rank": {
+                  "type": "integer"
+                },
+                "rank_pct": {
+                  "type": "number"
+                },
+                "score": {
+                  "type": "number"
+                },
+                "score_delta": {
+                  "type": "number"
+                },
+                "score_yesterday": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "rank",
+                "rank_pct",
+                "score",
+                "score_delta",
+                "score_yesterday"
+              ]
+            },
+            "factors": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "class": {
+                    "type": "string"
+                  },
+                  "t_band": {
+                    "type": "string"
+                  },
+                  "t_score_pct": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "class",
+                  "t_band",
+                  "t_score_pct"
+                ]
+              }
+            },
+            "returns": {
+              "type": "object",
+              "properties": {
+                "ret_1d": {
+                  "type": "number"
+                },
+                "ret_30d": {
+                  "type": "number"
+                },
+                "ret_7d": {
+                  "type": "number"
+                },
+                "vol_rv_30d": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "ret_1d",
+                "ret_30d",
+                "ret_7d",
+                "vol_rv_30d"
+              ]
+            },
+            "symbol": {
+              "type": "string"
+            },
+            "top_ts_metrics": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "class": {
+                    "type": "string"
+                  },
+                  "cs_grade": {
+                    "type": "string"
+                  },
+                  "cs_ic": {
+                    "type": "number"
+                  },
+                  "grade_divergence": {
+                    "type": "boolean"
+                  },
+                  "metric_id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "ts_grade": {
+                    "type": "string"
+                  },
+                  "ts_hit_rate": {
+                    "type": "number"
+                  },
+                  "ts_ic": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "class",
+                  "cs_grade",
+                  "cs_ic",
+                  "grade_divergence",
+                  "metric_id",
+                  "name",
+                  "ts_grade",
+                  "ts_hit_rate",
+                  "ts_ic"
+                ]
+              }
+            }
+          },
+          "required": [
+            "active_signals",
+            "active_signals_high_grade",
+            "active_signals_total",
+            "asof_day",
+            "composite",
+            "factors",
+            "returns",
+            "symbol",
+            "top_ts_metrics"
+          ]
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "horizon": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "regime": {
+          "type": "string"
+        },
+        "regime_confidence": {
+          "type": "number"
+        },
+        "source": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "thesis": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "asof_day",
+        "cache_hit",
+        "evidence",
+        "generated_at",
+        "horizon",
+        "model",
+        "ok",
+        "regime",
+        "regime_confidence",
+        "source",
+        "symbol",
+        "thesis"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "evidence.active_signals[].signal_id"
+      },
+      {
+        "type": "unique",
+        "field": "evidence.top_ts_metrics[].metric_id"
+      }
+    ],
+    "bounds": {
+      "evidence.active_signals[].confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "evidence.active_signals_total": {
+        "min": 0
+      },
+      "evidence.composite.rank_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "evidence.factors[].t_score_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "regime_confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "cryptyx.ai",
+    "endpoint": "https://cryptyx.ai/api/asset/thesis",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

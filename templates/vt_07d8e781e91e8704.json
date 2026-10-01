@@ -1,0 +1,78 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_07d8e781e91e8704",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "queried_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "trend_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "trends": {
+          "items": {
+            "properties": {
+              "context": {
+                "type": "string"
+              },
+              "grouped_trends": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "name": {
+                "type": "string"
+              },
+              "post_count": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "rank": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "search_query": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "rank",
+              "name",
+              "search_query",
+              "grouped_trends"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "woeid": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "queried_at",
+        "woeid",
+        "trend_count",
+        "trends"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "twitter.use.x402atlas.com",
+    "endpoint": "https://twitter.use.x402atlas.com/trends",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

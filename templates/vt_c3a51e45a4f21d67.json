@@ -1,0 +1,143 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c3a51e45a4f21d67",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "base_fee_20_blocks": {
+          "properties": {
+            "max_gwei": {
+              "type": "string"
+            },
+            "min_gwei": {
+              "type": "string"
+            },
+            "trend": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "max_gwei",
+            "min_gwei",
+            "trend"
+          ]
+        },
+        "block": {
+          "type": "number"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "cost_estimates_standard": {
+          "properties": {
+            "custom": {
+              "properties": {
+                "eth": {
+                  "type": "string"
+                },
+                "gas": {
+                  "type": "number"
+                },
+                "usd": {
+                  "type": "number"
+                }
+              },
+              "type": "object",
+              "required": [
+                "eth",
+                "gas",
+                "usd"
+              ]
+            },
+            "eth_transfer": {
+              "properties": {
+                "eth": {
+                  "type": "string"
+                },
+                "gas": {
+                  "type": "number"
+                },
+                "usd": {
+                  "type": "number"
+                }
+              },
+              "type": "object",
+              "required": [
+                "eth",
+                "gas",
+                "usd"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "custom",
+            "eth_transfer"
+          ]
+        },
+        "eth_usd": {
+          "type": "number"
+        },
+        "next_base_fee_gwei": {
+          "type": "string"
+        },
+        "tiers": {
+          "properties": {
+            "standard": {
+              "properties": {
+                "max_fee_gwei": {
+                  "type": "string"
+                },
+                "max_priority_fee_gwei": {
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "required": [
+                "max_fee_gwei",
+                "max_priority_fee_gwei"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "standard"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "base_fee_20_blocks",
+        "block",
+        "chain",
+        "cost_estimates_standard",
+        "eth_usd",
+        "next_base_fee_gwei",
+        "tiers"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "cost_estimates_standard.custom.usd": {
+        "min": 0
+      },
+      "cost_estimates_standard.eth_transfer.usd": {
+        "min": 0
+      },
+      "eth_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.jagent.dev",
+    "endpoint": "https://api.jagent.dev/v1/base-gas",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

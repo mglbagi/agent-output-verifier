@@ -1,0 +1,163 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_61364077f53637b9",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "attribution": {
+          "title": "Attribution",
+          "type": "string"
+        },
+        "destination": {
+          "properties": {
+            "confidence": {
+              "title": "Confidence",
+              "type": "number"
+            },
+            "kind": {
+              "title": "Kind",
+              "type": "string"
+            },
+            "lat": {
+              "title": "Lat",
+              "type": "number"
+            },
+            "lon": {
+              "title": "Lon",
+              "type": "number"
+            },
+            "name": {
+              "title": "Name",
+              "type": "string"
+            },
+            "source": {
+              "title": "Source",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "lat",
+            "lon",
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "title": "PlaceOut",
+          "type": "object"
+        },
+        "distance_m": {
+          "title": "Distance M",
+          "type": "integer"
+        },
+        "duration_s": {
+          "title": "Duration S",
+          "type": "integer"
+        },
+        "estimated": {
+          "description": "true = straight-line fallback, not a road route",
+          "title": "Estimated",
+          "type": "boolean"
+        },
+        "miles": {
+          "title": "Miles",
+          "type": "number"
+        },
+        "minutes": {
+          "title": "Minutes",
+          "type": "number"
+        },
+        "origin": {
+          "properties": {
+            "confidence": {
+              "title": "Confidence",
+              "type": "number"
+            },
+            "kind": {
+              "title": "Kind",
+              "type": "string"
+            },
+            "lat": {
+              "title": "Lat",
+              "type": "number"
+            },
+            "lon": {
+              "title": "Lon",
+              "type": "number"
+            },
+            "name": {
+              "title": "Name",
+              "type": "string"
+            },
+            "source": {
+              "title": "Source",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "lat",
+            "lon",
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "title": "PlaceOut",
+          "type": "object"
+        }
+      },
+      "required": [
+        "origin",
+        "destination",
+        "distance_m",
+        "duration_s",
+        "miles",
+        "minutes",
+        "estimated",
+        "attribution"
+      ],
+      "title": "DriveResponse",
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "destination.confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "destination.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "destination.lon": {
+        "min": -180,
+        "max": 180
+      },
+      "duration_s": {
+        "min": 0
+      },
+      "origin.confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "origin.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "origin.lon": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.flipvo.com",
+    "endpoint": "https://api.flipvo.com/v1/drive",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

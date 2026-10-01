@@ -1,0 +1,293 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7cb59c96e8ddd4a3",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "access": {
+                "type": "string"
+              },
+              "annualisation": {
+                "type": "string"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "day_count": {
+                "type": "string"
+              },
+              "deployment_divergence": {
+                "type": "array"
+              },
+              "eligibility": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string"
+                  },
+                  "read_on": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "quote",
+                  "read_on",
+                  "url"
+                ]
+              },
+              "family": {
+                "type": "string"
+              },
+              "instrument": {
+                "type": "string"
+              },
+              "issuer": {
+                "type": "string"
+              },
+              "issuer_figure": {
+                "type": "object",
+                "properties": {
+                  "as_of_date": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "available": {
+                    "type": "boolean"
+                  },
+                  "definition": {},
+                  "reproducible_from_published_inputs": {},
+                  "value_pct": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "as_of_date",
+                  "available",
+                  "value_pct"
+                ]
+              },
+              "issuer_vs_basis_bps": {
+                "type": "number"
+              },
+              "legal_name": {
+                "type": "string"
+              },
+              "period_return_pct": {
+                "type": "number"
+              },
+              "primary_source": {
+                "type": "object",
+                "properties": {
+                  "chain_key": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "quantity": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "chain_key",
+                  "id",
+                  "quantity"
+                ]
+              },
+              "ticker": {
+                "type": "string"
+              },
+              "window": {
+                "type": "object",
+                "properties": {
+                  "actual_days": {
+                    "type": "integer"
+                  },
+                  "distinct_observations": {
+                    "type": "integer"
+                  },
+                  "end_date": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "start_date": {
+                    "type": "string",
+                    "format": "date"
+                  }
+                },
+                "required": [
+                  "actual_days",
+                  "distinct_observations",
+                  "end_date",
+                  "start_date"
+                ]
+              },
+              "yield_basis": {
+                "type": "string"
+              },
+              "yield_pct": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "access",
+              "annualisation",
+              "currency",
+              "day_count",
+              "deployment_divergence",
+              "eligibility",
+              "family",
+              "instrument",
+              "issuer",
+              "issuer_figure",
+              "issuer_vs_basis_bps",
+              "legal_name",
+              "period_return_pct",
+              "primary_source",
+              "ticker",
+              "window",
+              "yield_basis",
+              "yield_pct"
+            ]
+          }
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "basis": {
+              "type": "object",
+              "properties": {
+                "annualisation": {
+                  "type": "string"
+                },
+                "day_count": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "string"
+                },
+                "window_days": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "annualisation",
+                "day_count",
+                "name",
+                "version",
+                "window_days"
+              ]
+            },
+            "capability": {
+              "type": "string"
+            },
+            "schema_version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "basis",
+            "capability",
+            "schema_version"
+          ]
+        },
+        "ranking": {
+          "type": "object",
+          "properties": {
+            "groups": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "currency": {
+                    "type": "string"
+                  },
+                  "family": {
+                    "type": "string"
+                  },
+                  "highest": {
+                    "type": "object",
+                    "properties": {
+                      "ticker": {
+                        "type": "string"
+                      },
+                      "yield_pct": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "ticker",
+                      "yield_pct"
+                    ]
+                  }
+                },
+                "required": [
+                  "currency",
+                  "family",
+                  "highest"
+                ]
+              }
+            }
+          },
+          "required": [
+            "groups"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "meta",
+        "ranking"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "data[].window.start_date",
+        "other_field": "data[].window.end_date"
+      }
+    ],
+    "bounds": {
+      "data[].issuer_figure.value_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "data[].period_return_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "data[].yield_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "ranking.groups[].highest.yield_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.402rates.com",
+    "endpoint": "https://api.402rates.com/v1/rwa/yields",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

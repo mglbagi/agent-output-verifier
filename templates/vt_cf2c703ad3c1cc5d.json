@@ -1,0 +1,58 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cf2c703ad3c1cc5d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "current_gwei": {
+              "type": "number"
+            },
+            "current_percentile_pct": {
+              "type": "number"
+            },
+            "p50_gwei": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "current_gwei",
+            "current_percentile_pct",
+            "p50_gwei"
+          ]
+        },
+        "kind": {
+          "type": "string"
+        },
+        "product": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "data",
+        "kind",
+        "product"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.current_percentile_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.agentfeeds.jp",
+    "endpoint": "https://api.agentfeeds.jp/v1/chain/gas/base",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

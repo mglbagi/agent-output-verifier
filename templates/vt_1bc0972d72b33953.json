@@ -1,0 +1,94 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1bc0972d72b33953",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "min_diff": {
+          "type": "number"
+        },
+        "opportunities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "max_rate": {
+                "type": "number"
+              },
+              "max_venue": {
+                "type": "string"
+              },
+              "min_rate": {
+                "type": "number"
+              },
+              "min_venue": {
+                "type": "string"
+              },
+              "spread": {
+                "type": "number"
+              },
+              "spread_bps": {
+                "type": "integer"
+              },
+              "ticker": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "venues_count": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "max_rate",
+              "max_venue",
+              "min_rate",
+              "min_venue",
+              "spread",
+              "spread_bps",
+              "ticker",
+              "updated_at",
+              "venues_count"
+            ]
+          }
+        }
+      },
+      "required": [
+        "count",
+        "min_diff",
+        "opportunities"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "opportunities[].min_rate",
+        "other_field": "opportunities[].max_rate"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "opportunities[].venues_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.usenami.io",
+    "endpoint": "https://api.usenami.io/v1/perp/arbitrage/funding",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

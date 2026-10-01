@@ -1,0 +1,54 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f7f88fd0798a30a1",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "oracle": {
+          "type": "string"
+        },
+        "price_paid": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "verdict": {
+          "enum": [
+            "WAGMI",
+            "NGMI"
+          ],
+          "type": "string"
+        },
+        "wisdom": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "message",
+        "oracle",
+        "price_paid",
+        "timestamp",
+        "verdict",
+        "wisdom"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "willimake-it.dylan-caponi.workers.dev",
+    "endpoint": "https://willimake-it.dylan-caponi.workers.dev/ask",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

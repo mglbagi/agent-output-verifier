@@ -1,0 +1,49 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8d9a39290b2b9bed",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "seal": {
+          "type": "object",
+          "properties": {
+            "seal_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "seal_id"
+          ]
+        },
+        "served_signature": {
+          "type": "object",
+          "properties": {
+            "algorithm": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "algorithm"
+          ]
+        }
+      },
+      "required": [
+        "seal",
+        "served_signature"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "fractalai.net.co",
+    "endpoint": "https://fractalai.net.co/api/x402/seal-cbom",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4c0ebd5df87216ed",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "allowed": {
+          "type": "boolean"
+        },
+        "asset": {
+          "type": "string"
+        },
+        "capUsdc": {
+          "type": "number"
+        },
+        "day": {
+          "type": "string",
+          "format": "date"
+        },
+        "endpoint": {
+          "type": "string",
+          "format": "uri"
+        },
+        "endpointAllowlisted": {
+          "type": "boolean"
+        },
+        "maxPerPaymentUsdc": {
+          "type": "number"
+        },
+        "network": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "remainingUsdc": {
+          "type": "number"
+        },
+        "source": {
+          "type": "string"
+        },
+        "spentUsdc": {
+          "type": "number"
+        },
+        "spentWindow": {
+          "type": "string"
+        },
+        "walletAddress": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        }
+      },
+      "required": [
+        "allowed",
+        "asset",
+        "capUsdc",
+        "day",
+        "endpoint",
+        "endpointAllowlisted",
+        "maxPerPaymentUsdc",
+        "network",
+        "reason",
+        "remainingUsdc",
+        "source",
+        "spentUsdc",
+        "spentWindow",
+        "walletAddress"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "audit.liquidlogicx.com",
+    "endpoint": "https://audit.liquidlogicx.com/api/allowance",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

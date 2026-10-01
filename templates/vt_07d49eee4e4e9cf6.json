@@ -1,0 +1,83 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_07d49eee4e4e9cf6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "properties": {
+            "recommendation": {
+              "properties": {
+                "action": {
+                  "enum": [
+                    "invest",
+                    "hold",
+                    "reduce",
+                    "defer"
+                  ],
+                  "type": "string"
+                },
+                "confidence": {
+                  "type": "number"
+                },
+                "suggested_allocation_pct": {
+                  "type": "number"
+                }
+              },
+              "type": "object",
+              "required": [
+                "action",
+                "confidence",
+                "suggested_allocation_pct"
+              ]
+            },
+            "signal": {
+              "enum": [
+                "normal",
+                "caution",
+                "risk-off"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "recommendation",
+            "signal"
+          ]
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "price": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "data.recommendation.confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "data.recommendation.suggested_allocation_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "gblin-sentinel.vercel.app",
+    "endpoint": "https://gblin-sentinel.vercel.app/api/data/risk-pulse-pro",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

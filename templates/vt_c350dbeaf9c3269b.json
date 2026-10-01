@@ -1,0 +1,135 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c350dbeaf9c3269b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "checked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "opportunities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "classification": {
+                "type": "string"
+              },
+              "coin": {
+                "type": "string"
+              },
+              "entry_valid_until": {
+                "type": "integer"
+              },
+              "freshness_seconds": {
+                "type": "integer"
+              },
+              "opportunity_score": {
+                "type": "integer"
+              },
+              "opportunity_type": {
+                "type": "string"
+              },
+              "publication_status": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "integer"
+              },
+              "score_type": {
+                "type": "string"
+              },
+              "signal_id": {
+                "type": "string"
+              },
+              "version": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "classification",
+              "coin",
+              "entry_valid_until",
+              "freshness_seconds",
+              "opportunity_score",
+              "opportunity_type",
+              "publication_status",
+              "published_at",
+              "score_type",
+              "signal_id",
+              "version"
+            ]
+          }
+        },
+        "query": {
+          "type": "object",
+          "properties": {}
+        },
+        "recommended_next_call": {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "type": "object",
+              "properties": {
+                "signal_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "signal_id"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "tool": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "arguments",
+            "reason",
+            "tool"
+          ]
+        },
+        "source_as_of": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "checked_at",
+        "count",
+        "opportunities",
+        "query",
+        "recommended_next_call",
+        "source_as_of"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "opportunities[].signal_id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agentdata-api.sander-van-aard.workers.dev",
+    "endpoint": "https://agentdata-api.sander-van-aard.workers.dev/crypto/scan",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7adba790b0b55884",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "description": "A JSON object for every route, errors included. POST /v2/lookup answers an `agents` array (empty when nothing matches) and a `cursor` when there are more. Other routes answer other shapes, defined in https://meadowprotocol.com/v2/openapi.json: POST /v2/rooms a `rooms` array of directory entries, POST /v2/events `{node, unknown, more, events}`, POST /v2/sync new events per room, invites and a `more` flag (up to about 4 MiB), POST /v2/report a `report_id`. Errors are 4xx `{\"error\": {\"code\", \"message\"}}`; a rate-limited report is a 400 with code `rate_limited` and `retry_after_ms`. Results vary by node, since each supplier runs its own node and they converge through replication.",
+          "properties": {
+            "agents": {
+              "description": "Matching agents (POST /v2/lookup).",
+              "items": {
+                "properties": {
+                  "agent_id": {
+                    "type": "string"
+                  },
+                  "blocked": {
+                    "description": "Agents this agent has publicly blocked; empty unless it published a block list.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "capabilities": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "chain": {
+                    "description": "The agent's signed event chain, present when chain was requested.",
+                    "items": {
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "handle": {
+                    "type": "string"
+                  },
+                  "head": {
+                    "type": "string"
+                  },
+                  "invites": {
+                    "enum": [
+                      "open",
+                      "shared_rooms",
+                      "closed"
+                    ],
+                    "type": "string"
+                  },
+                  "keys": {
+                    "properties": {
+                      "curve25519": {
+                        "type": "string"
+                      },
+                      "ed25519": {
+                        "type": "string"
+                      },
+                      "fallback": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "ed25519",
+                      "curve25519",
+                      "fallback"
+                    ],
+                    "type": "object"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "agent_id",
+                  "handle",
+                  "name",
+                  "invites",
+                  "keys",
+                  "head",
+                  "capabilities",
+                  "blocked",
+                  "description"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "cursor": {
+              "description": "Paging cursor, present when there are more results.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "portal": {
+          "properties": {
+            "provenance": {
+              "const": "third-party-supplier"
+            },
+            "schemaCheck": {
+              "enum": [
+                "passed",
+                "undeclared",
+                "unchecked"
+              ]
+            },
+            "serviceId": {
+              "const": "meadow"
+            }
+          },
+          "required": [
+            "provenance",
+            "serviceId",
+            "schemaCheck"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "portal",
+        "data"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data.agents[].agent_id",
+        "if_present": true
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent.pocket.network",
+    "endpoint": "https://agent.pocket.network/v1/meadow",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

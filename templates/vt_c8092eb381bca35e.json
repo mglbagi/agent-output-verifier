@@ -1,0 +1,191 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c8092eb381bca35e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "benchmarkCoverage": {
+          "additionalProperties": false,
+          "properties": {
+            "completeFetch": {
+              "type": "boolean"
+            },
+            "coverageRatio": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "effectiveWindowMinutes": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "errorMessage": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "partialData": {
+              "type": "boolean"
+            },
+            "requestedWindowMinutes": {
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "requestedWindowMinutes",
+            "effectiveWindowMinutes",
+            "coverageRatio",
+            "partialData",
+            "completeFetch",
+            "errorMessage"
+          ],
+          "type": "object"
+        },
+        "components": {
+          "additionalProperties": false,
+          "properties": {
+            "alpha": {
+              "type": "number"
+            },
+            "dollarsPer1Bp": {
+              "type": "number"
+            },
+            "dollarsPer1Cent": {
+              "type": "number"
+            },
+            "intervals": {
+              "type": "integer"
+            },
+            "lastPrice": {
+              "type": "number"
+            },
+            "meanSignedOrderFlow": {
+              "type": "number"
+            },
+            "rSquared": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "alpha",
+            "rSquared",
+            "intervals",
+            "meanSignedOrderFlow",
+            "lastPrice",
+            "dollarsPer1Bp",
+            "dollarsPer1Cent"
+          ],
+          "type": "object"
+        },
+        "computedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "coverage": {
+          "additionalProperties": false,
+          "properties": {
+            "completeFetch": {
+              "type": "boolean"
+            },
+            "coverageRatio": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "effectiveWindowMinutes": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "errorMessage": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "partialData": {
+              "type": "boolean"
+            },
+            "requestedWindowMinutes": {
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "requestedWindowMinutes",
+            "effectiveWindowMinutes",
+            "coverageRatio",
+            "partialData",
+            "completeFetch",
+            "errorMessage"
+          ],
+          "type": "object"
+        },
+        "exchange": {
+          "enum": [
+            "binance",
+            "coinbase"
+          ],
+          "type": "string"
+        },
+        "firstTradeTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastTradeTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "metric": {
+          "type": "string"
+        },
+        "pair": {
+          "type": "string"
+        },
+        "tradeCount": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "value": {
+          "type": "number"
+        },
+        "window": {
+          "enum": [
+            "30m",
+            "1h",
+            "2h",
+            "3h"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "metric",
+        "pair",
+        "exchange",
+        "window",
+        "value",
+        "computedAt",
+        "tradeCount",
+        "firstTradeTime",
+        "lastTradeTime",
+        "coverage"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.dripmetrics.ai",
+    "endpoint": "https://api.dripmetrics.ai/metrics/kyle-lambda",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

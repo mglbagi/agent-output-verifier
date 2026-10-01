@@ -1,0 +1,81 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d1fd52462da40cd3",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "days": {
+              "type": "integer"
+            },
+            "stablecoin_apy_series": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "apy": {
+                    "type": "number"
+                  },
+                  "date": {
+                    "type": "string",
+                    "format": "date"
+                  }
+                },
+                "required": [
+                  "apy",
+                  "date"
+                ]
+              }
+            },
+            "treasury_benchmark_series": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "apy": {
+                    "type": "number"
+                  },
+                  "date": {
+                    "type": "string",
+                    "format": "date"
+                  }
+                },
+                "required": [
+                  "apy",
+                  "date"
+                ]
+              }
+            }
+          },
+          "required": [
+            "days",
+            "stablecoin_apy_series",
+            "treasury_benchmark_series"
+          ]
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "data",
+        "success"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mcp.barker.money",
+    "endpoint": "https://mcp.barker.money/barker_market_trend",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

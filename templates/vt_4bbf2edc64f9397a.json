@@ -1,0 +1,87 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4bbf2edc64f9397a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "alg": {
+          "type": "string"
+        },
+        "issuedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "keyId": {
+          "type": "string"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "amBestRating": {
+              "type": "string"
+            },
+            "asOf": {
+              "type": "string",
+              "format": "date"
+            },
+            "datasetStatus": {
+              "type": "string"
+            },
+            "licensedInState": {
+              "type": "boolean"
+            },
+            "matchBasis": {
+              "type": "string"
+            },
+            "matchedName": {
+              "type": "string"
+            },
+            "naic": {
+              "type": "string"
+            },
+            "ratingMeetsMin": {
+              "type": "boolean"
+            },
+            "source": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amBestRating",
+            "asOf",
+            "datasetStatus",
+            "licensedInState",
+            "matchBasis",
+            "matchedName",
+            "naic",
+            "ratingMeetsMin",
+            "source"
+          ]
+        },
+        "signature": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "alg",
+        "issuedAt",
+        "keyId",
+        "payload",
+        "signature"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "coverbureau.com",
+    "endpoint": "https://coverbureau.com/mcp",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

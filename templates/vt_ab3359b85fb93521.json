@@ -1,0 +1,106 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ab3359b85fb93521",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "books": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "author": {
+                "type": "string"
+              },
+              "book_id": {
+                "type": "integer"
+              },
+              "download_count": {
+                "type": "integer"
+              },
+              "subjects": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "title": {
+                "type": "string"
+              },
+              "year": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "author",
+              "book_id",
+              "download_count",
+              "subjects",
+              "title",
+              "year"
+            ]
+          }
+        },
+        "count": {
+          "type": "integer"
+        },
+        "coverage": {
+          "type": "object",
+          "properties": {
+            "indexed": {
+              "type": "integer"
+            },
+            "target": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "indexed",
+            "target"
+          ]
+        },
+        "drill_down": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "shelf": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "books",
+        "count",
+        "coverage",
+        "drill_down",
+        "shelf"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "books[].book_id"
+      }
+    ],
+    "bounds": {
+      "books[].download_count": {
+        "min": 0
+      },
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "library.forgemesh.io",
+    "endpoint": "https://library.forgemesh.io/philosophy",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

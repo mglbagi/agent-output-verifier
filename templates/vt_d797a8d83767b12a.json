@@ -1,0 +1,61 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d797a8d83767b12a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "archetype": {
+          "type": "string"
+        },
+        "emotional_vector": {
+          "type": "object",
+          "properties": {
+            "primary": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "primary"
+          ]
+        },
+        "traits": {
+          "type": "object",
+          "properties": {
+            "conscientiousness": {
+              "type": "number"
+            },
+            "openness": {
+              "type": "number"
+            },
+            "risk_tolerance": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "conscientiousness",
+            "openness",
+            "risk_tolerance"
+          ]
+        }
+      },
+      "required": [
+        "archetype",
+        "emotional_vector",
+        "traits"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.billionaireorder.com",
+    "endpoint": "https://x402.billionaireorder.com/v1/virtual-traits",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

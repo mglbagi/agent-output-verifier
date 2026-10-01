@@ -1,0 +1,108 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_22a6a28a8d7d562b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "available_captions": {
+          "description": "Caption tracks: lang plus kind (manual or auto).",
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "channel": {
+          "type": "string"
+        },
+        "channel_id": {
+          "type": "string"
+        },
+        "chapters": {
+          "description": "Chapter title with start and end seconds; empty when none.",
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "duration_s": {
+          "description": "Video length in seconds.",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "like_count": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "thumbnail": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "upload_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "video_id": {
+          "type": "string"
+        },
+        "view_count": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "available_captions",
+        "channel",
+        "channel_id",
+        "chapters",
+        "description",
+        "duration_s",
+        "like_count",
+        "thumbnail",
+        "title",
+        "upload_date",
+        "video_id",
+        "view_count"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "duration_s": {
+        "min": 0
+      },
+      "like_count": {
+        "min": 0
+      },
+      "view_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "video.cyberwarex.com",
+    "endpoint": "https://video.cyberwarex.com/meta",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

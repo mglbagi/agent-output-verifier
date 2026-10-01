@@ -1,0 +1,86 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_119c8cca089392f1",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "chain": {
+          "type": "string"
+        },
+        "coins": {
+          "description": "Per-stablecoin price, deviation, and status",
+          "type": "object"
+        },
+        "drift_count": {
+          "type": "integer"
+        },
+        "max_deviation_pct": {
+          "type": "number"
+        },
+        "novelty": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "extreme"
+          ],
+          "type": "string"
+        },
+        "overall_status": {
+          "enum": [
+            "PEG_STABLE",
+            "PEG_DRIFT",
+            "PEG_WARN",
+            "PEG_DEPEG"
+          ],
+          "type": "string"
+        },
+        "peak_window": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "sequence_score": {
+          "description": "0=all pegs stable, 100=depeg crisis",
+          "type": "integer"
+        },
+        "story": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "chain",
+        "coins",
+        "drift_count",
+        "max_deviation_pct",
+        "novelty",
+        "overall_status",
+        "peak_window",
+        "sequence_score",
+        "story"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "drift_count": {
+        "min": 0
+      },
+      "max_deviation_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "anomaly.forgemesh.io",
+    "endpoint": "https://anomaly.forgemesh.io/api/depeg-monitor",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a5784f8b2cb06433",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "cheapest": {
+          "type": "object",
+          "properties": {
+            "est_cost_usd": {
+              "type": "number"
+            },
+            "model": {
+              "type": "string"
+            },
+            "provider": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "est_cost_usd",
+            "model",
+            "provider"
+          ]
+        },
+        "count": {
+          "type": "integer"
+        },
+        "filters": {
+          "type": "object",
+          "properties": {
+            "min_context": {
+              "type": "integer"
+            },
+            "provider": {},
+            "unknown_context_excluded": {
+              "type": "integer"
+            },
+            "verified_only": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "min_context",
+            "unknown_context_excluded",
+            "verified_only"
+          ]
+        },
+        "page": {
+          "type": "object",
+          "properties": {
+            "has_more": {
+              "type": "boolean"
+            },
+            "limit": {
+              "type": "integer"
+            },
+            "next_offset": {
+              "type": "integer"
+            },
+            "offset": {
+              "type": "integer"
+            },
+            "returned": {
+              "type": "integer"
+            },
+            "total": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "has_more",
+            "limit",
+            "next_offset",
+            "offset",
+            "returned",
+            "total"
+          ]
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "as_of": {
+                "type": "string",
+                "format": "date"
+              },
+              "context_window_tokens": {
+                "type": "integer"
+              },
+              "est_cost_usd": {
+                "type": "number"
+              },
+              "input_per_mtok_usd": {
+                "type": "number"
+              },
+              "model": {
+                "type": "string"
+              },
+              "output_per_mtok_usd": {
+                "type": "number"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "verification": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "as_of",
+              "context_window_tokens",
+              "est_cost_usd",
+              "input_per_mtok_usd",
+              "model",
+              "output_per_mtok_usd",
+              "provider",
+              "source",
+              "verification"
+            ]
+          }
+        },
+        "workload": {
+          "type": "object",
+          "properties": {
+            "input_tokens": {
+              "type": "integer"
+            },
+            "output_tokens": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "input_tokens",
+            "output_tokens"
+          ]
+        }
+      },
+      "required": [
+        "cheapest",
+        "count",
+        "filters",
+        "page",
+        "results",
+        "workload"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "cheapest.est_cost_usd": {
+        "min": 0
+      },
+      "count": {
+        "min": 0
+      },
+      "page.limit": {
+        "min": 0
+      },
+      "page.total": {
+        "min": 0
+      },
+      "results[].est_cost_usd": {
+        "min": 0
+      },
+      "results[].input_per_mtok_usd": {
+        "min": 0
+      },
+      "results[].output_per_mtok_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "datastand.dev",
+    "endpoint": "https://datastand.dev/api/llm/route",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_68ab43e566328511",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "characters": {
+          "type": "integer"
+        },
+        "receipt": {
+          "type": "object",
+          "properties": {
+            "price": {
+              "type": "string"
+            },
+            "product": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "price",
+            "product"
+          ]
+        },
+        "source_language": {
+          "type": "string"
+        },
+        "target_language": {
+          "type": "string"
+        },
+        "translation": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "characters",
+        "receipt",
+        "source_language",
+        "target_language",
+        "translation"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "scribe.vimabrosta.com",
+    "endpoint": "https://scribe.vimabrosta.com/v1/translate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

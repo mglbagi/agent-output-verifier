@@ -1,0 +1,62 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_891b6474e7418fae",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "agreements": {
+          "type": "array"
+        },
+        "confidence": {
+          "type": "number"
+        },
+        "conflicts": {
+          "type": "array"
+        },
+        "economics": {
+          "type": "object"
+        },
+        "facts": {
+          "type": "array"
+        },
+        "query": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array"
+        },
+        "usage": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "query",
+        "facts",
+        "agreements",
+        "conflicts",
+        "confidence",
+        "sources",
+        "usage",
+        "economics"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "relay.straelo.com",
+    "endpoint": "https://relay.straelo.com/search-evidence",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

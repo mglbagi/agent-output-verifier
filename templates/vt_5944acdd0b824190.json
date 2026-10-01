@@ -1,0 +1,154 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5944acdd0b824190",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "mentions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "platform": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "platform",
+              "text",
+              "url"
+            ]
+          }
+        },
+        "query": {
+          "type": "string"
+        },
+        "sentiment": {
+          "type": "object",
+          "properties": {
+            "negative": {
+              "type": "number"
+            },
+            "neutral": {
+              "type": "number"
+            },
+            "overall": {
+              "type": "integer"
+            },
+            "positive": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "negative",
+            "neutral",
+            "overall",
+            "positive"
+          ]
+        },
+        "themes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer"
+              },
+              "examples": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "theme": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "count",
+              "examples",
+              "theme"
+            ]
+          }
+        },
+        "timeframe": {
+          "type": "string"
+        },
+        "volume": {
+          "type": "object",
+          "properties": {
+            "by_platform": {
+              "type": "object",
+              "properties": {
+                "news": {
+                  "type": "integer"
+                },
+                "reddit": {
+                  "type": "integer"
+                },
+                "reviews": {
+                  "type": "integer"
+                },
+                "web": {
+                  "type": "integer"
+                },
+                "x": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "news",
+                "reddit",
+                "reviews",
+                "web",
+                "x"
+              ]
+            },
+            "total": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "by_platform",
+            "total"
+          ]
+        }
+      },
+      "required": [
+        "mentions",
+        "query",
+        "sentiment",
+        "themes",
+        "timeframe",
+        "volume"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "themes[].count": {
+        "min": 0
+      },
+      "volume.total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mentionforge.mentionforge.workers.dev",
+    "endpoint": "https://mentionforge.mentionforge.workers.dev/v1/research_mentions",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,236 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8dfdd692048c1970",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "properties": {
+            "bazaarObservation": {
+              "description": "Dated completed Bazaar walk, not a live lookup. Stale or unknown evidence cannot establish current membership.",
+              "properties": {
+                "maxAgeSeconds": {
+                  "type": "number"
+                },
+                "observedAt": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "status": {
+                  "enum": [
+                    "fresh",
+                    "stale",
+                    "unknown"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "status",
+                "observedAt",
+                "maxAgeSeconds"
+              ],
+              "type": "object"
+            },
+            "flags": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "note": {
+              "type": "string"
+            },
+            "resource": {
+              "type": "string"
+            },
+            "score": {
+              "description": "0-100, deterministic published rubric.",
+              "type": "number"
+            },
+            "signals": {
+              "properties": {
+                "amountAtomic": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asset": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "pattern": "^0x[a-fA-F0-9]{40}$"
+                },
+                "assetDecimals": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "assetSymbol": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "is402": {
+                  "type": "boolean"
+                },
+                "listedInBazaarNow": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "method": {
+                  "type": "string"
+                },
+                "methodSource": {
+                  "type": "string"
+                },
+                "network": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "observedAgeDays": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "onChainBuyerCounts": {
+                  "type": "string"
+                },
+                "payToPresent": {
+                  "type": "boolean"
+                },
+                "priceUsd": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "reachable": {
+                  "type": "boolean"
+                },
+                "requestBodySource": {
+                  "type": "string"
+                },
+                "scheme": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "status": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "termsDecodable": {
+                  "type": "boolean"
+                },
+                "wellKnownPresent": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object",
+              "required": [
+                "amountAtomic",
+                "asset",
+                "assetDecimals",
+                "assetSymbol",
+                "is402",
+                "listedInBazaarNow",
+                "method",
+                "methodSource",
+                "network",
+                "observedAgeDays",
+                "onChainBuyerCounts",
+                "payToPresent",
+                "priceUsd",
+                "reachable",
+                "requestBodySource",
+                "scheme",
+                "status",
+                "termsDecodable",
+                "wellKnownPresent"
+              ]
+            }
+          },
+          "required": [
+            "resource",
+            "score",
+            "flags",
+            "signals"
+          ],
+          "type": "object"
+        },
+        "endpoint": {
+          "description": "Always \"/v1/preflight\".",
+          "type": "string"
+        },
+        "meta": {
+          "properties": {
+            "attribution": {
+              "description": "Licensing attribution when the source requires it.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "cached": {
+              "description": "Whether this response was served from cache.",
+              "type": "boolean"
+            },
+            "fetchedAt": {
+              "description": "ISO 8601 time the data was actually retrieved from the upstream.",
+              "type": "string",
+              "format": "date-time"
+            },
+            "source": {
+              "description": "Upstream source: direct probe of the target + Aye Pulse collector archive.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source",
+            "cached",
+            "fetchedAt"
+          ],
+          "type": "object"
+        },
+        "ok": {
+          "description": "true on success.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok",
+        "endpoint",
+        "data",
+        "meta"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "gateway.stride20k.com",
+    "endpoint": "https://gateway.stride20k.com/v1/preflight",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c01d3778d0845dff",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "lock": {
+          "type": "object",
+          "properties": {
+            "acquired": {
+              "type": "boolean"
+            },
+            "key": {
+              "type": "string"
+            },
+            "op": {
+              "type": "string"
+            },
+            "token": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "acquired",
+            "key",
+            "op",
+            "token"
+          ]
+        }
+      },
+      "required": [
+        "lock"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "nodeproxy-production.up.railway.app",
+    "endpoint": "https://nodeproxy-production.up.railway.app/agent-lock",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

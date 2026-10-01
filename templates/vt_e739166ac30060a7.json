@@ -1,0 +1,61 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e739166ac30060a7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "attribution": {
+          "type": "string"
+        },
+        "date": {
+          "description": "UTC date (YYYY-MM-DD)",
+          "type": "string",
+          "format": "date"
+        },
+        "generatedAt": {
+          "description": "ISO instant the snapshot was computed",
+          "type": "string",
+          "format": "date-time"
+        },
+        "moon": {
+          "description": "Phase name, illumination fraction 0..1, elongation degrees, next new/full moon events",
+          "type": "object"
+        },
+        "positions": {
+          "description": "Map of 13 bodies (sun, moon, mercury, venus, mars, jupiter, saturn, uranus, neptune, pluto, chiron, northNode, southNode) — example truncated to two.",
+          "type": "object"
+        },
+        "retrogrades": {
+          "description": "Active retrogrades + upcoming stations in the scan window",
+          "type": "object"
+        },
+        "upcoming": {
+          "description": "Chronological universal events over the next 30 days",
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "attribution",
+        "date",
+        "generatedAt",
+        "moon",
+        "positions",
+        "retrogrades",
+        "upcoming"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mysticapi.com",
+    "endpoint": "https://mysticapi.com/v1/sky/today",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

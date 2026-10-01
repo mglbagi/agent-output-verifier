@@ -1,0 +1,192 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_af7199396e009831",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "results": {
+          "items": {
+            "properties": {
+              "data": {
+                "properties": {
+                  "links": {
+                    "properties": {
+                      "anchors": {
+                        "description": "In-page #fragment links, each { href, text }",
+                        "type": "array"
+                      },
+                      "external": {
+                        "description": "Cross-host links, each { href, text, rel[] }",
+                        "type": "array"
+                      },
+                      "internal": {
+                        "description": "Same-host links, each { href, text, rel[] }",
+                        "type": "array"
+                      },
+                      "summary": {
+                        "description": "Aggregate link stats for SEO / site-structure analysis",
+                        "properties": {
+                          "anchorCount": {
+                            "type": "integer"
+                          },
+                          "emptyTextCount": {
+                            "type": "integer"
+                          },
+                          "externalCount": {
+                            "type": "integer"
+                          },
+                          "imageLinksMissingAltCount": {
+                            "type": "integer"
+                          },
+                          "internalCount": {
+                            "type": "integer"
+                          },
+                          "nofollowCount": {
+                            "type": "integer"
+                          },
+                          "topExternalDomains": {
+                            "description": "Busiest external domains, each { domain, count }",
+                            "type": "array"
+                          },
+                          "topInternalTargets": {
+                            "description": "Most-linked internal pages, each { url, count, anchorTexts[] }",
+                            "type": "array"
+                          },
+                          "totalLinks": {
+                            "type": "integer"
+                          },
+                          "uniqueExternalDomains": {
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object",
+                        "required": [
+                          "anchorCount",
+                          "emptyTextCount",
+                          "externalCount",
+                          "imageLinksMissingAltCount",
+                          "internalCount",
+                          "nofollowCount",
+                          "topExternalDomains",
+                          "topInternalTargets",
+                          "totalLinks",
+                          "uniqueExternalDomains"
+                        ]
+                      }
+                    },
+                    "type": "object",
+                    "required": [
+                      "anchors",
+                      "external",
+                      "internal",
+                      "summary"
+                    ]
+                  },
+                  "minifetchCache": {
+                    "description": "Minifetch cache state (~2-min TTL)",
+                    "properties": {
+                      "cachedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "expiresAt": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "hit": {
+                        "type": "boolean"
+                      }
+                    },
+                    "type": "object",
+                    "required": [
+                      "cachedAt",
+                      "expiresAt",
+                      "hit"
+                    ]
+                  },
+                  "proxy": {
+                    "description": "Fetch provenance",
+                    "properties": {
+                      "proxyType": {
+                        "type": "string"
+                      },
+                      "proxyUrl": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "robotsTxt": {
+                        "properties": {
+                          "allowed": {
+                            "type": "boolean"
+                          }
+                        },
+                        "type": "object",
+                        "required": [
+                          "allowed"
+                        ]
+                      },
+                      "userAgent": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object",
+                    "required": [
+                      "proxyType",
+                      "robotsTxt",
+                      "userAgent"
+                    ]
+                  },
+                  "requestUrl": {
+                    "description": "URL as requested, before redirects",
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "url": {
+                    "description": "Final URL after redirects",
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "links",
+                  "minifetchCache",
+                  "proxy",
+                  "requestUrl",
+                  "url"
+                ]
+              }
+            },
+            "type": "object",
+            "required": [
+              "data"
+            ]
+          },
+          "type": "array"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "required": [
+        "results",
+        "success"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "minifetch.com",
+    "endpoint": "https://minifetch.com/api/v1/x402/extract/url-links",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

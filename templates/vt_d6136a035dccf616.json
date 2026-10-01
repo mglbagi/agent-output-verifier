@@ -1,0 +1,126 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d6136a035dccf616",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "adjusted": {
+          "description": "Whether prices are split-adjusted.",
+          "type": "boolean"
+        },
+        "candles": {
+          "description": "Normalized OHLCV bars for the requested window.",
+          "items": {
+            "properties": {
+              "close": {
+                "type": "number"
+              },
+              "high": {
+                "type": "number"
+              },
+              "low": {
+                "type": "number"
+              },
+              "open": {
+                "type": "number"
+              },
+              "time": {
+                "description": "Bar start timestamp.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "transactions": {
+                "description": "Number of upstream transactions in the bar.",
+                "type": "integer"
+              },
+              "volume": {
+                "type": "number"
+              },
+              "vwap": {
+                "description": "Volume-weighted average price.",
+                "type": "number"
+              }
+            },
+            "required": [
+              "time",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "vwap",
+              "transactions"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "from": {
+          "description": "Echo of the requested window start.",
+          "type": "string",
+          "format": "date"
+        },
+        "multiplier": {
+          "description": "Echo of the requested timespan multiplier.",
+          "type": "integer"
+        },
+        "queried_at": {
+          "description": "UTC timestamp when this bridge queried the upstream.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "ticker": {
+          "description": "Echo of the requested ticker.",
+          "type": "string"
+        },
+        "timespan": {
+          "description": "Echo of the requested timespan unit.",
+          "type": "string"
+        },
+        "to": {
+          "description": "Echo of the requested window end.",
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "queried_at",
+        "ticker",
+        "multiplier",
+        "timespan",
+        "from",
+        "to",
+        "adjusted",
+        "candles"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "candles[].low",
+        "other_field": "candles[].high"
+      },
+      {
+        "type": "lte",
+        "field": "from",
+        "other_field": "to"
+      }
+    ],
+    "bounds": {
+      "candles[].volume": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "marketdata.use.x402atlas.com",
+    "endpoint": "https://marketdata.use.x402atlas.com/aggregates",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

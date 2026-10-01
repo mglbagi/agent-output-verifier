@@ -1,0 +1,116 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_757028f576d3892b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "agent_decision_support": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "as_of": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "caveat": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "confidence_score": {
+          "type": "number"
+        },
+        "coverage": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "evidence_pack": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "field_provenance": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "in_db": {
+          "type": "boolean"
+        },
+        "methodology": {
+          "type": "string"
+        },
+        "pattern": {
+          "type": "string"
+        },
+        "primary_service": {
+          "type": "string"
+        },
+        "product": {
+          "type": "string"
+        },
+        "risk": {
+          "type": "string"
+        },
+        "sample_size": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "services_observed": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "sources": {
+          "type": "array"
+        },
+        "spend_rationale": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "status": {
+          "type": "string"
+        },
+        "supported": {
+          "type": "boolean"
+        },
+        "tip_total_sol": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "status",
+        "product",
+        "coverage",
+        "evidence_pack",
+        "agent_decision_support",
+        "methodology"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "confidence_score": {
+        "min": 0,
+        "max": 1,
+        "if_present": true
+      },
+      "tip_total_sol": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "scry.solanahub.de",
+    "endpoint": "https://scry.solanahub.de/x402/wallet/:address/bundler-check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

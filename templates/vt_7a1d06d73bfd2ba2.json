@@ -1,0 +1,42 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7a1d06d73bfd2ba2",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "baseFeeGwei": {
+          "type": "string"
+        },
+        "baseFeeWei": {
+          "type": "string"
+        },
+        "blockNumber": {
+          "type": "integer"
+        },
+        "gasPriceGwei": {
+          "type": "string"
+        },
+        "gasPriceWei": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "gasPriceWei",
+        "gasPriceGwei"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-echo-service.onrender.com",
+    "endpoint": "https://x402-echo-service.onrender.com/chain/gas",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

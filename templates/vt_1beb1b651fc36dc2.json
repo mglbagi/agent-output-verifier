@@ -1,0 +1,63 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1beb1b651fc36dc2",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "atr": {
+          "type": "integer"
+        },
+        "bollinger_bands": {
+          "type": "object",
+          "properties": {
+            "lower": {
+              "type": "integer"
+            },
+            "middle": {
+              "type": "integer"
+            },
+            "upper": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "lower",
+            "middle",
+            "upper"
+          ]
+        },
+        "rsi": {
+          "type": "number"
+        },
+        "symbol": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "atr",
+        "bollinger_bands",
+        "rsi",
+        "symbol"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "bollinger_bands.lower",
+        "other_field": "bollinger_bands.upper"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agentservices.to",
+    "endpoint": "https://agentservices.to/v1/indicators/eth/",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

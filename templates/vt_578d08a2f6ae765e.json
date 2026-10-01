@@ -1,0 +1,57 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_578d08a2f6ae765e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "asciiCodePoints": {
+          "type": "integer"
+        },
+        "hanCodePoints": {
+          "type": "integer"
+        },
+        "hiraganaCodePoints": {
+          "type": "integer"
+        },
+        "katakanaCodePoints": {
+          "type": "integer"
+        },
+        "lines": {
+          "type": "integer"
+        },
+        "unicodeCodePoints": {
+          "type": "integer"
+        },
+        "utf16CodeUnits": {
+          "type": "integer"
+        },
+        "utf8Bytes": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "asciiCodePoints",
+        "hanCodePoints",
+        "hiraganaCodePoints",
+        "katakanaCodePoints",
+        "lines",
+        "unicodeCodePoints",
+        "utf16CodeUnits",
+        "utf8Bytes"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "after6labo-x402-testnet.silly-detective.workers.dev",
+    "endpoint": "https://after6labo-x402-testnet.silly-detective.workers.dev/paid/text-stats",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

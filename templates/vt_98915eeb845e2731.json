@@ -1,0 +1,180 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_98915eeb845e2731",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "airports": {
+          "description": "Nearest first by road drive time",
+          "items": {
+            "properties": {
+              "distance_m": {
+                "title": "Distance M",
+                "type": "integer"
+              },
+              "duration_s": {
+                "title": "Duration S",
+                "type": "integer"
+              },
+              "iata": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "null for the few scheduled airports without one",
+                "title": "Iata"
+              },
+              "icao": {
+                "description": "OurAirports ident: the ICAO code where one exists",
+                "title": "Icao",
+                "type": "string"
+              },
+              "lat": {
+                "title": "Lat",
+                "type": "number"
+              },
+              "lon": {
+                "title": "Lon",
+                "type": "number"
+              },
+              "miles": {
+                "title": "Miles",
+                "type": "number"
+              },
+              "minutes": {
+                "title": "Minutes",
+                "type": "number"
+              },
+              "municipality": {
+                "title": "Municipality",
+                "type": "string"
+              },
+              "name": {
+                "title": "Name",
+                "type": "string"
+              },
+              "type": {
+                "description": "OurAirports type: large_airport, medium_airport, ...",
+                "title": "Type",
+                "type": "string"
+              }
+            },
+            "required": [
+              "iata",
+              "icao",
+              "name",
+              "municipality",
+              "type",
+              "lat",
+              "lon",
+              "distance_m",
+              "duration_s",
+              "miles",
+              "minutes"
+            ],
+            "title": "AirportOut",
+            "type": "object"
+          },
+          "title": "Airports",
+          "type": "array"
+        },
+        "airports_data_as_of": {
+          "description": "When our OurAirports file was fetched (UTC)",
+          "title": "Airports Data As Of",
+          "type": "string",
+          "format": "date-time"
+        },
+        "attribution": {
+          "title": "Attribution",
+          "type": "string"
+        },
+        "origin": {
+          "properties": {
+            "confidence": {
+              "title": "Confidence",
+              "type": "number"
+            },
+            "kind": {
+              "title": "Kind",
+              "type": "string"
+            },
+            "lat": {
+              "title": "Lat",
+              "type": "number"
+            },
+            "lon": {
+              "title": "Lon",
+              "type": "number"
+            },
+            "name": {
+              "title": "Name",
+              "type": "string"
+            },
+            "source": {
+              "title": "Source",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "lat",
+            "lon",
+            "kind",
+            "source",
+            "confidence"
+          ],
+          "title": "PlaceOut",
+          "type": "object"
+        }
+      },
+      "required": [
+        "origin",
+        "airports",
+        "attribution",
+        "airports_data_as_of"
+      ],
+      "title": "NearestAirportResponse",
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "airports[].duration_s": {
+        "min": 0
+      },
+      "airports[].lat": {
+        "min": -90,
+        "max": 90
+      },
+      "airports[].lon": {
+        "min": -180,
+        "max": 180
+      },
+      "origin.confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "origin.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "origin.lon": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.flipvo.com",
+    "endpoint": "https://api.flipvo.com/v1/airport/nearest",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

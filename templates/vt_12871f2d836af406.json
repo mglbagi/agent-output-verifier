@@ -1,0 +1,462 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_12871f2d836af406",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "asset": {
+          "type": "string"
+        },
+        "basis": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "direction": {
+          "type": "string"
+        },
+        "evidence": {
+          "type": "object",
+          "properties": {
+            "class_base_rate": {
+              "type": "object",
+              "properties": {
+                "independent_days": {
+                  "type": "integer"
+                },
+                "mean_24h_pct": {
+                  "type": "number"
+                },
+                "mean_4h_pct": {
+                  "type": "number"
+                },
+                "n": {
+                  "type": "integer"
+                },
+                "win_4h_pct": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "independent_days",
+                "mean_24h_pct",
+                "mean_4h_pct",
+                "n",
+                "win_4h_pct"
+              ]
+            },
+            "comparables": {
+              "type": "object",
+              "properties": {
+                "avg_mae_pct": {
+                  "type": "number"
+                },
+                "avg_mfe_pct": {
+                  "type": "number"
+                },
+                "independent_days": {
+                  "type": "integer"
+                },
+                "mean_24h_pct": {
+                  "type": "number"
+                },
+                "mean_4h_pct": {
+                  "type": "number"
+                },
+                "n": {
+                  "type": "integer"
+                },
+                "win_24h_pct": {
+                  "type": "integer"
+                },
+                "win_4h_pct": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "avg_mae_pct",
+                "avg_mfe_pct",
+                "independent_days",
+                "mean_24h_pct",
+                "mean_4h_pct",
+                "n",
+                "win_24h_pct",
+                "win_4h_pct"
+              ]
+            },
+            "vaunt_closed_trades_on_asset": {
+              "type": "object",
+              "properties": {
+                "mean_return_pct": {
+                  "type": "number"
+                },
+                "n": {
+                  "type": "integer"
+                },
+                "win_pct": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "mean_return_pct",
+                "n",
+                "win_pct"
+              ]
+            },
+            "vaunt_holding_now": {
+              "type": "object",
+              "properties": {
+                "age_minutes": {
+                  "type": "integer"
+                },
+                "strategy": {
+                  "type": "string"
+                },
+                "yes": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "age_minutes",
+                "strategy",
+                "yes"
+              ]
+            }
+          },
+          "required": [
+            "class_base_rate",
+            "comparables",
+            "vaunt_closed_trades_on_asset",
+            "vaunt_holding_now"
+          ]
+        },
+        "evidence_bundle": {
+          "type": "object",
+          "properties": {
+            "closed_trades_on_asset": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "type": "object",
+                    "properties": {
+                      "day_volume_usd": {
+                        "type": "number"
+                      },
+                      "mae_pct": {
+                        "type": "integer"
+                      },
+                      "mfe_pct": {
+                        "type": "integer"
+                      },
+                      "news_verdict": {
+                        "type": "string"
+                      },
+                      "recent_outlier": {
+                        "type": "boolean"
+                      },
+                      "trigger_drop_band": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "day_volume_usd",
+                      "mae_pct",
+                      "mfe_pct",
+                      "news_verdict",
+                      "recent_outlier",
+                      "trigger_drop_band"
+                    ]
+                  },
+                  "exit_class": {
+                    "type": "string"
+                  },
+                  "hold": {
+                    "type": "string"
+                  },
+                  "opened_day": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "outcome": {
+                    "type": "string"
+                  },
+                  "regime_at_entry": {
+                    "type": "string"
+                  },
+                  "return_pct_band": {
+                    "type": "number"
+                  },
+                  "strategy": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "context",
+                  "exit_class",
+                  "hold",
+                  "opened_day",
+                  "outcome",
+                  "regime_at_entry",
+                  "return_pct_band",
+                  "strategy"
+                ]
+              }
+            },
+            "execution_on_asset": {
+              "type": "object",
+              "properties": {
+                "fills": {
+                  "type": "integer"
+                },
+                "latency_ms_p50": {
+                  "type": "integer"
+                },
+                "slippage_bps_p50": {
+                  "type": "number"
+                },
+                "slippage_bps_p90": {
+                  "type": "number"
+                },
+                "taker_fee_bps_mean": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "fills",
+                "latency_ms_p50",
+                "slippage_bps_p50",
+                "slippage_bps_p90",
+                "taker_fee_bps_mean"
+              ]
+            },
+            "liquidity": {
+              "type": "object",
+              "properties": {
+                "as_of": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "depth_within_1pct_usd": {
+                  "type": "number"
+                },
+                "funding_apr_pct": {
+                  "type": "number"
+                },
+                "perp_spread_pct": {
+                  "type": "number"
+                },
+                "round_trip_cost_pct": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "as_of",
+                "depth_within_1pct_usd",
+                "funding_apr_pct",
+                "perp_spread_pct",
+                "round_trip_cost_pct"
+              ]
+            },
+            "news_book_by_month": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "independent_days": {
+                    "type": "integer"
+                  },
+                  "mean_return_pct": {
+                    "type": "number"
+                  },
+                  "month": {
+                    "type": "string"
+                  },
+                  "n_trades": {
+                    "type": "integer"
+                  },
+                  "win_pct": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "independent_days",
+                  "mean_return_pct",
+                  "month",
+                  "n_trades",
+                  "win_pct"
+                ]
+              }
+            }
+          },
+          "required": [
+            "closed_trades_on_asset",
+            "execution_on_asset",
+            "liquidity",
+            "news_book_by_month"
+          ]
+        },
+        "horizon_h": {
+          "type": "integer"
+        },
+        "primary_risk": {},
+        "regime": {
+          "type": "object",
+          "properties": {
+            "band": {
+              "type": "string"
+            },
+            "strength": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "band",
+            "strength"
+          ]
+        },
+        "state": {
+          "type": "object",
+          "properties": {
+            "day_volume_usd": {
+              "type": "number"
+            },
+            "dist_200d_pct": {
+              "type": "number"
+            },
+            "posture": {
+              "type": "string"
+            },
+            "recent_outlier": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "day_volume_usd",
+            "dist_200d_pct",
+            "posture",
+            "recent_outlier"
+          ]
+        },
+        "support": {
+          "type": "string"
+        },
+        "what_is_not_here": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "asset",
+        "basis",
+        "direction",
+        "evidence",
+        "evidence_bundle",
+        "horizon_h",
+        "regime",
+        "state",
+        "support",
+        "what_is_not_here"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "evidence.class_base_rate.mean_24h_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "evidence.class_base_rate.mean_4h_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "evidence.class_base_rate.win_4h_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "evidence.comparables.avg_mfe_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "evidence.comparables.mean_24h_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "evidence.comparables.mean_4h_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "evidence.comparables.win_24h_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "evidence.comparables.win_4h_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "evidence.vaunt_closed_trades_on_asset.mean_return_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "evidence.vaunt_closed_trades_on_asset.win_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "evidence.vaunt_holding_now.age_minutes": {
+        "min": 0
+      },
+      "evidence_bundle.closed_trades_on_asset[].context.day_volume_usd": {
+        "min": 0
+      },
+      "evidence_bundle.closed_trades_on_asset[].context.mfe_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "evidence_bundle.closed_trades_on_asset[].return_pct_band": {
+        "min": 0,
+        "max": 100
+      },
+      "evidence_bundle.execution_on_asset.taker_fee_bps_mean": {
+        "min": 0
+      },
+      "evidence_bundle.liquidity.funding_apr_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "evidence_bundle.liquidity.perp_spread_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "evidence_bundle.liquidity.round_trip_cost_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "evidence_bundle.news_book_by_month[].mean_return_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "evidence_bundle.news_book_by_month[].win_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "state.day_volume_usd": {
+        "min": 0
+      },
+      "state.dist_200d_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "vaunt-dispatch-production.up.railway.app",
+    "endpoint": "https://vaunt-dispatch-production.up.railway.app/agent/x402/evidence",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

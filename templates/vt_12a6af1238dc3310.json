@@ -1,0 +1,216 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_12a6af1238dc3310",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "as_of": {
+          "type": "string",
+          "format": "date"
+        },
+        "material_changes": {
+          "type": "array"
+        },
+        "methodology": {
+          "type": "object",
+          "properties": {
+            "material_changes": {
+              "type": "string"
+            },
+            "new_opportunities": {
+              "type": "string"
+            },
+            "ranking_changes_are_not_new": {
+              "type": "boolean"
+            },
+            "urgent_opportunities": {
+              "type": "string"
+            },
+            "uses_large_language_model": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "material_changes",
+            "new_opportunities",
+            "ranking_changes_are_not_new",
+            "urgent_opportunities",
+            "uses_large_language_model"
+          ]
+        },
+        "new_opportunities": {
+          "type": "array"
+        },
+        "summary": {
+          "type": "object",
+          "properties": {
+            "has_actionable_updates": {
+              "type": "boolean"
+            },
+            "material_changes": {
+              "type": "integer"
+            },
+            "new_opportunities": {
+              "type": "integer"
+            },
+            "urgent_opportunities": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "has_actionable_updates",
+            "material_changes",
+            "new_opportunities",
+            "urgent_opportunities"
+          ]
+        },
+        "urgent_opportunities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "buyer": {
+                "type": "string"
+              },
+              "countries": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "cpv": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "days_left": {
+                "type": "integer"
+              },
+              "deadline": {
+                "type": "string",
+                "format": "date"
+              },
+              "official_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "publication_date": {
+                "type": "string"
+              },
+              "publication_id": {
+                "type": "string"
+              },
+              "recommended_next_step": {
+                "type": "string"
+              },
+              "relevance": {
+                "type": "object",
+                "properties": {
+                  "blockers": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "reasons": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "score": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "blockers",
+                  "label",
+                  "reasons",
+                  "score"
+                ]
+              },
+              "title": {
+                "type": "string"
+              },
+              "values": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "number"
+                    },
+                    "currency": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "currency"
+                  ]
+                }
+              },
+              "why_now": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "buyer",
+              "countries",
+              "cpv",
+              "days_left",
+              "deadline",
+              "official_url",
+              "publication_date",
+              "publication_id",
+              "recommended_next_step",
+              "relevance",
+              "title",
+              "values",
+              "why_now"
+            ]
+          }
+        },
+        "window_start": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "as_of",
+        "material_changes",
+        "methodology",
+        "new_opportunities",
+        "summary",
+        "urgent_opportunities",
+        "window_start"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "urgent_opportunities[].publication_id"
+      }
+    ],
+    "bounds": {
+      "urgent_opportunities[].values[].amount": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tenderdelta-preview.mooncakemonkey1.workers.dev",
+    "endpoint": "https://tenderdelta-preview.mooncakemonkey1.workers.dev/x402/v1/daily-action-brief",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

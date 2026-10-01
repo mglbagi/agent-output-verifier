@@ -1,0 +1,66 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a0721149b2ad5cae",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "api_version": {
+          "type": "string"
+        },
+        "final_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "headers": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "missing_security_headers": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "redirect_chain": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "response_time_ms": {
+          "type": "integer"
+        },
+        "status_code": {
+          "type": "integer"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "api_version",
+        "url",
+        "final_url",
+        "status_code",
+        "redirect_chain",
+        "headers",
+        "missing_security_headers",
+        "response_time_ms"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "http-header-checker.underscoredone.com",
+    "endpoint": "https://http-header-checker.underscoredone.com/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

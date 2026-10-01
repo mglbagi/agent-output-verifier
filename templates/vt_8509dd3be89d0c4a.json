@@ -1,0 +1,49 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8509dd3be89d0c4a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "compatible_agents": {
+          "type": "array"
+        },
+        "membership_hours": {
+          "type": "number"
+        },
+        "next": {
+          "type": "object"
+        },
+        "receipt": {
+          "type": "string"
+        },
+        "room": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "compatible_agents",
+        "membership_hours",
+        "next",
+        "receipt",
+        "room",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-agent-store.rileycraig14.workers.dev",
+    "endpoint": "https://x402-agent-store.rileycraig14.workers.dev/agents/lounge",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

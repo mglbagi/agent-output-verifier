@@ -1,0 +1,90 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_560e72bd09c14bd7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "catch_all": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "disposable": {
+          "type": "boolean"
+        },
+        "domain": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "free_provider": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mx_records": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "role_based": {
+          "type": "boolean"
+        },
+        "score": {
+          "type": "integer"
+        },
+        "smtp_check": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "syntax_valid": {
+          "type": "boolean"
+        },
+        "typo_suggestion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "catch_all",
+        "disposable",
+        "domain",
+        "email",
+        "mx_records",
+        "role_based",
+        "score",
+        "smtp_check",
+        "syntax_valid",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "email-verify-api-production-d262.up.railway.app",
+    "endpoint": "https://email-verify-api-production-d262.up.railway.app/verify",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

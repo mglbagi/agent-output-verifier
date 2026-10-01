@@ -1,0 +1,176 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_99beee4487d8cc01",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "availability": {
+          "type": "object",
+          "properties": {
+            "ok_402_hosts": {
+              "type": "integer"
+            },
+            "pct_probes_ok_24h": {
+              "type": "number"
+            },
+            "pct_probes_ok_7d": {
+              "type": "number"
+            },
+            "status_breakdown": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "hosts": {
+                    "type": "integer"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "hosts",
+                  "status"
+                ]
+              }
+            }
+          },
+          "required": [
+            "ok_402_hosts",
+            "pct_probes_ok_24h",
+            "pct_probes_ok_7d",
+            "status_breakdown"
+          ]
+        },
+        "changes_24h": {
+          "type": "object",
+          "properties": {
+            "amount_drift": {
+              "type": "number"
+            },
+            "down": {
+              "type": "integer"
+            },
+            "payto_drift": {
+              "type": "integer"
+            },
+            "up": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "amount_drift",
+            "down",
+            "payto_drift",
+            "up"
+          ]
+        },
+        "coverage": {
+          "type": "object",
+          "properties": {
+            "hosts_monitored": {
+              "type": "integer"
+            },
+            "monitoring_since": {
+              "type": "string"
+            },
+            "probes_24h": {
+              "type": "integer"
+            },
+            "probes_30d": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "hosts_monitored",
+            "monitoring_since",
+            "probes_24h",
+            "probes_30d"
+          ]
+        },
+        "manifest": {
+          "type": "object",
+          "properties": {
+            "pct_with_manifest": {
+              "type": "number"
+            },
+            "with_manifest": {
+              "type": "integer"
+            },
+            "without_manifest": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "pct_with_manifest",
+            "with_manifest",
+            "without_manifest"
+          ]
+        },
+        "movers_24h": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "host": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "ts": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "host",
+              "kind",
+              "ts"
+            ]
+          }
+        },
+        "report_date": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "availability",
+        "changes_24h",
+        "coverage",
+        "manifest",
+        "movers_24h",
+        "report_date"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "availability.pct_probes_ok_24h": {
+        "min": 0,
+        "max": 100
+      },
+      "availability.pct_probes_ok_7d": {
+        "min": 0,
+        "max": 100
+      },
+      "changes_24h.amount_drift": {
+        "min": 0
+      },
+      "manifest.pct_with_manifest": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agentdata-api.sander-van-aard.workers.dev",
+    "endpoint": "https://agentdata-api.sander-van-aard.workers.dev/x402/network-report",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_89862807a486c099",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "summary": {
+          "type": "object",
+          "properties": {
+            "audited": {
+              "type": "integer"
+            },
+            "clean": {
+              "type": "integer"
+            },
+            "deprecated": {
+              "type": "integer"
+            },
+            "missing_from_registry": {
+              "type": "integer"
+            },
+            "with_install_scripts": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "audited",
+            "clean",
+            "deprecated",
+            "missing_from_registry",
+            "with_install_scripts"
+          ]
+        },
+        "verdict": {
+          "type": "string"
+        },
+        "worst_offenders": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "flags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "flags",
+              "name"
+            ]
+          }
+        }
+      },
+      "required": [
+        "summary",
+        "verdict",
+        "worst_offenders"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "pkgpulse.letom1176.workers.dev",
+    "endpoint": "https://pkgpulse.letom1176.workers.dev/api/deps-audit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

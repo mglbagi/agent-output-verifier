@@ -1,0 +1,89 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9c14e99ea39b8009",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "org": {
+          "type": "object",
+          "properties": {
+            "org_id": {
+              "type": "integer"
+            },
+            "provisioned": {
+              "type": "boolean"
+            },
+            "wallet": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "org_id",
+            "provisioned",
+            "wallet"
+          ]
+        },
+        "payment": {
+          "type": "object",
+          "properties": {
+            "amount_usd": {
+              "type": "string"
+            },
+            "network": {
+              "type": "string"
+            },
+            "payer": {
+              "type": "string"
+            },
+            "transaction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount_usd",
+            "network",
+            "payer",
+            "transaction"
+          ]
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "note": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "note",
+            "status"
+          ]
+        },
+        "tool": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "org",
+        "payment",
+        "result",
+        "tool"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mcp.zensched.com",
+    "endpoint": "https://mcp.zensched.com/x402/tools/timesheet_export",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

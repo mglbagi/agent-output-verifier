@@ -1,0 +1,45 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a40f8236dc0a24b0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "api_version": {
+          "type": "string"
+        },
+        "direction": {
+          "type": "string"
+        },
+        "level": {
+          "type": "string"
+        },
+        "original_text": {
+          "type": "string"
+        },
+        "translated_text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "api_version",
+        "original_text",
+        "translated_text",
+        "direction",
+        "level"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "leetspeak-translator.underscoredone.com",
+    "endpoint": "https://leetspeak-translator.underscoredone.com/translate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_eb12c5e4c6f14ae9",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "form": {
+          "enum": [
+            "4"
+          ],
+          "type": "string"
+        },
+        "items": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "resolved": {
+          "type": "object"
+        },
+        "source": {
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "required": [
+        "count",
+        "form",
+        "items",
+        "resolved",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "edgar.apitoll.cloud",
+    "endpoint": "https://edgar.apitoll.cloud/v1/edgar/insider",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

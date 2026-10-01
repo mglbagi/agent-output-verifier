@@ -1,0 +1,252 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5239a801e95847e8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "above10xPct": {
+          "description": "Share ending at or above 10.0x of t0. Subset of profitablePct.",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "cohort": {
+          "description": "Launch cohort this result covers.",
+          "type": "string"
+        },
+        "cohortNote_en": {
+          "description": "States what the cohort filter removed and that unlabelledLaunchpads is counted before that filter.",
+          "type": "string"
+        },
+        "down70Pct": {
+          "description": "Share ending at or below 0.30x of t0. Overlaps down90Pct rather than partitioning it.",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "down90Pct": {
+          "description": "Share ending at or below 0.10x of t0. Subset of down70Pct.",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "excludedByCohort": {
+          "description": "Launches inside the window that the cohort filter removed. They are not in `launches` or any percentage. Zero when cohort='all'.",
+          "type": "integer"
+        },
+        "excludedByCohortBreakdown": {
+          "description": "Mutually exclusive launch-record counts explaining excludedByCohort: unknown launchpad labels versus known labels outside the selected cohort.",
+          "type": "object"
+        },
+        "interim": {
+          "description": "Same figures computed on unfinished launches, named 'SoFar' so they cannot be read as outcomes. Null when outcomeState is SETTLED.",
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "launches": {
+          "description": "Launches observed in the window.",
+          "type": "integer"
+        },
+        "launchpadCountUnitsEn": {
+          "description": "Inline clarification beside launchpads that launchpads and unlabelledLaunchpads count distinct labels, while launches, excludedByCohort, and windowTotal count launch records.",
+          "type": "string"
+        },
+        "launchpads": {
+          "description": "Known launchpad labels in this window.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "limitations": {
+          "description": "Coverage limits and missing data, always disclosed.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "maturity": {
+          "description": "Control group of launches older than matureAfterHours, so a short window cannot be read without its mature counterpart. Carries its own population statement (matureCohort, maturePopulation, matureNote_en): it shares the cohort rule but contains different launches drawn from the full ledger, not this window.",
+          "type": "object"
+        },
+        "medianTerminalMultiple": {
+          "description": "Median of last observed price divided by t0, where t0 is the median of the pool's first swaps.",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "offering": {
+          "const": "launch_digest",
+          "description": "Offering that produced this result.",
+          "type": "string"
+        },
+        "outcomeState": {
+          "description": "SETTLED when the window's launches have finished, INTERIM_ONLY when they have not. Outcome fields are null in the latter case because a share ending above 1.0x cannot be stated for launches that have not ended; the same figures appear under interim.",
+          "type": "string"
+        },
+        "profitablePct": {
+          "description": "Share ending above 1.0x of t0. t0 is the median of the first swaps, an entry generally not obtainable after launch, so this is not the return a later buyer would have earned.",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "provenance": {
+          "description": "Reproducibility metadata so another agent can audit this.",
+          "properties": {
+            "auditedDeliverableHash": {
+              "description": "Explicit alias for resultHash on deliverable-audit results; hashes the buyer-supplied input, not the audit envelope.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "generatedAt": {
+              "description": "Unix seconds.",
+              "type": "integer"
+            },
+            "ledgerLaunchCount": {
+              "description": "Launches in the ledger. Null when the offering is not derived from the launch ledger — this means not applicable, not collection failure.",
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "ledgerSpanHours": {
+              "description": "Hours of history covered. Null when the offering is not derived from the launch ledger.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "resultHash": {
+              "description": "Hash of the audited input, so the same verdict can be reproduced. Present on audit offerings.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "rubricVersion": {
+              "description": "Rubric the verdict was produced under. Present on audit offerings.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "source": {
+              "description": "Data origin.",
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "generatedAt",
+            "source"
+          ]
+        },
+        "schemaVersion": {
+          "description": "Deliverable contract version.",
+          "type": "string"
+        },
+        "topOutcomeLaunchpadConcentration": {
+          "description": "Dominant launchpad share among the displayed top outcomes and among all in-cohort launches, so concentration can be audited without inferring it from the ranked rows.",
+          "type": "object"
+        },
+        "topOutcomeOutlierCount": {
+          "description": "How many topOutcomes rows are marked multipleOutlier: their multiple sits orders of magnitude above every other row shown, which happens when a token's first swaps were at a dust price. Rows are marked, never removed.",
+          "type": "integer"
+        },
+        "topOutcomes": {
+          "description": "Best observed outcomes, ranked across the whole cohort and window rather than per launchpad. Each row carries terminalMultiple, peakMultiple, multipleState, and observationAgeHours so an INTERIM_SO_FAR multiple cannot be read as final.",
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "topOutcomesNote_en": {
+          "description": "States the ranking scope (cohort-wide, not per launchpad) and, while outcomeState is INTERIM_ONLY, that the multiples in topOutcomes are values so far despite their names.",
+          "type": "string"
+        },
+        "unlabelledLaunchRecords": {
+          "description": "Launch RECORDS in the window whose launchpad label is unknown, before the cohort filter.",
+          "type": "integer"
+        },
+        "unlabelledLaunchRecordsInCohort": {
+          "description": "Launch RECORDS inside the selected cohort whose label is unknown. Structurally zero unless cohort='all'.",
+          "type": "integer"
+        },
+        "unlabelledLaunchRecordsNote_en": {
+          "description": "States the unknown-label record count and why the in-cohort figure is structurally zero outside cohort='all'.",
+          "type": "string"
+        },
+        "unlabelledLaunchpads": {
+          "description": "Counted across the whole window BEFORE the cohort filter, so zero here means the window really had none. Distinct unknown labels, counted but not listed.",
+          "type": "integer"
+        },
+        "window": {
+          "description": "Look-back window this result covers.",
+          "type": "string"
+        },
+        "windowHours": {
+          "description": "The analysis window in hours. Distinct from provenance.ledgerSpanHours, which is retained history.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "windowTotal": {
+          "description": "Every launch observed in the window before the cohort filter. Always equals launches + excludedByCohort, so the split can be checked inside the deliverable.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "offering",
+        "provenance",
+        "limitations",
+        "launches"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "above10xPct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "down70Pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "down90Pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "profitablePct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "app.tenna.ai",
+    "endpoint": "https://app.tenna.ai/api/x402/lumi/launch_digest",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

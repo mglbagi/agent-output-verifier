@@ -1,0 +1,109 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3899d5155a811a22",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "advisors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "answered": {
+                "type": "boolean"
+              },
+              "id": {
+                "type": "string"
+              },
+              "latency_ms": {
+                "type": "integer"
+              },
+              "risk": {
+                "type": "number"
+              },
+              "verdict": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "answered",
+              "id",
+              "latency_ms",
+              "risk",
+              "verdict"
+            ]
+          }
+        },
+        "consensus": {
+          "type": "object",
+          "properties": {
+            "advisors_scored": {
+              "type": "integer"
+            },
+            "level": {
+              "type": "string"
+            },
+            "risk": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "advisors_scored",
+            "level",
+            "risk"
+          ]
+        },
+        "mint": {
+          "type": "string"
+        },
+        "price_usd": {
+          "type": "number"
+        },
+        "rugshield_flags": {
+          "type": "object",
+          "properties": {
+            "flags": {
+              "type": "array"
+            },
+            "verdict": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "flags",
+            "verdict"
+          ]
+        }
+      },
+      "required": [
+        "advisors",
+        "consensus",
+        "mint",
+        "price_usd",
+        "rugshield_flags"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "advisors[].id"
+      }
+    ],
+    "bounds": {
+      "price_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "getrugshield.com",
+    "endpoint": "https://getrugshield.com/v1/risk-panel/:mint",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_00bcd946a928eaf3",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "host": {
+          "description": "The queried hostname",
+          "type": "string"
+        },
+        "queried_at": {
+          "description": "UTC timestamp of the lookup",
+          "format": "date-time",
+          "type": "string"
+        },
+        "records": {
+          "items": {
+            "properties": {
+              "host": {
+                "description": "Mail server hostname, typically with a trailing dot",
+                "type": "string"
+              },
+              "pref": {
+                "description": "MX preference; lower values are tried first",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "host",
+              "pref"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "host",
+        "records",
+        "queried_at"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "dns.use.x402atlas.com",
+    "endpoint": "https://dns.use.x402atlas.com/mx",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_904c3167eee3feca",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "bithumb": {
+              "type": "object",
+              "properties": {
+                "change_rate": {
+                  "type": "number"
+                },
+                "data_age_seconds": {
+                  "type": "integer"
+                },
+                "exchange": {
+                  "type": "string"
+                },
+                "price_krw": {
+                  "type": "number"
+                },
+                "symbol": {
+                  "type": "string"
+                },
+                "volume_24h": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "change_rate",
+                "data_age_seconds",
+                "exchange",
+                "price_krw",
+                "symbol",
+                "volume_24h"
+              ]
+            },
+            "upbit": {
+              "type": "object",
+              "properties": {
+                "change_rate": {
+                  "type": "number"
+                },
+                "data_age_seconds": {
+                  "type": "integer"
+                },
+                "exchange": {
+                  "type": "string"
+                },
+                "price_krw": {
+                  "type": "number"
+                },
+                "symbol": {
+                  "type": "string"
+                },
+                "volume_24h": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "change_rate",
+                "data_age_seconds",
+                "exchange",
+                "price_krw",
+                "symbol",
+                "volume_24h"
+              ]
+            }
+          },
+          "required": [
+            "bithumb",
+            "upbit"
+          ]
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data",
+        "symbol",
+        "timestamp"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.bithumb.data_age_seconds": {
+        "min": 0
+      },
+      "data.bithumb.price_krw": {
+        "min": 0
+      },
+      "data.bithumb.volume_24h": {
+        "min": 0
+      },
+      "data.upbit.data_age_seconds": {
+        "min": 0
+      },
+      "data.upbit.price_krw": {
+        "min": 0
+      },
+      "data.upbit.volume_24h": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.aidress.ai",
+    "endpoint": "https://api.aidress.ai/pay/agent_printmoneylab_com",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

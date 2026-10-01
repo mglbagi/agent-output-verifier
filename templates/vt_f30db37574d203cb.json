@@ -1,0 +1,112 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f30db37574d203cb",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "filters": {
+          "type": "object",
+          "properties": {
+            "role": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "role",
+            "type"
+          ]
+        },
+        "trades": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "company_name": {
+                "type": "string"
+              },
+              "filing_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "form_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "insider_name": {
+                "type": "string"
+              },
+              "insider_role": {
+                "type": "string"
+              },
+              "price": {
+                "type": "number"
+              },
+              "shares": {
+                "type": "integer"
+              },
+              "shares_after": {
+                "type": "integer"
+              },
+              "ticker": {
+                "type": "string"
+              },
+              "total_value": {
+                "type": "number"
+              },
+              "trade_type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "company_name",
+              "filing_date",
+              "form_url",
+              "insider_name",
+              "insider_role",
+              "price",
+              "shares",
+              "shares_after",
+              "ticker",
+              "total_value",
+              "trade_type"
+            ]
+          }
+        }
+      },
+      "required": [
+        "count",
+        "filters",
+        "trades"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "trades[].price": {
+        "min": 0
+      },
+      "trades[].total_value": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "joyful-charm-production-bf6d.up.railway.app",
+    "endpoint": "https://joyful-charm-production-bf6d.up.railway.app/trades/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

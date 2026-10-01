@@ -1,0 +1,67 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_49d465e448190009",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "most_bought": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "buys": {
+                "type": "integer"
+              },
+              "symbol": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "buys",
+              "symbol"
+            ]
+          }
+        },
+        "most_sold": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "sells": {
+                "type": "integer"
+              },
+              "symbol": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "sells",
+              "symbol"
+            ]
+          }
+        },
+        "signal": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "most_bought",
+        "most_sold",
+        "signal"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "capitol.lonestaroracle.xyz",
+    "endpoint": "https://capitol.lonestaroracle.xyz/trades",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

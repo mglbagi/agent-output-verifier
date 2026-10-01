@@ -1,0 +1,46 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_54545a6fa7da847f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "cached": {
+          "type": "boolean"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "postcode": {
+          "type": "string"
+        },
+        "results": {
+          "description": "Sold-price records: address, price (GBP), date, property_type, new_build.",
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "cached",
+        "count",
+        "postcode",
+        "results"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "property.payapi.market",
+    "endpoint": "https://property.payapi.market/sold-prices",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

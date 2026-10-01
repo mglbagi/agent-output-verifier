@@ -1,0 +1,153 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_02d18cd2a72b3d70",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "estimatedTimeSeconds": {
+              "type": "integer"
+            },
+            "expiresAt": {
+              "type": "integer"
+            },
+            "fee": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "string"
+                },
+                "bps": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "amount",
+                "bps"
+              ]
+            },
+            "input": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "string"
+                },
+                "token": {
+                  "type": "object",
+                  "properties": {
+                    "chainId": {
+                      "type": "integer"
+                    },
+                    "decimals": {
+                      "type": "integer"
+                    },
+                    "isNative": {
+                      "type": "boolean"
+                    },
+                    "symbol": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "chainId",
+                    "decimals",
+                    "isNative",
+                    "symbol"
+                  ]
+                }
+              },
+              "required": [
+                "amount",
+                "token"
+              ]
+            },
+            "output": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "string"
+                },
+                "token": {
+                  "type": "object",
+                  "properties": {
+                    "chainId": {
+                      "type": "integer"
+                    },
+                    "decimals": {
+                      "type": "integer"
+                    },
+                    "isNative": {
+                      "type": "boolean"
+                    },
+                    "symbol": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "chainId",
+                    "decimals",
+                    "isNative",
+                    "symbol"
+                  ]
+                }
+              },
+              "required": [
+                "amount",
+                "token"
+              ]
+            },
+            "quoteToken": {
+              "type": "string"
+            },
+            "routeType": {
+              "type": "string"
+            },
+            "venue": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name"
+              ]
+            }
+          },
+          "required": [
+            "estimatedTimeSeconds",
+            "expiresAt",
+            "fee",
+            "input",
+            "output",
+            "quoteToken",
+            "routeType",
+            "venue"
+          ]
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "app.ravn.exchange",
+    "endpoint": "https://app.ravn.exchange/api/v1/x402/quote",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

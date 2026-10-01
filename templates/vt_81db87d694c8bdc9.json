@@ -1,0 +1,152 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_81db87d694c8bdc9",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "page": {
+          "type": "integer"
+        },
+        "queried_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "query": {
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "assignee": {
+                "type": "string"
+              },
+              "country_status": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              "cpc": {
+                "type": "string"
+              },
+              "cpc_description": {
+                "type": "string"
+              },
+              "figures": {
+                "items": {
+                  "properties": {
+                    "full_url": {
+                      "format": "uri",
+                      "type": "string"
+                    },
+                    "thumbnail_url": {
+                      "format": "uri",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "filing_date": {
+                "type": "string"
+              },
+              "grant_date": {
+                "type": "string"
+              },
+              "inventor": {
+                "type": "string"
+              },
+              "language": {
+                "type": "string"
+              },
+              "patent_id": {
+                "type": "string"
+              },
+              "patent_url": {
+                "format": "uri",
+                "type": "string"
+              },
+              "pdf_url": {
+                "format": "uri",
+                "type": "string"
+              },
+              "position": {
+                "type": "integer"
+              },
+              "priority_date": {
+                "type": "string"
+              },
+              "publication_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "publication_number": {
+                "type": "string"
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "snippet": {
+                "type": "string"
+              },
+              "thumbnail_url": {
+                "format": "uri",
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "position",
+              "patent_id",
+              "title"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "total_pages": {
+          "type": "integer"
+        },
+        "total_results": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "query",
+        "queried_at",
+        "page",
+        "total_results",
+        "total_pages",
+        "results"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "results[].patent_id"
+      }
+    ],
+    "bounds": {
+      "total_pages": {
+        "min": 0
+      },
+      "total_results": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "google-patents.use.x402atlas.com",
+    "endpoint": "https://google-patents.use.x402atlas.com/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

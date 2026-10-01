@@ -1,0 +1,52 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_81fdbfa5ae6dea35",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "trades": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "owner": {
+                "type": "string"
+              },
+              "shares": {
+                "type": "string"
+              },
+              "ticker": {
+                "type": "string"
+              },
+              "valueUsd": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "owner",
+              "shares",
+              "ticker",
+              "valueUsd"
+            ]
+          }
+        }
+      },
+      "required": [
+        "trades"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "whale.memoryapi.org",
+    "endpoint": "https://whale.memoryapi.org/x402/whale/insider",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

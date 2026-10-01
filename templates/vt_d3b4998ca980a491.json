@@ -1,0 +1,208 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d3b4998ca980a491",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "answer": {
+          "additionalProperties": false,
+          "properties": {
+            "check_digit": {
+              "additionalProperties": false,
+              "properties": {
+                "carried": {
+                  "maxLength": 1,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "computed": {
+                  "maxLength": 1,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "position": {
+                  "const": 9,
+                  "type": "integer"
+                },
+                "valid": {
+                  "const": true,
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "position",
+                "carried",
+                "computed",
+                "valid"
+              ],
+              "type": "object"
+            },
+            "model_year": {
+              "additionalProperties": false,
+              "properties": {
+                "basis": {
+                  "enum": [
+                    "position_7_disambiguated",
+                    "gvwr_unevaluable",
+                    "cycle_ambiguous",
+                    "wmi_unknown_scope"
+                  ],
+                  "type": "string"
+                },
+                "candidates": {
+                  "items": {
+                    "type": "integer"
+                  },
+                  "maxItems": 2,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "code": {
+                  "maxLength": 1,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "candidates",
+                "basis"
+              ],
+              "type": "object"
+            },
+            "vin": {
+              "description": "the 17-character vehicle identification number to decode, ISO 3779 alphabet with no I, O or Q",
+              "pattern": "^[A-HJ-NPR-Z0-9]{17}$",
+              "type": "string"
+            },
+            "wmi": {
+              "additionalProperties": false,
+              "properties": {
+                "country": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "key": {
+                  "pattern": "^[A-HJ-NPR-Z0-9]{3}(?:[A-HJ-NPR-Z0-9]{3})?$",
+                  "type": "string"
+                },
+                "key_length": {
+                  "enum": [
+                    3,
+                    6
+                  ],
+                  "type": "integer"
+                },
+                "make": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "manufacturer": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "vehicle_type": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key",
+                "key_length",
+                "manufacturer",
+                "make",
+                "vehicle_type",
+                "country"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "vin",
+            "check_digit",
+            "wmi",
+            "model_year"
+          ],
+          "type": "object"
+        },
+        "delivered_at": {
+          "minLength": 1,
+          "type": "string",
+          "format": "date-time"
+        },
+        "schema_version": {
+          "const": "vin-lookup.v1",
+          "type": "string"
+        },
+        "source": {
+          "additionalProperties": false,
+          "properties": {
+            "coverage": {
+              "const": "Structural decode only, from a bundled snapshot of the NHTSA vPIC World Manufacturer Identifier table (10,659 WMI records, cut in ascending WMI key order from the 12,971 candidates in the lite 2026_08 publication; 2,312 further candidates were refused by the bundle sanitizer and counted) plus the closed-form rules of 49 CFR 565.15 (Subpart B) and 49 CFR 565.25 (Subpart C). Answers: the position-9 check digit verdict, the WMI's recorded manufacturer, make, vehicle type and registered country, and the position-10 model-year code as a candidate set from 49 CFR 565.15(d)(1) Table VII and 49 CFR 565.25(d)(1) Table XIII, narrowed to a single year only for passenger cars, the one class whose disambiguation rule does not depend on a gross vehicle weight rating this snapshot does not carry. The check digit refuses MOST transcription errors, not all: 49 CFR 565.15(c) Table III assigns several letters the same value, so substitutions and some transpositions within a value class are undetectable. Does NOT answer engine, body, series, trim, restraints, plant, weight class, or any per-manufacturer VIN pattern — those are not bundled. Does NOT assert that a vehicle exists, is registered, or is on the road. A VIN lawfully exempt from 49 CFR 565.15 under 49 CFR 565.2(a)(1) may be refused as malformed when it is not. Rows carrying characters this bundle cannot represent, and rows for which vPIC records no country at all, were refused and counted rather than repaired, which drops non-US manufacturers disproportionately, so both a refusal and an absent country skew non-US. A WMI the register maps to more than one make is refused rather than carried as a derived, comma-joined value, which is 511 of those refusals. Where one WMI carries more than one vehicle type — none in this vintage — the reported vehicle type is the first row in bundle order, a deterministic but arbitrary choice, and the model year stays a candidate set, never narrowed. These same facts are published free and unauthenticated by NHTSA and are fresher there; what this route sells is a digest-pinned, replayable, offline answer with a stated vintage and a stated coverage. A WMI missing here is missing from THIS snapshot only, never from the vPIC register; growing coverage is a bigger snapshot and a redeploy, never a live fetch.",
+              "type": "string"
+            },
+            "name": {
+              "const": "NHTSA vPIC World Manufacturer Identifier register, lite 2026_08 publication",
+              "type": "string"
+            },
+            "snapshot_sha256": {
+              "const": "42e1abe3c24d2c60226922209cd79016e4a534deea5d4db8637ba22c4427891f",
+              "type": "string"
+            },
+            "vintage": {
+              "const": "2026_08",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "vintage",
+            "snapshot_sha256",
+            "coverage"
+          ],
+          "type": "object"
+        },
+        "subject": {
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "vin",
+              "type": "string"
+            },
+            "value": {
+              "description": "the 17-character vehicle identification number to decode, ISO 3779 alphabet with no I, O or Q",
+              "pattern": "^[A-HJ-NPR-Z0-9]{17}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "value"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "schema_version",
+        "subject",
+        "answer",
+        "source",
+        "delivered_at"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "lookups.alienprobe.ai",
+    "endpoint": "https://lookups.alienprobe.ai/v1/lookup/vin/:vin",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

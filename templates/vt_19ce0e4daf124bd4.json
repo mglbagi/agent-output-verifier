@@ -1,0 +1,117 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_19ce0e4daf124bd4",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "country": {
+          "type": "string"
+        },
+        "data_year": {
+          "type": "string"
+        },
+        "drivers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "interpretation": {
+          "type": "string"
+        },
+        "iso3": {
+          "type": "string"
+        },
+        "max_score": {
+          "type": "integer"
+        },
+        "metrics": {
+          "type": "object",
+          "properties": {
+            "current_account_gdp_pct": {
+              "type": "number"
+            },
+            "fiscal_balance_gdp_pct": {
+              "type": "number"
+            },
+            "gdp_growth_pct": {
+              "type": "number"
+            },
+            "govt_debt_gdp_pct": {
+              "type": "number"
+            },
+            "inflation_pct": {
+              "type": "number"
+            },
+            "reserves_months_import": {
+              "type": "number"
+            },
+            "reserves_year": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "current_account_gdp_pct",
+            "fiscal_balance_gdp_pct",
+            "gdp_growth_pct",
+            "govt_debt_gdp_pct",
+            "inflation_pct",
+            "reserves_months_import",
+            "reserves_year"
+          ]
+        },
+        "risk_score": {
+          "type": "integer"
+        },
+        "source": {
+          "type": "string"
+        },
+        "sovereign_risk": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "data_year",
+        "drivers",
+        "interpretation",
+        "iso3",
+        "max_score",
+        "metrics",
+        "risk_score",
+        "source",
+        "sovereign_risk"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "metrics.current_account_gdp_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "metrics.gdp_growth_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "metrics.govt_debt_gdp_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "metrics.inflation_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "sovereign.lonestaroracle.xyz",
+    "endpoint": "https://sovereign.lonestaroracle.xyz/sovereign",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

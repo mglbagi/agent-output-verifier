@@ -1,0 +1,259 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d8c84a6a9d34b4ff",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "cache_age_seconds": {
+          "type": "integer"
+        },
+        "cache_freshness_hint": {
+          "type": "string"
+        },
+        "collections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cc0pedia": {
+                "type": "object",
+                "properties": {
+                  "creator": {
+                    "type": "string"
+                  },
+                  "lore_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "summary": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "creator",
+                  "lore_url",
+                  "summary"
+                ]
+              },
+              "chain": {
+                "type": "string"
+              },
+              "contract_address": {
+                "type": "string",
+                "pattern": "^0x[a-fA-F0-9]{40}$"
+              },
+              "image_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "metrics": {
+                "type": "object",
+                "properties": {
+                  "floor_price_eth": {
+                    "type": "number"
+                  },
+                  "floor_price_symbol": {
+                    "type": "string"
+                  },
+                  "holders_count": {
+                    "type": "integer"
+                  },
+                  "sales_24h": {
+                    "type": "integer"
+                  },
+                  "total_supply": {
+                    "type": "number"
+                  },
+                  "volume_24h_eth": {
+                    "type": "number"
+                  },
+                  "volume_24h_usd": {
+                    "type": "number"
+                  },
+                  "volume_change_24h_pct": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "floor_price_eth",
+                  "floor_price_symbol",
+                  "holders_count",
+                  "sales_24h",
+                  "total_supply",
+                  "volume_24h_eth",
+                  "volume_24h_usd",
+                  "volume_change_24h_pct"
+                ]
+              },
+              "name": {
+                "type": "string"
+              },
+              "narrative": {
+                "type": "string"
+              },
+              "opensea_slug": {
+                "type": "string"
+              },
+              "opensea_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "rank": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "cc0pedia",
+              "chain",
+              "contract_address",
+              "image_url",
+              "metrics",
+              "name",
+              "narrative",
+              "opensea_slug",
+              "opensea_url",
+              "rank"
+            ]
+          }
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "builder_version": {
+              "type": "integer"
+            },
+            "license": {
+              "type": "string"
+            },
+            "refresh_cadence": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "builder_version",
+            "license",
+            "refresh_cadence"
+          ]
+        },
+        "networks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "price_usdc": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "synthesis": {
+          "type": "object",
+          "properties": {
+            "headline": {
+              "type": "string"
+            },
+            "macro": {
+              "type": "object",
+              "properties": {
+                "eth_price_usd": {
+                  "type": "number"
+                },
+                "total_collections_evaluated": {
+                  "type": "number"
+                },
+                "total_volume_24h_eth": {
+                  "type": "number"
+                },
+                "total_volume_24h_usd": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "eth_price_usd",
+                "total_collections_evaluated",
+                "total_volume_24h_eth",
+                "total_volume_24h_usd"
+              ]
+            },
+            "top_story_collection": {
+              "type": "string"
+            },
+            "top_story_summary": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "headline",
+            "macro",
+            "top_story_collection",
+            "top_story_summary"
+          ]
+        }
+      },
+      "required": [
+        "cache_age_seconds",
+        "cache_freshness_hint",
+        "collections",
+        "generated_at",
+        "meta",
+        "networks",
+        "price_usdc",
+        "service",
+        "success",
+        "synthesis"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "cache_age_seconds": {
+        "min": 0
+      },
+      "collections[].metrics.floor_price_eth": {
+        "min": 0
+      },
+      "collections[].metrics.holders_count": {
+        "min": 0
+      },
+      "collections[].metrics.total_supply": {
+        "min": 0
+      },
+      "collections[].metrics.volume_24h_eth": {
+        "min": 0
+      },
+      "collections[].metrics.volume_24h_usd": {
+        "min": 0
+      },
+      "synthesis.macro.eth_price_usd": {
+        "min": 0
+      },
+      "synthesis.macro.total_collections_evaluated": {
+        "min": 0
+      },
+      "synthesis.macro.total_volume_24h_eth": {
+        "min": 0
+      },
+      "synthesis.macro.total_volume_24h_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "cc0.company",
+    "endpoint": "https://cc0.company/api/store/agent-services/cc0-daily-brief/invoke",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

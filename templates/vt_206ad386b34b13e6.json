@@ -1,0 +1,105 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_206ad386b34b13e6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "properties": {
+            "marketSummaries": {
+              "type": "array"
+            },
+            "summary": {
+              "description": "Accumulator stats",
+              "properties": {
+                "accumulatorUptime": {
+                  "description": "Seconds",
+                  "type": "number"
+                },
+                "newestTimestamp": {
+                  "type": "number"
+                },
+                "oldestTimestamp": {
+                  "type": "number"
+                },
+                "pollCount": {
+                  "type": "number"
+                },
+                "totalAccumulated": {
+                  "type": "number"
+                }
+              },
+              "type": "object",
+              "required": [
+                "accumulatorUptime",
+                "newestTimestamp",
+                "oldestTimestamp",
+                "pollCount",
+                "totalAccumulated"
+              ]
+            },
+            "trades": {
+              "items": {
+                "properties": {
+                  "amount": {
+                    "type": "number"
+                  },
+                  "market": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  },
+                  "side": {
+                    "type": "string"
+                  },
+                  "timestamp": {
+                    "type": "number"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "amount",
+                  "market",
+                  "price",
+                  "side",
+                  "timestamp"
+                ]
+              },
+              "type": "array"
+            }
+          },
+          "type": "object",
+          "required": [
+            "marketSummaries",
+            "summary",
+            "trades"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "data"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.trades[].amount": {
+        "min": 0
+      },
+      "data.trades[].price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "polynews.news",
+    "endpoint": "https://polynews.news/api/v1/feed",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

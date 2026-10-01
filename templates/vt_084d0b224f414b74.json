@@ -1,0 +1,86 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_084d0b224f414b74",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "endpoint": {
+          "type": "string",
+          "format": "uri"
+        },
+        "facilitator": {
+          "type": "string"
+        },
+        "payTo": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "paymentNetwork": {
+          "type": "string"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "tagline": {
+          "type": "string"
+        },
+        "tools": {
+          "items": {
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "price": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "price"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "version": {
+          "type": "string"
+        },
+        "webhooks": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "service",
+        "version",
+        "status",
+        "tagline",
+        "protocol",
+        "endpoint",
+        "webhooks",
+        "paymentNetwork",
+        "facilitator",
+        "payTo",
+        "tools"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "cdp-agent-0-01.onrender.com",
+    "endpoint": "https://cdp-agent-0-01.onrender.com/",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

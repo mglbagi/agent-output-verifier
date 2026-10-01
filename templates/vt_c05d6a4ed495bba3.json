@@ -1,0 +1,101 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c05d6a4ed495bba3",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "candidates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "business_number": {
+                "type": "string"
+              },
+              "confidence": {
+                "type": "integer"
+              },
+              "evidence": {
+                "type": "object",
+                "properties": {
+                  "listed": {
+                    "type": "boolean"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "tax_type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "listed",
+                  "status",
+                  "tax_type"
+                ]
+              },
+              "match": {
+                "type": "object",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "field",
+                  "type"
+                ]
+              },
+              "name": {
+                "type": "string"
+              },
+              "name_en": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "business_number",
+              "confidence",
+              "evidence",
+              "match",
+              "name",
+              "name_en"
+            ]
+          }
+        },
+        "note": {
+          "type": "string"
+        },
+        "query": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidates",
+        "note",
+        "query"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "candidates[].confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "kbv-server-f7vfitmlkq-du.a.run.app",
+    "endpoint": "https://kbv-server-f7vfitmlkq-du.a.run.app/v1/business/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

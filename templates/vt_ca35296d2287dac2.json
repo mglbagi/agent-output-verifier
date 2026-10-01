@@ -1,0 +1,409 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ca35296d2287dac2",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "product": {
+          "properties": {
+            "buy": {
+              "description": "Purchase options",
+              "properties": {
+                "best_offer": {
+                  "type": "boolean"
+                },
+                "bid": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    },
+                    "price": {
+                      "properties": {
+                        "extracted": {
+                          "type": "number"
+                        },
+                        "raw": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "time_left": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "buy_it_now": {
+                  "properties": {
+                    "price": {
+                      "properties": {
+                        "extracted": {
+                          "type": "number"
+                        },
+                        "raw": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "extracted",
+                        "raw"
+                      ]
+                    }
+                  },
+                  "type": "object",
+                  "required": [
+                    "price"
+                  ]
+                }
+              },
+              "type": "object",
+              "required": [
+                "best_offer",
+                "buy_it_now"
+              ]
+            },
+            "categories": {
+              "description": "Category breadcrumb names",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "condition": {
+              "type": "string"
+            },
+            "coupon": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "savings": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "link": {
+              "description": "The listing's eBay page",
+              "type": "string",
+              "format": "uri"
+            },
+            "media": {
+              "description": "Listing image URLs",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "payment_methods": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "product_id": {
+              "type": "string"
+            },
+            "quantity": {
+              "properties": {
+                "availability_signal": {
+                  "type": "string"
+                },
+                "available": {
+                  "type": "integer"
+                },
+                "sold": {
+                  "type": "integer"
+                }
+              },
+              "type": "object",
+              "required": [
+                "availability_signal",
+                "sold"
+              ]
+            },
+            "rating": {
+              "type": "number"
+            },
+            "returns": {
+              "properties": {
+                "accepted": {
+                  "type": "boolean"
+                },
+                "period": {
+                  "type": "string"
+                },
+                "refund_method": {
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "required": [
+                "accepted",
+                "period",
+                "refund_method"
+              ]
+            },
+            "review_count": {
+              "type": "integer"
+            },
+            "shipping": {
+              "properties": {
+                "destination": {
+                  "type": "string"
+                },
+                "handling": {
+                  "type": "string"
+                },
+                "options": {
+                  "items": {
+                    "properties": {
+                      "estimated_delivery": {
+                        "type": "string"
+                      },
+                      "method": {
+                        "type": "string"
+                      },
+                      "price": {
+                        "properties": {
+                          "extracted": {
+                            "type": "number"
+                          },
+                          "raw": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object",
+                        "required": [
+                          "extracted",
+                          "raw"
+                        ]
+                      }
+                    },
+                    "type": "object",
+                    "required": [
+                      "estimated_delivery",
+                      "method",
+                      "price"
+                    ]
+                  },
+                  "type": "array"
+                },
+                "origin": {
+                  "type": "string"
+                },
+                "ships_to": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "required": [
+                "destination",
+                "options",
+                "origin",
+                "status"
+              ]
+            },
+            "short_description": {
+              "type": "string"
+            },
+            "specifications": {
+              "properties": {
+                "about_this_item": {
+                  "description": "Key/value item specifics",
+                  "type": "object"
+                },
+                "product_details": {
+                  "description": "Key/value product details",
+                  "type": "object"
+                }
+              },
+              "type": "object",
+              "required": [
+                "about_this_item",
+                "product_details"
+              ]
+            },
+            "subtitle": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "variations": {
+              "description": "Option menus and purchasable combinations, when the listing has variants",
+              "properties": {
+                "combinations": {
+                  "items": {
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "menus": {
+                  "items": {
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "watch_count": {
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "required": [
+            "buy",
+            "categories",
+            "condition",
+            "link",
+            "media",
+            "payment_methods",
+            "product_id",
+            "quantity",
+            "rating",
+            "returns",
+            "review_count",
+            "shipping",
+            "short_description",
+            "specifications",
+            "subtitle",
+            "title",
+            "watch_count"
+          ]
+        },
+        "queried_at": {
+          "description": "Time the lookup ran (UTC)",
+          "format": "date-time",
+          "type": "string"
+        },
+        "related_products": {
+          "items": {
+            "properties": {
+              "details_link": {
+                "description": "This API's /product URL for the related listing",
+                "type": "string",
+                "format": "uri"
+              },
+              "price": {
+                "properties": {
+                  "extracted": {
+                    "type": "number"
+                  },
+                  "raw": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "extracted",
+                  "raw"
+                ]
+              },
+              "product_id": {
+                "type": "string"
+              },
+              "thumbnail": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "details_link",
+              "price",
+              "product_id",
+              "thumbnail",
+              "title"
+            ]
+          },
+          "type": "array"
+        },
+        "seller": {
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "positive_feedback_percent": {
+              "type": "number"
+            },
+            "profile_link": {
+              "description": "The seller's eBay profile",
+              "type": "string",
+              "format": "uri"
+            },
+            "rating": {
+              "type": "number"
+            },
+            "sold_count": {
+              "type": "integer"
+            },
+            "username": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "name",
+            "positive_feedback_percent",
+            "profile_link",
+            "rating",
+            "sold_count",
+            "username"
+          ]
+        }
+      },
+      "required": [
+        "queried_at",
+        "product"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "related_products[].product_id",
+        "if_present": true
+      }
+    ],
+    "bounds": {
+      "product.buy.bid.count": {
+        "min": 0,
+        "if_present": true
+      },
+      "product.review_count": {
+        "min": 0
+      },
+      "product.watch_count": {
+        "min": 0
+      },
+      "seller.positive_feedback_percent": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "seller.sold_count": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ebay.use.x402atlas.com",
+    "endpoint": "https://ebay.use.x402atlas.com/product",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

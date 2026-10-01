@@ -1,0 +1,70 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_80bf91018a2de432",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "components": {
+          "type": "object",
+          "properties": {
+            "cdi": {
+              "type": "object",
+              "properties": {
+                "...": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "..."
+              ]
+            },
+            "selic": {
+              "type": "object",
+              "properties": {
+                "...": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "..."
+              ]
+            }
+          },
+          "required": [
+            "cdi",
+            "selic"
+          ]
+        },
+        "indicator": {
+          "type": "string"
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "components",
+        "indicator",
+        "retrieved_at",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api-macro-br-production.up.railway.app",
+    "endpoint": "https://api-macro-br-production.up.railway.app/v1/resumo",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

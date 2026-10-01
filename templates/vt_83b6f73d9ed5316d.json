@@ -1,0 +1,164 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_83b6f73d9ed5316d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "accepts_wellformed": {
+          "type": "boolean"
+        },
+        "checked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "get_status": {
+          "type": [
+            "integer",
+            "string",
+            "null"
+          ]
+        },
+        "method": {
+          "enum": [
+            "GET",
+            "POST",
+            null
+          ],
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "options": {
+          "items": {
+            "properties": {
+              "amount": {
+                "type": [
+                  "string",
+                  "integer",
+                  "null"
+                ]
+              },
+              "asset": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "detail": {
+                "type": "object"
+              },
+              "facilitator": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "maxTimeoutSeconds": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "network": {
+                "type": "string"
+              },
+              "pay_to": {
+                "type": "string"
+              },
+              "scheme": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "verdict": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "amount",
+              "asset",
+              "detail",
+              "maxTimeoutSeconds",
+              "network",
+              "pay_to",
+              "scheme",
+              "verdict"
+            ]
+          },
+          "type": "array"
+        },
+        "payable_networks": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "post_status": {
+          "type": [
+            "integer",
+            "string",
+            "null"
+          ]
+        },
+        "reachable": {
+          "type": "boolean"
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resource": {
+          "type": "string"
+        },
+        "returns_402": {
+          "type": "boolean"
+        },
+        "schema_version": {
+          "const": 3,
+          "type": "integer"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "signed_by": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "resource",
+        "verdict",
+        "options",
+        "payable_networks",
+        "signed_by",
+        "signature"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "options[].amount": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "payable.nsgoods.org",
+    "endpoint": "https://payable.nsgoods.org/payable",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

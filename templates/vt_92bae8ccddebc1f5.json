@@ -1,0 +1,627 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_92bae8ccddebc1f5",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "description": "Complete transactional Dependency Risk response, limited to the native budget reserved below the 512 KiB deployed wire ceiling",
+      "properties": {
+        "_atlas": {
+          "additionalProperties": false,
+          "description": "Atlas documentation and related-route metadata added after deployment",
+          "properties": {
+            "docs": {
+              "description": "Documentation URL for this bridge",
+              "format": "uri",
+              "maxLength": 512,
+              "type": "string"
+            },
+            "related": {
+              "description": "Bounded related Atlas routes",
+              "items": {
+                "additionalProperties": false,
+                "description": "One related Atlas route",
+                "properties": {
+                  "bridge": {
+                    "description": "Related bridge name",
+                    "maxLength": 64,
+                    "type": "string"
+                  },
+                  "docs": {
+                    "description": "Related bridge documentation URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  },
+                  "summary": {
+                    "description": "Short capability summary",
+                    "maxLength": 256,
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "Related route URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "bridge",
+                  "url",
+                  "docs",
+                  "summary"
+                ],
+                "type": "object"
+              },
+              "maxItems": 3,
+              "type": "array"
+            }
+          },
+          "required": [
+            "docs"
+          ],
+          "type": "object"
+        },
+        "operation": {
+          "const": "sbom-check",
+          "description": "Stable route operation identifier",
+          "type": "string"
+        },
+        "partial": {
+          "description": "True only when at least one complete item succeeded and another detail lookup transiently failed",
+          "type": "boolean"
+        },
+        "results": {
+          "description": "Complete or explicitly failed results in original caller input order, including duplicate positions; all items collectively reference at most eight distinct OSV IDs",
+          "items": {
+            "additionalProperties": false,
+            "description": "One position-preserving package result",
+            "oneOf": [
+              {
+                "not": {
+                  "required": [
+                    "error_code"
+                  ]
+                },
+                "properties": {
+                  "status": {
+                    "description": "A complete named-source conclusion requires summary and omits error_code",
+                    "enum": [
+                      "no_known_vulnerabilities",
+                      "vulnerabilities_found"
+                    ]
+                  }
+                },
+                "required": [
+                  "summary"
+                ]
+              },
+              {
+                "not": {
+                  "required": [
+                    "summary"
+                  ]
+                },
+                "properties": {
+                  "status": {
+                    "const": "query_failed",
+                    "description": "An incomplete upstream result requires error_code and omits summary so it cannot resemble a risk conclusion"
+                  }
+                },
+                "required": [
+                  "error_code"
+                ]
+              }
+            ],
+            "properties": {
+              "error_code": {
+                "const": "upstream_error",
+                "description": "Generic non-sensitive code present only when status is query_failed",
+                "type": "string"
+              },
+              "findings": {
+                "description": "Complete findings for this exact input; collectively all response items reference at most eight distinct OSV IDs; always [] for no_known_vulnerabilities or query_failed",
+                "items": {
+                  "additionalProperties": false,
+                  "description": "One complete normalized OSV vulnerability finding, limited to 48 KiB after JSON encoding, with optional exact CISA KEV enrichment",
+                  "properties": {
+                    "affected": {
+                      "description": "Bounded OSV affected package/range/event data in source order",
+                      "items": {
+                        "additionalProperties": false,
+                        "description": "One OSV affected package entry retained in source order",
+                        "properties": {
+                          "package": {
+                            "additionalProperties": false,
+                            "description": "Exact affected package identity published by OSV",
+                            "properties": {
+                              "ecosystem": {
+                                "description": "Exact OSV ecosystem identifier",
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "Exact package name published by OSV",
+                                "type": "string"
+                              },
+                              "purl": {
+                                "description": "Package URL published by OSV when supplied",
+                                "type": "string"
+                              }
+                            },
+                            "type": "object",
+                            "required": [
+                              "ecosystem",
+                              "name",
+                              "purl"
+                            ]
+                          },
+                          "ranges": {
+                            "description": "Affected ranges retained in OSV source order",
+                            "items": {
+                              "additionalProperties": false,
+                              "description": "One affected version range published by OSV",
+                              "properties": {
+                                "events": {
+                                  "description": "Ordered OSV range events; the bridge does not infer ecosystem version ordering",
+                                  "items": {
+                                    "additionalProperties": false,
+                                    "description": "One OSV range event; exactly one event field is normally supplied by the source",
+                                    "properties": {
+                                      "fixed": {
+                                        "description": "OSV range event explicitly marking a fixed version",
+                                        "type": "string"
+                                      },
+                                      "introduced": {
+                                        "description": "OSV range event marking an introduced version",
+                                        "type": "string"
+                                      },
+                                      "last_affected": {
+                                        "description": "OSV range event marking the last affected version",
+                                        "type": "string"
+                                      },
+                                      "limit": {
+                                        "description": "OSV range event upper limit when supplied",
+                                        "type": "string"
+                                      }
+                                    },
+                                    "type": "object"
+                                  },
+                                  "type": "array"
+                                },
+                                "repo": {
+                                  "description": "Repository identifier published by OSV for a GIT range",
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "description": "OSV range type such as SEMVER, ECOSYSTEM, or GIT",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "events"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "severity": {
+                            "description": "Severity vectors attached to this affected package entry",
+                            "items": {
+                              "additionalProperties": false,
+                              "description": "One severity vector exactly as published by OSV",
+                              "properties": {
+                                "score": {
+                                  "description": "Original published vector; malformed or mismatched vectors are retained but score as unknown",
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "description": "OSV-declared score type such as CVSS_V3",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "score"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "versions": {
+                            "description": "Affected versions explicitly enumerated by OSV",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "package",
+                          "ranges",
+                          "versions",
+                          "severity"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "aliases": {
+                      "description": "Deduplicated lexical aliases published by OSV",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "fixed_versions": {
+                      "description": "Only explicit fixed events for the matching package, deduplicated in OSV source order; [] means OSV supplied no fixed event, not that no fix exists",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "id": {
+                      "description": "Authoritative OSV record identifier",
+                      "type": "string"
+                    },
+                    "kev": {
+                      "additionalProperties": false,
+                      "description": "Exact CISA KEV match on a syntactically valid CVE ID or alias; omitted rather than null when no exact match exists",
+                      "properties": {
+                        "cve_id": {
+                          "description": "Exact CVE identifier matched in the CISA KEV catalog",
+                          "type": "string"
+                        },
+                        "cwes": {
+                          "description": "CWE identifiers published by CISA",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "date_added": {
+                          "description": "Date CISA added the CVE to KEV",
+                          "type": "string",
+                          "format": "date"
+                        },
+                        "due_date": {
+                          "description": "CISA KEV due date for covered federal agencies",
+                          "type": "string",
+                          "format": "date"
+                        },
+                        "known_ransomware_campaign_use": {
+                          "description": "CISA's published ransomware-campaign-use value when supplied",
+                          "type": "string"
+                        },
+                        "notes": {
+                          "description": "Additional CISA KEV notes when supplied",
+                          "type": "string"
+                        },
+                        "product": {
+                          "description": "Affected product label published by CISA",
+                          "type": "string"
+                        },
+                        "required_action": {
+                          "description": "Required action text published by CISA; caller remediation review is still required",
+                          "type": "string"
+                        },
+                        "short_description": {
+                          "description": "Short vulnerability description published by CISA",
+                          "type": "string"
+                        },
+                        "vendor_project": {
+                          "description": "Vendor or project label published by CISA",
+                          "type": "string"
+                        },
+                        "vulnerability_name": {
+                          "description": "CISA KEV vulnerability name",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "cve_id",
+                        "vendor_project",
+                        "product",
+                        "vulnerability_name",
+                        "date_added",
+                        "short_description",
+                        "required_action",
+                        "due_date",
+                        "cwes"
+                      ],
+                      "type": "object"
+                    },
+                    "max_severity": {
+                      "description": "Highest severity derived only from a parseable declared CVSS vector",
+                      "enum": [
+                        "unknown",
+                        "low",
+                        "medium",
+                        "high",
+                        "critical"
+                      ],
+                      "type": "string"
+                    },
+                    "modified": {
+                      "description": "OSV modification time string",
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "published": {
+                      "description": "OSV publication time string when supplied",
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "references": {
+                      "description": "Bounded references published by OSV; URLs are untrusted data returned for provenance and are never fetched by this bridge",
+                      "items": {
+                        "additionalProperties": false,
+                        "description": "One OSV-published reference retained as provenance data",
+                        "properties": {
+                          "type": {
+                            "description": "OSV reference classification such as ADVISORY, FIX, REPORT, or WEB",
+                            "type": "string"
+                          },
+                          "url": {
+                            "description": "Reference URL supplied by OSV as untrusted provenance data; never fetched by this bridge",
+                            "type": "string",
+                            "format": "uri"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "url"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "severity": {
+                      "description": "At most 16 published top-level OSV severity vectors",
+                      "items": {
+                        "additionalProperties": false,
+                        "description": "One severity vector exactly as published by OSV",
+                        "properties": {
+                          "score": {
+                            "description": "Original published vector; malformed or mismatched vectors are retained but score as unknown",
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "OSV-declared score type such as CVSS_V3",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "score"
+                        ],
+                        "type": "object"
+                      },
+                      "maxItems": 16,
+                      "type": "array"
+                    },
+                    "summary": {
+                      "description": "Bounded OSV summary",
+                      "type": "string"
+                    },
+                    "withdrawn": {
+                      "description": "Whether OSV withdrew the record; withdrawn findings remain visible but do not count in the active summary",
+                      "type": "boolean"
+                    },
+                    "withdrawn_at": {
+                      "description": "OSV withdrawal time string, present only when supplied",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "aliases",
+                    "modified",
+                    "withdrawn",
+                    "affected",
+                    "references",
+                    "severity",
+                    "max_severity",
+                    "fixed_versions"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 8,
+                "type": "array"
+              },
+              "input": {
+                "additionalProperties": false,
+                "description": "Canonical exact package/version identity",
+                "properties": {
+                  "ecosystem": {
+                    "description": "Exact package ecosystem; purl types remain canonical lowercase identifiers",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "Exact package-manager name",
+                    "type": "string"
+                  },
+                  "purl": {
+                    "description": "Canonical input purl when the caller used purl form; otherwise omitted",
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "version": {
+                    "description": "Exact queried package version",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "ecosystem",
+                  "name",
+                  "version"
+                ],
+                "type": "object"
+              },
+              "status": {
+                "description": "Named-source conclusion: query_failed is explicit incompleteness and never a clean result",
+                "enum": [
+                  "no_known_vulnerabilities",
+                  "vulnerabilities_found",
+                  "query_failed"
+                ],
+                "type": "string"
+              },
+              "summary": {
+                "additionalProperties": false,
+                "description": "Summary of active non-withdrawn findings",
+                "properties": {
+                  "finding_count": {
+                    "description": "Active non-withdrawn finding count",
+                    "maximum": 8,
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "kev_count": {
+                    "description": "Active findings with an exact KEV CVE match",
+                    "maximum": 8,
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "max_severity": {
+                    "description": "Highest parseable published CVSS severity among active findings",
+                    "enum": [
+                      "unknown",
+                      "low",
+                      "medium",
+                      "high",
+                      "critical"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "finding_count",
+                  "kev_count",
+                  "max_severity"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "input",
+              "status",
+              "findings"
+            ],
+            "type": "object"
+          },
+          "maxItems": 200,
+          "type": "array"
+        },
+        "retrieved_at": {
+          "description": "UTC time this bridge completed the response; this is not an OSV publication or modification time",
+          "format": "date-time",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "dependency-risk-v1",
+          "description": "Version of the normalized Dependency Risk response contract",
+          "type": "string"
+        },
+        "source": {
+          "additionalProperties": false,
+          "description": "Named public sources and the exact CISA KEV snapshot used for this response",
+          "properties": {
+            "cisa_kev": {
+              "additionalProperties": false,
+              "description": "Validated CISA Known Exploited Vulnerabilities snapshot used for exact CVE enrichment",
+              "properties": {
+                "catalog_version": {
+                  "description": "Catalog version published in the validated CISA feed",
+                  "type": "string"
+                },
+                "date_released": {
+                  "description": "Release time published in the validated CISA feed",
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "name": {
+                  "const": "Cybersecurity and Infrastructure Security Agency (CISA) Known Exploited Vulnerabilities Catalog",
+                  "description": "Official CISA KEV source name",
+                  "type": "string"
+                },
+                "retrieved_at": {
+                  "description": "UTC time this exact validated KEV snapshot was retrieved",
+                  "format": "date-time",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "catalog_version",
+                "date_released",
+                "retrieved_at"
+              ],
+              "type": "object"
+            },
+            "osv": {
+              "additionalProperties": false,
+              "description": "OSV source identity; individual finding times carry record publication and modification semantics",
+              "properties": {
+                "name": {
+                  "const": "OSV.dev",
+                  "description": "Official OSV.dev vulnerability record aggregator",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "osv",
+            "cisa_kev"
+          ],
+          "type": "object"
+        },
+        "stale": {
+          "description": "True only when a prior validated CISA KEV snapshot is served after refresh failure; OSV result completeness is never silently marked stale",
+          "type": "boolean"
+        },
+        "warnings": {
+          "description": "Freshness and interpretation warnings; always [] when none",
+          "items": {
+            "description": "Bounded warning intended for caller action or interpretation",
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "operation",
+        "schema_version",
+        "source",
+        "retrieved_at",
+        "stale",
+        "warnings",
+        "results",
+        "partial"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "results[].findings[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "dependency-risk.use.x402atlas.com",
+    "endpoint": "https://dependency-risk.use.x402atlas.com/sbom",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_75e6348aef8d2e5a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "brief": {
+          "description": "Source-linked research summary and unresolved questions.",
+          "type": "object"
+        },
+        "charge_usd": {
+          "description": "Published per-call price in USDC.",
+          "type": "number"
+        },
+        "contract": {
+          "description": "Versioned result contract.",
+          "type": "string"
+        },
+        "evidence": {
+          "description": "Claim-to-source links with exact quotes and hashes.",
+          "type": "array"
+        },
+        "proposal": {
+          "description": "Proposed findings; no graph or external write is applied.",
+          "type": "object"
+        },
+        "receipt": {
+          "description": "Source and claim accounting for this run.",
+          "type": "object"
+        },
+        "receipt_code": {
+          "description": "Research receipt identifier.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "contract",
+        "receipt_code",
+        "charge_usd",
+        "brief",
+        "proposal",
+        "evidence",
+        "receipt"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "charge_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "scout-bazaar-api.dimitri-base-eth.chatgpt.site",
+    "endpoint": "https://scout-bazaar-api.dimitri-base-eth.chatgpt.site/scout-quick",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

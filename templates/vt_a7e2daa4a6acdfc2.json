@@ -1,0 +1,82 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a7e2daa4a6acdfc2",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "checks": {
+          "type": "object",
+          "properties": {
+            "chainId": {
+              "type": "object",
+              "properties": {
+                "expected": {
+                  "type": "integer"
+                },
+                "match": {
+                  "type": "boolean"
+                },
+                "observed": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "expected",
+                "match",
+                "observed"
+              ]
+            },
+            "usdcContract": {
+              "type": "object",
+              "properties": {
+                "address": {
+                  "type": "string",
+                  "pattern": "^0x[a-fA-F0-9]{40}$"
+                },
+                "codePresent": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "address",
+                "codePresent"
+              ]
+            }
+          },
+          "required": [
+            "chainId",
+            "usdcContract"
+          ]
+        },
+        "network": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "checks",
+        "network",
+        "service",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "kushbitx.com",
+    "endpoint": "https://kushbitx.com/api/agentproof-quick-check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

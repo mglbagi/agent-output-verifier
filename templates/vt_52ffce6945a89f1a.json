@@ -1,0 +1,98 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_52ffce6945a89f1a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "checked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "query": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string"
+              },
+              "category": {
+                "type": "string"
+              },
+              "latitude": {
+                "type": "number"
+              },
+              "longitude": {
+                "type": "number"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "position": {
+                "type": "integer"
+              },
+              "rating": {
+                "type": "number"
+              },
+              "rating_count": {
+                "type": "integer"
+              },
+              "title": {
+                "type": "string"
+              },
+              "website": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "address",
+              "category",
+              "latitude",
+              "longitude",
+              "phone",
+              "position",
+              "rating",
+              "rating_count",
+              "title",
+              "website"
+            ]
+          }
+        }
+      },
+      "required": [
+        "checked_at",
+        "query",
+        "results"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "results[].latitude": {
+        "min": -90,
+        "max": 90
+      },
+      "results[].longitude": {
+        "min": -180,
+        "max": 180
+      },
+      "results[].rating_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agentdata-api.sander-van-aard.workers.dev",
+    "endpoint": "https://agentdata-api.sander-van-aard.workers.dev/web/places",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

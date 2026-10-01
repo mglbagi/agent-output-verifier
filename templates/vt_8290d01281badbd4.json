@@ -1,0 +1,59 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8290d01281badbd4",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "whois": {
+          "type": "object",
+          "properties": {
+            "created": {
+              "type": "string",
+              "format": "date"
+            },
+            "domain": {
+              "type": "string"
+            },
+            "expires": {
+              "type": "string",
+              "format": "date"
+            },
+            "registered": {
+              "type": "boolean"
+            },
+            "registrar": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "created",
+            "domain",
+            "expires",
+            "registered",
+            "registrar"
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "whois"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent.connskill.com",
+    "endpoint": "https://agent.connskill.com/v1/whois",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5e34f6abd9cdac7d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "accounting": {
+          "type": "object"
+        },
+        "boundary": {
+          "type": "object"
+        },
+        "charged": {
+          "type": "boolean"
+        },
+        "costInputs": {
+          "type": "object"
+        },
+        "error": {
+          "type": "string"
+        },
+        "jobId": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "jobStatus": {
+          "enum": [
+            "running",
+            "completed",
+            "completed_with_unknown",
+            "stopped",
+            "interrupted"
+          ],
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "partial": {
+          "type": "boolean"
+        },
+        "product": {
+          "const": "samedaydesk-extract-batch",
+          "type": "string"
+        },
+        "quote": {
+          "properties": {
+            "amountAtomic": {
+              "const": "10000",
+              "type": "string"
+            },
+            "displayUsdc": {
+              "const": "0.01",
+              "type": "string"
+            },
+            "meaning": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amountAtomic",
+            "displayUsdc",
+            "meaning"
+          ],
+          "type": "object"
+        },
+        "schemaVersion": {
+          "const": "samedaydesk.extract-batch.v0",
+          "type": "string"
+        },
+        "sources": {
+          "items": {
+            "properties": {
+              "data": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "error": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "finalUrl": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "httpStatus": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "id": {
+                "type": "string"
+              },
+              "notes": {
+                "type": "array"
+              },
+              "provenance": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "source": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "pending",
+                  "success",
+                  "partial",
+                  "failure",
+                  "unknown",
+                  "skipped_duplicate"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "source",
+              "status",
+              "data",
+              "notes",
+              "error",
+              "provenance"
+            ],
+            "type": "object"
+          },
+          "maxItems": 5,
+          "minItems": 1,
+          "type": "array"
+        },
+        "stopReason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "ok",
+        "product",
+        "schemaVersion",
+        "quote",
+        "jobId",
+        "jobStatus",
+        "stopReason",
+        "partial",
+        "sources",
+        "accounting",
+        "costInputs",
+        "charged",
+        "boundary"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "sources[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agents.samedaydesk.com",
+    "endpoint": "https://agents.samedaydesk.com/extract/batch",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

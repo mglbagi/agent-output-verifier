@@ -1,0 +1,614 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6b1ff54dd6074efc",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "ads": {
+          "description": "Sponsored placements shown above the organic results",
+          "items": {
+            "properties": {
+              "amenities": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "details_link": {
+                "description": "This API's /property URL for the ad's hotel",
+                "type": "string"
+              },
+              "extracted_price": {
+                "type": "number"
+              },
+              "free_cancellation": {
+                "type": "boolean"
+              },
+              "gps_coordinates": {
+                "properties": {
+                  "latitude": {
+                    "type": "number"
+                  },
+                  "longitude": {
+                    "type": "number"
+                  }
+                },
+                "type": "object"
+              },
+              "hotel_class": {
+                "type": "integer"
+              },
+              "link": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "overall_rating": {
+                "type": "number"
+              },
+              "price": {
+                "type": "string"
+              },
+              "property_token": {
+                "type": "string"
+              },
+              "reviews": {
+                "type": "integer"
+              },
+              "source": {
+                "type": "string"
+              },
+              "source_icon": {
+                "type": "string"
+              },
+              "thumbnail": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "brands": {
+          "description": "Hotel brands usable as the brands filter",
+          "items": {
+            "properties": {
+              "children": {
+                "items": {
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "check_in_date": {
+          "description": "Stay window actually priced",
+          "format": "date",
+          "type": "string"
+        },
+        "check_out_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "next_page_token": {
+          "description": "Pass back as next_page_token for the next page",
+          "type": "string"
+        },
+        "note": {
+          "description": "Present only on a sample response (empty/omitted query): a hint to pass real parameters. The paid request ran; no upstream call was made.",
+          "type": "string"
+        },
+        "properties": {
+          "items": {
+            "properties": {
+              "amenities": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "check_in_time": {
+                "type": "string"
+              },
+              "check_out_time": {
+                "type": "string"
+              },
+              "deal": {
+                "type": "string"
+              },
+              "deal_description": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "details_link": {
+                "description": "This API's /property URL for the hotel",
+                "type": "string",
+                "format": "uri"
+              },
+              "eco_certified": {
+                "type": "boolean"
+              },
+              "essential_info": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "excluded_amenities": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "extracted_hotel_class": {
+                "type": "integer"
+              },
+              "gps_coordinates": {
+                "properties": {
+                  "latitude": {
+                    "type": "number"
+                  },
+                  "longitude": {
+                    "type": "number"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "latitude",
+                  "longitude"
+                ]
+              },
+              "health_and_safety": {
+                "description": "Health & safety practices, grouped",
+                "type": "object"
+              },
+              "hotel_class": {
+                "type": "string"
+              },
+              "images": {
+                "items": {
+                  "properties": {
+                    "original_image": {
+                      "type": "string"
+                    },
+                    "thumbnail": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "link": {
+                "description": "Booking page for the property",
+                "type": "string",
+                "format": "uri"
+              },
+              "location_rating": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "nearby_places": {
+                "items": {
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "overall_rating": {
+                "type": "number"
+              },
+              "photos_link": {
+                "description": "This API's /photos URL for the hotel",
+                "type": "string",
+                "format": "uri"
+              },
+              "prices": {
+                "description": "Per-source offers for the stay",
+                "items": {
+                  "properties": {
+                    "benefits": {
+                      "type": "string"
+                    },
+                    "discount_remarks": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "free_cancellation": {
+                      "type": "boolean"
+                    },
+                    "link": {
+                      "description": "Booking page for this offer",
+                      "type": "string"
+                    },
+                    "logo": {
+                      "type": "string"
+                    },
+                    "num_guests": {
+                      "type": "integer"
+                    },
+                    "official": {
+                      "description": "True when the source is the property itself",
+                      "type": "boolean"
+                    },
+                    "rate_per_night": {
+                      "properties": {
+                        "before_taxes_fees": {
+                          "type": "string"
+                        },
+                        "extracted_before_taxes_fees": {
+                          "type": "number"
+                        },
+                        "extracted_lowest": {
+                          "type": "number"
+                        },
+                        "lowest": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "rooms": {
+                      "description": "Room types this source offers, with per-room and per-rate pricing",
+                      "items": {
+                        "properties": {
+                          "images": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "link": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "num_guests": {
+                            "type": "integer"
+                          },
+                          "rate_per_night": {
+                            "properties": {
+                              "before_taxes_fees": {
+                                "type": "string"
+                              },
+                              "extracted_before_taxes_fees": {
+                                "type": "number"
+                              },
+                              "extracted_lowest": {
+                                "type": "number"
+                              },
+                              "lowest": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "rates": {
+                            "items": {
+                              "properties": {
+                                "breakfast_included": {
+                                  "type": "boolean"
+                                },
+                                "free_cancellation": {
+                                  "type": "boolean"
+                                },
+                                "inclusions": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "link": {
+                                  "type": "string"
+                                },
+                                "num_guests": {
+                                  "type": "integer"
+                                },
+                                "rate_per_night": {
+                                  "properties": {
+                                    "before_taxes_fees": {
+                                      "type": "string"
+                                    },
+                                    "extracted_before_taxes_fees": {
+                                      "type": "number"
+                                    },
+                                    "extracted_lowest": {
+                                      "type": "number"
+                                    },
+                                    "lowest": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "total_rate": {
+                                  "properties": {
+                                    "before_taxes_fees": {
+                                      "type": "string"
+                                    },
+                                    "extracted_before_taxes_fees": {
+                                      "type": "number"
+                                    },
+                                    "extracted_lowest": {
+                                      "type": "number"
+                                    },
+                                    "lowest": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "total_rate": {
+                            "properties": {
+                              "before_taxes_fees": {
+                                "type": "string"
+                              },
+                              "extracted_before_taxes_fees": {
+                                "type": "number"
+                              },
+                              "extracted_lowest": {
+                                "type": "number"
+                              },
+                              "lowest": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "source": {
+                      "description": "Booking site offering this rate",
+                      "type": "string"
+                    },
+                    "total_rate": {
+                      "properties": {
+                        "before_taxes_fees": {
+                          "type": "string"
+                        },
+                        "extracted_before_taxes_fees": {
+                          "type": "number"
+                        },
+                        "extracted_lowest": {
+                          "type": "number"
+                        },
+                        "lowest": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "property_token": {
+                "description": "Pass to /property, /reviews and /photos",
+                "type": "string"
+              },
+              "rate_per_night": {
+                "properties": {
+                  "before_taxes_fees": {
+                    "type": "string"
+                  },
+                  "extracted_before_taxes_fees": {
+                    "type": "number"
+                  },
+                  "extracted_lowest": {
+                    "type": "number"
+                  },
+                  "lowest": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "extracted_lowest",
+                  "lowest"
+                ]
+              },
+              "ratings": {
+                "items": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    },
+                    "stars": {
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "reviews": {
+                "type": "integer"
+              },
+              "reviews_breakdown": {
+                "description": "Themed sentiment breakdown; each entry links back to its filtered reviews",
+                "items": {
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "reviews_link": {
+                "description": "This API's /reviews URL for the hotel",
+                "type": "string",
+                "format": "uri"
+              },
+              "total_rate": {
+                "properties": {
+                  "before_taxes_fees": {
+                    "type": "string"
+                  },
+                  "extracted_before_taxes_fees": {
+                    "type": "number"
+                  },
+                  "extracted_lowest": {
+                    "type": "number"
+                  },
+                  "lowest": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "extracted_lowest",
+                  "lowest"
+                ]
+              },
+              "type": {
+                "description": "hotel or vacation rental",
+                "type": "string"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "queried_at": {
+          "description": "Time the search ran (UTC)",
+          "format": "date-time",
+          "type": "string"
+        },
+        "query": {
+          "description": "Echoed destination query",
+          "type": "string"
+        },
+        "total_results": {
+          "description": "Total properties matching the query upstream",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "query",
+        "queried_at",
+        "properties"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "brands[].id",
+        "if_present": true
+      }
+    ],
+    "bounds": {
+      "ads[].extracted_price": {
+        "min": 0,
+        "if_present": true
+      },
+      "ads[].gps_coordinates.latitude": {
+        "min": -90,
+        "max": 90,
+        "if_present": true
+      },
+      "ads[].gps_coordinates.longitude": {
+        "min": -180,
+        "max": 180,
+        "if_present": true
+      },
+      "properties[].gps_coordinates.latitude": {
+        "min": -90,
+        "max": 90,
+        "if_present": true
+      },
+      "properties[].gps_coordinates.longitude": {
+        "min": -180,
+        "max": 180,
+        "if_present": true
+      },
+      "properties[].prices[].num_guests": {
+        "min": 0,
+        "if_present": true
+      },
+      "properties[].prices[].rate_per_night.extracted_before_taxes_fees": {
+        "min": 0,
+        "if_present": true
+      },
+      "properties[].prices[].rooms[].num_guests": {
+        "min": 0,
+        "if_present": true
+      },
+      "properties[].prices[].rooms[].rate_per_night.extracted_before_taxes_fees": {
+        "min": 0,
+        "if_present": true
+      },
+      "properties[].prices[].rooms[].rates[].num_guests": {
+        "min": 0,
+        "if_present": true
+      },
+      "properties[].prices[].rooms[].rates[].rate_per_night.extracted_before_taxes_fees": {
+        "min": 0,
+        "if_present": true
+      },
+      "properties[].prices[].rooms[].rates[].total_rate.extracted_before_taxes_fees": {
+        "min": 0,
+        "if_present": true
+      },
+      "properties[].prices[].rooms[].total_rate.extracted_before_taxes_fees": {
+        "min": 0,
+        "if_present": true
+      },
+      "properties[].prices[].total_rate.extracted_before_taxes_fees": {
+        "min": 0,
+        "if_present": true
+      },
+      "properties[].rate_per_night.extracted_before_taxes_fees": {
+        "min": 0,
+        "if_present": true
+      },
+      "properties[].ratings[].count": {
+        "min": 0,
+        "if_present": true
+      },
+      "properties[].total_rate.extracted_before_taxes_fees": {
+        "min": 0,
+        "if_present": true
+      },
+      "total_results": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hotels.use.x402atlas.com",
+    "endpoint": "https://hotels.use.x402atlas.com/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e85f20adac0d0644",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "description": "links.length",
+          "maximum": 50,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "links": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "href": {
+                "description": "Absolute link URL",
+                "format": "uri",
+                "type": "string"
+              },
+              "text": {
+                "description": "Anchor text; omitted when empty",
+                "maxLength": 200,
+                "type": "string"
+              }
+            },
+            "required": [
+              "href"
+            ],
+            "type": "object"
+          },
+          "maxItems": 50,
+          "type": "array"
+        },
+        "title": {
+          "description": "HTML title, or null",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "description": "Final URL after redirects",
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "title",
+        "links",
+        "count"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "scrooge-x402-tool-mill.vercel.app",
+    "endpoint": "https://scrooge-x402-tool-mill.vercel.app/v1/link-graph",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

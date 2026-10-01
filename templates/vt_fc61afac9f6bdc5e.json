@@ -1,0 +1,90 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fc61afac9f6bdc5e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "bytecode_analysis": {
+          "description": "mint/blacklist/pause/tax flags, proxy and ownership status.",
+          "type": "object"
+        },
+        "holders_analysis": {
+          "description": "Top-10 holder concentration, or {\"status\": \"skipped_established_token\"} if the full transfer history does not provably fit in 1-2 eth_getLogs calls.",
+          "type": "object"
+        },
+        "liquidity_analysis": {
+          "description": "Uniswap v2/v3 and Aerodrome pools found, with reserves.",
+          "type": "object"
+        },
+        "network": {
+          "type": "object"
+        },
+        "verdict": {
+          "description": "Jev-powered decision: avoid/caution/acceptable with a real probability.",
+          "properties": {
+            "confidence": {
+              "type": "number"
+            },
+            "probabilities": {
+              "type": "object"
+            },
+            "probability": {
+              "type": "number"
+            },
+            "verdict": {
+              "enum": [
+                "avoid",
+                "caution",
+                "acceptable"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "confidence",
+            "probabilities",
+            "probability",
+            "verdict"
+          ]
+        },
+        "x402_receipt": {
+          "description": "Billing and provenance receipt for this call.",
+          "type": "object"
+        }
+      },
+      "required": [
+        "address",
+        "verdict",
+        "bytecode_analysis",
+        "liquidity_analysis",
+        "holders_analysis"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "verdict.confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "verdict.probability": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.agentindex.world",
+    "endpoint": "https://x402.agentindex.world/token-risk",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2e24b7a120b8a431",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "annualized_volatility_pct": {
+          "type": "integer"
+        },
+        "asset": {
+          "type": "string"
+        },
+        "level": {
+          "type": "string"
+        },
+        "period": {
+          "type": "string"
+        },
+        "range_24h_pct": {
+          "type": "number"
+        },
+        "realized_volatility_pct": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "annualized_volatility_pct",
+        "asset",
+        "level",
+        "period",
+        "range_24h_pct",
+        "realized_volatility_pct"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "annualized_volatility_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "range_24h_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "realized_volatility_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.swaphunt.dev",
+    "endpoint": "https://x402.swaphunt.dev/v1/vol/realized",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_58a6ecb475e61776",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "current": {
+          "properties": {
+            "apparent_temperature": {
+              "type": "number"
+            },
+            "humidity_pct": {
+              "type": "integer"
+            },
+            "is_day": {
+              "type": "boolean"
+            },
+            "precipitation": {
+              "type": "integer"
+            },
+            "temperature": {
+              "type": "number"
+            },
+            "time": {
+              "type": "string"
+            },
+            "weather_code": {
+              "type": "integer"
+            },
+            "wind_direction_deg": {
+              "type": "integer"
+            },
+            "wind_speed": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "apparent_temperature",
+            "humidity_pct",
+            "is_day",
+            "precipitation",
+            "temperature",
+            "time",
+            "weather_code",
+            "wind_direction_deg",
+            "wind_speed"
+          ]
+        },
+        "daily": {
+          "items": {
+            "properties": {
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "precipitation_mm": {
+                "type": "integer"
+              },
+              "precipitation_probability_max": {
+                "type": "integer"
+              },
+              "sunrise": {
+                "type": "string"
+              },
+              "sunset": {
+                "type": "string"
+              },
+              "temperature_max": {
+                "type": "number"
+              },
+              "temperature_min": {
+                "type": "number"
+              },
+              "uv_index_max": {
+                "type": "number"
+              },
+              "weather_code": {
+                "type": "integer"
+              }
+            },
+            "type": "object",
+            "required": [
+              "date",
+              "precipitation_mm",
+              "precipitation_probability_max",
+              "sunrise",
+              "sunset",
+              "temperature_max",
+              "temperature_min",
+              "uv_index_max",
+              "weather_code"
+            ]
+          },
+          "type": "array"
+        },
+        "location": {
+          "properties": {
+            "elevation_m": {
+              "type": "integer"
+            },
+            "lat": {
+              "type": "number"
+            },
+            "lon": {
+              "type": "number"
+            },
+            "timezone": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "elevation_m",
+            "lat",
+            "lon",
+            "timezone"
+          ]
+        },
+        "source": {
+          "type": "string"
+        },
+        "units": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "current",
+        "daily",
+        "location",
+        "source",
+        "units"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "daily[].temperature_min",
+        "other_field": "daily[].temperature_max"
+      }
+    ],
+    "bounds": {
+      "current.humidity_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "location.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "location.lon": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.agentutility.ai",
+    "endpoint": "https://x402.agentutility.ai/weather",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

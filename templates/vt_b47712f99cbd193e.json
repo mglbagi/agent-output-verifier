@@ -1,0 +1,73 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b47712f99cbd193e",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "nodes": {
+          "type": "object",
+          "properties": {
+            "Pool": {
+              "type": "object",
+              "properties": {
+                "color": {
+                  "type": "string"
+                },
+                "detail": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "format": {
+                        "type": "string"
+                      },
+                      "key": {
+                        "type": "string"
+                      },
+                      "label": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "format",
+                      "key",
+                      "label"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "color",
+                "detail"
+              ]
+            }
+          },
+          "required": [
+            "Pool"
+          ]
+        }
+      },
+      "required": [
+        "nodes"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "nodes.Pool.detail[].key"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "risk.yo.xyz",
+    "endpoint": "https://risk.yo.xyz/api/v1/agent/schema",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

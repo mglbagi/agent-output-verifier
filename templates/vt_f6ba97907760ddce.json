@@ -1,0 +1,80 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f6ba97907760ddce",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "change_pct": {
+          "type": "number"
+        },
+        "post_count": {
+          "type": "integer"
+        },
+        "post_count_prior": {
+          "type": "integer"
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "topic_flags": {
+          "type": "object",
+          "properties": {
+            "earnings": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "example_url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "count",
+                "example_url"
+              ]
+            }
+          },
+          "required": [
+            "earnings"
+          ]
+        },
+        "window": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "change_pct",
+        "post_count",
+        "post_count_prior",
+        "ticker",
+        "topic_flags",
+        "window"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "post_count": {
+        "min": 0
+      },
+      "post_count_prior": {
+        "min": 0
+      },
+      "topic_flags.earnings.count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "clink-lithium-vault.fly.dev",
+    "endpoint": "https://clink-lithium-vault.fly.dev/x/ticker-pulse",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b0e7cb4a7cd05925",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "next_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "request_id": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "amp_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "article_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "author": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "image_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "insights": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "sentiment": {
+                      "type": "string"
+                    },
+                    "sentiment_reasoning": {
+                      "type": "string"
+                    },
+                    "ticker": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "sentiment",
+                    "sentiment_reasoning",
+                    "ticker"
+                  ]
+                }
+              },
+              "keywords": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_utc": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "publisher": {
+                "type": "object",
+                "properties": {
+                  "favicon_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "homepage_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "logo_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "favicon_url",
+                  "homepage_url",
+                  "logo_url",
+                  "name"
+                ]
+              },
+              "tickers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "amp_url",
+              "article_url",
+              "author",
+              "description",
+              "id",
+              "image_url",
+              "insights",
+              "keywords",
+              "published_utc",
+              "publisher",
+              "tickers",
+              "title"
+            ]
+          }
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "count",
+        "next_url",
+        "request_id",
+        "results",
+        "status"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "results[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent.massive.com",
+    "endpoint": "https://agent.massive.com/v2/reference/news",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

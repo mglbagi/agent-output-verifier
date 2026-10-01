@@ -1,0 +1,61 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_333236bd24b5493f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "pairs": {
+          "type": "object",
+          "properties": {
+            "BTCZAR": {
+              "type": "object",
+              "properties": {
+                "ask_zar": {
+                  "type": "integer"
+                },
+                "bid_zar": {
+                  "type": "integer"
+                },
+                "change_from_previous_percent": {
+                  "type": "number"
+                },
+                "last_zar": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "ask_zar",
+                "bid_zar",
+                "change_from_previous_percent",
+                "last_zar"
+              ]
+            }
+          },
+          "required": [
+            "BTCZAR"
+          ]
+        },
+        "series": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "pairs",
+        "series"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "zaref.dev",
+    "endpoint": "https://zaref.dev/v1/crypto-prices",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

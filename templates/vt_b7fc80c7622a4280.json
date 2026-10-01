@@ -1,0 +1,172 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b7fc80c7622a4280",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "job_id": {
+          "type": "string"
+        },
+        "receipt": {
+          "description": "Ed25519-signed receipt: body (canonical JSON), hash (sha256 hex), sig (base64url)",
+          "properties": {
+            "body": {
+              "type": "object"
+            },
+            "hash": {
+              "type": "string"
+            },
+            "sig": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "body",
+            "hash",
+            "sig"
+          ]
+        },
+        "result_token": {
+          "type": "string"
+        },
+        "result_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "retry_after_seconds": {
+          "type": "integer"
+        },
+        "status": {
+          "enum": [
+            "done",
+            "pending",
+            "unserved",
+            "rejected"
+          ],
+          "type": "string"
+        },
+        "verdict": {
+          "properties": {
+            "bundle_sha256": {
+              "type": "string"
+            },
+            "declared_purpose": {
+              "type": "string"
+            },
+            "files_scanned": {
+              "type": "integer"
+            },
+            "findings": {
+              "items": {
+                "properties": {
+                  "category": {
+                    "enum": [
+                      "remote_code",
+                      "credential_access",
+                      "exfiltration",
+                      "persistence",
+                      "destructive",
+                      "obfuscation",
+                      "hidden_text",
+                      "prompt_injection",
+                      "undeclared_behavior",
+                      "other"
+                    ],
+                    "type": "string"
+                  },
+                  "explanation": {
+                    "type": "string"
+                  },
+                  "file": {
+                    "type": "string"
+                  },
+                  "location": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "enum": [
+                      "critical",
+                      "high",
+                      "medium",
+                      "low"
+                    ],
+                    "type": "string"
+                  },
+                  "source": {
+                    "enum": [
+                      "rule",
+                      "review"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "severity",
+                  "category",
+                  "file",
+                  "location",
+                  "explanation",
+                  "source"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "note": {
+              "type": "string"
+            },
+            "result": {
+              "description": "no_findings never means safe",
+              "enum": [
+                "findings",
+                "no_findings"
+              ],
+              "type": "string"
+            },
+            "risk": {
+              "enum": [
+                "critical",
+                "high",
+                "medium",
+                "low",
+                "none_found"
+              ],
+              "type": "string"
+            },
+            "summary": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "result",
+            "risk",
+            "summary",
+            "findings",
+            "files_scanned",
+            "bundle_sha256",
+            "note"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "job_id",
+        "status"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "crosscheckapi.com",
+    "endpoint": "https://crosscheckapi.com/v1/skillcheck",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

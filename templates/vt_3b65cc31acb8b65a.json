@@ -1,0 +1,86 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3b65cc31acb8b65a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "change_24h_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "coingecko_id": {
+          "type": "string"
+        },
+        "liquidity_usd": {
+          "description": "Only for contract-address queries.",
+          "type": "number"
+        },
+        "market_cap_usd": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "price_usd": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "query": {
+          "type": "string"
+        },
+        "source": {
+          "description": "coingecko or dexscreener.",
+          "type": "string"
+        },
+        "top_pair": {
+          "description": "Only for contract-address queries.",
+          "type": "object"
+        },
+        "volume_24h_usd": {
+          "description": "Only for contract-address queries.",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "required": [
+        "change_24h_pct",
+        "coingecko_id",
+        "market_cap_usd",
+        "price_usd",
+        "query",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "liquidity_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "market_cap_usd": {
+        "min": 0
+      },
+      "price_usd": {
+        "min": 0
+      },
+      "volume_24h_usd": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "chain.cyberwarex.com",
+    "endpoint": "https://chain.cyberwarex.com/price",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

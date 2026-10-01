@@ -1,0 +1,416 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1de2e0f10227ec2d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "signals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "basis_status": {
+                "type": "string"
+              },
+              "capacity_as_of": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "capacity_available": {
+                "type": "boolean"
+              },
+              "capacity_basis": {
+                "type": "string"
+              },
+              "capacity_usd_at_2c": {
+                "type": "number"
+              },
+              "converge_upside_pct": {
+                "type": "integer"
+              },
+              "conviction": {
+                "type": "string"
+              },
+              "conviction_tier": {
+                "type": "integer"
+              },
+              "crash_risk_elevated": {
+                "type": "boolean"
+              },
+              "created_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "current_cost_cents": {
+                "type": "number"
+              },
+              "distance_to_convergence_cents": {
+                "type": "integer"
+              },
+              "drawdown_risk_elevated": {
+                "type": "boolean"
+              },
+              "entry_cost_cents": {
+                "type": "number"
+              },
+              "entry_pm": {
+                "type": "integer"
+              },
+              "entry_q": {
+                "type": "integer"
+              },
+              "entry_spread_pp": {
+                "type": "integer"
+              },
+              "execution_reference": {},
+              "forecast_status": {
+                "type": "object",
+                "properties": {
+                  "adverse_move_pct": {
+                    "type": "number"
+                  },
+                  "basis": {
+                    "type": "string"
+                  },
+                  "cents": {
+                    "type": "integer"
+                  },
+                  "price_source": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "adverse_move_pct",
+                  "basis",
+                  "cents",
+                  "price_source",
+                  "state"
+                ]
+              },
+              "forecast_updated_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "grounding_status": {
+                "type": "string"
+              },
+              "has_band": {
+                "type": "boolean"
+              },
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "is_active": {
+                "type": "boolean"
+              },
+              "is_fresh": {
+                "type": "boolean"
+              },
+              "is_new_today": {
+                "type": "boolean"
+              },
+              "latest_q": {
+                "type": "number"
+              },
+              "live_priced": {
+                "type": "boolean"
+              },
+              "market": {
+                "type": "object",
+                "properties": {
+                  "condition_id": {
+                    "type": "string"
+                  },
+                  "end_date": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "marketKey": {
+                    "type": "string"
+                  },
+                  "marketUrl": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "market_odds": {
+                    "type": "number"
+                  },
+                  "nativeEventId": {
+                    "type": "string"
+                  },
+                  "nativeMarketId": {
+                    "type": "string"
+                  },
+                  "polymarketUrl": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "question": {
+                    "type": "string"
+                  },
+                  "quotientMarketId": {
+                    "type": "string"
+                  },
+                  "quotientUrl": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "seriesTicker": {},
+                  "slug": {
+                    "type": "string"
+                  },
+                  "sourceUrl": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "venue": {
+                    "type": "string"
+                  },
+                  "volume_24h": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "condition_id",
+                  "end_date",
+                  "marketKey",
+                  "marketUrl",
+                  "market_odds",
+                  "nativeEventId",
+                  "nativeMarketId",
+                  "polymarketUrl",
+                  "question",
+                  "quotientMarketId",
+                  "quotientUrl",
+                  "slug",
+                  "sourceUrl",
+                  "venue",
+                  "volume_24h"
+                ]
+              },
+              "max_roi_pct": {
+                "type": "integer"
+              },
+              "priced_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "published_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "q_side": {
+                "type": "string"
+              },
+              "q_value_cents": {
+                "type": "number"
+              },
+              "resolution_reference": {
+                "type": "object",
+                "properties": {
+                  "basis_id": {
+                    "type": "string"
+                  },
+                  "forecast_target_key": {
+                    "type": "string"
+                  },
+                  "freshness": {
+                    "type": "string"
+                  },
+                  "instrument_id": {
+                    "type": "string"
+                  },
+                  "mapping_status": {
+                    "type": "string"
+                  },
+                  "observable_id": {
+                    "type": "string"
+                  },
+                  "provider": {
+                    "type": "string"
+                  },
+                  "schema_version": {
+                    "type": "string"
+                  },
+                  "settlement_spec_id": {
+                    "type": "string"
+                  },
+                  "value": {}
+                },
+                "required": [
+                  "basis_id",
+                  "forecast_target_key",
+                  "freshness",
+                  "instrument_id",
+                  "mapping_status",
+                  "observable_id",
+                  "provider",
+                  "schema_version",
+                  "settlement_spec_id"
+                ]
+              },
+              "resolves_in_window": {
+                "type": "boolean"
+              },
+              "retired_reason": {},
+              "side": {
+                "type": "string"
+              },
+              "suppression_reason": {},
+              "thesis": {
+                "type": "string"
+              },
+              "venue_quote": {
+                "type": "object",
+                "properties": {
+                  "freshness": {
+                    "type": "string"
+                  },
+                  "market_id": {
+                    "type": "string"
+                  },
+                  "observed_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "quote_method": {
+                    "type": "string"
+                  },
+                  "schema_version": {
+                    "type": "string"
+                  },
+                  "selected_probability": {
+                    "type": "number"
+                  },
+                  "venue": {
+                    "type": "string"
+                  },
+                  "venue_timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "yes_ask": {
+                    "type": "number"
+                  },
+                  "yes_bid": {
+                    "type": "number"
+                  },
+                  "yes_last": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "freshness",
+                  "market_id",
+                  "observed_at",
+                  "quote_method",
+                  "schema_version",
+                  "selected_probability",
+                  "venue",
+                  "venue_timestamp",
+                  "yes_ask",
+                  "yes_bid",
+                  "yes_last"
+                ]
+              },
+              "window_days": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "basis_status",
+              "capacity_as_of",
+              "capacity_available",
+              "capacity_basis",
+              "capacity_usd_at_2c",
+              "converge_upside_pct",
+              "conviction",
+              "conviction_tier",
+              "crash_risk_elevated",
+              "created_at",
+              "current_cost_cents",
+              "distance_to_convergence_cents",
+              "drawdown_risk_elevated",
+              "entry_cost_cents",
+              "entry_pm",
+              "entry_q",
+              "entry_spread_pp",
+              "forecast_status",
+              "forecast_updated_at",
+              "grounding_status",
+              "has_band",
+              "id",
+              "is_active",
+              "is_fresh",
+              "is_new_today",
+              "latest_q",
+              "live_priced",
+              "market",
+              "max_roi_pct",
+              "priced_at",
+              "published_at",
+              "q_side",
+              "q_value_cents",
+              "resolution_reference",
+              "resolves_in_window",
+              "side",
+              "thesis",
+              "venue_quote",
+              "window_days"
+            ]
+          }
+        }
+      },
+      "required": [
+        "signals"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "signals[].id"
+      }
+    ],
+    "bounds": {
+      "signals[].capacity_usd_at_2c": {
+        "min": 0
+      },
+      "signals[].converge_upside_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "signals[].current_cost_cents": {
+        "min": 0
+      },
+      "signals[].entry_cost_cents": {
+        "min": 0
+      },
+      "signals[].market.volume_24h": {
+        "min": 0
+      },
+      "signals[].max_roi_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "signals[].venue_quote.selected_probability": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "quotient-api-gateway.onrender.com",
+    "endpoint": "https://quotient-api-gateway.onrender.com/api/v1/signals",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

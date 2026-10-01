@@ -1,0 +1,80 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b29348ef623d3fb9",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "job": {
+          "properties": {
+            "expires_in_seconds": {
+              "type": "integer"
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "poll_after_seconds": {
+              "type": "integer"
+            },
+            "result_schema_version": {
+              "type": "string"
+            },
+            "result_url": {
+              "type": "string"
+            },
+            "status": {
+              "const": "processing",
+              "type": "string"
+            },
+            "tier": {
+              "enum": [
+                "full",
+                "deep"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "status",
+            "result_url"
+          ],
+          "type": "object"
+        },
+        "mode": {
+          "const": "async",
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "schema_version": {
+          "const": "agent-dream-insight.job.v1",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "schema_version",
+        "mode",
+        "job"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "madoromi.fun",
+    "endpoint": "https://madoromi.fun/api/agent/interpret/full",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

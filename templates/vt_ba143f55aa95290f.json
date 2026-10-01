@@ -1,0 +1,133 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ba143f55aa95290f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "client_ref": {},
+        "endpoint": {
+          "type": "string"
+        },
+        "next_tasks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "endpoint": {
+                "type": "string",
+                "format": "uri"
+              },
+              "example_body": {
+                "type": "object",
+                "properties": {
+                  "input": {
+                    "type": "string"
+                  },
+                  "task": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "input",
+                  "task"
+                ]
+              },
+              "method": {
+                "type": "string"
+              },
+              "price_usd": {
+                "type": "string"
+              },
+              "task": {
+                "type": "string"
+              },
+              "why": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "endpoint",
+              "example_body",
+              "method",
+              "price_usd",
+              "task",
+              "why"
+            ]
+          }
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "keywords": {},
+            "label": {},
+            "meta": {
+              "type": "object",
+              "properties": {
+                "chars_in": {
+                  "type": "integer"
+                },
+                "model_hint": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "chars_in",
+                "model_hint"
+              ]
+            },
+            "sentiment": {},
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "meta",
+            "text"
+          ]
+        },
+        "task": {
+          "type": "string"
+        },
+        "usage": {
+          "type": "object",
+          "properties": {
+            "latency_ms": {
+              "type": "integer"
+            },
+            "price_usdc": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "latency_ms",
+            "price_usdc"
+          ]
+        }
+      },
+      "required": [
+        "endpoint",
+        "next_tasks",
+        "ok",
+        "result",
+        "task",
+        "usage"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.hydratrader.ai",
+    "endpoint": "https://x402.hydratrader.ai/v1/cheap-errand",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

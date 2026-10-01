@@ -1,0 +1,193 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d040cfabeee8f362",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "job_id": {
+          "type": "string"
+        },
+        "receipt": {
+          "description": "Ed25519-signed receipt: body (canonical JSON), hash (sha256 hex), sig (base64url)",
+          "properties": {
+            "body": {
+              "type": "object"
+            },
+            "hash": {
+              "type": "string"
+            },
+            "sig": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "body",
+            "hash",
+            "sig"
+          ]
+        },
+        "result_token": {
+          "type": "string"
+        },
+        "result_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "retry_after_seconds": {
+          "type": "integer"
+        },
+        "status": {
+          "enum": [
+            "done",
+            "pending",
+            "unserved",
+            "rejected"
+          ],
+          "type": "string"
+        },
+        "verdict": {
+          "properties": {
+            "grounding": {
+              "description": "Present when sources were sent",
+              "properties": {
+                "claims": {
+                  "items": {
+                    "properties": {
+                      "claim": {
+                        "type": "string"
+                      },
+                      "quote": {
+                        "type": "string"
+                      },
+                      "quote_verified": {
+                        "type": "boolean"
+                      },
+                      "source_id": {
+                        "type": "integer"
+                      },
+                      "status": {
+                        "enum": [
+                          "supported",
+                          "contradicted",
+                          "not_found"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "claims_checked": {
+                  "type": "integer"
+                },
+                "contradicted": {
+                  "type": "integer"
+                },
+                "not_found": {
+                  "type": "integer"
+                },
+                "sources": {
+                  "type": "integer"
+                },
+                "supported": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "injection_suspected": {
+              "type": "boolean"
+            },
+            "issues": {
+              "items": {
+                "properties": {
+                  "category": {
+                    "enum": [
+                      "factual",
+                      "logic",
+                      "completeness",
+                      "clarity",
+                      "tone",
+                      "risk",
+                      "formatting",
+                      "placeholder",
+                      "injection",
+                      "other"
+                    ],
+                    "type": "string"
+                  },
+                  "location": {
+                    "description": "Short quote from the draft, or a section name",
+                    "type": "string"
+                  },
+                  "problem": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "enum": [
+                      "blocker",
+                      "major",
+                      "minor"
+                    ],
+                    "type": "string"
+                  },
+                  "suggestion": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "severity",
+                  "category",
+                  "location",
+                  "problem",
+                  "suggestion"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "pass": {
+              "description": "True only when there are no blocker or major issues",
+              "type": "boolean"
+            },
+            "summary": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "pass",
+            "summary",
+            "issues",
+            "injection_suspected"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "job_id",
+        "status"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "verdict.grounding.claims[].source_id",
+        "if_present": true
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "crosscheckapi.com",
+    "endpoint": "https://crosscheckapi.com/v1/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

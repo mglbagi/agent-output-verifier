@@ -1,0 +1,152 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_155b9f5156e774b3",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "caveats": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "disposition": {
+          "enum": [
+            "CONFIRMED",
+            "PARTIAL",
+            "CONFLICT",
+            "UNAVAILABLE"
+          ],
+          "type": "string"
+        },
+        "evidenceFingerprint": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "matches": {
+          "additionalProperties": false,
+          "properties": {
+            "doi": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "title": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "year": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "doi",
+            "title",
+            "year"
+          ],
+          "type": "object"
+        },
+        "product": {
+          "const": "open-scholarly-evidence",
+          "type": "string"
+        },
+        "queriedDoi": {
+          "type": "string"
+        },
+        "sources": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "doi": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "source": {
+                "enum": [
+                  "crossref",
+                  "datacite"
+                ],
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "FOUND",
+                  "NOT_FOUND",
+                  "UNAVAILABLE",
+                  "INVALID_RESPONSE"
+                ],
+                "type": "string"
+              },
+              "title": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "type": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "year": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "source",
+              "status",
+              "doi",
+              "title",
+              "year",
+              "type"
+            ],
+            "type": "object"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "version": {
+          "const": "1.0.0",
+          "type": "string"
+        }
+      },
+      "required": [
+        "product",
+        "version",
+        "queriedDoi",
+        "disposition",
+        "matches",
+        "sources",
+        "evidenceFingerprint",
+        "caveats"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "foundry-open-scholarly-evidence-mainnet.inference-chip-index.workers.dev",
+    "endpoint": "https://foundry-open-scholarly-evidence-mainnet.inference-chip-index.workers.dev/v1/scholarly/evidence",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

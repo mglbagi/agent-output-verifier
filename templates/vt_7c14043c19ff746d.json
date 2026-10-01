@@ -1,0 +1,789 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7c14043c19ff746d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "The 200 body of every paid /work call. `result` is the worker's own output (its schema is per route); everything else is the same on every /work route. A receipt for the job is at `receipt_url`.",
+      "properties": {
+        "billing_warning": {
+          "description": "Present only when the charge was recorded with a caveat.",
+          "type": "string"
+        },
+        "price_usd": {
+          "description": "What this call cost, in USD.",
+          "type": "number"
+        },
+        "provenance": {
+          "description": "How the result was produced: which providers ran and how long each took.",
+          "properties": {
+            "attempts": {
+              "description": "Provider attempts made, including retries and failovers.",
+              "type": "integer"
+            },
+            "elapsed_ms": {
+              "description": "Wall-clock milliseconds for the whole job.",
+              "type": "integer"
+            },
+            "providers_used": {
+              "description": "Providers that served the job.",
+              "items": {
+                "description": "Provider name.",
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "steps": {
+              "description": "Every step the job ran, in order.",
+              "items": {
+                "description": "One step of the job.",
+                "properties": {
+                  "ms": {
+                    "description": "Milliseconds the step took.",
+                    "type": "integer"
+                  },
+                  "ok": {
+                    "description": "Whether the step succeeded.",
+                    "type": "boolean"
+                  },
+                  "provider": {
+                    "description": "Provider that served the step.",
+                    "type": "string"
+                  },
+                  "reason": {
+                    "description": "Failure reason, on a failed step.",
+                    "type": "string"
+                  },
+                  "step": {
+                    "description": "Step name inside the worker.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "step",
+                  "ok",
+                  "ms"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "steps",
+            "providers_used",
+            "attempts",
+            "elapsed_ms"
+          ],
+          "type": "object"
+        },
+        "receipt_id": {
+          "description": "Receipt id for this job.",
+          "type": "string"
+        },
+        "receipt_url": {
+          "description": "Where to fetch the machine-readable receipt (free, no payment).",
+          "type": "string"
+        },
+        "result": {
+          "properties": {
+            "as_of": {
+              "description": "Date or timestamp of the last price (from the dates given or the source).",
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            },
+            "beta": {
+              "description": "Against the benchmark; null unless one was given.",
+              "properties": {
+                "alpha_annualized": {
+                  "description": "Annualized Jensen's alpha.",
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "benchmark_annualized_volatility": {
+                  "description": "Benchmark volatility, annualized.",
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "beta": {
+                  "description": "cov/var vs the benchmark.",
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "correlation": {
+                  "description": "Pearson correlation of period returns.",
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "n": {
+                  "description": "Aligned returns used.",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "n",
+                "beta"
+              ],
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "black_scholes": {
+              "description": "Black-Scholes-Merton.",
+              "properties": {
+                "d1": {
+                  "description": "d1.",
+                  "type": "number"
+                },
+                "d2": {
+                  "description": "d2.",
+                  "type": "number"
+                },
+                "delta": {
+                  "description": "dV/dS.",
+                  "type": "number"
+                },
+                "gamma": {
+                  "description": "d2V/dS2.",
+                  "type": "number"
+                },
+                "inputs": {
+                  "description": "The inputs used, including any defaulted from the series.",
+                  "properties": {
+                    "dividend_yield": {
+                      "description": "q.",
+                      "type": "number"
+                    },
+                    "rate": {
+                      "description": "r.",
+                      "type": "number"
+                    },
+                    "spot": {
+                      "description": "S.",
+                      "type": "number"
+                    },
+                    "strike": {
+                      "description": "K.",
+                      "type": "number"
+                    },
+                    "time_to_expiry_years": {
+                      "description": "T.",
+                      "type": "number"
+                    },
+                    "volatility": {
+                      "description": "sigma.",
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "spot",
+                    "strike",
+                    "rate",
+                    "volatility",
+                    "time_to_expiry_years",
+                    "dividend_yield"
+                  ],
+                  "type": "object"
+                },
+                "price": {
+                  "description": "Option value.",
+                  "type": "number"
+                },
+                "rho": {
+                  "description": "dV/dr per 1.0 of rate.",
+                  "type": "number"
+                },
+                "theta": {
+                  "description": "dV/dt per year.",
+                  "type": "number"
+                },
+                "type": {
+                  "description": "Option type.",
+                  "enum": [
+                    "call",
+                    "put"
+                  ],
+                  "type": "string"
+                },
+                "vega": {
+                  "description": "dV/dsigma per 1.0 of volatility.",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "type",
+                "price",
+                "delta",
+                "gamma",
+                "vega",
+                "theta",
+                "rho",
+                "inputs"
+              ],
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "bollinger": {
+              "description": "Bollinger bands at the last price.",
+              "properties": {
+                "bandwidth": {
+                  "description": "(upper-lower)/middle.",
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "k": {
+                  "description": "Band width in standard deviations.",
+                  "type": "number"
+                },
+                "lower": {
+                  "description": "Lower band.",
+                  "type": "number"
+                },
+                "middle": {
+                  "description": "SMA.",
+                  "type": "number"
+                },
+                "percent_b": {
+                  "description": "Where the last price sits in the band (0 lower, 1 upper).",
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "upper": {
+                  "description": "Upper band.",
+                  "type": "number"
+                },
+                "window": {
+                  "description": "Window.",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "window",
+                "k",
+                "middle",
+                "upper",
+                "lower"
+              ],
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "checked_at": {
+              "description": "When this node read the source (UTC). Nothing here is cached.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "drawdown": {
+              "description": "Maximum drawdown.",
+              "properties": {
+                "duration_periods": {
+                  "description": "Periods from peak to trough.",
+                  "type": "integer"
+                },
+                "max_drawdown": {
+                  "description": "Largest peak-to-trough fall as a fraction (negative or 0).",
+                  "type": "number"
+                },
+                "peak_index": {
+                  "description": "Index of the peak.",
+                  "type": "integer"
+                },
+                "recovery_index": {
+                  "description": "First index back at the peak; null when not recovered.",
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "trough_index": {
+                  "description": "Index of the trough.",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "max_drawdown",
+                "peak_index",
+                "trough_index",
+                "recovery_index",
+                "duration_periods"
+              ],
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "first_date": {
+              "description": "First date when dates were given.",
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            },
+            "kelly": {
+              "description": "Kelly criterion.",
+              "properties": {
+                "bet": {
+                  "description": "Whether the fraction is positive.",
+                  "type": "boolean"
+                },
+                "fraction": {
+                  "description": "Kelly fraction p - (1-p)/b.",
+                  "type": "number"
+                },
+                "half_kelly": {
+                  "description": "Half Kelly.",
+                  "type": "number"
+                },
+                "win_loss_ratio": {
+                  "description": "b.",
+                  "type": "number"
+                },
+                "win_probability": {
+                  "description": "p.",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "win_probability",
+                "win_loss_ratio",
+                "fraction",
+                "half_kelly",
+                "bet"
+              ],
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "last_date": {
+              "description": "Last date when dates were given.",
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            },
+            "method": {
+              "description": "Every formula used, in words.",
+              "type": "string"
+            },
+            "metrics_computed": {
+              "description": "Metrics present (non-null) in this result.",
+              "items": {
+                "description": "A metric name.",
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "moving_averages": {
+              "description": "Simple and exponential moving averages at the last price.",
+              "properties": {
+                "ema": {
+                  "additionalProperties": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "description": "Value per window, keyed by the window length.",
+                  "properties": {},
+                  "required": [],
+                  "type": "object"
+                },
+                "last_price": {
+                  "description": "Last price, for comparison.",
+                  "type": "number"
+                },
+                "sma": {
+                  "additionalProperties": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "description": "Value per window, keyed by the window length.",
+                  "properties": {},
+                  "required": [],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "sma",
+                "ema",
+                "last_price"
+              ],
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "n": {
+              "description": "Prices in the series.",
+              "type": "integer"
+            },
+            "n_returns": {
+              "description": "Period returns (n - 1).",
+              "type": "integer"
+            },
+            "notes": {
+              "description": "Caveats about undefined or aligned metrics.",
+              "items": {
+                "description": "A caveat.",
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "periods_per_year": {
+              "description": "Annualization basis.",
+              "type": "integer"
+            },
+            "returns": {
+              "description": "Return statistics.",
+              "properties": {
+                "annualized_mean_return": {
+                  "description": "mean_period_return * periods_per_year.",
+                  "type": "number"
+                },
+                "best_period": {
+                  "description": "Largest period return.",
+                  "type": "number"
+                },
+                "cagr": {
+                  "description": "Compound annual growth rate over n_returns/periods_per_year years.",
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "first_price": {
+                  "description": "First price.",
+                  "type": "number"
+                },
+                "last_price": {
+                  "description": "Last price.",
+                  "type": "number"
+                },
+                "mean_log_return": {
+                  "description": "Mean log return per period.",
+                  "type": "number"
+                },
+                "mean_period_return": {
+                  "description": "Mean simple return per period.",
+                  "type": "number"
+                },
+                "n_returns": {
+                  "description": "Period returns.",
+                  "type": "integer"
+                },
+                "total_return": {
+                  "description": "last/first - 1.",
+                  "type": "number"
+                },
+                "worst_period": {
+                  "description": "Smallest period return.",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "n_returns",
+                "first_price",
+                "last_price",
+                "total_return",
+                "mean_period_return"
+              ],
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "risk_free_rate": {
+              "description": "Annual risk-free rate used.",
+              "type": "number"
+            },
+            "rsi": {
+              "description": "Relative strength index.",
+              "properties": {
+                "value": {
+                  "description": "Wilder RSI 0-100; null when too few prices.",
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "window": {
+                  "description": "Window.",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "window",
+                "value"
+              ],
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "sharpe": {
+              "description": "Annualized Sharpe ratio; null when undefined.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "sortino": {
+              "description": "Annualized Sortino ratio; null when undefined.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "source": {
+              "description": "Where the series came from.",
+              "properties": {
+                "benchmark_n": {
+                  "description": "Benchmark prices used.",
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "benchmark_symbol": {
+                  "description": "Benchmark ticker when fetched.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "provider": {
+                  "description": "Provider that served the series.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "range": {
+                  "description": "Range fetched, with type symbol.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "symbol": {
+                  "description": "Ticker, with type symbol.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "type": {
+                  "description": "Inline prices or a live-fetched series.",
+                  "enum": [
+                    "prices",
+                    "symbol"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "type": "object"
+            },
+            "var": {
+              "description": "Value at risk, one period.",
+              "properties": {
+                "alpha": {
+                  "description": "Tail probability.",
+                  "type": "number"
+                },
+                "historical_cvar": {
+                  "description": "Mean loss beyond the VaR.",
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "historical_var": {
+                  "description": "Loss not exceeded with probability 1-alpha, as a positive fraction.",
+                  "type": "number"
+                },
+                "horizon_periods": {
+                  "description": "Horizon in periods.",
+                  "type": "integer"
+                },
+                "parametric_var": {
+                  "description": "Normal-model VaR, -(mean + z*std).",
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "parametric_z": {
+                  "description": "z at alpha.",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "alpha",
+                "horizon_periods",
+                "historical_var",
+                "parametric_z"
+              ],
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "volatility": {
+              "description": "Dispersion of returns.",
+              "properties": {
+                "annualized": {
+                  "description": "period_std * sqrt(periods_per_year).",
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "downside_deviation_annualized": {
+                  "description": "Annualized downside deviation vs the risk-free rate.",
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "log_return_std": {
+                  "description": "Sample standard deviation of log returns.",
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "period_std": {
+                  "description": "Sample standard deviation of period returns.",
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "period_std",
+                "annualized"
+              ],
+              "type": [
+                "object",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "source",
+            "n",
+            "n_returns",
+            "periods_per_year",
+            "risk_free_rate",
+            "metrics_computed",
+            "returns",
+            "volatility",
+            "sharpe",
+            "sortino",
+            "drawdown",
+            "var",
+            "beta",
+            "moving_averages",
+            "rsi",
+            "bollinger",
+            "black_scholes",
+            "kelly",
+            "notes",
+            "method",
+            "as_of",
+            "checked_at"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "const": "ok",
+          "description": "Present only on a delivered result.",
+          "type": "string"
+        },
+        "worker": {
+          "description": "Catalog name of the worker that ran.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "worker",
+        "price_usd",
+        "result",
+        "provenance",
+        "receipt_id",
+        "receipt_url"
+      ],
+      "title": "finance.analytics response",
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "result.bollinger.lower",
+        "other_field": "result.bollinger.upper"
+      }
+    ],
+    "bounds": {
+      "price_usd": {
+        "min": 0
+      },
+      "result.black_scholes.price": {
+        "min": 0
+      },
+      "result.drawdown.duration_periods": {
+        "min": 0
+      },
+      "result.kelly.win_probability": {
+        "min": 0,
+        "max": 1
+      },
+      "result.moving_averages.last_price": {
+        "min": 0
+      },
+      "result.returns.first_price": {
+        "min": 0
+      },
+      "result.returns.last_price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hubvibe-io.com",
+    "endpoint": "https://hubvibe-io.com/work/finance/analytics",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

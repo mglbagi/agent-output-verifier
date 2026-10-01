@@ -1,0 +1,74 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2538df69f3ce3b59",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "outputs": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "description",
+            "title"
+          ]
+        },
+        "paidUsd": {
+          "type": "number"
+        },
+        "runId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "statusUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "style": {
+          "type": "string"
+        },
+        "transaction": {
+          "type": "string"
+        },
+        "video": {
+          "type": "string"
+        },
+        "voice": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "outputs",
+        "paidUsd",
+        "runId",
+        "status",
+        "statusUrl",
+        "style",
+        "transaction",
+        "video",
+        "voice"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "trezalabs.com",
+    "endpoint": "https://www.trezalabs.com/api/x402/short",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

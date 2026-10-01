@@ -1,0 +1,146 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_df6062d9e912ce2a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "fixes": {
+          "items": {
+            "properties": {
+              "checks": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "code": {
+                "items": {
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "language": {
+                      "type": "string"
+                    },
+                    "snippet": {
+                      "type": "string"
+                    },
+                    "stack": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object",
+                  "required": [
+                    "label",
+                    "language",
+                    "snippet",
+                    "stack"
+                  ]
+                },
+                "type": "array"
+              },
+              "recipe": {
+                "type": "string"
+              },
+              "severity": {
+                "enum": [
+                  "fail",
+                  "warn"
+                ],
+                "type": "string"
+              },
+              "steps": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "title": {
+                "type": "string"
+              },
+              "verify": {
+                "type": "string"
+              },
+              "why": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "title",
+              "why",
+              "steps",
+              "code"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "overall": {
+          "enum": [
+            "pass",
+            "warn",
+            "fail"
+          ],
+          "type": "string"
+        },
+        "stack": {
+          "properties": {
+            "detected_from": {
+              "type": "string"
+            },
+            "id": {
+              "enum": [
+                "express",
+                "next",
+                "hono",
+                "node",
+                "python",
+                "generic"
+              ],
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "detected_from",
+            "id",
+            "name"
+          ]
+        },
+        "summary": {
+          "type": "string"
+        },
+        "unfixed": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "url",
+        "fixes"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-doctor.onrender.com",
+    "endpoint": "https://x402-doctor.onrender.com/api/v1/fix",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a920020f3a81205c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "indicator": {
+          "type": "string"
+        },
+        "reference_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source": {
+          "type": "string"
+        },
+        "statistic": {
+          "type": "string"
+        },
+        "survey_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "values": {
+          "type": "object",
+          "properties": {
+            "gdp": {
+              "type": "object",
+              "properties": {
+                "2026": {
+                  "type": "number"
+                },
+                "2027": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "2026",
+                "2027"
+              ]
+            },
+            "ipca": {
+              "type": "object",
+              "properties": {
+                "2026": {
+                  "type": "number"
+                },
+                "2027": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "2026",
+                "2027"
+              ]
+            },
+            "selic": {
+              "type": "object",
+              "properties": {
+                "2026": {
+                  "type": "number"
+                },
+                "2027": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "2026",
+                "2027"
+              ]
+            },
+            "usd_brl": {
+              "type": "object",
+              "properties": {
+                "2026": {
+                  "type": "number"
+                },
+                "2027": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "2026",
+                "2027"
+              ]
+            }
+          },
+          "required": [
+            "gdp",
+            "ipca",
+            "selic",
+            "usd_brl"
+          ]
+        },
+        "years": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "indicator",
+        "reference_date",
+        "retrieved_at",
+        "source",
+        "statistic",
+        "survey_date",
+        "values",
+        "years"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api-macro-br-production.up.railway.app",
+    "endpoint": "https://api-macro-br-production.up.railway.app/v1/focus",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

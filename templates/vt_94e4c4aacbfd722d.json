@@ -1,0 +1,52 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_94e4c4aacbfd722d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "hashrate": {
+          "type": "number"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "stakedAman": {
+          "type": "integer"
+        },
+        "supply": {
+          "type": "integer"
+        },
+        "txCount": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "hashrate",
+        "height",
+        "stakedAman",
+        "supply",
+        "txCount"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "height": {
+        "min": 0
+      },
+      "supply": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "preview-chat-c6089071-758a-449d-b4a7-6fa19ebc955c.space-z.ai",
+    "endpoint": "https://preview-chat-c6089071-758a-449d-b4a7-6fa19ebc955c.space-z.ai/api/x402/aman-network-stats",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8f7d478dd5e8c59d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "routes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "object",
+                "properties": {
+                  "price": {
+                    "type": "object",
+                    "properties": {
+                      "amount": {
+                        "type": "string"
+                      },
+                      "checkedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "currency": {
+                        "type": "string"
+                      },
+                      "display": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "amount",
+                      "checkedAt",
+                      "currency",
+                      "display"
+                    ]
+                  },
+                  "protocols": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "receiptAuthority": {
+                    "type": "object",
+                    "properties": {
+                      "checkedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "payTo": {
+                        "type": "string",
+                        "pattern": "^0x[a-fA-F0-9]{40}$"
+                      },
+                      "signer": {},
+                      "signerSource": {},
+                      "source": {
+                        "type": "string"
+                      },
+                      "status": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "checkedAt",
+                      "payTo",
+                      "source",
+                      "status"
+                    ]
+                  },
+                  "request": {
+                    "type": "object",
+                    "properties": {
+                      "notes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "required": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "required": [
+                      "notes",
+                      "required"
+                    ]
+                  },
+                  "route": {
+                    "type": "object",
+                    "properties": {
+                      "method": {
+                        "type": "string"
+                      },
+                      "publicEndpointUrl": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "required": [
+                      "method",
+                      "publicEndpointUrl"
+                    ]
+                  },
+                  "routeId": {
+                    "type": "string",
+                    "pattern": "^0x[a-fA-F0-9]{64}$"
+                  },
+                  "service": {
+                    "type": "string"
+                  },
+                  "source": {
+                    "type": "object",
+                    "properties": {
+                      "checkedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "kind": {
+                        "type": "string"
+                      },
+                      "label": {
+                        "type": "string"
+                      },
+                      "trustTier": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "checkedAt",
+                      "kind",
+                      "label",
+                      "trustTier"
+                    ]
+                  },
+                  "summary": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "price",
+                  "protocols",
+                  "receiptAuthority",
+                  "request",
+                  "route",
+                  "routeId",
+                  "service",
+                  "source",
+                  "summary",
+                  "version"
+                ]
+              },
+              "reviewSummary": {
+                "type": "object",
+                "properties": {
+                  "boonBackedCount": {
+                    "type": "integer"
+                  },
+                  "count": {
+                    "type": "integer"
+                  },
+                  "distinctReviewerWalletCount": {
+                    "type": "integer"
+                  },
+                  "indexComplete": {
+                    "type": "boolean"
+                  },
+                  "latestReviewAt": {
+                    "type": "integer"
+                  },
+                  "receiptVerifiedCount": {
+                    "type": "integer"
+                  },
+                  "selfReportedCount": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "boonBackedCount",
+                  "count",
+                  "distinctReviewerWalletCount",
+                  "indexComplete",
+                  "latestReviewAt",
+                  "receiptVerifiedCount",
+                  "selfReportedCount"
+                ]
+              },
+              "routeId": {
+                "type": "string",
+                "pattern": "^0x[a-fA-F0-9]{64}$"
+              }
+            },
+            "required": [
+              "description",
+              "reviewSummary",
+              "routeId"
+            ]
+          }
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "routes",
+        "version"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "routes[].reviewSummary.count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.boonprotocol.com",
+    "endpoint": "https://api.boonprotocol.com/api/v1/x402/routes",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

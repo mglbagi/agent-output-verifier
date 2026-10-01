@@ -1,0 +1,79 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ebf24548bb2d5cfe",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "charged": {
+          "type": "boolean"
+        },
+        "results": {
+          "type": "object",
+          "properties": {
+            "candidates": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "type": "integer"
+                  },
+                  "model": {
+                    "type": "string"
+                  },
+                  "price_prompt": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "context",
+                  "model",
+                  "price_prompt"
+                ]
+              }
+            },
+            "deprecations": {
+              "type": "array"
+            },
+            "matching_count": {
+              "type": "integer"
+            },
+            "price_changes_in_window": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "candidates",
+            "deprecations",
+            "matching_count",
+            "price_changes_in_window"
+          ]
+        }
+      },
+      "required": [
+        "charged",
+        "results"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "results.candidates[].price_prompt": {
+        "min": 0
+      },
+      "results.matching_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "anansidata.xyz",
+    "endpoint": "https://anansidata.xyz/paid/intel/model-advisor",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_09e5ed2d9b89dcd8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "replayed": {
+          "type": "boolean"
+        },
+        "result": {
+          "properties": {
+            "extracted_facts": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "key_points": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "service": {
+              "enum": [
+                "read"
+              ],
+              "type": "string"
+            },
+            "source_url": {
+              "format": "uri",
+              "type": "string"
+            },
+            "summary": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "extracted_facts",
+            "key_points",
+            "service",
+            "source_url",
+            "summary",
+            "title"
+          ]
+        },
+        "transaction_id": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "replayed",
+        "result",
+        "transaction_id"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "402agent.ai",
+    "endpoint": "https://402agent.ai/agent402/api/v1/read",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

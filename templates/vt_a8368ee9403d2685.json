@@ -1,0 +1,80 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a8368ee9403d2685",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "balance": {
+          "type": "number"
+        },
+        "balance_symbol": {
+          "type": "string"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "flag_sources": {
+          "type": "string"
+        },
+        "is_contract": {
+          "type": "boolean"
+        },
+        "risk_flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "risk_label": {
+          "type": "string"
+        },
+        "risk_score": {
+          "type": "integer"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "tx_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "address",
+        "balance",
+        "balance_symbol",
+        "chain",
+        "flag_sources",
+        "is_contract",
+        "risk_flags",
+        "risk_label",
+        "risk_score",
+        "summary",
+        "tx_count"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "balance": {
+        "min": 0
+      },
+      "tx_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "wallet.lonestaroracle.xyz",
+    "endpoint": "https://wallet.lonestaroracle.xyz/score",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

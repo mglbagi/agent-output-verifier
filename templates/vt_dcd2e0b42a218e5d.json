@@ -1,0 +1,70 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_dcd2e0b42a218e5d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "endpoint": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "result": {
+          "additionalProperties": true,
+          "properties": {
+            "decision_engine": {
+              "type": "object"
+            },
+            "expires_at": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date-time"
+            },
+            "horizons": {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "prediction": {
+              "type": "object"
+            },
+            "schema_version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "schema_version",
+            "expires_at",
+            "prediction",
+            "horizons",
+            "decision_engine"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "ok",
+        "endpoint",
+        "result"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "energy.halowerk.com",
+    "endpoint": "https://energy.halowerk.com/predict/negative-price",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

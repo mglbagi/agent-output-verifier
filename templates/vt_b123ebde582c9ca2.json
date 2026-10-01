@@ -1,0 +1,411 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b123ebde582c9ca2",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "cheapest": {
+          "type": "object",
+          "properties": {
+            "caveats": {
+              "type": "array"
+            },
+            "chain": {
+              "type": "string"
+            },
+            "compared_chains": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "est_cost_usd": {
+              "type": "number"
+            },
+            "excluded_chains": {
+              "type": "array"
+            },
+            "runner_up": {},
+            "scope": {
+              "type": "string"
+            },
+            "stability": {
+              "type": "object",
+              "properties": {
+                "historical_claim": {
+                  "type": "boolean"
+                },
+                "level": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "historical_claim",
+                "level"
+              ]
+            }
+          },
+          "required": [
+            "caveats",
+            "chain",
+            "compared_chains",
+            "est_cost_usd",
+            "excluded_chains",
+            "scope",
+            "stability"
+          ]
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "chain": {
+                "type": "string"
+              },
+              "cost_basis": {
+                "type": "string"
+              },
+              "cost_bps": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "fee_bps": {
+                      "type": "number"
+                    },
+                    "notional_usd": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "fee_bps",
+                    "notional_usd"
+                  ]
+                }
+              },
+              "est_cost_usd": {
+                "type": "number"
+              },
+              "fee_components": {
+                "type": "object",
+                "properties": {
+                  "execution_usd": {
+                    "type": "number"
+                  },
+                  "l1_data_usd": {},
+                  "total_usd": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "execution_usd",
+                  "total_usd"
+                ]
+              },
+              "fee_model": {
+                "type": "string"
+              },
+              "gas_price_wei": {
+                "type": "string"
+              },
+              "gas_units": {
+                "type": "integer"
+              },
+              "gas_units_assumed": {},
+              "gas_units_method": {
+                "type": "string"
+              },
+              "gas_units_scenario": {
+                "type": "string"
+              },
+              "head_age_s": {
+                "type": "integer"
+              },
+              "l1_data_fee_included": {},
+              "transfer_amount_atomic": {
+                "type": "number"
+              },
+              "tx_type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "chain",
+              "cost_basis",
+              "cost_bps",
+              "est_cost_usd",
+              "fee_components",
+              "fee_model",
+              "gas_price_wei",
+              "gas_units",
+              "gas_units_method",
+              "gas_units_scenario",
+              "head_age_s",
+              "transfer_amount_atomic",
+              "tx_type"
+            ]
+          }
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "attributions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "fallback_used": {
+                    "type": "boolean"
+                  },
+                  "fetched_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "quote_asset": {
+                    "type": "string"
+                  },
+                  "source_id": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "fallback_used",
+                  "fetched_at",
+                  "message",
+                  "quote_asset",
+                  "source_id",
+                  "url"
+                ]
+              }
+            },
+            "capability": {
+              "type": "string"
+            },
+            "chains_requested": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "chains_unavailable": {
+              "type": "array"
+            },
+            "fee_completeness": {
+              "type": "string"
+            },
+            "freshness": {
+              "type": "object",
+              "properties": {
+                "all_sources_within_policy": {
+                  "type": "boolean"
+                },
+                "cache_ttl_s": {
+                  "type": "integer"
+                },
+                "oldest_source_age_s": {
+                  "type": "integer"
+                },
+                "policy_max_age_s": {
+                  "type": "integer"
+                },
+                "valid_until": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "required": [
+                "all_sources_within_policy",
+                "cache_ttl_s",
+                "oldest_source_age_s",
+                "policy_max_age_s",
+                "valid_until"
+              ]
+            },
+            "generated_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "limitations": {
+              "type": "string"
+            },
+            "request_id": {
+              "type": "string"
+            },
+            "schema_version": {
+              "type": "string"
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "block": {
+                    "type": "integer"
+                  },
+                  "fetched_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "kind": {
+                    "type": "string"
+                  },
+                  "max_age_s": {
+                    "type": "integer"
+                  },
+                  "method": {
+                    "type": "string"
+                  },
+                  "attribution": {
+                    "type": "string"
+                  },
+                  "fallback_used": {
+                    "type": "boolean"
+                  },
+                  "license_basis": {
+                    "type": "string"
+                  },
+                  "licensed": {
+                    "type": "boolean"
+                  },
+                  "quote_asset": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "fetched_at",
+                  "id",
+                  "kind",
+                  "max_age_s"
+                ]
+              }
+            },
+            "units": {
+              "type": "object",
+              "properties": {
+                "est_cost_usd": {
+                  "type": "string"
+                },
+                "fee_bps": {
+                  "type": "string"
+                },
+                "gas_price_wei": {
+                  "type": "string"
+                },
+                "transfer_amount_atomic": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "est_cost_usd",
+                "fee_bps",
+                "gas_price_wei",
+                "transfer_amount_atomic"
+              ]
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "attributions",
+            "capability",
+            "chains_requested",
+            "chains_unavailable",
+            "fee_completeness",
+            "freshness",
+            "generated_at",
+            "limitations",
+            "request_id",
+            "schema_version",
+            "sources",
+            "units",
+            "version"
+          ]
+        },
+        "related": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "cheapest",
+        "data",
+        "meta",
+        "related"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "meta.attributions[].source_id"
+      },
+      {
+        "type": "unique",
+        "field": "meta.sources[].id"
+      }
+    ],
+    "bounds": {
+      "cheapest.est_cost_usd": {
+        "min": 0
+      },
+      "data[].cost_bps[].fee_bps": {
+        "min": 0
+      },
+      "data[].cost_bps[].notional_usd": {
+        "min": 0
+      },
+      "data[].est_cost_usd": {
+        "min": 0
+      },
+      "data[].fee_components.execution_usd": {
+        "min": 0
+      },
+      "data[].fee_components.total_usd": {
+        "min": 0
+      },
+      "data[].head_age_s": {
+        "min": 0
+      },
+      "data[].transfer_amount_atomic": {
+        "min": 0
+      },
+      "meta.freshness.oldest_source_age_s": {
+        "min": 0
+      },
+      "meta.freshness.policy_max_age_s": {
+        "min": 0
+      },
+      "meta.sources[].max_age_s": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.402rates.com",
+    "endpoint": "https://api.402rates.com/v1/settlement/costs",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

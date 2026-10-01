@@ -1,0 +1,80 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e96401420531833a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "industry": {
+          "type": "string"
+        },
+        "naics_code": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "top_states": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "avg_salary": {
+                "type": "integer"
+              },
+              "employees": {
+                "type": "integer"
+              },
+              "establishments": {
+                "type": "integer"
+              },
+              "state": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "avg_salary",
+              "employees",
+              "establishments",
+              "state"
+            ]
+          }
+        },
+        "totals": {
+          "type": "object",
+          "properties": {
+            "employees": {
+              "type": "integer"
+            },
+            "establishments": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "employees",
+            "establishments"
+          ]
+        }
+      },
+      "required": [
+        "industry",
+        "naics_code",
+        "success",
+        "top_states",
+        "totals"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "econ.memoryapi.org",
+    "endpoint": "https://econ.memoryapi.org/x402/econ/business",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

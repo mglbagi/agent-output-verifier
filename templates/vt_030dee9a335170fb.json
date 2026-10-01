@@ -1,0 +1,405 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_030dee9a335170fb",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "assets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "aliases": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "assetKey": {
+                "type": "string"
+              },
+              "asset_type": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "identifiers": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string"
+                    },
+                    "platform": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "platform",
+                    "value"
+                  ]
+                }
+              },
+              "linked_market_count": {
+                "type": "integer"
+              },
+              "linked_markets": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "categories": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "clarifications": {},
+                    "end_date": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "event": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "slug": {},
+                        "title": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "title"
+                      ]
+                    },
+                    "forecast_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "forecast_count": {
+                      "type": "integer"
+                    },
+                    "has_forecast": {
+                      "type": "boolean"
+                    },
+                    "has_published_signal": {
+                      "type": "boolean"
+                    },
+                    "inDispute": {
+                      "type": "boolean"
+                    },
+                    "latest_forecast_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "latest_forecast_delta": {
+                      "type": "number"
+                    },
+                    "latest_forecast_refresh_reason": {
+                      "type": "string"
+                    },
+                    "latest_q_probability": {
+                      "type": "number"
+                    },
+                    "marketKey": {
+                      "type": "string"
+                    },
+                    "marketUrl": {},
+                    "market_odds": {
+                      "type": "number"
+                    },
+                    "market_odds_at_forecast": {
+                      "type": "number"
+                    },
+                    "market_updated_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "nativeEventId": {
+                      "type": "string"
+                    },
+                    "nativeMarketId": {
+                      "type": "string"
+                    },
+                    "polymarketUrl": {},
+                    "published_signal_count": {
+                      "type": "integer"
+                    },
+                    "question": {
+                      "type": "string"
+                    },
+                    "quotientMarketId": {
+                      "type": "string"
+                    },
+                    "quotientUrl": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "seriesTicker": {
+                      "type": "string"
+                    },
+                    "signal_count": {
+                      "type": "integer"
+                    },
+                    "slug": {},
+                    "sourceUrl": {},
+                    "tags": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "thesis": {
+                      "type": "string"
+                    },
+                    "venue": {
+                      "type": "string"
+                    },
+                    "venue_quote": {
+                      "type": "object",
+                      "properties": {
+                        "freshness": {
+                          "type": "string"
+                        },
+                        "market_id": {
+                          "type": "string"
+                        },
+                        "observed_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "quote_method": {
+                          "type": "string"
+                        },
+                        "schema_version": {
+                          "type": "string"
+                        },
+                        "selected_probability": {
+                          "type": "number"
+                        },
+                        "venue": {
+                          "type": "string"
+                        },
+                        "venue_timestamp": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "yes_ask": {
+                          "type": "number"
+                        },
+                        "yes_bid": {
+                          "type": "number"
+                        },
+                        "yes_last": {}
+                      },
+                      "required": [
+                        "freshness",
+                        "market_id",
+                        "observed_at",
+                        "quote_method",
+                        "schema_version",
+                        "selected_probability",
+                        "venue",
+                        "venue_timestamp",
+                        "yes_ask",
+                        "yes_bid"
+                      ]
+                    },
+                    "volume_24h": {}
+                  },
+                  "required": [
+                    "categories",
+                    "end_date",
+                    "event",
+                    "forecast_at",
+                    "forecast_count",
+                    "has_forecast",
+                    "has_published_signal",
+                    "inDispute",
+                    "latest_forecast_at",
+                    "latest_forecast_delta",
+                    "latest_forecast_refresh_reason",
+                    "latest_q_probability",
+                    "marketKey",
+                    "market_odds",
+                    "market_odds_at_forecast",
+                    "market_updated_at",
+                    "nativeEventId",
+                    "nativeMarketId",
+                    "published_signal_count",
+                    "question",
+                    "quotientMarketId",
+                    "quotientUrl",
+                    "seriesTicker",
+                    "signal_count",
+                    "tags",
+                    "thesis",
+                    "venue",
+                    "venue_quote"
+                  ]
+                }
+              },
+              "market_summary": {
+                "type": "object",
+                "properties": {
+                  "active_market_count": {
+                    "type": "integer"
+                  },
+                  "markets_with_forecast": {
+                    "type": "integer"
+                  },
+                  "markets_with_published_signal": {
+                    "type": "integer"
+                  },
+                  "mispriced_market_count": {
+                    "type": "number"
+                  },
+                  "mispricing_threshold_pp": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "active_market_count",
+                  "markets_with_forecast",
+                  "markets_with_published_signal",
+                  "mispriced_market_count",
+                  "mispricing_threshold_pp"
+                ]
+              },
+              "name": {
+                "type": "string"
+              },
+              "relevance": {
+                "type": "object",
+                "properties": {
+                  "matched_by": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "matched_fields": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "score": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "matched_by",
+                  "matched_fields",
+                  "score"
+                ]
+              },
+              "ticker": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "aliases",
+              "assetKey",
+              "asset_type",
+              "id",
+              "identifiers",
+              "linked_market_count",
+              "linked_markets",
+              "market_summary",
+              "name",
+              "relevance",
+              "ticker"
+            ]
+          }
+        },
+        "material_only": {
+          "type": "boolean"
+        },
+        "query": {},
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "retrieval": {
+          "type": "object",
+          "properties": {
+            "graph": {
+              "type": "string"
+            },
+            "typesense": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "graph",
+            "typesense"
+          ]
+        }
+      },
+      "required": [
+        "assets",
+        "material_only",
+        "references",
+        "retrieval"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "assets[].id"
+      }
+    ],
+    "bounds": {
+      "assets[].linked_market_count": {
+        "min": 0
+      },
+      "assets[].linked_markets[].forecast_count": {
+        "min": 0
+      },
+      "assets[].linked_markets[].latest_q_probability": {
+        "min": 0,
+        "max": 1
+      },
+      "assets[].linked_markets[].published_signal_count": {
+        "min": 0
+      },
+      "assets[].linked_markets[].signal_count": {
+        "min": 0
+      },
+      "assets[].linked_markets[].venue_quote.selected_probability": {
+        "min": 0,
+        "max": 1
+      },
+      "assets[].market_summary.active_market_count": {
+        "min": 0
+      },
+      "assets[].market_summary.mispriced_market_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "quotient-api-gateway.onrender.com",
+    "endpoint": "https://quotient-api-gateway.onrender.com/api/v1/assets/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

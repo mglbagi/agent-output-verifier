@@ -1,0 +1,125 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fcd8b65f3d674d73",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "buy_tax_pct": {
+          "type": "number"
+        },
+        "cex_list": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cex_listed": {
+          "type": "boolean"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "dex_listed": {
+          "type": "boolean"
+        },
+        "has_selfdestruct": {
+          "type": "boolean"
+        },
+        "hidden_owner": {
+          "type": "boolean"
+        },
+        "holder_count": {
+          "type": "integer"
+        },
+        "is_honeypot": {
+          "type": "boolean"
+        },
+        "is_mintable": {
+          "type": "boolean"
+        },
+        "is_open_source": {
+          "type": "boolean"
+        },
+        "is_proxy": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "risk_flags": {
+          "type": "array"
+        },
+        "risk_label": {
+          "type": "string"
+        },
+        "risk_score": {
+          "type": "integer"
+        },
+        "sell_tax_pct": {
+          "type": "number"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "trust_list": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "address",
+        "buy_tax_pct",
+        "cex_list",
+        "cex_listed",
+        "chain",
+        "dex_listed",
+        "has_selfdestruct",
+        "hidden_owner",
+        "holder_count",
+        "is_honeypot",
+        "is_mintable",
+        "is_open_source",
+        "is_proxy",
+        "name",
+        "risk_flags",
+        "risk_label",
+        "risk_score",
+        "sell_tax_pct",
+        "summary",
+        "symbol",
+        "trust_list"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "buy_tax_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "holder_count": {
+        "min": 0
+      },
+      "sell_tax_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "contract.lonestaroracle.xyz",
+    "endpoint": "https://contract.lonestaroracle.xyz/verify",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_149ae157bd0bc909",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "asof_daily": {
+          "type": "string",
+          "format": "date"
+        },
+        "etf": {
+          "type": "object",
+          "properties": {
+            "light": {
+              "type": "string"
+            },
+            "opp_pct": {
+              "type": "integer"
+            },
+            "opp_score": {
+              "type": "number"
+            },
+            "state": {
+              "type": "string"
+            },
+            "sym": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "light",
+            "opp_pct",
+            "opp_score",
+            "state",
+            "sym"
+          ]
+        },
+        "freshness": {
+          "type": "object",
+          "properties": {
+            "data_age_seconds": {
+              "type": "integer"
+            },
+            "market_open": {
+              "type": "boolean"
+            },
+            "next_refresh_at": {
+              "type": "string"
+            },
+            "poll_hint": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "data_age_seconds",
+            "market_open",
+            "next_refresh_at",
+            "poll_hint"
+          ]
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "adv20_usd": {
+                "type": "number"
+              },
+              "entry_q": {
+                "type": "integer"
+              },
+              "gap_level": {
+                "type": "string"
+              },
+              "gap_risk": {
+                "type": "integer"
+              },
+              "growth_score": {
+                "type": "integer"
+              },
+              "hold_q": {
+                "type": "integer"
+              },
+              "is_leader": {
+                "type": "boolean"
+              },
+              "name": {
+                "type": "string"
+              },
+              "opp_pct": {
+                "type": "integer"
+              },
+              "state": {
+                "type": "string"
+              },
+              "sym": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "adv20_usd",
+              "entry_q",
+              "gap_level",
+              "gap_risk",
+              "growth_score",
+              "hold_q",
+              "is_leader",
+              "name",
+              "opp_pct",
+              "state",
+              "sym"
+            ]
+          }
+        },
+        "product": {
+          "type": "string"
+        },
+        "sector": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "asof_daily",
+        "etf",
+        "freshness",
+        "members",
+        "product",
+        "sector"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "etf.opp_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "freshness.data_age_seconds": {
+        "min": 0
+      },
+      "members[].adv20_usd": {
+        "min": 0
+      },
+      "members[].opp_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "coil.trade",
+    "endpoint": "https://coil.trade/api/board/sector",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

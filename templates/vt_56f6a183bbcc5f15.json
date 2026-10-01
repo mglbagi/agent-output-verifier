@@ -1,0 +1,108 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_56f6a183bbcc5f15",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "report": {
+          "properties": {
+            "cached": {
+              "type": "boolean"
+            },
+            "facts": {
+              "items": {
+                "properties": {
+                  "claim": {
+                    "type": "string"
+                  },
+                  "quote": {
+                    "description": "Verbatim excerpt found in the retrieved page text.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "claim",
+                  "quote"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "language": {
+              "enum": [
+                "en",
+                "ja"
+              ],
+              "type": "string"
+            },
+            "source": {
+              "properties": {
+                "retrievedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "sha256": {
+                  "type": "string"
+                },
+                "truncated": {
+                  "type": "boolean"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "url",
+                "retrievedAt",
+                "sha256",
+                "truncated"
+              ],
+              "type": "object"
+            },
+            "summary": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "title",
+            "summary",
+            "facts",
+            "source",
+            "language",
+            "cached"
+          ],
+          "type": "object"
+        },
+        "seller": {
+          "type": "string"
+        },
+        "service": {
+          "const": "page-report",
+          "type": "string"
+        }
+      },
+      "required": [
+        "report",
+        "seller",
+        "service"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "otomo-world-id.vercel.app",
+    "endpoint": "https://otomo-world-id.vercel.app/api/services/taro/page-report",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_beff848c90c8006b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "agreement": {
+          "type": "string"
+        },
+        "market": {
+          "type": "object",
+          "properties": {
+            "gap_pts": {
+              "type": "integer"
+            },
+            "kalshi": {
+              "type": "object",
+              "properties": {
+                "probability": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "probability"
+              ]
+            },
+            "polymarket": {
+              "type": "object",
+              "properties": {
+                "probability": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "probability"
+              ]
+            }
+          },
+          "required": [
+            "gap_pts",
+            "kalshi",
+            "polymarket"
+          ]
+        },
+        "query": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "x": {
+          "type": "object",
+          "properties": {
+            "driving_accounts": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "key_themes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "lean": {
+              "type": "string"
+            },
+            "tweet_count": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "driving_accounts",
+            "key_themes",
+            "lean",
+            "tweet_count"
+          ]
+        }
+      },
+      "required": [
+        "agreement",
+        "market",
+        "query",
+        "summary",
+        "x"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "market.kalshi.probability": {
+        "min": 0,
+        "max": 1
+      },
+      "market.polymarket.probability": {
+        "min": 0,
+        "max": 1
+      },
+      "x.tweet_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "clinkagent.com",
+    "endpoint": "https://clinkagent.com/pm/sentiment",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

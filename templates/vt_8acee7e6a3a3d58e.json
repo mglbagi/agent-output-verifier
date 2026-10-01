@@ -1,0 +1,178 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8acee7e6a3a3d58e",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "impacts": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "asset_id": {
+                      "type": "string"
+                    },
+                    "confidence": {
+                      "type": "number"
+                    },
+                    "direction": {
+                      "type": "integer"
+                    },
+                    "horizon": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "rationale": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "asset_id",
+                    "confidence",
+                    "direction",
+                    "horizon",
+                    "path",
+                    "rationale"
+                  ]
+                }
+              },
+              "kind": {
+                "type": "string"
+              },
+              "next_open": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "asset_id": {
+                      "type": "string"
+                    },
+                    "at": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "required": [
+                    "asset_id",
+                    "at"
+                  ]
+                }
+              },
+              "novelty": {
+                "type": "number"
+              },
+              "severity": {
+                "type": "number"
+              },
+              "source": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "tier": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "tier"
+                ]
+              },
+              "title": {
+                "type": "string"
+              },
+              "tradable_now": {
+                "type": "array"
+              },
+              "ts_event": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "id",
+              "impacts",
+              "kind",
+              "next_open",
+              "novelty",
+              "severity",
+              "source",
+              "title",
+              "tradable_now",
+              "ts_event"
+            ]
+          }
+        },
+        "since": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "universe_version": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "count",
+        "events",
+        "since",
+        "universe_version"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "events[].impacts[].asset_id"
+      },
+      {
+        "type": "unique",
+        "field": "events[].next_open[].asset_id"
+      },
+      {
+        "type": "unique",
+        "field": "events[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "events[].impacts[].confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "intel.degenscan.io",
+    "endpoint": "https://intel.degenscan.io/v1/events",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

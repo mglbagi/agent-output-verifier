@@ -1,0 +1,38 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_90b71a735ef83acc",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "coin_id": {
+          "type": "integer"
+        },
+        "regime": {
+          "type": "string"
+        },
+        "strategy_spec": {
+          "type": "object"
+        },
+        "symbol": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "regime"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "regime.nsgoods.org",
+    "endpoint": "https://regime.nsgoods.org/regime",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

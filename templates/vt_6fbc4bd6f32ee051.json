@@ -1,0 +1,34 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6fbc4bd6f32ee051",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "at",
+        "message"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tahoe-documents-enquiry-commission.trycloudflare.com",
+    "endpoint": "https://tahoe-documents-enquiry-commission.trycloudflare.com/data",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

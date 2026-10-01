@@ -1,0 +1,171 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_284af7e82c103072",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "economics": {
+          "properties": {
+            "sellPriceUsd": {
+              "type": "number"
+            },
+            "upstreamCostUsdActual": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": "object"
+        },
+        "items": {
+          "items": {
+            "properties": {
+              "asin": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "boughtPastMonth": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "currency": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "delivery": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "imageUrl": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "uri"
+              },
+              "isAmazonChoice": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "isBestSeller": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "price": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "priceTo": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "rank": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "rating": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "reviews": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "title": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "url": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "uri"
+              }
+            },
+            "type": "object",
+            "required": [
+              "asin",
+              "boughtPastMonth",
+              "currency",
+              "delivery",
+              "imageUrl",
+              "isAmazonChoice",
+              "isBestSeller",
+              "price",
+              "rank",
+              "rating",
+              "reviews",
+              "title",
+              "url"
+            ]
+          },
+          "type": "array"
+        },
+        "machine": {
+          "type": "string"
+        },
+        "query": {
+          "type": "string"
+        },
+        "route": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "machine",
+        "route",
+        "items"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0,
+        "if_present": true
+      },
+      "items[].price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-commerce-factory-jm.austriaeast.cloudapp.azure.com",
+    "endpoint": "https://agent-commerce-factory-jm.austriaeast.cloudapp.azure.com/v1/amazon/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

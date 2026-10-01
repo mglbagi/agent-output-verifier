@@ -1,0 +1,93 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9bbe4602a7f101f3",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "20-asset portfolio signal fusion with 6 scoring dimensions, market regime, and LLM insights",
+      "properties": {
+        "portfolio_summary": {
+          "description": "Market regime (TRENDING/RANGING/VOLATILE), risk level, top buys/sells",
+          "type": "object"
+        },
+        "signals": {
+          "additionalProperties": {
+            "properties": {
+              "composite_score": {
+                "description": "0-100 conviction score (>62 bullish, <38 bearish)",
+                "type": "integer"
+              },
+              "conviction": {
+                "description": "Signal confidence level (high/medium/low)",
+                "type": "string"
+              },
+              "dimensions": {
+                "description": "6 independent scoring dimensions",
+                "properties": {
+                  "derivatives": {
+                    "description": "Funding rates, open interest, liquidation clustering"
+                  },
+                  "market": {
+                    "description": "Market microstructure and regime signals"
+                  },
+                  "narrative": {
+                    "description": "Social sentiment and narrative momentum"
+                  },
+                  "technical": {
+                    "description": "Multi-timeframe technical analysis indicators"
+                  },
+                  "trend": {
+                    "description": "Trend strength and velocity overlay"
+                  },
+                  "whale": {
+                    "description": "On-chain whale accumulation/distribution signals"
+                  }
+                },
+                "type": "object"
+              },
+              "direction": {
+                "enum": [
+                  "bullish",
+                  "bearish",
+                  "neutral"
+                ],
+                "type": "string"
+              },
+              "label": {
+                "description": "Human-readable label (BUY, SELL, HOLD, ABSTAIN)",
+                "type": "string"
+              },
+              "llm_insight": {
+                "description": "AI-generated natural language summary",
+                "type": "string"
+              },
+              "predicted_move": {
+                "description": "Calibrated 24h/48h price move prediction with probability",
+                "type": "object"
+              },
+              "signal_strength": {
+                "description": "Relative strength vs historical signals",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "description": "Per-asset signal objects keyed by ticker (BTC, ETH, SOL, ...)",
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "web3-signals-api-production.up.railway.app",
+    "endpoint": "https://web3-signals-api-production.up.railway.app/signal",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

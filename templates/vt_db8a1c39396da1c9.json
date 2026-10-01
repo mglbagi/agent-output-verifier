@@ -1,0 +1,219 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_db8a1c39396da1c9",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "analysis": {
+          "type": "string"
+        },
+        "band": {
+          "type": "integer"
+        },
+        "band_label": {
+          "type": "string"
+        },
+        "central_question": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string"
+        },
+        "data_source": {
+          "type": "string"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "fiscal_year": {
+          "type": "integer"
+        },
+        "footnotes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "text"
+            ]
+          }
+        },
+        "grade_contribution": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "lead_window": {
+          "type": "string"
+        },
+        "lead_window_markers": {
+          "type": "object",
+          "properties": {
+            "bookings_backlog": {
+              "type": "string"
+            },
+            "off_balance_sheet": {
+              "type": "string"
+            },
+            "operating_leverage": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bookings_backlog",
+            "off_balance_sheet",
+            "operating_leverage"
+          ]
+        },
+        "period": {
+          "type": "string"
+        },
+        "qe": {
+          "type": "string"
+        },
+        "quarter": {
+          "type": "string"
+        },
+        "route": {
+          "type": "string"
+        },
+        "signal_tally": {
+          "type": "object",
+          "properties": {
+            "bearish": {
+              "type": "integer"
+            },
+            "bullish": {
+              "type": "integer"
+            },
+            "neutral": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "bearish",
+            "bullish",
+            "neutral"
+          ]
+        },
+        "summary": {
+          "type": "string"
+        },
+        "the_clock": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date": {
+                "type": "string"
+              },
+              "event": {
+                "type": "string"
+              },
+              "first_visible_in": {
+                "type": "string"
+              },
+              "signal": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "date",
+              "event",
+              "first_visible_in",
+              "signal",
+              "status"
+            ]
+          }
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "watch_next_quarter": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "item": {
+                "type": "string"
+              },
+              "metric": {
+                "type": "string"
+              },
+              "signal": {
+                "type": "string"
+              },
+              "test": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "item",
+              "metric",
+              "signal",
+              "test"
+            ]
+          }
+        }
+      },
+      "required": [
+        "analysis",
+        "band",
+        "band_label",
+        "central_question",
+        "company",
+        "data_source",
+        "disclaimer",
+        "fiscal_year",
+        "footnotes",
+        "grade_contribution",
+        "id",
+        "lead_window",
+        "lead_window_markers",
+        "period",
+        "qe",
+        "quarter",
+        "route",
+        "signal_tally",
+        "summary",
+        "the_clock",
+        "ticker",
+        "type",
+        "watch_next_quarter"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "footnotes[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "alpha402x.com",
+    "endpoint": "https://alpha402x.com/quarterly-qual-card/AMD/fy2026-q2",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

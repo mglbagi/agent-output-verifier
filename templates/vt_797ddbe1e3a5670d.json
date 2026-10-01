@@ -1,0 +1,62 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_797ddbe1e3a5670d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number"
+        },
+        "converted": {
+          "type": "number"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "from": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "rate": {
+          "type": "number"
+        },
+        "source": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "amount",
+        "converted",
+        "date",
+        "from",
+        "note",
+        "rate",
+        "source",
+        "to"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "amount": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "payload402.edgebytenet.workers.dev",
+    "endpoint": "https://payload402.edgebytenet.workers.dev/convert",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

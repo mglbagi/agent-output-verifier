@@ -1,0 +1,51 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ec65c5ee4b3799ad",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "average": {
+          "description": "Unweighted mean score across all 100 banks",
+          "type": "number"
+        },
+        "banks_25_or_higher": {
+          "description": "How many banks score 25 or above",
+          "type": "integer"
+        },
+        "median": {
+          "description": "Median score",
+          "type": "number"
+        },
+        "ranking": {
+          "description": "All 100 banks: rank, bank, country, score",
+          "type": "array"
+        },
+        "report_date": {
+          "description": "Date of the report, YYYY-MM-DD",
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "report_date",
+        "average",
+        "median",
+        "banks_25_or_higher",
+        "ranking"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "gibai.app",
+    "endpoint": "https://gibai.app/rank",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

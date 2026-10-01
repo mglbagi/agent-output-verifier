@@ -1,0 +1,72 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0cee69e512ba9ea0",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "filter": {},
+        "image": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "archs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "size_mb": {
+                "type": "integer"
+              },
+              "tag": {
+                "type": "string"
+              },
+              "updated": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "required": [
+              "archs",
+              "size_mb",
+              "tag",
+              "updated"
+            ]
+          }
+        }
+      },
+      "required": [
+        "count",
+        "image",
+        "tags"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "tags[].size_mb": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "intel.rallylive.ca",
+    "endpoint": "https://intel.rallylive.ca/dev/docker-tags",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

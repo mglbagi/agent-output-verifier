@@ -1,0 +1,133 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8ed6d6ced1f2a1db",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "claim_echo": {
+          "type": "string"
+        },
+        "counts": {
+          "type": "object",
+          "properties": {
+            "contradicted": {
+              "type": "integer"
+            },
+            "insufficient": {
+              "type": "integer"
+            },
+            "no_vote": {
+              "type": "integer"
+            },
+            "supported": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "contradicted",
+            "insufficient",
+            "no_vote",
+            "supported"
+          ]
+        },
+        "missing": {
+          "type": "string"
+        },
+        "read_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "session_id": {
+          "type": "string"
+        },
+        "terms": {
+          "type": "string"
+        },
+        "votes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "family": {
+                "type": "string"
+              },
+              "missing": {},
+              "model": {
+                "type": "string"
+              },
+              "quotes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "chars": {
+                      "type": "integer"
+                    },
+                    "found": {
+                      "type": "boolean"
+                    },
+                    "source": {
+                      "type": "integer"
+                    },
+                    "text": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "chars",
+                    "found",
+                    "source",
+                    "text"
+                  ]
+                }
+              },
+              "quotes_verified": {
+                "type": "boolean"
+              },
+              "reasoning": {
+                "type": "string"
+              },
+              "reasoning_is": {
+                "type": "string"
+              },
+              "verdict": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "family",
+              "model",
+              "quotes",
+              "quotes_verified",
+              "reasoning",
+              "reasoning_is",
+              "verdict"
+            ]
+          }
+        }
+      },
+      "required": [
+        "claim_echo",
+        "counts",
+        "missing",
+        "read_at",
+        "session_id",
+        "terms",
+        "votes"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "assay.cascadiantech.com",
+    "endpoint": "https://assay.cascadiantech.com/v1/verify",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

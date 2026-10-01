@@ -1,0 +1,62 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_74665c8956db1ba2",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "bridges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "chains": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "last_daily_volume": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "chains",
+              "last_daily_volume",
+              "name"
+            ]
+          }
+        },
+        "count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "bridges",
+        "count"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "bridges[].last_daily_volume": {
+        "min": 0
+      },
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "vape-x402.vapex402.workers.dev",
+    "endpoint": "https://vape-x402.vapex402.workers.dev/data/bridges",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a9eb0bc3d54298b0",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "acquisition_year": {
+          "type": "integer"
+        },
+        "aging_signal": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "years_held": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "acquisition_year",
+        "aging_signal",
+        "owner",
+        "years_held"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.northeastdealintel.com",
+    "endpoint": "https://api.northeastdealintel.com/v1/agent/owner-lookup",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

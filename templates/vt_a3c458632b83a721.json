@@ -1,0 +1,100 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a3c458632b83a721",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "evidence_hash": {
+          "type": "string"
+        },
+        "flags": {
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "parts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "available": {
+                "type": "boolean"
+              },
+              "name": {
+                "type": "string"
+              },
+              "result": {
+                "type": "object",
+                "properties": {}
+              }
+            },
+            "required": [
+              "available",
+              "name",
+              "result"
+            ]
+          }
+        },
+        "parts_available": {
+          "type": "integer"
+        },
+        "parts_total": {
+          "type": "number"
+        },
+        "receipt": {
+          "type": "object",
+          "properties": {
+            "amount_usd": {
+              "type": "number"
+            },
+            "receipt_id": {
+              "type": "string"
+            },
+            "tx_hash": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount_usd",
+            "receipt_id",
+            "tx_hash"
+          ]
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_hash",
+        "flags",
+        "ok",
+        "parts",
+        "parts_available",
+        "parts_total",
+        "receipt",
+        "type"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "parts_total": {
+        "min": 0
+      },
+      "receipt.amount_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "twin.unykorn.org",
+    "endpoint": "https://twin.unykorn.org/wallet-brief",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

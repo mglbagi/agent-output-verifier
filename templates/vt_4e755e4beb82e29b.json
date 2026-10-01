@@ -1,0 +1,57 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4e755e4beb82e29b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "argument": {
+          "type": "string"
+        },
+        "query": {
+          "type": "string"
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "token": {
+              "type": "string"
+            },
+            "usd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "token",
+            "usd"
+          ]
+        },
+        "tool_used": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "argument",
+        "query",
+        "result",
+        "tool_used"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "result.usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "quartermaster.surewhynot.app",
+    "endpoint": "https://quartermaster.surewhynot.app/v1/route",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

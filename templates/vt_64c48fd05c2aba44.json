@@ -1,0 +1,125 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_64c48fd05c2aba44",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "bestAsk": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "bestBid": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cached": {
+          "type": "boolean"
+        },
+        "high24h": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last24h": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lastTradeSize": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "low24h": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "open24h": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pair": {
+          "type": "string"
+        },
+        "payment": {
+          "type": "string"
+        },
+        "price": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "retrievedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "tickerTime": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "volume24h": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "volume30d": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "source",
+        "pair",
+        "price",
+        "bestBid",
+        "bestAsk",
+        "open24h",
+        "high24h",
+        "low24h",
+        "volume24h",
+        "volume30d",
+        "retrievedAt",
+        "cached"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-trends-server.onrender.com",
+    "endpoint": "https://x402-trends-server.onrender.com/api/crypto-market",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

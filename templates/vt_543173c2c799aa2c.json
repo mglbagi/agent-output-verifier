@@ -1,0 +1,100 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_543173c2c799aa2c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "choices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "finish_reason": {
+                "type": "string"
+              },
+              "index": {
+                "type": "integer"
+              },
+              "message": {
+                "type": "object",
+                "properties": {
+                  "content": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "content",
+                  "role"
+                ]
+              }
+            },
+            "required": [
+              "finish_reason",
+              "index",
+              "message"
+            ]
+          }
+        },
+        "created": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "usage": {
+          "type": "object",
+          "properties": {
+            "completion_tokens": {
+              "type": "integer"
+            },
+            "prompt_tokens": {
+              "type": "integer"
+            },
+            "total_tokens": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "completion_tokens",
+            "prompt_tokens",
+            "total_tokens"
+          ]
+        }
+      },
+      "required": [
+        "choices",
+        "created",
+        "id",
+        "model",
+        "object",
+        "usage"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "usage.total_tokens": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "openrelay.hggfffdfy687.workers.dev",
+    "endpoint": "https://openrelay.hggfffdfy687.workers.dev/v1/premium/chat/completions",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

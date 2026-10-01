@@ -1,0 +1,84 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_692bfd14306a5894",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "artifact": {
+          "maxLength": 48000,
+          "minLength": 1,
+          "type": "string"
+        },
+        "assumptions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "evidence_gaps": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "provenance": {
+          "properties": {
+            "external_research_performed": {
+              "const": false
+            },
+            "generated_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "source": {
+              "const": "buyer_supplied"
+            }
+          },
+          "required": [
+            "source",
+            "external_research_performed"
+          ],
+          "type": "object"
+        },
+        "request_id": {
+          "type": "string"
+        },
+        "requires_human_review": {
+          "const": true
+        },
+        "summary": {
+          "type": "string"
+        },
+        "task": {
+          "type": "string"
+        },
+        "usage": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "request_id",
+        "task",
+        "artifact",
+        "summary",
+        "assumptions",
+        "evidence_gaps",
+        "requires_human_review",
+        "provenance"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tradepilotusa.com",
+    "endpoint": "https://www.tradepilotusa.com/api/agent-commerce/v1/services/data_quality_plan/execute",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

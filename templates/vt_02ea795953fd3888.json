@@ -1,0 +1,80 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_02ea795953fd3888",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "failed": {
+          "type": "integer"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cited": {
+                "type": "boolean"
+              },
+              "count": {
+                "type": "integer"
+              },
+              "domains": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "engine": {
+                "type": "string"
+              },
+              "error": {},
+              "latency_ms": {
+                "type": "integer"
+              },
+              "model": {
+                "type": "string"
+              },
+              "related_questions": {
+                "type": "array"
+              }
+            },
+            "required": [
+              "cited",
+              "count",
+              "domains",
+              "engine",
+              "latency_ms",
+              "model",
+              "related_questions"
+            ]
+          }
+        },
+        "succeeded": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "failed",
+        "results",
+        "succeeded"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "results[].count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "citation-tracker.pixelcove.co",
+    "endpoint": "https://citation-tracker.pixelcove.co/v1/check-one",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bc447180a3a83ec4",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "decoded": {
+          "description": "function, signature, args.",
+          "type": "object"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "risk": {
+          "description": "level (none|caution|danger) + flags.",
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "required": [
+        "decoded",
+        "disclaimer",
+        "risk"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "simulate.cyberwarex.com",
+    "endpoint": "https://simulate.cyberwarex.com/decode",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

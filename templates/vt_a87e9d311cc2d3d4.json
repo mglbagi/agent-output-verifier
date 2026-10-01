@@ -1,0 +1,164 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a87e9d311cc2d3d4",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "A signed, timestamped record of what a page contained. The `attestation` object is the evidence; `content` holds the bytes its hashes are over. Store the whole response — this service keeps no copy, by design, so that the record cannot be altered or withdrawn later.",
+      "properties": {
+        "attestation": {
+          "properties": {
+            "algorithm": {
+              "type": "string"
+            },
+            "claim": {
+              "description": "Exactly what was signed. Re-serialize this with sorted keys and no whitespace, keccak256 it, and you get `digest`.",
+              "properties": {
+                "attestedBy": {
+                  "description": "Signer address, inside the signed payload.",
+                  "type": "string"
+                },
+                "capturedAt": {
+                  "description": "ISO 8601 render time.",
+                  "type": "string"
+                },
+                "finalUrl": {
+                  "description": "Where the browser ended up.",
+                  "type": "string"
+                },
+                "headers": {
+                  "description": "Lowercased, sorted; set-cookie removed.",
+                  "type": "object"
+                },
+                "httpStatus": {
+                  "type": "integer"
+                },
+                "redirected": {
+                  "type": "boolean"
+                },
+                "remoteAddress": {
+                  "description": "IP that served it.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "screenshotSha256": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "textLength": {
+                  "type": "integer"
+                },
+                "textSha256": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "tlsIssuer": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "tlsSubject": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "tlsValidFrom": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "tlsValidTo": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "url": {
+                  "description": "The URL as submitted.",
+                  "type": "string"
+                },
+                "version": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "digest": {
+              "description": "keccak256 of the canonical claim.",
+              "type": "string"
+            },
+            "signature": {
+              "description": "EIP-191 personal_sign over the digest.",
+              "type": "string"
+            },
+            "signer": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "claim",
+            "digest",
+            "signature",
+            "signer"
+          ],
+          "type": "object"
+        },
+        "content": {
+          "properties": {
+            "screenshotBase64": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "screenshotMimeType": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "text": {
+              "type": "string"
+            },
+            "textTruncated": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
+        "verify": {
+          "description": "Free, unauthenticated verification endpoint.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "attestation",
+        "content"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "attest.tollkit.dev",
+    "endpoint": "https://attest.tollkit.dev/attest",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

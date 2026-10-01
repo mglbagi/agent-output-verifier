@@ -1,0 +1,741 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9532a9d3a47bbf4c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "arbitrum": {
+                "type": "object",
+                "properties": {
+                  "batch_data_container": {
+                    "type": "string"
+                  },
+                  "batch_number": {
+                    "type": "integer"
+                  },
+                  "commitment_transaction": {
+                    "type": "object",
+                    "properties": {
+                      "hash": {
+                        "type": "string"
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "timestamp": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "hash",
+                      "status",
+                      "timestamp"
+                    ]
+                  },
+                  "confirmation_transaction": {
+                    "type": "object",
+                    "properties": {
+                      "hash": {
+                        "type": "string"
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "timestamp": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "hash",
+                      "status",
+                      "timestamp"
+                    ]
+                  },
+                  "contains_message": {
+                    "type": "string"
+                  },
+                  "gas_used_for_l1": {
+                    "type": "string"
+                  },
+                  "gas_used_for_l2": {
+                    "type": "string"
+                  },
+                  "message_related_info": {
+                    "type": "object",
+                    "properties": {
+                      "associated_l1_transaction_hash": {
+                        "type": "string"
+                      },
+                      "message_id": {
+                        "type": "integer"
+                      },
+                      "message_status": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "associated_l1_transaction_hash",
+                      "message_id",
+                      "message_status"
+                    ]
+                  },
+                  "network_fee": {
+                    "type": "string"
+                  },
+                  "poster_fee": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "batch_data_container",
+                  "batch_number",
+                  "commitment_transaction",
+                  "confirmation_transaction",
+                  "contains_message",
+                  "gas_used_for_l1",
+                  "gas_used_for_l2",
+                  "message_related_info",
+                  "network_fee",
+                  "poster_fee",
+                  "status"
+                ]
+              },
+              "authorization_list": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "address_hash": {
+                      "type": "string"
+                    },
+                    "authority": {
+                      "type": "string"
+                    },
+                    "chain_id": {
+                      "type": "integer"
+                    },
+                    "nonce": {
+                      "type": "string"
+                    },
+                    "r": {
+                      "type": "string"
+                    },
+                    "s": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "v": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "address_hash",
+                    "authority",
+                    "chain_id",
+                    "nonce",
+                    "r",
+                    "s",
+                    "status",
+                    "v"
+                  ]
+                }
+              },
+              "base_fee_per_gas": {
+                "type": "string"
+              },
+              "block_number": {
+                "type": "integer"
+              },
+              "confirmation_duration": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "confirmations": {
+                "type": "integer"
+              },
+              "created_contract": {
+                "type": "object",
+                "properties": {}
+              },
+              "decoded_input": {
+                "type": "object",
+                "properties": {}
+              },
+              "exchange_rate": {
+                "type": "string"
+              },
+              "fee": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "value"
+                ]
+              },
+              "fhe_operations_count": {
+                "type": "integer"
+              },
+              "from": {
+                "type": "object",
+                "properties": {
+                  "ens_domain_name": {
+                    "type": "string"
+                  },
+                  "hash": {
+                    "type": "string"
+                  },
+                  "implementations": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "address_hash": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "address_hash",
+                        "name"
+                      ]
+                    }
+                  },
+                  "is_contract": {
+                    "type": "boolean"
+                  },
+                  "is_scam": {
+                    "type": "boolean"
+                  },
+                  "is_verified": {
+                    "type": "boolean"
+                  },
+                  "metadata": {
+                    "type": "object",
+                    "properties": {}
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "private_tags": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "address_hash": {
+                          "type": "string"
+                        },
+                        "display_name": {
+                          "type": "string"
+                        },
+                        "label": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "address_hash",
+                        "display_name",
+                        "label"
+                      ]
+                    }
+                  },
+                  "proxy_type": {
+                    "type": "string"
+                  },
+                  "public_tags": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "address_hash": {
+                          "type": "string"
+                        },
+                        "display_name": {
+                          "type": "string"
+                        },
+                        "label": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "address_hash",
+                        "display_name",
+                        "label"
+                      ]
+                    }
+                  },
+                  "reputation": {
+                    "type": "string"
+                  },
+                  "watchlist_names": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "display_name": {
+                          "type": "string"
+                        },
+                        "label": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "display_name",
+                        "label"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "ens_domain_name",
+                  "hash",
+                  "implementations",
+                  "is_contract",
+                  "is_scam",
+                  "is_verified",
+                  "metadata",
+                  "name",
+                  "private_tags",
+                  "proxy_type",
+                  "public_tags",
+                  "reputation",
+                  "watchlist_names"
+                ]
+              },
+              "gas_limit": {
+                "type": "string"
+              },
+              "gas_price": {
+                "type": "string"
+              },
+              "gas_used": {
+                "type": "string"
+              },
+              "has_error_in_internal_transactions": {
+                "type": "boolean"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "historic_exchange_rate": {
+                "type": "string"
+              },
+              "is_pending_update": {
+                "type": "boolean"
+              },
+              "max_fee_per_gas": {
+                "type": "string"
+              },
+              "max_priority_fee_per_gas": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              },
+              "nonce": {
+                "type": "integer"
+              },
+              "position": {
+                "type": "integer"
+              },
+              "priority_fee": {
+                "type": "string"
+              },
+              "raw_input": {
+                "type": "string"
+              },
+              "result": {
+                "type": "object",
+                "properties": {}
+              },
+              "revert_reason": {
+                "type": "object",
+                "properties": {}
+              },
+              "status": {
+                "type": "string"
+              },
+              "timestamp": {
+                "type": "string"
+              },
+              "to": {
+                "type": "object",
+                "properties": {}
+              },
+              "token_transfers": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "block_hash": {
+                      "type": "string"
+                    },
+                    "block_number": {
+                      "type": "integer"
+                    },
+                    "from": {
+                      "type": "object",
+                      "properties": {
+                        "ens_domain_name": {
+                          "type": "string"
+                        },
+                        "hash": {
+                          "type": "string"
+                        },
+                        "implementations": {
+                          "type": "array",
+                          "items": {}
+                        },
+                        "is_contract": {
+                          "type": "boolean"
+                        },
+                        "is_scam": {
+                          "type": "boolean"
+                        },
+                        "is_verified": {
+                          "type": "boolean"
+                        },
+                        "metadata": {
+                          "type": "object",
+                          "properties": {}
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "private_tags": {
+                          "type": "array",
+                          "items": {}
+                        },
+                        "proxy_type": {
+                          "type": "string"
+                        },
+                        "public_tags": {
+                          "type": "array",
+                          "items": {}
+                        },
+                        "reputation": {
+                          "type": "string"
+                        },
+                        "watchlist_names": {
+                          "type": "array",
+                          "items": {}
+                        }
+                      },
+                      "required": [
+                        "ens_domain_name",
+                        "hash",
+                        "implementations",
+                        "is_contract",
+                        "is_scam",
+                        "is_verified",
+                        "metadata",
+                        "name",
+                        "private_tags",
+                        "proxy_type",
+                        "public_tags",
+                        "reputation",
+                        "watchlist_names"
+                      ]
+                    },
+                    "log_index": {
+                      "type": "integer"
+                    },
+                    "method": {
+                      "type": "string"
+                    },
+                    "timestamp": {
+                      "type": "string"
+                    },
+                    "to": {
+                      "type": "object",
+                      "properties": {
+                        "ens_domain_name": {
+                          "type": "string"
+                        },
+                        "hash": {
+                          "type": "string"
+                        },
+                        "implementations": {
+                          "type": "array",
+                          "items": {}
+                        },
+                        "is_contract": {
+                          "type": "boolean"
+                        },
+                        "is_scam": {
+                          "type": "boolean"
+                        },
+                        "is_verified": {
+                          "type": "boolean"
+                        },
+                        "metadata": {
+                          "type": "object",
+                          "properties": {}
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "private_tags": {
+                          "type": "array",
+                          "items": {}
+                        },
+                        "proxy_type": {
+                          "type": "string"
+                        },
+                        "public_tags": {
+                          "type": "array",
+                          "items": {}
+                        },
+                        "reputation": {
+                          "type": "string"
+                        },
+                        "watchlist_names": {
+                          "type": "array",
+                          "items": {}
+                        }
+                      },
+                      "required": [
+                        "ens_domain_name",
+                        "hash",
+                        "implementations",
+                        "is_contract",
+                        "is_scam",
+                        "is_verified",
+                        "metadata",
+                        "name",
+                        "private_tags",
+                        "proxy_type",
+                        "public_tags",
+                        "reputation",
+                        "watchlist_names"
+                      ]
+                    },
+                    "token": {
+                      "type": "object",
+                      "properties": {
+                        "address_hash": {
+                          "type": "string"
+                        },
+                        "bridge_type": {
+                          "type": "string"
+                        },
+                        "circulating_market_cap": {
+                          "type": "string"
+                        },
+                        "circulating_supply": {
+                          "type": "string"
+                        },
+                        "decimals": {
+                          "type": "string"
+                        },
+                        "exchange_rate": {
+                          "type": "string"
+                        },
+                        "foreign_address": {
+                          "type": "string"
+                        },
+                        "holders_count": {
+                          "type": "string"
+                        },
+                        "icon_url": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "origin_chain_id": {
+                          "type": "string"
+                        },
+                        "reputation": {
+                          "type": "string"
+                        },
+                        "symbol": {
+                          "type": "string"
+                        },
+                        "total_supply": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "object",
+                          "properties": {}
+                        },
+                        "volume_24h": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "address_hash",
+                        "bridge_type",
+                        "circulating_market_cap",
+                        "circulating_supply",
+                        "decimals",
+                        "exchange_rate",
+                        "foreign_address",
+                        "holders_count",
+                        "icon_url",
+                        "name",
+                        "origin_chain_id",
+                        "reputation",
+                        "symbol",
+                        "total_supply",
+                        "type",
+                        "volume_24h"
+                      ]
+                    },
+                    "token_type": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {}
+                    },
+                    "transaction_hash": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "block_hash",
+                    "block_number",
+                    "from",
+                    "log_index",
+                    "method",
+                    "timestamp",
+                    "to",
+                    "token",
+                    "token_type",
+                    "total",
+                    "transaction_hash",
+                    "type"
+                  ]
+                }
+              },
+              "token_transfers_overflow": {
+                "type": "boolean"
+              },
+              "transaction_burnt_fee": {
+                "type": "string"
+              },
+              "transaction_tag": {
+                "type": "string"
+              },
+              "transaction_types": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "type": {
+                "type": "integer"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "arbitrum",
+              "authorization_list",
+              "base_fee_per_gas",
+              "block_number",
+              "confirmation_duration",
+              "confirmations",
+              "created_contract",
+              "decoded_input",
+              "exchange_rate",
+              "fee",
+              "fhe_operations_count",
+              "from",
+              "gas_limit",
+              "gas_price",
+              "gas_used",
+              "has_error_in_internal_transactions",
+              "hash",
+              "historic_exchange_rate",
+              "is_pending_update",
+              "max_fee_per_gas",
+              "max_priority_fee_per_gas",
+              "method",
+              "nonce",
+              "position",
+              "priority_fee",
+              "raw_input",
+              "result",
+              "revert_reason",
+              "status",
+              "timestamp",
+              "to",
+              "token_transfers",
+              "token_transfers_overflow",
+              "transaction_burnt_fee",
+              "transaction_tag",
+              "transaction_types",
+              "type",
+              "value"
+            ]
+          }
+        },
+        "next_page_params": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      "required": [
+        "items",
+        "next_page_params"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "items[].authorization_list[].chain_id"
+      }
+    ],
+    "bounds": {
+      "items[].arbitrum.batch_number": {
+        "min": 0
+      },
+      "items[].block_number": {
+        "min": 0
+      },
+      "items[].fhe_operations_count": {
+        "min": 0
+      },
+      "items[].token_transfers[].block_number": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.k8s-dev.blockscout.com",
+    "endpoint": "https://api.k8s-dev.blockscout.com/:chain_id/api/v2/transactions",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

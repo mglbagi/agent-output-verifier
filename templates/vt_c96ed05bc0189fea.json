@@ -1,0 +1,250 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c96ed05bc0189fea",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "as_of": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "covered_count": {
+          "type": "integer"
+        },
+        "positions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "avg_price": {
+                "type": "number"
+              },
+              "cash_pnl": {
+                "type": "number"
+              },
+              "cur_price": {
+                "type": "number"
+              },
+              "current_value_usd": {
+                "type": "number"
+              },
+              "outcome": {
+                "type": "string"
+              },
+              "percent_pnl": {
+                "type": "number"
+              },
+              "quotient": {
+                "type": "object",
+                "properties": {
+                  "convergence": {
+                    "type": "object",
+                    "properties": {
+                      "aligned": {
+                        "type": "boolean"
+                      },
+                      "converge_upside_pct": {
+                        "type": "integer"
+                      },
+                      "current_cost_cents": {
+                        "type": "number"
+                      },
+                      "distance_to_convergence_cents": {
+                        "type": "integer"
+                      },
+                      "max_roi_pct": {
+                        "type": "integer"
+                      },
+                      "q_side": {
+                        "type": "string"
+                      },
+                      "q_value_cents": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "aligned",
+                      "converge_upside_pct",
+                      "current_cost_cents",
+                      "distance_to_convergence_cents",
+                      "max_roi_pct",
+                      "q_side",
+                      "q_value_cents"
+                    ]
+                  },
+                  "covered": {
+                    "type": "boolean"
+                  },
+                  "forecast": {
+                    "type": "object",
+                    "properties": {
+                      "bluf": {
+                        "type": "string"
+                      },
+                      "conviction_tier": {
+                        "type": "integer"
+                      },
+                      "delta_from_prior": {
+                        "type": "number"
+                      },
+                      "id": {
+                        "type": "string"
+                      },
+                      "probability": {
+                        "type": "number"
+                      },
+                      "thesis": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "bluf",
+                      "conviction_tier",
+                      "delta_from_prior",
+                      "id",
+                      "probability",
+                      "thesis"
+                    ]
+                  },
+                  "signal": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "is_active": {
+                        "type": "boolean"
+                      },
+                      "side": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "is_active",
+                      "side"
+                    ]
+                  }
+                },
+                "required": [
+                  "convergence",
+                  "covered",
+                  "forecast",
+                  "signal"
+                ]
+              },
+              "size": {
+                "type": "number"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "avg_price",
+              "cash_pnl",
+              "cur_price",
+              "current_value_usd",
+              "outcome",
+              "percent_pnl",
+              "quotient",
+              "size",
+              "slug",
+              "title"
+            ]
+          }
+        },
+        "positions_capped": {
+          "type": "boolean"
+        },
+        "positions_count": {
+          "type": "integer"
+        },
+        "unmatched": {
+          "type": "array"
+        },
+        "unmatched_count": {
+          "type": "integer"
+        },
+        "value_usd": {
+          "type": "number"
+        },
+        "wallet": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        }
+      },
+      "required": [
+        "as_of",
+        "covered_count",
+        "positions",
+        "positions_capped",
+        "positions_count",
+        "unmatched",
+        "unmatched_count",
+        "value_usd",
+        "wallet"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "covered_count": {
+        "min": 0
+      },
+      "positions[].avg_price": {
+        "min": 0
+      },
+      "positions[].cur_price": {
+        "min": 0
+      },
+      "positions[].current_value_usd": {
+        "min": 0
+      },
+      "positions[].percent_pnl": {
+        "min": 0,
+        "max": 100
+      },
+      "positions[].quotient.convergence.converge_upside_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "positions[].quotient.convergence.current_cost_cents": {
+        "min": 0
+      },
+      "positions[].quotient.convergence.max_roi_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "positions[].quotient.forecast.probability": {
+        "min": 0,
+        "max": 1
+      },
+      "positions[].size": {
+        "min": 0
+      },
+      "positions_count": {
+        "min": 0
+      },
+      "unmatched_count": {
+        "min": 0
+      },
+      "value_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "quotient-api-gateway.onrender.com",
+    "endpoint": "https://quotient-api-gateway.onrender.com/api/v1/portfolio",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

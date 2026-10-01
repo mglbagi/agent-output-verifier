@@ -1,0 +1,114 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d90313bac35d8496",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "Illustrative response; never live market data.",
+      "properties": {
+        "data": {
+          "description": "Foreign exchange rate data.",
+          "properties": {
+            "ask": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Ask rate",
+              "title": "Ask"
+            },
+            "base_currency": {
+              "description": "Base currency",
+              "title": "Base Currency",
+              "type": "string"
+            },
+            "bid": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Bid rate",
+              "title": "Bid"
+            },
+            "mid": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Mid rate",
+              "title": "Mid"
+            },
+            "pair": {
+              "description": "FX pair (e.g., EUR/USD)",
+              "title": "Pair",
+              "type": "string"
+            },
+            "quote_currency": {
+              "description": "Quote currency",
+              "title": "Quote Currency",
+              "type": "string"
+            },
+            "source": {
+              "default": "blocksize",
+              "description": "Data provider",
+              "title": "Source",
+              "type": "string"
+            },
+            "timestamp": {
+              "description": "Data timestamp (UTC)",
+              "format": "date-time",
+              "title": "Timestamp",
+              "type": "string"
+            }
+          },
+          "required": [
+            "pair",
+            "base_currency",
+            "quote_currency",
+            "timestamp"
+          ],
+          "title": "FXData",
+          "type": "object"
+        },
+        "meta": {
+          "type": "object"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "data",
+        "meta"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mcp.blocksize.info",
+    "endpoint": "https://mcp.blocksize.info/v1/fx/EURUSD",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

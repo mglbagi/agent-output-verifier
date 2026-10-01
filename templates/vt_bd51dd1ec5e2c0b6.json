@@ -1,0 +1,111 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bd51dd1ec5e2c0b6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "fixtures": {
+          "items": {
+            "properties": {
+              "away": {
+                "type": "string"
+              },
+              "date": {
+                "format": "date",
+                "type": "string"
+              },
+              "expected_goals": {
+                "properties": {
+                  "away": {
+                    "type": "number"
+                  },
+                  "home": {
+                    "type": "number"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "away",
+                  "home"
+                ]
+              },
+              "home": {
+                "type": "string"
+              },
+              "league": {
+                "type": "string"
+              },
+              "league_label": {
+                "type": "string"
+              },
+              "markets": {
+                "description": "Over/under lines, both-teams-to-score and likeliest scorelines. Raw model output, not calibrated.",
+                "type": "object"
+              },
+              "probabilities": {
+                "description": "Calibrated 1X2 probabilities; sum to 1.",
+                "properties": {
+                  "away": {
+                    "type": "number"
+                  },
+                  "draw": {
+                    "type": "number"
+                  },
+                  "home": {
+                    "type": "number"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "away",
+                  "draw",
+                  "home"
+                ]
+              }
+            },
+            "required": [
+              "date",
+              "home",
+              "away",
+              "probabilities"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "window_days": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "generated_at",
+        "count",
+        "fixtures"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "sports-predictor-api.fly.dev",
+    "endpoint": "https://sports-predictor-api.fly.dev/api/v1/probabilities",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

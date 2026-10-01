@@ -1,0 +1,109 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e1304db45a600c6f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "coverage": {
+          "type": "object",
+          "properties": {
+            "indexed_processes": {
+              "type": "integer"
+            },
+            "period": {
+              "type": "string"
+            },
+            "population_processes": {
+              "type": "integer"
+            },
+            "unique_buyers": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "indexed_processes",
+            "period",
+            "population_processes",
+            "unique_buyers"
+          ]
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "period": {
+              "type": "string"
+            },
+            "publisher": {
+              "type": "string"
+            },
+            "standard": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "period",
+            "publisher",
+            "standard"
+          ]
+        },
+        "query": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "buyer_id": {
+                "type": "string"
+              },
+              "buyer_name": {
+                "type": "string"
+              },
+              "buyer_region": {
+                "type": "string"
+              },
+              "evidence_title": {
+                "type": "string"
+              },
+              "observed_tenders": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "buyer_id",
+              "buyer_name",
+              "buyer_region",
+              "evidence_title",
+              "observed_tenders"
+            ]
+          }
+        }
+      },
+      "required": [
+        "coverage",
+        "provenance",
+        "query",
+        "results"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "results[].buyer_id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "exp-100k-001-v2.vercel.app",
+    "endpoint": "https://exp-100k-001-v2.vercel.app/v1/buyers/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

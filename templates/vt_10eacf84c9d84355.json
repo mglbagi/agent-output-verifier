@@ -1,0 +1,76 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_10eacf84c9d84355",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "asking": {
+          "type": "number"
+        },
+        "confidence": {
+          "type": "number"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "found": {
+          "type": "boolean"
+        },
+        "high": {
+          "type": "number"
+        },
+        "low": {
+          "type": "number"
+        },
+        "query": {
+          "type": "string"
+        },
+        "savingsVsTypical": {
+          "type": "number"
+        },
+        "typical": {
+          "type": "number"
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "asking",
+        "confidence",
+        "currency",
+        "found",
+        "high",
+        "low",
+        "query",
+        "savingsVsTypical",
+        "typical",
+        "verdict"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "low",
+        "other_field": "high"
+      }
+    ],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "reusefulshop.com",
+    "endpoint": "https://reusefulshop.com/api/deal",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

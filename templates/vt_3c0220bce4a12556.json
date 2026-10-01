@@ -1,0 +1,60 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3c0220bce4a12556",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "articles": {
+          "type": "integer"
+        },
+        "btc_price": {
+          "type": "number"
+        },
+        "eth_price": {
+          "type": "number"
+        },
+        "sentiment": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "top_story": {
+          "type": "string"
+        },
+        "top_yield": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "articles",
+        "btc_price",
+        "eth_price",
+        "sentiment",
+        "status",
+        "top_story",
+        "top_yield"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "btc_price": {
+        "min": 0
+      },
+      "eth_price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "crypto-currency-network.net",
+    "endpoint": "https://crypto-currency-network.net/api/ccn/pay",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d11c91c680910a69",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "cached": {
+          "type": "boolean"
+        },
+        "change_24h_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "coin_id": {
+          "type": "string"
+        },
+        "market_cap": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "price": {
+          "type": "number"
+        },
+        "query": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "vs_currency": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "cached",
+        "change_24h_pct",
+        "coin_id",
+        "market_cap",
+        "price",
+        "query",
+        "source",
+        "vs_currency"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "market_cap": {
+        "min": 0
+      },
+      "price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "currency-api-production-4a8d.up.railway.app",
+    "endpoint": "https://currency-api-production-4a8d.up.railway.app/crypto/price",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8686e6cc975f3185",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "channel": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "duration_seconds": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "language_code": {
+          "type": "string"
+        },
+        "thumbnail_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "transcript": {
+          "description": "Full plain-text transcript of the video",
+          "type": "string"
+        },
+        "youtube_video_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "youtube_video_id",
+        "transcript",
+        "language_code"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "duration_seconds": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.sumvid.app",
+    "endpoint": "https://api.sumvid.app/v1/transcript",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

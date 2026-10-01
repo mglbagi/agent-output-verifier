@@ -1,0 +1,195 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_64ffa606d42f48b6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "_atlas": {
+          "additionalProperties": false,
+          "description": "Atlas documentation and related-route metadata added after deployment",
+          "properties": {
+            "docs": {
+              "description": "Documentation URL for this bridge",
+              "format": "uri",
+              "maxLength": 512,
+              "type": "string"
+            },
+            "related": {
+              "description": "Bounded related Atlas routes",
+              "items": {
+                "additionalProperties": false,
+                "description": "One related Atlas route",
+                "properties": {
+                  "bridge": {
+                    "description": "Related bridge name",
+                    "maxLength": 64,
+                    "type": "string"
+                  },
+                  "docs": {
+                    "description": "Related bridge documentation URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  },
+                  "summary": {
+                    "description": "Short capability summary",
+                    "maxLength": 256,
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "Related route URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "bridge",
+                  "url",
+                  "docs",
+                  "summary"
+                ],
+                "type": "object"
+              },
+              "maxItems": 3,
+              "type": "array"
+            }
+          },
+          "required": [
+            "docs"
+          ],
+          "type": "object"
+        },
+        "algorithm_version": {
+          "const": "schedule-v1",
+          "description": "Pinned availability intersection contract",
+          "type": "string"
+        },
+        "minimum_duration_seconds": {
+          "description": "Applied minimum duration",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "operation": {
+          "const": "availability-intersect",
+          "description": "Stable route operation",
+          "type": "string"
+        },
+        "participant_count": {
+          "description": "Number of participants intersected",
+          "maximum": 20,
+          "minimum": 2,
+          "type": "integer"
+        },
+        "participant_ids": {
+          "description": "Participant identifiers in request order",
+          "items": {
+            "description": "Participant identifier",
+            "type": "string"
+          },
+          "maxItems": 20,
+          "minItems": 2,
+          "type": "array"
+        },
+        "slot_count": {
+          "description": "Number of returned slots",
+          "maximum": 512,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "slots": {
+          "description": "Sorted maximal common slots meeting the minimum; [] means none",
+          "items": {
+            "additionalProperties": false,
+            "description": "One maximal common UTC slot",
+            "properties": {
+              "end": {
+                "description": "Exclusive RFC3339 instant after start",
+                "format": "date-time",
+                "type": "string"
+              },
+              "start": {
+                "description": "Inclusive RFC3339 instant",
+                "format": "date-time",
+                "type": "string"
+              }
+            },
+            "required": [
+              "start",
+              "end"
+            ],
+            "type": "object"
+          },
+          "maxItems": 512,
+          "type": "array"
+        },
+        "warnings": {
+          "description": "Always empty for deterministic intersection",
+          "items": {
+            "description": "Warning",
+            "type": "string"
+          },
+          "maxItems": 0,
+          "type": "array"
+        },
+        "window": {
+          "additionalProperties": false,
+          "description": "Normalized UTC query window",
+          "properties": {
+            "end": {
+              "description": "Exclusive RFC3339 instant after start",
+              "format": "date-time",
+              "type": "string"
+            },
+            "start": {
+              "description": "Inclusive RFC3339 instant",
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "start",
+            "end"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "operation",
+        "algorithm_version",
+        "participant_ids",
+        "participant_count",
+        "window",
+        "minimum_duration_seconds",
+        "slots",
+        "slot_count",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "slots[].start",
+        "other_field": "slots[].end"
+      },
+      {
+        "type": "lte",
+        "field": "window.start",
+        "other_field": "window.end"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "schedule-tools.use.x402atlas.com",
+    "endpoint": "https://schedule-tools.use.x402atlas.com/availability-intersect",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

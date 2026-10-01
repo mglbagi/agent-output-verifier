@@ -1,0 +1,66 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f43af9c05c3d9b83",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "object",
+          "properties": {
+            "t": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "y": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "required": [
+            "t",
+            "y"
+          ]
+        },
+        "status": {
+          "type": "string"
+        },
+        "verification": {
+          "type": "object",
+          "properties": {
+            "passed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "passed"
+          ]
+        }
+      },
+      "required": [
+        "result",
+        "status",
+        "verification"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "quantum-artificer.surewhynot.app",
+    "endpoint": "https://quantum-artificer.surewhynot.app/v1/physics/solve",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_df80e7488359f7ab",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "lookupStatus": {
+              "type": "string"
+            },
+            "page": {
+              "type": "object",
+              "properties": {
+                "hasMore": {
+                  "type": "boolean"
+                },
+                "nextCursor": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "hasMore",
+                "nextCursor"
+              ]
+            },
+            "reels": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "caption": {
+                    "type": "string"
+                  },
+                  "commentCount": {
+                    "type": "integer"
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "displayUrl": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "likeCount": {
+                    "type": "integer"
+                  },
+                  "owner": {
+                    "type": "object",
+                    "properties": {
+                      "avatarUrl": {},
+                      "displayName": {},
+                      "handle": {},
+                      "platformUserId": {},
+                      "verified": {}
+                    }
+                  },
+                  "playCount": {
+                    "type": "integer"
+                  },
+                  "shortcode": {
+                    "type": "string"
+                  },
+                  "takenAt": {
+                    "type": "integer"
+                  },
+                  "thumbnailUrl": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "caption",
+                  "commentCount",
+                  "createdAt",
+                  "displayUrl",
+                  "id",
+                  "likeCount",
+                  "owner",
+                  "playCount",
+                  "shortcode",
+                  "takenAt",
+                  "thumbnailUrl",
+                  "url"
+                ]
+              }
+            }
+          },
+          "required": [
+            "lookupStatus",
+            "page",
+            "reels"
+          ]
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "creditsCharged": {
+              "type": "integer"
+            },
+            "requestId": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "creditsCharged",
+            "requestId",
+            "version"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data.reels[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.socialfetch.dev",
+    "endpoint": "https://api.socialfetch.dev/v1/instagram/profiles/:handle/reels",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

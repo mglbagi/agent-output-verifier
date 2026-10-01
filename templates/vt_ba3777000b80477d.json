@@ -1,0 +1,70 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ba3777000b80477d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "description": "The endpoint payload — type varies per route"
+        },
+        "error": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "meta": {
+          "properties": {
+            "limit": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "offset": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "total": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "total"
+          ]
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "meta.limit": {
+        "min": 0,
+        "if_present": true
+      },
+      "meta.total": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.cryptoetfsentinel.com",
+    "endpoint": "https://api.cryptoetfsentinel.com/v1/agent/issuers",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

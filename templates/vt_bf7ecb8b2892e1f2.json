@@ -1,0 +1,387 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bf7ecb8b2892e1f2",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data_quality": {
+          "type": "object",
+          "properties": {
+            "base": {
+              "type": "string"
+            },
+            "computed_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "solana": {
+              "type": "string"
+            },
+            "stale_sources": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "base",
+            "computed_at",
+            "solana",
+            "stale_sources"
+          ]
+        },
+        "raw": {
+          "type": "object",
+          "properties": {
+            "btc": {
+              "type": "object",
+              "properties": {
+                "bitcoin": {
+                  "type": "object",
+                  "properties": {
+                    "usd": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "usd"
+                  ]
+                }
+              },
+              "required": [
+                "bitcoin"
+              ]
+            },
+            "fear_greed": {
+              "type": "object",
+              "properties": {
+                "current_value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "current_value"
+              ]
+            },
+            "polymarket": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array"
+                }
+              },
+              "required": [
+                "data"
+              ]
+            },
+            "smart_money_netflow": {
+              "type": "object",
+              "properties": {
+                "solana": {
+                  "type": "object",
+                  "properties": {}
+                }
+              },
+              "required": [
+                "solana"
+              ]
+            },
+            "trending": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "count"
+              ]
+            }
+          },
+          "required": [
+            "btc",
+            "fear_greed",
+            "polymarket",
+            "smart_money_netflow",
+            "trending"
+          ]
+        },
+        "signals": {
+          "type": "object",
+          "properties": {
+            "btc": {
+              "type": "object",
+              "properties": {
+                "change_24h_pct": {
+                  "type": "number"
+                },
+                "price_usd": {
+                  "type": "number"
+                },
+                "source": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "change_24h_pct",
+                "price_usd",
+                "source"
+              ]
+            },
+            "polymarket": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "category": {
+                    "type": "string"
+                  },
+                  "conviction_score": {
+                    "type": "number"
+                  },
+                  "market_id": {
+                    "type": "string"
+                  },
+                  "market_title": {
+                    "type": "string"
+                  },
+                  "smart_no_volume_usd": {
+                    "type": "number"
+                  },
+                  "smart_side": {
+                    "type": "string"
+                  },
+                  "smart_yes_volume_usd": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "category",
+                  "conviction_score",
+                  "market_id",
+                  "market_title",
+                  "smart_no_volume_usd",
+                  "smart_side",
+                  "smart_yes_volume_usd"
+                ]
+              }
+            },
+            "sentiment": {
+              "type": "object",
+              "properties": {
+                "bucket": {
+                  "type": "string"
+                },
+                "classification": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "bucket",
+                "classification",
+                "value"
+              ]
+            },
+            "smart_money": {
+              "type": "object",
+              "properties": {
+                "base": {
+                  "type": "object",
+                  "properties": {
+                    "coverage_level": {
+                      "type": "string"
+                    },
+                    "direction": {
+                      "type": "string"
+                    },
+                    "eligible_tokens_24h": {
+                      "type": "integer"
+                    },
+                    "eligible_tokens_7d": {
+                      "type": "integer"
+                    },
+                    "pace_usd_per_hour_24h": {
+                      "type": "number"
+                    },
+                    "pace_usd_per_hour_7d": {
+                      "type": "number"
+                    },
+                    "regime": {
+                      "type": "string"
+                    },
+                    "sum_net_flow_usd_24h": {
+                      "type": "number"
+                    },
+                    "sum_net_flow_usd_7d": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "coverage_level",
+                    "direction",
+                    "eligible_tokens_24h",
+                    "eligible_tokens_7d",
+                    "pace_usd_per_hour_24h",
+                    "pace_usd_per_hour_7d",
+                    "regime",
+                    "sum_net_flow_usd_24h",
+                    "sum_net_flow_usd_7d"
+                  ]
+                },
+                "solana": {
+                  "type": "object",
+                  "properties": {
+                    "coverage_level": {
+                      "type": "string"
+                    },
+                    "direction": {
+                      "type": "string"
+                    },
+                    "eligible_tokens_24h": {
+                      "type": "integer"
+                    },
+                    "eligible_tokens_7d": {
+                      "type": "integer"
+                    },
+                    "pace_usd_per_hour_24h": {
+                      "type": "number"
+                    },
+                    "pace_usd_per_hour_7d": {
+                      "type": "number"
+                    },
+                    "regime": {
+                      "type": "string"
+                    },
+                    "sum_net_flow_usd_24h": {
+                      "type": "number"
+                    },
+                    "sum_net_flow_usd_7d": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "coverage_level",
+                    "direction",
+                    "eligible_tokens_24h",
+                    "eligible_tokens_7d",
+                    "pace_usd_per_hour_24h",
+                    "pace_usd_per_hour_7d",
+                    "regime",
+                    "sum_net_flow_usd_24h",
+                    "sum_net_flow_usd_7d"
+                  ]
+                }
+              },
+              "required": [
+                "base",
+                "solana"
+              ]
+            },
+            "trending": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "confirmed": {
+                    "type": "boolean"
+                  },
+                  "market_cap_rank": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "symbol": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "confirmed",
+                  "market_cap_rank",
+                  "name",
+                  "symbol"
+                ]
+              }
+            }
+          },
+          "required": [
+            "btc",
+            "polymarket",
+            "sentiment",
+            "smart_money",
+            "trending"
+          ]
+        },
+        "verdict": {
+          "type": "object",
+          "properties": {
+            "confidence": {
+              "type": "string"
+            },
+            "regime": {
+              "type": "string"
+            },
+            "summary": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "confidence",
+            "regime",
+            "summary"
+          ]
+        }
+      },
+      "required": [
+        "data_quality",
+        "raw",
+        "signals",
+        "verdict"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "signals.polymarket[].market_id"
+      }
+    ],
+    "bounds": {
+      "raw.btc.bitcoin.usd": {
+        "min": 0
+      },
+      "raw.trending.count": {
+        "min": 0
+      },
+      "signals.btc.price_usd": {
+        "min": 0
+      },
+      "signals.polymarket[].smart_no_volume_usd": {
+        "min": 0
+      },
+      "signals.polymarket[].smart_yes_volume_usd": {
+        "min": 0
+      },
+      "signals.smart_money.solana.pace_usd_per_hour_24h": {
+        "min": 0
+      },
+      "signals.smart_money.solana.pace_usd_per_hour_7d": {
+        "min": 0
+      },
+      "signals.trending[].market_cap_rank": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "proxy.suverse.io",
+    "endpoint": "https://proxy.suverse.io/v1/data/crypto-market-pulse",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

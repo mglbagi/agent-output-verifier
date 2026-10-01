@@ -1,0 +1,224 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e8b811d2cb4c9b28",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "asOf": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "byCategory": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "disputeInsufficientSample": {
+                "type": "boolean"
+              },
+              "disputeRatePctChronological": {
+                "maximum": 100,
+                "minimum": 0,
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "disputeRatePctHighVolume": {
+                "maximum": 100,
+                "minimum": 0,
+                "type": "number"
+              },
+              "elevated": {
+                "type": "boolean"
+              },
+              "flipInsufficientSample": {
+                "type": "boolean"
+              },
+              "flipRatePct": {
+                "maximum": 100,
+                "minimum": 0,
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "lockupHoursIfDisputed": {
+                "minimum": 0,
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "lockupHoursPerMarket": {
+                "minimum": 0,
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "category",
+              "disputeRatePctHighVolume",
+              "disputeRatePctChronological",
+              "disputeInsufficientSample",
+              "elevated",
+              "lockupHoursPerMarket",
+              "lockupHoursIfDisputed",
+              "flipRatePct",
+              "flipInsufficientSample"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "caveats": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "clarity": {
+          "additionalProperties": false,
+          "properties": {
+            "checkableTitle": {
+              "additionalProperties": true,
+              "properties": {
+                "disputeRatePct": {
+                  "maximum": 100,
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "disputedMarkets": {
+                  "description": "Disputed markets in this title-clarity cell. Numerator of disputeRatePct.",
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "marketsScanned": {
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "marketsScanned",
+                "disputeRatePct"
+              ],
+              "type": "object"
+            },
+            "uncheckableTitle": {
+              "additionalProperties": true,
+              "properties": {
+                "disputeRatePct": {
+                  "maximum": 100,
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "disputedMarkets": {
+                  "description": "Disputed markets in this title-clarity cell. Numerator of disputeRatePct.",
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "marketsScanned": {
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "marketsScanned",
+                "disputeRatePct"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "checkableTitle",
+            "uncheckableTitle"
+          ],
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "dataDegraded": {
+          "type": "boolean"
+        },
+        "elevatedRiskCategories": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "flipAsOf": {
+          "format": "date-time",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "flipOverall": {
+          "additionalProperties": true,
+          "properties": {
+            "disputedResolved": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "flipRatePct": {
+              "maximum": 100,
+              "minimum": 0,
+              "type": "number"
+            },
+            "flipped": {
+              "description": "Disputes whose outcome reversed. Numerator of flipRatePct.",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "splitCount": {
+              "description": "Disputes resolved to a split outcome rather than to one side.",
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "flipRatePct",
+            "disputedResolved"
+          ],
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "howToRead": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "asOf",
+        "flipAsOf",
+        "dataDegraded",
+        "elevatedRiskCategories",
+        "byCategory",
+        "clarity",
+        "flipOverall",
+        "howToRead",
+        "caveats"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.polym.uk",
+    "endpoint": "https://api.polym.uk/resolution-risk",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

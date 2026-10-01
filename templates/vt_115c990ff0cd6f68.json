@@ -1,0 +1,123 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_115c990ff0cd6f68",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "bpm": {
+              "type": "integer"
+            },
+            "genres": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "confidence": {
+                    "type": "number"
+                  },
+                  "label": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "confidence",
+                  "label"
+                ]
+              }
+            },
+            "instruments": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "confidence": {
+                    "type": "number"
+                  },
+                  "label": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "confidence",
+                  "label"
+                ]
+              }
+            },
+            "key": {
+              "type": "string"
+            },
+            "moods": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "confidence": {
+                    "type": "number"
+                  },
+                  "label": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "confidence",
+                  "label"
+                ]
+              }
+            },
+            "scale": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bpm",
+            "genres",
+            "instruments",
+            "key",
+            "moods",
+            "scale"
+          ]
+        },
+        "message": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "data",
+        "message",
+        "success"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.genres[].confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "data.instruments[].confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "data.moods[].confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.tag-per-track.cloud",
+    "endpoint": "https://api.tag-per-track.cloud/api/analyze-with-lyrics",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

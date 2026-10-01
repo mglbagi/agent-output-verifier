@@ -1,0 +1,72 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cbbfcab855e20bac",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "coins": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "price_usd": {
+                "type": "number"
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "symbol": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "price_usd",
+              "rank",
+              "symbol"
+            ]
+          }
+        },
+        "count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "coins",
+        "count"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "coins[].id"
+      }
+    ],
+    "bounds": {
+      "coins[].price_usd": {
+        "min": 0
+      },
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.shizu.me",
+    "endpoint": "https://x402.shizu.me/trending",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

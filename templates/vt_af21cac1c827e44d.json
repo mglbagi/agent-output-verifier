@@ -1,0 +1,71 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_af21cac1c827e44d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "asset_symbol": {
+                "type": "string"
+              },
+              "chain_name": {
+                "type": "string"
+              },
+              "pool_uid": {
+                "type": "string"
+              },
+              "protocol_name": {
+                "type": "string"
+              },
+              "supply_apy_total": {
+                "type": "number"
+              },
+              "supply_tvl": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "asset_symbol",
+              "chain_name",
+              "pool_uid",
+              "protocol_name",
+              "supply_apy_total",
+              "supply_tvl"
+            ]
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "data",
+        "success"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data[].supply_apy_total": {
+        "min": 0
+      },
+      "data[].supply_tvl": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mcp.barker.money",
+    "endpoint": "https://mcp.barker.money/barker_defi_vaults",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

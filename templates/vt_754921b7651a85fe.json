@@ -1,0 +1,152 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_754921b7651a85fe",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "cache_hit": {
+          "type": "boolean"
+        },
+        "criteria": {
+          "type": "object"
+        },
+        "quality_warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "request_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "response_time_ms": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "result_count": {
+          "type": "integer"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "company_name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "confidence_score": {
+                "type": "number"
+              },
+              "department": {
+                "enum": [
+                  "engineering",
+                  "sales",
+                  "marketing",
+                  "finance",
+                  "product",
+                  "hr",
+                  "legal",
+                  "operations",
+                  "executive",
+                  "other",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              "full_name": {
+                "type": "string"
+              },
+              "is_decision_maker": {
+                "type": "boolean"
+              },
+              "linkedin_url": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "uri"
+              },
+              "location": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "seniority": {
+                "enum": [
+                  "c_level",
+                  "vp",
+                  "director",
+                  "manager",
+                  "individual_contributor",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              "title": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": "object",
+            "required": [
+              "company_name",
+              "confidence_score",
+              "department",
+              "full_name",
+              "is_decision_maker",
+              "linkedin_url",
+              "location",
+              "seniority",
+              "title"
+            ]
+          },
+          "type": "array"
+        },
+        "sources": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "cache_hit",
+        "criteria",
+        "quality_warnings",
+        "request_id",
+        "response_time_ms",
+        "result_count",
+        "results",
+        "sources"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "result_count": {
+        "min": 0
+      },
+      "results[].confidence_score": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.qonoro.ai",
+    "endpoint": "https://api.qonoro.ai/v1/person/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

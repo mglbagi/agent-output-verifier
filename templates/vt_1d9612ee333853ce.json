@@ -1,0 +1,121 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1d9612ee333853ce",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "aiPolicy": {
+          "properties": {
+            "classification": {
+              "enum": [
+                "forbidden",
+                "disclosure_required",
+                "allowed",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "matches": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object",
+          "required": [
+            "classification",
+            "matches"
+          ]
+        },
+        "archived": {
+          "type": "boolean"
+        },
+        "defaultBranch": {
+          "type": "string"
+        },
+        "flags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "lastPushedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "mergeStats": {
+          "properties": {
+            "botAuthoredPrCount": {
+              "type": "number"
+            },
+            "externalMergeRate": {
+              "type": "number"
+            },
+            "externalPrSampleSize": {
+              "type": "number"
+            },
+            "lastExternalMergeAt": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date-time"
+            },
+            "medianHoursToMergeExternal": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "memberMergeRate": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "botAuthoredPrCount",
+            "externalMergeRate",
+            "externalPrSampleSize",
+            "lastExternalMergeAt",
+            "medianHoursToMergeExternal",
+            "memberMergeRate"
+          ]
+        },
+        "openIssuesAndPrsCount": {
+          "type": "number"
+        },
+        "repo": {
+          "type": "string"
+        },
+        "score": {
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "required": [
+        "aiPolicy",
+        "archived",
+        "defaultBranch",
+        "flags",
+        "lastPushedAt",
+        "mergeStats",
+        "openIssuesAndPrsCount",
+        "repo",
+        "score"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-api-24223879872.us-east1.run.app",
+    "endpoint": "https://x402-api-24223879872.us-east1.run.app/v1/repo-merge",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

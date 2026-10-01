@@ -1,0 +1,68 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_37ea8c5ef85085eb",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "chains": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "chain": {
+                "type": "string"
+              },
+              "error": {},
+              "gas_price_gwei": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "native_symbol": {
+                "type": "string"
+              },
+              "standard_transfer_cost_usd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "chain",
+              "gas_price_gwei",
+              "name",
+              "native_symbol",
+              "standard_transfer_cost_usd"
+            ]
+          }
+        },
+        "cheapest_chain": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "chains",
+        "cheapest_chain"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "chains[].gas_price_gwei": {
+        "min": 0
+      },
+      "chains[].standard_transfer_cost_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "gas-price-comparator.pdfextractapi.workers.dev",
+    "endpoint": "https://gas-price-comparator.pdfextractapi.workers.dev/compare",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

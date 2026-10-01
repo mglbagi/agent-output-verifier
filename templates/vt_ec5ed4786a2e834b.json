@@ -1,0 +1,176 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ec5ed4786a2e834b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "anchor_id": {
+          "type": "string"
+        },
+        "freshness_window_ms": {
+          "type": "integer"
+        },
+        "node_id": {
+          "type": "string"
+        },
+        "payment_status": {
+          "type": "string"
+        },
+        "protocol_id": {
+          "type": "string"
+        },
+        "request_measurement": {
+          "type": "object",
+          "properties": {
+            "integrity_scope": {
+              "type": "string"
+            },
+            "response_generation_after_measurement_ms": {
+              "type": "integer"
+            },
+            "total_server_processing_duration_ms": {
+              "type": "number"
+            },
+            "used_for_uncertainty_calculation": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "integrity_scope",
+            "response_generation_after_measurement_ms",
+            "total_server_processing_duration_ms",
+            "used_for_uncertainty_calculation"
+          ]
+        },
+        "temporal_receipt": {
+          "type": "object",
+          "properties": {
+            "evidence_scope": {
+              "type": "object",
+              "properties": {
+                "authorization_granted": {
+                  "type": "boolean"
+                },
+                "caller_bound": {
+                  "type": "boolean"
+                },
+                "task_bound": {
+                  "type": "boolean"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "authorization_granted",
+                "caller_bound",
+                "task_bound",
+                "type"
+              ]
+            },
+            "measurement_at_utc": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "observed_at_utc": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "post_anchor_processing_duration_ms": {
+              "type": "integer"
+            },
+            "request_received_at_utc": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "server_processing_duration_ms": {
+              "type": "integer"
+            },
+            "validity_at_measurement_ms": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "evidence_scope",
+            "measurement_at_utc",
+            "observed_at_utc",
+            "post_anchor_processing_duration_ms",
+            "request_received_at_utc",
+            "server_processing_duration_ms",
+            "validity_at_measurement_ms"
+          ]
+        },
+        "time_utc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "time_zone": {
+          "type": "string"
+        },
+        "timing_semantics": {
+          "type": "object",
+          "properties": {
+            "client_monotonic_timer_required": {
+              "type": "boolean"
+            },
+            "client_wall_clock_required_for_freshness": {
+              "type": "boolean"
+            },
+            "symmetric_network_path_assumption": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "client_monotonic_timer_required",
+            "client_wall_clock_required_for_freshness",
+            "symmetric_network_path_assumption"
+          ]
+        },
+        "unix_time_milliseconds": {
+          "type": "integer"
+        },
+        "valid_until_utc": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "anchor_id",
+        "freshness_window_ms",
+        "node_id",
+        "payment_status",
+        "protocol_id",
+        "request_measurement",
+        "temporal_receipt",
+        "time_utc",
+        "time_zone",
+        "timing_semantics",
+        "unix_time_milliseconds",
+        "valid_until_utc"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "request_measurement.total_server_processing_duration_ms": {
+        "min": 0
+      },
+      "temporal_receipt.post_anchor_processing_duration_ms": {
+        "min": 0
+      },
+      "temporal_receipt.server_processing_duration_ms": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "767-2676.com",
+    "endpoint": "https://767-2676.com/v1/time",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

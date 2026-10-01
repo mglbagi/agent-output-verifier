@@ -1,0 +1,80 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_632f41626362f7e3",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "applied": {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "basis": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "check": {
+              "type": "string"
+            },
+            "figures": {
+              "type": "string"
+            },
+            "verdict": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "action",
+            "basis",
+            "check",
+            "figures",
+            "verdict"
+          ]
+        },
+        "handle": {
+          "type": "string",
+          "format": "email"
+        },
+        "node": {
+          "type": "object",
+          "properties": {
+            "cites": {
+              "type": "array"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "cites",
+            "text"
+          ]
+        }
+      },
+      "required": [
+        "applied",
+        "handle",
+        "node"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "business-frameworks.matryoshka-paradigms.workers.dev",
+    "endpoint": "https://business-frameworks.matryoshka-paradigms.workers.dev/apply/risk/decide/hurdle",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

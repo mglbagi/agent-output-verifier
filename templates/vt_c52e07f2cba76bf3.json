@@ -1,0 +1,59 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c52e07f2cba76bf3",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "outcomes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "question": {
+                "type": "string"
+              },
+              "volume": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "outcomes",
+              "question",
+              "volume"
+            ]
+          }
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "data",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data[].volume": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "free-api-resell.relayhop.workers.dev",
+    "endpoint": "https://free-api-resell.relayhop.workers.dev/v1/polymarket/markets",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

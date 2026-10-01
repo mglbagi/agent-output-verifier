@@ -1,0 +1,99 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c966b3b66e119dc8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "attribution": {
+          "description": "Mandatory GDELT licence credit line",
+          "type": "string"
+        },
+        "note": {
+          "description": "Present only on a sample response (empty/omitted query): a hint to pass a real query. The paid request ran; no upstream call was made.",
+          "type": "string"
+        },
+        "partial": {
+          "description": "True when one feed (volume or tone) was unavailable and its metric is null on every point — distinguishes a degraded answer from genuinely missing data",
+          "type": "boolean"
+        },
+        "queried_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "query": {
+          "description": "Echo of the request query",
+          "type": "string"
+        },
+        "series": {
+          "items": {
+            "properties": {
+              "date": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "tone": {
+                "description": "Average article tone on this date; null if the tone feed had no value here",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "volume_pct": {
+                "description": "Share of monitored coverage matching the query on this date; null if the volume feed had no value here",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "date",
+              "volume_pct",
+              "tone"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "timespan": {
+          "description": "Echo of the effective timespan",
+          "type": "string"
+        },
+        "warnings": {
+          "description": "Human-readable notes on any degraded feed, e.g. \"tone feed unavailable\"; empty when the answer is complete",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "query",
+        "queried_at",
+        "timespan",
+        "series",
+        "partial",
+        "warnings",
+        "attribution"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "series[].volume_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "gdelt.use.x402atlas.com",
+    "endpoint": "https://gdelt.use.x402atlas.com/timeline",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

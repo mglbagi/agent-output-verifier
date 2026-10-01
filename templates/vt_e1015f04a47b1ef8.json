@@ -1,0 +1,95 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e1015f04a47b1ef8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "alteration_mapping_potential": {
+          "type": "object",
+          "properties": {
+            "rating": {
+              "type": "string"
+            },
+            "target_minerals_detectable": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "rating",
+            "target_minerals_detectable"
+          ]
+        },
+        "data_summary": {
+          "type": "object",
+          "properties": {
+            "aster_scenes": {
+              "type": "integer"
+            },
+            "landsat_scenes": {
+              "type": "integer"
+            },
+            "overall_data_quality": {
+              "type": "string"
+            },
+            "sentinel1_scenes": {
+              "type": "integer"
+            },
+            "sentinel2_scenes": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "aster_scenes",
+            "landsat_scenes",
+            "overall_data_quality",
+            "sentinel1_scenes",
+            "sentinel2_scenes"
+          ]
+        },
+        "recommended_sensors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "best_for": {
+                "type": "string"
+              },
+              "sensor": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "best_for",
+              "sensor"
+            ]
+          }
+        },
+        "target_coordinates": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "alteration_mapping_potential",
+        "data_summary",
+        "recommended_sensors",
+        "target_coordinates"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "prospectpulse.theaslangroupllc.com",
+    "endpoint": "https://prospectpulse.theaslangroupllc.com/api/prospect/satellite-availability",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

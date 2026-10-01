@@ -1,0 +1,201 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4b5f4b515f76a780",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "agentVerdict": {
+          "properties": {
+            "browserLikelyRequired": {
+              "description": "Backward-compatible boolean. True only for browser_likely; false also covers undetermined.",
+              "type": "boolean"
+            },
+            "confidence": {
+              "enum": [
+                "low",
+                "medium",
+                "high"
+              ],
+              "type": "string"
+            },
+            "reasons": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "verdict": {
+              "description": "Preferred three-state routing result. Use this instead of inferring direct-HTTP suitability from browserLikelyRequired=false.",
+              "enum": [
+                "http_candidate",
+                "browser_likely",
+                "undetermined"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "verdict",
+            "browserLikelyRequired",
+            "confidence",
+            "reasons"
+          ],
+          "type": "object"
+        },
+        "fetchedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "finalUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "forms": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "http": {
+          "properties": {
+            "contentType": {
+              "type": "string"
+            },
+            "redirectCount": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "status": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "status",
+            "contentType",
+            "redirectCount"
+          ],
+          "type": "object"
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "networkSafety": {
+          "properties": {
+            "fetchDnsChecks": {
+              "minimum": 2,
+              "type": "integer"
+            },
+            "initialDnsCheck": {
+              "properties": {
+                "addressCount": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "allPublic": {
+                  "type": "boolean"
+                },
+                "families": {
+                  "items": {
+                    "enum": [
+                      4,
+                      6
+                    ],
+                    "type": "integer"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "addressCount",
+                "families",
+                "allPublic"
+              ],
+              "type": "object"
+            },
+            "postFetchDnsPublicRecheck": {
+              "type": "boolean"
+            },
+            "redirectTargetsRechecked": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "initialDnsCheck",
+            "fetchDnsChecks",
+            "redirectTargetsRechecked",
+            "postFetchDnsPublicRecheck"
+          ],
+          "type": "object"
+        },
+        "page": {
+          "properties": {
+            "captchaMarkers": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "formsFound": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "iframeCount": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "scriptCount": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "spaMarkers": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "formsFound",
+            "scriptCount",
+            "iframeCount",
+            "spaMarkers",
+            "captchaMarkers"
+          ],
+          "type": "object"
+        },
+        "requestedUrl": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "requestedUrl",
+        "finalUrl",
+        "fetchedAt",
+        "http",
+        "networkSafety",
+        "page",
+        "forms",
+        "agentVerdict",
+        "limitations"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "zeroworker-web-action-api.zeroworker-lab.workers.dev",
+    "endpoint": "https://zeroworker-web-action-api.zeroworker-lab.workers.dev/v1/preflight",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

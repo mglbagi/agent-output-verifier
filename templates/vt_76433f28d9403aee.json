@@ -1,0 +1,54 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_76433f28d9403aee",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "funded": {
+          "type": "boolean"
+        },
+        "next": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "receipt_id": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "submitted"
+          ],
+          "type": "string"
+        },
+        "visible": {
+          "enum": [
+            false
+          ],
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok",
+        "funded",
+        "status",
+        "visible",
+        "receipt_id"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "gofrantic.com",
+    "endpoint": "https://gofrantic.com/v1/hire",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

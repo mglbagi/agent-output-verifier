@@ -1,0 +1,145 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bf76b93b228ef5f5",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "citations": {
+          "type": "object",
+          "properties": {
+            "agency": {
+              "type": "string"
+            },
+            "officialSiteUrl": {
+              "type": "string",
+              "format": "uri"
+            },
+            "retrievedAtUtc": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "sourceUrl": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "agency",
+            "officialSiteUrl",
+            "retrievedAtUtc",
+            "sourceUrl"
+          ]
+        },
+        "grades": {
+          "type": "array"
+        },
+        "official": {
+          "type": "object",
+          "properties": {
+            "cadence": {
+              "type": "string"
+            },
+            "record_id": {
+              "type": "string"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "sku": {
+              "type": "string"
+            },
+            "source_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "status": {
+              "type": "string"
+            },
+            "vintage": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "cadence",
+            "record_id",
+            "schema",
+            "sku",
+            "source_url",
+            "status",
+            "vintage"
+          ]
+        },
+        "product": {
+          "type": "string"
+        },
+        "proofOfOutcome": {
+          "type": "object",
+          "properties": {
+            "fileSha256Hex": {
+              "type": "string"
+            },
+            "note": {
+              "type": "string"
+            },
+            "payloadSha256Hex": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "fileSha256Hex",
+            "note",
+            "payloadSha256Hex"
+          ]
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "tier": {
+          "type": "string"
+        },
+        "whatWasProven": {
+          "type": "object",
+          "properties": {
+            "dirtyCopy": {
+              "type": "string"
+            },
+            "note": {
+              "type": "string"
+            },
+            "official": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "dirtyCopy",
+            "note",
+            "official"
+          ]
+        }
+      },
+      "required": [
+        "citations",
+        "grades",
+        "official",
+        "product",
+        "proofOfOutcome",
+        "recordId",
+        "tier",
+        "whatWasProven"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.paylyte.ai",
+    "endpoint": "https://api.paylyte.ai/v1/data/records/checked",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

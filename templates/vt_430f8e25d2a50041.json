@@ -1,0 +1,96 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_430f8e25d2a50041",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "disclaimer": {
+          "type": "string"
+        },
+        "generatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "isDemo": {
+          "type": "boolean"
+        },
+        "paymentMode": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string"
+        },
+        "reportId": {
+          "type": "string"
+        },
+        "reportVersion": {
+          "type": "string"
+        },
+        "sections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "points": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "points",
+              "title"
+            ]
+          }
+        },
+        "serviceCategory": {
+          "type": "string"
+        },
+        "serviceId": {
+          "type": "string"
+        },
+        "serviceQuery": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "disclaimer",
+        "generatedAt",
+        "isDemo",
+        "paymentMode",
+        "provider",
+        "reportId",
+        "reportVersion",
+        "sections",
+        "serviceCategory",
+        "serviceId",
+        "serviceQuery",
+        "summary",
+        "title"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "seller-b-production.up.railway.app",
+    "endpoint": "https://seller-b-production.up.railway.app/v1/credit-report",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

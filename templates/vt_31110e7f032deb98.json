@@ -1,0 +1,77 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_31110e7f032deb98",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "attribution": {
+          "type": "string"
+        },
+        "fulfillment_status": {
+          "type": "string"
+        },
+        "image": {
+          "additionalProperties": true,
+          "properties": {
+            "annotated_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "clean_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "format": {
+              "const": "png",
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "annotated_url",
+            "clean_url",
+            "format"
+          ]
+        },
+        "mode": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "selected_scene": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "tool": {
+          "const": "satellite-observe",
+          "type": "string"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "ok",
+        "tool"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "sat.ipintel.ai",
+    "endpoint": "https://sat.ipintel.ai/satellite-observe",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,207 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_adf8c7ee212084fc",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "items": {
+            "properties": {
+              "authors": {
+                "items": {
+                  "type": "string"
+                },
+                "nullable": true,
+                "type": "array"
+              },
+              "link": {
+                "type": "string"
+              },
+              "photo_url": {
+                "nullable": true,
+                "type": "string"
+              },
+              "published_datetime_utc": {
+                "nullable": true,
+                "type": "string"
+              },
+              "related_topics": {
+                "items": {
+                  "properties": {
+                    "topic_id": {
+                      "type": "string"
+                    },
+                    "topic_name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "topic_id",
+                    "topic_name"
+                  ],
+                  "type": "object"
+                },
+                "nullable": true,
+                "type": "array"
+              },
+              "snippet": {
+                "nullable": true,
+                "type": "string"
+              },
+              "source_favicon_url": {
+                "nullable": true,
+                "type": "string"
+              },
+              "source_logo_url": {
+                "nullable": true,
+                "type": "string"
+              },
+              "source_name": {
+                "nullable": true,
+                "type": "string"
+              },
+              "source_publication_id": {
+                "nullable": true,
+                "type": "string"
+              },
+              "source_url": {
+                "nullable": true,
+                "type": "string"
+              },
+              "sub_articles": {
+                "items": {
+                  "properties": {
+                    "authors": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "link": {
+                      "type": "string"
+                    },
+                    "photo_url": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "published_datetime_utc": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "related_topics": {
+                      "items": {
+                        "properties": {
+                          "topic_id": {
+                            "type": "string"
+                          },
+                          "topic_name": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "topic_id",
+                          "topic_name"
+                        ],
+                        "type": "object"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "source_favicon_url": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "source_logo_url": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "source_name": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "source_publication_id": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "source_url": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "thumbnail_url": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "title",
+                    "link"
+                  ],
+                  "type": "object"
+                },
+                "nullable": true,
+                "type": "array"
+              },
+              "thumbnail_url": {
+                "nullable": true,
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "title",
+              "link"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "request_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data[].related_topics[].topic_id",
+        "if_present": true
+      },
+      {
+        "type": "unique",
+        "field": "data[].sub_articles[].related_topics[].topic_id",
+        "if_present": true
+      },
+      {
+        "type": "unique",
+        "field": "data[].sub_articles[].source_publication_id",
+        "if_present": true
+      },
+      {
+        "type": "unique",
+        "field": "data[].source_publication_id",
+        "if_present": true
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.openwebninja.com",
+    "endpoint": "https://x402.openwebninja.com/realtime-news-data/top-headlines",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

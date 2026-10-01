@@ -1,0 +1,68 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_356fc6ecc0e0005d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "body_kind": {
+          "type": "string"
+        },
+        "content_type": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "filename_hint": {
+          "type": "string"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "request_body_options": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "service": {
+          "type": "string"
+        },
+        "typical_size_bytes": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "body_kind",
+        "content_type",
+        "description",
+        "endpoint",
+        "filename_hint",
+        "protocol",
+        "request_body_options",
+        "service",
+        "typical_size_bytes"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "typical_size_bytes": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.node4all.com",
+    "endpoint": "https://api.node4all.com/v1/md2pdf",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

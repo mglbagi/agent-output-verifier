@@ -1,0 +1,54 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7fcc6aad435f7db5",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "contentType": {
+          "description": "Detected MIME type",
+          "type": "string"
+        },
+        "expiresAt": {
+          "description": "ISO 8601 expiration timestamp, or null for permanent images",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "description": "Unique image ID",
+          "type": "string"
+        },
+        "sizeBytes": {
+          "description": "File size in bytes",
+          "type": "number"
+        },
+        "url": {
+          "description": "Public CDN URL of the hosted image",
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "url",
+        "id",
+        "contentType",
+        "sizeBytes",
+        "expiresAt"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "img402.dev",
+    "endpoint": "https://img402.dev/api/upload",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

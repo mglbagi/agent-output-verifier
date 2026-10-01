@@ -1,0 +1,126 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a934d6c03bec52bb",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "daily": {
+          "type": "array"
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "location": {
+          "properties": {
+            "country": {
+              "type": "string"
+            },
+            "lat": {
+              "type": "number"
+            },
+            "lon": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "country",
+            "lat",
+            "lon",
+            "name"
+          ]
+        },
+        "payer": {
+          "properties": {
+            "address": {
+              "nullable": true,
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "network": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "address",
+            "network"
+          ]
+        },
+        "range": {
+          "properties": {
+            "end": {
+              "type": "string",
+              "format": "date"
+            },
+            "start": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          "type": "object",
+          "required": [
+            "end",
+            "start"
+          ]
+        },
+        "request_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "source": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "utc_offset_seconds": {
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "required": [
+        "daily",
+        "generated_at",
+        "location",
+        "payer",
+        "range",
+        "request_id",
+        "source",
+        "timezone",
+        "utc_offset_seconds"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "range.start",
+        "other_field": "range.end"
+      }
+    ],
+    "bounds": {
+      "location.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "location.lon": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.tbs-digital.com",
+    "endpoint": "https://x402.tbs-digital.com/weather/historical",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

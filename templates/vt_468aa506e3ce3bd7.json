@@ -1,0 +1,58 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_468aa506e3ce3bd7",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "order_id": {
+              "type": "string"
+            },
+            "ship_date": {
+              "type": "string",
+              "format": "date"
+            },
+            "total_weight_kg": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "order_id",
+            "ship_date",
+            "total_weight_kg"
+          ]
+        },
+        "retried": {
+          "type": "boolean"
+        },
+        "validation_warnings": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "data",
+        "retried",
+        "validation_warnings"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.total_weight_kg": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "doc-extract-api.thestarboy9696-4ef.workers.dev",
+    "endpoint": "https://doc-extract-api.thestarboy9696-4ef.workers.dev/extract/custom",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b0e7e5c3f85753f4",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "annonces": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code_postal": {
+                "type": "string"
+              },
+              "date_parution": {
+                "type": "string",
+                "format": "date"
+              },
+              "departement": {
+                "type": "string"
+              },
+              "departement_nom": {
+                "type": "string"
+              },
+              "famille": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "jugement": {
+                "type": "object",
+                "properties": {
+                  "date": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "famille": {
+                    "type": "string"
+                  },
+                  "nature": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "date",
+                  "famille",
+                  "nature"
+                ]
+              },
+              "siren": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "tribunal": {
+                "type": "string"
+              },
+              "type_avis": {
+                "type": "string"
+              },
+              "url_bodacc": {
+                "type": "string",
+                "format": "uri"
+              },
+              "ville": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "code_postal",
+              "date_parution",
+              "departement",
+              "departement_nom",
+              "famille",
+              "id",
+              "jugement",
+              "tribunal",
+              "type_avis",
+              "url_bodacc",
+              "ville"
+            ]
+          }
+        },
+        "consulte_le": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "criteres": {
+          "type": "object",
+          "properties": {
+            "departement": {
+              "type": "string"
+            },
+            "depuis": {
+              "type": "string",
+              "format": "date"
+            },
+            "famille": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "departement",
+            "depuis",
+            "famille"
+          ]
+        },
+        "exclues_personnes_physiques": {
+          "type": "integer"
+        },
+        "exclues_type_indetermine": {
+          "type": "integer"
+        },
+        "limite": {
+          "type": "integer"
+        },
+        "source": {
+          "type": "string"
+        },
+        "total_servi": {
+          "type": "number"
+        },
+        "tronque": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "annonces",
+        "consulte_le",
+        "criteres",
+        "exclues_personnes_physiques",
+        "exclues_type_indetermine",
+        "limite",
+        "source",
+        "total_servi",
+        "tronque"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "annonces[].id"
+      }
+    ],
+    "bounds": {
+      "total_servi": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.sirenic.eu",
+    "endpoint": "https://api.sirenic.eu/v1/bodacc/recherche",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

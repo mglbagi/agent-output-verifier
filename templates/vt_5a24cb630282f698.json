@@ -1,0 +1,168 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5a24cb630282f698",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "band": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "number"
+        },
+        "drivers": {
+          "type": "object",
+          "properties": {
+            "escalation": {
+              "type": "object",
+              "properties": {
+                "health": {
+                  "type": "string"
+                },
+                "score": {
+                  "type": "integer"
+                },
+                "weight": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "health",
+                "score",
+                "weight"
+              ]
+            },
+            "throughput": {
+              "type": "object",
+              "properties": {
+                "health": {
+                  "type": "string"
+                },
+                "score": {
+                  "type": "integer"
+                },
+                "weight": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "health",
+                "score",
+                "weight"
+              ]
+            }
+          },
+          "required": [
+            "escalation",
+            "throughput"
+          ]
+        },
+        "modeledMultiple": {
+          "type": "integer"
+        },
+        "reference": {
+          "type": "object",
+          "properties": {
+            "asOf": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "jwcMultiple": {
+              "type": "integer"
+            },
+            "note": {
+              "type": "string"
+            },
+            "source": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "name",
+                "url"
+              ]
+            }
+          },
+          "required": [
+            "asOf",
+            "jwcMultiple",
+            "note",
+            "source"
+          ]
+        },
+        "riskScore": {
+          "type": "integer"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "vlccWarPremiumUsd": {
+          "type": "object",
+          "properties": {
+            "high": {
+              "type": "integer"
+            },
+            "low": {
+              "type": "integer"
+            },
+            "note": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "high",
+            "low",
+            "note"
+          ]
+        }
+      },
+      "required": [
+        "band",
+        "confidence",
+        "drivers",
+        "modeledMultiple",
+        "reference",
+        "riskScore",
+        "schema",
+        "vlccWarPremiumUsd"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "vlccWarPremiumUsd.low",
+        "other_field": "vlccWarPremiumUsd.high"
+      }
+    ],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "drivers.escalation.weight": {
+        "min": 0
+      },
+      "drivers.throughput.weight": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "straits.live",
+    "endpoint": "https://straits.live/api/premium/risk-premium",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

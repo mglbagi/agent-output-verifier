@@ -1,0 +1,89 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cdde7fd9a9a69a2a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "gates": {
+          "description": "The eight gates in the order X runs them, each with a state and the source line it is read from.",
+          "items": {
+            "properties": {
+              "head": {
+                "type": "string"
+              },
+              "n": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "src": {
+                "type": "string"
+              },
+              "state": {
+                "enum": [
+                  "go",
+                  "stop",
+                  "open",
+                  "call"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "n",
+              "state",
+              "src"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "model": {
+          "description": "The paid half: the read of the draft itself.",
+          "type": "object"
+        },
+        "structural": {
+          "description": "Consequences that need no model: branches in X's published source.",
+          "items": {
+            "properties": {
+              "detail": {
+                "type": "string"
+              },
+              "fact": {
+                "type": "string"
+              },
+              "src": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "fact",
+              "src"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "gates",
+        "structural",
+        "model"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "kevinhoff.com",
+    "endpoint": "https://kevinhoff.com/api/paid/grade",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

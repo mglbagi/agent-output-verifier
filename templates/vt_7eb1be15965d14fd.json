@@ -1,0 +1,118 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7eb1be15965d14fd",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "pool": {
+              "type": "object",
+              "properties": {
+                "dex": {
+                  "type": "string"
+                },
+                "pairedWith": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "dex",
+                "pairedWith",
+                "version"
+              ]
+            },
+            "test": {
+              "type": "object",
+              "properties": {
+                "buyOk": {
+                  "type": "boolean"
+                },
+                "ethBack": {
+                  "type": "number"
+                },
+                "ethIn": {
+                  "type": "number"
+                },
+                "roundTripLossPct": {
+                  "type": "number"
+                },
+                "sellOk": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "buyOk",
+                "ethBack",
+                "ethIn",
+                "roundTripLossPct",
+                "sellOk"
+              ]
+            },
+            "tested": {
+              "type": "boolean"
+            },
+            "token": {
+              "type": "object",
+              "properties": {
+                "owner": {
+                  "type": "string"
+                },
+                "symbol": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "owner",
+                "symbol"
+              ]
+            },
+            "verdict": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "pool",
+            "test",
+            "tested",
+            "token",
+            "verdict"
+          ]
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "paid": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "data",
+        "ok",
+        "paid"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.test.roundTripLossPct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "apexfaucet.xyz",
+    "endpoint": "https://apexfaucet.xyz/api/x402/base-exit-check/:token",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

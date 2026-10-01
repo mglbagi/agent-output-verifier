@@ -1,0 +1,97 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_dd9697a237a81967",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "coins": {
+          "description": "Most-searched coins in the last 24h, most trending first",
+          "items": {
+            "properties": {
+              "id": {
+                "description": "CoinGecko coin id slug",
+                "type": "string"
+              },
+              "large": {
+                "description": "Large image URL",
+                "type": "string"
+              },
+              "market_cap_rank": {
+                "description": "Rank by market cap",
+                "type": "integer"
+              },
+              "name": {
+                "description": "Coin name",
+                "type": "string"
+              },
+              "price_btc": {
+                "description": "Current price in BTC",
+                "type": "number"
+              },
+              "score": {
+                "description": "Trending rank position, 0-based",
+                "type": "integer"
+              },
+              "small": {
+                "description": "Small image URL",
+                "type": "string"
+              },
+              "symbol": {
+                "description": "Ticker symbol",
+                "type": "string"
+              },
+              "thumb": {
+                "description": "Thumbnail image URL",
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "symbol",
+              "score",
+              "price_btc"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "queried_at": {
+          "description": "UTC timestamp the upstream was queried",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "queried_at",
+        "coins"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "coins[].id"
+      }
+    ],
+    "bounds": {
+      "coins[].market_cap_rank": {
+        "min": 0,
+        "if_present": true
+      },
+      "coins[].price_btc": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "coingecko.use.x402atlas.com",
+    "endpoint": "https://coingecko.use.x402atlas.com/trending",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

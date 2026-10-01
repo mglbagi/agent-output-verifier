@@ -1,0 +1,141 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5402950f75e1782b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "challenge": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "checks": {
+          "items": {
+            "properties": {
+              "group": {
+                "enum": [
+                  "challenge",
+                  "accepts",
+                  "resource",
+                  "settlement",
+                  "wallets",
+                  "discovery",
+                  "browser"
+                ],
+                "type": "string"
+              },
+              "hint": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "pass",
+                  "warn",
+                  "fail",
+                  "info",
+                  "skip"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "status",
+              "message"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "method": {
+          "enum": [
+            "GET",
+            "POST",
+            null
+          ],
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "overall": {
+          "enum": [
+            "pass",
+            "warn",
+            "fail"
+          ],
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "wallets": {
+          "description": "Which wallets can pay: per wallet, the networks where payment works (yes) and where it fails, with the reason (no).",
+          "items": {
+            "properties": {
+              "agent": {
+                "type": "boolean"
+              },
+              "no": {
+                "items": {
+                  "properties": {
+                    "network": {
+                      "type": "string"
+                    },
+                    "reason": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "wallet": {
+                "type": "string"
+              },
+              "yes": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "url",
+        "overall",
+        "checks"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "checks[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-doctor.onrender.com",
+    "endpoint": "https://x402-doctor.onrender.com/api/v1/diagnose",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

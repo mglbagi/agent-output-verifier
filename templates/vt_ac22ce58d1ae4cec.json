@@ -1,0 +1,131 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ac22ce58d1ae4cec",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "meta": {
+          "properties": {
+            "bundle": {
+              "type": "string"
+            },
+            "bundle_version": {
+              "type": "string"
+            },
+            "elapsed_ms": {
+              "type": "integer"
+            },
+            "engine": {
+              "type": "string"
+            },
+            "failures": {
+              "type": "integer"
+            },
+            "items": {
+              "type": "integer"
+            },
+            "model_cost_usd": {
+              "description": "What the call cost the server in model tokens. Published so you can see the markup you are paying.",
+              "type": "number"
+            },
+            "questions_sha256": {
+              "description": "Hash of the exact question wording used, so a result is reproducible.",
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "bundle",
+            "bundle_version",
+            "elapsed_ms",
+            "failures",
+            "items",
+            "model_cost_usd"
+          ]
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "confidence": {
+                "enum": [
+                  "high",
+                  "medium",
+                  "low"
+                ],
+                "type": "string"
+              },
+              "error": {
+                "description": "Present only when this one item could not be judged. Its verdict is then the safest rung, never a discard.",
+                "type": "string"
+              },
+              "id": {
+                "description": "The record's id field, or its index.",
+                "type": "string"
+              },
+              "rationale": {
+                "description": "The per-signal probabilities behind it.",
+                "type": "string"
+              },
+              "reason": {
+                "description": "A single label explaining the verdict.",
+                "type": "string"
+              },
+              "rules_applied": {
+                "description": "Which deterministic safety gates fired.",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "score": {
+                "description": "0-10.",
+                "type": "number"
+              },
+              "verdict": {
+                "description": "One rung of the ladder for this operation.",
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "confidence",
+              "id",
+              "rationale",
+              "reason",
+              "rules_applied",
+              "score",
+              "verdict"
+            ]
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "meta",
+        "results"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "results[].id"
+      }
+    ],
+    "bounds": {
+      "meta.model_cost_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-production-0f93.up.railway.app",
+    "endpoint": "https://x402-production-0f93.up.railway.app/v1/score-leads",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

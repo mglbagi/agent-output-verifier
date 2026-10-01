@@ -1,0 +1,162 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2a9fdb6b9a6c9ce6",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "best": {
+          "type": "object",
+          "properties": {
+            "chapter": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "description"
+              ]
+            },
+            "description": {
+              "type": "string"
+            },
+            "formatted": {
+              "type": "string"
+            },
+            "heading": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "description"
+              ]
+            },
+            "hs6": {
+              "type": "string"
+            },
+            "matched_terms": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "score": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "chapter",
+            "description",
+            "formatted",
+            "heading",
+            "hs6",
+            "matched_terms",
+            "score"
+          ]
+        },
+        "candidate_count": {
+          "type": "integer"
+        },
+        "candidates": {
+          "type": "array"
+        },
+        "caveats": {
+          "type": "array"
+        },
+        "chapters_touched": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "type": "number"
+        },
+        "description": {
+          "type": "string"
+        },
+        "nomenclature": {
+          "type": "object",
+          "properties": {
+            "codes": {
+              "type": "integer"
+            },
+            "language": {
+              "type": "string"
+            },
+            "level": {
+              "type": "string"
+            },
+            "system": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "codes",
+            "language",
+            "level",
+            "system"
+          ]
+        },
+        "note": {
+          "type": "string"
+        },
+        "query_terms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "requires_binding_ruling": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "best",
+        "candidate_count",
+        "candidates",
+        "caveats",
+        "chapters_touched",
+        "confidence",
+        "description",
+        "nomenclature",
+        "note",
+        "query_terms",
+        "requires_binding_ruling"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "candidate_count": {
+        "min": 0
+      },
+      "confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tools.halowerk.com",
+    "endpoint": "https://tools.halowerk.com/v1/hs/classify",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

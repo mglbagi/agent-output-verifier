@@ -1,0 +1,67 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c24066aa4540c69f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "address_matched": {
+          "type": "string"
+        },
+        "council": {
+          "type": "string"
+        },
+        "data_source": {
+          "type": "string"
+        },
+        "expiry_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "last_updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "licence_number": {
+          "type": "string"
+        },
+        "licence_type": {
+          "type": "string"
+        },
+        "licensed": {
+          "type": "boolean"
+        },
+        "max_households": {
+          "type": "integer"
+        },
+        "max_occupancy": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "address_matched",
+        "council",
+        "data_source",
+        "expiry_date",
+        "last_updated",
+        "licence_number",
+        "licence_type",
+        "licensed",
+        "max_households",
+        "max_occupancy"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hmo.payapi.market",
+    "endpoint": "https://hmo.payapi.market/hmo-check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

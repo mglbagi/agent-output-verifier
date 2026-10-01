@@ -1,0 +1,118 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_da157fb24a4995b9",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "object",
+          "properties": {
+            "condition": {
+              "type": "string"
+            },
+            "feels_like_c": {
+              "type": "number"
+            },
+            "humidity_pct": {
+              "type": "integer"
+            },
+            "precipitation_mm": {
+              "type": "integer"
+            },
+            "temperature_c": {
+              "type": "number"
+            },
+            "time": {
+              "type": "string"
+            },
+            "weather_code": {
+              "type": "integer"
+            },
+            "wind_direction_deg": {
+              "type": "integer"
+            },
+            "wind_speed_kmh": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "condition",
+            "feels_like_c",
+            "humidity_pct",
+            "precipitation_mm",
+            "temperature_c",
+            "time",
+            "weather_code",
+            "wind_direction_deg",
+            "wind_speed_kmh"
+          ]
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "country": {
+              "type": "string"
+            },
+            "latitude": {
+              "type": "number"
+            },
+            "longitude": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "timezone": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "country",
+            "latitude",
+            "longitude",
+            "name",
+            "region",
+            "timezone"
+          ]
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "current",
+        "location",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "current.humidity_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "location.latitude": {
+        "min": -90,
+        "max": 90
+      },
+      "location.longitude": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "weather-bazaar-test-production.up.railway.app",
+    "endpoint": "https://weather-bazaar-test-production.up.railway.app/v1/weather",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

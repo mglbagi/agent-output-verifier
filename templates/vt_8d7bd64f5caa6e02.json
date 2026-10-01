@@ -1,0 +1,50 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8d7bd64f5caa6e02",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "duration": {
+          "description": "Run duration in seconds.",
+          "type": "integer"
+        },
+        "items": {
+          "description": "Scraped items. Shape varies per tool — see each tool's outputSample for a concrete example.",
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "payment": {
+          "description": "Settlement summary (protocol, amount, currency).",
+          "type": "object"
+        },
+        "runId": {
+          "description": "Run ID for debugging/audit.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "duration": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hirescrape.com",
+    "endpoint": "https://hirescrape.com/api/tools/tiktok",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

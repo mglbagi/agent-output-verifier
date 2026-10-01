@@ -1,0 +1,343 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b98674261bb08039",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "context": {
+          "additionalProperties": false,
+          "properties": {
+            "citations": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "excerpt": {
+                    "type": "string"
+                  },
+                  "excerpt_sha256": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "locator": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "locator",
+                  "excerpt",
+                  "excerpt_sha256"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            "estimated_tokens_saved": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "markdown": {
+              "type": "string"
+            },
+            "raw_token_estimate": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "returned_token_estimate": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "token_estimate_method": {
+              "const": "characters_divided_by_4"
+            }
+          },
+          "required": [
+            "markdown",
+            "citations",
+            "raw_token_estimate",
+            "returned_token_estimate",
+            "estimated_tokens_saved",
+            "token_estimate_method"
+          ],
+          "type": "object"
+        },
+        "context_id": {
+          "type": "string"
+        },
+        "delivery": {
+          "additionalProperties": false,
+          "properties": {
+            "cache_status": {
+              "enum": [
+                "hit",
+                "miss"
+              ]
+            },
+            "cost_class": {
+              "enum": [
+                "cached",
+                "fresh_static"
+              ]
+            },
+            "currency": {
+              "const": "USDC"
+            },
+            "economics": {
+              "additionalProperties": false,
+              "properties": {
+                "estimate_basis": {
+                  "const": "configured_route_estimate"
+                },
+                "estimated_gross_margin": {
+                  "type": "number"
+                },
+                "estimated_gross_profit_usd": {
+                  "type": "number"
+                },
+                "estimated_variable_cost_usd": {
+                  "minimum": 0,
+                  "type": "number"
+                }
+              },
+              "required": [
+                "estimate_basis",
+                "estimated_variable_cost_usd",
+                "estimated_gross_profit_usd",
+                "estimated_gross_margin"
+              ],
+              "type": "object"
+            },
+            "generated_at": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "latency_ms": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "network": {
+              "type": "string"
+            },
+            "payment": {
+              "additionalProperties": false,
+              "properties": {
+                "failed_delivery_charge_policy": {
+                  "const": "not_settled_when_handler_status_is_400_or_higher"
+                },
+                "protocol": {
+                  "const": "x402"
+                },
+                "settlement_receipt_header": {
+                  "enum": [
+                    "PAYMENT-RESPONSE",
+                    "x402/payment-response",
+                    null
+                  ]
+                },
+                "settlement_status": {
+                  "enum": [
+                    "reported_in_response_header",
+                    "reported_in_mcp_meta",
+                    "not_applicable"
+                  ]
+                },
+                "verification_status": {
+                  "enum": [
+                    "verified",
+                    "internal_unverified"
+                  ]
+                }
+              },
+              "required": [
+                "protocol",
+                "verification_status",
+                "settlement_status",
+                "settlement_receipt_header",
+                "failed_delivery_charge_policy"
+              ],
+              "type": "object"
+            },
+            "price_usd": {
+              "minimum": 0,
+              "type": "number"
+            },
+            "route": {
+              "enum": [
+                "cache",
+                "public_html_direct"
+              ]
+            },
+            "status": {
+              "const": "delivered"
+            }
+          },
+          "required": [
+            "status",
+            "route",
+            "cache_status",
+            "price_usd",
+            "currency",
+            "network",
+            "cost_class",
+            "economics",
+            "latency_ms",
+            "generated_at",
+            "payment"
+          ],
+          "type": "object"
+        },
+        "receipt_id": {
+          "type": "string"
+        },
+        "safety": {
+          "additionalProperties": false,
+          "properties": {
+            "prompt_injection_signals": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "public_source_only": {
+              "const": true
+            },
+            "robots_policy": {
+              "enum": [
+                "allowed",
+                "not_present",
+                "unavailable_4xx"
+              ]
+            },
+            "shared_cache_eligible": {
+              "type": "boolean"
+            },
+            "source_directives": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "public_source_only",
+            "shared_cache_eligible",
+            "source_directives",
+            "robots_policy",
+            "prompt_injection_signals"
+          ],
+          "type": "object"
+        },
+        "schema_version": {
+          "const": "context-receipt.v1"
+        },
+        "source": {
+          "additionalProperties": false,
+          "properties": {
+            "canonical_url": {
+              "format": "uri",
+              "type": "string"
+            },
+            "content_sha256": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            "content_type": {
+              "type": "string"
+            },
+            "fetched_at": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "final_url": {
+              "format": "uri",
+              "type": "string"
+            },
+            "requested_url": {
+              "format": "uri",
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "requested_url",
+            "canonical_url",
+            "final_url",
+            "title",
+            "fetched_at",
+            "content_type",
+            "content_sha256"
+          ],
+          "type": "object"
+        },
+        "transformation": {
+          "additionalProperties": false,
+          "properties": {
+            "max_tokens": {
+              "maximum": 12000,
+              "minimum": 250,
+              "type": "integer"
+            },
+            "method": {
+              "const": "deterministic_extract"
+            },
+            "model_used": {
+              "const": false
+            },
+            "pipeline_version": {
+              "const": "html-deterministic.v1"
+            },
+            "question": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "pipeline_version",
+            "method",
+            "question",
+            "max_tokens",
+            "model_used"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "schema_version",
+        "receipt_id",
+        "context_id",
+        "source",
+        "transformation",
+        "context",
+        "delivery",
+        "safety"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "context.citations[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "context-relay.contextrelay.workers.dev",
+    "endpoint": "https://context-relay.contextrelay.workers.dev/api/v1/context",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

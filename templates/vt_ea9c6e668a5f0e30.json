@@ -1,0 +1,66 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ea9c6e668a5f0e30",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "content_type": {
+          "type": "string"
+        },
+        "download_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "language_code": {
+          "type": "string"
+        },
+        "length_chars": {
+          "type": "integer"
+        },
+        "origin": {
+          "type": "string"
+        },
+        "size_bytes": {
+          "type": "integer"
+        },
+        "video_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "content_type",
+        "download_url",
+        "expires_at",
+        "language_code",
+        "length_chars",
+        "origin",
+        "size_bytes",
+        "video_id"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "length_chars": {
+        "min": 0
+      },
+      "size_bytes": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "surf.cascade.fyi",
+    "endpoint": "https://surf.cascade.fyi/api/v1/youtube/get",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

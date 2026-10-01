@@ -1,0 +1,52 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f1a26346192135ef",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "basis": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "match_count": {
+          "type": "integer"
+        },
+        "subject_count": {
+          "type": "integer"
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "basis",
+        "confidence",
+        "match_count",
+        "subject_count",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "match_count": {
+        "min": 0
+      },
+      "subject_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "cf-exclusion-check.cf-exclusion-check.workers.dev",
+    "endpoint": "https://cf-exclusion-check.cf-exclusion-check.workers.dev/v1/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

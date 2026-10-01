@@ -1,0 +1,171 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0d389255a94a9f79",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "items": {
+            "properties": {
+              "buy_sell_pressure": {
+                "type": "number"
+              },
+              "buy_volume": {
+                "type": "number"
+              },
+              "current_position_longs_usd": {
+                "type": "number"
+              },
+              "current_position_shorts_usd": {
+                "type": "number"
+              },
+              "current_smart_money_position_longs_usd": {
+                "type": "number"
+              },
+              "current_smart_money_position_shorts_usd": {
+                "type": "number"
+              },
+              "funding": {
+                "type": "number"
+              },
+              "longs_count": {
+                "type": "integer"
+              },
+              "mark_price": {
+                "type": "number"
+              },
+              "net_position_change": {
+                "type": "number"
+              },
+              "open_interest": {
+                "type": "number"
+              },
+              "previous_price_usd": {
+                "type": "number"
+              },
+              "sell_volume": {
+                "type": "number"
+              },
+              "shorts_count": {
+                "type": "integer"
+              },
+              "smart_money_buy_volume": {
+                "type": "number"
+              },
+              "smart_money_longs_count": {
+                "type": "integer"
+              },
+              "smart_money_sell_volume": {
+                "type": "number"
+              },
+              "smart_money_shorts_count": {
+                "type": "integer"
+              },
+              "smart_money_volume": {
+                "type": "number"
+              },
+              "token_symbol": {
+                "type": "string"
+              },
+              "trader_count": {
+                "type": "integer"
+              },
+              "volume": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "token_symbol"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "pagination": {
+          "properties": {
+            "is_last_page": {
+              "type": "boolean"
+            },
+            "page": {
+              "type": "integer"
+            },
+            "per_page": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "data",
+        "pagination"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "data[].buy_volume": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].current_position_shorts_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].current_smart_money_position_shorts_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].mark_price": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].previous_price_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].sell_volume": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].shorts_count": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].smart_money_buy_volume": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].smart_money_sell_volume": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].smart_money_shorts_count": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].smart_money_volume": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].trader_count": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].volume": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.nansen.ai",
+    "endpoint": "https://api.nansen.ai/api/v1/perp-screener",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

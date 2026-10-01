@@ -1,0 +1,433 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e92fd3fe6e5f8510",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string",
+                    "pattern": "^0x[a-fA-F0-9]{40}$"
+                  },
+                  "base_token_price_native_currency": {
+                    "type": "string"
+                  },
+                  "base_token_price_quote_token": {
+                    "type": "string"
+                  },
+                  "base_token_price_usd": {
+                    "type": "string"
+                  },
+                  "fdv_usd": {
+                    "type": "string"
+                  },
+                  "market_cap_usd": {},
+                  "name": {
+                    "type": "string"
+                  },
+                  "pool_created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "price_change_percentage": {
+                    "type": "object",
+                    "properties": {
+                      "h1": {
+                        "type": "string"
+                      },
+                      "h24": {
+                        "type": "string"
+                      },
+                      "h6": {
+                        "type": "string"
+                      },
+                      "m15": {
+                        "type": "string"
+                      },
+                      "m30": {
+                        "type": "string"
+                      },
+                      "m5": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "h1",
+                      "h24",
+                      "h6",
+                      "m15",
+                      "m30",
+                      "m5"
+                    ]
+                  },
+                  "quote_token_price_base_token": {
+                    "type": "string"
+                  },
+                  "quote_token_price_native_currency": {
+                    "type": "string"
+                  },
+                  "quote_token_price_usd": {
+                    "type": "string"
+                  },
+                  "reserve_in_usd": {
+                    "type": "string"
+                  },
+                  "transactions": {
+                    "type": "object",
+                    "properties": {
+                      "h1": {
+                        "type": "object",
+                        "properties": {
+                          "buyers": {
+                            "type": "integer"
+                          },
+                          "buys": {
+                            "type": "integer"
+                          },
+                          "sellers": {
+                            "type": "integer"
+                          },
+                          "sells": {
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "buyers",
+                          "buys",
+                          "sellers",
+                          "sells"
+                        ]
+                      },
+                      "h24": {
+                        "type": "object",
+                        "properties": {
+                          "buyers": {
+                            "type": "integer"
+                          },
+                          "buys": {
+                            "type": "integer"
+                          },
+                          "sellers": {
+                            "type": "integer"
+                          },
+                          "sells": {
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "buyers",
+                          "buys",
+                          "sellers",
+                          "sells"
+                        ]
+                      },
+                      "m15": {
+                        "type": "object",
+                        "properties": {
+                          "buyers": {
+                            "type": "integer"
+                          },
+                          "buys": {
+                            "type": "integer"
+                          },
+                          "sellers": {
+                            "type": "integer"
+                          },
+                          "sells": {
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "buyers",
+                          "buys",
+                          "sellers",
+                          "sells"
+                        ]
+                      },
+                      "m30": {
+                        "type": "object",
+                        "properties": {
+                          "buyers": {
+                            "type": "integer"
+                          },
+                          "buys": {
+                            "type": "integer"
+                          },
+                          "sellers": {
+                            "type": "integer"
+                          },
+                          "sells": {
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "buyers",
+                          "buys",
+                          "sellers",
+                          "sells"
+                        ]
+                      },
+                      "m5": {
+                        "type": "object",
+                        "properties": {
+                          "buyers": {
+                            "type": "integer"
+                          },
+                          "buys": {
+                            "type": "integer"
+                          },
+                          "sellers": {
+                            "type": "integer"
+                          },
+                          "sells": {
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "buyers",
+                          "buys",
+                          "sellers",
+                          "sells"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "h1",
+                      "h24",
+                      "m15",
+                      "m30",
+                      "m5"
+                    ]
+                  },
+                  "volume_usd": {
+                    "type": "object",
+                    "properties": {
+                      "h1": {
+                        "type": "string"
+                      },
+                      "h24": {
+                        "type": "string"
+                      },
+                      "h6": {
+                        "type": "string"
+                      },
+                      "m15": {
+                        "type": "string"
+                      },
+                      "m30": {
+                        "type": "string"
+                      },
+                      "m5": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "h1",
+                      "h24",
+                      "h6",
+                      "m15",
+                      "m30",
+                      "m5"
+                    ]
+                  }
+                },
+                "required": [
+                  "address",
+                  "base_token_price_native_currency",
+                  "base_token_price_quote_token",
+                  "base_token_price_usd",
+                  "fdv_usd",
+                  "name",
+                  "pool_created_at",
+                  "price_change_percentage",
+                  "quote_token_price_base_token",
+                  "quote_token_price_native_currency",
+                  "quote_token_price_usd",
+                  "reserve_in_usd",
+                  "transactions",
+                  "volume_usd"
+                ]
+              },
+              "id": {
+                "type": "string"
+              },
+              "relationships": {
+                "type": "object",
+                "properties": {
+                  "base_token": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "type"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "data"
+                    ]
+                  },
+                  "dex": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "type"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "data"
+                    ]
+                  },
+                  "quote_token": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "type"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "data"
+                    ]
+                  }
+                },
+                "required": [
+                  "base_token",
+                  "dex",
+                  "quote_token"
+                ]
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "attributes",
+              "id",
+              "relationships",
+              "type"
+            ]
+          }
+        },
+        "included": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string",
+                    "pattern": "^0x[a-fA-F0-9]{40}$"
+                  },
+                  "coingecko_coin_id": {
+                    "type": "string"
+                  },
+                  "decimals": {
+                    "type": "integer"
+                  },
+                  "image_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "symbol": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "address",
+                  "coingecko_coin_id",
+                  "decimals",
+                  "image_url",
+                  "name",
+                  "symbol"
+                ]
+              },
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "attributes",
+              "id",
+              "type"
+            ]
+          }
+        }
+      },
+      "required": [
+        "data",
+        "included"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data[].id"
+      },
+      {
+        "type": "unique",
+        "field": "included[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.aidress.ai",
+    "endpoint": "https://api.aidress.ai/pay/agent_pro_api_coingecko_com",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

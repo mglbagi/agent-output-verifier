@@ -1,0 +1,315 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7a64b0bf35218660",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "papers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "access": {
+                "type": "object",
+                "properties": {
+                  "best_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "confidence": {
+                    "type": "string"
+                  },
+                  "is_oa": {
+                    "type": "boolean"
+                  },
+                  "license": {
+                    "type": "string"
+                  },
+                  "retrieved_at": {
+                    "type": "string"
+                  },
+                  "source": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "best_url",
+                  "confidence",
+                  "is_oa",
+                  "license",
+                  "retrieved_at",
+                  "source"
+                ]
+              },
+              "authors": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "orcid": {}
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              },
+              "identifiers": {
+                "type": "object",
+                "properties": {
+                  "doi": {
+                    "type": "string"
+                  },
+                  "openalex": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "doi",
+                  "openalex"
+                ]
+              },
+              "impact_context": {
+                "type": "object",
+                "properties": {
+                  "citation_count": {
+                    "type": "integer"
+                  },
+                  "note": {
+                    "type": "string"
+                  },
+                  "retrieved_at": {
+                    "type": "string"
+                  },
+                  "source": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "citation_count",
+                  "note",
+                  "retrieved_at",
+                  "source"
+                ]
+              },
+              "integrity": {
+                "type": "object",
+                "properties": {
+                  "note": {
+                    "type": "string"
+                  },
+                  "sources_checked": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "updates": {
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "note",
+                  "sources_checked",
+                  "status",
+                  "updates"
+                ]
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "object",
+                    "properties": {
+                      "retrieved_at": {
+                        "type": "string"
+                      },
+                      "source": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "retrieved_at",
+                      "source"
+                    ]
+                  }
+                },
+                "required": [
+                  "title"
+                ]
+              },
+              "relevance": {
+                "type": "object",
+                "properties": {
+                  "rank": {
+                    "type": "integer"
+                  },
+                  "reason": {
+                    "type": "string"
+                  },
+                  "score": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "rank",
+                  "reason",
+                  "score"
+                ]
+              },
+              "source_urls": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "title": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "venue": {
+                "type": "string"
+              },
+              "year": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "access",
+              "authors",
+              "identifiers",
+              "impact_context",
+              "integrity",
+              "provenance",
+              "relevance",
+              "source_urls",
+              "title",
+              "type",
+              "venue",
+              "year"
+            ]
+          }
+        },
+        "partial_failures": {
+          "type": "array"
+        },
+        "request": {
+          "type": "object",
+          "properties": {
+            "filters": {
+              "type": "object",
+              "properties": {
+                "exclude_known_retracted": {
+                  "type": "boolean"
+                },
+                "from_year": {
+                  "type": "integer"
+                },
+                "limit": {
+                  "type": "integer"
+                },
+                "open_access_only": {
+                  "type": "boolean"
+                },
+                "to_year": {}
+              },
+              "required": [
+                "exclude_known_retracted",
+                "from_year",
+                "limit",
+                "open_access_only"
+              ]
+            },
+            "id": {
+              "type": "string"
+            },
+            "normalized_query": {
+              "type": "string"
+            },
+            "price_usd": {
+              "type": "string"
+            },
+            "retrieved_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "filters",
+            "id",
+            "normalized_query",
+            "price_usd",
+            "retrieved_at"
+          ]
+        },
+        "stats": {
+          "type": "object",
+          "properties": {
+            "cache": {
+              "type": "string"
+            },
+            "candidates_retrieved": {
+              "type": "integer"
+            },
+            "duplicates_removed": {
+              "type": "integer"
+            },
+            "filtered_retracted": {
+              "type": "integer"
+            },
+            "latency_ms": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "cache",
+            "candidates_retrieved",
+            "duplicates_removed",
+            "filtered_retracted",
+            "latency_ms"
+          ]
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "papers",
+        "partial_failures",
+        "request",
+        "stats",
+        "warnings"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "papers[].impact_context.citation_count": {
+        "min": 0
+      },
+      "request.filters.limit": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "aep-api.fly.dev",
+    "endpoint": "https://aep-api.fly.dev/v1/evidence-pack",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

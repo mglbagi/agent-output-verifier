@@ -1,0 +1,58 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_15f8cf320206c0df",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "crime_index": {
+          "type": "integer"
+        },
+        "median_income": {
+          "type": "integer"
+        },
+        "neighborhood": {
+          "type": "string"
+        },
+        "price_appreciation_5yr_pct": {
+          "type": "number"
+        },
+        "school_rating": {
+          "type": "number"
+        },
+        "vibe": {
+          "type": "string"
+        },
+        "walk_score": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "crime_index",
+        "median_income",
+        "neighborhood",
+        "price_appreciation_5yr_pct",
+        "school_rating",
+        "vibe",
+        "walk_score"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "price_appreciation_5yr_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "proppulse.theaslangroupllc.com",
+    "endpoint": "https://proppulse.theaslangroupllc.com/api/prop/neighborhood",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

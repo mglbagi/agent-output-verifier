@@ -1,0 +1,254 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7f350c3ba3df1221",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "billing": {
+          "type": "object",
+          "properties": {
+            "credits_charged": {
+              "type": "integer"
+            },
+            "credits_remaining": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "credits_charged",
+            "credits_remaining"
+          ]
+        },
+        "capturedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deployers": {
+          "type": "array"
+        },
+        "developers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "exposure_score": {
+                "type": "number"
+              },
+              "incident_count": {
+                "type": "integer"
+              },
+              "latest_report_id": {
+                "type": "string"
+              },
+              "latest_reported_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "recent_count_30d": {
+                "type": "integer"
+              },
+              "risk_domains": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "role": {
+                "type": "string"
+              },
+              "vendor": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "exposure_score",
+              "incident_count",
+              "latest_report_id",
+              "latest_reported_date",
+              "recent_count_30d",
+              "risk_domains",
+              "role",
+              "vendor"
+            ]
+          }
+        },
+        "entries_count": {
+          "type": "integer"
+        },
+        "filter": {
+          "type": "object",
+          "properties": {
+            "risk_domain": {
+              "type": "string"
+            },
+            "vendor": {
+              "type": "string"
+            },
+            "within_days": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "risk_domain",
+            "vendor",
+            "within_days"
+          ]
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "risk_domains": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "incident_count": {
+                "type": "integer"
+              },
+              "recent_count_30d": {
+                "type": "integer"
+              },
+              "risk_domain": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "incident_count",
+              "recent_count_30d",
+              "risk_domain"
+            ]
+          }
+        },
+        "sep_view": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "incident_count": {
+                "type": "integer"
+              },
+              "sep_view": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "incident_count",
+              "sep_view"
+            ]
+          }
+        },
+        "snapshot_captured_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source": {
+          "type": "string"
+        },
+        "source_license": {
+          "type": "string"
+        },
+        "top_artifacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "developers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "incident_count": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "developers",
+              "incident_count",
+              "name",
+              "type"
+            ]
+          }
+        },
+        "window": {
+          "type": "object",
+          "properties": {
+            "cutoff_date": {
+              "type": "string",
+              "format": "date"
+            },
+            "window_days": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "cutoff_date",
+            "window_days"
+          ]
+        }
+      },
+      "required": [
+        "billing",
+        "capturedAt",
+        "deployers",
+        "developers",
+        "entries_count",
+        "filter",
+        "ok",
+        "risk_domains",
+        "sep_view",
+        "snapshot_captured_at",
+        "source",
+        "source_license",
+        "top_artifacts",
+        "window"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "developers[].latest_report_id"
+      }
+    ],
+    "bounds": {
+      "developers[].incident_count": {
+        "min": 0
+      },
+      "developers[].recent_count_30d": {
+        "min": 0
+      },
+      "entries_count": {
+        "min": 0
+      },
+      "risk_domains[].incident_count": {
+        "min": 0
+      },
+      "risk_domains[].recent_count_30d": {
+        "min": 0
+      },
+      "sep_view[].incident_count": {
+        "min": 0
+      },
+      "top_artifacts[].incident_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tensorfeed.ai",
+    "endpoint": "https://tensorfeed.ai/api/premium/ai-safety/incidents/exposure",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

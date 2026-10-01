@@ -1,0 +1,145 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a19f09d39895bc63",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "attribution": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "returned": {
+          "type": "integer"
+        },
+        "rows": {
+          "items": {
+            "properties": {
+              "as_of": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "comex_ref_usd_per_oz": {
+                "type": "number"
+              },
+              "contract": {
+                "type": "string"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "ex_tax_premium_pct": {
+                "type": "number"
+              },
+              "gross_premium_pct": {
+                "type": "number"
+              },
+              "local_price": {
+                "type": "number"
+              },
+              "metal": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "tax_wedge_pct": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string"
+              },
+              "usd_per_oz": {
+                "type": "number"
+              },
+              "venue": {
+                "type": "string"
+              },
+              "wedge_label": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "as_of",
+              "comex_ref_usd_per_oz",
+              "contract",
+              "currency",
+              "ex_tax_premium_pct",
+              "gross_premium_pct",
+              "local_price",
+              "metal",
+              "source",
+              "tax_wedge_pct",
+              "unit",
+              "usd_per_oz",
+              "venue",
+              "wedge_label"
+            ]
+          },
+          "type": "array"
+        },
+        "schema_version": {
+          "type": "integer"
+        },
+        "source": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "endpoint",
+        "rows"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "rows[].comex_ref_usd_per_oz": {
+        "min": 0
+      },
+      "rows[].ex_tax_premium_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "rows[].gross_premium_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "rows[].local_price": {
+        "min": 0
+      },
+      "rows[].tax_wedge_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "rows[].usd_per_oz": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "thevaultreport.com",
+    "endpoint": "https://thevaultreport.com/api/x402/premiums",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

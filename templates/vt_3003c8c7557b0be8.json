@@ -1,0 +1,67 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3003c8c7557b0be8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "callback_token": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "client_reference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "created_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "event_url": {
+          "format": "uri",
+          "type": "string"
+        },
+        "expires_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "status": {
+          "const": "waiting",
+          "type": "string"
+        },
+        "status_url": {
+          "format": "uri",
+          "type": "string"
+        },
+        "wait_id": {
+          "format": "uuid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "wait_id",
+        "status",
+        "event_url",
+        "status_url",
+        "callback_token",
+        "created_at",
+        "expires_at"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "wait.edgecasesystems.workers.dev",
+    "endpoint": "https://wait.edgecasesystems.workers.dev/v1/waits",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

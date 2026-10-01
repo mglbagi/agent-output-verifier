@@ -1,0 +1,52 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9ff1070ffd485585",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "summary": {
+          "type": "object",
+          "properties": {
+            "disruption_score": {
+              "type": "integer"
+            },
+            "total_employees_affected": {
+              "type": "number"
+            },
+            "total_events": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "disruption_score",
+            "total_employees_affected",
+            "total_events"
+          ]
+        }
+      },
+      "required": [
+        "summary"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "summary.total_employees_affected": {
+        "min": 0
+      },
+      "summary.total_events": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "disruption.forgemesh.io",
+    "endpoint": "https://disruption.forgemesh.io/territory/:zip/disruption",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

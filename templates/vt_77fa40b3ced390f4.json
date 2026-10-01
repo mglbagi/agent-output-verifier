@@ -1,0 +1,54 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_77fa40b3ced390f4",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "summary": {
+          "type": "object",
+          "properties": {
+            "accounts_tracked": {
+              "type": "integer"
+            },
+            "long_short_ratio": {
+              "type": "number"
+            },
+            "net_bias": {
+              "type": "string"
+            },
+            "total_net_usd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "accounts_tracked",
+            "long_short_ratio",
+            "net_bias",
+            "total_net_usd"
+          ]
+        }
+      },
+      "required": [
+        "summary"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "summary.long_short_ratio": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "cryptodataapi.com",
+    "endpoint": "https://cryptodataapi.com/api/v1/quant/whales",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3512a4eed8bd8aa8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "activity": {
+          "description": "outgoing_tx_count, tx_count_indexed, first_seen_at, first_seen_age_days",
+          "type": "object"
+        },
+        "address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "block_number": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "cached": {
+          "type": "boolean"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "contract": {
+          "description": "verified (Blockscout), name, proxy_type, creator, creation_tx, created_at",
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "eip7702_delegated_eoa": {
+          "type": "boolean"
+        },
+        "errors": {
+          "type": "array"
+        },
+        "is_contract": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "labels": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "lookalike": {
+          "description": "compare_to, prefix_match_hex, suffix_match_hex, lookalike",
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "product": {
+          "type": "string"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "sanctioned": {
+          "description": "Exact match to an OFAC SDN published digital currency address",
+          "type": "boolean"
+        },
+        "sanctions": {
+          "description": "matches[], list, list_date, list_fetched_at, source_url",
+          "type": "object"
+        },
+        "schema_version": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "ok",
+            "partial",
+            "error"
+          ],
+          "type": "string"
+        },
+        "verdict": {
+          "enum": [
+            "block",
+            "caution",
+            "ok"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "address",
+        "status",
+        "verdict",
+        "reasons",
+        "sanctioned",
+        "disclaimer"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "block_number": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.x402risk.com",
+    "endpoint": "https://api.x402risk.com/v1/address-screen",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

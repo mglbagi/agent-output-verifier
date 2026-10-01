@@ -1,0 +1,107 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0d486edd25a45a8d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "holders": {
+          "type": "object",
+          "properties": {
+            "top_10_pct": {
+              "type": "integer"
+            },
+            "total_holders": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "top_10_pct",
+            "total_holders"
+          ]
+        },
+        "price": {
+          "type": "object",
+          "properties": {
+            "liquidity_usd": {
+              "type": "number"
+            },
+            "price_usd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "liquidity_usd",
+            "price_usd"
+          ]
+        },
+        "safety": {
+          "type": "object",
+          "properties": {
+            "is_honeypot": {
+              "type": "boolean"
+            },
+            "risk_score": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "is_honeypot",
+            "risk_score"
+          ]
+        },
+        "token": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "symbol": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "address",
+            "name",
+            "symbol"
+          ]
+        }
+      },
+      "required": [
+        "holders",
+        "price",
+        "safety",
+        "token"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "holders.top_10_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "holders.total_holders": {
+        "min": 0
+      },
+      "price.liquidity_usd": {
+        "min": 0
+      },
+      "price.price_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "svm402.com",
+    "endpoint": "https://svm402.com/analyze",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

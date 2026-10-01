@@ -1,0 +1,130 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cfaed2915d4255f4",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "age_minutes": {
+          "type": "integer"
+        },
+        "as_of": {
+          "type": "number"
+        },
+        "note": {
+          "type": "string"
+        },
+        "posts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "author": {
+                "type": "string"
+              },
+              "comments": {
+                "type": "integer"
+              },
+              "post_id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "title": {
+                "type": "string"
+              },
+              "upvotes": {
+                "type": "integer"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "author",
+              "comments",
+              "post_id",
+              "title",
+              "upvotes",
+              "url"
+            ]
+          }
+        },
+        "source": {
+          "type": "string"
+        },
+        "stale": {
+          "type": "boolean"
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "posts": {
+                "type": "integer"
+              },
+              "word": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "posts",
+              "word"
+            ]
+          }
+        },
+        "totals": {
+          "type": "object",
+          "properties": {
+            "comments": {
+              "type": "integer"
+            },
+            "posts": {
+              "type": "integer"
+            },
+            "upvotes": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "comments",
+            "posts",
+            "upvotes"
+          ]
+        }
+      },
+      "required": [
+        "age_minutes",
+        "as_of",
+        "note",
+        "posts",
+        "source",
+        "stale",
+        "topics",
+        "totals"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "posts[].post_id"
+      }
+    ],
+    "bounds": {
+      "age_minutes": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "whaletape.xyz",
+    "endpoint": "https://whaletape.xyz/mer0/moltbook/pulse",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

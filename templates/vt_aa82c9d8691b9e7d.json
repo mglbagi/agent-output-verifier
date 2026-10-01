@@ -1,0 +1,351 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_aa82c9d8691b9e7d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "anyOf": [
+        {
+          "required": [
+            "transaction"
+          ]
+        },
+        {
+          "required": [
+            "gasless"
+          ]
+        }
+      ],
+      "properties": {
+        "approvalRequired": {
+          "type": "boolean"
+        },
+        "approvalSpender": {
+          "pattern": "^0x[a-fA-F0-9]{40}$",
+          "type": "string"
+        },
+        "buyAmount": {
+          "pattern": "^\\d+$",
+          "type": "string"
+        },
+        "buyToken": {
+          "pattern": "^0x[a-fA-F0-9]{40}$",
+          "type": "string"
+        },
+        "chainId": {
+          "const": 8453,
+          "type": "integer"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "executionMode": {
+          "enum": [
+            "standard",
+            "gasless"
+          ],
+          "type": "string"
+        },
+        "expiresAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "feeAmount": {
+          "pattern": "^\\d+$",
+          "type": "string"
+        },
+        "feeBps": {
+          "const": 10,
+          "type": "integer"
+        },
+        "feeToken": {
+          "pattern": "^0x[a-fA-F0-9]{40}$",
+          "type": "string"
+        },
+        "gasless": {
+          "properties": {
+            "buyerMustSignAndSubmit": {
+              "const": true,
+              "type": "boolean"
+            },
+            "relayRequiresBuyerZeroXApiKey": {
+              "const": true,
+              "type": "boolean"
+            },
+            "relaySubmitEndpoint": {
+              "format": "uri",
+              "type": "string"
+            },
+            "target": {
+              "pattern": "^0x[a-fA-F0-9]{40}$",
+              "type": "string"
+            },
+            "trade": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "trade",
+            "target",
+            "relaySubmitEndpoint",
+            "relayRequiresBuyerZeroXApiKey",
+            "buyerMustSignAndSubmit"
+          ],
+          "type": "object"
+        },
+        "inputFormat": {
+          "enum": [
+            "simple",
+            "advanced"
+          ],
+          "type": "string"
+        },
+        "minBuyAmount": {
+          "pattern": "^\\d+$",
+          "type": "string"
+        },
+        "payloadHash": {
+          "pattern": "^0x[a-fA-F0-9]{64}$",
+          "type": "string"
+        },
+        "quoteId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "receipt": {
+          "additionalProperties": false,
+          "properties": {
+            "attribution": {
+              "additionalProperties": false,
+              "properties": {
+                "intentId": {
+                  "maxLength": 128,
+                  "minLength": 16,
+                  "pattern": "^[a-zA-Z0-9_-]+$",
+                  "type": "string"
+                },
+                "referralCode": {
+                  "maxLength": 64,
+                  "minLength": 3,
+                  "pattern": "^[a-zA-Z0-9_-]+$",
+                  "type": "string"
+                },
+                "sourceAgentId": {
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "buyAmount": {
+              "pattern": "^\\d+$",
+              "type": "string"
+            },
+            "buyToken": {
+              "pattern": "^0x[a-fA-F0-9]{40}$",
+              "type": "string"
+            },
+            "chainId": {
+              "const": 8453,
+              "type": "integer"
+            },
+            "createdAt": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "executionMode": {
+              "enum": [
+                "standard",
+                "gasless"
+              ],
+              "type": "string"
+            },
+            "expiresAt": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "feeAmount": {
+              "pattern": "^\\d+$",
+              "type": "string"
+            },
+            "feeBps": {
+              "const": 10,
+              "type": "integer"
+            },
+            "feeRecipient": {
+              "pattern": "^0x[a-fA-F0-9]{40}$",
+              "type": "string"
+            },
+            "feeToken": {
+              "pattern": "^0x[a-fA-F0-9]{40}$",
+              "type": "string"
+            },
+            "gaslessTarget": {
+              "pattern": "^0x[a-fA-F0-9]{40}$",
+              "type": "string"
+            },
+            "payloadHash": {
+              "pattern": "^0x[a-fA-F0-9]{64}$",
+              "type": "string"
+            },
+            "quoteId": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "sellAmount": {
+              "pattern": "^\\d+$",
+              "type": "string"
+            },
+            "sellToken": {
+              "pattern": "^0x[a-fA-F0-9]{40}$",
+              "type": "string"
+            },
+            "taker": {
+              "pattern": "^0x[a-fA-F0-9]{40}$",
+              "type": "string"
+            },
+            "transactionTo": {
+              "pattern": "^0x[a-fA-F0-9]{40}$",
+              "type": "string"
+            },
+            "transactionValue": {
+              "pattern": "^\\d+$",
+              "type": "string"
+            },
+            "usdcNotional": {
+              "pattern": "^\\d+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "quoteId",
+            "chainId",
+            "createdAt",
+            "expiresAt",
+            "sellToken",
+            "buyToken",
+            "sellAmount",
+            "buyAmount",
+            "taker",
+            "executionMode",
+            "usdcNotional",
+            "feeBps",
+            "feeRecipient",
+            "payloadHash"
+          ],
+          "type": "object"
+        },
+        "receiptSignature": {
+          "pattern": "^[a-fA-F0-9]{64}$",
+          "type": "string"
+        },
+        "sellAmount": {
+          "pattern": "^\\d+$",
+          "type": "string"
+        },
+        "sellToken": {
+          "pattern": "^0x[a-fA-F0-9]{40}$",
+          "type": "string"
+        },
+        "simulation": {
+          "additionalProperties": false,
+          "properties": {
+            "reason": {
+              "type": "string"
+            },
+            "status": {
+              "enum": [
+                "passed",
+                "skipped",
+                "failed"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "status"
+          ],
+          "type": "object"
+        },
+        "taker": {
+          "pattern": "^0x[a-fA-F0-9]{40}$",
+          "type": "string"
+        },
+        "transaction": {
+          "additionalProperties": false,
+          "properties": {
+            "data": {
+              "pattern": "^0x[a-fA-F0-9]*$",
+              "type": "string"
+            },
+            "gas": {
+              "pattern": "^\\d+$",
+              "type": "string"
+            },
+            "gasPrice": {
+              "pattern": "^\\d+$",
+              "type": "string"
+            },
+            "to": {
+              "pattern": "^0x[a-fA-F0-9]{40}$",
+              "type": "string"
+            },
+            "value": {
+              "pattern": "^\\d+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "to",
+            "data",
+            "value"
+          ],
+          "type": "object"
+        },
+        "transactionDataHash": {
+          "pattern": "^0x[a-fA-F0-9]{64}$",
+          "type": "string"
+        },
+        "usdNotional": {
+          "pattern": "^\\d+$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "quoteId",
+        "chainId",
+        "createdAt",
+        "expiresAt",
+        "sellToken",
+        "buyToken",
+        "sellAmount",
+        "buyAmount",
+        "feeBps",
+        "executionMode",
+        "usdNotional",
+        "approvalRequired",
+        "taker",
+        "payloadHash",
+        "simulation",
+        "receipt",
+        "receiptSignature",
+        "inputFormat"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.usesaferoute.com",
+    "endpoint": "https://api.usesaferoute.com/v1/quote",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

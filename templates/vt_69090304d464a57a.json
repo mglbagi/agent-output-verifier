@@ -1,0 +1,96 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_69090304d464a57a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "canonical": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "h1_h3_map": {
+          "description": "Arrays of h1, h2 and h3 heading text.",
+          "type": "object"
+        },
+        "image_alt_coverage": {
+          "description": "total_images, with_alt, missing_alt, coverage_pct.",
+          "type": "object"
+        },
+        "meta_description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "meta_description_length": {
+          "type": "integer"
+        },
+        "og_twitter_complete": {
+          "type": "boolean"
+        },
+        "robots": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "schema_org_present": {
+          "type": "boolean"
+        },
+        "score": {
+          "description": "Overall on-page SEO score, 0-100.",
+          "type": "integer"
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title_length": {
+          "type": "integer"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "type": "object",
+      "required": [
+        "canonical",
+        "h1_h3_map",
+        "image_alt_coverage",
+        "meta_description",
+        "meta_description_length",
+        "og_twitter_complete",
+        "robots",
+        "schema_org_present",
+        "score",
+        "title",
+        "title_length",
+        "url"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "meta_description_length": {
+        "min": 0
+      },
+      "title_length": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "seo.cyberwarex.com",
+    "endpoint": "https://seo.cyberwarex.com/audit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

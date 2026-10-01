@@ -1,0 +1,253 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_96e187c3bc652407",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "complete": {
+          "description": "False when more new posts exist than one call could fetch; poll again to catch up",
+          "type": "boolean"
+        },
+        "newestId": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Pass back as sinceId on your next poll"
+        },
+        "polledAt": {
+          "description": "ISO 8601 time of this poll",
+          "type": "string",
+          "format": "date-time"
+        },
+        "posts": {
+          "description": "New posts, newest first, deduped",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "author": {
+                "additionalProperties": false,
+                "properties": {
+                  "handle": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "name": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "handle",
+                  "name",
+                  "id"
+                ],
+                "type": "object"
+              },
+              "createdAt": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "ISO 8601"
+              },
+              "hashtags": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "id": {
+                "type": "string"
+              },
+              "lang": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "links": {
+                "description": "Expanded outbound URLs",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "mentions": {
+                "description": "Mentioned handles",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "metrics": {
+                "additionalProperties": false,
+                "properties": {
+                  "likes": {
+                    "anyOf": [
+                      {
+                        "maximum": 9007199254740991,
+                        "minimum": -9007199254740991,
+                        "type": "integer"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "quotes": {
+                    "anyOf": [
+                      {
+                        "maximum": 9007199254740991,
+                        "minimum": -9007199254740991,
+                        "type": "integer"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "replies": {
+                    "anyOf": [
+                      {
+                        "maximum": 9007199254740991,
+                        "minimum": -9007199254740991,
+                        "type": "integer"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "retweets": {
+                    "anyOf": [
+                      {
+                        "maximum": 9007199254740991,
+                        "minimum": -9007199254740991,
+                        "type": "integer"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "views": {
+                    "anyOf": [
+                      {
+                        "maximum": 9007199254740991,
+                        "minimum": -9007199254740991,
+                        "type": "integer"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "likes",
+                  "retweets",
+                  "replies",
+                  "quotes",
+                  "views"
+                ],
+                "type": "object"
+              },
+              "text": {
+                "type": "string"
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "url",
+              "text",
+              "createdAt",
+              "lang",
+              "author",
+              "metrics",
+              "hashtags",
+              "links",
+              "mentions"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "query": {
+          "description": "The search query executed upstream, for transparency",
+          "type": "string"
+        }
+      },
+      "required": [
+        "posts",
+        "newestId",
+        "complete",
+        "query",
+        "polledAt"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "posts[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.botsmith.dev",
+    "endpoint": "https://x402.botsmith.dev/x/watchlist",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

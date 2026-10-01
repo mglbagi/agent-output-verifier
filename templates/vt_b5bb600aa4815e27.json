@@ -1,0 +1,156 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b5bb600aa4815e27",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "attribution": {
+          "type": "string"
+        },
+        "offers": {
+          "type": "object",
+          "properties": {
+            "disclosure": {
+              "type": "string"
+            },
+            "history_reports": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "adds": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "partner": {
+                    "type": "string"
+                  },
+                  "pricing": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "adds",
+                  "label",
+                  "partner",
+                  "pricing",
+                  "url"
+                ]
+              }
+            },
+            "note": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "disclosure",
+            "history_reports",
+            "note"
+          ]
+        },
+        "severity_totals": {
+          "type": "object",
+          "properties": {
+            "crashes": {
+              "type": "integer"
+            },
+            "deaths": {
+              "type": "integer"
+            },
+            "fires": {
+              "type": "integer"
+            },
+            "injuries": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "crashes",
+            "deaths",
+            "fires",
+            "injuries"
+          ]
+        },
+        "top_failure_components": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "complaints": {
+                "type": "integer"
+              },
+              "component": {
+                "type": "string"
+              },
+              "share_pct": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "complaints",
+              "component",
+              "share_pct"
+            ]
+          }
+        },
+        "total_complaints": {
+          "type": "number"
+        },
+        "vehicle": {
+          "type": "object",
+          "properties": {
+            "make": {
+              "type": "string"
+            },
+            "model": {
+              "type": "string"
+            },
+            "model_year": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "make",
+            "model",
+            "model_year"
+          ]
+        }
+      },
+      "required": [
+        "attribution",
+        "offers",
+        "severity_totals",
+        "top_failure_components",
+        "total_complaints",
+        "vehicle"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "top_failure_components[].share_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "total_complaints": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.forgemesh.io",
+    "endpoint": "https://x402.forgemesh.io/common-car-problems",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

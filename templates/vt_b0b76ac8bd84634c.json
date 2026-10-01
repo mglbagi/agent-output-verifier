@@ -1,0 +1,46 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b0b76ac8bd84634c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "bytes": {
+          "description": "Byte length of the hashed input.",
+          "type": "integer"
+        },
+        "hashes": {
+          "description": "Map of algorithm → lowercase hex digest.",
+          "type": "object"
+        },
+        "warnings": {
+          "description": "Present when a broken/legacy algorithm (md5, sha1) was requested.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "bytes",
+        "hashes"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "bytes": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "402utils.com",
+    "endpoint": "https://402utils.com/v1/hash",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

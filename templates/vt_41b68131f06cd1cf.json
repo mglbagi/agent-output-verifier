@@ -1,0 +1,120 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_41b68131f06cd1cf",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "fixes_in_window": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "license_url": {
+          "format": "uri",
+          "type": "string"
+        },
+        "max_points": {
+          "type": "integer"
+        },
+        "mmsi": {
+          "pattern": "^[0-9]{9}$",
+          "type": "string"
+        },
+        "point_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "point_time_unit": {
+          "const": "unix_ms",
+          "type": "string"
+        },
+        "points": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "lat": {
+                "maximum": 90,
+                "minimum": -90,
+                "type": "number"
+              },
+              "lng": {
+                "maximum": 180,
+                "minimum": -180,
+                "type": "number"
+              },
+              "speed": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "time": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "lat",
+              "lng",
+              "time",
+              "speed"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "provider": {
+          "const": "AIS Fleet",
+          "type": "string"
+        },
+        "sampled": {
+          "type": "boolean"
+        },
+        "window_end": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "window_hours": {
+          "const": 168,
+          "type": "integer"
+        },
+        "window_start": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "provider",
+        "mmsi",
+        "window_hours",
+        "window_start",
+        "window_end",
+        "fixes_in_window",
+        "point_count",
+        "sampled",
+        "max_points",
+        "point_time_unit",
+        "points",
+        "license_url"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "window_start",
+        "other_field": "window_end"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "aisfleet.com",
+    "endpoint": "https://aisfleet.com/api/x402/v1/ais/vessels/:mmsi/track-7d",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3eff286a0c5750bf",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "description": "Rendered report PLUS the same facts as machine-readable fields.",
+          "properties": {
+            "fearGreed": {
+              "description": "Overview mode only.",
+              "type": "object"
+            },
+            "fundingArbitrage": {
+              "description": "Overview mode only. spreadPct.",
+              "type": "array"
+            },
+            "fundingRates": {
+              "description": "Per-exchange. fundingRatePct is ALREADY a percent (0.0088 = 0.0088%) — do not rescale.",
+              "type": "array"
+            },
+            "globalLongShort": {
+              "description": "longPct/shortPct/ratio.",
+              "type": "object"
+            },
+            "liquidations24h": {
+              "description": "Overview mode only. USD totals.",
+              "type": "object"
+            },
+            "openInterest": {
+              "description": "Per-exchange openInterestUsd.",
+              "type": "array"
+            },
+            "report": {
+              "type": "string"
+            },
+            "symbol": {
+              "type": "string"
+            },
+            "topTraderLongShort": {
+              "description": "longPct/shortPct/ratio.",
+              "type": "object"
+            },
+            "whalePositions": {
+              "description": "Hyperliquid positions, USD.",
+              "type": "array"
+            }
+          },
+          "type": "object",
+          "required": [
+            "fundingRates",
+            "globalLongShort",
+            "openInterest",
+            "report",
+            "symbol",
+            "whalePositions"
+          ]
+        },
+        "meta": {
+          "description": "Freshness. generatedAt = when we built this response. stalenessSec = age of our cached snapshot, absent on live pass-throughs. dataAsOf = vintage of the observations. degraded = an older good version was served.",
+          "properties": {
+            "degraded": {
+              "type": "boolean"
+            },
+            "generatedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "sourceHealth": {
+              "type": "object"
+            },
+            "stalenessSec": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "generatedAt",
+            "degraded",
+            "sourceHealth"
+          ],
+          "type": "object"
+        },
+        "report": {
+          "description": "DEPRECATED mirror of data.report — kept so pre-2026-08-10 integrations keep working.",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "success",
+            "failed"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "data",
+        "meta"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.ottoai.services",
+    "endpoint": "https://x402.ottoai.services/funding-rates",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

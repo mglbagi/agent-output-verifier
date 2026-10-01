@@ -1,0 +1,165 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_047680c5ea3c49d1",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "cached": {
+          "type": "boolean"
+        },
+        "checked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "method": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "options": {
+          "items": {
+            "properties": {
+              "amount": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "asset_symbol": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "index": {
+                "type": "integer"
+              },
+              "network": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "network_name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "pay_to": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^0x[a-fA-F0-9]{40}$"
+              },
+              "payable": {
+                "type": "boolean"
+              },
+              "problems": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "usd": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "index",
+              "payable",
+              "problems"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "reasons": {
+          "items": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "level": {
+                "enum": [
+                  "no_go",
+                  "caution",
+                  "info"
+                ],
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "level",
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "recommended_option": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "safe_to_pay": {
+          "type": "boolean"
+        },
+        "signals": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "verdict": {
+          "enum": [
+            "go",
+            "caution",
+            "no_go"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "verdict",
+        "safe_to_pay",
+        "summary",
+        "options",
+        "reasons"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "options[].usd": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-doctor.fizzl.eu",
+    "endpoint": "https://x402-doctor.fizzl.eu/api/v1/preflight",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

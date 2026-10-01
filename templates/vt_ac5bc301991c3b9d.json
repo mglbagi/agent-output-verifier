@@ -1,0 +1,136 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ac5bc301991c3b9d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "confidence": {
+          "type": "number"
+        },
+        "evidence": {
+          "type": "object",
+          "properties": {
+            "bytes": {
+              "type": "integer"
+            },
+            "content_sha256": {
+              "type": "string"
+            },
+            "content_type": {
+              "type": "string"
+            },
+            "fetched_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "method": {
+              "type": "string"
+            },
+            "snippet": {
+              "type": "string",
+              "format": "email"
+            }
+          },
+          "required": [
+            "bytes",
+            "content_sha256",
+            "content_type",
+            "fetched_at",
+            "method",
+            "snippet"
+          ]
+        },
+        "final_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "http_status": {
+          "type": "integer"
+        },
+        "ms": {
+          "type": "integer"
+        },
+        "offer": {
+          "type": "object",
+          "properties": {
+            "availability": {
+              "type": "string"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "price": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "availability",
+            "currency",
+            "price"
+          ]
+        },
+        "product": {
+          "type": "object",
+          "properties": {
+            "brand": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "sku": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "brand",
+            "name",
+            "sku"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "warnings": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "confidence",
+        "evidence",
+        "final_url",
+        "http_status",
+        "ms",
+        "offer",
+        "product",
+        "url",
+        "warnings"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "evidence.bytes": {
+        "min": 0
+      },
+      "offer.price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "offercheck.offercheck.workers.dev",
+    "endpoint": "https://offercheck.offercheck.workers.dev/v1/verify/offer",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

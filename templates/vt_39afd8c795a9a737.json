@@ -1,0 +1,79 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_39afd8c795a9a737",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "findingsCount": {
+          "type": "integer"
+        },
+        "markdown": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "object",
+          "properties": {
+            "critical": {
+              "type": "integer"
+            },
+            "high": {
+              "type": "integer"
+            },
+            "informational": {
+              "type": "integer"
+            },
+            "low": {
+              "type": "integer"
+            },
+            "medium": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "critical",
+            "high",
+            "informational",
+            "low",
+            "medium"
+          ]
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "tokensUsed": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "findingsCount",
+        "markdown",
+        "model",
+        "severity",
+        "success",
+        "tokensUsed"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "severity.low",
+        "other_field": "severity.high"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.remix.live",
+    "endpoint": "https://api.remix.live/mcp/x402-http/do_audit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

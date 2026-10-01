@@ -1,0 +1,189 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0bb40112318d3b59",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "accountNameVerified": {
+          "type": "boolean"
+        },
+        "candidate": {
+          "type": "object",
+          "properties": {
+            "formatValid": {
+              "type": "boolean"
+            },
+            "halfwidthUnits": {
+              "type": "integer"
+            },
+            "issues": {
+              "type": "array"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "formatValid",
+            "halfwidthUnits",
+            "issues",
+            "name"
+          ]
+        },
+        "changes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "endUtf16": {
+                "type": "integer"
+              },
+              "from": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "startUtf16": {
+                "type": "integer"
+              },
+              "to": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "endUtf16",
+              "from",
+              "reason",
+              "startUtf16",
+              "to"
+            ]
+          }
+        },
+        "field": {
+          "type": "string"
+        },
+        "formatValid": {
+          "type": "boolean"
+        },
+        "input": {
+          "type": "object",
+          "properties": {
+            "halfwidthUnits": {},
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ]
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "endUtf16": {
+                "type": "integer"
+              },
+              "message": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string"
+              },
+              "startUtf16": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "code",
+              "endUtf16",
+              "message",
+              "severity",
+              "startUtf16"
+            ]
+          }
+        },
+        "maxHalfwidthUnits": {
+          "type": "integer"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "paid": {
+          "type": "boolean"
+        },
+        "profile": {
+          "type": "string"
+        },
+        "requiresConfirmation": {
+          "type": "boolean"
+        },
+        "rulesVersion": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "pages": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "revision": {
+              "type": "string",
+              "format": "date"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "pages",
+            "revision",
+            "url"
+          ]
+        }
+      },
+      "required": [
+        "accountNameVerified",
+        "candidate",
+        "changes",
+        "field",
+        "formatValid",
+        "input",
+        "issues",
+        "maxHalfwidthUnits",
+        "ok",
+        "paid",
+        "profile",
+        "requiresConfirmation",
+        "rulesVersion",
+        "scope",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "after6labo-x402-testnet.silly-detective.workers.dev",
+    "endpoint": "https://after6labo-x402-testnet.silly-detective.workers.dev/paid/ja-bank-name-check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,337 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c884263469eb58dc",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "laggingPct": {
+          "description": "Share of posts that lagged.",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "laggingPosts": {
+          "description": "Posts that came after the move.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "leadDistributionMinutes": {
+          "additionalProperties": false,
+          "description": "Descriptive five-number summary of this selected sample; not a population confidence interval.",
+          "properties": {
+            "maximum": {
+              "description": "Maximum observed lead.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "median": {
+              "description": "Statistical sample median.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "minimum": {
+              "description": "Minimum observed lead.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "p25": {
+              "description": "Median of the lower half.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "p75": {
+              "description": "Median of the upper half.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "unit": {
+              "description": "minutes",
+              "type": "string"
+            }
+          },
+          "required": [
+            "minimum",
+            "p25",
+            "median",
+            "p75",
+            "maximum",
+            "unit"
+          ],
+          "type": "object"
+        },
+        "limitations": {
+          "description": "Coverage limits and missing data, always disclosed.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "medianLeadMinutes": {
+          "description": "Negative means posts came after the move.",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "offering": {
+          "const": "social_timing_check",
+          "description": "Offering that produced this result.",
+          "type": "string"
+        },
+        "provenance": {
+          "description": "Reproducibility metadata so another agent can audit this.",
+          "properties": {
+            "auditedDeliverableHash": {
+              "description": "Explicit alias for resultHash on deliverable-audit results; hashes the buyer-supplied input, not the audit envelope.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "generatedAt": {
+              "description": "Unix seconds.",
+              "type": "integer"
+            },
+            "ledgerLaunchCount": {
+              "description": "Launches in the ledger. Null when the offering is not derived from the launch ledger — this means not applicable, not collection failure.",
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "ledgerSpanHours": {
+              "description": "Hours of history covered. Null when the offering is not derived from the launch ledger.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "resultHash": {
+              "description": "Hash of the audited input, so the same verdict can be reproduced. Present on audit offerings.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "rubricVersion": {
+              "description": "Rubric the verdict was produced under. Present on audit offerings.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "source": {
+              "description": "Data origin.",
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "generatedAt",
+            "source"
+          ]
+        },
+        "sampleAgeDays": {
+          "description": "How old the frozen sample is at delivery, in days. Stated so the age does not have to be derived by subtracting two Unix times. A large value means the observation is historical, not current.",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "sampleInference": {
+          "additionalProperties": false,
+          "description": "Machine-readable boundary for the small, outcome-selected historical sample.",
+          "properties": {
+            "populationEstimateValid": {
+              "description": "Always false for this outcome-selected artifact.",
+              "type": "boolean"
+            },
+            "reason": {
+              "description": "SMALL_OUTCOME_SELECTED_SAMPLE.",
+              "type": "string"
+            },
+            "refreshState": {
+              "description": "HISTORICAL | CURRENT_WITHIN_30_DAYS | UNKNOWN.",
+              "type": "string"
+            },
+            "scope": {
+              "description": "SELECTED_SAMPLE_ONLY.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "scope",
+            "populationEstimateValid",
+            "reason",
+            "refreshState"
+          ],
+          "type": "object"
+        },
+        "sampleLeadMinutes": {
+          "description": "Sorted per-token lead minutes used to recompute sampleSize, medianLeadMinutes, laggingPosts, laggingPct, and the distribution. Negative values mean the post lagged the price move.",
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "sampleObservedAt": {
+          "description": "Unix time when the frozen source artifact was written.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "sampleSelection": {
+          "additionalProperties": false,
+          "description": "Outcome-selected sampling rule and search basis.",
+          "properties": {
+            "chain": {
+              "description": "Chain sampled.",
+              "type": "string"
+            },
+            "group": {
+              "description": "Eligible sample group.",
+              "type": "string"
+            },
+            "minimumSwaps": {
+              "description": "Minimum swap observations for eligibility.",
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "outcomeSelected": {
+              "description": "True: the sample was selected using later outcome.",
+              "type": "boolean"
+            },
+            "pumpThresholdMultiple": {
+              "description": "Minimum peak multiple for the pumped group.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "ranking": {
+              "description": "Deterministic selection order.",
+              "type": "string"
+            },
+            "searchKey": {
+              "description": "Exact social-search key type.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "chain",
+            "group",
+            "ranking",
+            "pumpThresholdMultiple",
+            "minimumSwaps",
+            "searchKey",
+            "outcomeSelected"
+          ],
+          "type": "object"
+        },
+        "sampleSize": {
+          "description": "Tokens with a measured lead time.",
+          "type": "integer"
+        },
+        "sampleTokens": {
+          "description": "Every token behind the aggregate, so the sample can be audited rather than trusted.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "sampleWindow": {
+          "additionalProperties": false,
+          "description": "First-post span the sample was measured over.",
+          "properties": {
+            "durationSeconds": {
+              "description": "Observed span between the earliest and latest first posts.",
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "earliestFirstPostAt": {
+              "description": "Earliest first post.",
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "latestFirstPostAt": {
+              "description": "Latest first post.",
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "earliestFirstPostAt",
+            "latestFirstPostAt",
+            "durationSeconds"
+          ],
+          "type": "object"
+        },
+        "schemaVersion": {
+          "description": "Deliverable contract version.",
+          "type": "string"
+        },
+        "verdict": {
+          "description": "SOCIAL_LAGS_PRICE | MIXED | NO_SAMPLE.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "offering",
+        "provenance",
+        "limitations",
+        "sampleSize",
+        "verdict",
+        "sampleTokens",
+        "sampleWindow",
+        "sampleLeadMinutes",
+        "leadDistributionMinutes",
+        "sampleObservedAt",
+        "sampleSelection",
+        "sampleInference"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "laggingPct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "app.tenna.ai",
+    "endpoint": "https://app.tenna.ai/api/x402/lumi/social_timing_check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

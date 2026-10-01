@@ -1,0 +1,478 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_dfd36e059d7b7965",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "acceleration_score": {
+          "title": "Acceleration Score",
+          "type": "number"
+        },
+        "cache_hit": {
+          "default": false,
+          "title": "Cache Hit",
+          "type": "boolean"
+        },
+        "citation_growth": {
+          "description": "Growth in works ranking in the top decile of citations for their publication year (age-normalized); lagged to citation_growth_as_of_year.",
+          "properties": {
+            "1y": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "1Y"
+            },
+            "3y": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "3Y"
+            },
+            "5y": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "5Y"
+            }
+          },
+          "title": "GrowthSeries",
+          "type": "object",
+          "required": [
+            "1y",
+            "3y",
+            "5y"
+          ]
+        },
+        "citation_growth_as_of_year": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Citation Growth As Of Year"
+        },
+        "computed_at": {
+          "title": "Computed At",
+          "type": "string",
+          "format": "date-time"
+        },
+        "confidence": {
+          "description": "Grounded estimate combining evidence quantity, consistency, coverage, and model self-assessment.",
+          "title": "Confidence",
+          "type": "number"
+        },
+        "data_as_of": {
+          "title": "Data As Of",
+          "type": "string",
+          "format": "date"
+        },
+        "disclaimer": {
+          "default": "Model-derived analytical estimate over OpenAlex (CC0) evidence; not ground truth.",
+          "title": "Disclaimer",
+          "type": "string"
+        },
+        "evidence_count": {
+          "title": "Evidence Count",
+          "type": "integer"
+        },
+        "important_recent_works": {
+          "items": {
+            "properties": {
+              "cited_by": {
+                "title": "Cited By",
+                "type": "integer"
+              },
+              "id": {
+                "title": "Id",
+                "type": "string"
+              },
+              "title": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Title"
+              },
+              "year": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Year"
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "year",
+              "cited_by"
+            ],
+            "title": "WorkRef",
+            "type": "object"
+          },
+          "title": "Important Recent Works",
+          "type": "array"
+        },
+        "institution_growth": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Growth in the number of institutions with >=3 matching works, last 3y vs prior 3y; null when unmeasurable.",
+          "title": "Institution Growth"
+        },
+        "key_drivers": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Key Drivers",
+          "type": "array"
+        },
+        "leading_institutions": {
+          "items": {
+            "properties": {
+              "id": {
+                "title": "Id",
+                "type": "string"
+              },
+              "name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Name"
+              },
+              "recent_works": {
+                "title": "Recent Works",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "recent_works"
+            ],
+            "title": "NamedEntity",
+            "type": "object"
+          },
+          "title": "Leading Institutions",
+          "type": "array"
+        },
+        "leading_researchers": {
+          "items": {
+            "properties": {
+              "id": {
+                "title": "Id",
+                "type": "string"
+              },
+              "name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Name"
+              },
+              "recent_works": {
+                "title": "Recent Works",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "recent_works"
+            ],
+            "title": "NamedEntity",
+            "type": "object"
+          },
+          "title": "Leading Researchers",
+          "type": "array"
+        },
+        "matched_topics": {
+          "description": "OpenAlex primary topics the matching works fall into, with counts and shares.",
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Matched Topics",
+          "type": "array"
+        },
+        "methodology_version": {
+          "title": "Methodology Version",
+          "type": "string"
+        },
+        "momentum_score": {
+          "title": "Momentum Score",
+          "type": "number"
+        },
+        "provenance": {
+          "anyOf": [
+            {
+              "properties": {
+                "data_as_of": {
+                  "title": "Data As Of",
+                  "type": "string"
+                },
+                "model_family": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "title": "Model Family"
+                },
+                "rights": {
+                  "title": "Rights",
+                  "type": "string"
+                },
+                "source": {
+                  "title": "Source",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "source",
+                "rights",
+                "data_as_of"
+              ],
+              "title": "Provenance",
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "query_match": {
+          "properties": {
+            "focus_topic_ids": {
+              "description": "Primary topics the works set was focused on.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Focus Topic Ids",
+              "type": "array"
+            },
+            "mode": {
+              "description": "phrase = exact phrase in title/abstract; terms = any-term fallback (broader).",
+              "enum": [
+                "phrase",
+                "terms"
+              ],
+              "title": "Mode",
+              "type": "string"
+            },
+            "total_works_10y": {
+              "title": "Total Works 10Y",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "mode",
+            "total_works_10y"
+          ],
+          "title": "QueryMatch",
+          "type": "object"
+        },
+        "rationale": {
+          "title": "Rationale",
+          "type": "string"
+        },
+        "research_growth": {
+          "properties": {
+            "1y": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "1Y"
+            },
+            "3y": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "3Y"
+            },
+            "5y": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "5Y"
+            }
+          },
+          "title": "GrowthSeries",
+          "type": "object",
+          "required": [
+            "1y",
+            "3y",
+            "5y"
+          ]
+        },
+        "result_id": {
+          "title": "Result Id",
+          "type": "string"
+        },
+        "risks": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Risks",
+          "type": "array"
+        },
+        "schema_version": {
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "topic": {
+          "title": "Topic",
+          "type": "string"
+        },
+        "trend_label": {
+          "enum": [
+            "accelerating",
+            "growing",
+            "stable",
+            "declining",
+            "nascent"
+          ],
+          "title": "Trend Label",
+          "type": "string"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        }
+      },
+      "required": [
+        "result_id",
+        "topic",
+        "query_match",
+        "matched_topics",
+        "momentum_score",
+        "acceleration_score",
+        "trend_label",
+        "confidence",
+        "research_growth",
+        "citation_growth",
+        "citation_growth_as_of_year",
+        "institution_growth",
+        "leading_institutions",
+        "leading_researchers",
+        "important_recent_works",
+        "rationale",
+        "key_drivers",
+        "risks",
+        "warnings",
+        "evidence_count",
+        "data_as_of",
+        "methodology_version",
+        "schema_version",
+        "computed_at"
+      ],
+      "title": "Output",
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "important_recent_works[].id"
+      },
+      {
+        "type": "unique",
+        "field": "leading_institutions[].id"
+      },
+      {
+        "type": "unique",
+        "field": "leading_researchers[].id"
+      }
+    ],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "evidence_count": {
+        "min": 0
+      },
+      "query_match.total_works_10y": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "answerpool.io",
+    "endpoint": "https://answerpool.io/v1/technology/momentum",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

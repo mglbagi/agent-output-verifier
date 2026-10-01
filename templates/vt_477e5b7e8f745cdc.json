@@ -1,0 +1,221 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_477e5b7e8f745cdc",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "affected_iso3": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "alert_level": {
+                "type": "string"
+              },
+              "alert_score": {
+                "type": "integer"
+              },
+              "as_of": {
+                "type": "string",
+                "format": "date"
+              },
+              "country": {
+                "type": "string"
+              },
+              "date_modified_utc": {
+                "type": "string"
+              },
+              "envelope_version": {
+                "type": "string"
+              },
+              "episode_alert_level": {
+                "type": "string"
+              },
+              "episode_alert_score": {
+                "type": "number"
+              },
+              "episode_id": {
+                "type": "string"
+              },
+              "event_id": {
+                "type": "string"
+              },
+              "event_type": {
+                "type": "string"
+              },
+              "from_date_iso": {
+                "type": "string",
+                "format": "date"
+              },
+              "from_ts_utc": {
+                "type": "string"
+              },
+              "glide": {
+                "type": "string"
+              },
+              "is_current": {
+                "type": "boolean"
+              },
+              "is_temporary": {
+                "type": "boolean"
+              },
+              "iso3": {
+                "type": "string"
+              },
+              "latitude": {
+                "type": "number"
+              },
+              "longitude": {
+                "type": "number"
+              },
+              "model_source": {
+                "type": "string"
+              },
+              "report_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "severity": {
+                "type": "integer"
+              },
+              "severity_text": {
+                "type": "string"
+              },
+              "severity_unit": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "source_id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "to_date_iso": {
+                "type": "string",
+                "format": "date"
+              },
+              "to_ts_utc": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "affected_iso3",
+              "alert_level",
+              "alert_score",
+              "as_of",
+              "country",
+              "date_modified_utc",
+              "envelope_version",
+              "episode_alert_level",
+              "episode_alert_score",
+              "episode_id",
+              "event_id",
+              "event_type",
+              "from_date_iso",
+              "from_ts_utc",
+              "glide",
+              "is_current",
+              "is_temporary",
+              "iso3",
+              "latitude",
+              "longitude",
+              "model_source",
+              "report_url",
+              "severity",
+              "severity_text",
+              "severity_unit",
+              "source",
+              "source_id",
+              "title",
+              "to_date_iso",
+              "to_ts_utc"
+            ]
+          }
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "as_of": {
+              "type": "object",
+              "properties": {
+                "gdacs": {
+                  "type": "string",
+                  "format": "date"
+                }
+              },
+              "required": [
+                "gdacs"
+              ]
+            },
+            "attribution": {
+              "type": "string"
+            },
+            "degraded": {
+              "type": "boolean"
+            },
+            "license": {
+              "type": "string"
+            },
+            "row_count": {
+              "type": "integer"
+            },
+            "truncated": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "as_of",
+            "attribution",
+            "degraded",
+            "license",
+            "row_count",
+            "truncated"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data[].episode_id"
+      }
+    ],
+    "bounds": {
+      "data[].latitude": {
+        "min": -90,
+        "max": 90
+      },
+      "data[].longitude": {
+        "min": -180,
+        "max": 180
+      },
+      "meta.row_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "wailand.tailf99551.ts.net",
+    "endpoint": "https://wailand.tailf99551.ts.net/v1/disaster-events",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

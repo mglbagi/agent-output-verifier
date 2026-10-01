@@ -1,0 +1,45 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4e35715692fc1302",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "columns": {
+          "type": "array"
+        },
+        "row_count": {
+          "type": "number"
+        },
+        "rows": {
+          "type": "array"
+        },
+        "warnings": {
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "columns",
+        "row_count",
+        "rows",
+        "warnings"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "row_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.jagent.dev",
+    "endpoint": "https://api.jagent.dev/v1/csv-to-json",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

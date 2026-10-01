@@ -1,0 +1,74 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f7e828f612c6cb96",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "chain_index": {
+          "description": "Position of this record in the append-only audit chain.",
+          "type": "integer"
+        },
+        "confidence": {
+          "description": "Phrase-policy score from 0 to 1. Not a probability that the action is safe.",
+          "type": "number"
+        },
+        "drift_mode": {
+          "type": "string"
+        },
+        "drift_score": {
+          "type": "number"
+        },
+        "input_hash": {
+          "type": "string"
+        },
+        "policy_version": {
+          "type": "string"
+        },
+        "reason": {
+          "description": "Checks passed, or the phrase rule that produced NO_COMMIT.",
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "number"
+        },
+        "tx_hash": {
+          "description": "Hash of this audit record. Not the payment transaction.",
+          "type": "string"
+        },
+        "verdict": {
+          "description": "COMMIT: the checked action may proceed. NO_COMMIT: do not execute the checked action.",
+          "enum": [
+            "COMMIT",
+            "NO_COMMIT"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "verdict",
+        "confidence",
+        "reason",
+        "tx_hash",
+        "chain_index"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "bazaar.fronesislabs.com",
+    "endpoint": "https://bazaar.fronesislabs.com/evaluate/quality",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

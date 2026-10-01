@@ -1,0 +1,295 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3be399ed4abc61b2",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "_atlas": {
+          "additionalProperties": false,
+          "description": "Atlas documentation and related-route metadata added after deployment",
+          "properties": {
+            "docs": {
+              "description": "Documentation URL for this bridge",
+              "format": "uri",
+              "maxLength": 512,
+              "type": "string"
+            },
+            "related": {
+              "description": "Bounded related Atlas routes",
+              "items": {
+                "additionalProperties": false,
+                "description": "One related Atlas route",
+                "properties": {
+                  "bridge": {
+                    "description": "Related bridge name",
+                    "maxLength": 64,
+                    "type": "string"
+                  },
+                  "docs": {
+                    "description": "Related bridge documentation URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  },
+                  "summary": {
+                    "description": "Short capability summary",
+                    "maxLength": 256,
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "Related route URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "bridge",
+                  "url",
+                  "docs",
+                  "summary"
+                ],
+                "type": "object"
+              },
+              "maxItems": 3,
+              "type": "array"
+            }
+          },
+          "required": [
+            "docs"
+          ],
+          "type": "object"
+        },
+        "algorithm_version": {
+          "const": "best-fit-decreasing-v1",
+          "description": "Pinned deterministic best-fit-decreasing heuristic contract",
+          "type": "string"
+        },
+        "certificate": {
+          "additionalProperties": false,
+          "description": "Independently checkable feasibility, conservation, and volume-lower-bound evidence; not a general optimality certificate",
+          "properties": {
+            "algorithm": {
+              "const": "best-fit-decreasing-v1",
+              "description": "Heuristic algorithm used to produce the packing",
+              "type": "string"
+            },
+            "capacity": {
+              "description": "Per-bin capacity",
+              "maximum": 1000000000,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "capacity_feasible": {
+              "const": true,
+              "description": "True when every produced bin load is at most capacity",
+              "type": "boolean"
+            },
+            "item_conservation": {
+              "const": true,
+              "description": "True when every input item appears exactly once in the solution",
+              "type": "boolean"
+            },
+            "item_count": {
+              "description": "Number of input items conserved by the packing",
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "total_size": {
+              "description": "Sum of all input item sizes",
+              "maximum": 1000000000000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "volume_lower_bound": {
+              "description": "ceil(total_size/capacity), a valid lower bound on optimum bin count",
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "algorithm",
+            "item_count",
+            "total_size",
+            "capacity",
+            "volume_lower_bound",
+            "item_conservation",
+            "capacity_feasible"
+          ],
+          "type": "object"
+        },
+        "objective": {
+          "const": "minimum_bin_count",
+          "description": "The heuristic attempts to minimize produced bin count without exact search",
+          "type": "string"
+        },
+        "objective_value": {
+          "description": "Produced bin count; it is not necessarily the unknown optimum",
+          "maximum": 1000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "operation": {
+          "const": "bin-pack",
+          "description": "Stable route operation name",
+          "type": "string"
+        },
+        "optimal": {
+          "description": "True only when produced bin count equals the valid volume lower bound; false makes no claim about the unknown optimum",
+          "type": "boolean"
+        },
+        "optimality_gap_upper_bound": {
+          "description": "Produced bin count minus volume lower bound; an upper bound on the unknown optimality gap, never the actual gap",
+          "maximum": 999,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "optimality_proof": {
+          "const": "matches-volume-lower-bound",
+          "description": "Present only when optimal is true; omitted when optimal is false",
+          "type": "string"
+        },
+        "solution": {
+          "additionalProperties": false,
+          "description": "Deterministic best-fit-decreasing packing",
+          "properties": {
+            "bin_count": {
+              "description": "Number of produced bins",
+              "maximum": 1000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "bins": {
+              "description": "Produced bins in stable creation order",
+              "items": {
+                "additionalProperties": false,
+                "description": "One produced bin",
+                "properties": {
+                  "index": {
+                    "description": "Stable zero-based bin index",
+                    "maximum": 999,
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "items": {
+                    "description": "Items placed in this bin in deterministic placement order",
+                    "items": {
+                      "additionalProperties": false,
+                      "description": "One conserved item placement",
+                      "properties": {
+                        "id": {
+                          "description": "Input item identifier",
+                          "maxLength": 64,
+                          "minLength": 1,
+                          "pattern": "^[ -~]+$",
+                          "type": "string"
+                        },
+                        "original_index": {
+                          "description": "Zero-based input index",
+                          "maximum": 999,
+                          "minimum": 0,
+                          "type": "integer"
+                        },
+                        "size": {
+                          "description": "Input item size",
+                          "maximum": 1000000000,
+                          "minimum": 0,
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "original_index",
+                        "size"
+                      ],
+                      "type": "object"
+                    },
+                    "maxItems": 1000,
+                    "minItems": 1,
+                    "type": "array"
+                  },
+                  "load": {
+                    "description": "Total item size in this bin",
+                    "maximum": 1000000000,
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "remaining": {
+                    "description": "Capacity minus load",
+                    "maximum": 1000000000,
+                    "minimum": 0,
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "index",
+                  "load",
+                  "remaining",
+                  "items"
+                ],
+                "type": "object"
+              },
+              "maxItems": 1000,
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "bins",
+            "bin_count"
+          ],
+          "type": "object"
+        },
+        "warnings": {
+          "description": "Required honesty warning that the heuristic bound is not the actual optimality gap",
+          "items": {
+            "description": "Human-readable heuristic interpretation warning",
+            "type": "string"
+          },
+          "maxItems": 1,
+          "minItems": 1,
+          "type": "array"
+        },
+        "work_units": {
+          "description": "Candidate-bin feasibility checks performed by the heuristic",
+          "maximum": 1000000,
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "operation",
+        "algorithm_version",
+        "objective",
+        "objective_value",
+        "optimal",
+        "optimality_gap_upper_bound",
+        "solution",
+        "work_units",
+        "certificate",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "solution.bins[].items[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "decision-solver.use.x402atlas.com",
+    "endpoint": "https://decision-solver.use.x402atlas.com/bin-pack",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

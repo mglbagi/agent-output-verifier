@@ -1,0 +1,130 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_59b34e87ca9c05d1",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "battery_arbitrage": {
+          "type": "object",
+          "properties": {
+            "best_market": {
+              "type": "string"
+            },
+            "intraday_spread_mwh": {
+              "type": "number"
+            },
+            "negative_intervals_24h": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "best_market",
+            "intraday_spread_mwh",
+            "negative_intervals_24h"
+          ]
+        },
+        "coverage": {
+          "type": "string"
+        },
+        "markets": {
+          "type": "object",
+          "properties": {
+            "CAISO": {
+              "type": "object",
+              "properties": {
+                "SP15": {
+                  "type": "object",
+                  "properties": {
+                    "da_price": {
+                      "type": "number"
+                    },
+                    "da_rt_spread": {
+                      "type": "number"
+                    },
+                    "intraday_spread": {
+                      "type": "number"
+                    },
+                    "negative_intervals": {
+                      "type": "integer"
+                    },
+                    "rt_price": {
+                      "type": "number"
+                    },
+                    "signal": {
+                      "type": "string"
+                    },
+                    "volatility": {
+                      "type": "number"
+                    },
+                    "window_high": {
+                      "type": "number"
+                    },
+                    "window_low": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "da_price",
+                    "da_rt_spread",
+                    "intraday_spread",
+                    "negative_intervals",
+                    "rt_price",
+                    "signal",
+                    "volatility",
+                    "window_high",
+                    "window_low"
+                  ]
+                }
+              },
+              "required": [
+                "SP15"
+              ]
+            }
+          },
+          "required": [
+            "CAISO"
+          ]
+        },
+        "signal": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "battery_arbitrage",
+        "coverage",
+        "markets",
+        "signal",
+        "summary"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "markets.CAISO.SP15.window_low",
+        "other_field": "markets.CAISO.SP15.window_high"
+      }
+    ],
+    "bounds": {
+      "markets.CAISO.SP15.da_price": {
+        "min": 0
+      },
+      "markets.CAISO.SP15.rt_price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "spark.lonestaroracle.xyz",
+    "endpoint": "https://spark.lonestaroracle.xyz/power",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2466c8e5ae2943f0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "attribution": {
+          "type": "string"
+        },
+        "history": {
+          "type": "array"
+        },
+        "now": {
+          "properties": {
+            "classification": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "integer"
+            },
+            "value": {
+              "maximum": 100,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "required": [
+            "classification",
+            "timestamp",
+            "value"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "attribution",
+        "history",
+        "now"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "srv1553682.hstgr.cloud",
+    "endpoint": "https://srv1553682.hstgr.cloud/fng/api/fear-greed",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

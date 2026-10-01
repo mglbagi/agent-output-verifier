@@ -1,0 +1,83 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4e331c987ff04315",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "data_source": {
+          "type": "string"
+        },
+        "days_out": {
+          "type": "integer"
+        },
+        "direction": {
+          "type": "string"
+        },
+        "ensemble_members": {
+          "type": "integer"
+        },
+        "mean_high_f": {
+          "type": "number"
+        },
+        "prob_exceeds": {
+          "type": "number"
+        },
+        "rain_probability": {
+          "type": "number"
+        },
+        "std_high_f": {
+          "type": "number"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "target_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "threshold_f": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "city",
+        "confidence",
+        "data_source",
+        "days_out",
+        "direction",
+        "ensemble_members",
+        "mean_high_f",
+        "prob_exceeds",
+        "rain_probability",
+        "std_high_f",
+        "summary",
+        "target_date",
+        "threshold_f"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "rain_probability": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "weather.lonestaroracle.xyz",
+    "endpoint": "https://weather.lonestaroracle.xyz/forecast",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

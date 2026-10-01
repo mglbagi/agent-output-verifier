@@ -1,0 +1,77 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_16097c001d757abf",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "checks_performed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "did_you_mean": {},
+        "domain": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "is_disposable": {
+          "type": "boolean"
+        },
+        "is_free": {
+          "type": "boolean"
+        },
+        "is_role_based": {
+          "type": "boolean"
+        },
+        "mx_found": {
+          "type": "boolean"
+        },
+        "mx_records": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "score": {
+          "type": "number"
+        },
+        "status": {
+          "type": "string"
+        },
+        "syntax_valid": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "checks_performed",
+        "domain",
+        "email",
+        "is_disposable",
+        "is_free",
+        "is_role_based",
+        "mx_found",
+        "mx_records",
+        "score",
+        "status",
+        "syntax_valid"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mailcheck.hugen.tokyo",
+    "endpoint": "https://mailcheck.hugen.tokyo/mailcheck/validate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

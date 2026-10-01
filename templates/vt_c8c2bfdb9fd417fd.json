@@ -1,0 +1,168 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c8c2bfdb9fd417fd",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "All selected directory results for one service.",
+      "properties": {
+        "format": {
+          "const": "agent-api-listings-package-set-v1",
+          "title": "Format",
+          "type": "string"
+        },
+        "readiness": {
+          "description": "The static readiness report for one OpenAPI document.",
+          "properties": {
+            "checks": {
+              "items": {
+                "description": "One buyer-readiness rule and its outcome.",
+                "properties": {
+                  "fix": {
+                    "title": "Fix",
+                    "type": "string"
+                  },
+                  "id": {
+                    "title": "Id",
+                    "type": "string"
+                  },
+                  "message": {
+                    "title": "Message",
+                    "type": "string"
+                  },
+                  "passed": {
+                    "title": "Passed",
+                    "type": "boolean"
+                  },
+                  "severity": {
+                    "enum": [
+                      "critical",
+                      "high",
+                      "medium",
+                      "low"
+                    ],
+                    "title": "Severity",
+                    "type": "string"
+                  }
+                },
+                "title": "CheckResult",
+                "type": "object",
+                "required": [
+                  "fix",
+                  "id",
+                  "message",
+                  "passed",
+                  "severity"
+                ]
+              },
+              "title": "Checks",
+              "type": "array"
+            },
+            "score": {
+              "maximum": 100,
+              "minimum": 0,
+              "title": "Score",
+              "type": "integer"
+            },
+            "summary": {
+              "title": "Summary",
+              "type": "string"
+            }
+          },
+          "title": "ReadinessReport",
+          "type": "object",
+          "required": [
+            "checks",
+            "score",
+            "summary"
+          ]
+        },
+        "results": {
+          "additionalProperties": {
+            "description": "One target result in a package set.",
+            "properties": {
+              "package": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Package"
+              },
+              "reason": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Reason"
+              },
+              "status": {
+                "enum": [
+                  "ready",
+                  "blocked",
+                  "unsupported"
+                ],
+                "title": "Status",
+                "type": "string"
+              }
+            },
+            "title": "DirectoryPackageResult",
+            "type": "object"
+          },
+          "title": "Results",
+          "type": "object"
+        },
+        "source": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Source",
+          "type": "object"
+        },
+        "targets": {
+          "items": {
+            "enum": [
+              "mpp.dev",
+              "x402-list"
+            ],
+            "type": "string"
+          },
+          "title": "Targets",
+          "type": "array"
+        }
+      },
+      "title": "PackageSetResponse",
+      "type": "object",
+      "required": [
+        "format",
+        "readiness",
+        "results",
+        "targets"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "readiness.checks[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-api-listings.46-224-157-88.sslip.io",
+    "endpoint": "https://agent-api-listings.46-224-157-88.sslip.io/v1/packages",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

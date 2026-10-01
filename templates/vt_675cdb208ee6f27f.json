@@ -1,0 +1,281 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_675cdb208ee6f27f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "description": "Basic company record",
+          "properties": {
+            "activity_description": {
+              "description": "Registered activity description (verksamhetsbeskrivning), native language",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "address": {
+              "anyOf": [
+                {
+                  "properties": {
+                    "city": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "country": {
+                      "description": "ISO 3166-1 alpha-2",
+                      "type": "string"
+                    },
+                    "postal_code": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "street": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "street",
+                    "postal_code",
+                    "city",
+                    "country"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Registered postal address"
+            },
+            "country": {
+              "description": "ISO 3166-1 alpha-2",
+              "type": "string"
+            },
+            "deregistration_date": {
+              "anyOf": [
+                {
+                  "description": "Deregistration date (ISO 8601 date, YYYY-MM-DD)",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "identifier": {
+              "description": "Global identifier, e.g. \"SE:orgnr:5567037485\"",
+              "type": "string"
+            },
+            "industry": {
+              "items": {
+                "properties": {
+                  "description": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "native_code": {
+                    "description": "Industry code, e.g. SNI \"62010\"",
+                    "type": "string"
+                  },
+                  "native_system": {
+                    "description": "Code system, e.g. \"SNI2007\"",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "native_code",
+                  "native_system",
+                  "description"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "legal_form": {
+              "properties": {
+                "native_code": {
+                  "description": "Register code, e.g. \"AB\"",
+                  "type": "string"
+                },
+                "native_name": {
+                  "description": "Register name, e.g. \"Aktiebolag\"",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "Coarse cross-country mapping",
+                  "enum": [
+                    "limited_company",
+                    "sole_trader",
+                    "partnership",
+                    "association",
+                    "other"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "native_code",
+                "native_name",
+                "type"
+              ],
+              "type": "object"
+            },
+            "names": {
+              "description": "Registered name first, then trade/former names",
+              "items": {
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "enum": [
+                      "registered",
+                      "trade",
+                      "former"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "type"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "registration_date": {
+              "anyOf": [
+                {
+                  "description": "Registration date (ISO 8601 date, YYYY-MM-DD)",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "status": {
+              "properties": {
+                "active": {
+                  "description": "false once deregistered",
+                  "type": "boolean"
+                },
+                "employer": {
+                  "description": "Registered employer; null when the source lacks it",
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "f_tax": {
+                  "description": "F-tax approval; null when the source lacks it",
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "insolvency": {
+                  "enum": [
+                    "none",
+                    "bankruptcy",
+                    "liquidation",
+                    "reconstruction"
+                  ],
+                  "type": "string"
+                },
+                "vat_registered": {
+                  "description": "null when the source lacks it",
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "active",
+                "insolvency",
+                "f_tax",
+                "vat_registered",
+                "employer"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "identifier",
+            "country",
+            "names",
+            "legal_form",
+            "status",
+            "registration_date",
+            "deregistration_date",
+            "address",
+            "industry",
+            "activity_description"
+          ],
+          "type": "object"
+        },
+        "raw": {
+          "description": "Native upstream payload (Bolagsverket värdefulla datamängder). Always present in responses; omitted from the published example."
+        },
+        "source": {
+          "description": "Where the data came from",
+          "properties": {
+            "attribution": {
+              "description": "Attribution text required by the data licence",
+              "type": "string"
+            },
+            "mock": {
+              "description": "true when the data is a labelled fixture rather than live register data",
+              "type": "boolean"
+            },
+            "name": {
+              "description": "Gateway source adapter that produced the data",
+              "type": "string"
+            },
+            "retrieved_at": {
+              "description": "When the upstream data was fetched (ISO 8601 timestamp)",
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "name",
+            "attribution",
+            "retrieved_at",
+            "mock"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "data",
+        "source"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-gateway.ai",
+    "endpoint": "https://x402-gateway.ai/api/v1/se/company/:orgnr",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

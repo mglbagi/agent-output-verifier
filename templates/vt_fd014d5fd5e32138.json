@@ -1,0 +1,60 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fd014d5fd5e32138",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "api_version": {
+          "type": "string"
+        },
+        "inputs_echo": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "rounding": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "schedule": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "scheduled_payment": {
+          "type": "number"
+        },
+        "summary": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "with_extra_payments": {
+          "additionalProperties": true,
+          "type": "object"
+        }
+      },
+      "required": [
+        "api_version",
+        "inputs_echo",
+        "rounding",
+        "scheduled_payment",
+        "summary",
+        "with_extra_payments",
+        "schedule"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mortgage-amortization.underscoredone.com",
+    "endpoint": "https://mortgage-amortization.underscoredone.com/calculate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

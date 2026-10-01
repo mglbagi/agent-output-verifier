@@ -1,0 +1,134 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2eec15e76ee3f37c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "description": "A successful Full extraction response containing one primary Schema.org JSON-LD entity and extraction metadata.",
+      "properties": {
+        "_meta": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "cached": {
+          "type": "boolean"
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ],
+          "type": "string"
+        },
+        "data": {
+          "additionalProperties": true,
+          "description": "A Schema.org JSON-LD entity. Its fields vary with schema_type.",
+          "properties": {
+            "@context": {},
+            "@type": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "minItems": 1,
+                  "type": "array"
+                }
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "@context",
+            "@type"
+          ]
+        },
+        "extracted_at": {
+          "type": "string"
+        },
+        "extraction_ms": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "page_schemas": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "recommendation": {
+          "type": "string"
+        },
+        "schema_type": {
+          "description": "The primary Schema.org type represented by data.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "source": {
+          "description": "The public provenance category for the extracted entity.",
+          "type": "string"
+        },
+        "success": {
+          "const": true,
+          "type": "boolean"
+        },
+        "suggested_data": {
+          "additionalProperties": true,
+          "description": "A Schema.org JSON-LD entity. Its fields vary with schema_type.",
+          "properties": {
+            "@context": {},
+            "@type": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "minItems": 1,
+                  "type": "array"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        },
+        "suggested_reason": {
+          "type": "string"
+        },
+        "suggested_type": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "data",
+        "schema_type",
+        "confidence",
+        "cached",
+        "extraction_ms"
+      ],
+      "title": "JSON Recon Full extraction result",
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "jsonrecon.com",
+    "endpoint": "https://jsonrecon.com/extract",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

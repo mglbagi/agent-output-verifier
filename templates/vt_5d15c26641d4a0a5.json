@@ -1,0 +1,100 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5d15c26641d4a0a5",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "created_at": {
+          "type": "number"
+        },
+        "id": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "output": {
+          "items": {
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "summary": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "id",
+              "summary",
+              "type"
+            ]
+          },
+          "type": "array"
+        },
+        "status": {
+          "type": "string"
+        },
+        "usage": {
+          "properties": {
+            "input_tokens": {
+              "type": "number"
+            },
+            "output_tokens": {
+              "type": "number"
+            },
+            "total_tokens": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "input_tokens",
+            "output_tokens",
+            "total_tokens"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "created_at",
+        "id",
+        "model",
+        "object",
+        "output",
+        "status",
+        "usage"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "output[].id"
+      }
+    ],
+    "bounds": {
+      "usage.total_tokens": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.aispace.bot",
+    "endpoint": "https://x402.aispace.bot/api/v1/responses",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

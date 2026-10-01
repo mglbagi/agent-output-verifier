@@ -1,0 +1,83 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e07371c2266f2162",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "decision_id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "key_risks": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "missing_information": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "model": {
+          "description": "Deprecated compatibility field; the underlying inference implementation is not a stable product contract.",
+          "type": "string"
+        },
+        "policy_version": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "recommendation": {
+          "enum": [
+            "proceed",
+            "reconsider",
+            "need_more_information",
+            "escalate_to_human"
+          ],
+          "type": "string"
+        },
+        "review_status": {
+          "enum": [
+            "no_material_concern_found",
+            "material_concern_found",
+            "insufficient_information",
+            "human_review_required"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "decision_id",
+        "created_at",
+        "policy_version",
+        "model",
+        "review_status",
+        "recommendation",
+        "reason",
+        "key_risks",
+        "missing_information"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "secondlook.edgecasesystems.workers.dev",
+    "endpoint": "https://secondlook.edgecasesystems.workers.dev/v1/paid/second-look",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

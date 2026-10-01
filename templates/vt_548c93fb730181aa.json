@@ -1,0 +1,235 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_548c93fb730181aa",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "authoritative_status": {
+          "const": "preliminary_non_binding",
+          "type": "string"
+        },
+        "category": {
+          "const": "country",
+          "type": "string"
+        },
+        "caveats": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "charged": {
+          "type": "boolean"
+        },
+        "checked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "confidence_method": {
+          "minLength": 20,
+          "type": "string"
+        },
+        "data_date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "evidence": {
+          "additionalProperties": false,
+          "properties": {
+            "soil-nitrogen": {
+              "additionalProperties": true,
+              "properties": {
+                "method": {
+                  "type": "string"
+                },
+                "metric": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "sample_count": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "unit": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "metric",
+                "name",
+                "unit",
+                "value",
+                "sample_count",
+                "method"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "soil-nitrogen"
+          ],
+          "type": "object"
+        },
+        "evidence_classification": {
+          "const": "derived_from_open_geodata",
+          "type": "string"
+        },
+        "facts": {
+          "type": "object"
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "geometry": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "meta": {
+          "type": "object"
+        },
+        "payment": {
+          "additionalProperties": true,
+          "required": [
+            "settled",
+            "price_usdc"
+          ],
+          "type": "object"
+        },
+        "recommended_next_steps": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "result": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "risk_level": {
+          "type": "string"
+        },
+        "service": {
+          "const": "is-soil-nitrogen",
+          "type": "string"
+        },
+        "service_id": {
+          "const": "eli-0117",
+          "type": "string"
+        },
+        "sources": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "authority": {
+                "type": "string"
+              },
+              "dataset": {
+                "type": "string"
+              },
+              "license": {
+                "type": "string"
+              },
+              "retrieved_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "authority",
+              "dataset",
+              "url",
+              "license",
+              "retrieved_at"
+            ],
+            "type": "object"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "success",
+            "no_finding",
+            "warning",
+            "high_risk",
+            "not_applicable",
+            "insufficient_coverage",
+            "source_temporarily_unavailable"
+          ],
+          "type": "string"
+        },
+        "summary": {
+          "minLength": 20,
+          "type": "string"
+        }
+      },
+      "required": [
+        "service_id",
+        "service",
+        "category",
+        "status",
+        "result",
+        "summary",
+        "facts",
+        "geometry",
+        "risk_level",
+        "confidence",
+        "confidence_method",
+        "checked_at",
+        "data_date",
+        "evidence",
+        "sources",
+        "limitations",
+        "recommended_next_steps",
+        "evidence_classification",
+        "authoritative_status",
+        "generated_at",
+        "caveats",
+        "charged",
+        "payment"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "nordland.halowerk.com",
+    "endpoint": "https://nordland.halowerk.com/v1/is-soil-nitrogen",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

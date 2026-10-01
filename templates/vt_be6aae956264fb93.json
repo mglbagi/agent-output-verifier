@@ -1,0 +1,78 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_be6aae956264fb93",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "result": {
+          "description": "The task output text (or JSON string for extract/json_repair).",
+          "type": "string"
+        },
+        "truncated": {
+          "description": "True when the output hit the per-task token cap; the charge still stands.",
+          "type": "boolean"
+        },
+        "usage": {
+          "properties": {
+            "ceilingMicros": {
+              "description": "The authorized ceiling the 402/hold reserved.",
+              "type": "integer"
+            },
+            "chargedMicros": {
+              "description": "The actual charged amount (<= ceiling).",
+              "type": "integer"
+            },
+            "inputTokens": {
+              "type": "integer"
+            },
+            "markupPct": {
+              "type": "number"
+            },
+            "model": {
+              "type": "string"
+            },
+            "outputTokens": {
+              "type": "integer"
+            },
+            "providerCostMicros": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "model",
+            "inputTokens",
+            "outputTokens",
+            "providerCostMicros",
+            "markupPct",
+            "chargedMicros",
+            "ceilingMicros"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "result",
+        "truncated",
+        "usage"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "usage.markupPct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.relaystation.ai",
+    "endpoint": "https://api.relaystation.ai/v1/llm/extract",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

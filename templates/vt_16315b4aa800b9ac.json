@@ -1,0 +1,84 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_16315b4aa800b9ac",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "created": {
+          "description": "Registration date (RFC3339); empty string if unavailable",
+          "type": "string",
+          "format": "date-time"
+        },
+        "domain": {
+          "description": "The queried domain",
+          "type": "string"
+        },
+        "domain_age_days": {
+          "description": "Whole days since registration; 0 when the registration date is missing or unparseable",
+          "type": "integer"
+        },
+        "expiration": {
+          "description": "Expiration date (RFC3339); empty string if unavailable",
+          "type": "string",
+          "format": "date-time"
+        },
+        "nameservers": {
+          "description": "Authoritative nameserver hostnames",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "queried_at": {
+          "description": "UTC timestamp of the lookup",
+          "format": "date-time",
+          "type": "string"
+        },
+        "registrar": {
+          "description": "Registrar name; empty string if the registry omits it",
+          "type": "string"
+        },
+        "status": {
+          "description": "EPP domain status codes",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "updated": {
+          "description": "Last-changed date (RFC3339); empty string if unavailable",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "domain",
+        "registrar",
+        "created",
+        "updated",
+        "expiration",
+        "status",
+        "nameservers",
+        "domain_age_days",
+        "queried_at"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "domain_age_days": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "dns.use.x402atlas.com",
+    "endpoint": "https://dns.use.x402atlas.com/rdap",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

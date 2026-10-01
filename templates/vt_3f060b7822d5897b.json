@@ -1,0 +1,33 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3f060b7822d5897b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "flags": {
+          "type": "array"
+        },
+        "suspicion": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "flags",
+        "suspicion"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-guild-5d5r.onrender.com",
+    "endpoint": "https://agent-guild-5d5r.onrender.com/flags",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

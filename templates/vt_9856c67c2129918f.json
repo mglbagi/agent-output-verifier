@@ -1,0 +1,271 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9856c67c2129918f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "atr": {
+          "description": "Average True Range (14)",
+          "type": "number"
+        },
+        "atr_percent": {
+          "type": "number"
+        },
+        "bias": {
+          "description": "From the confluence signal",
+          "enum": [
+            "long",
+            "short",
+            "none"
+          ],
+          "type": "string"
+        },
+        "bias_from": {
+          "type": "string"
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ],
+          "type": "string"
+        },
+        "fibonacci": {
+          "type": "object"
+        },
+        "ichimoku": {
+          "properties": {
+            "cloud_bottom": {
+              "type": "number"
+            },
+            "cloud_top": {
+              "type": "number"
+            },
+            "kijun_sen": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "cloud_bottom",
+            "cloud_top",
+            "kijun_sen"
+          ]
+        },
+        "interval": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "pair": {
+          "type": "string"
+        },
+        "pivots": {
+          "properties": {
+            "p": {
+              "type": "number"
+            },
+            "r1": {
+              "type": "number"
+            },
+            "r2": {
+              "type": "number"
+            },
+            "s1": {
+              "type": "number"
+            },
+            "s2": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "p",
+            "r1",
+            "r2",
+            "s1",
+            "s2"
+          ]
+        },
+        "plans": {
+          "properties": {
+            "long": {
+              "properties": {
+                "entry": {
+                  "type": "number"
+                },
+                "obstacle_before_target": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "risk_reward_1": {
+                  "type": "number"
+                },
+                "risk_reward_2": {
+                  "type": "number"
+                },
+                "stop": {
+                  "type": "number"
+                },
+                "stop_basis": {
+                  "type": "string"
+                },
+                "target_1": {
+                  "type": "number"
+                },
+                "target_2": {
+                  "type": "number"
+                }
+              },
+              "type": "object",
+              "required": [
+                "entry",
+                "risk_reward_1",
+                "risk_reward_2",
+                "stop",
+                "stop_basis",
+                "target_1",
+                "target_2"
+              ]
+            },
+            "short": {
+              "properties": {
+                "entry": {
+                  "type": "number"
+                },
+                "obstacle_before_target": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "risk_reward_1": {
+                  "type": "number"
+                },
+                "risk_reward_2": {
+                  "type": "number"
+                },
+                "stop": {
+                  "type": "number"
+                },
+                "stop_basis": {
+                  "type": "string"
+                },
+                "target_1": {
+                  "type": "number"
+                },
+                "target_2": {
+                  "type": "number"
+                }
+              },
+              "type": "object",
+              "required": [
+                "entry",
+                "risk_reward_1",
+                "risk_reward_2",
+                "stop",
+                "stop_basis",
+                "target_1",
+                "target_2"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "long",
+            "short"
+          ]
+        },
+        "price": {
+          "type": "number"
+        },
+        "resistances": {
+          "description": "Up to 3 above the price, nearest first",
+          "items": {
+            "properties": {
+              "price": {
+                "type": "number"
+              },
+              "touches": {
+                "type": "integer"
+              }
+            },
+            "type": "object",
+            "required": [
+              "price",
+              "touches"
+            ]
+          },
+          "type": "array"
+        },
+        "supports": {
+          "description": "Up to 3 below the price, nearest first",
+          "items": {
+            "properties": {
+              "price": {
+                "type": "number"
+              },
+              "touches": {
+                "type": "integer"
+              }
+            },
+            "type": "object",
+            "required": [
+              "price",
+              "touches"
+            ]
+          },
+          "type": "array"
+        },
+        "timestamp": {
+          "description": "ISO 8601 UTC",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "pair",
+        "interval",
+        "timestamp",
+        "price",
+        "atr",
+        "bias",
+        "supports",
+        "resistances",
+        "plans"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "atr_percent": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "price": {
+        "min": 0
+      },
+      "resistances[].price": {
+        "min": 0
+      },
+      "supports[].price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ichimoku-signal.onrender.com",
+    "endpoint": "https://ichimoku-signal.onrender.com/levels/:pair",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

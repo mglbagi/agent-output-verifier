@@ -1,0 +1,127 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1ef79eb27f97b5b3",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "earthquakes": {
+          "items": {
+            "properties": {
+              "coordinates": {
+                "properties": {
+                  "depth_km": {
+                    "type": "number"
+                  },
+                  "lat": {
+                    "type": "number"
+                  },
+                  "lon": {
+                    "type": "number"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "depth_km",
+                  "lat",
+                  "lon"
+                ]
+              },
+              "id": {
+                "type": "string"
+              },
+              "magnitude": {
+                "type": "number"
+              },
+              "place": {
+                "type": "string"
+              },
+              "time": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "tsunami": {
+                "type": "integer"
+              },
+              "updated": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "type": "object",
+            "required": [
+              "coordinates",
+              "id",
+              "magnitude",
+              "place",
+              "time",
+              "tsunami",
+              "updated",
+              "url"
+            ]
+          },
+          "type": "array"
+        },
+        "feed": {
+          "type": "string"
+        },
+        "latency_ms": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "min_magnitude": {
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "required": [
+        "count",
+        "earthquakes",
+        "feed",
+        "latency_ms",
+        "limit",
+        "min_magnitude"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "earthquakes[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "earthquakes[].coordinates.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "earthquakes[].coordinates.lon": {
+        "min": -180,
+        "max": 180
+      },
+      "limit": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tools.bip-rep.com",
+    "endpoint": "https://tools.bip-rep.com/quake",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

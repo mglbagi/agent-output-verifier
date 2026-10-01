@@ -1,0 +1,67 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_438a963e41ec5fc9",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "description": "Size of the PDF in bytes.",
+          "type": "integer"
+        },
+        "expiresAt": {
+          "description": "Seven-day deletion eligibility, not an exact public-access cutoff. Daily cleanup and asynchronous S3 lifecycle deletion may run later; cached responses can persist. No hard deletion deadline is guaranteed. PDF render artifacts are not renewable.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "description": "Munition render id.",
+          "type": "string"
+        },
+        "pages": {
+          "description": "Number of A4 pages in the PDF.",
+          "type": "integer"
+        },
+        "publicUrl": {
+          "description": "Non-guessable public files.munition.io URL of the rendered PDF; do not render confidential content. PDF render artifacts are not renewable via direct x402 or MPP upload-renew endpoints, unlike ordinary uploads.",
+          "format": "uri",
+          "type": "string"
+        },
+        "renderMs": {
+          "description": "Server-side render time in milliseconds.",
+          "type": "integer"
+        },
+        "sha256": {
+          "description": "Lowercase hex SHA-256 of the PDF bytes.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "publicUrl",
+        "expiresAt",
+        "bytes",
+        "pages",
+        "sha256",
+        "renderMs"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "bytes": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.munition.io",
+    "endpoint": "https://api.munition.io/v1/render/pdf",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

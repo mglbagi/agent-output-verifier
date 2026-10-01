@@ -1,0 +1,81 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_759f315fa4be57f8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "country": {
+          "description": "Resolved ISO 3166-1 alpha-2 code the results were scoped to, upper-case; absent when unscoped",
+          "type": "string"
+        },
+        "language": {
+          "description": "Result language used, lower-case; absent when Google's default was used",
+          "type": "string"
+        },
+        "note": {
+          "description": "Present only on a sample response (empty/omitted query): a hint to pass a real query. The paid request ran; no search was made.",
+          "type": "string"
+        },
+        "queried_at": {
+          "description": "Time the search was executed (UTC)",
+          "format": "date-time",
+          "type": "string"
+        },
+        "query": {
+          "description": "Echoed search query (trimmed)",
+          "type": "string"
+        },
+        "results": {
+          "description": "Organic results in ranking order; empty when nothing matched (still HTTP 200)",
+          "items": {
+            "properties": {
+              "position": {
+                "description": "1-based rank on the results page",
+                "type": "integer"
+              },
+              "snippet": {
+                "description": "Result snippet as shown by Google; may be empty",
+                "type": "string"
+              },
+              "title": {
+                "description": "Result title",
+                "type": "string"
+              },
+              "url": {
+                "description": "Result URL",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "position",
+              "title",
+              "url",
+              "snippet"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "queried_at",
+        "query",
+        "results"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "websearch.use.x402atlas.com",
+    "endpoint": "https://websearch.use.x402atlas.com/google-search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,514 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e3565995dbe4cb59",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "guide_uri": {
+              "type": "string"
+            },
+            "liquidity_usd": {
+              "type": "number"
+            },
+            "network": {
+              "type": "string"
+            },
+            "poolAddress": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "predictions": {
+              "type": "object",
+              "properties": {
+                "data_age_min": {
+                  "type": "number"
+                },
+                "data_points": {
+                  "type": "integer"
+                },
+                "limited_history": {
+                  "type": "boolean"
+                },
+                "mae_120": {
+                  "type": "number"
+                },
+                "mae_15": {
+                  "type": "number"
+                },
+                "mae_240": {
+                  "type": "number"
+                },
+                "mae_30": {
+                  "type": "number"
+                },
+                "mae_360": {
+                  "type": "number"
+                },
+                "mae_5": {
+                  "type": "number"
+                },
+                "mae_60": {
+                  "type": "number"
+                },
+                "mfe_120": {
+                  "type": "number"
+                },
+                "mfe_15": {
+                  "type": "number"
+                },
+                "mfe_240": {
+                  "type": "number"
+                },
+                "mfe_30": {
+                  "type": "number"
+                },
+                "mfe_360": {
+                  "type": "number"
+                },
+                "mfe_5": {
+                  "type": "number"
+                },
+                "mfe_60": {
+                  "type": "number"
+                },
+                "p_clean_10_5_5_120": {
+                  "type": "number"
+                },
+                "p_clean_10_5_5_15": {
+                  "type": "number"
+                },
+                "p_clean_10_5_5_240": {
+                  "type": "number"
+                },
+                "p_clean_10_5_5_30": {
+                  "type": "number"
+                },
+                "p_clean_10_5_5_360": {
+                  "type": "number"
+                },
+                "p_clean_10_5_5_5": {
+                  "type": "number"
+                },
+                "p_clean_10_5_5_60": {
+                  "type": "number"
+                },
+                "p_clean_20_10_10_120": {
+                  "type": "number"
+                },
+                "p_clean_20_10_10_15": {
+                  "type": "number"
+                },
+                "p_clean_20_10_10_240": {
+                  "type": "number"
+                },
+                "p_clean_20_10_10_30": {
+                  "type": "number"
+                },
+                "p_clean_20_10_10_360": {
+                  "type": "number"
+                },
+                "p_clean_20_10_10_5": {
+                  "type": "number"
+                },
+                "p_clean_20_10_10_60": {
+                  "type": "number"
+                },
+                "p_clean_5_3_3_120": {
+                  "type": "number"
+                },
+                "p_clean_5_3_3_15": {
+                  "type": "number"
+                },
+                "p_clean_5_3_3_240": {
+                  "type": "number"
+                },
+                "p_clean_5_3_3_30": {
+                  "type": "number"
+                },
+                "p_clean_5_3_3_360": {
+                  "type": "number"
+                },
+                "p_clean_5_3_3_5": {
+                  "type": "number"
+                },
+                "p_clean_5_3_3_60": {
+                  "type": "number"
+                },
+                "p_clean_down_10_5_5_120": {
+                  "type": "number"
+                },
+                "p_clean_down_10_5_5_15": {
+                  "type": "number"
+                },
+                "p_clean_down_10_5_5_240": {
+                  "type": "number"
+                },
+                "p_clean_down_10_5_5_30": {
+                  "type": "number"
+                },
+                "p_clean_down_10_5_5_360": {
+                  "type": "number"
+                },
+                "p_clean_down_10_5_5_5": {
+                  "type": "number"
+                },
+                "p_clean_down_10_5_5_60": {
+                  "type": "number"
+                },
+                "p_clean_down_20_10_10_120": {
+                  "type": "number"
+                },
+                "p_clean_down_20_10_10_15": {
+                  "type": "number"
+                },
+                "p_clean_down_20_10_10_240": {
+                  "type": "number"
+                },
+                "p_clean_down_20_10_10_30": {
+                  "type": "number"
+                },
+                "p_clean_down_20_10_10_360": {
+                  "type": "number"
+                },
+                "p_clean_down_20_10_10_5": {
+                  "type": "number"
+                },
+                "p_clean_down_20_10_10_60": {
+                  "type": "number"
+                },
+                "p_clean_down_5_3_3_120": {
+                  "type": "number"
+                },
+                "p_clean_down_5_3_3_15": {
+                  "type": "number"
+                },
+                "p_clean_down_5_3_3_240": {
+                  "type": "number"
+                },
+                "p_clean_down_5_3_3_30": {
+                  "type": "number"
+                },
+                "p_clean_down_5_3_3_360": {
+                  "type": "number"
+                },
+                "p_clean_down_5_3_3_5": {
+                  "type": "number"
+                },
+                "p_clean_down_5_3_3_60": {
+                  "type": "number"
+                },
+                "p_dump_trap_120": {
+                  "type": "number"
+                },
+                "p_dump_trap_240": {
+                  "type": "number"
+                },
+                "p_dump_trap_360": {
+                  "type": "number"
+                },
+                "p_dump_trap_60": {
+                  "type": "number"
+                },
+                "p_fast_down_120": {
+                  "type": "number"
+                },
+                "p_fast_down_240": {
+                  "type": "number"
+                },
+                "p_fast_down_360": {
+                  "type": "number"
+                },
+                "p_fast_down_60": {
+                  "type": "number"
+                },
+                "p_fast_up_120": {
+                  "type": "number"
+                },
+                "p_fast_up_240": {
+                  "type": "number"
+                },
+                "p_fast_up_360": {
+                  "type": "number"
+                },
+                "p_fast_up_60": {
+                  "type": "number"
+                },
+                "p_pump_trap_120": {
+                  "type": "number"
+                },
+                "p_pump_trap_240": {
+                  "type": "number"
+                },
+                "p_pump_trap_360": {
+                  "type": "number"
+                },
+                "p_pump_trap_60": {
+                  "type": "number"
+                },
+                "p_tbv_2_1_120": {
+                  "type": "number"
+                },
+                "p_tbv_2_1_15": {
+                  "type": "number"
+                },
+                "p_tbv_2_1_240": {
+                  "type": "number"
+                },
+                "p_tbv_2_1_30": {
+                  "type": "number"
+                },
+                "p_tbv_2_1_360": {
+                  "type": "number"
+                },
+                "p_tbv_2_1_5": {
+                  "type": "number"
+                },
+                "p_tbv_2_1_60": {
+                  "type": "number"
+                },
+                "p_tbv_down_2_1_120": {
+                  "type": "number"
+                },
+                "p_tbv_down_2_1_15": {
+                  "type": "number"
+                },
+                "p_tbv_down_2_1_240": {
+                  "type": "number"
+                },
+                "p_tbv_down_2_1_30": {
+                  "type": "number"
+                },
+                "p_tbv_down_2_1_360": {
+                  "type": "number"
+                },
+                "p_tbv_down_2_1_5": {
+                  "type": "number"
+                },
+                "p_tbv_down_2_1_60": {
+                  "type": "number"
+                },
+                "rvol_120": {
+                  "type": "number"
+                },
+                "rvol_15": {
+                  "type": "number"
+                },
+                "rvol_240": {
+                  "type": "number"
+                },
+                "rvol_30": {
+                  "type": "number"
+                },
+                "rvol_360": {
+                  "type": "number"
+                },
+                "rvol_5": {
+                  "type": "number"
+                },
+                "rvol_60": {
+                  "type": "number"
+                },
+                "semivol_down_120": {
+                  "type": "number"
+                },
+                "semivol_down_15": {
+                  "type": "number"
+                },
+                "semivol_down_240": {
+                  "type": "number"
+                },
+                "semivol_down_30": {
+                  "type": "number"
+                },
+                "semivol_down_360": {
+                  "type": "number"
+                },
+                "semivol_down_5": {
+                  "type": "number"
+                },
+                "semivol_down_60": {
+                  "type": "number"
+                },
+                "semivol_up_120": {
+                  "type": "number"
+                },
+                "semivol_up_15": {
+                  "type": "number"
+                },
+                "semivol_up_240": {
+                  "type": "number"
+                },
+                "semivol_up_30": {
+                  "type": "number"
+                },
+                "semivol_up_360": {
+                  "type": "number"
+                },
+                "semivol_up_5": {
+                  "type": "number"
+                },
+                "semivol_up_60": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "data_age_min",
+                "data_points",
+                "limited_history",
+                "mae_120",
+                "mae_15",
+                "mae_240",
+                "mae_30",
+                "mae_360",
+                "mae_5",
+                "mae_60",
+                "mfe_120",
+                "mfe_15",
+                "mfe_240",
+                "mfe_30",
+                "mfe_360",
+                "mfe_5",
+                "mfe_60",
+                "p_clean_10_5_5_120",
+                "p_clean_10_5_5_15",
+                "p_clean_10_5_5_240",
+                "p_clean_10_5_5_30",
+                "p_clean_10_5_5_360",
+                "p_clean_10_5_5_5",
+                "p_clean_10_5_5_60",
+                "p_clean_20_10_10_120",
+                "p_clean_20_10_10_15",
+                "p_clean_20_10_10_240",
+                "p_clean_20_10_10_30",
+                "p_clean_20_10_10_360",
+                "p_clean_20_10_10_5",
+                "p_clean_20_10_10_60",
+                "p_clean_5_3_3_120",
+                "p_clean_5_3_3_15",
+                "p_clean_5_3_3_240",
+                "p_clean_5_3_3_30",
+                "p_clean_5_3_3_360",
+                "p_clean_5_3_3_5",
+                "p_clean_5_3_3_60",
+                "p_clean_down_10_5_5_120",
+                "p_clean_down_10_5_5_15",
+                "p_clean_down_10_5_5_240",
+                "p_clean_down_10_5_5_30",
+                "p_clean_down_10_5_5_360",
+                "p_clean_down_10_5_5_5",
+                "p_clean_down_10_5_5_60",
+                "p_clean_down_20_10_10_120",
+                "p_clean_down_20_10_10_15",
+                "p_clean_down_20_10_10_240",
+                "p_clean_down_20_10_10_30",
+                "p_clean_down_20_10_10_360",
+                "p_clean_down_20_10_10_5",
+                "p_clean_down_20_10_10_60",
+                "p_clean_down_5_3_3_120",
+                "p_clean_down_5_3_3_15",
+                "p_clean_down_5_3_3_240",
+                "p_clean_down_5_3_3_30",
+                "p_clean_down_5_3_3_360",
+                "p_clean_down_5_3_3_5",
+                "p_clean_down_5_3_3_60",
+                "p_dump_trap_120",
+                "p_dump_trap_240",
+                "p_dump_trap_360",
+                "p_dump_trap_60",
+                "p_fast_down_120",
+                "p_fast_down_240",
+                "p_fast_down_360",
+                "p_fast_down_60",
+                "p_fast_up_120",
+                "p_fast_up_240",
+                "p_fast_up_360",
+                "p_fast_up_60",
+                "p_pump_trap_120",
+                "p_pump_trap_240",
+                "p_pump_trap_360",
+                "p_pump_trap_60",
+                "p_tbv_2_1_120",
+                "p_tbv_2_1_15",
+                "p_tbv_2_1_240",
+                "p_tbv_2_1_30",
+                "p_tbv_2_1_360",
+                "p_tbv_2_1_5",
+                "p_tbv_2_1_60",
+                "p_tbv_down_2_1_120",
+                "p_tbv_down_2_1_15",
+                "p_tbv_down_2_1_240",
+                "p_tbv_down_2_1_30",
+                "p_tbv_down_2_1_360",
+                "p_tbv_down_2_1_5",
+                "p_tbv_down_2_1_60",
+                "rvol_120",
+                "rvol_15",
+                "rvol_240",
+                "rvol_30",
+                "rvol_360",
+                "rvol_5",
+                "rvol_60",
+                "semivol_down_120",
+                "semivol_down_15",
+                "semivol_down_240",
+                "semivol_down_30",
+                "semivol_down_360",
+                "semivol_down_5",
+                "semivol_down_60",
+                "semivol_up_120",
+                "semivol_up_15",
+                "semivol_up_240",
+                "semivol_up_30",
+                "semivol_up_360",
+                "semivol_up_5",
+                "semivol_up_60"
+              ]
+            },
+            "tokenAddress": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            }
+          },
+          "required": [
+            "guide_uri",
+            "liquidity_usd",
+            "network",
+            "poolAddress",
+            "predictions",
+            "tokenAddress"
+          ]
+        },
+        "summary": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "data",
+        "summary"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.liquidity_usd": {
+        "min": 0
+      },
+      "data.predictions.data_age_min": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mcp.deep3.ai",
+    "endpoint": "https://mcp.deep3.ai/tools/wave-1",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

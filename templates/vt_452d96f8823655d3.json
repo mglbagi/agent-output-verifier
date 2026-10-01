@@ -1,0 +1,168 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_452d96f8823655d3",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "call_count": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "calls": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "arrival_estimated": {
+                "type": "boolean"
+              },
+              "arrived_at": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "departed_at": {
+                "format": "date-time",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "departure_estimated": {
+                "type": "boolean"
+              },
+              "duration_seconds": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "locode": {
+                "type": "string"
+              },
+              "port_name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "locode",
+              "port_name",
+              "country",
+              "arrived_at",
+              "departed_at",
+              "arrival_estimated",
+              "departure_estimated",
+              "duration_seconds"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "coverage_start": {
+          "format": "date-time",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "current_port": {
+          "additionalProperties": false,
+          "properties": {
+            "arrival_estimated": {
+              "type": "boolean"
+            },
+            "arrived_at": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "locode": {
+              "type": "string"
+            },
+            "port_name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "locode",
+            "port_name",
+            "country",
+            "arrived_at",
+            "arrival_estimated"
+          ],
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "license_url": {
+          "format": "uri",
+          "type": "string"
+        },
+        "mmsi": {
+          "pattern": "^[0-9]{9}$",
+          "type": "string"
+        },
+        "provider": {
+          "const": "AIS Fleet",
+          "type": "string"
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "window_days": {
+          "const": 30,
+          "type": "integer"
+        },
+        "window_end": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "window_start": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "provider",
+        "mmsi",
+        "window_days",
+        "window_start",
+        "window_end",
+        "coverage_start",
+        "current_port",
+        "calls",
+        "call_count",
+        "truncated",
+        "license_url"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "window_start",
+        "other_field": "window_end"
+      }
+    ],
+    "bounds": {
+      "calls[].duration_seconds": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "aisfleet.com",
+    "endpoint": "https://aisfleet.com/api/x402/v1/ais/vessels/:mmsi/port-calls",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

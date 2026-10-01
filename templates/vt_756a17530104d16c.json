@@ -1,0 +1,257 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_756a17530104d16c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "attestation": {
+          "type": "object",
+          "properties": {
+            "hash": {
+              "type": "string"
+            },
+            "signature": {
+              "type": "string"
+            },
+            "signer": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            }
+          },
+          "required": [
+            "hash",
+            "signature",
+            "signer"
+          ]
+        },
+        "delivery": {
+          "type": "object",
+          "properties": {
+            "last_delivery_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "verified": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "last_delivery_at",
+            "verified"
+          ]
+        },
+        "honeypot": {
+          "type": "object",
+          "properties": {
+            "flags": {
+              "type": "array"
+            },
+            "label": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "flags",
+            "label"
+          ]
+        },
+        "liveness": {
+          "type": "object",
+          "properties": {
+            "http_status": {
+              "type": "integer"
+            },
+            "last_ok_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "latency_ms": {
+              "type": "integer"
+            },
+            "ok_count": {
+              "type": "integer"
+            },
+            "probe_count": {
+              "type": "integer"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "http_status",
+            "last_ok_at",
+            "latency_ms",
+            "ok_count",
+            "probe_count",
+            "status"
+          ]
+        },
+        "payability": {
+          "type": "object",
+          "properties": {
+            "declared_verb": {
+              "type": "string"
+            },
+            "payable_verb": {
+              "type": "string"
+            },
+            "verdict": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "declared_verb",
+            "payable_verb",
+            "verdict"
+          ]
+        },
+        "payee": {
+          "type": "object",
+          "properties": {
+            "seen_onchain": {
+              "type": "boolean"
+            },
+            "seller": {
+              "type": "object",
+              "properties": {
+                "endpoints": {
+                  "type": "integer"
+                },
+                "flags": {
+                  "type": "array"
+                },
+                "live": {
+                  "type": "integer"
+                },
+                "settlement_integrity": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "score": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "score"
+                  ]
+                }
+              },
+              "required": [
+                "endpoints",
+                "flags",
+                "live",
+                "settlement_integrity"
+              ]
+            },
+            "usdc_balance": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "seen_onchain",
+            "seller",
+            "usdc_balance"
+          ]
+        },
+        "quality": {
+          "type": "object",
+          "properties": {
+            "total": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "total"
+          ]
+        },
+        "quote": {
+          "type": "object",
+          "properties": {
+            "network": {
+              "type": "string"
+            },
+            "pay_to": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "price_usd": {
+              "type": "number"
+            },
+            "scheme": {
+              "type": "string"
+            },
+            "x402_version": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "network",
+            "pay_to",
+            "price_usd",
+            "scheme",
+            "x402_version"
+          ]
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "recommendation": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "attestation",
+        "delivery",
+        "honeypot",
+        "liveness",
+        "payability",
+        "payee",
+        "quality",
+        "quote",
+        "reasons",
+        "recommendation",
+        "url"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "liveness.ok_count": {
+        "min": 0
+      },
+      "liveness.probe_count": {
+        "min": 0
+      },
+      "payee.usdc_balance": {
+        "min": 0
+      },
+      "quality.total": {
+        "min": 0
+      },
+      "quote.price_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "settled.tools",
+    "endpoint": "https://settled.tools/v1/preflight",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

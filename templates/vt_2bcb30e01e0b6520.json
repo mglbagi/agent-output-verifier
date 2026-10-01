@@ -1,0 +1,153 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2bcb30e01e0b6520",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "confidence": {
+          "type": "string"
+        },
+        "notice": {
+          "type": "string"
+        },
+        "query": {
+          "type": "object",
+          "properties": {
+            "q": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "q",
+            "region"
+          ]
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "grants": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "amounts": {
+                    "type": "object",
+                    "properties": {
+                      "max": {
+                        "type": "integer"
+                      },
+                      "min": {
+                        "type": "integer"
+                      },
+                      "text": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "max",
+                      "min",
+                      "text"
+                    ]
+                  },
+                  "funder": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "source_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "window": {
+                    "type": "object",
+                    "properties": {
+                      "closes": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "days_to_close": {
+                        "type": "integer"
+                      },
+                      "open_now": {
+                        "type": "boolean"
+                      },
+                      "opens": {
+                        "type": "string",
+                        "format": "date-time"
+                      }
+                    },
+                    "required": [
+                      "closes",
+                      "days_to_close",
+                      "open_now",
+                      "opens"
+                    ]
+                  }
+                },
+                "required": [
+                  "amounts",
+                  "funder",
+                  "id",
+                  "name",
+                  "source_url",
+                  "window"
+                ]
+              }
+            },
+            "returned": {
+              "type": "integer"
+            },
+            "total_matched": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "grants",
+            "returned",
+            "total_matched"
+          ]
+        }
+      },
+      "required": [
+        "confidence",
+        "notice",
+        "query",
+        "result"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "result.grants[].amounts.min",
+        "other_field": "result.grants[].amounts.max"
+      },
+      {
+        "type": "unique",
+        "field": "result.grants[].id"
+      }
+    ],
+    "bounds": {
+      "result.total_matched": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.ukintel.uk",
+    "endpoint": "https://api.ukintel.uk/v1/grants/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

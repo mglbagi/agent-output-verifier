@@ -1,0 +1,95 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_099ef9ca0721624a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "top_insiders": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer"
+              },
+              "insider_name": {
+                "type": "string"
+              },
+              "total_value": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "count",
+              "insider_name",
+              "total_value"
+            ]
+          }
+        },
+        "top_tickers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer"
+              },
+              "ticker": {
+                "type": "string"
+              },
+              "total_value": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "count",
+              "ticker",
+              "total_value"
+            ]
+          }
+        },
+        "total_trades": {
+          "type": "number"
+        },
+        "trades_last_24h": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "top_insiders",
+        "top_tickers",
+        "total_trades",
+        "trades_last_24h"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "top_insiders[].count": {
+        "min": 0
+      },
+      "top_insiders[].total_value": {
+        "min": 0
+      },
+      "top_tickers[].count": {
+        "min": 0
+      },
+      "top_tickers[].total_value": {
+        "min": 0
+      },
+      "total_trades": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "joyful-charm-production-bf6d.up.railway.app",
+    "endpoint": "https://joyful-charm-production-bf6d.up.railway.app/stats",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

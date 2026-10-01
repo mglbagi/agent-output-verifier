@@ -1,0 +1,72 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_de699f2312ada7ba",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "file_size_bytes": {
+          "type": "integer"
+        },
+        "format": {
+          "type": "string"
+        },
+        "page_title": {
+          "type": "string"
+        },
+        "render_time_ms": {
+          "type": "integer"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "viewport": {
+          "type": "object",
+          "properties": {
+            "height": {
+              "type": "integer"
+            },
+            "width": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "height",
+            "width"
+          ]
+        }
+      },
+      "required": [
+        "file_size_bytes",
+        "format",
+        "page_title",
+        "render_time_ms",
+        "url",
+        "viewport"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "file_size_bytes": {
+        "min": 0
+      },
+      "viewport.height": {
+        "min": 0
+      },
+      "viewport.width": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "visual.hugen.tokyo",
+    "endpoint": "https://visual.hugen.tokyo/visual/screenshot",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

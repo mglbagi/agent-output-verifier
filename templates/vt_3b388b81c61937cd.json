@@ -1,0 +1,99 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3b388b81c61937cd",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "articles": {
+          "items": {
+            "properties": {
+              "domain": {
+                "type": "string"
+              },
+              "language": {
+                "type": "string"
+              },
+              "seen_at": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "social_image": {
+                "description": "Article thumbnail URL, when GDELT has one",
+                "type": "string"
+              },
+              "source_country": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "url",
+              "title",
+              "seen_at",
+              "domain",
+              "language",
+              "source_country"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "attribution": {
+          "description": "Mandatory GDELT licence credit line",
+          "type": "string"
+        },
+        "count": {
+          "description": "Number of articles returned",
+          "type": "integer"
+        },
+        "note": {
+          "description": "Present only on a sample response (empty/omitted query): a hint to pass a real query. The paid request ran; no upstream call was made.",
+          "type": "string"
+        },
+        "queried_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "query": {
+          "description": "Echo of the request query",
+          "type": "string"
+        },
+        "timespan": {
+          "description": "Echo of the effective timespan",
+          "type": "string"
+        }
+      },
+      "required": [
+        "query",
+        "queried_at",
+        "timespan",
+        "count",
+        "articles",
+        "attribution"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "gdelt.use.x402atlas.com",
+    "endpoint": "https://gdelt.use.x402atlas.com/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

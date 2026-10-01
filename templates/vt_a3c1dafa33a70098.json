@@ -1,0 +1,164 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a3c1dafa33a70098",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "fetched_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "rates": {
+          "type": "object",
+          "properties": {
+            "cpi_yoy_pct": {
+              "type": "object",
+              "properties": {
+                "as_of": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "computed": {
+                  "type": "string"
+                },
+                "series": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "as_of",
+                "computed",
+                "series",
+                "value"
+              ]
+            },
+            "fed_funds_pct": {
+              "type": "object",
+              "properties": {
+                "as_of": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "series": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "as_of",
+                "series",
+                "value"
+              ]
+            },
+            "mortgage_15yr_pct": {
+              "type": "object",
+              "properties": {
+                "as_of": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "series": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "as_of",
+                "series",
+                "value"
+              ]
+            },
+            "mortgage_30yr_pct": {
+              "type": "object",
+              "properties": {
+                "as_of": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "series": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "as_of",
+                "series",
+                "value"
+              ]
+            },
+            "prime_pct": {
+              "type": "object",
+              "properties": {
+                "as_of": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "series": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "as_of",
+                "series",
+                "value"
+              ]
+            }
+          },
+          "required": [
+            "cpi_yoy_pct",
+            "fed_funds_pct",
+            "mortgage_15yr_pct",
+            "mortgage_30yr_pct",
+            "prime_pct"
+          ]
+        },
+        "receipt_tx": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{64}$"
+        },
+        "request_id": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "ttl_seconds": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "fetched_at",
+        "rates",
+        "receipt_tx",
+        "request_id",
+        "source",
+        "ttl_seconds"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "jtifhcvbgxqwlywugvjv.supabase.co",
+    "endpoint": "https://jtifhcvbgxqwlywugvjv.supabase.co/functions/v1/cortex402-mortgage-rates",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

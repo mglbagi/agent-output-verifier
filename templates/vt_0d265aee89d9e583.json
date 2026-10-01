@@ -1,0 +1,99 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0d265aee89d9e583",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "market": {
+          "type": "object",
+          "properties": {
+            "platform": {
+              "type": "string"
+            },
+            "question": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "platform",
+            "question"
+          ]
+        },
+        "points": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "p": {
+                "type": "number"
+              },
+              "t": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "p",
+              "t"
+            ]
+          }
+        },
+        "stats": {
+          "type": "object",
+          "properties": {
+            "change": {
+              "type": "number"
+            },
+            "first": {
+              "type": "number"
+            },
+            "high": {
+              "type": "number"
+            },
+            "last": {
+              "type": "number"
+            },
+            "low": {
+              "type": "number"
+            },
+            "points": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "change",
+            "first",
+            "high",
+            "last",
+            "low",
+            "points"
+          ]
+        }
+      },
+      "required": [
+        "market",
+        "points",
+        "stats"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "stats.low",
+        "other_field": "stats.high"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "clink-lithium-vault.fly.dev",
+    "endpoint": "https://clink-lithium-vault.fly.dev/pm/history",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

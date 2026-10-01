@@ -1,0 +1,115 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b92903edb02a9858",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "chains": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "as_of": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "bucket_15m": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "chain": {
+                "type": "string"
+              },
+              "deviation_pct": {
+                "type": "number"
+              },
+              "trades": {
+                "type": "integer"
+              },
+              "vwap_in_peg_ccy": {
+                "type": "number"
+              },
+              "vwap_usd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "as_of",
+              "bucket_15m",
+              "chain",
+              "deviation_pct",
+              "trades",
+              "vwap_in_peg_ccy",
+              "vwap_usd"
+            ]
+          }
+        },
+        "peg": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "token": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "chain": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "address",
+            "chain"
+          ]
+        },
+        "worst_deviation_pct": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "chains",
+        "peg",
+        "slug",
+        "status",
+        "symbol",
+        "token",
+        "worst_deviation_pct"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "chains[].deviation_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "chains[].vwap_usd": {
+        "min": 0
+      },
+      "worst_deviation_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "chain-analyzer.com",
+    "endpoint": "https://chain-analyzer.com/api/v1/x402/token/:address/peg-status",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

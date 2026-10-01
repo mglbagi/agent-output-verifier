@@ -1,0 +1,42 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_199110bc48dedaed",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "feature_request": {
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "upvotes": {
+              "description": "the counter's value AFTER this increment",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "id",
+            "upvotes"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "feature_request"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "safetyincidents.org",
+    "endpoint": "https://safetyincidents.org/api/x402/feature-request/:featureRequestID/upvote",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

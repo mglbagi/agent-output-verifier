@@ -1,0 +1,66 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_73a86cd869e138a7",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "asset": {
+          "type": "string"
+        },
+        "change_24h": {
+          "type": "number"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "high_24h": {
+          "type": "integer"
+        },
+        "low_24h": {
+          "type": "integer"
+        },
+        "price": {
+          "type": "number"
+        },
+        "volume_24h": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "asset",
+        "change_24h",
+        "currency",
+        "high_24h",
+        "low_24h",
+        "price",
+        "volume_24h"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "low_24h",
+        "other_field": "high_24h"
+      }
+    ],
+    "bounds": {
+      "price": {
+        "min": 0
+      },
+      "volume_24h": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.swaphunt.dev",
+    "endpoint": "https://x402.swaphunt.dev/v1/tools/price",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

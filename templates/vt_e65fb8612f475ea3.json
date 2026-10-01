@@ -1,0 +1,61 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e65fb8612f475ea3",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "c": {
+          "type": "string"
+        },
+        "close_time": {
+          "type": "integer"
+        },
+        "h": {
+          "type": "string"
+        },
+        "interval": {
+          "type": "string"
+        },
+        "l": {
+          "type": "string"
+        },
+        "n": {
+          "type": "integer"
+        },
+        "o": {
+          "type": "string"
+        },
+        "open_time": {
+          "type": "integer"
+        },
+        "v": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "c",
+        "close_time",
+        "h",
+        "interval",
+        "l",
+        "n",
+        "o",
+        "open_time",
+        "v"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.hyperextend.xyz",
+    "endpoint": "https://api.hyperextend.xyz/v1/candles/BTC/1m",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

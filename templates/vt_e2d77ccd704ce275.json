@@ -1,0 +1,81 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e2d77ccd704ce275",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "deployerCheck": {
+          "type": "object",
+          "properties": {
+            "isFreshWallet": {
+              "type": "boolean"
+            },
+            "walletAgeHours": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "isFreshWallet",
+            "walletAgeHours"
+          ]
+        },
+        "entrySignal": {
+          "type": "object",
+          "properties": {
+            "entryConfidence": {
+              "type": "integer"
+            },
+            "timing": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "entryConfidence",
+            "timing"
+          ]
+        },
+        "impersonationCheck": {
+          "type": "object",
+          "properties": {
+            "isSuspicious": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "isSuspicious"
+          ]
+        },
+        "overallRisk": {
+          "type": "string"
+        },
+        "recommendation": {
+          "type": "string"
+        },
+        "riskScore": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "deployerCheck",
+        "entrySignal",
+        "impersonationCheck",
+        "overallRisk",
+        "recommendation",
+        "riskScore"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "zlv402.wreckbots.io",
+    "endpoint": "https://zlv402.wreckbots.io/api/v1/analyze-token",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

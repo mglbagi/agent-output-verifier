@@ -1,0 +1,316 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_beda6e32d61ae817",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "alert_level": {
+                "type": "string"
+              },
+              "alert_score": {
+                "type": "integer"
+              },
+              "as_of": {
+                "type": "string",
+                "format": "date"
+              },
+              "country": {
+                "type": "string"
+              },
+              "current_state_since": {
+                "type": "string",
+                "format": "date"
+              },
+              "envelope_version": {
+                "type": "string"
+              },
+              "episode_alert_level": {
+                "type": "string"
+              },
+              "episode_alert_score": {
+                "type": "number"
+              },
+              "episode_id": {
+                "type": "string"
+              },
+              "episode_path": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "episode_alert_level": {
+                      "type": "string"
+                    },
+                    "episode_alert_score": {
+                      "type": "number"
+                    },
+                    "episode_id": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "episode_alert_level",
+                    "episode_alert_score",
+                    "episode_id"
+                  ]
+                }
+              },
+              "episodes_seen": {
+                "type": "integer"
+              },
+              "escalated_at_episode": {
+                "type": "integer"
+              },
+              "escalated_from": {
+                "type": "string"
+              },
+              "event_type": {
+                "type": "string"
+              },
+              "events": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "alert_level": {
+                      "type": "string"
+                    },
+                    "episode_id": {
+                      "type": "string"
+                    },
+                    "episodes_before": {
+                      "type": "integer"
+                    },
+                    "escalated_at_episode": {
+                      "type": "integer"
+                    },
+                    "escalated_from": {
+                      "type": "string"
+                    },
+                    "is_current": {
+                      "type": "boolean"
+                    },
+                    "kind": {
+                      "type": "string"
+                    },
+                    "observed_at": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "prev_observed_at": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "re_entry": {
+                      "type": "boolean"
+                    },
+                    "direction": {
+                      "type": "string"
+                    },
+                    "field": {
+                      "type": "string"
+                    },
+                    "new": {
+                      "type": [
+                        "boolean",
+                        "string"
+                      ]
+                    },
+                    "old": {
+                      "type": [
+                        "boolean",
+                        "string"
+                      ]
+                    },
+                    "held_days": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "observed_at",
+                    "prev_observed_at"
+                  ]
+                }
+              },
+              "events_truncated": {
+                "type": "boolean"
+              },
+              "first_seen": {
+                "type": "string",
+                "format": "date"
+              },
+              "from_date_iso": {
+                "type": "string",
+                "format": "date"
+              },
+              "is_current": {
+                "type": "boolean"
+              },
+              "iso3": {
+                "type": "string"
+              },
+              "last_seen": {
+                "type": "string",
+                "format": "date"
+              },
+              "last_shard_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "observations": {
+                "type": "integer"
+              },
+              "present_in_latest": {
+                "type": "boolean"
+              },
+              "report_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "scope_status": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "integer"
+              },
+              "severity_text": {
+                "type": "string"
+              },
+              "severity_unit": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "source_id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "to_date_iso": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "required": [
+              "alert_level",
+              "alert_score",
+              "as_of",
+              "country",
+              "current_state_since",
+              "envelope_version",
+              "episode_alert_level",
+              "episode_alert_score",
+              "episode_id",
+              "episode_path",
+              "episodes_seen",
+              "escalated_at_episode",
+              "escalated_from",
+              "event_type",
+              "events",
+              "events_truncated",
+              "first_seen",
+              "from_date_iso",
+              "is_current",
+              "iso3",
+              "last_seen",
+              "last_shard_date",
+              "observations",
+              "present_in_latest",
+              "report_url",
+              "scope_status",
+              "severity",
+              "severity_text",
+              "severity_unit",
+              "source",
+              "source_id",
+              "title",
+              "to_date_iso"
+            ]
+          }
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "as_of": {
+              "type": "object",
+              "properties": {
+                "gdacs": {
+                  "type": "string",
+                  "format": "date"
+                }
+              },
+              "required": [
+                "gdacs"
+              ]
+            },
+            "attribution": {
+              "type": "string"
+            },
+            "degraded": {
+              "type": "boolean"
+            },
+            "license": {
+              "type": "string"
+            },
+            "row_count": {
+              "type": "integer"
+            },
+            "truncated": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "as_of",
+            "attribution",
+            "degraded",
+            "license",
+            "row_count",
+            "truncated"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data[].episode_path[].episode_id"
+      },
+      {
+        "type": "unique",
+        "field": "data[].events[].episode_id"
+      },
+      {
+        "type": "unique",
+        "field": "data[].episode_id"
+      }
+    ],
+    "bounds": {
+      "meta.row_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "wailand.tailf99551.ts.net",
+    "endpoint": "https://wailand.tailf99551.ts.net/v1/disaster-changes",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

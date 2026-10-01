@@ -1,0 +1,98 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4515c89dd791263c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "exchange_breakdown": {
+          "type": "object",
+          "properties": {
+            "binance": {
+              "type": "object",
+              "properties": {
+                "markPrice": {
+                  "type": "number"
+                },
+                "weight": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "markPrice",
+                "weight"
+              ]
+            }
+          },
+          "required": [
+            "binance"
+          ]
+        },
+        "freshness": {
+          "type": "object",
+          "properties": {
+            "age_ms": {
+              "type": "integer"
+            },
+            "stale": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "age_ms",
+            "stale"
+          ]
+        },
+        "funding_rate": {
+          "type": "number"
+        },
+        "mark_price": {
+          "type": "number"
+        },
+        "market": {
+          "type": "string"
+        },
+        "open_interest_usd": {
+          "type": "number"
+        },
+        "paid": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "exchange_breakdown",
+        "freshness",
+        "funding_rate",
+        "mark_price",
+        "market",
+        "open_interest_usd",
+        "paid"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "exchange_breakdown.binance.weight": {
+        "min": 0
+      },
+      "freshness.age_ms": {
+        "min": 0
+      },
+      "mark_price": {
+        "min": 0
+      },
+      "open_interest_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "acoda.xyz",
+    "endpoint": "https://acoda.xyz/v1/market-state",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

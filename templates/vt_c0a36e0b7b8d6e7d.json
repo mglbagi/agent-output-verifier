@@ -1,0 +1,81 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c0a36e0b7b8d6e7d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "assessment": {
+          "description": "Human-readable assessment summary",
+          "type": "string"
+        },
+        "checked_at": {
+          "description": "Timestamp of analysis",
+          "format": "date-time",
+          "type": "string"
+        },
+        "severity": {
+          "description": "Severity level",
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high",
+            "critical"
+          ],
+          "type": "string"
+        },
+        "signals": {
+          "description": "Detected precursor signals",
+          "items": {
+            "properties": {
+              "detail": {
+                "type": "string"
+              },
+              "source": {
+                "enum": [
+                  "derivatives_data",
+                  "social_intelligence",
+                  "prediction_markets",
+                  "market_data"
+                ],
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "status": {
+          "description": "Overall risk status",
+          "enum": [
+            "clear",
+            "alert"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "severity",
+        "checked_at",
+        "assessment"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.blackswan.wtf",
+    "endpoint": "https://x402.blackswan.wtf/smart-agents/flare",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

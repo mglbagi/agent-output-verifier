@@ -1,0 +1,99 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1361847909ec86de",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "assets": {
+          "type": "object",
+          "properties": {
+            "BTC": {
+              "type": "object",
+              "properties": {
+                "bollinger": {
+                  "type": "object",
+                  "properties": {
+                    "lower": {
+                      "type": "integer"
+                    },
+                    "middle": {
+                      "type": "integer"
+                    },
+                    "upper": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "lower",
+                    "middle",
+                    "upper"
+                  ]
+                },
+                "fundingRate": {
+                  "type": "number"
+                },
+                "macd": {
+                  "type": "object",
+                  "properties": {
+                    "histogram": {
+                      "type": "integer"
+                    },
+                    "macd": {
+                      "type": "integer"
+                    },
+                    "signal": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "histogram",
+                    "macd",
+                    "signal"
+                  ]
+                },
+                "rsi14": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "bollinger",
+                "fundingRate",
+                "macd",
+                "rsi14"
+              ]
+            }
+          },
+          "required": [
+            "BTC"
+          ]
+        },
+        "methodology": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "assets",
+        "methodology"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "assets.BTC.bollinger.lower",
+        "other_field": "assets.BTC.bollinger.upper"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "horizonpulse.dev",
+    "endpoint": "https://horizonpulse.dev/api/signals",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ff7f31b33699da33",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "source": {
+          "type": "string"
+        },
+        "stories": {
+          "items": {
+            "properties": {
+              "by": {
+                "type": "string"
+              },
+              "comments": {
+                "type": "integer"
+              },
+              "id": {
+                "type": "integer"
+              },
+              "score": {
+                "type": "integer"
+              },
+              "time": {
+                "type": "integer"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "type": "object",
+            "required": [
+              "by",
+              "comments",
+              "id",
+              "score",
+              "time",
+              "title",
+              "url"
+            ]
+          },
+          "type": "array"
+        },
+        "x402_receipt": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "source",
+        "count",
+        "stories"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "stories[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.agentindex.world",
+    "endpoint": "https://x402.agentindex.world/news",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

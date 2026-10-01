@@ -1,0 +1,122 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_83d683a21e144f41",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "components": {
+          "type": "object",
+          "properties": {
+            "macro": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "score": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "label",
+                "score"
+              ]
+            },
+            "market": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "score": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "label",
+                "score"
+              ]
+            },
+            "social": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "score": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "label",
+                "score"
+              ]
+            }
+          },
+          "required": [
+            "macro",
+            "market",
+            "social"
+          ]
+        },
+        "confidence": {
+          "type": "number"
+        },
+        "data_age_seconds": {
+          "type": "number"
+        },
+        "regime": {
+          "type": "string"
+        },
+        "signal": {
+          "type": "string"
+        },
+        "signal_strength": {
+          "type": "integer"
+        },
+        "stale": {
+          "type": "boolean"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "components",
+        "confidence",
+        "data_age_seconds",
+        "regime",
+        "signal",
+        "signal_strength",
+        "stale",
+        "symbol",
+        "updated_at"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "data_age_seconds": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.signalfuse.co",
+    "endpoint": "https://api.signalfuse.co/v1/signal/ETH",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

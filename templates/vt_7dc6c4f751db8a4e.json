@@ -1,0 +1,145 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7dc6c4f751db8a4e",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "amazon_search": {
+          "type": "string"
+        },
+        "channel_gaps": {
+          "type": "object",
+          "properties": {
+            "weak_channels": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "your_opportunity": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "weak_channels",
+            "your_opportunity"
+          ]
+        },
+        "competitor": {
+          "type": "string"
+        },
+        "content_gaps": {
+          "type": "object",
+          "properties": {
+            "audience_segments_underserved": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "formats_they_ignore": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "topics_they_miss": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "audience_segments_underserved",
+            "formats_they_ignore",
+            "topics_they_miss"
+          ]
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "estimated_strengths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "identified_gaps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "evidence": {
+                "type": "string"
+              },
+              "gap": {
+                "type": "string"
+              },
+              "how_to_exploit": {
+                "type": "string"
+              },
+              "opportunity_size": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "evidence",
+              "gap",
+              "how_to_exploit",
+              "opportunity_size"
+            ]
+          }
+        },
+        "industry": {
+          "type": "string"
+        },
+        "positioning_gap": {
+          "type": "string"
+        },
+        "quick_wins": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "six_month_attack_plan": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "what_not_to_copy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "amazon_search",
+        "channel_gaps",
+        "competitor",
+        "content_gaps",
+        "disclaimer",
+        "estimated_strengths",
+        "identified_gaps",
+        "industry",
+        "positioning_gap",
+        "quick_wins",
+        "six_month_attack_plan",
+        "what_not_to_copy"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "marketpulse.theaslangroupllc.com",
+    "endpoint": "https://marketpulse.theaslangroupllc.com/api/market/competitor-gap",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

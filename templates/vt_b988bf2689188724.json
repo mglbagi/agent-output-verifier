@@ -1,0 +1,85 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b988bf2689188724",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "properties": {
+            "breach_count": {
+              "type": "integer"
+            },
+            "breaches": {
+              "items": {
+                "properties": {
+                  "breach_date": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "data_classes": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "domain": {
+                    "type": "string"
+                  },
+                  "is_verified": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "breach_date",
+                  "data_classes",
+                  "domain",
+                  "is_verified",
+                  "name"
+                ]
+              },
+              "type": "array"
+            },
+            "email": {
+              "type": "string",
+              "format": "email"
+            }
+          },
+          "type": "object",
+          "required": [
+            "breach_count",
+            "breaches",
+            "email"
+          ]
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "required": [
+        "data",
+        "ok"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.breach_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.relayshield.net",
+    "endpoint": "https://api.relayshield.net/v1/payg/breach",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

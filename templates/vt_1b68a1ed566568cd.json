@@ -1,0 +1,69 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1b68a1ed566568cd",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "companies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "company_id": {
+                "type": "string"
+              },
+              "intelligence_endpoint": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "profile_endpoint": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "company_id",
+              "intelligence_endpoint",
+              "name",
+              "profile_endpoint"
+            ]
+          }
+        },
+        "count": {
+          "type": "integer"
+        },
+        "product": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "companies",
+        "count",
+        "product"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "companies[].company_id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "disruption.forgemesh.io",
+    "endpoint": "https://disruption.forgemesh.io/companies/names",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

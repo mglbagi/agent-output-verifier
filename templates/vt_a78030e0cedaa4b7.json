@@ -1,0 +1,284 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a78030e0cedaa4b7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data_source": {
+          "title": "Data Source",
+          "type": "string"
+        },
+        "generated_at": {
+          "properties": {
+            "kst": {
+              "title": "Kst",
+              "type": "string"
+            },
+            "utc": {
+              "title": "Utc",
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "utc",
+            "kst"
+          ],
+          "title": "TimestampPair",
+          "type": "object"
+        },
+        "grouped_question_count": {
+          "title": "Grouped Question Count",
+          "type": "integer"
+        },
+        "grouped_questions": {
+          "items": {
+            "properties": {
+              "fallback": {
+                "anyOf": [
+                  {
+                    "properties": {
+                      "label": {
+                        "default": "none_of_the_above",
+                        "title": "Label",
+                        "type": "string"
+                      },
+                      "outcome_id": {
+                        "title": "Outcome Id",
+                        "type": "integer"
+                      },
+                      "price": {
+                        "anyOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "title": "Price"
+                      }
+                    },
+                    "required": [
+                      "outcome_id"
+                    ],
+                    "title": "Hip4Fallback",
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null
+              },
+              "fields": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "title": "Fields",
+                "type": "object"
+              },
+              "outcomes": {
+                "items": {
+                  "properties": {
+                    "label": {
+                      "description": "Participant name if available, else the outcome's own template name.",
+                      "title": "Label",
+                      "type": "string"
+                    },
+                    "outcome_id": {
+                      "title": "Outcome Id",
+                      "type": "integer"
+                    },
+                    "price": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "default": null,
+                      "title": "Price"
+                    }
+                  },
+                  "required": [
+                    "outcome_id",
+                    "label"
+                  ],
+                  "title": "Hip4NamedOutcome",
+                  "type": "object"
+                },
+                "title": "Outcomes",
+                "type": "array"
+              },
+              "question_id": {
+                "title": "Question Id",
+                "type": "integer"
+              },
+              "template": {
+                "title": "Template",
+                "type": "string"
+              }
+            },
+            "required": [
+              "question_id",
+              "template",
+              "fields",
+              "outcomes"
+            ],
+            "title": "Hip4GroupedQuestion",
+            "type": "object"
+          },
+          "title": "Grouped Questions",
+          "type": "array"
+        },
+        "notice": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Notice"
+        },
+        "standalone_count": {
+          "title": "Standalone Count",
+          "type": "integer"
+        },
+        "standalone_markets": {
+          "items": {
+            "properties": {
+              "fields": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "description": "Parsed 'key:value' pairs from Hyperliquid's own description string, verbatim - not curated.",
+                "title": "Fields",
+                "type": "object"
+              },
+              "outcome_id": {
+                "title": "Outcome Id",
+                "type": "integer"
+              },
+              "sides": {
+                "items": {
+                  "properties": {
+                    "name": {
+                      "description": "Side label - usually 'Yes'/'No', sometimes a competitor's short name.",
+                      "title": "Name",
+                      "type": "string"
+                    },
+                    "price": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "default": null,
+                      "description": "Live mid-price for this side (0.0-1.0, an implied probability).",
+                      "title": "Price"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ],
+                  "title": "Hip4Side",
+                  "type": "object"
+                },
+                "title": "Sides",
+                "type": "array"
+              },
+              "template": {
+                "description": "Hyperliquid's own market-type name for this outcome, verbatim.",
+                "title": "Template",
+                "type": "string"
+              }
+            },
+            "required": [
+              "outcome_id",
+              "template",
+              "fields",
+              "sides"
+            ],
+            "title": "Hip4StandaloneMarket",
+            "type": "object"
+          },
+          "title": "Standalone Markets",
+          "type": "array"
+        },
+        "template_filter": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Template Filter"
+        },
+        "underlying_filter": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Underlying Filter"
+        }
+      },
+      "required": [
+        "generated_at",
+        "standalone_count",
+        "grouped_question_count",
+        "standalone_markets",
+        "grouped_questions",
+        "data_source"
+      ],
+      "title": "PredictionHip4SnapshotResponse",
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "grouped_questions[].outcomes[].outcome_id"
+      },
+      {
+        "type": "unique",
+        "field": "grouped_questions[].question_id"
+      },
+      {
+        "type": "unique",
+        "field": "standalone_markets[].outcome_id"
+      }
+    ],
+    "bounds": {
+      "grouped_question_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "alphapipeline-eu.onrender.com",
+    "endpoint": "https://alphapipeline-eu.onrender.com/v1/prediction/hip4-snapshot",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9ccdbe1682513ffa",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "cached": {
+          "description": "True if served from the KV render cache.",
+          "type": "boolean"
+        },
+        "content_bytes": {
+          "type": "integer"
+        },
+        "final_url": {
+          "description": "URL after redirects.",
+          "type": "string",
+          "format": "uri"
+        },
+        "html": {
+          "description": "Rendered HTML (present when request markdown is false).",
+          "type": "string"
+        },
+        "http_status": {
+          "type": "integer"
+        },
+        "markdown": {
+          "description": "Rendered page as Markdown (present when request markdown is true, the default).",
+          "type": "string"
+        },
+        "render_ms": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "url",
+        "final_url",
+        "http_status",
+        "title",
+        "content_bytes",
+        "render_ms"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "content_bytes": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "spa-dom-to-md.jannioura.workers.dev",
+    "endpoint": "https://spa-dom-to-md.jannioura.workers.dev/",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

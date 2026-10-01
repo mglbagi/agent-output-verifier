@@ -1,0 +1,120 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_31f193c22b349a92",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "type": "number"
+        },
+        "filters": {
+          "properties": {
+            "coin": {
+              "type": "string"
+            },
+            "sort": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "coin",
+            "sort"
+          ]
+        },
+        "markets": {
+          "items": {
+            "properties": {
+              "change24hPct": {
+                "type": "number"
+              },
+              "coin": {
+                "type": "string"
+              },
+              "fundingAprPct": {
+                "type": "number"
+              },
+              "fundingRateHourly": {
+                "type": "number"
+              },
+              "markPrice": {
+                "type": "number"
+              },
+              "maxLeverage": {
+                "type": "number"
+              },
+              "openInterest": {
+                "type": "number"
+              },
+              "openInterestUsd": {
+                "type": "number"
+              },
+              "oraclePrice": {
+                "type": "number"
+              },
+              "priceQuotedPer": {
+                "type": "number"
+              },
+              "volume24hUsd": {
+                "type": "number"
+              }
+            },
+            "type": "object",
+            "required": [
+              "change24hPct",
+              "coin",
+              "fundingAprPct",
+              "fundingRateHourly",
+              "markPrice",
+              "maxLeverage",
+              "openInterest",
+              "openInterestUsd",
+              "oraclePrice",
+              "priceQuotedPer",
+              "volume24hUsd"
+            ]
+          },
+          "type": "array"
+        },
+        "source": {
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "name"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "count",
+        "filters",
+        "markets",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "markets[].fundingAprPct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "crypto.apitoll.cloud",
+    "endpoint": "https://crypto.apitoll.cloud/v1/crypto/perps",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

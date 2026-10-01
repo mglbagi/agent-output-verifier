@@ -1,0 +1,136 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ff3391ff1f009f7d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "bucket": {
+          "type": "string"
+        },
+        "mcp": {
+          "type": "object",
+          "properties": {
+            "detected": {
+              "type": "boolean"
+            },
+            "verified": {
+              "type": "boolean"
+            },
+            "via": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "detected",
+            "verified",
+            "via"
+          ]
+        },
+        "openapi": {
+          "type": "object",
+          "properties": {
+            "security_schemes": {
+              "type": "boolean"
+            },
+            "valid": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "security_schemes",
+            "valid"
+          ]
+        },
+        "score": {
+          "type": "integer"
+        },
+        "signals": {
+          "type": "object",
+          "properties": {
+            "discoverable": {
+              "type": "object",
+              "properties": {
+                "earned": {
+                  "type": "integer"
+                },
+                "weight": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "earned",
+                "weight"
+              ]
+            },
+            "llms": {
+              "type": "object",
+              "properties": {
+                "earned": {
+                  "type": "integer"
+                },
+                "weight": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "earned",
+                "weight"
+              ]
+            }
+          },
+          "required": [
+            "discoverable",
+            "llms"
+          ]
+        },
+        "top_gaps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "label"
+            ]
+          }
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "bucket",
+        "mcp",
+        "openapi",
+        "score",
+        "signals",
+        "top_gaps",
+        "url"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "signals.discoverable.weight": {
+        "min": 0
+      },
+      "signals.llms.weight": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.asterpay.io",
+    "endpoint": "https://x402.asterpay.io/v2/x402/agent-readiness",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

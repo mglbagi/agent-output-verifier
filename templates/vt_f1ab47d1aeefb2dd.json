@@ -1,0 +1,89 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f1ab47d1aeefb2dd",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "category": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "latency_ms": {
+          "type": "integer"
+        },
+        "satellites": {
+          "items": {
+            "properties": {
+              "eccentricity": {
+                "type": "number"
+              },
+              "epoch": {
+                "type": "string"
+              },
+              "inclination_deg": {
+                "type": "number"
+              },
+              "intl_designator": {
+                "type": "string"
+              },
+              "mean_motion": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "norad_id": {
+                "type": "integer"
+              },
+              "period_min": {
+                "type": "number"
+              }
+            },
+            "type": "object",
+            "required": [
+              "eccentricity",
+              "epoch",
+              "inclination_deg",
+              "intl_designator",
+              "mean_motion",
+              "name",
+              "norad_id",
+              "period_min"
+            ]
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "category",
+        "count",
+        "latency_ms",
+        "satellites"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "satellites[].norad_id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "space.bip-rep.com",
+    "endpoint": "https://space.bip-rep.com/satellites",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

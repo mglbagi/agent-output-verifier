@@ -1,0 +1,152 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ed3af413a7886c08",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "document_sha256": {
+          "title": "Document Sha256",
+          "type": "string"
+        },
+        "engine": {
+          "title": "Engine",
+          "type": "string"
+        },
+        "page_count": {
+          "title": "Page Count",
+          "type": "integer"
+        },
+        "pages": {
+          "items": {
+            "properties": {
+              "height": {
+                "title": "Height",
+                "type": "number"
+              },
+              "page": {
+                "description": "One-based source page number",
+                "minimum": 1,
+                "title": "Page",
+                "type": "integer"
+              },
+              "tables": {
+                "items": {
+                  "properties": {
+                    "bbox": {
+                      "description": "x0, top, x1, bottom; PDF points",
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "prefixItems": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "number"
+                        }
+                      ],
+                      "title": "Bbox",
+                      "type": "array"
+                    },
+                    "rows": {
+                      "items": {
+                        "items": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "type": "array"
+                      },
+                      "title": "Rows",
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "bbox",
+                    "rows"
+                  ],
+                  "title": "Table",
+                  "type": "object"
+                },
+                "title": "Tables",
+                "type": "array"
+              },
+              "text": {
+                "title": "Text",
+                "type": "string"
+              },
+              "width": {
+                "title": "Width",
+                "type": "number"
+              }
+            },
+            "required": [
+              "page",
+              "width",
+              "height",
+              "text",
+              "tables"
+            ],
+            "title": "PageResult",
+            "type": "object"
+          },
+          "title": "Pages",
+          "type": "array"
+        },
+        "schema_version": {
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "document_sha256",
+        "page_count",
+        "pages",
+        "warnings",
+        "engine"
+      ],
+      "title": "ExtractionResult",
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "page_count": {
+        "min": 0
+      },
+      "pages[].height": {
+        "min": 0
+      },
+      "pages[].width": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.dekist42.com",
+    "endpoint": "https://api.dekist42.com/v1/extract",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

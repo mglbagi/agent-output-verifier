@@ -1,0 +1,244 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_396bf84970931b86",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "queryParameters": {
+          "type": "object"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "data": {
+                "description": "Default metadata returned: proxy and minifetchCache objects are always returned, outside the ?fields= and ?omitEmpty= query param selections.",
+                "properties": {
+                  "author": {
+                    "type": "string"
+                  },
+                  "canonical": {
+                    "type": "string"
+                  },
+                  "canonicalUrls": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "charset": {
+                    "type": "string"
+                  },
+                  "creator": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "favicons": {
+                    "description": "Discovered icon entries",
+                    "type": "array"
+                  },
+                  "headings": {
+                    "type": "array"
+                  },
+                  "hreflang": {
+                    "description": "hreflang and href",
+                    "type": "array"
+                  },
+                  "image": {
+                    "type": "string"
+                  },
+                  "imgTags": {
+                    "type": "array"
+                  },
+                  "jsonld": {
+                    "description": "Parsed JSON-LD blocks",
+                    "type": "array"
+                  },
+                  "keywords": {
+                    "type": "string"
+                  },
+                  "lang": {
+                    "type": "string"
+                  },
+                  "minifetchCache": {
+                    "description": "Minifetch cache state (~2-min TTL)",
+                    "properties": {
+                      "cachedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "expiresAt": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "hit": {
+                        "type": "boolean"
+                      }
+                    },
+                    "type": "object",
+                    "required": [
+                      "cachedAt",
+                      "expiresAt",
+                      "hit"
+                    ]
+                  },
+                  "og:url": {
+                    "description": "Returns all og: tags, not just og:url",
+                    "type": "string"
+                  },
+                  "performance": {
+                    "properties": {
+                      "responseTimeMs": {
+                        "type": "number"
+                      },
+                      "ttfbMs": {
+                        "type": "number"
+                      }
+                    },
+                    "type": "object",
+                    "required": [
+                      "responseTimeMs",
+                      "ttfbMs"
+                    ]
+                  },
+                  "product:brand": {
+                    "description": "Returns all brand: tags, not just product:brand",
+                    "type": "string"
+                  },
+                  "proxy": {
+                    "description": "Fetch provenance",
+                    "properties": {
+                      "proxyType": {
+                        "type": "string"
+                      },
+                      "proxyUrl": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "robotsTxt": {
+                        "properties": {
+                          "allowed": {
+                            "type": "boolean"
+                          }
+                        },
+                        "type": "object",
+                        "required": [
+                          "allowed"
+                        ]
+                      },
+                      "userAgent": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object",
+                    "required": [
+                      "proxyType",
+                      "robotsTxt",
+                      "userAgent"
+                    ]
+                  },
+                  "publisher": {
+                    "type": "string"
+                  },
+                  "redirects": {
+                    "description": "Redirect hops followed",
+                    "properties": {
+                      "chain": {
+                        "type": "array"
+                      },
+                      "count": {
+                        "type": "integer"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "referrer": {
+                    "type": "string"
+                  },
+                  "requestUrl": {
+                    "description": "URL as requested, before redirects",
+                    "type": "string"
+                  },
+                  "responseBody": {
+                    "description": "Raw HTML; only when ?includeResponseBody=true",
+                    "type": "string"
+                  },
+                  "responseHeaders": {
+                    "description": "Selected response headers",
+                    "type": "object"
+                  },
+                  "responseStatusCode": {
+                    "type": "integer"
+                  },
+                  "robots": {
+                    "type": "string"
+                  },
+                  "source": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "twitter:url": {
+                    "description": "Returns all twitter: tags, not just twitter:url",
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "Final URL after redirects",
+                    "type": "string"
+                  },
+                  "viewport": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "canonical",
+                  "description",
+                  "minifetchCache",
+                  "performance",
+                  "proxy",
+                  "title"
+                ]
+              }
+            },
+            "type": "object",
+            "required": [
+              "data"
+            ]
+          },
+          "type": "array"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "required": [
+        "queryParameters",
+        "results",
+        "success"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "results[].data.redirects.count": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "minifetch.com",
+    "endpoint": "https://minifetch.com/api/v1/x402/extract/url-metadata",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2e22c696a8909f8e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "_atlas": {
+          "additionalProperties": false,
+          "description": "Atlas documentation and related-route metadata added after deployment",
+          "properties": {
+            "docs": {
+              "description": "Documentation URL for this bridge",
+              "format": "uri",
+              "maxLength": 512,
+              "type": "string"
+            },
+            "related": {
+              "description": "Bounded related Atlas routes",
+              "items": {
+                "additionalProperties": false,
+                "description": "One related Atlas route",
+                "properties": {
+                  "bridge": {
+                    "description": "Related bridge name",
+                    "maxLength": 64,
+                    "type": "string"
+                  },
+                  "docs": {
+                    "description": "Related bridge documentation URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  },
+                  "summary": {
+                    "description": "Short capability summary",
+                    "maxLength": 256,
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "Related route URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "bridge",
+                  "url",
+                  "docs",
+                  "summary"
+                ],
+                "type": "object"
+              },
+              "maxItems": 3,
+              "type": "array"
+            }
+          },
+          "required": [
+            "docs"
+          ],
+          "type": "object"
+        },
+        "issued_at": {
+          "description": "Always null because this source publishes no issuance timestamp",
+          "format": "date-time",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "operation": {
+          "const": "kp-forecast",
+          "description": "Stable route operation",
+          "type": "string"
+        },
+        "periods": {
+          "description": "Unique periods in ascending valid-time order; missing periods are not filled",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "kind": {
+                "description": "Exact normalized source observed classification",
+                "enum": [
+                  "observed",
+                  "estimated",
+                  "predicted"
+                ],
+                "type": "string"
+              },
+              "kp": {
+                "description": "Forecast planetary K index",
+                "maximum": 9,
+                "minimum": 0,
+                "type": "number"
+              },
+              "noaa_scale": {
+                "description": "Official NOAA scale value when supplied",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "valid_at": {
+                "description": "Official period valid time",
+                "format": "date-time",
+                "type": "string"
+              }
+            },
+            "required": [
+              "valid_at",
+              "kp",
+              "noaa_scale",
+              "kind"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "query": {
+          "additionalProperties": false,
+          "description": "Normalized query identity after applying the default day window",
+          "properties": {
+            "days": {
+              "description": "Applied forecast-day window",
+              "maximum": 3,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "days"
+          ],
+          "type": "object"
+        },
+        "schema_version": {
+          "const": "noaa-swpc-normalized-v1",
+          "description": "Pinned NOAA SWPC normalization contract",
+          "type": "string"
+        },
+        "source": {
+          "additionalProperties": false,
+          "description": "Official NOAA SWPC provenance for the served normalized snapshot",
+          "properties": {
+            "name": {
+              "description": "Official source organization",
+              "type": "string"
+            },
+            "products": {
+              "description": "Fixed normalized NOAA SWPC products",
+              "items": {
+                "description": "Product identifier",
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "retrieved_at": {
+              "description": "Time the served normalized snapshot was retrieved",
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "products",
+            "retrieved_at"
+          ],
+          "type": "object"
+        },
+        "source_age_seconds": {
+          "description": "Age in whole seconds of the route's controlling freshness timestamp; retrieval time controls alerts and forecast",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "stale": {
+          "description": "True only when a validated cached snapshot was used",
+          "type": "boolean"
+        },
+        "warnings": {
+          "description": "Freshness, missing-component, provenance, and interpretation limitations",
+          "items": {
+            "description": "Actionable warning",
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "operation",
+        "schema_version",
+        "query",
+        "issued_at",
+        "periods",
+        "source",
+        "stale",
+        "source_age_seconds",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "space-weather.use.x402atlas.com",
+    "endpoint": "https://space-weather.use.x402atlas.com/forecast",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

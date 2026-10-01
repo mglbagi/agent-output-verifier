@@ -1,0 +1,62 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_af99449d463de6a8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "days": {
+          "type": "integer"
+        },
+        "series": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "day": {
+                "type": "string",
+                "format": "date"
+              },
+              "dealings": {
+                "type": "integer"
+              },
+              "independent": {
+                "type": "integer"
+              },
+              "largestShare": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "day",
+              "dealings",
+              "independent",
+              "largestShare"
+            ]
+          }
+        }
+      },
+      "required": [
+        "address",
+        "days",
+        "series"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "aspern.org",
+    "endpoint": "https://aspern.org/api/v1/agents/:address/history",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a088d82b239cbb37",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "fetched_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "pools": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "apy": {
+                "type": "number"
+              },
+              "chain": {
+                "type": "string"
+              },
+              "project": {
+                "type": "string"
+              },
+              "stablecoin": {
+                "type": "boolean"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "tvl_usd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "apy",
+              "chain",
+              "project",
+              "stablecoin",
+              "symbol",
+              "tvl_usd"
+            ]
+          }
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "count",
+        "fetched_at",
+        "pools",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "pools[].tvl_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-seller-0ay3.onrender.com",
+    "endpoint": "https://x402-seller-0ay3.onrender.com/api/defi/yields",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

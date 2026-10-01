@@ -1,0 +1,64 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9d6b47eb1efd2544",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "decimals": {
+          "type": "integer"
+        },
+        "freezeAuthority": {
+          "type": "string"
+        },
+        "initialized": {
+          "type": "boolean"
+        },
+        "mint": {
+          "type": "string"
+        },
+        "mintAuthority": {
+          "type": "string"
+        },
+        "network": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "supply": {
+          "type": "string"
+        },
+        "tokenProgram": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "decimals",
+        "freezeAuthority",
+        "initialized",
+        "mint",
+        "mintAuthority",
+        "network",
+        "sources",
+        "supply",
+        "tokenProgram"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.bilbop.org",
+    "endpoint": "https://api.bilbop.org/v1/sol-mint-info",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

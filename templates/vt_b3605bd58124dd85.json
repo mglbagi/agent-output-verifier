@@ -1,0 +1,165 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b3605bd58124dd85",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "holdings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "number"
+              },
+              "is_verified": {
+                "type": "boolean"
+              },
+              "mint": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "pct_of_portfolio": {
+                "type": "number"
+              },
+              "price_usd": {
+                "type": "number"
+              },
+              "risk_score": {
+                "type": "number"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "value_usd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "amount",
+              "is_verified",
+              "mint",
+              "name",
+              "pct_of_portfolio",
+              "price_usd",
+              "risk_score",
+              "symbol",
+              "value_usd"
+            ]
+          }
+        },
+        "risk_summary": {
+          "type": "object",
+          "properties": {
+            "high_risk_pct": {
+              "type": "number"
+            },
+            "illiquid_pct": {
+              "type": "integer"
+            },
+            "unverified_pct": {
+              "type": "number"
+            },
+            "verified_pct": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "high_risk_pct",
+            "illiquid_pct",
+            "unverified_pct",
+            "verified_pct"
+          ]
+        },
+        "sol_balance": {
+          "type": "number"
+        },
+        "sol_value_usd": {
+          "type": "number"
+        },
+        "token_count": {
+          "type": "integer"
+        },
+        "top_holdings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "total_value_usd": {
+          "type": "number"
+        },
+        "wallet": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "holdings",
+        "risk_summary",
+        "sol_balance",
+        "sol_value_usd",
+        "token_count",
+        "top_holdings",
+        "total_value_usd",
+        "wallet"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "holdings[].amount": {
+        "min": 0
+      },
+      "holdings[].pct_of_portfolio": {
+        "min": 0,
+        "max": 100
+      },
+      "holdings[].price_usd": {
+        "min": 0
+      },
+      "holdings[].value_usd": {
+        "min": 0
+      },
+      "risk_summary.high_risk_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "risk_summary.illiquid_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "risk_summary.unverified_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "risk_summary.verified_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "sol_balance": {
+        "min": 0
+      },
+      "sol_value_usd": {
+        "min": 0
+      },
+      "token_count": {
+        "min": 0
+      },
+      "total_value_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "svm402.com",
+    "endpoint": "https://svm402.com/wallet/analyze/:address",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

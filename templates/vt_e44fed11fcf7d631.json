@@ -1,0 +1,102 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e44fed11fcf7d631",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "generated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "regions": {
+          "items": {
+            "properties": {
+              "commodities": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "confirms_el_nino": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "forecast_16d_mm": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "id": {
+                "type": "string"
+              },
+              "lat": {
+                "type": "number"
+              },
+              "lon": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "nasa_power": {
+                "type": "object"
+              },
+              "signal": {
+                "type": "string"
+              },
+              "trailing_90d": {
+                "type": "object"
+              },
+              "unavailable": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "lat",
+              "lon",
+              "commodities"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "generated",
+        "regions"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "regions[].id"
+      }
+    ],
+    "bounds": {
+      "regions[].lat": {
+        "min": -90,
+        "max": 90
+      },
+      "regions[].lon": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "trading-perps.vercel.app",
+    "endpoint": "https://trading-perps.vercel.app/api/weather/anomalies",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

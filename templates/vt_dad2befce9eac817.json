@@ -1,0 +1,122 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_dad2befce9eac817",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "currencies": {
+          "type": "object",
+          "properties": {
+            "EUR": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "peg": {
+                  "type": "string"
+                },
+                "units_per_usd": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "name",
+                "peg",
+                "units_per_usd"
+              ]
+            }
+          },
+          "required": [
+            "EUR"
+          ]
+        },
+        "energy_driver": {
+          "type": "object",
+          "properties": {
+            "Brent Crude": {
+              "type": "object",
+              "properties": {
+                "chg_30d_pct": {
+                  "type": "number"
+                },
+                "price": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "chg_30d_pct",
+                "price"
+              ]
+            }
+          },
+          "required": [
+            "Brent Crude"
+          ]
+        },
+        "region": {
+          "type": "string"
+        },
+        "regional_stress": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "stress_score": {
+          "type": "integer"
+        },
+        "stressed_economies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "country": {
+                "type": "string"
+              },
+              "flags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "country",
+              "flags"
+            ]
+          }
+        }
+      },
+      "required": [
+        "currencies",
+        "energy_driver",
+        "region",
+        "regional_stress",
+        "source",
+        "stress_score",
+        "stressed_economies"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "currencies.EUR.units_per_usd": {
+        "min": 0
+      },
+      "energy_driver.Brent Crude.price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "europe.lonestaroracle.xyz",
+    "endpoint": "https://europe.lonestaroracle.xyz/pulse",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

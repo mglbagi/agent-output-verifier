@@ -1,0 +1,65 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b75c6d9a1b81285e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "chain": {
+          "type": "string"
+        },
+        "commitment": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "schema_version": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "slot": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "verdict": {
+          "enum": [
+            "VERIFIED",
+            "REFUTED",
+            "UNCONFIRMED",
+            "NOT_FOUND",
+            "not_evaluated"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "verdict",
+        "chain",
+        "signer",
+        "signature"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.nsgoods.org",
+    "endpoint": "https://x402.nsgoods.org/settle",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

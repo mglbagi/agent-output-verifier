@@ -1,0 +1,99 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_baf389334276a5f5",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "One entry per URL, in the order given. BILLING: flat price for the whole batch, so a batch where only some URLs succeed is charged in full. A batch where NO url succeeds returns 502 and is not charged.",
+      "properties": {
+        "billing": {
+          "description": "The billing rule, restated per response.",
+          "type": "string"
+        },
+        "failed": {
+          "type": "integer"
+        },
+        "requested": {
+          "type": "integer"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "cache_age_seconds": {
+                "type": "integer"
+              },
+              "cached": {
+                "type": "boolean"
+              },
+              "error": {
+                "description": "Present when ok is false.",
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "ok": {
+                "type": "boolean"
+              },
+              "page": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "product": {
+                "description": "As POST /extract. Present when ok.",
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "provenance": {
+                "description": "Per-URL: which fields the merchant declared vs the model inferred.",
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "url",
+              "ok"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "succeeded": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "requested",
+        "succeeded",
+        "failed",
+        "results"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "results[].cache_age_seconds": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "extract.tollkit.dev",
+    "endpoint": "https://extract.tollkit.dev/extract/batch",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

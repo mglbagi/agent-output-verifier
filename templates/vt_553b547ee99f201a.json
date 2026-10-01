@@ -1,0 +1,99 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_553b547ee99f201a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "attestation": {
+          "description": "Present only with ?attest=1. Ed25519 signature over the canonical result; verify against /.well-known/402utils-attestation.json.",
+          "properties": {
+            "alg": {
+              "const": "Ed25519",
+              "type": "string"
+            },
+            "payload": {
+              "properties": {
+                "endpoint": {
+                  "type": "string"
+                },
+                "kid": {
+                  "description": "Key id — matches a key in the .well-known document.",
+                  "type": "string"
+                },
+                "resultSha256": {
+                  "description": "SHA-256 of the canonical JSON of the result (attestation excluded).",
+                  "type": "string"
+                },
+                "ts": {
+                  "format": "date-time",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "sig": {
+              "description": "base64url Ed25519 signature over the canonical JSON of payload.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "cached": {
+          "description": "True if served from the 24h positive-result cache.",
+          "type": "boolean"
+        },
+        "checkedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "consultationNumber": {
+          "description": "Official proof-of-check id (only with requesterVat).",
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "reason": {
+          "description": "Present when valid=false due to local syntax: 'invalid_format'.",
+          "type": "string"
+        },
+        "source": {
+          "const": "VIES",
+          "type": "string"
+        },
+        "valid": {
+          "type": "boolean"
+        },
+        "vatNumber": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "valid",
+        "countryCode",
+        "vatNumber",
+        "checkedAt",
+        "source"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "staging.402utils.com",
+    "endpoint": "https://staging.402utils.com/v1/vat-check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

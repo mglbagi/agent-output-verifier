@@ -1,0 +1,96 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_354a052493be3bf5",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "captureRatePct": {
+          "type": "number"
+        },
+        "distinctPayers": {
+          "type": "integer"
+        },
+        "distinctReceivers": {
+          "type": "integer"
+        },
+        "escrow": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "operator": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "paymentCount": {
+          "type": "integer"
+        },
+        "reclaimRatePct": {
+          "type": "number"
+        },
+        "tokensCount": {
+          "type": "integer"
+        },
+        "totalAuthorized": {
+          "type": "string"
+        },
+        "totalCaptured": {
+          "type": "string"
+        },
+        "totalFees": {
+          "type": "string"
+        },
+        "totalRefunded": {
+          "type": "string"
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "verdict": {
+          "type": "string"
+        },
+        "windowDays": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "captureRatePct",
+        "distinctPayers",
+        "distinctReceivers",
+        "escrow",
+        "operator",
+        "paymentCount",
+        "reclaimRatePct",
+        "tokensCount",
+        "totalAuthorized",
+        "totalCaptured",
+        "totalFees",
+        "totalRefunded",
+        "truncated",
+        "verdict",
+        "windowDays"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "captureRatePct": {
+        "min": 0,
+        "max": 100
+      },
+      "reclaimRatePct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "402.com.tr",
+    "endpoint": "https://402.com.tr/api/x402/commerce-operator-audit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

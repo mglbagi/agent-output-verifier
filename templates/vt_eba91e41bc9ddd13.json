@@ -1,0 +1,138 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_eba91e41bc9ddd13",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "company": {
+          "type": "object",
+          "properties": {
+            "company_number": {
+              "type": "string"
+            },
+            "company_type": {
+              "type": "string"
+            },
+            "company_type_code": {},
+            "dissolved_date": {},
+            "last_accounts_date": {},
+            "last_annual_return_date": {},
+            "legal_name": {
+              "type": "string"
+            },
+            "nace_v2_code": {},
+            "name_effective_date": {},
+            "next_annual_return_date": {},
+            "principal_object_code": {},
+            "registered_address": {
+              "type": "object",
+              "properties": {
+                "eircode": {
+                  "type": "string"
+                },
+                "lines": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "eircode",
+                "lines"
+              ]
+            },
+            "registered_date": {
+              "type": "string",
+              "format": "date"
+            },
+            "status": {
+              "type": "string"
+            },
+            "status_code": {},
+            "status_date": {},
+            "type_effective_date": {}
+          },
+          "required": [
+            "company_number",
+            "company_type",
+            "legal_name",
+            "registered_address",
+            "registered_date",
+            "status"
+          ]
+        },
+        "snapshot_id": {
+          "type": "string"
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "dataset": {
+              "type": "string"
+            },
+            "dataset_url": {
+              "type": "string"
+            },
+            "license": {
+              "type": "string"
+            },
+            "license_url": {
+              "type": "string"
+            },
+            "modified": {
+              "type": "boolean"
+            },
+            "notice": {
+              "type": "string"
+            },
+            "publisher": {
+              "type": "string"
+            },
+            "resource_id": {
+              "type": "string"
+            },
+            "retrieved_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "source_updated_at": {},
+            "synthetic": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "dataset",
+            "dataset_url",
+            "license",
+            "license_url",
+            "modified",
+            "notice",
+            "publisher",
+            "resource_id",
+            "retrieved_at",
+            "synthetic"
+          ]
+        }
+      },
+      "required": [
+        "company",
+        "snapshot_id",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "testnet.queryspigot.com",
+    "endpoint": "https://testnet.queryspigot.com/api/v1/company/00000000",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

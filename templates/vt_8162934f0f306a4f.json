@@ -1,0 +1,117 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8162934f0f306a4f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "asOf": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "count": {
+          "type": "number"
+        },
+        "historical": {
+          "type": "boolean"
+        },
+        "prices": {
+          "items": {
+            "properties": {
+              "confidence": {
+                "type": "number"
+              },
+              "decimals": {},
+              "key": {
+                "type": "string"
+              },
+              "price": {
+                "type": "number"
+              },
+              "query": {
+                "type": "string"
+              },
+              "resolved": {
+                "type": "boolean"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "timestamp": {
+                "type": "number"
+              }
+            },
+            "type": "object",
+            "required": [
+              "confidence",
+              "key",
+              "price",
+              "query",
+              "resolved",
+              "symbol",
+              "timestamp"
+            ]
+          },
+          "type": "array"
+        },
+        "requested": {
+          "type": "number"
+        },
+        "source": {
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "name"
+          ]
+        },
+        "unresolved": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "asOf",
+        "count",
+        "historical",
+        "prices",
+        "requested",
+        "source",
+        "unresolved"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "prices[].key"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "prices[].confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "prices[].price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "crypto.apitoll.cloud",
+    "endpoint": "https://crypto.apitoll.cloud/v1/crypto/price",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

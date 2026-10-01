@@ -1,0 +1,141 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c0038240a478988a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "category": {
+              "type": "string"
+            },
+            "current_slug": {
+              "type": "string"
+            },
+            "divergence": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "last_move_1h": {
+              "type": "number"
+            },
+            "per_venue": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "implied_p": {
+                    "maximum": 1,
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "liquidity_score": {
+                    "maximum": 1,
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "market_id": {
+                    "type": "string"
+                  },
+                  "venue": {
+                    "enum": [
+                      "kalshi",
+                      "polymarket"
+                    ],
+                    "type": "string"
+                  },
+                  "volume_24h_usd": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "venue",
+                  "market_id",
+                  "implied_p",
+                  "volume_24h_usd",
+                  "liquidity_score"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "probability": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            "question": {
+              "type": "string"
+            },
+            "resolution_criteria_summary": {
+              "type": "string"
+            },
+            "resolution_date": {
+              "type": "string",
+              "format": "date"
+            },
+            "rolls_to_next_at": {
+              "type": "string",
+              "format": "date"
+            },
+            "slug": {
+              "type": "string"
+            },
+            "topic": {
+              "type": "string"
+            },
+            "topic_question": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "slug",
+            "question",
+            "probability",
+            "per_venue",
+            "divergence",
+            "category",
+            "resolution_date",
+            "resolution_criteria_summary",
+            "last_move_1h",
+            "topic",
+            "topic_question",
+            "current_slug",
+            "rolls_to_next_at"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "data",
+        "meta"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data.per_venue[].market_id"
+      }
+    ],
+    "bounds": {
+      "data.per_venue[].volume_24h_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-factory.com",
+    "endpoint": "https://x402-factory.com/v1/evergreen/nba-finals-winner",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4bb6026ddf0bacfb",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "block": {
+          "additionalProperties": false,
+          "properties": {
+            "number": {
+              "type": [
+                "integer",
+                "string"
+              ]
+            },
+            "number_hex": {
+              "pattern": "^0x[0-9a-fA-F]+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "number",
+            "number_hex"
+          ],
+          "type": "object"
+        },
+        "network": {
+          "const": "eip155:8453",
+          "type": "string"
+        },
+        "ok": {
+          "const": true,
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok",
+        "network",
+        "block"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "block.number": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "blockchain-api.x402-chain-tools.workers.dev",
+    "endpoint": "https://blockchain-api.x402-chain-tools.workers.dev/chain/block",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

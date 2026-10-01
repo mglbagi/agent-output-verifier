@@ -1,0 +1,45 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0fd0a46c3f1c7b1c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "download_url": {
+          "format": "uri",
+          "type": "string"
+        },
+        "expires_in": {
+          "type": "string"
+        },
+        "invoice_url": {
+          "format": "uri",
+          "type": "string"
+        },
+        "order_id": {
+          "format": "uuid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "order_id",
+        "download_url",
+        "invoice_url",
+        "expires_in"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "spawnxchange-api-485602182462.europe-west4.run.app",
+    "endpoint": "https://spawnxchange-api-485602182462.europe-west4.run.app/api/v1/items/:uuid/acquire",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bd8e400818a370c2",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "choices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "finish_reason": {
+                "type": "string"
+              },
+              "message": {
+                "type": "object",
+                "properties": {
+                  "content": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "content",
+                  "role"
+                ]
+              }
+            },
+            "required": [
+              "finish_reason",
+              "message"
+            ]
+          }
+        },
+        "usage": {
+          "type": "object",
+          "properties": {
+            "completion_tokens": {
+              "type": "integer"
+            },
+            "prompt_tokens": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "completion_tokens",
+            "prompt_tokens"
+          ]
+        }
+      },
+      "required": [
+        "choices",
+        "usage"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "farouter.tech",
+    "endpoint": "https://farouter.tech/v1/models/glm-5.2/chat/completions",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

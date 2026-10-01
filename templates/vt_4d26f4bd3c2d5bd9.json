@@ -1,0 +1,269 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4d26f4bd3c2d5bd9",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "best": {
+          "type": "object",
+          "properties": {
+            "confidence": {
+              "type": "number"
+            },
+            "corporation": {
+              "type": "object",
+              "properties": {
+                "address_en": {},
+                "address_full": {
+                  "type": "string"
+                },
+                "assignment_date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "change_date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "close_cause": {},
+                "close_cause_label": {},
+                "close_date": {},
+                "corp_kind": {
+                  "type": "string"
+                },
+                "corp_kind_label": {
+                  "type": "string"
+                },
+                "corporate_number": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "name_en": {},
+                "name_kana": {},
+                "postal_code": {
+                  "type": "string"
+                },
+                "prefecture": {
+                  "type": "string"
+                },
+                "prefecture_code": {
+                  "type": "string"
+                },
+                "process_kind": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "street": {
+                  "type": "string"
+                },
+                "successor_corporate_number": {},
+                "update_date": {
+                  "type": "string",
+                  "format": "date"
+                }
+              },
+              "required": [
+                "address_full",
+                "assignment_date",
+                "change_date",
+                "city",
+                "corp_kind",
+                "corp_kind_label",
+                "corporate_number",
+                "name",
+                "postal_code",
+                "prefecture",
+                "prefecture_code",
+                "process_kind",
+                "status",
+                "street",
+                "update_date"
+              ]
+            },
+            "matched": {
+              "type": "object",
+              "properties": {
+                "city": {
+                  "type": "boolean"
+                },
+                "name": {
+                  "type": "boolean"
+                },
+                "name_exact": {
+                  "type": "boolean"
+                },
+                "prefecture": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "city",
+                "name",
+                "name_exact",
+                "prefecture"
+              ]
+            }
+          },
+          "required": [
+            "confidence",
+            "corporation",
+            "matched"
+          ]
+        },
+        "candidates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "confidence": {
+                "type": "number"
+              },
+              "corporation": {
+                "type": "object",
+                "properties": {
+                  "address_en": {},
+                  "address_full": {
+                    "type": "string"
+                  },
+                  "assignment_date": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "change_date": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "close_cause": {},
+                  "close_cause_label": {},
+                  "close_date": {},
+                  "corp_kind": {
+                    "type": "string"
+                  },
+                  "corp_kind_label": {
+                    "type": "string"
+                  },
+                  "corporate_number": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "name_en": {},
+                  "name_kana": {},
+                  "postal_code": {
+                    "type": "string"
+                  },
+                  "prefecture": {
+                    "type": "string"
+                  },
+                  "prefecture_code": {
+                    "type": "string"
+                  },
+                  "process_kind": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "street": {
+                    "type": "string"
+                  },
+                  "successor_corporate_number": {},
+                  "update_date": {
+                    "type": "string",
+                    "format": "date"
+                  }
+                },
+                "required": [
+                  "address_full",
+                  "assignment_date",
+                  "change_date",
+                  "city",
+                  "corp_kind",
+                  "corp_kind_label",
+                  "corporate_number",
+                  "name",
+                  "postal_code",
+                  "prefecture",
+                  "prefecture_code",
+                  "process_kind",
+                  "status",
+                  "street",
+                  "update_date"
+                ]
+              },
+              "matched": {
+                "type": "object",
+                "properties": {
+                  "city": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "name_exact": {
+                    "type": "boolean"
+                  },
+                  "prefecture": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "city",
+                  "name",
+                  "name_exact",
+                  "prefecture"
+                ]
+              }
+            },
+            "required": [
+              "confidence",
+              "corporation",
+              "matched"
+            ]
+          }
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "best",
+        "candidates",
+        "verified"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "best.confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "candidates[].confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "houjin.agentic-jp.com",
+    "endpoint": "https://houjin.agentic-jp.com/verify",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

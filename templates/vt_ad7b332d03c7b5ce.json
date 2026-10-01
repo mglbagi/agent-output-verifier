@@ -1,0 +1,191 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ad7b332d03c7b5ce",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "type": "number"
+        },
+        "countries": {
+          "items": {
+            "additionalProperties": {},
+            "properties": {
+              "countryCode": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "services": {
+                "items": {
+                  "additionalProperties": {},
+                  "properties": {
+                    "addons": {
+                      "default": [],
+                      "items": {
+                        "additionalProperties": {},
+                        "properties": {
+                          "homePage": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "imageSet": {
+                            "additionalProperties": {},
+                            "properties": {
+                              "darkThemeImage": {
+                                "type": "string"
+                              },
+                              "lightThemeImage": {
+                                "type": "string"
+                              },
+                              "whiteImage": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "lightThemeImage",
+                              "darkThemeImage",
+                              "whiteImage"
+                            ],
+                            "type": "object"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "themeColorCode": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name",
+                          "homePage",
+                          "themeColorCode",
+                          "imageSet"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "homePage": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "imageSet": {
+                      "additionalProperties": {},
+                      "properties": {
+                        "darkThemeImage": {
+                          "type": "string"
+                        },
+                        "lightThemeImage": {
+                          "type": "string"
+                        },
+                        "whiteImage": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "lightThemeImage",
+                        "darkThemeImage",
+                        "whiteImage"
+                      ],
+                      "type": "object"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "streamingOptionTypes": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "addon": {
+                          "type": "boolean"
+                        },
+                        "buy": {
+                          "type": "boolean"
+                        },
+                        "free": {
+                          "type": "boolean"
+                        },
+                        "rent": {
+                          "type": "boolean"
+                        },
+                        "subscription": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "subscription",
+                        "buy",
+                        "rent",
+                        "free",
+                        "addon"
+                      ],
+                      "type": "object"
+                    },
+                    "themeColorCode": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "homePage",
+                    "themeColorCode",
+                    "imageSet",
+                    "streamingOptionTypes",
+                    "addons"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "countryCode",
+              "name",
+              "services"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "countries",
+        "count"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "countries[].services[].addons[].id"
+      },
+      {
+        "type": "unique",
+        "field": "countries[].services[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "stable-media-git-ben-upgrade-agentcash-rou-02e093-merit-systems.vercel.app",
+    "endpoint": "https://stable-media-git-ben-upgrade-agentcash-rou-02e093-merit-systems.vercel.app/api/countries/list",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

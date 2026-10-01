@@ -1,0 +1,91 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5ef031c2b9de9fe7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "cached": {
+          "description": "True when the link was already known and answered instantly.",
+          "type": "boolean"
+        },
+        "costUsd": {
+          "description": "What this call charged (the flat price).",
+          "type": "number"
+        },
+        "deferred": {
+          "description": "True for first-ever media links (transcription runs 2-8 minutes). Poll statusUrl until knowledgeReady, then GET markdownUrl.",
+          "type": "boolean"
+        },
+        "kind": {
+          "description": "Content type: article, video, or podcast.",
+          "type": "string"
+        },
+        "knowledgeReady": {
+          "description": "True when `packet` is present — answer directly from it, no second fetch.",
+          "type": "boolean"
+        },
+        "markdownUrl": {
+          "description": "The knowledge packet as raw markdown.",
+          "type": "string",
+          "format": "uri"
+        },
+        "packet": {
+          "description": "Token-efficient markdown knowledge packet: title, summary, key claims and facts with citations, plus pointers to full text, graded evidence, and timestamped transcript files.",
+          "type": "string"
+        },
+        "runId": {
+          "description": "Durable id of the knowledge page.",
+          "type": "string"
+        },
+        "status": {
+          "description": "succeeded for instant answers; running/queued while a first-ever link processes.",
+          "type": "string"
+        },
+        "statusUrl": {
+          "description": "Public JSON status endpoint for deferred runs — no auth needed.",
+          "type": "string"
+        },
+        "title": {
+          "description": "Resolved title of the content.",
+          "type": "string"
+        },
+        "url": {
+          "description": "The link that was known.",
+          "type": "string",
+          "format": "uri"
+        },
+        "viewerUrl": {
+          "description": "Durable, citable public knowledge page.",
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "type": "object",
+      "required": [
+        "cached",
+        "costUsd",
+        "kind",
+        "knowledgeReady",
+        "markdownUrl",
+        "packet",
+        "runId",
+        "status",
+        "title",
+        "url",
+        "viewerUrl"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "know.fast",
+    "endpoint": "https://know.fast/v1/x402/know",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

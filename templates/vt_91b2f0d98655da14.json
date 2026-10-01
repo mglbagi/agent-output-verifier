@@ -1,0 +1,42 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_91b2f0d98655da14",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "faces": {
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        },
+        "roll": {
+          "type": "integer"
+        },
+        "rolledAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "faces",
+        "message",
+        "roll",
+        "rolledAt"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "dicex402.vercel.app",
+    "endpoint": "https://dicex402.vercel.app/api/dice",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

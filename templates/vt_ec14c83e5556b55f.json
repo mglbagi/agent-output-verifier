@@ -1,0 +1,81 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ec14c83e5556b55f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "content": {
+          "properties": {
+            "amount": {
+              "type": "string"
+            },
+            "chainId": {
+              "type": "number"
+            },
+            "chainName": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "gatedContent": {},
+            "name": {
+              "type": "string"
+            },
+            "routerAddress": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            }
+          },
+          "type": "object",
+          "required": [
+            "description",
+            "gatedContent",
+            "name",
+            "routerAddress"
+          ]
+        },
+        "message": {
+          "type": "string"
+        },
+        "receipt": {
+          "properties": {
+            "network": {
+              "type": "string"
+            },
+            "transactionHash": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "network",
+            "transactionHash"
+          ]
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "required": [
+        "content",
+        "message",
+        "receipt",
+        "success"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.21.cash",
+    "endpoint": "https://api.21.cash/api/links/:address",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

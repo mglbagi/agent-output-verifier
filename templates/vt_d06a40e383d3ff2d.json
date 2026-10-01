@@ -1,0 +1,57 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d06a40e383d3ff2d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "candlePatterns": {
+          "type": "array"
+        },
+        "elliottWave": {
+          "type": "object"
+        },
+        "indicators": {
+          "type": "object"
+        },
+        "price": {
+          "type": "number"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "supportResistance": {
+          "type": "array"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "trendlines": {
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "indicators",
+        "price",
+        "summary",
+        "symbol"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.tradesnack.com",
+    "endpoint": "https://x402.tradesnack.com/ta",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

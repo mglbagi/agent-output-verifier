@@ -1,0 +1,100 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f6978aae79f4ef0f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "gaps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "caveat": {
+                "type": "string"
+              },
+              "gap_pts": {
+                "type": "integer"
+              },
+              "kalshi": {
+                "type": "object",
+                "properties": {
+                  "probability": {
+                    "type": "number"
+                  },
+                  "question": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "probability",
+                  "question"
+                ]
+              },
+              "match_confidence": {
+                "type": "number"
+              },
+              "polymarket": {
+                "type": "object",
+                "properties": {
+                  "probability": {
+                    "type": "number"
+                  },
+                  "question": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "probability",
+                  "question"
+                ]
+              }
+            },
+            "required": [
+              "caveat",
+              "gap_pts",
+              "kalshi",
+              "match_confidence",
+              "polymarket"
+            ]
+          }
+        },
+        "result_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "gaps",
+        "result_count"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "gaps[].kalshi.probability": {
+        "min": 0,
+        "max": 1
+      },
+      "gaps[].match_confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "gaps[].polymarket.probability": {
+        "min": 0,
+        "max": 1
+      },
+      "result_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "clinkagent.com",
+    "endpoint": "https://clinkagent.com/pm/gaps",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

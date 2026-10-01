@@ -1,0 +1,58 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_15e4a0d855dcc284",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "canonical": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "feeds": {
+          "type": "array"
+        },
+        "open_graph": {
+          "type": "object",
+          "properties": {
+            "og:title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "og:title"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "canonical",
+        "description",
+        "feeds",
+        "open_graph",
+        "title",
+        "url"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.omardev.xyz",
+    "endpoint": "https://x402.omardev.xyz/meta",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

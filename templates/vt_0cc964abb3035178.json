@@ -1,0 +1,91 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0cc964abb3035178",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "nodes": {
+          "items": {
+            "properties": {
+              "id": {
+                "description": "Stable node id — pass to `/node` and `/dependencies`.",
+                "type": "string"
+              },
+              "labels": {
+                "description": "PascalCase Neo4j labels (e.g. \"Pool\", \"Asset\").",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "properties": {
+                "additionalProperties": false,
+                "description": "Teaser fields only. Full properties + `_riskTier` (A–F) are on `/node`.",
+                "properties": {
+                  "address": {
+                    "description": "On-chain contract address, when the node has one.",
+                    "type": "string"
+                  },
+                  "marketCapUsd": {
+                    "description": "Token market cap ($), for asset / promoted-LST nodes. Distinct from tvlUsd — market cap is not value-locked.",
+                    "type": "number"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "network": {
+                    "description": "Chain the node lives on.",
+                    "type": "string"
+                  },
+                  "tvlUsd": {
+                    "description": "Value-locked $ TVL, coalesced across real pool types. Absent for LST/token nodes (see marketCapUsd) and pools with no USD figure.",
+                    "type": "number"
+                  },
+                  "uniqueKey": {
+                    "description": "Morpho market hash (also embedded in `id`), when applicable.",
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "name",
+                  "network",
+                  "tvlUsd",
+                  "uniqueKey"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "labels",
+              "properties"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "nodes"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "nodes[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "risk.yo.xyz",
+    "endpoint": "https://risk.yo.xyz/api/v1/agent/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

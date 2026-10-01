@@ -1,0 +1,86 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7455c5fc8ced1e28",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "cloud_position": {
+          "enum": [
+            "above_cloud",
+            "below_cloud",
+            "in_cloud"
+          ],
+          "type": "string"
+        },
+        "interval": {
+          "type": "string"
+        },
+        "kijun_sen": {
+          "type": "number"
+        },
+        "pair": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
+        },
+        "senkou_span_a": {
+          "type": "number"
+        },
+        "senkou_span_b": {
+          "type": "number"
+        },
+        "signal": {
+          "enum": [
+            "bullish",
+            "bearish",
+            "neutral"
+          ],
+          "type": "string"
+        },
+        "tenkan_kijun_cross": {
+          "enum": [
+            "bullish_cross",
+            "bearish_cross",
+            "flat"
+          ],
+          "type": "string"
+        },
+        "tenkan_sen": {
+          "type": "number"
+        },
+        "timestamp": {
+          "description": "ISO 8601 UTC",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "pair",
+        "interval",
+        "timestamp",
+        "price",
+        "cloud_position",
+        "tenkan_kijun_cross",
+        "signal"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ichimoku-signal.fizzl.eu",
+    "endpoint": "https://ichimoku-signal.fizzl.eu/signal/:pair",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_615cd5298038d501",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "credit": {
+          "type": "object",
+          "properties": {
+            "hy_oas_bps": {
+              "type": "integer"
+            },
+            "hy_pctile_1y": {
+              "type": "integer"
+            },
+            "hy_wow_change_bps": {
+              "type": "integer"
+            },
+            "ig_oas_bps": {
+              "type": "integer"
+            },
+            "stress": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "hy_oas_bps",
+            "hy_pctile_1y",
+            "hy_wow_change_bps",
+            "ig_oas_bps",
+            "stress"
+          ]
+        },
+        "curve": {
+          "type": "object",
+          "properties": {
+            "recession_flag": {
+              "type": "boolean"
+            },
+            "s2s10s_bps": {
+              "type": "integer"
+            },
+            "s3m10y_bps": {
+              "type": "integer"
+            },
+            "status": {
+              "type": "string"
+            },
+            "trend": {
+              "type": "string"
+            },
+            "yields_pct": {
+              "type": "object",
+              "properties": {
+                "10y": {
+                  "type": "number"
+                },
+                "2y": {
+                  "type": "number"
+                },
+                "30y": {
+                  "type": "number"
+                },
+                "3m": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "10y",
+                "2y",
+                "30y",
+                "3m"
+              ]
+            }
+          },
+          "required": [
+            "recession_flag",
+            "s2s10s_bps",
+            "s3m10y_bps",
+            "status",
+            "trend",
+            "yields_pct"
+          ]
+        },
+        "inflation": {
+          "type": "object",
+          "properties": {
+            "breakeven_10y_pct": {
+              "type": "number"
+            },
+            "read": {
+              "type": "string"
+            },
+            "real_yield_10y_pct": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "breakeven_10y_pct",
+            "read",
+            "real_yield_10y_pct"
+          ]
+        },
+        "policy": {
+          "type": "object",
+          "properties": {
+            "fed_funds_pct": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "fed_funds_pct"
+          ]
+        },
+        "signal": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "credit",
+        "curve",
+        "inflation",
+        "policy",
+        "signal",
+        "source",
+        "summary"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "inflation.breakeven_10y_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "inflation.real_yield_10y_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "policy.fed_funds_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "rates.lonestaroracle.xyz",
+    "endpoint": "https://rates.lonestaroracle.xyz/rates",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3c50069a3b097b6c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "calls_30d_total": {
+          "type": "number"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "listed": {
+          "type": "boolean"
+        },
+        "page": {
+          "type": "object",
+          "properties": {
+            "has_more": {
+              "type": "boolean"
+            },
+            "limit": {
+              "type": "integer"
+            },
+            "next_offset": {
+              "type": "integer"
+            },
+            "offset": {
+              "type": "integer"
+            },
+            "returned": {
+              "type": "integer"
+            },
+            "total": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "has_more",
+            "limit",
+            "next_offset",
+            "offset",
+            "returned",
+            "total"
+          ]
+        },
+        "price_usd": {
+          "type": "object",
+          "properties": {
+            "max": {
+              "type": "number"
+            },
+            "median": {
+              "type": "number"
+            },
+            "min": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "max",
+            "median",
+            "min"
+          ]
+        },
+        "resources_listed": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "calls_30d_total",
+        "domain",
+        "listed",
+        "page",
+        "price_usd",
+        "resources_listed"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "price_usd.min",
+        "other_field": "price_usd.max"
+      }
+    ],
+    "bounds": {
+      "calls_30d_total": {
+        "min": 0
+      },
+      "page.limit": {
+        "min": 0
+      },
+      "page.total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "datastand.dev",
+    "endpoint": "https://datastand.dev/api/bazaar/provider",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

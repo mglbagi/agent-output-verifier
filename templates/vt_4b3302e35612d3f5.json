@@ -1,0 +1,48 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4b3302e35612d3f5",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data_source": {
+          "type": "string"
+        },
+        "freshness": {
+          "type": "string"
+        },
+        "receipt_id": {
+          "description": "Cryptographic receipt identifier",
+          "type": "string"
+        },
+        "tool": {
+          "type": "string"
+        },
+        "verified_at": {
+          "description": "Receipt verification URL at trust.stratalize.com/verify",
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "data_source",
+        "freshness",
+        "receipt_id",
+        "tool",
+        "verified_at"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "stratalize.com",
+    "endpoint": "https://www.stratalize.com/api/x402/imf-weo-macro-snapshot",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c06d79add877ebc6",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "arb_opportunities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "blocking_factors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "buy_exchange": {
+                "type": "string"
+              },
+              "buy_price": {
+                "type": "number"
+              },
+              "estimated_fees": {
+                "type": "object",
+                "properties": {
+                  "taker_fee_pct": {
+                    "type": "number"
+                  },
+                  "total_cost_pct": {
+                    "type": "number"
+                  },
+                  "withdrawal_fee_usd": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "taker_fee_pct",
+                  "total_cost_pct",
+                  "withdrawal_fee_usd"
+                ]
+              },
+              "execution_time_minutes": {
+                "type": "integer"
+              },
+              "gross_spread_pct": {
+                "type": "number"
+              },
+              "net_profit_pct": {
+                "type": "number"
+              },
+              "net_profit_per_10k_usd": {
+                "type": "number"
+              },
+              "sell_exchange": {
+                "type": "string"
+              },
+              "sell_price": {
+                "type": "number"
+              },
+              "viability_note": {
+                "type": "string"
+              },
+              "viable": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "blocking_factors",
+              "buy_exchange",
+              "buy_price",
+              "estimated_fees",
+              "execution_time_minutes",
+              "gross_spread_pct",
+              "net_profit_pct",
+              "net_profit_per_10k_usd",
+              "sell_exchange",
+              "sell_price",
+              "viability_note",
+              "viable"
+            ]
+          }
+        },
+        "better_alternatives": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "exchange_prices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ask": {
+                "type": "number"
+              },
+              "bid": {
+                "type": "number"
+              },
+              "exchange": {
+                "type": "string"
+              },
+              "last": {
+                "type": "number"
+              },
+              "volume_24h_usd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "ask",
+              "bid",
+              "exchange",
+              "last",
+              "volume_24h_usd"
+            ]
+          }
+        },
+        "market_context": {
+          "type": "string"
+        },
+        "pair": {
+          "type": "string"
+        },
+        "pulse_suggestions": {
+          "type": "array"
+        },
+        "scan_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "why_cex_arb_is_hard": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "arb_opportunities",
+        "better_alternatives",
+        "exchange_prices",
+        "market_context",
+        "pair",
+        "pulse_suggestions",
+        "scan_time",
+        "why_cex_arb_is_hard"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "arb_opportunities[].buy_price": {
+        "min": 0
+      },
+      "arb_opportunities[].estimated_fees.taker_fee_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "arb_opportunities[].estimated_fees.total_cost_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "arb_opportunities[].estimated_fees.withdrawal_fee_usd": {
+        "min": 0
+      },
+      "arb_opportunities[].gross_spread_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "arb_opportunities[].sell_price": {
+        "min": 0
+      },
+      "exchange_prices[].volume_24h_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "arbipulse.theaslangroupllc.com",
+    "endpoint": "https://arbipulse.theaslangroupllc.com/api/crypto",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

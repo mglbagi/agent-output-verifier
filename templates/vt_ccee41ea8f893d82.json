@@ -1,0 +1,321 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ccee41ea8f893d82",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "dataset": {
+          "type": "object",
+          "properties": {
+            "series": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "as_of_date": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "reporting_period": {
+                    "type": "string"
+                  },
+                  "unit": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "as_of_date",
+                  "reporting_period",
+                  "unit",
+                  "value"
+                ]
+              }
+            }
+          },
+          "required": [
+            "series"
+          ]
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "commercial_authority": {
+              "type": "object",
+              "properties": {
+                "note": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "note",
+                "source"
+              ]
+            },
+            "content_hash": {
+              "type": "string"
+            },
+            "coverage": {
+              "type": "object",
+              "properties": {
+                "as_of_end": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "as_of_start": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "classification": {
+                  "type": "string"
+                },
+                "frequency": {
+                  "type": "string"
+                },
+                "geo": {
+                  "type": "string"
+                },
+                "geo_name": {
+                  "type": "string"
+                },
+                "n_observations": {
+                  "type": "integer"
+                },
+                "period_end": {
+                  "type": "string"
+                },
+                "period_start": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "as_of_end",
+                "as_of_start",
+                "classification",
+                "frequency",
+                "geo",
+                "geo_name",
+                "n_observations",
+                "period_end",
+                "period_start"
+              ]
+            },
+            "dataset_id": {
+              "type": "string"
+            },
+            "example_sample": {
+              "type": "object",
+              "properties": {
+                "lists": {
+                  "type": "object",
+                  "properties": {
+                    "series": {
+                      "type": "object",
+                      "properties": {
+                        "rows_shown": {
+                          "type": "integer"
+                        },
+                        "rows_total": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "rows_shown",
+                        "rows_total"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "series"
+                  ]
+                },
+                "note": {
+                  "type": "string"
+                },
+                "truncated": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "lists",
+                "note",
+                "truncated"
+              ]
+            },
+            "instance_id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "period_semantics": {
+              "type": "object",
+              "properties": {
+                "as_of_date": {
+                  "type": "string"
+                },
+                "reporting_period": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "as_of_date",
+                "reporting_period"
+              ]
+            },
+            "provenance": {
+              "type": "object",
+              "properties": {
+                "authority": {
+                  "type": "string"
+                },
+                "content_hash": {
+                  "type": "string"
+                },
+                "generator": {
+                  "type": "string"
+                },
+                "generator_version": {
+                  "type": "string"
+                },
+                "instance_id": {
+                  "type": "string"
+                },
+                "series_sha256": {
+                  "type": "string"
+                },
+                "snapshot_as_of": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "source_snapshot_ref": {
+                  "type": "string"
+                },
+                "source_url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "authority",
+                "content_hash",
+                "generator",
+                "generator_version",
+                "instance_id",
+                "series_sha256",
+                "snapshot_as_of",
+                "source_snapshot_ref",
+                "source_url"
+              ]
+            },
+            "rights": {
+              "type": "object",
+              "properties": {
+                "attribution": {
+                  "type": "string"
+                },
+                "commercial_use": {
+                  "type": "boolean"
+                },
+                "license": {
+                  "type": "string"
+                },
+                "license_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "notice": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "source_url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "attribution",
+                "commercial_use",
+                "license",
+                "license_url",
+                "notice",
+                "provider",
+                "source_url"
+              ]
+            },
+            "sale_unit": {
+              "type": "string"
+            },
+            "sku_id": {
+              "type": "string"
+            },
+            "slug": {
+              "type": "string"
+            },
+            "sources": {
+              "type": "string"
+            },
+            "unit": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "commercial_authority",
+            "content_hash",
+            "coverage",
+            "dataset_id",
+            "example_sample",
+            "instance_id",
+            "name",
+            "period_semantics",
+            "provenance",
+            "rights",
+            "sale_unit",
+            "sku_id",
+            "slug",
+            "sources",
+            "unit",
+            "version"
+          ]
+        }
+      },
+      "required": [
+        "dataset",
+        "meta"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "meta.coverage.as_of_start",
+        "other_field": "meta.coverage.as_of_end"
+      }
+    ],
+    "bounds": {
+      "meta.example_sample.lists.series.rows_total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-staging.pigsignal.io",
+    "endpoint": "https://x402-staging.pigsignal.io/commerce/v1/atomic/ph-supply-inventory-hog-headcount-all-pack",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

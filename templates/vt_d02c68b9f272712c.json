@@ -1,0 +1,227 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d02c68b9f272712c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "apy_base_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "apy_max_30d_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "apy_medio_30d_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "apy_min_30d_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "apy_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "apy_premios_pct": {},
+        "cambio_apy_7d": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "enlace": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "estable": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "exposicion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fuente": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "historial_30d": {
+          "items": {
+            "properties": {
+              "apy_pct": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "fecha": {
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "format": "date"
+              },
+              "tvl_usd": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ],
+            "required": [
+              "apy_pct",
+              "fecha",
+              "tvl_usd"
+            ]
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uuid"
+        },
+        "nota": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "par": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "prediccion_apy": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "proyecto": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "red": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "riesgo_perdida_impermanente": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tvl_usd": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "volumen_24h_usd": {}
+      },
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "apy_base_pct",
+        "apy_max_30d_pct",
+        "apy_medio_30d_pct",
+        "apy_min_30d_pct",
+        "apy_pct",
+        "cambio_apy_7d",
+        "enlace",
+        "estable",
+        "exposicion",
+        "fuente",
+        "historial_30d",
+        "id",
+        "nota",
+        "par",
+        "prediccion_apy",
+        "proyecto",
+        "red",
+        "riesgo_perdida_impermanente",
+        "tvl_usd"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "apy_base_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "apy_max_30d_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "apy_medio_30d_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "apy_min_30d_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "apy_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "historial_30d[].apy_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "historial_30d[].tvl_usd": {
+        "min": 0
+      },
+      "tvl_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.vextorium.com",
+    "endpoint": "https://api.vextorium.com/defi-pool-pago",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

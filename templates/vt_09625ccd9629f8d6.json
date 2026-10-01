@@ -1,0 +1,226 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_09625ccd9629f8d6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "ok": {
+          "const": true,
+          "type": "boolean"
+        },
+        "outil": {
+          "const": "colony_activity",
+          "type": "string"
+        },
+        "resultat": {
+          "properties": {
+            "lastRound": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "latestSignals": {
+              "items": {
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "at": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "capUsd": {
+                    "type": "number"
+                  },
+                  "kind": {
+                    "enum": [
+                      "buy",
+                      "sell"
+                    ],
+                    "type": "string"
+                  },
+                  "resultPct": {
+                    "type": "number"
+                  },
+                  "sym": {
+                    "type": "string"
+                  },
+                  "why": {
+                    "type": "string"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "note": {
+              "type": "string"
+            },
+            "openPositions": {
+              "items": {
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "capAtBuyUsd": {
+                    "type": "number"
+                  },
+                  "heldMinutes": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "stakeUsd": {
+                    "type": "number"
+                  },
+                  "sym": {
+                    "type": "string"
+                  },
+                  "unrealisedPct": {
+                    "type": "number"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "paperLedger": {
+              "properties": {
+                "averagePct": {
+                  "type": "number"
+                },
+                "trades": {
+                  "type": "number"
+                },
+                "winnersPct": {
+                  "type": "number"
+                }
+              },
+              "required": [],
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "paperStartUsd": {
+              "type": "number"
+            },
+            "paperTreasuryUsd": {
+              "type": "number"
+            },
+            "realMirror": {
+              "properties": {
+                "averagePct": {
+                  "type": "number"
+                },
+                "trades": {
+                  "type": "number"
+                }
+              },
+              "required": [],
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "rounds": {
+              "type": "number"
+            },
+            "status": {
+              "enum": [
+                "running",
+                "paused"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "note",
+            "status",
+            "lastRound",
+            "openPositions",
+            "latestSignals",
+            "paperLedger",
+            "realMirror"
+          ],
+          "type": "object"
+        },
+        "texte": {
+          "type": "string"
+        },
+        "x402": {
+          "properties": {
+            "amount": {
+              "type": "string"
+            },
+            "asset": {
+              "type": "string"
+            },
+            "network": {
+              "type": "string"
+            },
+            "transaction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "transaction",
+            "network",
+            "amount",
+            "asset"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "ok",
+        "outil"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "resultat.latestSignals[].resultPct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "resultat.openPositions[].unrealisedPct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "resultat.paperLedger.averagePct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "resultat.paperLedger.winnersPct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "resultat.realMirror.averagePct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "web-production-220a3.up.railway.app",
+    "endpoint": "https://web-production-220a3.up.railway.app/agentic/call/colony_activity",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

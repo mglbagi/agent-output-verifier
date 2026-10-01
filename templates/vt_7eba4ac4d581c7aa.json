@@ -1,0 +1,224 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7eba4ac4d581c7aa",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "confidence": {
+          "type": "string"
+        },
+        "data_freshness": {
+          "type": "object",
+          "properties": {
+            "age_days": {
+              "type": "integer"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "age_days",
+            "status"
+          ]
+        },
+        "document_sha256": {
+          "type": "string"
+        },
+        "evidence_quote": {
+          "type": "string"
+        },
+        "evidence_trace": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "document_sha256": {
+                "type": "string"
+              },
+              "evidence_id": {
+                "type": "string"
+              },
+              "evidence_quote": {
+                "type": "string"
+              },
+              "evidence_verification": {
+                "type": "string"
+              },
+              "source_location": {
+                "type": "object",
+                "properties": {
+                  "character_end": {
+                    "type": "integer"
+                  },
+                  "character_start": {
+                    "type": "integer"
+                  },
+                  "match_basis": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "character_end",
+                  "character_start",
+                  "match_basis"
+                ]
+              },
+              "source_url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "document_sha256",
+              "evidence_id",
+              "evidence_quote",
+              "evidence_verification",
+              "source_location",
+              "source_url"
+            ]
+          }
+        },
+        "evidence_verification": {
+          "type": "string"
+        },
+        "missing_information": {
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "recommended_follow_up": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "report_period": {
+          "type": "string"
+        },
+        "risk_category": {
+          "type": "string"
+        },
+        "risk_level": {
+          "type": "string"
+        },
+        "risk_score": {
+          "type": "integer"
+        },
+        "risks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "evidence_ref": {
+                "type": "string"
+              },
+              "item": {
+                "type": "string"
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "risk_category": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "evidence_ref",
+              "item",
+              "rank",
+              "risk_category",
+              "severity"
+            ]
+          }
+        },
+        "schema_version": {
+          "type": "string",
+          "format": "date"
+        },
+        "severity": {
+          "type": "string"
+        },
+        "source_location": {
+          "type": "object",
+          "properties": {
+            "character_end": {
+              "type": "integer"
+            },
+            "character_start": {
+              "type": "integer"
+            },
+            "match_basis": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "character_end",
+            "character_start",
+            "match_basis"
+          ]
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "confidence",
+        "data_freshness",
+        "document_sha256",
+        "evidence_quote",
+        "evidence_trace",
+        "evidence_verification",
+        "missing_information",
+        "ok",
+        "recommended_follow_up",
+        "report_period",
+        "risk_category",
+        "risk_level",
+        "risk_score",
+        "risks",
+        "schema_version",
+        "severity",
+        "source_location",
+        "source_url"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "evidence_trace[].source_location.character_start",
+        "other_field": "evidence_trace[].source_location.character_end"
+      },
+      {
+        "type": "unique",
+        "field": "evidence_trace[].evidence_id"
+      },
+      {
+        "type": "lte",
+        "field": "source_location.character_start",
+        "other_field": "source_location.character_end"
+      }
+    ],
+    "bounds": {
+      "data_freshness.age_days": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "43-135-4-66.sslip.io",
+    "endpoint": "https://43-135-4-66.sslip.io/v1/filings/risk-scan",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_528df7743972599f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "choices": {
+          "items": {
+            "properties": {
+              "finish_reason": {
+                "type": "string"
+              },
+              "index": {
+                "type": "number"
+              },
+              "message": {
+                "properties": {
+                  "content": {
+                    "type": "string"
+                  },
+                  "reasoning_content": {
+                    "type": "null"
+                  },
+                  "role": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "content",
+                  "role"
+                ]
+              }
+            },
+            "type": "object",
+            "required": [
+              "finish_reason",
+              "index",
+              "message"
+            ]
+          },
+          "type": "array"
+        },
+        "cost": {
+          "properties": {
+            "diem": {
+              "type": "number"
+            },
+            "usd": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "diem",
+            "usd"
+          ]
+        },
+        "created": {
+          "type": "number"
+        },
+        "id": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "usage": {
+          "properties": {
+            "completion_tokens": {
+              "type": "number"
+            },
+            "prompt_tokens": {
+              "type": "number"
+            },
+            "total_tokens": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "completion_tokens",
+            "prompt_tokens",
+            "total_tokens"
+          ]
+        },
+        "venice_parameters": {
+          "properties": {
+            "disable_thinking": {
+              "type": "boolean"
+            },
+            "enable_e2ee": {
+              "type": "boolean"
+            },
+            "enable_web_citations": {
+              "type": "boolean"
+            },
+            "enable_web_scraping": {
+              "type": "boolean"
+            },
+            "enable_web_search": {
+              "type": "string"
+            },
+            "enable_x_search": {
+              "type": "boolean"
+            },
+            "include_search_results_in_stream": {
+              "type": "boolean"
+            },
+            "include_venice_system_prompt": {
+              "type": "boolean"
+            },
+            "return_search_results_as_documents": {
+              "type": "boolean"
+            },
+            "strip_thinking_response": {
+              "type": "boolean"
+            },
+            "web_search_citations": {
+              "type": "array"
+            }
+          },
+          "type": "object",
+          "required": [
+            "disable_thinking",
+            "enable_e2ee",
+            "enable_web_citations",
+            "enable_web_scraping",
+            "enable_web_search",
+            "enable_x_search",
+            "include_search_results_in_stream",
+            "include_venice_system_prompt",
+            "return_search_results_as_documents",
+            "strip_thinking_response",
+            "web_search_citations"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "choices",
+        "cost",
+        "created",
+        "id",
+        "model",
+        "object",
+        "usage",
+        "venice_parameters"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "cost.usd": {
+        "min": 0
+      },
+      "usage.total_tokens": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.aispace.bot",
+    "endpoint": "https://x402.aispace.bot/api/v1/chat/completions",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

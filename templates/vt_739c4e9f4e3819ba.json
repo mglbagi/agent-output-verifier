@@ -1,0 +1,148 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_739c4e9f4e3819ba",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "claim": {
+          "description": "The claim that was checked.",
+          "type": "string"
+        },
+        "content_hash": {
+          "description": "Hash of retrieved source content.",
+          "type": "string"
+        },
+        "evidence": {
+          "description": "Compact source snippets used for the verdict.",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "evidence_type": {
+                "description": "Where the snippet came from on the source page.",
+                "enum": [
+                  "visible_text",
+                  "heading",
+                  "json_ld",
+                  "meta",
+                  "status"
+                ],
+                "type": "string"
+              },
+              "location": {
+                "description": "Page location of the snippet, or null if unknown.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "polarity": {
+                "description": "Whether the snippet supports, contradicts, or is neutral.",
+                "enum": [
+                  "supports",
+                  "contradicts",
+                  "neutral"
+                ],
+                "type": "string"
+              },
+              "text": {
+                "description": "Source snippet that supports or contradicts the claim.",
+                "maxLength": 240,
+                "type": "string"
+              }
+            },
+            "required": [
+              "text",
+              "location",
+              "evidence_type",
+              "polarity"
+            ],
+            "type": "object"
+          },
+          "maxItems": 3,
+          "type": "array"
+        },
+        "final_url": {
+          "description": "Final URL after redirects.",
+          "type": "string",
+          "format": "uri"
+        },
+        "reasoning_summary": {
+          "description": "Short machine-readable reason for the verdict.",
+          "maxLength": 400,
+          "type": "string"
+        },
+        "retrieval_method": {
+          "description": "How the source page was fetched.",
+          "enum": [
+            "direct_http",
+            "browser_run",
+            "official_api",
+            "unsupported"
+          ],
+          "type": "string"
+        },
+        "retrieved_at": {
+          "description": "UTC timestamp of the check.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "service_version": {
+          "description": "Source Claim Proof service version.",
+          "type": "string"
+        },
+        "source_status": {
+          "description": "verified, blocked, unreachable, unsupported, or insufficient_evidence.",
+          "enum": [
+            "verified",
+            "blocked",
+            "unreachable",
+            "unsupported",
+            "insufficient_evidence"
+          ],
+          "type": "string"
+        },
+        "source_url": {
+          "description": "Requested source URL.",
+          "type": "string",
+          "format": "uri"
+        },
+        "verdict": {
+          "description": "supported, contradicted, or insufficient_evidence.",
+          "enum": [
+            "supported",
+            "contradicted",
+            "insufficient_evidence"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "verdict",
+        "claim",
+        "source_url",
+        "final_url",
+        "source_status",
+        "evidence",
+        "reasoning_summary",
+        "retrieval_method",
+        "retrieved_at",
+        "content_hash",
+        "service_version"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "source-claim-proof.mattskowronis.workers.dev",
+    "endpoint": "https://source-claim-proof.mattskowronis.workers.dev/v1/verify",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

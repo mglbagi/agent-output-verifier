@@ -1,0 +1,70 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5bd648d7a350c455",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "settlement": {
+          "type": "object",
+          "properties": {
+            "network": {
+              "type": "string"
+            },
+            "payer": {
+              "type": "string"
+            },
+            "success": {
+              "type": "boolean"
+            },
+            "transaction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "network",
+            "payer",
+            "success",
+            "transaction"
+          ]
+        },
+        "transaction": {
+          "type": "object",
+          "properties": {
+            "amountUSD": {
+              "type": "number"
+            },
+            "timestamp": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "transactionId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amountUSD",
+            "timestamp",
+            "transactionId"
+          ]
+        }
+      },
+      "required": [
+        "settlement",
+        "transaction"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "01mind.net",
+    "endpoint": "https://01mind.net/purchase/render-document",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

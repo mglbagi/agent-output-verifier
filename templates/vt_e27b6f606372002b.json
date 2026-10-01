@@ -1,0 +1,105 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e27b6f606372002b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "checks_unavailable": {
+          "type": "array"
+        },
+        "deployer": {
+          "type": "string"
+        },
+        "deployer_stats": {
+          "type": "object",
+          "properties": {
+            "graduation_rate": {
+              "type": "number"
+            },
+            "tokens_launched": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "graduation_rate",
+            "tokens_launched"
+          ]
+        },
+        "flags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "detail": {
+                "type": "string"
+              },
+              "false_positive_rate": {
+                "type": "number"
+              },
+              "id": {
+                "type": "string"
+              },
+              "measured_precision": {
+                "type": "number"
+              },
+              "sample": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "detail",
+              "false_positive_rate",
+              "id",
+              "measured_precision",
+              "sample"
+            ]
+          }
+        },
+        "mint": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "token_name": {
+          "type": "string"
+        },
+        "token_symbol": {
+          "type": "string"
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "checks_unavailable",
+        "deployer",
+        "deployer_stats",
+        "flags",
+        "mint",
+        "note",
+        "token_name",
+        "token_symbol",
+        "verdict"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "flags[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "getrugshield.com",
+    "endpoint": "https://getrugshield.com/v1/token-risk/:address",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

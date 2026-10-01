@@ -1,0 +1,204 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b1baf32d068b2de7",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "as_of": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "brokers": {
+          "type": "integer"
+        },
+        "changes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "analyst": {
+                "type": "string"
+              },
+              "broker": {
+                "type": "string"
+              },
+              "prev_rating": {},
+              "prev_target_price": {
+                "type": "number"
+              },
+              "published_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "rating": {
+                "type": "string"
+              },
+              "rating_direction": {},
+              "target_change_pct": {
+                "type": "number"
+              },
+              "target_direction": {
+                "type": "string"
+              },
+              "target_price": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "analyst",
+              "broker",
+              "prev_target_price",
+              "published_date",
+              "rating",
+              "target_change_pct",
+              "target_direction",
+              "target_price"
+            ]
+          }
+        },
+        "company": {
+          "type": "string"
+        },
+        "consensus": {
+          "type": "object",
+          "properties": {
+            "max_target": {
+              "type": "integer"
+            },
+            "mean_target": {
+              "type": "integer"
+            },
+            "median_target": {
+              "type": "integer"
+            },
+            "min_target": {
+              "type": "integer"
+            },
+            "ratings": {
+              "type": "object",
+              "properties": {
+                "Buy": {
+                  "type": "integer"
+                },
+                "Hold": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "Buy",
+                "Hold"
+              ]
+            },
+            "spread_pct": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "max_target",
+            "mean_target",
+            "median_target",
+            "min_target",
+            "ratings",
+            "spread_pct"
+          ]
+        },
+        "first_recorded": {
+          "type": "string",
+          "format": "date"
+        },
+        "reports_total": {
+          "type": "number"
+        },
+        "series": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "analyst": {
+                "type": "string"
+              },
+              "broker": {
+                "type": "string"
+              },
+              "published_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "rating": {
+                "type": "string"
+              },
+              "report_idx": {
+                "type": "integer"
+              },
+              "target_price": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "analyst",
+              "broker",
+              "published_date",
+              "rating",
+              "report_idx",
+              "target_price"
+            ]
+          }
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "window": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "as_of",
+        "brokers",
+        "changes",
+        "company",
+        "consensus",
+        "first_recorded",
+        "reports_total",
+        "series",
+        "ticker",
+        "window"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "consensus.min_target",
+        "other_field": "consensus.max_target"
+      }
+    ],
+    "bounds": {
+      "changes[].prev_target_price": {
+        "min": 0
+      },
+      "changes[].target_price": {
+        "min": 0
+      },
+      "consensus.spread_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "reports_total": {
+        "min": 0
+      },
+      "series[].target_price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "k-data-x402-production.theblack1022.workers.dev",
+    "endpoint": "https://k-data-x402-production.theblack1022.workers.dev/api/research/consensus/:ticker",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

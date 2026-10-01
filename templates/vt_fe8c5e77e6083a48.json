@@ -1,0 +1,54 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fe8c5e77e6083a48",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "day_type": {
+          "type": "string"
+        },
+        "holiday": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "name_en": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "name_en"
+          ]
+        },
+        "is_business_day": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "date",
+        "day_type",
+        "holiday",
+        "is_business_day"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "holiday.agentic-jp.com",
+    "endpoint": "https://holiday.agentic-jp.com/is-holiday/:date",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

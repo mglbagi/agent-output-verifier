@@ -1,0 +1,61 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ad298814e1f8d570",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "biomarkers": {
+          "type": "object",
+          "properties": {
+            "locations": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "locations"
+          ]
+        },
+        "genetics": {
+          "type": "object",
+          "properties": {
+            "providers": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "providers"
+          ]
+        },
+        "wearables": {
+          "type": "object",
+          "properties": {
+            "providers": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "providers"
+          ]
+        }
+      },
+      "required": [
+        "biomarkers",
+        "genetics",
+        "wearables"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "app.wellnizz.com",
+    "endpoint": "https://app.wellnizz.com/providers",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

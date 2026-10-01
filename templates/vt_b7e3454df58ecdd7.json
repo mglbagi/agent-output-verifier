@@ -1,0 +1,44 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b7e3454df58ecdd7",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "ai_ready": {
+          "type": "boolean"
+        },
+        "robots": {
+          "type": "object",
+          "properties": {}
+        },
+        "sitemap": {
+          "type": "object",
+          "properties": {}
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "ai_ready",
+        "robots",
+        "sitemap",
+        "url"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.x402dataapi.com",
+    "endpoint": "https://api.x402dataapi.com/v1/agent-accessibility",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

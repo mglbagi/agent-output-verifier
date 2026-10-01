@@ -1,0 +1,97 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b73b8dc626eac8d2",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "chain": {
+          "type": "string"
+        },
+        "error": {
+          "description": "present when ok is false",
+          "type": "string"
+        },
+        "hex": {
+          "type": "object"
+        },
+        "method": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "result": {
+          "properties": {
+            "base_fee_per_gas_wei": {
+              "type": "integer"
+            },
+            "block_gas_limit": {
+              "type": "integer"
+            },
+            "block_gas_used": {
+              "type": "integer"
+            },
+            "block_number": {
+              "type": "integer"
+            },
+            "block_timestamp": {
+              "type": "integer"
+            },
+            "block_transactions": {
+              "type": "integer"
+            },
+            "chain_id": {
+              "type": "integer"
+            },
+            "gas_price_wei": {
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "required": [
+            "block_number",
+            "chain_id",
+            "gas_price_wei"
+          ]
+        },
+        "service": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "service"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "result.base_fee_per_gas_wei": {
+        "min": 0,
+        "if_present": true
+      },
+      "result.block_gas_limit": {
+        "min": 0,
+        "if_present": true
+      },
+      "result.block_number": {
+        "min": 0,
+        "if_present": true
+      },
+      "result.gas_price_wei": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ari001.tailb4ac3a.ts.net",
+    "endpoint": "https://ari001.tailb4ac3a.ts.net/v1/ventures/ethereum_contract_abi_service/network_info_summary",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

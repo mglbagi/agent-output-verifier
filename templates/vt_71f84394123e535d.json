@@ -1,0 +1,99 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_71f84394123e535d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "candles": {
+          "items": {
+            "properties": {
+              "close": {
+                "description": "Close price (string for full precision)",
+                "type": "string"
+              },
+              "close_time": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "high": {
+                "description": "High price (string for full precision)",
+                "type": "string"
+              },
+              "low": {
+                "description": "Low price (string for full precision)",
+                "type": "string"
+              },
+              "open": {
+                "description": "Open price (string for full precision)",
+                "type": "string"
+              },
+              "open_time": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "trades": {
+                "description": "Number of trades in the candle",
+                "type": "integer"
+              },
+              "volume": {
+                "description": "Volume (string for full precision)",
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "close",
+              "close_time",
+              "high",
+              "low",
+              "open",
+              "open_time",
+              "trades",
+              "volume"
+            ]
+          },
+          "type": "array"
+        },
+        "coin": {
+          "type": "string"
+        },
+        "count": {
+          "description": "Number of candles returned",
+          "type": "integer"
+        },
+        "interval": {
+          "type": "string"
+        },
+        "queried_at": {
+          "description": "When this response was generated",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "candles",
+        "coin",
+        "count",
+        "interval",
+        "queried_at"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hyperliquid.use.x402atlas.com",
+    "endpoint": "https://hyperliquid.use.x402atlas.com/candles",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

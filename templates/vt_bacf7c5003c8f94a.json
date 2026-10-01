@@ -1,0 +1,62 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bacf7c5003c8f94a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "address": {
+          "description": "The requested Base address",
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "asOf": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "balances": {
+          "description": "ETH (native) and USDC (0x8335...2913) only",
+          "type": "object"
+        },
+        "blockNumber": {
+          "description": "Base block used for the snapshot",
+          "type": "string"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "chainId": {
+          "type": "integer"
+        },
+        "excluded": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "chain",
+        "chainId",
+        "address",
+        "asOf",
+        "balances"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "raptor-base-yields.vercel.app",
+    "endpoint": "https://raptor-base-yields.vercel.app/v1/wallet/:address",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

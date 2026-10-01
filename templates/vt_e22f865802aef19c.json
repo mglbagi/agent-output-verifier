@@ -1,0 +1,116 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e22f865802aef19c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "attestation": {
+          "type": "object",
+          "properties": {
+            "confidence": {
+              "type": "number"
+            },
+            "result": {
+              "type": "object",
+              "properties": {
+                "failed": {
+                  "type": "integer"
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "domain": {
+                        "type": "string"
+                      },
+                      "score": {
+                        "type": "integer"
+                      },
+                      "verdict": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "domain",
+                      "score",
+                      "verdict"
+                    ]
+                  }
+                },
+                "verified": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "failed",
+                "results",
+                "verified"
+              ]
+            },
+            "subject": {
+              "type": "object",
+              "properties": {
+                "domains": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "domains"
+              ]
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "confidence",
+            "result",
+            "subject",
+            "type"
+          ]
+        },
+        "signature": {
+          "type": "object",
+          "properties": {
+            "alg": {
+              "type": "string"
+            },
+            "jwks": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "alg",
+            "jwks"
+          ]
+        }
+      },
+      "required": [
+        "attestation",
+        "signature"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "attestation.confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "402oracle.com",
+    "endpoint": "https://402oracle.com/verify/business/batch",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

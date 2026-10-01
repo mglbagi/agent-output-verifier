@@ -1,0 +1,131 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_19c0b613898233ff",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "citations": {
+          "type": "object",
+          "properties": {
+            "agencies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "blsDisclaimer": {
+              "type": "string"
+            },
+            "retrievedAtUtc": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "sourceUrl": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "agencies",
+            "blsDisclaimer",
+            "retrievedAtUtc",
+            "sourceUrl"
+          ]
+        },
+        "grades": {
+          "type": "array"
+        },
+        "official": {
+          "type": "object",
+          "properties": {
+            "agency": {
+              "type": "string"
+            },
+            "headline_kind": {
+              "type": "string"
+            },
+            "print_id": {
+              "type": "string"
+            },
+            "reference_period": {
+              "type": "string"
+            },
+            "release": {
+              "type": "string"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "source_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "agency",
+            "headline_kind",
+            "print_id",
+            "reference_period",
+            "release",
+            "schema",
+            "source_url",
+            "status"
+          ]
+        },
+        "printId": {
+          "type": "string"
+        },
+        "product": {
+          "type": "string"
+        },
+        "proofOfOutcome": {
+          "type": "object",
+          "properties": {
+            "fileSha256Hex": {
+              "type": "string"
+            },
+            "note": {
+              "type": "string"
+            },
+            "payloadSha256Hex": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "fileSha256Hex",
+            "note",
+            "payloadSha256Hex"
+          ]
+        },
+        "tier": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "citations",
+        "grades",
+        "official",
+        "printId",
+        "product",
+        "proofOfOutcome",
+        "tier"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.paylyte.ai",
+    "endpoint": "https://api.paylyte.ai/v1/data/prints/outcome",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

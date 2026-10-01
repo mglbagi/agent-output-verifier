@@ -1,0 +1,123 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d12ce647999bdbc9",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "assignee_key": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "cpc_subclasses": {
+                "type": "string"
+              },
+              "distinct_cpc_subclass_count": {
+                "type": "integer"
+              },
+              "entity_id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "first_grant_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "inventor_count": {
+                "type": "integer"
+              },
+              "is_new_assignee": {
+                "type": "boolean"
+              },
+              "last_grant_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "organization": {
+                "type": "string"
+              },
+              "patent_count": {
+                "type": "integer"
+              },
+              "prior_patent_count": {
+                "type": "integer"
+              },
+              "recent_patent_count": {
+                "type": "integer"
+              },
+              "state": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "assignee_key",
+              "country",
+              "cpc_subclasses",
+              "distinct_cpc_subclass_count",
+              "entity_id",
+              "first_grant_date",
+              "inventor_count",
+              "is_new_assignee",
+              "last_grant_date",
+              "organization",
+              "patent_count",
+              "prior_patent_count",
+              "recent_patent_count",
+              "state"
+            ]
+          }
+        },
+        "total_matched": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "rows",
+        "total_matched"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "rows[].entity_id"
+      }
+    ],
+    "bounds": {
+      "rows[].distinct_cpc_subclass_count": {
+        "min": 0
+      },
+      "rows[].inventor_count": {
+        "min": 0
+      },
+      "rows[].patent_count": {
+        "min": 0
+      },
+      "rows[].prior_patent_count": {
+        "min": 0
+      },
+      "rows[].recent_patent_count": {
+        "min": 0
+      },
+      "total_matched": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.govparse.io",
+    "endpoint": "https://api.govparse.io/v1/patents/assignees/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

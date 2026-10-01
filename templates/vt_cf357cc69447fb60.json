@@ -1,0 +1,116 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cf357cc69447fb60",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "bounded": {
+          "type": "boolean"
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "integer"
+            },
+            "offset": {
+              "type": "integer"
+            },
+            "returned": {
+              "type": "integer"
+            },
+            "search_after": {},
+            "total": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "limit",
+            "offset",
+            "returned",
+            "total"
+          ]
+        },
+        "people": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "current_company": {},
+              "current_position": {},
+              "email": {},
+              "first_name": {
+                "type": "string"
+              },
+              "full_name": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "last_name": {
+                "type": "string"
+              },
+              "location": {},
+              "phone": {},
+              "professional_network_url": {},
+              "source": {
+                "type": "string"
+              },
+              "source_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "summary": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "first_name",
+              "full_name",
+              "id",
+              "last_name",
+              "source",
+              "source_url",
+              "summary"
+            ]
+          }
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "bounded",
+        "metadata",
+        "people",
+        "source"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "people[].id"
+      }
+    ],
+    "bounds": {
+      "metadata.limit": {
+        "min": 0
+      },
+      "metadata.total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.oblique.markets",
+    "endpoint": "https://api.oblique.markets/api/v1/paid/rep-stableenrich-people-search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

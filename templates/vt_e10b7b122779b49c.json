@@ -1,0 +1,46 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e10b7b122779b49c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "aspectRatio": {
+          "type": "string"
+        },
+        "error": {
+          "description": "Present only on failure",
+          "type": "string"
+        },
+        "image_b64": {
+          "description": "Base64-encoded image bytes",
+          "type": "string"
+        },
+        "mime_type": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "nanobanana-x402.fly.dev",
+    "endpoint": "https://nanobanana-x402.fly.dev/api/generate-image",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

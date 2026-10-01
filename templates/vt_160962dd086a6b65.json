@@ -1,0 +1,155 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_160962dd086a6b65",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "confidence": {
+          "type": "number"
+        },
+        "evidence": {
+          "items": {
+            "properties": {
+              "code": {
+                "description": "Stable reason code, e.g. REMOTE_CODE_EXECUTION.",
+                "type": "string"
+              },
+              "data": {
+                "type": "object"
+              },
+              "detail": {
+                "type": "string"
+              },
+              "disposition": {
+                "description": "What this finding does to the verdict, which is a different axis from how bad it is.",
+                "enum": [
+                  "block",
+                  "unknown",
+                  "warn",
+                  "info"
+                ],
+                "type": "string"
+              },
+              "severity": {
+                "enum": [
+                  "info",
+                  "low",
+                  "medium",
+                  "high",
+                  "critical"
+                ],
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "span": {
+                "properties": {
+                  "end": {
+                    "type": "integer"
+                  },
+                  "start": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "severity",
+              "detail",
+              "disposition"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "result": {
+          "properties": {
+            "canonical_command": {
+              "description": "What a permit binds. Every operand preserved.",
+              "type": "string"
+            },
+            "cmd_fingerprint": {
+              "description": "ADVISORY ONLY. Operands discarded; never authorize on it.",
+              "type": "string"
+            },
+            "cmd_hash": {
+              "description": "BINDING. sha256 of canonical_command.",
+              "type": "string"
+            },
+            "permit": {
+              "description": "Compact JWS, 60s TTL, one audience.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "canonical_command",
+            "cmd_hash",
+            "cmd_fingerprint"
+          ],
+          "type": "object"
+        },
+        "risk_codes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "verdict": {
+          "enum": [
+            "pass",
+            "warn",
+            "unknown",
+            "block"
+          ],
+          "type": "string"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "ok",
+        "verdict",
+        "confidence",
+        "risk_codes",
+        "evidence",
+        "result",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "evidence[].span.start",
+        "other_field": "evidence[].span.end",
+        "if_present": true
+      }
+    ],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "shellpermit.schemasure.com",
+    "endpoint": "https://shellpermit.schemasure.com/v1/guard/shell",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

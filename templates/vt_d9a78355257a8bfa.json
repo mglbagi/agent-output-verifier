@@ -1,0 +1,84 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d9a78355257a8bfa",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "action": {
+          "type": "object"
+        },
+        "canonical_endpoint": {
+          "type": "string"
+        },
+        "chain": {
+          "type": "object"
+        },
+        "gas": {
+          "type": "object"
+        },
+        "provenance": {
+          "type": "object"
+        },
+        "reason_codes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "request_mode": {
+          "enum": [
+            "provided_transaction",
+            "marketplace_verification_sample"
+          ],
+          "type": "string"
+        },
+        "risks": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "sender": {
+          "type": "object"
+        },
+        "service": {
+          "const": "machinemint.evm.preflight"
+        },
+        "simulation": {
+          "type": "object"
+        },
+        "target": {
+          "type": "object"
+        },
+        "transaction": {
+          "type": "object"
+        },
+        "verdict": {
+          "enum": [
+            "PASS",
+            "REVIEW",
+            "FAIL"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "service",
+        "verdict"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "machinemint-native-x402-production.up.railway.app",
+    "endpoint": "https://machinemint-native-x402-production.up.railway.app/v1/base-preflight",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

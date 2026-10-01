@@ -1,0 +1,45 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d108dcaaaa6d8f04",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "by_category": {
+          "type": "object"
+        },
+        "postcode": {
+          "type": "string"
+        },
+        "safety_rating": {
+          "type": "object"
+        },
+        "total_crimes": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "by_category",
+        "postcode",
+        "safety_rating",
+        "total_crimes"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "total_crimes": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "property.payapi.market",
+    "endpoint": "https://property.payapi.market/crime-stats",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

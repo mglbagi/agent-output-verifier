@@ -1,0 +1,323 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e6bd36f756973101",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "check_digits": {
+          "type": "object",
+          "properties": {
+            "algorithm": {
+              "type": "string"
+            },
+            "computed": {
+              "type": "string"
+            },
+            "given": {
+              "type": "string"
+            },
+            "remainder": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "algorithm",
+            "computed",
+            "given",
+            "remainder"
+          ]
+        },
+        "checked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "findings": {
+                "type": "integer"
+              },
+              "key": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "findings",
+              "key",
+              "source",
+              "status"
+            ]
+          }
+        },
+        "country": {
+          "type": "object",
+          "properties": {
+            "also_used_by": {
+              "type": "array"
+            },
+            "code": {
+              "type": "string"
+            },
+            "effective": {
+              "type": "string"
+            },
+            "in_registry": {
+              "type": "boolean"
+            },
+            "name": {
+              "type": "string"
+            },
+            "sepa": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "also_used_by",
+            "code",
+            "effective",
+            "in_registry",
+            "name",
+            "sepa"
+          ]
+        },
+        "findings": {
+          "type": "array"
+        },
+        "input": {
+          "type": "object",
+          "properties": {
+            "electronic": {
+              "type": "string"
+            },
+            "print": {
+              "type": "string"
+            },
+            "raw": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "electronic",
+            "print",
+            "raw"
+          ]
+        },
+        "interpretations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "reading": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "key",
+              "reading"
+            ]
+          }
+        },
+        "not_checked": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "parts": {
+          "type": "object",
+          "properties": {
+            "bank_identifier": {
+              "type": "object",
+              "properties": {
+                "pattern": {
+                  "type": "string"
+                },
+                "position": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "pattern",
+                "position",
+                "value"
+              ]
+            },
+            "bban": {
+              "type": "string"
+            },
+            "branch_identifier": {},
+            "check_digits": {
+              "type": "string"
+            },
+            "country_code": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bank_identifier",
+            "bban",
+            "check_digits",
+            "country_code"
+          ]
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "countries": {
+              "type": "integer"
+            },
+            "digest": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "retrieved": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          "required": [
+            "countries",
+            "digest",
+            "name",
+            "retrieved"
+          ]
+        },
+        "structure": {
+          "type": "object",
+          "properties": {
+            "bban_pattern": {
+              "type": "string"
+            },
+            "iban_pattern": {
+              "type": "string"
+            },
+            "length_actual": {
+              "type": "integer"
+            },
+            "length_expected": {
+              "type": "integer"
+            },
+            "segments": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string"
+                  },
+                  "length": {
+                    "type": "integer"
+                  },
+                  "ok": {
+                    "type": "boolean"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "length",
+                  "ok",
+                  "value"
+                ]
+              }
+            }
+          },
+          "required": [
+            "bban_pattern",
+            "iban_pattern",
+            "length_actual",
+            "length_expected",
+            "segments"
+          ]
+        },
+        "summary": {
+          "type": "object",
+          "properties": {
+            "errors": {
+              "type": "integer"
+            },
+            "infos": {
+              "type": "integer"
+            },
+            "warnings": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "errors",
+            "infos",
+            "warnings"
+          ]
+        },
+        "valid": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "check_digits",
+        "checked_at",
+        "checks",
+        "country",
+        "findings",
+        "input",
+        "interpretations",
+        "not_checked",
+        "parts",
+        "source",
+        "structure",
+        "summary",
+        "valid"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "checks[].key"
+      },
+      {
+        "type": "unique",
+        "field": "interpretations[].key"
+      }
+    ],
+    "bounds": {
+      "structure.length_actual": {
+        "min": 0
+      },
+      "structure.length_expected": {
+        "min": 0
+      },
+      "structure.segments[].length": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.ozdreamtools.de",
+    "endpoint": "https://api.ozdreamtools.de/api/iban/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

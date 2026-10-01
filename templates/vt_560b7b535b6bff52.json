@@ -1,0 +1,37 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_560b7b535b6bff52",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "record_id": {
+          "type": "string"
+        },
+        "renewal_code": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "note",
+        "record_id",
+        "renewal_code"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-tollbooth-seller.hunter-j-fernandez.workers.dev",
+    "endpoint": "https://agent-tollbooth-seller.hunter-j-fernandez.workers.dev/paid/private-record",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

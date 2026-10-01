@@ -1,0 +1,81 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2de88cf9e2d4645a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "aave_v3": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "as_of": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "chain": {
+          "enum": [
+            "base",
+            "ethereum"
+          ],
+          "type": "string"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "errors": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "hooks": {
+          "type": "object"
+        },
+        "product": {
+          "const": "mio_dio_defi_risk_passport",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "ok",
+            "partial"
+          ],
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "product",
+        "version",
+        "status",
+        "address",
+        "chain",
+        "as_of",
+        "disclaimer",
+        "aave_v3",
+        "hooks"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "workers.miodiollc.com",
+    "endpoint": "https://workers.miodiollc.com/v1/risk/:address",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

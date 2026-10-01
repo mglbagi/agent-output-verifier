@@ -1,0 +1,45 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b1facc91303206d8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "country_code": {
+          "type": "string"
+        },
+        "ip": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "org": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "country_code",
+        "ip",
+        "ok",
+        "org",
+        "service"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "vending-machine-seven.vercel.app",
+    "endpoint": "https://vending-machine-seven.vercel.app/api/v/ip-lookup",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

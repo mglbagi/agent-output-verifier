@@ -1,0 +1,164 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_dbf5e9e38cfc03a8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "metadata": {
+          "properties": {
+            "latency": {
+              "description": "Server-side latency in seconds.",
+              "type": "number"
+            },
+            "query": {
+              "description": "The query as searched.",
+              "type": "string"
+            },
+            "search_uuid": {
+              "description": "Request identifier, useful when reporting issues.",
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          "required": [
+            "query",
+            "search_uuid",
+            "latency"
+          ],
+          "type": "object"
+        },
+        "results": {
+          "additionalProperties": {
+            "type": "array"
+          },
+          "description": "Page results keyed by section: 'web' and 'news'. A section is omitted when it returned no results, so do not assume any key is present; an all-empty response is '{}'.",
+          "properties": {
+            "news": {
+              "items": {
+                "properties": {
+                  "contents": {
+                    "description": "Scraped page contents, keyed by requested format (default 'html'). Present only when livecrawl was requested and the fetch succeeded.",
+                    "type": "object"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "favicon_url": {
+                    "type": "string"
+                  },
+                  "original_thumbnail_url": {
+                    "type": "string"
+                  },
+                  "page_age": {
+                    "description": "Publication timestamp, when the source exposes one. Naive ISO-8601 ('2026-08-01T14:02:00') — no timezone offset and no trailing 'Z'.",
+                    "type": "string"
+                  },
+                  "snippets": {
+                    "description": "Index snippets matching the query. Emitted on 'web' results; 'news' results carry 'description' instead and have no snippets.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "source_name": {
+                    "type": "string"
+                  },
+                  "thumbnail_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "Result URL.",
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "url"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "web": {
+              "items": {
+                "properties": {
+                  "contents": {
+                    "description": "Scraped page contents, keyed by requested format (default 'html'). Present only when livecrawl was requested and the fetch succeeded.",
+                    "type": "object"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "favicon_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "original_thumbnail_url": {
+                    "type": "string"
+                  },
+                  "page_age": {
+                    "description": "Publication timestamp, when the source exposes one. Naive ISO-8601 ('2026-08-01T14:02:00') — no timezone offset and no trailing 'Z'.",
+                    "type": "string"
+                  },
+                  "snippets": {
+                    "description": "Index snippets matching the query. Emitted on 'web' results; 'news' results carry 'description' instead and have no snippets.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "source_name": {
+                    "type": "string"
+                  },
+                  "thumbnail_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "Result URL.",
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "url"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object",
+          "required": [
+            "news",
+            "web"
+          ]
+        }
+      },
+      "required": [
+        "results",
+        "metadata"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.you.com",
+    "endpoint": "https://api.you.com/v1/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4c05bdfbe56286db",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "api_version": {
+          "type": "string"
+        },
+        "digests": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "hmac": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "input_bytes": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "api_version",
+        "input_bytes",
+        "digests",
+        "hmac"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "input_bytes": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hash-hmac.underscoredone.com",
+    "endpoint": "https://hash-hmac.underscoredone.com/hash",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

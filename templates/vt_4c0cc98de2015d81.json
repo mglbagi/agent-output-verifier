@@ -1,0 +1,73 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4c0cc98de2015d81",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "apy": {
+                "type": "integer"
+              },
+              "apyBase": {
+                "type": "integer"
+              },
+              "apyReward": {},
+              "chain": {
+                "type": "string"
+              },
+              "ilRisk": {
+                "type": "string"
+              },
+              "pool": {
+                "type": "string"
+              },
+              "project": {
+                "type": "string"
+              },
+              "stablecoin": {
+                "type": "boolean"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "tvlUsd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "apy",
+              "apyBase",
+              "chain",
+              "ilRisk",
+              "pool",
+              "project",
+              "stablecoin",
+              "symbol",
+              "tvlUsd"
+            ]
+          }
+        }
+      },
+      "required": [
+        "result"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-crypto-data.vercel.app",
+    "endpoint": "https://x402-crypto-data.vercel.app/api/yields",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

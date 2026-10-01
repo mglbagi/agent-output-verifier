@@ -1,0 +1,65 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4442841ddb517115",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "artifactType": {
+          "type": "string"
+        },
+        "schemaVersion": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "object",
+          "properties": {
+            "algorithm": {
+              "type": "string"
+            },
+            "keyId": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "algorithm",
+            "keyId",
+            "value"
+          ]
+        },
+        "window": {
+          "type": "object",
+          "properties": {
+            "timeWeightedApr": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "timeWeightedApr"
+          ]
+        }
+      },
+      "required": [
+        "artifactType",
+        "schemaVersion",
+        "signature",
+        "window"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "treasury-reality-base.fly.dev",
+    "endpoint": "https://treasury-reality-base.fly.dev/v1/artifacts/sha256:383f0499ae48c6dd6bdd87dcacfabedfee8e2192c4d65c4db4ab5d0984a25ad0",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

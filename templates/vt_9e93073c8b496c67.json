@@ -1,0 +1,202 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9e93073c8b496c67",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "common_symbols_count": {
+          "type": "integer"
+        },
+        "exchange_gaps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "bithumb_krw": {
+                "type": "integer"
+              },
+              "gap_pct": {
+                "type": "number"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "upbit_krw": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "bithumb_krw",
+              "gap_pct",
+              "symbol",
+              "upbit_krw"
+            ]
+          }
+        },
+        "fx_rate": {
+          "type": "number"
+        },
+        "market_share": {
+          "type": "object",
+          "properties": {
+            "bithumb_pct": {
+              "type": "number"
+            },
+            "bithumb_volume_krw": {
+              "type": "integer"
+            },
+            "upbit_pct": {
+              "type": "number"
+            },
+            "upbit_volume_krw": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "bithumb_pct",
+            "bithumb_volume_krw",
+            "upbit_pct",
+            "upbit_volume_krw"
+          ]
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "price": {
+              "type": "string"
+            },
+            "update_interval": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "price",
+            "update_interval"
+          ]
+        },
+        "premiums": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "binance_usd": {
+                "type": "number"
+              },
+              "caution_deposit_soaring": {
+                "type": "boolean"
+              },
+              "caution_volume_soaring": {
+                "type": "boolean"
+              },
+              "global_krw": {
+                "type": "integer"
+              },
+              "korean_name": {
+                "type": "string"
+              },
+              "premium_pct": {
+                "type": "number"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "upbit_krw": {
+                "type": "integer"
+              },
+              "upbit_volume_krw": {
+                "type": "integer"
+              },
+              "warning": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "binance_usd",
+              "caution_deposit_soaring",
+              "caution_volume_soaring",
+              "global_krw",
+              "korean_name",
+              "premium_pct",
+              "symbol",
+              "upbit_krw",
+              "upbit_volume_krw",
+              "warning"
+            ]
+          }
+        },
+        "reverse_premiums": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "premium_pct": {
+                "type": "number"
+              },
+              "symbol": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "premium_pct",
+              "symbol"
+            ]
+          }
+        }
+      },
+      "required": [
+        "common_symbols_count",
+        "exchange_gaps",
+        "fx_rate",
+        "market_share",
+        "meta",
+        "premiums",
+        "reverse_premiums"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "common_symbols_count": {
+        "min": 0
+      },
+      "exchange_gaps[].gap_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "market_share.bithumb_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "market_share.bithumb_volume_krw": {
+        "min": 0
+      },
+      "market_share.upbit_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "market_share.upbit_volume_krw": {
+        "min": 0
+      },
+      "premiums[].binance_usd": {
+        "min": 0
+      },
+      "premiums[].premium_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "premiums[].upbit_volume_krw": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.printmoneylab.com",
+    "endpoint": "https://api.printmoneylab.com/api/v1/arbitrage-scanner",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

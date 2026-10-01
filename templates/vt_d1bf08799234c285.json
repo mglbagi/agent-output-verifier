@@ -1,0 +1,324 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d1bf08799234c285",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "cached": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "derivatives": {
+              "type": "object",
+              "properties": {
+                "BTC": {
+                  "type": "object",
+                  "properties": {
+                    "aggregate": {
+                      "type": "object",
+                      "properties": {
+                        "crowding": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "crowding"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "aggregate"
+                  ]
+                }
+              },
+              "required": [
+                "BTC"
+              ]
+            },
+            "macro": {
+              "type": "object",
+              "properties": {
+                "indicators": {
+                  "type": "object",
+                  "properties": {
+                    "deposit_facility_rate": {
+                      "type": "object",
+                      "properties": {
+                        "as_of": {
+                          "type": "string",
+                          "format": "date"
+                        },
+                        "value": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "as_of",
+                        "value"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "deposit_facility_rate"
+                  ]
+                }
+              },
+              "required": [
+                "indicators"
+              ]
+            },
+            "signals": {
+              "type": "object",
+              "properties": {
+                "BTC": {
+                  "type": "object",
+                  "properties": {
+                    "verdict": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "verdict"
+                  ]
+                }
+              },
+              "required": [
+                "BTC"
+              ]
+            }
+          },
+          "required": [
+            "derivatives",
+            "macro",
+            "signals"
+          ]
+        },
+        "data_freshness": {
+          "type": "object",
+          "properties": {
+            "age_seconds": {
+              "type": "integer"
+            },
+            "as_of": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "deterministic": {
+              "type": "boolean"
+            },
+            "live_web": {
+              "type": "boolean"
+            },
+            "mode": {
+              "type": "string"
+            },
+            "retrieved_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "age_seconds",
+            "as_of",
+            "deterministic",
+            "live_web",
+            "mode",
+            "retrieved_at",
+            "sources"
+          ]
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "error": {},
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "internal": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "title",
+                  "url"
+                ]
+              }
+            },
+            "synthesis": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "internal",
+            "sources",
+            "synthesis"
+          ]
+        },
+        "query": {
+          "type": "object",
+          "properties": {
+            "depth": {
+              "type": "string"
+            },
+            "focus": {
+              "type": "string"
+            },
+            "symbols": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "depth",
+            "focus",
+            "symbols"
+          ]
+        },
+        "report": {
+          "type": "object",
+          "properties": {
+            "crypto_outlook": {
+              "type": "object",
+              "properties": {
+                "bias": {
+                  "type": "string"
+                },
+                "notes": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "bias",
+                "notes"
+              ]
+            },
+            "headline": {
+              "type": "string"
+            },
+            "key_signals": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "implication": {
+                    "type": "string"
+                  },
+                  "signal": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "implication",
+                  "signal"
+                ]
+              }
+            },
+            "macro_outlook": {
+              "type": "object",
+              "properties": {
+                "notes": {
+                  "type": "string"
+                },
+                "stance": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "notes",
+                "stance"
+              ]
+            },
+            "market_summary": {
+              "type": "string"
+            },
+            "mode": {
+              "type": "string"
+            },
+            "opportunities": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "risks": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "crypto_outlook",
+            "headline",
+            "key_signals",
+            "macro_outlook",
+            "market_summary",
+            "mode",
+            "opportunities",
+            "risks"
+          ]
+        },
+        "source": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "cached",
+        "data",
+        "data_freshness",
+        "disclaimer",
+        "provenance",
+        "query",
+        "report",
+        "source",
+        "timestamp"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data_freshness.age_seconds": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-endpoints.onrender.com",
+    "endpoint": "https://x402-endpoints.onrender.com/market/intel",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

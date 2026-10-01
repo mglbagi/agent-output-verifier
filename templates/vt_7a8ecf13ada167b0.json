@@ -1,0 +1,164 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7a8ecf13ada167b0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "results": {
+          "items": {
+            "properties": {
+              "data": {
+                "description": "Preview object returned.",
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "favicons": {
+                    "description": "Discovered icon entries",
+                    "type": "array"
+                  },
+                  "minifetchCache": {
+                    "description": "Minifetch cache state (~2-min TTL)",
+                    "properties": {
+                      "cachedAt": {
+                        "type": "string"
+                      },
+                      "expiresAt": {
+                        "type": "string"
+                      },
+                      "hit": {
+                        "type": "boolean"
+                      }
+                    },
+                    "type": "object",
+                    "required": [
+                      "cachedAt",
+                      "expiresAt",
+                      "hit"
+                    ]
+                  },
+                  "og:description": {
+                    "type": "string"
+                  },
+                  "og:image": {
+                    "type": "string"
+                  },
+                  "og:site_name": {
+                    "type": "string"
+                  },
+                  "og:title": {
+                    "type": "string"
+                  },
+                  "og:type": {
+                    "type": "string"
+                  },
+                  "og:url": {
+                    "type": "string"
+                  },
+                  "proxy": {
+                    "description": "Fetch provenance",
+                    "properties": {
+                      "proxyType": {
+                        "type": "string"
+                      },
+                      "proxyUrl": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "robotsTxt": {
+                        "properties": {
+                          "allowed": {
+                            "type": "boolean"
+                          }
+                        },
+                        "type": "object",
+                        "required": [
+                          "allowed"
+                        ]
+                      },
+                      "userAgent": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object",
+                    "required": [
+                      "proxyType",
+                      "robotsTxt",
+                      "userAgent"
+                    ]
+                  },
+                  "requestUrl": {
+                    "description": "URL as requested, before redirects",
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "twitter:card": {
+                    "type": "string"
+                  },
+                  "twitter:image": {
+                    "type": "string"
+                  },
+                  "twitter:title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "Final URL after redirects",
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "description",
+                  "favicons",
+                  "minifetchCache",
+                  "og:description",
+                  "og:image",
+                  "og:site_name",
+                  "og:title",
+                  "og:type",
+                  "og:url",
+                  "proxy",
+                  "requestUrl",
+                  "title",
+                  "twitter:card",
+                  "twitter:image",
+                  "twitter:title",
+                  "url"
+                ]
+              }
+            },
+            "type": "object",
+            "required": [
+              "data"
+            ]
+          },
+          "type": "array"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "required": [
+        "results",
+        "success"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "minifetch.com",
+    "endpoint": "https://minifetch.com/api/v1/x402/extract/url-preview",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

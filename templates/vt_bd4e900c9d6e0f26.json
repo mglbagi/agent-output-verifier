@@ -1,0 +1,95 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bd4e900c9d6e0f26",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "audit": {
+          "type": "object"
+        },
+        "auditId": {
+          "type": "string"
+        },
+        "clientRequestId": {
+          "maxLength": 120,
+          "minLength": 8,
+          "type": "string"
+        },
+        "fullPassageStored": {
+          "const": false,
+          "type": "boolean"
+        },
+        "idempotentReplay": {
+          "type": "boolean"
+        },
+        "inputHash": {
+          "type": "string"
+        },
+        "offerId": {
+          "const": "mps-autonomous-audit",
+          "type": "string"
+        },
+        "retentionBoundaries": {
+          "type": "object"
+        },
+        "retentionNote": {
+          "type": "string"
+        },
+        "retrievalToken": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "completed",
+            "processing",
+            "failed"
+          ],
+          "type": "string"
+        },
+        "verbatimExcerptsRetained": {
+          "const": true,
+          "type": "boolean"
+        },
+        "version": {
+          "const": "0.1",
+          "type": "string"
+        },
+        "warningCodes": {
+          "type": "array"
+        },
+        "warnings": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "version",
+        "offerId",
+        "auditId",
+        "retrievalToken",
+        "clientRequestId",
+        "inputHash",
+        "status",
+        "idempotentReplay",
+        "warnings",
+        "warningCodes",
+        "retentionBoundaries",
+        "fullPassageStored",
+        "verbatimExcerptsRetained"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mahastrategies.com",
+    "endpoint": "https://www.mahastrategies.com/api/v1/mps/audit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

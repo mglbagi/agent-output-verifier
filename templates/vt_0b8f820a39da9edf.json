@@ -1,0 +1,323 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0b8f820a39da9edf",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "address": {
+          "description": "Validated canonical EIP-55 address of the analyzed wallet.",
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "cached": {
+          "description": "True when the whole analysis was served from cache, including the pinned documentation example.",
+          "type": "boolean"
+        },
+        "checked_at": {
+          "description": "When this analysis was assembled; retained on cache hits.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "coverage": {
+          "description": "Exactly what this analysis did. `counterparties_discovered` = `counterparties_screened` + `counterparties_failed` + `counterparties_not_screened`.",
+          "properties": {
+            "counterparties_discovered": {
+              "description": "Unique counterparties found in the examined transfers.",
+              "type": "integer"
+            },
+            "counterparties_failed": {
+              "description": "Counterparties whose screen was attempted but errored upstream. They are NOT clean — they are unknown.",
+              "type": "integer"
+            },
+            "counterparties_not_screened": {
+              "description": "Discovered counterparties dropped by `counterparty_limit` and never sent upstream. Also unknown, not clean.",
+              "type": "integer"
+            },
+            "counterparties_screened": {
+              "description": "Counterparties whose sanctions screen completed successfully; only these carry a real result.",
+              "type": "integer"
+            },
+            "counterparty_limit": {
+              "description": "Maximum unique counterparties this route screens per request.",
+              "type": "integer"
+            },
+            "from": {
+              "description": "Oldest transfer timestamp the scan considered.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "lookback_days": {
+              "description": "Configured history window in days.",
+              "type": "integer"
+            },
+            "provider_complete": {
+              "description": "False when any screen failed or an upstream transfer row was unusable. A negative verdict with `false` here is partial, not clean.",
+              "type": "boolean"
+            },
+            "to": {
+              "description": "Newest transfer timestamp the scan considered.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "transfer_limit": {
+              "description": "Maximum transfers the scan reads before stopping.",
+              "type": "integer"
+            },
+            "transfers_examined": {
+              "description": "Transfers actually read for this wallet.",
+              "type": "integer"
+            },
+            "truncated": {
+              "description": "True when a transfer or counterparty limit was hit, so the wallet has more history than was assessed.",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "from",
+            "to",
+            "lookback_days",
+            "transfer_limit",
+            "transfers_examined",
+            "counterparty_limit",
+            "counterparties_discovered",
+            "counterparties_screened",
+            "counterparties_failed",
+            "counterparties_not_screened",
+            "truncated",
+            "provider_complete"
+          ],
+          "type": "object"
+        },
+        "limitations": {
+          "description": "Scope caveats that constrain how this result may be used.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "matches": {
+          "description": "One entry per successfully screened counterparty that is an exact sanctions-list match; empty when none matched. An entry describes the counterparty, not the requested wallet.",
+          "items": {
+            "description": "A sanctioned counterparty plus the interaction evidence. The `examples` entry is an illustrative shape only: its address, hash, names, and dates are placeholders, not a real designation.",
+            "properties": {
+              "address": {
+                "description": "Canonical EIP-55 address of the sanctioned counterparty.",
+                "type": "string"
+              },
+              "asset": {
+                "description": "Asset symbol of the most recent transfer (for example ETH or USDC); omitted when upstream reports none.",
+                "type": "string"
+              },
+              "direction": {
+                "description": "Flow direction relative to the requested wallet across the examined transfers.",
+                "enum": [
+                  "sent_to",
+                  "received_from",
+                  "bidirectional"
+                ],
+                "type": "string"
+              },
+              "interaction_count": {
+                "description": "Number of examined transfers between the wallet and this counterparty.",
+                "type": "integer"
+              },
+              "latest_interaction": {
+                "description": "Block timestamp of the most recent such transfer.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "sanctions": {
+                "description": "Designation evidence for this counterparty.",
+                "properties": {
+                  "listed_blockchain": {
+                    "description": "Chain the address was designated on, which may differ from the analyzed network.",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "Designated entity name as published by the source list.",
+                    "type": "string"
+                  },
+                  "sanctioned_at": {
+                    "description": "Designation date reported by the source list.",
+                    "format": "date-time",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "transaction_hash": {
+                "description": "Hash of the most recent such transfer, for on-chain verification.",
+                "type": "string"
+              },
+              "value": {
+                "description": "Decimal-adjusted amount of the most recent transfer denominated in `asset` — token units, NOT USD. Compare thresholds per asset.",
+                "type": "number"
+              }
+            },
+            "required": [
+              "address",
+              "direction",
+              "interaction_count",
+              "latest_interaction",
+              "transaction_hash",
+              "sanctions"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "network": {
+          "description": "CAIP-2 network the analysis covers.",
+          "enum": [
+            "eip155:8453"
+          ],
+          "type": "string"
+        },
+        "recommended_action": {
+          "description": "Suggested handling. `manual_review` is returned both for a counterparty match and for a negative result whose coverage is incomplete; `no_direct_match` only for a negative result with complete coverage.",
+          "enum": [
+            "block_and_review",
+            "manual_review",
+            "no_direct_match"
+          ],
+          "type": "string"
+        },
+        "source": {
+          "description": "What was checked and against which published lists.",
+          "properties": {
+            "check_type": {
+              "enum": [
+                "direct_address_sanctions_exposure"
+              ],
+              "type": "string"
+            },
+            "lists": {
+              "description": "Sanctions lists covered by the screening provider.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "check_type",
+            "lists"
+          ],
+          "type": "object"
+        },
+        "summary": {
+          "description": "Human-readable interpretation, including the coverage and AML-scope caveats.",
+          "type": "string"
+        },
+        "target": {
+          "description": "Exact-address screen of the requested wallet itself, independent of counterparty exposure.",
+          "properties": {
+            "cached": {
+              "description": "True when the target screen was served from cache.",
+              "type": "boolean"
+            },
+            "checked_at": {
+              "description": "When the target screen was obtained upstream; retained on cache hits.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "is_sanctioned": {
+              "description": "True only for an exact match of the requested wallet.",
+              "type": "boolean"
+            },
+            "match": {
+              "description": "Designation evidence for a positive target match; null when the target is not listed.",
+              "properties": {
+                "listed_blockchain": {
+                  "description": "Chain the address was designated on, which may differ from the analyzed network.",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Designated entity name as published by the source list.",
+                  "type": "string"
+                },
+                "sanctioned_at": {
+                  "description": "Designation date reported by the source list.",
+                  "format": "date-time",
+                  "type": "string"
+                }
+              },
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "verdict": {
+              "description": "`not_listed` means no exact match was found, not AML clearance.",
+              "enum": [
+                "sanctioned",
+                "not_listed"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "verdict",
+            "is_sanctioned",
+            "match",
+            "checked_at",
+            "cached"
+          ],
+          "type": "object"
+        },
+        "verdict": {
+          "description": "`target_sanctioned`: the requested wallet itself is an exact list match. `direct_exposure_detected`: the wallet is not listed but at least one screened counterparty is. `no_direct_exposure_found`: neither matched — read `coverage` before treating it as clean, because it is bounded by the reported limits and may be partial.",
+          "enum": [
+            "target_sanctioned",
+            "direct_exposure_detected",
+            "no_direct_exposure_found"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "network",
+        "verdict",
+        "recommended_action",
+        "summary",
+        "target",
+        "coverage",
+        "matches",
+        "checked_at",
+        "cached",
+        "source",
+        "limitations"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "coverage.from",
+        "other_field": "coverage.to"
+      }
+    ],
+    "bounds": {
+      "coverage.counterparty_limit": {
+        "min": 0
+      },
+      "coverage.transfer_limit": {
+        "min": 0
+      },
+      "matches[].interaction_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "wallet-sanctions.use.x402atlas.com",
+    "endpoint": "https://wallet-sanctions.use.x402atlas.com/exposure",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

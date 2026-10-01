@@ -1,0 +1,227 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_177eeabddbff20a1",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "description": "One row per state change, oldest-first while draining a `since` cursor. `tickers` lists every co-filer exposed to the decision.",
+          "items": {
+            "properties": {
+              "accession": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "application_number": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "applied": {
+                "type": "boolean"
+              },
+              "authority": {
+                "enum": [
+                  "human_lock",
+                  "llm_high",
+                  "regex",
+                  "llm_medium",
+                  "llm_low",
+                  null
+                ],
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "catalyst_id": {
+                "type": "integer"
+              },
+              "company": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "confidence": {
+                "enum": [
+                  "high",
+                  "medium",
+                  "low",
+                  null
+                ],
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "date_changed": {
+                "type": "boolean"
+              },
+              "date_confidence": {
+                "enum": [
+                  "confirmed",
+                  "reported",
+                  "estimated",
+                  null
+                ],
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "days_to_date": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "delta_days": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "detected_at": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "drug_name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "event_id": {
+                "type": "integer"
+              },
+              "event_type": {
+                "enum": [
+                  "new_date_assigned",
+                  "date_extension",
+                  "decision_outcome",
+                  "retracted",
+                  "restored",
+                  "corrected"
+                ],
+                "type": "string"
+              },
+              "filed_at": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date"
+              },
+              "indication": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "merged_into": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "new_date": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date"
+              },
+              "new_date_upcoming": {
+                "type": "boolean"
+              },
+              "outcome": {
+                "enum": [
+                  "approved",
+                  "tentative",
+                  "crl",
+                  "none_found",
+                  null
+                ],
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "prior_date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "source_quote": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "source_url": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "uri"
+              },
+              "ticker": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "tickers": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "event_id",
+              "catalyst_id",
+              "event_type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "meta": {
+          "description": "Result metadata, e.g. total count.",
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data[].catalyst_id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.biotechcatalystsentinel.com",
+    "endpoint": "https://api.biotechcatalystsentinel.com/v1/events",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

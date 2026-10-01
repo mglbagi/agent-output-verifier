@@ -1,0 +1,210 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_79d4568ad331827b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "capability": {
+          "const": "commerce.product-state"
+        },
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "availability": {
+              "enum": [
+                "in_stock",
+                "out_of_stock",
+                "preorder",
+                "backorder",
+                "limited",
+                "discontinued",
+                "unknown",
+                null
+              ]
+            },
+            "brand": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "buyable": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "canonical_url": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "compare_at_price": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "currency": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "evidence": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "identifiers": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "platform": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "price": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "product_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "purchase_route": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "selected_variant": {
+              "anyOf": [
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "seller": {
+              "anyOf": [
+                {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                }
+              ]
+            },
+            "title": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "platform",
+            "canonical_url",
+            "product_id",
+            "title",
+            "brand",
+            "selected_variant",
+            "price",
+            "compare_at_price",
+            "currency",
+            "availability",
+            "buyable",
+            "seller",
+            "identifiers",
+            "purchase_route",
+            "evidence"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "additionalProperties": false,
+          "properties": {
+            "cache": {
+              "enum": [
+                "hit",
+                "miss",
+                "bypass"
+              ]
+            },
+            "checked_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "duration_ms": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "provider": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "provider",
+            "checked_at",
+            "cache",
+            "duration_ms"
+          ],
+          "type": "object"
+        },
+        "ok": {
+          "const": true
+        },
+        "version": {
+          "const": "1"
+        }
+      },
+      "required": [
+        "ok",
+        "capability",
+        "version",
+        "data",
+        "meta"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "data.compare_at_price": {
+        "min": 0
+      },
+      "data.price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "http--forest-gas-station--lcjl27p8lmjs.code.run",
+    "endpoint": "https://http--forest-gas-station--lcjl27p8lmjs.code.run/commerce/product-state",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

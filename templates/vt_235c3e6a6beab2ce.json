@@ -1,0 +1,154 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_235c3e6a6beab2ce",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "chain": {
+          "type": "object",
+          "properties": {
+            "block": {
+              "type": "integer"
+            },
+            "chain": {
+              "type": "integer"
+            },
+            "isContract": {
+              "type": "boolean"
+            },
+            "name": {
+              "type": "string"
+            },
+            "native": {
+              "type": "string"
+            },
+            "outgoingTxs": {
+              "type": "integer"
+            },
+            "reachable": {
+              "type": "boolean"
+            },
+            "usdc": {
+              "type": "string"
+            },
+            "usdcUnits": {
+              "type": "string"
+            },
+            "usdt": {
+              "type": "string"
+            },
+            "usdtUnits": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "block",
+            "chain",
+            "isContract",
+            "name",
+            "native",
+            "outgoingTxs",
+            "reachable",
+            "usdc",
+            "usdcUnits",
+            "usdt",
+            "usdtUnits"
+          ]
+        },
+        "checksum": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "message",
+            "status"
+          ]
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "ms": {
+              "type": "integer"
+            },
+            "service": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "ms",
+            "service",
+            "version"
+          ]
+        },
+        "report": {
+          "type": "string"
+        },
+        "verdict": {
+          "type": "object",
+          "properties": {
+            "gas": {
+              "type": "string"
+            },
+            "headline": {
+              "type": "string"
+            },
+            "level": {
+              "type": "string"
+            },
+            "next": {
+              "type": "string"
+            },
+            "reasons": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "tokenMismatch": {}
+          },
+          "required": [
+            "gas",
+            "headline",
+            "level",
+            "next",
+            "reasons"
+          ]
+        }
+      },
+      "required": [
+        "address",
+        "chain",
+        "checksum",
+        "meta",
+        "report",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.pennyforge.org",
+    "endpoint": "https://api.pennyforge.org/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

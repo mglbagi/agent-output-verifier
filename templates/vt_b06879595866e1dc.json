@@ -1,0 +1,146 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b06879595866e1dc",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "description": "Current BTC-USD market-regime, readiness, risk, and state-transition evidence.",
+      "properties": {
+        "all_events": {
+          "minimum": 0,
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "calculation_window": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "contract_revision": {
+          "const": "observer_provenance_v1",
+          "type": "string"
+        },
+        "current_interpretation": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "current_market": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "field_availability": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "latest_observation_at": {
+          "format": "date-time",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "observation_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "response_generated_at": {
+          "format": "date-time",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "schema_version": {
+          "const": "observer_evidence_summary_v2",
+          "type": "string"
+        },
+        "source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_identity": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "source_observed_at": {
+          "format": "date-time",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "state_change_events": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "summary": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "valid_for_seconds": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "valid_until": {
+          "format": "date-time",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "validity": {
+          "additionalProperties": true,
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "required": [
+        "all_events",
+        "calculation_window",
+        "contract_revision",
+        "current_interpretation",
+        "current_market",
+        "generated_at",
+        "latest_observation_at",
+        "observation_id",
+        "response_generated_at",
+        "schema_version",
+        "source",
+        "source_identity",
+        "source_observed_at",
+        "state_change_events",
+        "summary",
+        "valid_for_seconds",
+        "valid_until",
+        "validity"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "observer.137-184-67-179.sslip.io",
+    "endpoint": "https://observer.137-184-67-179.sslip.io/paid/evidence-summary.json",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

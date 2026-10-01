@@ -1,0 +1,310 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_48ec293084766ac7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "bazaar_listings": {
+          "type": "integer"
+        },
+        "data_as_of": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "demand": {
+          "properties": {
+            "calls_30d": {
+              "type": "integer"
+            },
+            "listings_with_outside_payers": {
+              "type": "integer"
+            },
+            "max_unique_payers_30d": {
+              "type": "integer"
+            },
+            "median_unique_payers_30d_among_demand": {
+              "type": "integer"
+            },
+            "share_with_outside_payers": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "calls_30d",
+            "listings_with_outside_payers",
+            "max_unique_payers_30d",
+            "median_unique_payers_30d_among_demand",
+            "share_with_outside_payers"
+          ]
+        },
+        "match_mode": {
+          "enum": [
+            "all-words",
+            "most-words",
+            "ranked"
+          ],
+          "type": "string"
+        },
+        "match_score": {
+          "description": "Ranked mode only: closeness score of the best listing",
+          "type": "number"
+        },
+        "notes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "price_usd": {
+          "properties": {
+            "all": {
+              "properties": {
+                "max": {
+                  "type": "number"
+                },
+                "median": {
+                  "type": "number"
+                },
+                "min": {
+                  "type": "number"
+                },
+                "n": {
+                  "type": "integer"
+                },
+                "p25": {
+                  "type": "number"
+                },
+                "p75": {
+                  "type": "number"
+                }
+              },
+              "type": [
+                "object",
+                "null"
+              ],
+              "required": [
+                "max",
+                "median",
+                "min",
+                "n",
+                "p25",
+                "p75"
+              ]
+            },
+            "with_demand": {
+              "properties": {
+                "max": {
+                  "type": "number"
+                },
+                "median": {
+                  "type": "number"
+                },
+                "min": {
+                  "type": "number"
+                },
+                "n": {
+                  "type": "integer"
+                },
+                "p25": {
+                  "type": "number"
+                },
+                "p75": {
+                  "type": "number"
+                }
+              },
+              "type": [
+                "object",
+                "null"
+              ],
+              "required": [
+                "max",
+                "median",
+                "min",
+                "n",
+                "p25",
+                "p75"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "all",
+            "with_demand"
+          ]
+        },
+        "query": {
+          "type": "string"
+        },
+        "suggested_query": {
+          "description": "Ranked mode with a match only: keywords the market was sized on",
+          "type": "string"
+        },
+        "supply": {
+          "properties": {
+            "called_last_7d": {
+              "type": "integer"
+            },
+            "hosts": {
+              "type": "integer"
+            },
+            "listings": {
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "required": [
+            "called_last_7d",
+            "hosts",
+            "listings"
+          ]
+        },
+        "top_hosts": {
+          "items": {
+            "properties": {
+              "calls_30d": {
+                "type": "integer"
+              },
+              "host": {
+                "type": "string"
+              },
+              "listings": {
+                "type": "integer"
+              },
+              "listings_with_demand": {
+                "type": "integer"
+              },
+              "max_unique_payers_30d": {
+                "type": "integer"
+              }
+            },
+            "type": "object",
+            "required": [
+              "calls_30d",
+              "host",
+              "listings",
+              "listings_with_demand",
+              "max_unique_payers_30d"
+            ]
+          },
+          "type": "array"
+        },
+        "top_listings": {
+          "items": {
+            "properties": {
+              "calls_30d": {
+                "type": "integer"
+              },
+              "description": {
+                "type": "string"
+              },
+              "host": {
+                "type": "string"
+              },
+              "last_called_at": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "networks": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "price_usd": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "resource": {
+                "type": "string"
+              },
+              "unique_payers_30d": {
+                "type": "integer"
+              }
+            },
+            "type": "object",
+            "required": [
+              "calls_30d",
+              "description",
+              "host",
+              "last_called_at",
+              "networks",
+              "price_usd",
+              "resource",
+              "unique_payers_30d"
+            ]
+          },
+          "type": "array"
+        },
+        "verdict": {
+          "properties": {
+            "label": {
+              "enum": [
+                "empty",
+                "no-demand",
+                "thin-supply",
+                "contested",
+                "incumbent-dominated"
+              ],
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "label",
+            "reason"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "bazaar_listings",
+        "data_as_of",
+        "demand",
+        "match_mode",
+        "notes",
+        "price_usd",
+        "query",
+        "supply",
+        "top_hosts",
+        "top_listings",
+        "verdict"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "price_usd.all.min",
+        "other_field": "price_usd.all.max"
+      },
+      {
+        "type": "lte",
+        "field": "price_usd.with_demand.min",
+        "other_field": "price_usd.with_demand.max"
+      }
+    ],
+    "bounds": {
+      "top_listings[].price_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "audit.152-53-82-29.sslip.io",
+    "endpoint": "https://audit.152-53-82-29.sslip.io/v1/niche",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

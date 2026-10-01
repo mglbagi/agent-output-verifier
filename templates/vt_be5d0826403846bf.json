@@ -1,0 +1,53 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_be5d0826403846bf",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "amount_usd": {
+          "type": "number"
+        },
+        "bundle_key": {
+          "description": "Unlocks the paid MCP tools (get_customer_files, generate_files).",
+          "type": "string"
+        },
+        "paid": {
+          "type": "boolean"
+        },
+        "thank_you_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "transaction": {
+          "description": "On-chain settlement tx hash.",
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{64}$"
+        }
+      },
+      "type": "object",
+      "required": [
+        "amount_usd",
+        "bundle_key",
+        "paid",
+        "thank_you_url",
+        "transaction"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "amount_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mudko.com",
+    "endpoint": "https://mudko.com/api/x402/purchase",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

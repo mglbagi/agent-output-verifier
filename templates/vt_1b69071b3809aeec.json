@@ -1,0 +1,240 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1b69071b3809aeec",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "anchor": {
+          "type": "object",
+          "properties": {
+            "chg_24h_pct": {
+              "type": "number"
+            },
+            "d200": {
+              "type": "number"
+            },
+            "sym": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "chg_24h_pct",
+            "d200",
+            "sym"
+          ]
+        },
+        "computed_at": {
+          "type": "string"
+        },
+        "product": {
+          "type": "string"
+        },
+        "reading_guide": {
+          "type": "string"
+        },
+        "regime": {
+          "type": "object",
+          "properties": {
+            "breadth": {
+              "type": "object",
+              "properties": {
+                "above_d200": {
+                  "type": "integer"
+                },
+                "above_d50": {
+                  "type": "integer"
+                },
+                "green_1h": {
+                  "type": "integer"
+                },
+                "universe": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "above_d200",
+                "above_d50",
+                "green_1h",
+                "universe"
+              ]
+            },
+            "gate_asof": {
+              "type": "string"
+            },
+            "gate_mode": {
+              "type": "string"
+            },
+            "verdict": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "breadth",
+            "gate_asof",
+            "gate_mode",
+            "verdict"
+          ]
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "atr_pct": {
+                "type": "number"
+              },
+              "chg_24h_pct": {
+                "type": "number"
+              },
+              "chg_7d_pct": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "price": {
+                "type": "number"
+              },
+              "rank": {
+                "type": "object",
+                "properties": {
+                  "rs_pct": {
+                    "type": "integer"
+                  },
+                  "trend_pct": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "rs_pct",
+                  "trend_pct"
+                ]
+              },
+              "room_pct": {
+                "type": "number"
+              },
+              "rs_btc_20d": {
+                "type": "number"
+              },
+              "state": {
+                "type": "string"
+              },
+              "sym": {
+                "type": "string"
+              },
+              "tape": {
+                "type": "object",
+                "properties": {
+                  "d1": {
+                    "type": "string"
+                  },
+                  "h1": {
+                    "type": "string"
+                  },
+                  "h4": {
+                    "type": "string"
+                  },
+                  "m5": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "d1",
+                  "h1",
+                  "h4",
+                  "m5"
+                ]
+              },
+              "trend": {
+                "type": "object",
+                "properties": {
+                  "d20": {
+                    "type": "number"
+                  },
+                  "d200": {
+                    "type": "integer"
+                  },
+                  "d50": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "d20",
+                  "d200",
+                  "d50"
+                ]
+              },
+              "vol_z": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "atr_pct",
+              "chg_24h_pct",
+              "chg_7d_pct",
+              "name",
+              "price",
+              "rank",
+              "room_pct",
+              "rs_btc_20d",
+              "state",
+              "sym",
+              "tape",
+              "trend",
+              "vol_z"
+            ]
+          }
+        },
+        "universe": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "anchor",
+        "computed_at",
+        "product",
+        "reading_guide",
+        "regime",
+        "rows",
+        "universe"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "rows[].atr_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "rows[].chg_24h_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "rows[].price": {
+        "min": 0
+      },
+      "rows[].rank.rs_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "rows[].rank.trend_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "rows[].room_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "coil.trade",
+    "endpoint": "https://coil.trade/api/crypto/day",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

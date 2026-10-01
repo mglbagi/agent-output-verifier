@@ -1,0 +1,94 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8570c663b4e63215",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "next_cursor": {},
+        "signals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ccn": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "event_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "event_id": {
+                "type": "integer"
+              },
+              "fy_end_year": {
+                "type": "integer"
+              },
+              "hospital_name": {
+                "type": "string"
+              },
+              "movable_equipment_purchases": {
+                "type": "integer"
+              },
+              "prior_year_movable_equipment_purchases": {
+                "type": "integer"
+              },
+              "state": {
+                "type": "string"
+              },
+              "total_purchases": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "ccn",
+              "city",
+              "event_date",
+              "event_id",
+              "fy_end_year",
+              "hospital_name",
+              "movable_equipment_purchases",
+              "prior_year_movable_equipment_purchases",
+              "state",
+              "total_purchases"
+            ]
+          }
+        },
+        "total_matched": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "signals",
+        "total_matched"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "signals[].event_id"
+      }
+    ],
+    "bounds": {
+      "signals[].total_purchases": {
+        "min": 0
+      },
+      "total_matched": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.healthparse.io",
+    "endpoint": "https://api.healthparse.io/v1/hospitals/capex-signals",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ce8a243907dc7bd6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_names": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "caller_next_step": {
+          "type": "string"
+        },
+        "capability_id": {
+          "type": "string"
+        },
+        "duplicate": {
+          "type": "boolean"
+        },
+        "job_id": {
+          "type": "string"
+        },
+        "product": {
+          "enum": [
+            "wave",
+            "quantum",
+            "robotics"
+          ]
+        },
+        "quote_id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "reservation_id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "result_schema_digest": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "result_schema_id": {
+          "type": "string"
+        },
+        "retrieval_token": {
+          "pattern": "^rqm_retrieval_",
+          "type": "string"
+        },
+        "retrieval_token_expires_in": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "retrieval_url": {
+          "format": "uri",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "rqm.jobs.bazaar-buyer-job-accepted.v1"
+        },
+        "status": {
+          "enum": [
+            "queued",
+            "running",
+            "completed"
+          ]
+        },
+        "x402_settlement_id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "x402_transaction_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "product",
+        "capability_id",
+        "job_id",
+        "status",
+        "quote_id",
+        "reservation_id",
+        "x402_settlement_id",
+        "x402_transaction_id",
+        "retrieval_url",
+        "retrieval_token",
+        "retrieval_token_expires_in",
+        "result_schema_id",
+        "result_schema_digest",
+        "caller_next_step",
+        "duplicate"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "jobs.rqmtechnologies.com",
+    "endpoint": "https://jobs.rqmtechnologies.com/x402/buyer-jobs/optimization-preservation-audit-v1",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

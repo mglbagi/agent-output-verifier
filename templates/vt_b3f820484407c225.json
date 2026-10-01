@@ -1,0 +1,133 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b3f820484407c225",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "bazaar": {
+          "type": "object",
+          "properties": {
+            "has_metadata": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "has_metadata"
+          ]
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "label",
+              "status"
+            ]
+          }
+        },
+        "discovery": {
+          "type": "object",
+          "properties": {
+            "discovery_resources": {
+              "type": "string"
+            },
+            "llms_txt": {
+              "type": "string"
+            },
+            "openapi_json": {
+              "type": "string"
+            },
+            "well_known_x402": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "discovery_resources",
+            "llms_txt",
+            "openapi_json",
+            "well_known_x402"
+          ]
+        },
+        "payment": {
+          "type": "object",
+          "properties": {
+            "asset_name": {
+              "type": "string"
+            },
+            "is_x402": {
+              "type": "boolean"
+            },
+            "network": {
+              "type": "string"
+            },
+            "x402_version": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "asset_name",
+            "is_x402",
+            "network",
+            "x402_version"
+          ]
+        },
+        "recommended_fixes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "score": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "string"
+        },
+        "target_url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "bazaar",
+        "checks",
+        "discovery",
+        "payment",
+        "recommended_fixes",
+        "score",
+        "status",
+        "target_url"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "checks[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "quartermaster.surewhynot.app",
+    "endpoint": "https://quartermaster.surewhynot.app/v1/x402-audit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

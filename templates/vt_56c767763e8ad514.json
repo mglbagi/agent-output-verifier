@@ -1,0 +1,120 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_56c767763e8ad514",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "avg_confidence": {
+          "type": "number"
+        },
+        "bearish_count": {
+          "type": "integer"
+        },
+        "bullish_count": {
+          "type": "integer"
+        },
+        "fetched_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "signal_count": {
+          "type": "integer"
+        },
+        "signals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "confidence": {
+                "type": "number"
+              },
+              "direction": {
+                "type": "string"
+              },
+              "signal_id": {
+                "type": "integer"
+              },
+              "signal_type": {
+                "type": "string"
+              },
+              "source_agent": {
+                "type": "string"
+              },
+              "strength": {
+                "type": "number"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "timeframe": {
+                "type": "string"
+              },
+              "timestamp": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "confidence",
+              "direction",
+              "signal_id",
+              "signal_type",
+              "source_agent",
+              "strength",
+              "symbol",
+              "timeframe",
+              "timestamp"
+            ]
+          }
+        },
+        "symbol": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "avg_confidence",
+        "bearish_count",
+        "bullish_count",
+        "fetched_at",
+        "signal_count",
+        "signals",
+        "symbol"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "signals[].signal_id"
+      }
+    ],
+    "bounds": {
+      "avg_confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "bearish_count": {
+        "min": 0
+      },
+      "bullish_count": {
+        "min": 0
+      },
+      "signal_count": {
+        "min": 0
+      },
+      "signals[].confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.newsgurus.ai",
+    "endpoint": "https://api.newsgurus.ai/x402/signals/composite/NVDA",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

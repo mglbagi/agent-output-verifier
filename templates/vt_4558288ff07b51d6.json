@@ -1,0 +1,278 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4558288ff07b51d6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "as_of": {
+          "type": "integer"
+        },
+        "endpoint_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "listing_id": {
+          "type": "string"
+        },
+        "method_note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "onchain_30d": {
+          "properties": {
+            "payments": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "source": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "unique_payers": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "volume_usd": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "payments",
+            "source",
+            "unique_payers",
+            "volume_usd"
+          ]
+        },
+        "paid_verification": {
+          "description": "our own real purchase from this endpoint and whether it delivered",
+          "properties": {
+            "tx_hash": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "verified": {
+              "type": "boolean"
+            }
+          },
+          "type": "object",
+          "required": [
+            "tx_hash",
+            "verified"
+          ]
+        },
+        "payto": {
+          "properties": {
+            "address": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "distinct_recent": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "first_seen_at": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "shared_by_listings": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "stable_since": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "unstable": {
+              "type": "boolean"
+            }
+          },
+          "type": "object",
+          "required": [
+            "address",
+            "distinct_recent",
+            "first_seen_at",
+            "shared_by_listings",
+            "stable_since",
+            "unstable"
+          ]
+        },
+        "price": {
+          "properties": {
+            "declared": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "matches": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "observed_usd": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "declared",
+            "matches",
+            "observed_usd"
+          ]
+        },
+        "probe": {
+          "properties": {
+            "consecutive_failures": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "last_probed_at": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "last_reason": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "neutral_streak": {
+              "type": "integer"
+            },
+            "p50_latency_ms": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "p95_latency_ms": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "probe_count": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "score": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "consecutive_failures",
+            "last_probed_at",
+            "neutral_streak",
+            "p50_latency_ms",
+            "p95_latency_ms",
+            "probe_count",
+            "score"
+          ]
+        },
+        "purchase_history": {
+          "type": "string"
+        },
+        "reasons": {
+          "description": "why, in plain words",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "rule": {
+          "type": "string"
+        },
+        "status": {
+          "description": "verified, unverified or failing",
+          "type": "string"
+        },
+        "verdict": {
+          "description": "pay, caution or avoid",
+          "enum": [
+            "pay",
+            "caution",
+            "avoid"
+          ],
+          "type": "string"
+        },
+        "verified_via": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "listing_id",
+        "verdict",
+        "reasons",
+        "as_of",
+        "rule"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "onchain_30d.volume_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "price.observed_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "probe.probe_count": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.nohumans.directory",
+    "endpoint": "https://api.nohumans.directory/v1/listings/:id/verdict",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

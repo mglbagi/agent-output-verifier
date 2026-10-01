@@ -1,0 +1,160 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2734d1f4461dbe1e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "attestation_id": {
+          "description": "Deterministic identity derived from the method version and the observation and policy hashes; independent of wall clock.",
+          "pattern": "^mda1_[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "attested_at_ms": {
+          "maximum": 9223372036854776000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "checks": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "check": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "evidence": {
+                "additionalProperties": {
+                  "type": [
+                    "boolean",
+                    "integer",
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": "object"
+              },
+              "status": {
+                "enum": [
+                  "PASS",
+                  "FAIL"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "check",
+              "status",
+              "evidence"
+            ],
+            "type": "object"
+          },
+          "maxItems": 14,
+          "minItems": 14,
+          "type": "array"
+        },
+        "dataset_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "disclaimer": {
+          "const": "Integrity validation of caller-supplied observations only; no market data is acquired or redistributed, and no ownership, licensing, investment, or trading determination is made.",
+          "type": "string"
+        },
+        "failed_checks": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 14,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "first_event_time_ms": {
+          "maximum": 9223372036854776000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "last_event_time_ms": {
+          "maximum": 9223372036854776000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "latest_received_time_ms": {
+          "maximum": 9223372036854776000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "method_version": {
+          "const": "market-data-integrity-attestation-v1.0.0",
+          "type": "string"
+        },
+        "observation_count": {
+          "maximum": 512,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "observations_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "policy_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "safe_to_use": {
+          "type": "boolean"
+        },
+        "schema_version": {
+          "const": "market-data-attestation-request-v1",
+          "type": "string"
+        },
+        "source_label": {
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "verdict": {
+          "enum": [
+            "PASS",
+            "FAIL"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "attestation_id",
+        "attested_at_ms",
+        "dataset_id",
+        "source_label",
+        "verdict",
+        "safe_to_use",
+        "observation_count",
+        "first_event_time_ms",
+        "last_event_time_ms",
+        "latest_received_time_ms",
+        "observations_sha256",
+        "policy_sha256",
+        "checks",
+        "failed_checks",
+        "method_version",
+        "disclaimer"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.tradebot.devs.surf",
+    "endpoint": "https://api.tradebot.devs.surf/v1/market-data-attestation",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b2402d385cb996c1",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "attestation": {
+          "type": "object",
+          "properties": {
+            "attestor": {
+              "type": "string"
+            },
+            "delivery": {
+              "type": "object",
+              "properties": {
+                "http_status": {
+                  "type": "integer"
+                },
+                "is_json": {
+                  "type": "boolean"
+                },
+                "paid_latency_ms": {
+                  "type": "integer"
+                },
+                "schema_match_ratio": {
+                  "type": "integer"
+                },
+                "sha256": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "http_status",
+                "is_json",
+                "paid_latency_ms",
+                "schema_match_ratio",
+                "sha256"
+              ]
+            },
+            "grade": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "purchase": {
+              "type": "object",
+              "properties": {
+                "quote_usd": {
+                  "type": "number"
+                },
+                "receipt": {
+                  "type": "object",
+                  "properties": {
+                    "network": {
+                      "type": "string"
+                    },
+                    "transaction": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "network",
+                    "transaction"
+                  ]
+                },
+                "settled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "quote_usd",
+                "receipt",
+                "settled"
+              ]
+            },
+            "target": {
+              "type": "string"
+            },
+            "version": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "attestor",
+            "delivery",
+            "grade",
+            "id",
+            "purchase",
+            "target",
+            "version"
+          ]
+        },
+        "signature": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "attestation",
+        "signature"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "attestation.delivery.schema_match_ratio": {
+        "min": 0,
+        "max": 1
+      },
+      "attestation.purchase.quote_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "numberintel.dev",
+    "endpoint": "https://numberintel.dev/v1/attest",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

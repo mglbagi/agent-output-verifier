@@ -1,0 +1,136 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_975d382dead5a2fd",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "description": "Transport-bounded discovery projection. The paid response contains the complete fields documented by the service OpenAPI contract.",
+      "properties": {
+        "arithmetic_verified": {
+          "type": "boolean"
+        },
+        "contract_version": {
+          "const": "ardaro.agent-receipt-intelligence.response.v1"
+        },
+        "duplicate_check": {
+          "additionalProperties": true,
+          "properties": {
+            "decision": {
+              "type": "string"
+            },
+            "likely_duplicate": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "likely_duplicate",
+            "decision"
+          ],
+          "type": "object"
+        },
+        "engine": {
+          "additionalProperties": true,
+          "properties": {
+            "mode": {
+              "type": "string"
+            },
+            "model_calls": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "mode",
+            "model_calls"
+          ],
+          "type": "object"
+        },
+        "policy": {
+          "additionalProperties": true,
+          "properties": {
+            "financial_posting_performed": {
+              "const": false
+            },
+            "financial_posting_supported": {
+              "const": false
+            },
+            "human_review_required": {
+              "const": true
+            },
+            "raw_input_retained": {
+              "const": false
+            },
+            "sensitive_values_retained": {
+              "const": false
+            }
+          },
+          "required": [
+            "human_review_required",
+            "financial_posting_supported",
+            "financial_posting_performed",
+            "raw_input_retained",
+            "sensitive_values_retained"
+          ],
+          "type": "object"
+        },
+        "receipt": {
+          "additionalProperties": true,
+          "properties": {
+            "line_items": {
+              "type": "array"
+            },
+            "purchase_date": {
+              "type": "object"
+            },
+            "totals": {
+              "type": "object"
+            },
+            "vendor": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "vendor",
+            "purchase_date",
+            "totals",
+            "line_items"
+          ],
+          "type": "object"
+        },
+        "service": {
+          "const": "ardaro.receipt_intelligence"
+        },
+        "status": {
+          "const": "review_required"
+        },
+        "version": {
+          "const": "1.0.0"
+        }
+      },
+      "required": [
+        "contract_version",
+        "service",
+        "version",
+        "status",
+        "engine",
+        "receipt",
+        "arithmetic_verified",
+        "duplicate_check",
+        "policy"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agents.getardaro.com",
+    "endpoint": "https://agents.getardaro.com/v1/receipt-intelligence/analyze",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2adcbad61f13bc7e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "description": "ComplianceCheck regulatory scan response. This discovery schema keeps the stable envelope only; see /openapi.json for detailed finding fields.",
+      "properties": {
+        "as_of": {
+          "format": "date",
+          "type": "string"
+        },
+        "cross_cutting_requirements": {
+          "description": "Cross-cutting regulatory requirements. Items contain the full source-cited finding shape documented at /openapi.json.",
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "derived_facts": {
+          "description": "Derived facts. Items contain the full source-cited finding shape documented at /openapi.json.",
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "jurisdictions": {
+          "items": {
+            "enum": [
+              "EU",
+              "US-CO",
+              "US-NYC"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "notice": {
+          "type": "string"
+        },
+        "request_hash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "results": {
+          "description": "Rule applicability findings. Items contain the full source-cited finding shape documented at /openapi.json.",
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "ruleset_hash": {
+          "type": "string"
+        },
+        "ruleset_version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "as_of",
+        "jurisdictions",
+        "ruleset_version",
+        "ruleset_hash",
+        "results",
+        "request_hash"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "compliancecheck-x402.fly.dev",
+    "endpoint": "https://compliancecheck-x402.fly.dev/v1/ai-regulatory-scan",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

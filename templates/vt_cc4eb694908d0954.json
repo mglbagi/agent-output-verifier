@@ -1,0 +1,50 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cc4eb694908d0954",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "country": {
+          "type": "string"
+        },
+        "gross": {
+          "type": "integer"
+        },
+        "net": {
+          "type": "integer"
+        },
+        "ratePercent": {
+          "type": "number"
+        },
+        "vat": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "country",
+        "gross",
+        "net",
+        "ratePercent",
+        "vat"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "ratePercent": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "toolvend.dev",
+    "endpoint": "https://toolvend.dev/vat",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

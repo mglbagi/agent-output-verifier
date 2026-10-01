@@ -1,0 +1,96 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e16245d0cf18b21a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "fetchedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "author": {},
+              "publishedDate": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "text": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "type": "object",
+            "required": [
+              "publishedDate",
+              "text",
+              "title",
+              "url"
+            ]
+          },
+          "type": "array"
+        },
+        "source": {
+          "type": "string"
+        },
+        "statuses": {
+          "items": {
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "id",
+              "status"
+            ]
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "source",
+        "fetchedAt",
+        "count",
+        "results",
+        "statuses"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "statuses[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent402.tools",
+    "endpoint": "https://agent402.tools/api/exa-contents",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9033e49014d622b1",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "brief": {
+          "type": "object",
+          "properties": {
+            "baselineStatus": {
+              "type": "string"
+            },
+            "changes": {
+              "type": "array"
+            },
+            "schemaVersion": {
+              "type": "string"
+            },
+            "snapshot": {
+              "type": "object",
+              "properties": {
+                "claims": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "claim": {
+                        "type": "string"
+                      },
+                      "evidenceIds": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "explanation": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "claim",
+                      "evidenceIds",
+                      "explanation",
+                      "state"
+                    ]
+                  }
+                },
+                "evidence": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "excerpt": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "required": [
+                      "excerpt",
+                      "id",
+                      "url"
+                    ]
+                  }
+                },
+                "facts": {
+                  "type": "object",
+                  "properties": {
+                    "decimals": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "decimals"
+                  ]
+                },
+                "token": {
+                  "type": "object",
+                  "properties": {
+                    "contractAddress": {
+                      "type": "string",
+                      "pattern": "^0x[a-fA-F0-9]{40}$"
+                    },
+                    "network": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "contractAddress",
+                    "network"
+                  ]
+                }
+              },
+              "required": [
+                "claims",
+                "evidence",
+                "facts",
+                "token"
+              ]
+            },
+            "unknowns": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "baselineStatus",
+            "changes",
+            "schemaVersion",
+            "snapshot",
+            "unknowns"
+          ]
+        },
+        "receipt": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string"
+            },
+            "transactionHash": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{64}$"
+            }
+          },
+          "required": [
+            "status",
+            "transactionHash"
+          ]
+        }
+      },
+      "required": [
+        "brief",
+        "receipt"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "brief.snapshot.evidence[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "engine.beehivewebstudio.com",
+    "endpoint": "https://engine.beehivewebstudio.com/v1/token-briefs/brief",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

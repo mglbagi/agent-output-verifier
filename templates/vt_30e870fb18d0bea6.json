@@ -1,0 +1,660 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_30e870fb18d0bea6",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "criteria": {
+              "type": "object",
+              "properties": {
+                "includeIndicative": {
+                  "type": "boolean"
+                },
+                "limit": {
+                  "type": "integer"
+                },
+                "minGap": {
+                  "type": "number"
+                },
+                "minMatchConfidence": {
+                  "type": "number"
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "includeIndicative",
+                "limit",
+                "minGap",
+                "minMatchConfidence",
+                "sources"
+              ]
+            },
+            "groups": {
+              "type": "integer"
+            },
+            "returned": {
+              "type": "integer"
+            },
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "gap": {
+                    "type": "number"
+                  },
+                  "gapPct": {
+                    "type": "integer"
+                  },
+                  "higher": {
+                    "type": "object",
+                    "properties": {
+                      "conditionId": {
+                        "type": "string"
+                      },
+                      "endDateIso": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "eventSlug": {
+                        "type": "string"
+                      },
+                      "eventTitle": {
+                        "type": "string"
+                      },
+                      "indicative": {
+                        "type": "boolean"
+                      },
+                      "lastPrice": {
+                        "type": "number"
+                      },
+                      "liquidity": {
+                        "type": "integer"
+                      },
+                      "marketSlug": {
+                        "type": "string"
+                      },
+                      "marketTicker": {
+                        "type": "string"
+                      },
+                      "noAsk": {
+                        "type": "number"
+                      },
+                      "noBid": {
+                        "type": "number"
+                      },
+                      "noPrice": {
+                        "type": "number"
+                      },
+                      "price": {
+                        "type": "number"
+                      },
+                      "question": {
+                        "type": "string"
+                      },
+                      "seriesSlug": {
+                        "type": "string"
+                      },
+                      "seriesTicker": {
+                        "type": "string"
+                      },
+                      "source": {
+                        "type": "string"
+                      },
+                      "sourceUpdatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "volume": {
+                        "type": "integer"
+                      },
+                      "volume24h": {
+                        "type": "integer"
+                      },
+                      "yesAsk": {
+                        "type": "number"
+                      },
+                      "yesBid": {
+                        "type": "number"
+                      },
+                      "yesPrice": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "conditionId",
+                      "endDateIso",
+                      "eventSlug",
+                      "eventTitle",
+                      "indicative",
+                      "lastPrice",
+                      "liquidity",
+                      "marketSlug",
+                      "marketTicker",
+                      "noAsk",
+                      "noBid",
+                      "noPrice",
+                      "price",
+                      "question",
+                      "seriesSlug",
+                      "seriesTicker",
+                      "source",
+                      "sourceUpdatedAt",
+                      "volume",
+                      "volume24h",
+                      "yesAsk",
+                      "yesBid",
+                      "yesPrice"
+                    ]
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "lower": {
+                    "type": "object",
+                    "properties": {
+                      "conditionId": {
+                        "type": "string"
+                      },
+                      "endDateIso": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "eventSlug": {
+                        "type": "string"
+                      },
+                      "eventTitle": {
+                        "type": "string"
+                      },
+                      "indicative": {
+                        "type": "boolean"
+                      },
+                      "lastPrice": {
+                        "type": "number"
+                      },
+                      "liquidity": {
+                        "type": "integer"
+                      },
+                      "marketSlug": {
+                        "type": "string"
+                      },
+                      "marketTicker": {},
+                      "noAsk": {
+                        "type": "number"
+                      },
+                      "noBid": {
+                        "type": "number"
+                      },
+                      "noPrice": {
+                        "type": "number"
+                      },
+                      "price": {
+                        "type": "number"
+                      },
+                      "question": {
+                        "type": "string"
+                      },
+                      "seriesSlug": {
+                        "type": "string"
+                      },
+                      "seriesTicker": {},
+                      "source": {
+                        "type": "string"
+                      },
+                      "sourceUpdatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "volume": {
+                        "type": "integer"
+                      },
+                      "volume24h": {
+                        "type": "integer"
+                      },
+                      "yesAsk": {
+                        "type": "number"
+                      },
+                      "yesBid": {
+                        "type": "number"
+                      },
+                      "yesPrice": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "conditionId",
+                      "endDateIso",
+                      "eventSlug",
+                      "eventTitle",
+                      "indicative",
+                      "lastPrice",
+                      "liquidity",
+                      "marketSlug",
+                      "noAsk",
+                      "noBid",
+                      "noPrice",
+                      "price",
+                      "question",
+                      "seriesSlug",
+                      "source",
+                      "sourceUpdatedAt",
+                      "volume",
+                      "volume24h",
+                      "yesAsk",
+                      "yesBid",
+                      "yesPrice"
+                    ]
+                  },
+                  "markets": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "conditionId": {
+                          "type": "string"
+                        },
+                        "endDateIso": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "eventSlug": {
+                          "type": "string"
+                        },
+                        "eventTitle": {
+                          "type": "string"
+                        },
+                        "indicative": {
+                          "type": "boolean"
+                        },
+                        "lastPrice": {
+                          "type": "number"
+                        },
+                        "liquidity": {
+                          "type": "integer"
+                        },
+                        "marketSlug": {
+                          "type": "string"
+                        },
+                        "marketTicker": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "noAsk": {
+                          "type": "number"
+                        },
+                        "noBid": {
+                          "type": "number"
+                        },
+                        "noPrice": {
+                          "type": "number"
+                        },
+                        "price": {
+                          "type": "number"
+                        },
+                        "question": {
+                          "type": "string"
+                        },
+                        "seriesSlug": {
+                          "type": "string"
+                        },
+                        "seriesTicker": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "sourceUpdatedAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "volume": {
+                          "type": "integer"
+                        },
+                        "volume24h": {
+                          "type": "integer"
+                        },
+                        "yesAsk": {
+                          "type": "number"
+                        },
+                        "yesBid": {
+                          "type": "number"
+                        },
+                        "yesPrice": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "conditionId",
+                        "endDateIso",
+                        "eventSlug",
+                        "eventTitle",
+                        "indicative",
+                        "lastPrice",
+                        "liquidity",
+                        "marketSlug",
+                        "noAsk",
+                        "noBid",
+                        "noPrice",
+                        "price",
+                        "question",
+                        "seriesSlug",
+                        "source",
+                        "sourceUpdatedAt",
+                        "volume",
+                        "volume24h",
+                        "yesAsk",
+                        "yesBid",
+                        "yesPrice"
+                      ]
+                    }
+                  },
+                  "matchConfidence": {
+                    "type": "number"
+                  },
+                  "matchType": {
+                    "type": "string"
+                  },
+                  "matchedOn": {
+                    "type": "object",
+                    "properties": {
+                      "dateKey": {
+                        "type": "string",
+                        "format": "date"
+                      },
+                      "directionKey": {
+                        "type": "string"
+                      },
+                      "eventKey": {
+                        "type": "string"
+                      },
+                      "numericKey": {
+                        "type": "string"
+                      },
+                      "subjectKey": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "dateKey",
+                      "directionKey",
+                      "eventKey",
+                      "numericKey",
+                      "subjectKey",
+                      "type"
+                    ]
+                  },
+                  "minutesUntilEnd": {
+                    "type": "integer"
+                  },
+                  "outcome": {
+                    "type": "string"
+                  },
+                  "rationale": {
+                    "type": "string"
+                  },
+                  "sources": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "topic": {
+                    "type": "string"
+                  },
+                  "totalLiquidity": {
+                    "type": "number"
+                  },
+                  "totalVolume24h": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "gap",
+                  "gapPct",
+                  "higher",
+                  "id",
+                  "lower",
+                  "markets",
+                  "matchConfidence",
+                  "matchType",
+                  "matchedOn",
+                  "minutesUntilEnd",
+                  "outcome",
+                  "rationale",
+                  "sources",
+                  "topic",
+                  "totalLiquidity",
+                  "totalVolume24h"
+                ]
+              }
+            },
+            "sourceCounts": {
+              "type": "object",
+              "properties": {
+                "gemini": {
+                  "type": "integer"
+                },
+                "kalshi": {
+                  "type": "integer"
+                },
+                "polymarket": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "gemini",
+                "kalshi",
+                "polymarket"
+              ]
+            },
+            "sourceUpdatedAt": {
+              "type": "object",
+              "properties": {
+                "gemini": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "kalshi": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "polymarket": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "required": [
+                "gemini",
+                "kalshi",
+                "polymarket"
+              ]
+            },
+            "timestamp": {
+              "type": "integer"
+            },
+            "totalCandidates": {
+              "type": "number"
+            },
+            "warnings": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "criteria",
+            "groups",
+            "returned",
+            "rows",
+            "sourceCounts",
+            "sourceUpdatedAt",
+            "timestamp",
+            "totalCandidates",
+            "warnings"
+          ]
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "freshnessMs": {
+              "type": "integer"
+            },
+            "generatedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "requestId": {
+              "type": "string"
+            },
+            "updatedAt": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "freshnessMs",
+            "generatedAt",
+            "requestId",
+            "updatedAt"
+          ]
+        },
+        "product": {
+          "type": "object",
+          "properties": {
+            "accepts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "network": {
+                    "type": "string"
+                  },
+                  "payTo": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "string"
+                  },
+                  "scheme": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "network",
+                  "payTo",
+                  "price",
+                  "scheme"
+                ]
+              }
+            },
+            "id": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "networks": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "path": {
+              "type": "string"
+            },
+            "price": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "accepts",
+            "id",
+            "method",
+            "name",
+            "networks",
+            "path",
+            "price"
+          ]
+        },
+        "service": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "data",
+        "meta",
+        "product",
+        "service"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data.rows[].id"
+      }
+    ],
+    "bounds": {
+      "data.criteria.limit": {
+        "min": 0
+      },
+      "data.criteria.minMatchConfidence": {
+        "min": 0,
+        "max": 1
+      },
+      "data.rows[].gapPct": {
+        "min": 0,
+        "max": 100
+      },
+      "data.rows[].higher.price": {
+        "min": 0
+      },
+      "data.rows[].higher.volume": {
+        "min": 0
+      },
+      "data.rows[].lower.price": {
+        "min": 0
+      },
+      "data.rows[].lower.volume": {
+        "min": 0
+      },
+      "data.rows[].markets[].price": {
+        "min": 0
+      },
+      "data.rows[].markets[].volume": {
+        "min": 0
+      },
+      "data.rows[].matchConfidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.seerium.xyz",
+    "endpoint": "https://api.seerium.xyz/v1/prediction/cross-venue-disagreement",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

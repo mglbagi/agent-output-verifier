@@ -1,0 +1,42 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f49736344eedefed",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "lease_expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "owner_payer": {
+          "type": "string"
+        },
+        "ticker": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "lease_expires_at",
+        "ok",
+        "owner_payer",
+        "ticker"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agents.smarterway.tech",
+    "endpoint": "https://agents.smarterway.tech/services/watch-trends/v1/watches",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

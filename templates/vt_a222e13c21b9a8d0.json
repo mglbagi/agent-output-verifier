@@ -1,0 +1,169 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a222e13c21b9a8d0",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "bucketPct": {
+          "type": "number"
+        },
+        "coin": {
+          "type": "string"
+        },
+        "coverageOfOpenInterestPct": {
+          "type": "integer"
+        },
+        "dataAgeSeconds": {
+          "type": "integer"
+        },
+        "dataAsOf": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "levels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "longLiquidationsUsd": {
+                "type": "number"
+              },
+              "pctFromMark": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "positions": {
+                "type": "integer"
+              },
+              "priceHigh": {
+                "type": "number"
+              },
+              "priceLow": {
+                "type": "number"
+              },
+              "shortLiquidationsUsd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "longLiquidationsUsd",
+              "pctFromMark",
+              "positions",
+              "priceHigh",
+              "priceLow",
+              "shortLiquidationsUsd"
+            ]
+          }
+        },
+        "markPrice": {
+          "type": "number"
+        },
+        "rangePct": {
+          "type": "integer"
+        },
+        "summary": {
+          "type": "object",
+          "properties": {
+            "largestClusterAbove": {},
+            "largestClusterBelow": {
+              "type": "object",
+              "properties": {
+                "longLiquidationsUsd": {
+                  "type": "number"
+                },
+                "pctFromMark": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "positions": {
+                  "type": "integer"
+                },
+                "priceHigh": {
+                  "type": "number"
+                },
+                "priceLow": {
+                  "type": "number"
+                },
+                "shortLiquidationsUsd": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "longLiquidationsUsd",
+                "pctFromMark",
+                "positions",
+                "priceHigh",
+                "priceLow",
+                "shortLiquidationsUsd"
+              ]
+            },
+            "longLiquidationsWithin10PctUsd": {
+              "type": "number"
+            },
+            "longLiquidationsWithin5PctUsd": {
+              "type": "number"
+            },
+            "shortLiquidationsWithin10PctUsd": {
+              "type": "number"
+            },
+            "shortLiquidationsWithin5PctUsd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "largestClusterBelow",
+            "longLiquidationsWithin10PctUsd",
+            "longLiquidationsWithin5PctUsd",
+            "shortLiquidationsWithin10PctUsd",
+            "shortLiquidationsWithin5PctUsd"
+          ]
+        },
+        "walletsWithPositions": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "bucketPct",
+        "coin",
+        "coverageOfOpenInterestPct",
+        "dataAgeSeconds",
+        "dataAsOf",
+        "levels",
+        "markPrice",
+        "rangePct",
+        "summary",
+        "walletsWithPositions"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "bucketPct": {
+        "min": 0,
+        "max": 100
+      },
+      "coverageOfOpenInterestPct": {
+        "min": 0,
+        "max": 100
+      },
+      "rangePct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-tools-production-2755.up.railway.app",
+    "endpoint": "https://x402-tools-production-2755.up.railway.app/tools/liquidations",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

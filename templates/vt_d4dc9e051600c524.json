@@ -1,0 +1,97 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d4dc9e051600c524",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "http_status": {
+          "type": "integer"
+        },
+        "job_id": {
+          "type": "string"
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "next_jobs": {
+          "type": "array"
+        },
+        "receipt": {
+          "type": "object",
+          "properties": {
+            "http_status": {
+              "type": "integer"
+            },
+            "schema": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "http_status",
+            "schema"
+          ]
+        },
+        "service": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "note": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "note",
+              "url"
+            ]
+          }
+        },
+        "status": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "generated_at",
+        "http_status",
+        "job_id",
+        "limitations",
+        "next_jobs",
+        "receipt",
+        "service",
+        "sources",
+        "status",
+        "summary"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent.kihustle.tech",
+    "endpoint": "https://agent.kihustle.tech/services/x402-endpoint-probe/jobs",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

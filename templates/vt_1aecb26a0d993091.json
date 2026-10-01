@@ -1,0 +1,70 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1aecb26a0d993091",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "market_bias": {
+          "type": "string"
+        },
+        "rates": {
+          "type": "object",
+          "properties": {
+            "BTC": {
+              "type": "object",
+              "properties": {
+                "annualized_pct": {
+                  "type": "number"
+                },
+                "avg_rate_8h_pct": {
+                  "type": "number"
+                },
+                "signal": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "annualized_pct",
+                "avg_rate_8h_pct",
+                "signal"
+              ]
+            }
+          },
+          "required": [
+            "BTC"
+          ]
+        },
+        "signal": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "market_bias",
+        "rates",
+        "signal"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "rates.BTC.annualized_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "rates.BTC.avg_rate_8h_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "funding.lonestaroracle.xyz",
+    "endpoint": "https://funding.lonestaroracle.xyz/rates",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

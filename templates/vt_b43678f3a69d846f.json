@@ -1,0 +1,77 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b43678f3a69d846f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "block": {
+          "type": "string"
+        },
+        "deed": {
+          "type": "object",
+          "properties": {
+            "block": {
+              "type": "object",
+              "properties": {
+                "coord": {
+                  "type": "string"
+                },
+                "index": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "coord",
+                "index"
+              ]
+            },
+            "price": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "string"
+                },
+                "asset": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "amount",
+                "asset"
+              ]
+            }
+          },
+          "required": [
+            "block",
+            "price"
+          ]
+        },
+        "owner": {
+          "type": "string"
+        },
+        "pixels": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "block",
+        "deed",
+        "owner",
+        "pixels"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "404humans.xyz",
+    "endpoint": "https://404humans.xyz/blocks/next",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

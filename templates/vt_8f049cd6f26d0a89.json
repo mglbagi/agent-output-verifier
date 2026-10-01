@@ -1,0 +1,87 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8f049cd6f26d0a89",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "as_of_block": {
+          "type": "integer"
+        },
+        "estimated_cost": {
+          "type": "object",
+          "properties": {
+            "gas": {
+              "type": "integer"
+            },
+            "usd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "gas",
+            "usd"
+          ]
+        },
+        "fee": {
+          "type": "object",
+          "properties": {
+            "current_base_fee_gwei": {
+              "type": "number"
+            },
+            "max_fee_per_gas_gwei": {
+              "type": "number"
+            },
+            "max_priority_fee_per_gas_gwei": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "current_base_fee_gwei",
+            "max_fee_per_gas_gwei",
+            "max_priority_fee_per_gas_gwei"
+          ]
+        },
+        "recheck_in_s": {},
+        "submit": {
+          "type": "boolean"
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "as_of_block",
+        "estimated_cost",
+        "fee",
+        "submit",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "estimated_cost.usd": {
+        "min": 0
+      },
+      "fee.current_base_fee_gwei": {
+        "min": 0
+      },
+      "fee.max_fee_per_gas_gwei": {
+        "min": 0
+      },
+      "fee.max_priority_fee_per_gas_gwei": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-mcp.onrender.com",
+    "endpoint": "https://x402-mcp.onrender.com/base/tx-decision",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

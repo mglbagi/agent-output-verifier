@@ -1,0 +1,77 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e2ed7fe52fe9925b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "example": {
+          "type": "object",
+          "properties": {
+            "completeness": {
+              "type": "string"
+            },
+            "lines": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "sentence": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "sentence",
+                  "status"
+                ]
+              }
+            }
+          },
+          "required": [
+            "completeness",
+            "lines"
+          ]
+        },
+        "methodology": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "product": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "example",
+        "methodology",
+        "note",
+        "product"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "example.lines[].key"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.spendthebits.com",
+    "endpoint": "https://x402.spendthebits.com/@stbclaudeprod/reputation/",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

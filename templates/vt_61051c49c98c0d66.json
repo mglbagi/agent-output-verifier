@@ -1,0 +1,105 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_61051c49c98c0d66",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "externalLinks": {
+          "type": "integer"
+        },
+        "found": {
+          "type": "boolean"
+        },
+        "h1": {
+          "type": "string"
+        },
+        "https": {
+          "type": "boolean"
+        },
+        "imagesCount": {
+          "type": "integer"
+        },
+        "internalLinks": {
+          "type": "integer"
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "onpageScore": {
+          "type": "number"
+        },
+        "statusCode": {
+          "type": "integer"
+        },
+        "timing": {
+          "type": "object",
+          "properties": {
+            "domCompleteMs": {
+              "type": "integer"
+            },
+            "durationMs": {
+              "type": "integer"
+            },
+            "lcpMs": {
+              "type": "integer"
+            },
+            "ttiMs": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "domCompleteMs",
+            "durationMs",
+            "lcpMs",
+            "ttiMs"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "wordCount": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "description",
+        "externalLinks",
+        "found",
+        "h1",
+        "https",
+        "imagesCount",
+        "internalLinks",
+        "issues",
+        "onpageScore",
+        "statusCode",
+        "timing",
+        "title",
+        "url",
+        "wordCount"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "seo.openverbs.com",
+    "endpoint": "https://seo.openverbs.com/v1/on-page",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

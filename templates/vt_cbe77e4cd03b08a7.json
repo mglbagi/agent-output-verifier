@@ -1,0 +1,98 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cbe77e4cd03b08a7",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "decision": {
+          "type": "string"
+        },
+        "http_status": {
+          "type": "integer"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "payment_sent": {
+              "type": "boolean"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "payment_sent",
+            "type"
+          ]
+        },
+        "target": {
+          "type": "string"
+        },
+        "x402": {
+          "type": "object",
+          "properties": {
+            "accepts_count": {
+              "type": "integer"
+            },
+            "amount_atomic": {
+              "type": "string"
+            },
+            "challenge_present": {
+              "type": "boolean"
+            },
+            "network": {
+              "type": "string"
+            },
+            "pay_to": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "scheme": {
+              "type": "string"
+            },
+            "x402_version": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "accepts_count",
+            "amount_atomic",
+            "challenge_present",
+            "network",
+            "pay_to",
+            "scheme",
+            "x402_version"
+          ]
+        }
+      },
+      "required": [
+        "decision",
+        "http_status",
+        "ok",
+        "source",
+        "target",
+        "x402"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "x402.accepts_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "pennyregwatch.com",
+    "endpoint": "https://pennyregwatch.com/v1/x402/preflight",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

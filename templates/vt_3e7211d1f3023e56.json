@@ -1,0 +1,144 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3e7211d1f3023e56",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "asset": {
+          "type": "object"
+        },
+        "block_number": {
+          "type": "string"
+        },
+        "cached": {
+          "type": "boolean"
+        },
+        "chain_id": {
+          "enum": [
+            1,
+            8453
+          ],
+          "type": "integer"
+        },
+        "classification": {
+          "enum": [
+            "OBSERVED_COMPLETE",
+            "OBSERVED_PARTIAL",
+            "OBSERVED_EMPTY_SUPPORTED_SET",
+            "HOLD_UPSTREAM",
+            "HOLD_OUTPUT_REFUSED"
+          ],
+          "type": "string"
+        },
+        "errors": {
+          "type": "array"
+        },
+        "evidence": {
+          "type": "array"
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "machine": {
+          "enum": [
+            "VM04"
+          ],
+          "type": "string"
+        },
+        "methodology_version": {
+          "enum": [
+            "productive-venue-0.2.0"
+          ],
+          "type": "string"
+        },
+        "observation_age_ms": {
+          "type": "integer"
+        },
+        "omissions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "protocol_set_version": {
+          "type": "string"
+        },
+        "request": {
+          "type": "object"
+        },
+        "resolved": {
+          "type": "object"
+        },
+        "result_count": {
+          "type": "integer"
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sort": {
+          "type": "object"
+        },
+        "status": {
+          "enum": [
+            "OK",
+            "PARTIAL",
+            "HOLD"
+          ],
+          "type": "string"
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "venues": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "status",
+        "classification",
+        "machine",
+        "methodology_version",
+        "protocol_set_version",
+        "chain_id",
+        "asset",
+        "request",
+        "resolved",
+        "sort",
+        "result_count",
+        "truncated",
+        "omissions",
+        "retrieved_at",
+        "venues",
+        "limitations",
+        "errors",
+        "evidence"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "observation_age_ms": {
+        "min": 0,
+        "if_present": true
+      },
+      "result_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.agentmercantile.com",
+    "endpoint": "https://api.agentmercantile.com/v1/productive-venue-snapshot",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

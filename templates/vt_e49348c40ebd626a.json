@@ -1,0 +1,89 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e49348c40ebd626a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "latestVersion": {
+          "type": "string"
+        },
+        "package": {
+          "type": "string"
+        },
+        "project": {
+          "type": "object",
+          "properties": {
+            "scorecard": {
+              "type": "number"
+            },
+            "stars": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "scorecard",
+            "stars"
+          ]
+        },
+        "verdict": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "vulnerabilities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cve": {
+                "type": "string"
+              },
+              "cvss": {
+                "type": "number"
+              },
+              "fixedIn": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "cve",
+              "cvss",
+              "fixedIn",
+              "id"
+            ]
+          }
+        }
+      },
+      "required": [
+        "latestVersion",
+        "package",
+        "project",
+        "verdict",
+        "version",
+        "vulnerabilities"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "vulnerabilities[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "toolcall.click",
+    "endpoint": "https://toolcall.click/t/package/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

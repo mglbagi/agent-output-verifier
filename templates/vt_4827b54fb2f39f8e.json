@@ -1,0 +1,79 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4827b54fb2f39f8e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "image_count": {
+          "description": "Number of images found in the post",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "images": {
+          "description": "Direct CDN image URLs; always present, never null",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "post_url": {
+          "description": "Echoed input tweet URL",
+          "type": "string",
+          "format": "uri"
+        },
+        "queried_at": {
+          "description": "UTC timestamp when the upstream was queried",
+          "format": "date-time",
+          "type": "string"
+        },
+        "video_count": {
+          "description": "Number of videos found in the post",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "videos": {
+          "description": "Always present, never null; empty if the post has no video",
+          "items": {
+            "properties": {
+              "thumbnail": {
+                "description": "Thumbnail image CDN URL",
+                "type": "string"
+              },
+              "url": {
+                "description": "Direct CDN .mp4 URL",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "url"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "queried_at",
+        "post_url",
+        "video_count",
+        "image_count",
+        "videos",
+        "images"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "xmedia.use.x402atlas.com",
+    "endpoint": "https://xmedia.use.x402atlas.com/tweet",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

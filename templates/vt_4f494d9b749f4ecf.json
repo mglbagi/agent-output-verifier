@@ -1,0 +1,185 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4f494d9b749f4ecf",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "object",
+          "properties": {
+            "apparentC": {
+              "type": "number"
+            },
+            "humidityPct": {
+              "type": "integer"
+            },
+            "isDaylight": {
+              "type": "boolean"
+            },
+            "temperatureC": {
+              "type": "number"
+            },
+            "weather": {
+              "type": "string"
+            },
+            "windGustKmh": {
+              "type": "number"
+            },
+            "windSpeedKmh": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "apparentC",
+            "humidityPct",
+            "isDaylight",
+            "temperatureC",
+            "weather",
+            "windGustKmh",
+            "windSpeedKmh"
+          ]
+        },
+        "daily": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "precipitationChancePct": {
+                "type": "integer"
+              },
+              "tempMaxC": {
+                "type": "integer"
+              },
+              "tempMinC": {
+                "type": "number"
+              },
+              "uvIndexMax": {
+                "type": "number"
+              },
+              "weather": {
+                "type": "string"
+              },
+              "windGustMaxKmh": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "date",
+              "precipitationChancePct",
+              "tempMaxC",
+              "tempMinC",
+              "uvIndexMax",
+              "weather",
+              "windGustMaxKmh"
+            ]
+          }
+        },
+        "hourly": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "precipitationChancePct": {
+                "type": "integer"
+              },
+              "temperatureC": {
+                "type": "number"
+              },
+              "time": {
+                "type": "string"
+              },
+              "weather": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "precipitationChancePct",
+              "temperatureC",
+              "time",
+              "weather"
+            ]
+          }
+        },
+        "location": {
+          "type": "string"
+        },
+        "outlook": {
+          "type": "object",
+          "properties": {
+            "nextLikelyRainAt": {
+              "type": "string"
+            },
+            "peakRainChanceNext12hPct": {
+              "type": "integer"
+            },
+            "rainLikelyNext12h": {
+              "type": "boolean"
+            },
+            "rainLikelyThresholdPct": {
+              "type": "integer"
+            },
+            "summary": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "nextLikelyRainAt",
+            "peakRainChanceNext12hPct",
+            "rainLikelyNext12h",
+            "rainLikelyThresholdPct",
+            "summary"
+          ]
+        },
+        "timezone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "current",
+        "daily",
+        "hourly",
+        "location",
+        "outlook",
+        "timezone"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "current.humidityPct": {
+        "min": 0,
+        "max": 100
+      },
+      "daily[].precipitationChancePct": {
+        "min": 0,
+        "max": 100
+      },
+      "hourly[].precipitationChancePct": {
+        "min": 0,
+        "max": 100
+      },
+      "outlook.peakRainChanceNext12hPct": {
+        "min": 0,
+        "max": 100
+      },
+      "outlook.rainLikelyThresholdPct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mcpfax-utility.bowling-anthony.workers.dev",
+    "endpoint": "https://mcpfax-utility.bowling-anthony.workers.dev/v1/weather",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

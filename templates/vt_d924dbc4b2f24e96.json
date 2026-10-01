@@ -1,0 +1,121 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d924dbc4b2f24e96",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "currency": {
+          "type": "string"
+        },
+        "generatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "products": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "labReports": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "batchNumber": {
+                      "type": "string"
+                    },
+                    "labName": {
+                      "type": "string"
+                    },
+                    "source": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "batchNumber",
+                    "labName",
+                    "source"
+                  ]
+                }
+              },
+              "name": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "variants": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "dosage": {
+                      "type": "string"
+                    },
+                    "inStock": {
+                      "type": "boolean"
+                    },
+                    "priceEur": {
+                      "type": "number"
+                    },
+                    "sku": {
+                      "type": "string"
+                    },
+                    "stock": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "dosage",
+                    "inStock",
+                    "priceEur",
+                    "sku",
+                    "stock"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "category",
+              "labReports",
+              "name",
+              "slug",
+              "url",
+              "variants"
+            ]
+          }
+        }
+      },
+      "required": [
+        "currency",
+        "generatedAt",
+        "products"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "products[].variants[].sku"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "peptidesdirect.io",
+    "endpoint": "https://peptidesdirect.io/api/v1",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

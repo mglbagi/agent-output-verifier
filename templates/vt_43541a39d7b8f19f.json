@@ -1,0 +1,233 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_43541a39d7b8f19f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "as_of": {
+          "type": "string",
+          "format": "date"
+        },
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "billable": {
+          "type": "boolean"
+        },
+        "breakdown": {
+          "type": "array"
+        },
+        "carried_forward": {
+          "type": "array"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "not_covered": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "note": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "income_classification": {
+              "type": "string"
+            },
+            "loss_note": {},
+            "method": {
+              "type": "string"
+            },
+            "per_asset": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "asset": {
+                    "type": "string"
+                  },
+                  "cost_of_sales_jpy": {
+                    "type": "number"
+                  },
+                  "fees_jpy": {
+                    "type": "number"
+                  },
+                  "method": {
+                    "type": "string"
+                  },
+                  "proceeds_jpy": {
+                    "type": "integer"
+                  },
+                  "quantity_disposed": {
+                    "type": "number"
+                  },
+                  "quantity_year_end": {
+                    "type": "number"
+                  },
+                  "realized_income_jpy": {
+                    "type": "integer"
+                  },
+                  "unit_price_year_end_jpy": {
+                    "type": "number"
+                  },
+                  "year_end_valuation_jpy": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "asset",
+                  "cost_of_sales_jpy",
+                  "fees_jpy",
+                  "method",
+                  "proceeds_jpy",
+                  "quantity_disposed",
+                  "quantity_year_end",
+                  "realized_income_jpy",
+                  "unit_price_year_end_jpy",
+                  "year_end_valuation_jpy"
+                ]
+              }
+            },
+            "total_realized_income_jpy": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "income_classification",
+            "method",
+            "per_asset",
+            "total_realized_income_jpy"
+          ]
+        },
+        "rules_version": {
+          "type": "string"
+        },
+        "sample": {
+          "type": "boolean"
+        },
+        "sample_input": {
+          "type": "object",
+          "properties": {
+            "transactions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "asset": {
+                    "type": "string"
+                  },
+                  "qty": {
+                    "type": "number"
+                  },
+                  "total_jpy": {
+                    "type": "number"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "asset",
+                  "qty",
+                  "total_jpy",
+                  "type"
+                ]
+              }
+            }
+          },
+          "required": [
+            "transactions"
+          ]
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "summary": {
+          "type": "string"
+        },
+        "tool": {
+          "type": "string"
+        },
+        "unverified_rules": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "as_of",
+        "assumptions",
+        "billable",
+        "breakdown",
+        "carried_forward",
+        "disclaimer",
+        "not_covered",
+        "note",
+        "ok",
+        "result",
+        "rules_version",
+        "sample",
+        "sample_input",
+        "sources",
+        "summary",
+        "tool",
+        "unverified_rules"
+      ]
+    },
+    "rules": [
+      {
+        "type": "sum_equals",
+        "field": "result.per_asset[].realized_income_jpy",
+        "equals_field": "result.total_realized_income_jpy"
+      }
+    ],
+    "bounds": {
+      "result.per_asset[].cost_of_sales_jpy": {
+        "min": 0
+      },
+      "result.per_asset[].fees_jpy": {
+        "min": 0
+      },
+      "result.per_asset[].quantity_disposed": {
+        "min": 0
+      },
+      "result.per_asset[].quantity_year_end": {
+        "min": 0
+      },
+      "result.per_asset[].unit_price_year_end_jpy": {
+        "min": 0
+      },
+      "result.total_realized_income_jpy": {
+        "min": 0
+      },
+      "sample_input.transactions[].qty": {
+        "min": 0
+      },
+      "sample_input.transactions[].total_jpy": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mart402.com",
+    "endpoint": "https://mart402.com/v1/jp-crypto-tax",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

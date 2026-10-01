@@ -1,0 +1,76 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0435d308b00cf502",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "conditions": {
+          "type": "string"
+        },
+        "council": {
+          "type": "string"
+        },
+        "data_source": {
+          "type": "string"
+        },
+        "expiry_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "last_updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "licence_number": {
+          "type": "string"
+        },
+        "licence_type": {
+          "type": "string"
+        },
+        "licensee_name": {
+          "type": "string"
+        },
+        "max_households": {
+          "type": "integer"
+        },
+        "max_occupancy": {
+          "type": "integer"
+        },
+        "start_date": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "type": "object",
+      "required": [
+        "address",
+        "conditions",
+        "council",
+        "data_source",
+        "expiry_date",
+        "last_updated",
+        "licence_number",
+        "licence_type",
+        "licensee_name",
+        "max_households",
+        "max_occupancy",
+        "start_date"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hmo.payapi.market",
+    "endpoint": "https://hmo.payapi.market/hmo-licence-details",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e8fed35450d26baa",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "assumptions": {
+          "type": "object",
+          "properties": {
+            "gpu_board_kw": {
+              "type": "object",
+              "properties": {
+                "B200": {
+                  "type": "integer"
+                },
+                "H100": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "B200",
+                "H100"
+              ]
+            },
+            "pue": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "gpu_board_kw",
+            "pue"
+          ]
+        },
+        "cheapest_region": {
+          "type": "string"
+        },
+        "gpu_spot_avg_per_hr": {
+          "type": "object",
+          "properties": {
+            "A100": {
+              "type": "number"
+            },
+            "H100": {
+              "type": "number"
+            },
+            "H200": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "A100",
+            "H100",
+            "H200"
+          ]
+        },
+        "priciest_region": {
+          "type": "string"
+        },
+        "regions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "basis_vs_avg_per_H100_hr": {
+                "type": "number"
+              },
+              "energy_cost_per_gpu_hr": {
+                "type": "object",
+                "properties": {
+                  "B200": {
+                    "type": "number"
+                  },
+                  "H100": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "B200",
+                  "H100"
+                ]
+              },
+              "energy_share_of_spot_pct": {
+                "type": "object",
+                "properties": {
+                  "H100": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "H100"
+                ]
+              },
+              "grid_stress": {
+                "type": "string"
+              },
+              "market": {
+                "type": "string"
+              },
+              "region": {
+                "type": "string"
+              },
+              "rt_mwh": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "basis_vs_avg_per_H100_hr",
+              "energy_cost_per_gpu_hr",
+              "energy_share_of_spot_pct",
+              "grid_stress",
+              "market",
+              "region",
+              "rt_mwh"
+            ]
+          }
+        },
+        "signal": {
+          "type": "string"
+        },
+        "spread_per_1000_gpu_cluster_month_usd": {
+          "type": "number"
+        },
+        "spread_per_H100_hr": {
+          "type": "number"
+        },
+        "summary": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "assumptions",
+        "cheapest_region",
+        "gpu_spot_avg_per_hr",
+        "priciest_region",
+        "regions",
+        "signal",
+        "spread_per_1000_gpu_cluster_month_usd",
+        "spread_per_H100_hr",
+        "summary"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "spread_per_1000_gpu_cluster_month_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "computeindex.lonestaroracle.xyz",
+    "endpoint": "https://computeindex.lonestaroracle.xyz/index",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

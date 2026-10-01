@@ -1,0 +1,155 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_96f094afbb98d9d8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "capability": {
+          "const": "commerce.quantity-preflight",
+          "description": "Public capability value used to scope this lookup."
+        },
+        "data": {
+          "additionalProperties": false,
+          "description": "Public data value used to scope this lookup.",
+          "properties": {
+            "allowed": {
+              "description": "Public allowed value used to scope this lookup.",
+              "type": "boolean"
+            },
+            "available_quantity": {
+              "description": "Public available quantity value used to scope this lookup.",
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "blockers": {
+              "description": "Public blockers value used to scope this lookup.",
+              "type": "array"
+            },
+            "increment": {
+              "description": "Public increment value used to scope this lookup.",
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "max": {
+              "description": "Public max value used to scope this lookup.",
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "min": {
+              "description": "Public min value used to scope this lookup.",
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "requested_quantity": {
+              "description": "Public requested quantity value used to scope this lookup.",
+              "type": "integer"
+            },
+            "stock_known": {
+              "description": "Public stock known value used to scope this lookup.",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "allowed",
+            "requested_quantity",
+            "min",
+            "max",
+            "increment",
+            "stock_known",
+            "available_quantity",
+            "blockers"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "additionalProperties": false,
+          "description": "Public meta value used to scope this lookup.",
+          "properties": {
+            "cache": {
+              "description": "Public cache value used to scope this lookup.",
+              "enum": [
+                "hit",
+                "miss",
+                "bypass"
+              ]
+            },
+            "checked_at": {
+              "description": "Public checked at value used to scope this lookup.",
+              "type": "string",
+              "format": "date-time"
+            },
+            "duration_ms": {
+              "description": "Public duration ms value used to scope this lookup.",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "provider": {
+              "description": "Public provider value used to scope this lookup.",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "provider",
+            "checked_at",
+            "cache",
+            "duration_ms"
+          ],
+          "type": "object"
+        },
+        "ok": {
+          "const": true,
+          "description": "Public ok value used to scope this lookup."
+        },
+        "version": {
+          "const": "1",
+          "description": "Package version whose public metadata should be checked."
+        }
+      },
+      "required": [
+        "ok",
+        "capability",
+        "version",
+        "data",
+        "meta"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "data.min",
+        "other_field": "data.max"
+      }
+    ],
+    "bounds": {
+      "data.available_quantity": {
+        "min": 0
+      },
+      "data.requested_quantity": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "http--forest-gas-station-mainnet--lcjl27p8lmjs.code.run",
+    "endpoint": "https://http--forest-gas-station-mainnet--lcjl27p8lmjs.code.run/commerce/quantity-preflight",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_435e84b684c34e54",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "country": {
+          "description": "Echoed country code, lower-cased",
+          "type": "string"
+        },
+        "keyword": {
+          "description": "Echoed search keyword",
+          "type": "string"
+        },
+        "queried_at": {
+          "description": "UTC timestamp the upstream was queried",
+          "format": "date-time",
+          "type": "string"
+        },
+        "rising": {
+          "description": "Related topics with the fastest growth",
+          "items": {
+            "properties": {
+              "term": {
+                "description": "Related topic label",
+                "type": "string"
+              },
+              "value": {
+                "description": "Relative popularity or growth score",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "term",
+              "value"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "top": {
+          "description": "Top related topics by popularity (0-100)",
+          "items": {
+            "properties": {
+              "term": {
+                "description": "Related topic label",
+                "type": "string"
+              },
+              "value": {
+                "description": "Relative popularity or growth score",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "term",
+              "value"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "keyword",
+        "country",
+        "queried_at",
+        "top",
+        "rising"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "google-trends.use.x402atlas.com",
+    "endpoint": "https://google-trends.use.x402atlas.com/related-topics",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

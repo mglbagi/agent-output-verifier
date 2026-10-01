@@ -1,0 +1,130 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9aaa1287b226bcf8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "payment_status": {
+          "type": "string"
+        },
+        "witness_receipt": {
+          "type": "object",
+          "properties": {
+            "commitment": {
+              "type": "object",
+              "properties": {
+                "nonce": {
+                  "type": "string"
+                },
+                "payload_digest": {
+                  "type": "object",
+                  "properties": {
+                    "algorithm": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "algorithm",
+                    "value"
+                  ]
+                },
+                "previous_attestation_digest": {}
+              },
+              "required": [
+                "nonce",
+                "payload_digest"
+              ]
+            },
+            "evidence_scope": {
+              "type": "object",
+              "properties": {
+                "action_execution_proven": {
+                  "type": "boolean"
+                },
+                "authorization_granted": {
+                  "type": "boolean"
+                },
+                "caller_identity_proven": {
+                  "type": "boolean"
+                },
+                "clock_accuracy_independently_verified": {
+                  "type": "boolean"
+                },
+                "external_atomic_clock_alignment_proven": {
+                  "type": "boolean"
+                },
+                "nonce_uniqueness_enforced": {
+                  "type": "boolean"
+                },
+                "payer_authorization_bound_to_commitment": {
+                  "type": "boolean"
+                },
+                "payload_disclosed": {
+                  "type": "boolean"
+                },
+                "recipient_delivery_proven": {
+                  "type": "boolean"
+                },
+                "replay_prevented": {
+                  "type": "boolean"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "action_execution_proven",
+                "authorization_granted",
+                "caller_identity_proven",
+                "clock_accuracy_independently_verified",
+                "external_atomic_clock_alignment_proven",
+                "nonce_uniqueness_enforced",
+                "payer_authorization_bound_to_commitment",
+                "payload_disclosed",
+                "recipient_delivery_proven",
+                "replay_prevented",
+                "type"
+              ]
+            },
+            "node_id": {
+              "type": "string"
+            },
+            "protocol_id": {
+              "type": "string"
+            },
+            "receipt_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "commitment",
+            "evidence_scope",
+            "node_id",
+            "protocol_id",
+            "receipt_id"
+          ]
+        }
+      },
+      "required": [
+        "payment_status",
+        "witness_receipt"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "767-2676.com",
+    "endpoint": "https://767-2676.com/v1/receipt",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

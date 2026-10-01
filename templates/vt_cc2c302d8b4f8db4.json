@@ -1,0 +1,139 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cc2c302d8b4f8db4",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "catalog": {
+          "type": "object",
+          "properties": {
+            "biggest_factory": {
+              "type": "object",
+              "properties": {
+                "listings": {
+                  "type": "integer"
+                },
+                "pay_to": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "listings",
+                "pay_to"
+              ]
+            },
+            "real_providers": {
+              "type": "integer"
+            },
+            "scanned": {
+              "type": "integer"
+            },
+            "sybil_collapsed": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "biggest_factory",
+            "real_providers",
+            "scanned",
+            "sybil_collapsed"
+          ]
+        },
+        "need": {
+          "type": "string"
+        },
+        "recommendation": {
+          "type": "object",
+          "properties": {
+            "calls30d": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "network": {
+              "type": "string"
+            },
+            "payers30d": {
+              "type": "integer"
+            },
+            "price_usd": {
+              "type": "string"
+            },
+            "quality": {
+              "type": "integer"
+            },
+            "ready_to_pay": {
+              "type": "object",
+              "properties": {
+                "accepts": {
+                  "type": "object",
+                  "properties": {
+                    "network": {
+                      "type": "string"
+                    },
+                    "scheme": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "network",
+                    "scheme"
+                  ]
+                },
+                "network": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "accepts",
+                "network",
+                "url"
+              ]
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "calls30d",
+            "name",
+            "network",
+            "payers30d",
+            "price_usd",
+            "quality",
+            "ready_to_pay",
+            "url"
+          ]
+        },
+        "vetting": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "catalog",
+        "need",
+        "recommendation",
+        "vetting"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agentpay.tools",
+    "endpoint": "https://agentpay.tools/tools/verified_route/call",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

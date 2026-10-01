@@ -1,0 +1,74 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cf72cf213cbc0148",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "business_days": {
+          "type": "integer"
+        },
+        "country": {
+          "type": "string"
+        },
+        "from": {
+          "format": "date",
+          "type": "string"
+        },
+        "holiday_weekdays": {
+          "description": "Weekdays closed by full-day Public or Bank holidays",
+          "type": "integer"
+        },
+        "queried_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "subdivision": {
+          "type": "string"
+        },
+        "to": {
+          "format": "date",
+          "type": "string"
+        },
+        "total_days": {
+          "type": "integer"
+        },
+        "weekend_days": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "country",
+        "from",
+        "to",
+        "total_days",
+        "business_days",
+        "weekend_days",
+        "holiday_weekdays",
+        "queried_at"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "from",
+        "other_field": "to"
+      }
+    ],
+    "bounds": {
+      "total_days": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "holidays.use.x402atlas.com",
+    "endpoint": "https://holidays.use.x402atlas.com/business-days",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_eacc574224a23b40",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "cache_age_seconds": {
+          "type": "number"
+        },
+        "candle_count": {
+          "type": "number"
+        },
+        "candles": {
+          "items": {
+            "properties": {
+              "close": {
+                "type": "number"
+              },
+              "high": {
+                "type": "number"
+              },
+              "low": {
+                "type": "number"
+              },
+              "open": {
+                "type": "number"
+              },
+              "time": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "volume": {
+                "type": "number"
+              }
+            },
+            "type": "object",
+            "required": [
+              "close",
+              "high",
+              "low",
+              "open",
+              "time",
+              "volume"
+            ]
+          },
+          "type": "array"
+        },
+        "end": {
+          "type": "string",
+          "format": "date"
+        },
+        "findings": {
+          "type": "array"
+        },
+        "interval": {
+          "type": "string"
+        },
+        "price": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "source": {
+          "description": "coinbase | kraken",
+          "type": "string"
+        },
+        "stale": {
+          "type": "boolean"
+        },
+        "start": {
+          "type": "string",
+          "format": "date"
+        },
+        "stats": {
+          "properties": {
+            "avg_volume": {
+              "type": "number"
+            },
+            "change_pct": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "close": {
+              "type": "number"
+            },
+            "open": {
+              "type": "number"
+            },
+            "period_high": {
+              "type": "number"
+            },
+            "period_low": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "avg_volume",
+            "change_pct",
+            "close",
+            "open",
+            "period_high",
+            "period_low"
+          ]
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "vs": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "cache_age_seconds",
+        "candle_count",
+        "candles",
+        "end",
+        "findings",
+        "interval",
+        "source",
+        "stale",
+        "start",
+        "stats",
+        "symbol",
+        "vs"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "candles[].low",
+        "other_field": "candles[].high"
+      },
+      {
+        "type": "lte",
+        "field": "stats.period_low",
+        "other_field": "stats.period_high"
+      },
+      {
+        "type": "lte",
+        "field": "start",
+        "other_field": "end"
+      }
+    ],
+    "bounds": {
+      "cache_age_seconds": {
+        "min": 0
+      },
+      "candle_count": {
+        "min": 0
+      },
+      "candles[].volume": {
+        "min": 0
+      },
+      "price": {
+        "min": 0,
+        "if_present": true
+      },
+      "stats.avg_volume": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "netintel.dev",
+    "endpoint": "https://netintel.dev/crypto/ohlc",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

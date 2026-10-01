@@ -1,0 +1,155 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_08c847979bfb08ab",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "asOf": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "attribution": {
+          "type": "string"
+        },
+        "confidence": {
+          "description": "0..1 — match quality x venue coverage x liquidity.",
+          "type": "number"
+        },
+        "divergence": {
+          "description": "Highest minus lowest venue probability; a large value means the venues disagree.",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "markets": {
+          "description": "Top-K matched markets only, never a bulk market dump.",
+          "items": {
+            "properties": {
+              "closeTime": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "id": {
+                "description": "Polymarket slug or Kalshi ticker.",
+                "type": "string"
+              },
+              "liquidity": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "matchScore": {
+                "type": "number"
+              },
+              "probability": {
+                "type": "number"
+              },
+              "question": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "open",
+                  "closed",
+                  "resolved"
+                ],
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "venue": {
+                "enum": [
+                  "polymarket",
+                  "kalshi"
+                ],
+                "type": "string"
+              },
+              "volume": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "venue",
+              "id",
+              "question",
+              "url",
+              "probability"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "probability": {
+          "description": "Liquidity-weighted cross-venue implied probability, 0..1. Null when no market matched.",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "query": {
+          "type": "string"
+        },
+        "source": {
+          "enum": [
+            "index",
+            "live"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "probability",
+        "confidence",
+        "markets",
+        "divergence",
+        "asOf",
+        "attribution"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "markets[].id"
+      }
+    ],
+    "bounds": {
+      "confidence": {
+        "min": 0,
+        "max": 1
+      },
+      "markets[].probability": {
+        "min": 0,
+        "max": 1
+      },
+      "markets[].volume": {
+        "min": 0,
+        "if_present": true
+      },
+      "probability": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.fenixfoundry.com",
+    "endpoint": "https://x402.fenixfoundry.com/probability",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

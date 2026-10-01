@@ -1,0 +1,177 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a6372b98afcd8cf4",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "asOf": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "basket": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "priceUsd": {
+                "type": "number"
+              },
+              "relStrength": {
+                "type": "number"
+              },
+              "returnM1Pct": {
+                "type": "number"
+              },
+              "rsi14": {
+                "type": "number"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "trend": {
+                "type": "string"
+              },
+              "volAnnualPct": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "priceUsd",
+              "relStrength",
+              "returnM1Pct",
+              "rsi14",
+              "symbol",
+              "trend",
+              "volAnnualPct"
+            ]
+          }
+        },
+        "basketStats": {
+          "type": "object",
+          "properties": {
+            "avgReturnM1Pct": {
+              "type": "number"
+            },
+            "avgVolAnnualPct": {
+              "type": "number"
+            },
+            "correlation": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "required": [
+            "avgReturnM1Pct",
+            "avgVolAnnualPct",
+            "correlation"
+          ]
+        },
+        "signals": {
+          "type": "object",
+          "properties": {
+            "rebalanceSuggested": {
+              "type": "boolean"
+            },
+            "riskParityWeightsBps": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            }
+          },
+          "required": [
+            "rebalanceSuggested",
+            "riskParityWeightsBps"
+          ]
+        },
+        "vault": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string"
+            },
+            "currentWeightsBps": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "vsSuggested": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "currentBps": {
+                    "type": "integer"
+                  },
+                  "driftBps": {
+                    "type": "integer"
+                  },
+                  "suggestedBps": {
+                    "type": "integer"
+                  },
+                  "symbol": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "currentBps",
+                  "driftBps",
+                  "suggestedBps",
+                  "symbol"
+                ]
+              }
+            }
+          },
+          "required": [
+            "address",
+            "currentWeightsBps",
+            "vsSuggested"
+          ]
+        }
+      },
+      "required": [
+        "asOf",
+        "basket",
+        "basketStats",
+        "signals",
+        "vault"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "basket[].returnM1Pct": {
+        "min": 0,
+        "max": 100
+      },
+      "basket[].volAnnualPct": {
+        "min": 0,
+        "max": 100
+      },
+      "basketStats.avgReturnM1Pct": {
+        "min": 0,
+        "max": 100
+      },
+      "basketStats.avgVolAnnualPct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.liquidagent.ai",
+    "endpoint": "https://api.liquidagent.ai/v1/signals",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

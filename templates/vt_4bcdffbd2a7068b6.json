@@ -1,0 +1,302 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4bcdffbd2a7068b6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "candidates": {
+          "items": {
+            "properties": {
+              "countries": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Countries",
+                "type": "array"
+              },
+              "dates_of_birth": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Dates Of Birth",
+                "type": "array"
+              },
+              "listed_since": {
+                "anyOf": [
+                  {
+                    "format": "date",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Listed Since"
+              },
+              "lists": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Lists",
+                "type": "array"
+              },
+              "matched_name": {
+                "title": "Matched Name",
+                "type": "string"
+              },
+              "matched_on": {
+                "enum": [
+                  "primary",
+                  "aka",
+                  "fka",
+                  "nka",
+                  "weak_aka"
+                ],
+                "title": "Matched On",
+                "type": "string"
+              },
+              "name": {
+                "title": "Name",
+                "type": "string"
+              },
+              "nationalities": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Nationalities",
+                "type": "array"
+              },
+              "programs": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Programs",
+                "type": "array"
+              },
+              "reasons": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Reasons",
+                "type": "array"
+              },
+              "remarks": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Remarks"
+              },
+              "score": {
+                "title": "Score",
+                "type": "integer"
+              },
+              "type": {
+                "title": "Type",
+                "type": "string"
+              },
+              "uid": {
+                "title": "Uid",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "uid",
+              "lists",
+              "programs",
+              "type",
+              "name",
+              "matched_name",
+              "matched_on",
+              "score",
+              "reasons",
+              "dates_of_birth",
+              "nationalities",
+              "countries",
+              "listed_since",
+              "remarks"
+            ],
+            "title": "SanctionsCandidate",
+            "type": "object"
+          },
+          "title": "Candidates",
+          "type": "array"
+        },
+        "checked_at": {
+          "title": "Checked At",
+          "type": "string",
+          "format": "date-time"
+        },
+        "coverage": {
+          "title": "Coverage",
+          "type": "string"
+        },
+        "data_as_of": {
+          "title": "Data As Of",
+          "type": "string",
+          "format": "date-time"
+        },
+        "publication": {
+          "properties": {
+            "id": {
+              "title": "Id",
+              "type": "integer"
+            },
+            "published_at": {
+              "title": "Published At",
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "id",
+            "published_at"
+          ],
+          "title": "SanctionsPublication",
+          "type": "object"
+        },
+        "query": {
+          "properties": {
+            "country": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Country"
+            },
+            "dob": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Dob"
+            },
+            "key": {
+              "title": "Key",
+              "type": "string"
+            },
+            "limit": {
+              "title": "Limit",
+              "type": "integer"
+            },
+            "min_score": {
+              "title": "Min Score",
+              "type": "integer"
+            },
+            "name": {
+              "title": "Name",
+              "type": "string"
+            },
+            "type": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Type"
+            }
+          },
+          "required": [
+            "name",
+            "key",
+            "type",
+            "dob",
+            "country",
+            "min_score",
+            "limit"
+          ],
+          "title": "SanctionsQuery",
+          "type": "object"
+        },
+        "sources": {
+          "items": {
+            "properties": {
+              "data_as_of": {
+                "title": "Data As Of",
+                "type": "string",
+                "format": "date-time"
+              },
+              "entries": {
+                "title": "Entries",
+                "type": "integer"
+              },
+              "file": {
+                "title": "File",
+                "type": "string"
+              },
+              "list": {
+                "title": "List",
+                "type": "string"
+              }
+            },
+            "required": [
+              "list",
+              "file",
+              "data_as_of",
+              "entries"
+            ],
+            "title": "SanctionsSource",
+            "type": "object"
+          },
+          "title": "Sources",
+          "type": "array"
+        },
+        "total_candidates": {
+          "title": "Total Candidates",
+          "type": "integer"
+        },
+        "truncated": {
+          "title": "Truncated",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "query",
+        "candidates",
+        "total_candidates",
+        "truncated",
+        "publication",
+        "sources",
+        "checked_at",
+        "data_as_of",
+        "coverage"
+      ],
+      "title": "SanctionsScreenResponse",
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "query.limit": {
+        "min": 0
+      },
+      "total_candidates": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.flipvo.com",
+    "endpoint": "https://api.flipvo.com/v1/sanctions/screen",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

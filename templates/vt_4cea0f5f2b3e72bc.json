@@ -1,0 +1,179 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4cea0f5f2b3e72bc",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "coordinate": {
+          "type": "object",
+          "properties": {
+            "lat": {
+              "type": "number"
+            },
+            "lon": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "lat",
+            "lon"
+          ]
+        },
+        "run": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string"
+            },
+            "forecast_hour": {
+              "type": "integer"
+            },
+            "hour": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "date",
+            "forecast_hour",
+            "hour"
+          ]
+        },
+        "valid_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "variables": {
+          "type": "object",
+          "properties": {
+            "apcp": {
+              "type": "object",
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "unit": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "description",
+                "unit",
+                "value"
+              ]
+            },
+            "dpt_2m": {
+              "type": "object",
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "unit": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "description",
+                "unit",
+                "value"
+              ]
+            },
+            "tcdc": {
+              "type": "object",
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "unit": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "description",
+                "unit",
+                "value"
+              ]
+            },
+            "tmp_2m": {
+              "type": "object",
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "unit": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "description",
+                "unit",
+                "value"
+              ]
+            },
+            "wind": {
+              "type": "object",
+              "properties": {
+                "direction_deg": {
+                  "type": "integer"
+                },
+                "speed_ms": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "direction_deg",
+                "speed_ms"
+              ]
+            }
+          },
+          "required": [
+            "apcp",
+            "dpt_2m",
+            "tcdc",
+            "tmp_2m",
+            "wind"
+          ]
+        }
+      },
+      "required": [
+        "coordinate",
+        "run",
+        "valid_time",
+        "variables"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "coordinate.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "coordinate.lon": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "datapulse.waltsoft.net",
+    "endpoint": "https://datapulse.waltsoft.net/v1/forecast",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_887a4141cde91ba5",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "data_versions": {
+          "required": [
+            "denylist",
+            "abi_packs",
+            "signature_index",
+            "policy",
+            "chain"
+          ],
+          "type": "object"
+        },
+        "evidence": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "policy_version": {
+          "type": "string",
+          "format": "date"
+        },
+        "request_hash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "result": {
+          "properties": {
+            "approvals": {
+              "items": {
+                "properties": {
+                  "scope": {
+                    "enum": [
+                      "infinite",
+                      "effectively_infinite",
+                      "bounded"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "intent": {
+              "properties": {
+                "decode_source": {
+                  "enum": [
+                    "verified-abi",
+                    "bundled-abi",
+                    "offline-index",
+                    "live-lookup",
+                    "unresolved"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "kind",
+                "summary",
+                "decode_source",
+                "calls",
+                "truncated"
+              ],
+              "type": "object"
+            },
+            "proxy": {
+              "properties": {
+                "kind": {
+                  "enum": [
+                    "none",
+                    "eip1167",
+                    "eip1967",
+                    "eip1967-beacon",
+                    "eip1822",
+                    "zeppelinos",
+                    "diamond",
+                    "unknown"
+                  ],
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "required": [
+                "kind"
+              ]
+            }
+          },
+          "required": [
+            "input_shape",
+            "chain",
+            "intent",
+            "expected_transfers",
+            "approvals",
+            "permit_scope",
+            "spender",
+            "proxy",
+            "authorization_checks",
+            "quote_comparison",
+            "simulation",
+            "candidate_signatures",
+            "denylist_hits",
+            "unresolved",
+            "rpc"
+          ],
+          "type": "object"
+        },
+        "risk_codes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "verdict": {
+          "description": "Precedence: block, then unknown, then warn, then allow.",
+          "enum": [
+            "allow",
+            "warn",
+            "block",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "ok",
+        "verdict",
+        "confidence",
+        "risk_codes",
+        "evidence",
+        "result",
+        "policy_version",
+        "request_hash",
+        "data_versions",
+        "warnings"
+      ],
+      "title": "TxPreflightEnvelope",
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "txguard.schemasure.com",
+    "endpoint": "https://txguard.schemasure.com/v1/tx/preflight",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

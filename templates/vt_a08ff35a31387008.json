@@ -1,0 +1,119 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a08ff35a31387008",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "products": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "brand": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "denomination_type": {
+                "type": "string"
+              },
+              "fixed_amounts_usd": {
+                "type": "array"
+              },
+              "max_usd": {
+                "type": "number"
+              },
+              "min_usd": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "product_id": {
+                "type": "integer"
+              },
+              "sender_fee_pct": {
+                "type": "number"
+              },
+              "sender_fee_usd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "brand",
+              "country",
+              "currency",
+              "denomination_type",
+              "fixed_amounts_usd",
+              "max_usd",
+              "min_usd",
+              "name",
+              "product_id",
+              "sender_fee_pct",
+              "sender_fee_usd"
+            ]
+          }
+        },
+        "total": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "mode",
+        "page",
+        "products",
+        "total"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "products[].min_usd",
+        "other_field": "products[].max_usd"
+      },
+      {
+        "type": "unique",
+        "field": "products[].product_id"
+      }
+    ],
+    "bounds": {
+      "products[].max_usd": {
+        "min": 0
+      },
+      "products[].min_usd": {
+        "min": 0
+      },
+      "products[].sender_fee_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "products[].sender_fee_usd": {
+        "min": 0
+      },
+      "total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "giftpulse.theaslangroupllc.com",
+    "endpoint": "https://giftpulse.theaslangroupllc.com/api/giftcard/catalog",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

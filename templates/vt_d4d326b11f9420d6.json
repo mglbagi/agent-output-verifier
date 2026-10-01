@@ -1,0 +1,67 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d4d326b11f9420d6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "chain": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "matched_label": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sanctioned": {
+          "type": "boolean"
+        },
+        "sdn_snapshot_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "signed_by": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "verdict": {
+          "enum": [
+            "deny",
+            "clean"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "sanctioned",
+        "verdict",
+        "signed_by",
+        "signature"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "sanctions.nsgoods.org",
+    "endpoint": "https://sanctions.nsgoods.org/screen",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

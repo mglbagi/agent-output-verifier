@@ -1,0 +1,71 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_30072ee67a987abb",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "jobId": {
+          "description": "Job identifier for the render.",
+          "type": "string"
+        },
+        "pageUrl": {
+          "description": "Suede share-page URL when available.",
+          "format": "uri",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pollUrl": {
+          "description": "Absolute URL to GET for the finished render, returned on the async accept. Needs no further payment. Null on a poll response.",
+          "format": "uri",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "provider": {
+          "description": "Provider handling the render.",
+          "type": "string"
+        },
+        "status": {
+          "description": "Current render status: 'queued' or 'processing' while the render runs, then the terminal 'completed' or 'failed'.",
+          "type": "string"
+        },
+        "videoId": {
+          "description": "Suede video record identifier when available.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "videoUrl": {
+          "description": "Generated video URL when the render is complete; null until then.",
+          "format": "uri",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "jobId",
+        "status",
+        "provider"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "app.suedeai.ai",
+    "endpoint": "https://app.suedeai.ai/agent/video",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

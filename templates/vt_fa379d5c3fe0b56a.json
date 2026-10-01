@@ -1,0 +1,81 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fa379d5c3fe0b56a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "activity": {
+          "type": "object"
+        },
+        "address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "approvals": {
+          "type": "array"
+        },
+        "balances": {
+          "type": "object"
+        },
+        "decision": {
+          "enum": [
+            "proceed",
+            "caution",
+            "block",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "findings": {
+          "type": "array"
+        },
+        "labels": {
+          "type": "array"
+        },
+        "limitations": {
+          "type": "array"
+        },
+        "network": {
+          "const": "eip155:8453",
+          "type": "string"
+        },
+        "risk": {
+          "type": "object"
+        },
+        "sanctions": {
+          "type": "object"
+        },
+        "transfers": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "address",
+        "network",
+        "decision",
+        "risk",
+        "balances",
+        "activity",
+        "approvals",
+        "transfers",
+        "labels",
+        "sanctions",
+        "findings",
+        "limitations"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "wallet-intelligence-three.vercel.app",
+    "endpoint": "https://wallet-intelligence-three.vercel.app/api/wallet/audit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

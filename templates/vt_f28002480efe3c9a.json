@@ -1,0 +1,84 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f28002480efe3c9a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "last_id": {
+          "type": "integer"
+        },
+        "note": {
+          "type": "string"
+        },
+        "posts": {
+          "items": {
+            "properties": {
+              "assets": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "divergence": {
+                "type": "boolean"
+              },
+              "id": {
+                "type": "integer"
+              },
+              "quality": {
+                "type": "string"
+              },
+              "sentiment": {
+                "type": "integer"
+              },
+              "stance": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "ts": {
+                "type": "number"
+              }
+            },
+            "type": "object",
+            "required": [
+              "assets",
+              "divergence",
+              "id",
+              "quality",
+              "sentiment",
+              "stance",
+              "text",
+              "ts"
+            ]
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "last_id",
+        "note",
+        "posts"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "posts[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "vedetta.dethboy.com",
+    "endpoint": "https://vedetta.dethboy.com/v1/feed",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

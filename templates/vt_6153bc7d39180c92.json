@@ -1,0 +1,152 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6153bc7d39180c92",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "added": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "score": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "name",
+              "score"
+            ]
+          }
+        },
+        "changed": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "after": {
+                "type": "object",
+                "properties": {
+                  "score": {
+                    "type": "integer"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "score",
+                  "status"
+                ]
+              },
+              "before": {
+                "type": "object",
+                "properties": {
+                  "score": {
+                    "type": "integer"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "score",
+                  "status"
+                ]
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "after",
+              "before",
+              "name"
+            ]
+          }
+        },
+        "counts": {
+          "type": "object",
+          "properties": {
+            "added": {
+              "type": "integer"
+            },
+            "changed": {
+              "type": "integer"
+            },
+            "removed": {
+              "type": "integer"
+            },
+            "total": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "added",
+            "changed",
+            "removed",
+            "total"
+          ]
+        },
+        "feed": {
+          "type": "string"
+        },
+        "removed": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "score": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "name",
+              "score"
+            ]
+          }
+        },
+        "since": {
+          "type": "string",
+          "format": "date"
+        },
+        "until": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "added",
+        "changed",
+        "counts",
+        "feed",
+        "removed",
+        "since",
+        "until"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "counts.total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "fresh-feeds.foomworks.workers.dev",
+    "endpoint": "https://fresh-feeds.foomworks.workers.dev/feeds/mcp-registry/changes",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

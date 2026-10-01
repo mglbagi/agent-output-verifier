@@ -1,0 +1,93 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0623c875f96b7dbd",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "analysis": {
+          "type": "string"
+        },
+        "tokenInfo": {
+          "properties": {
+            "attributes": {
+              "properties": {
+                "address": {
+                  "type": "string",
+                  "pattern": "^0x[a-fA-F0-9]{40}$"
+                },
+                "fdv_usd": {
+                  "type": "string"
+                },
+                "holders": {
+                  "properties": {
+                    "count": {
+                      "type": "number"
+                    }
+                  },
+                  "type": "object",
+                  "required": [
+                    "count"
+                  ]
+                },
+                "market_cap_usd": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "price_usd": {
+                  "type": "string"
+                },
+                "symbol": {
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "required": [
+                "address",
+                "holders",
+                "market_cap_usd",
+                "name",
+                "price_usd",
+                "symbol"
+              ]
+            },
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "attributes",
+            "id",
+            "type"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "analysis",
+        "tokenInfo"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "tokenInfo.attributes.holders.count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "capminal.ai",
+    "endpoint": "https://www.capminal.ai/api/x402/research",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

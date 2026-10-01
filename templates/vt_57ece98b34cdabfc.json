@@ -1,0 +1,105 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_57ece98b34cdabfc",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "asset": {
+          "enum": [
+            "ETH",
+            "BTC"
+          ],
+          "type": "string"
+        },
+        "cache_ttl_sec": {
+          "type": "integer"
+        },
+        "computed_at": {
+          "description": "Unix timestamp",
+          "type": "integer"
+        },
+        "inputs": {
+          "properties": {
+            "dvol": {
+              "description": "Deribit volatility index, annualized %",
+              "type": "number"
+            },
+            "rv_6h": {
+              "description": "Parkinson realized vol over 6h, %",
+              "type": "number"
+            },
+            "rv_72h": {
+              "description": "Parkinson realized vol over 72h, %",
+              "type": "number"
+            },
+            "source": {
+              "type": "string"
+            },
+            "spot_usd": {
+              "type": "number"
+            },
+            "timestamp": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "dvol",
+            "rv_72h",
+            "spot_usd",
+            "timestamp"
+          ],
+          "type": "object"
+        },
+        "methodology": {
+          "format": "uri",
+          "type": "string"
+        },
+        "ok": {
+          "description": "Request status",
+          "type": "boolean"
+        },
+        "quiet": {
+          "description": "true if RV_72h < 60%",
+          "type": "boolean"
+        },
+        "regime": {
+          "enum": [
+            "LOW",
+            "MID",
+            "HIGH"
+          ],
+          "type": "string"
+        },
+        "vrp": {
+          "description": "DVOL − Parkinson RV(72h), in vol points. Positive = sell-vol opportunity",
+          "type": "number"
+        }
+      },
+      "required": [
+        "ok",
+        "asset",
+        "vrp",
+        "regime",
+        "inputs"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "inputs.spot_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "regimeshift.xyz",
+    "endpoint": "https://regimeshift.xyz/api/v1/asset/eth/vrp",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

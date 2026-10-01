@@ -1,0 +1,88 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_173146e51087acad",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "answer": {
+          "type": "string"
+        },
+        "billing": {
+          "type": "object"
+        },
+        "evidence_status": {
+          "enum": [
+            "grounded",
+            "insufficient_evidence"
+          ],
+          "type": "string"
+        },
+        "object": {
+          "const": "places.result",
+          "type": "string"
+        },
+        "places": {
+          "items": {
+            "properties": {
+              "place_id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "title",
+              "url"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "query": {
+          "type": "string"
+        },
+        "searched_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "object",
+        "query",
+        "answer",
+        "places",
+        "evidence_status",
+        "searched_at"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "places[].place_id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.onhub.ai",
+    "endpoint": "https://api.onhub.ai/v1/places",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

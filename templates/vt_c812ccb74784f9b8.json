@@ -1,0 +1,140 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c812ccb74784f9b8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "_atlas": {
+          "additionalProperties": false,
+          "description": "Atlas documentation and related-route metadata added after deployment",
+          "properties": {
+            "docs": {
+              "description": "Documentation URL for this bridge",
+              "format": "uri",
+              "maxLength": 512,
+              "type": "string"
+            },
+            "related": {
+              "description": "Bounded related Atlas routes",
+              "items": {
+                "additionalProperties": false,
+                "description": "One related Atlas route",
+                "properties": {
+                  "bridge": {
+                    "description": "Related bridge name",
+                    "maxLength": 64,
+                    "type": "string"
+                  },
+                  "docs": {
+                    "description": "Related bridge documentation URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  },
+                  "summary": {
+                    "description": "Short capability summary",
+                    "maxLength": 256,
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "Related route URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "bridge",
+                  "url",
+                  "docs",
+                  "summary"
+                ],
+                "type": "object"
+              },
+              "maxItems": 3,
+              "type": "array"
+            }
+          },
+          "required": [
+            "docs"
+          ],
+          "type": "object"
+        },
+        "algorithm_version": {
+          "const": "keccak256-sorted-pairs-v1",
+          "description": "Atlas tree profile",
+          "type": "string"
+        },
+        "index": {
+          "description": "Caller-supplied index whose count-derived proof shape was checked; sorted pairs do not prove left/right position",
+          "type": "integer"
+        },
+        "leaf": {
+          "description": "Normalized raw leaf",
+          "type": "string"
+        },
+        "leaf_count": {
+          "description": "Caller-supplied original leaf count used to validate proof shape",
+          "type": "integer"
+        },
+        "leaf_hash": {
+          "description": "Domain-separated leaf hash",
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{64}$"
+        },
+        "operation": {
+          "const": "merkle-verify",
+          "description": "Stable route operation",
+          "type": "string"
+        },
+        "root": {
+          "description": "Expected root",
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{64}$"
+        },
+        "valid": {
+          "description": "Whether the exact shaped proof computes to root",
+          "type": "boolean"
+        },
+        "warnings": {
+          "description": "Always empty",
+          "items": {
+            "description": "Warning",
+            "type": "string"
+          },
+          "maxItems": 0,
+          "type": "array"
+        }
+      },
+      "required": [
+        "operation",
+        "algorithm_version",
+        "leaf",
+        "leaf_hash",
+        "index",
+        "leaf_count",
+        "root",
+        "valid",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "leaf_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "chain-tools.use.x402atlas.com",
+    "endpoint": "https://chain-tools.use.x402atlas.com/merkle/verify",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

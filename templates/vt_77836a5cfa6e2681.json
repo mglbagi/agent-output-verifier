@@ -1,0 +1,75 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_77836a5cfa6e2681",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "answer": {
+          "type": "string"
+        },
+        "citations": {
+          "items": {
+            "properties": {
+              "display_name": {
+                "type": "string"
+              },
+              "episode": {
+                "type": "string"
+              },
+              "timestamp_seconds": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "type": "object",
+            "required": [
+              "display_name",
+              "episode",
+              "timestamp_seconds",
+              "title",
+              "url"
+            ]
+          },
+          "type": "array"
+        },
+        "usage": {
+          "properties": {
+            "tool_calls": {
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "required": [
+            "tool_calls"
+          ]
+        }
+      },
+      "required": [
+        "answer",
+        "citations"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.gmfarcaster.com",
+    "endpoint": "https://api.gmfarcaster.com/v1/query",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

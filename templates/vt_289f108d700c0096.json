@@ -1,0 +1,193 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_289f108d700c0096",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "match_count": {
+          "type": "integer"
+        },
+        "query": {
+          "type": "string"
+        },
+        "related_entities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "mentions": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "mentions",
+              "name"
+            ]
+          }
+        },
+        "resolved": {
+          "type": "string"
+        },
+        "sentiment_trend": {
+          "type": "object",
+          "properties": {
+            "distribution": {
+              "type": "object",
+              "properties": {
+                "negative": {
+                  "type": "integer"
+                },
+                "neutral": {
+                  "type": "integer"
+                },
+                "positive": {
+                  "type": "integer"
+                },
+                "unknown": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "negative",
+                "neutral",
+                "positive",
+                "unknown"
+              ]
+            },
+            "first_seen": {
+              "type": "string",
+              "format": "date"
+            },
+            "last_seen": {
+              "type": "string",
+              "format": "date"
+            },
+            "signals_last_30d": {
+              "type": "integer"
+            },
+            "signals_last_90d": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "distribution",
+            "first_seen",
+            "last_seen",
+            "signals_last_30d",
+            "signals_last_90d"
+          ]
+        },
+        "signals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "sentiment": {
+                "type": "string"
+              },
+              "sentiment_norm": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "sentiment",
+              "sentiment_norm",
+              "type"
+            ]
+          }
+        },
+        "source_tier_breakdown": {
+          "type": "object",
+          "properties": {
+            "PRIMARY_SOURCE": {
+              "type": "integer"
+            },
+            "premium": {
+              "type": "integer"
+            },
+            "public": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "PRIMARY_SOURCE",
+            "premium",
+            "public"
+          ]
+        },
+        "story_lifecycle": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "last_signal_at": {
+                "type": "string",
+                "format": "date"
+              },
+              "status": {
+                "type": "string"
+              },
+              "story_id": {
+                "type": "string"
+              },
+              "thread": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "last_signal_at",
+              "status",
+              "story_id",
+              "thread"
+            ]
+          }
+        },
+        "total_signals": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "match_count",
+        "query",
+        "related_entities",
+        "resolved",
+        "sentiment_trend",
+        "signals",
+        "source_tier_breakdown",
+        "story_lifecycle",
+        "total_signals"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "story_lifecycle[].story_id"
+      }
+    ],
+    "bounds": {
+      "match_count": {
+        "min": 0
+      },
+      "total_signals": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "pay.retraced.site",
+    "endpoint": "https://pay.retraced.site/intel/entity/:name",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

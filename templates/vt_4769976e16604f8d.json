@@ -1,0 +1,138 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4769976e16604f8d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "items": {
+            "properties": {
+              "bucket_end": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string"
+              },
+              "holders_count": {
+                "type": "integer"
+              },
+              "is_complete": {
+                "type": "boolean"
+              },
+              "price_usd": {
+                "type": "number"
+              },
+              "token_amount": {
+                "type": "number"
+              },
+              "total_inflows_cex": {
+                "type": "number"
+              },
+              "total_inflows_count": {
+                "type": "number"
+              },
+              "total_inflows_dex": {
+                "type": "number"
+              },
+              "total_outflows_cex": {
+                "type": "number"
+              },
+              "total_outflows_count": {
+                "type": "number"
+              },
+              "total_outflows_dex": {
+                "type": "number"
+              },
+              "value_usd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "date"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "pagination": {
+          "properties": {
+            "is_last_page": {
+              "type": "boolean"
+            },
+            "page": {
+              "type": "integer"
+            },
+            "per_page": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "data",
+        "pagination"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "data[].holders_count": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].price_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].token_amount": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].total_inflows_cex": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].total_inflows_count": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].total_inflows_dex": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].total_outflows_cex": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].total_outflows_count": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].total_outflows_dex": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].value_usd": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.nansen.ai",
+    "endpoint": "https://api.nansen.ai/api/v1/tgm/flows",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

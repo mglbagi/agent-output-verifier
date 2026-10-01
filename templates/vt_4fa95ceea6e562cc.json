@@ -1,0 +1,110 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4fa95ceea6e562cc",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "asn": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "country_code": {
+          "type": "string"
+        },
+        "found": {
+          "type": "boolean"
+        },
+        "ip": {
+          "type": "string"
+        },
+        "is_datacenter": {
+          "type": "boolean"
+        },
+        "is_proxy": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "is_vpn": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isp": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "org": {
+          "type": "string"
+        },
+        "postal_code": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "region_code": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "asn",
+        "city",
+        "country",
+        "country_code",
+        "found",
+        "ip",
+        "is_datacenter",
+        "isp",
+        "latitude",
+        "longitude",
+        "org",
+        "postal_code",
+        "region",
+        "region_code",
+        "source",
+        "timezone"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "latitude": {
+        "min": -90,
+        "max": 90
+      },
+      "longitude": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ip-geo-api-production.up.railway.app",
+    "endpoint": "https://ip-geo-api-production.up.railway.app/lookup/ip",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

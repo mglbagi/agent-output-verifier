@@ -1,0 +1,446 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d32e5e2d4d65afec",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "meta": {
+          "additionalProperties": false,
+          "properties": {
+            "cached": {
+              "type": "boolean"
+            },
+            "engine": {
+              "type": "string"
+            },
+            "generatedAt": {
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$",
+              "type": "string"
+            },
+            "model": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "engine",
+            "model",
+            "generatedAt",
+            "cached"
+          ],
+          "type": "object"
+        },
+        "report": {
+          "additionalProperties": false,
+          "properties": {
+            "assumptions": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "assumption": {
+                    "maxLength": 500,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "cheapestValidation": {
+                    "maxLength": 800,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "confidence": {
+                    "enum": [
+                      "supported",
+                      "plausible",
+                      "weak",
+                      "unknown"
+                    ],
+                    "type": "string"
+                  },
+                  "impactIfWrong": {
+                    "maxLength": 700,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "assumption",
+                  "confidence",
+                  "impactIfWrong",
+                  "cheapestValidation"
+                ],
+                "type": "object"
+              },
+              "maxItems": 12,
+              "type": "array"
+            },
+            "coreThesis": {
+              "maxLength": 900,
+              "minLength": 1,
+              "type": "string"
+            },
+            "differentiationAssessment": {
+              "additionalProperties": false,
+              "properties": {
+                "keyQuestion": {
+                  "anyOf": [
+                    {
+                      "maxLength": 500,
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "rating": {
+                  "enum": [
+                    "strong",
+                    "credible",
+                    "weak",
+                    "unclear"
+                  ],
+                  "type": "string"
+                },
+                "summary": {
+                  "maxLength": 900,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "rating",
+                "summary",
+                "keyQuestion"
+              ],
+              "type": "object"
+            },
+            "economicsAssessment": {
+              "additionalProperties": false,
+              "properties": {
+                "keyQuestion": {
+                  "anyOf": [
+                    {
+                      "maxLength": 500,
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "rating": {
+                  "enum": [
+                    "strong",
+                    "credible",
+                    "weak",
+                    "unclear",
+                    "not-applicable"
+                  ],
+                  "type": "string"
+                },
+                "summary": {
+                  "maxLength": 900,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "rating",
+                "summary",
+                "keyQuestion"
+              ],
+              "type": "object"
+            },
+            "executiveSummary": {
+              "maxLength": 1500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "feasibilityAssessment": {
+              "additionalProperties": false,
+              "properties": {
+                "keyQuestion": {
+                  "anyOf": [
+                    {
+                      "maxLength": 500,
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "rating": {
+                  "enum": [
+                    "strong",
+                    "credible",
+                    "weak",
+                    "unclear"
+                  ],
+                  "type": "string"
+                },
+                "summary": {
+                  "maxLength": 900,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "rating",
+                "summary",
+                "keyQuestion"
+              ],
+              "type": "object"
+            },
+            "inputIntegrity": {
+              "additionalProperties": false,
+              "properties": {
+                "evidence": {
+                  "items": {
+                    "maxLength": 300,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "maxItems": 4,
+                  "type": "array"
+                },
+                "status": {
+                  "enum": [
+                    "clean",
+                    "embedded-instructions-detected"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "status",
+                "evidence"
+              ],
+              "type": "object"
+            },
+            "killCriteria": {
+              "items": {
+                "maxLength": 600,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 10,
+              "type": "array"
+            },
+            "optionalImprovements": {
+              "items": {
+                "maxLength": 600,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 10,
+              "type": "array"
+            },
+            "recommendation": {
+              "maxLength": 1500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "recommendedBuildSequence": {
+              "items": {
+                "maxLength": 600,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 12,
+              "type": "array"
+            },
+            "requiredChanges": {
+              "items": {
+                "maxLength": 600,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 10,
+              "type": "array"
+            },
+            "risks": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "category": {
+                    "enum": [
+                      "positioning",
+                      "differentiation",
+                      "implementation",
+                      "economics",
+                      "scope",
+                      "dependency",
+                      "validation"
+                    ],
+                    "type": "string"
+                  },
+                  "evidence": {
+                    "maxLength": 600,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "mitigation": {
+                    "maxLength": 800,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "severity": {
+                    "enum": [
+                      "low",
+                      "medium",
+                      "high",
+                      "critical"
+                    ],
+                    "type": "string"
+                  },
+                  "title": {
+                    "maxLength": 160,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "whyItMatters": {
+                    "maxLength": 800,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "category",
+                  "severity",
+                  "title",
+                  "evidence",
+                  "whyItMatters",
+                  "mitigation"
+                ],
+                "type": "object"
+              },
+              "maxItems": 10,
+              "type": "array"
+            },
+            "scopeCuts": {
+              "items": {
+                "maxLength": 600,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 10,
+              "type": "array"
+            },
+            "score": {
+              "maximum": 100,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "strengths": {
+              "items": {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 10,
+              "type": "array"
+            },
+            "validationPlan": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "experiment": {
+                    "maxLength": 700,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "failCondition": {
+                    "maxLength": 500,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "passCondition": {
+                    "maxLength": 500,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "signal": {
+                    "maxLength": 500,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "experiment",
+                  "signal",
+                  "passCondition",
+                  "failCondition"
+                ],
+                "type": "object"
+              },
+              "maxItems": 10,
+              "type": "array"
+            },
+            "verdict": {
+              "enum": [
+                "green-light",
+                "revise",
+                "rethink"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "verdict",
+            "score",
+            "inputIntegrity",
+            "executiveSummary",
+            "coreThesis",
+            "strengths",
+            "risks",
+            "assumptions",
+            "differentiationAssessment",
+            "feasibilityAssessment",
+            "economicsAssessment",
+            "scopeCuts",
+            "requiredChanges",
+            "optionalImprovements",
+            "validationPlan",
+            "killCriteria",
+            "recommendedBuildSequence",
+            "recommendation"
+          ],
+          "type": "object"
+        },
+        "requestId": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "requestId",
+        "report",
+        "meta"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "launchcheck-x402.fly.dev",
+    "endpoint": "https://launchcheck-x402.fly.dev/v1/proposal-check/deep",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

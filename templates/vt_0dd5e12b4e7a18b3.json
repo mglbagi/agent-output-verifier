@@ -1,0 +1,33 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0dd5e12b4e7a18b3",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "result": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "result"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "a2apay.io",
+    "endpoint": "https://a2apay.io/api/agent-service",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

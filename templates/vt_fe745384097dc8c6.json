@@ -1,0 +1,355 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fe745384097dc8c6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "caveats": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "challenge": {
+          "properties": {
+            "block_length": {
+              "type": "number"
+            },
+            "bust_by": {
+              "description": "a day breaking both rules counts under daily_loss",
+              "properties": {
+                "daily_loss": {
+                  "type": "number"
+                },
+                "max_loss": {
+                  "type": "number"
+                }
+              },
+              "type": "object",
+              "required": [
+                "daily_loss",
+                "max_loss"
+              ]
+            },
+            "bust_probability": {
+              "type": "number"
+            },
+            "days_to_target": {
+              "description": "trading days until the target over the passing paths; null when none passed",
+              "properties": {
+                "median": {
+                  "type": "number"
+                },
+                "p25": {
+                  "type": "number"
+                },
+                "p75": {
+                  "type": "number"
+                }
+              },
+              "type": [
+                "object",
+                "null"
+              ],
+              "required": [
+                "median",
+                "p25",
+                "p75"
+              ]
+            },
+            "pass_probability": {
+              "type": "number"
+            },
+            "path_max_drawdown": {
+              "properties": {
+                "p50": {
+                  "type": "number"
+                },
+                "p95": {
+                  "type": "number"
+                }
+              },
+              "type": "object",
+              "required": [
+                "p50",
+                "p95"
+              ]
+            },
+            "seed": {
+              "type": "integer"
+            },
+            "simulations": {
+              "type": "integer"
+            },
+            "standard_error": {
+              "description": "sampling error sqrt(p (1 - p) / simulations)",
+              "properties": {
+                "bust_probability": {
+                  "type": "number"
+                },
+                "pass_probability": {
+                  "type": "number"
+                }
+              },
+              "type": "object",
+              "required": [
+                "bust_probability",
+                "pass_probability"
+              ]
+            },
+            "terminal_return": {
+              "description": "cumulative return where each path stopped",
+              "properties": {
+                "p25": {
+                  "type": "number"
+                },
+                "p5": {
+                  "type": "number"
+                },
+                "p50": {
+                  "type": "number"
+                },
+                "p75": {
+                  "type": "number"
+                },
+                "p95": {
+                  "type": "number"
+                }
+              },
+              "type": "object",
+              "required": [
+                "p25",
+                "p5",
+                "p50",
+                "p75",
+                "p95"
+              ]
+            },
+            "undecided_probability": {
+              "description": "neither target nor a rule within max_days",
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "block_length",
+            "bust_by",
+            "bust_probability",
+            "days_to_target",
+            "pass_probability",
+            "path_max_drawdown",
+            "seed",
+            "simulations",
+            "standard_error",
+            "terminal_return",
+            "undecided_probability"
+          ]
+        },
+        "input_summary": {
+          "properties": {
+            "block_length": {
+              "type": "number"
+            },
+            "daily_loss": {
+              "type": "number"
+            },
+            "days": {
+              "type": "integer"
+            },
+            "max_days": {
+              "type": "integer"
+            },
+            "max_loss": {
+              "type": "number"
+            },
+            "scale": {
+              "type": "number"
+            },
+            "seed": {
+              "type": "integer"
+            },
+            "simulations": {
+              "type": "integer"
+            },
+            "target": {
+              "type": "number"
+            },
+            "trading_days_per_year": {
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "required": [
+            "block_length",
+            "daily_loss",
+            "days",
+            "max_days",
+            "max_loss",
+            "scale",
+            "seed",
+            "simulations",
+            "target",
+            "trading_days_per_year"
+          ]
+        },
+        "method": {
+          "type": "string"
+        },
+        "stats": {
+          "description": "of the scaled returns; every figure rounded to six significant digits",
+          "properties": {
+            "annualized_return": {
+              "description": "mean_daily × trading_days_per_year",
+              "type": "number"
+            },
+            "annualized_volatility": {
+              "type": "number"
+            },
+            "autocorr_lag1": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "best_day": {
+              "type": "number"
+            },
+            "cumulative_return": {
+              "type": "number"
+            },
+            "cvar_95": {
+              "description": "mean loss of the worst 5 % of days; 0 when they are gains",
+              "type": "number"
+            },
+            "days": {
+              "type": "integer"
+            },
+            "excess_kurtosis": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "max_drawdown": {
+              "description": "peak-to-trough of the added returns",
+              "type": "number"
+            },
+            "mean_daily": {
+              "type": "number"
+            },
+            "p_value_mean_gt_zero": {
+              "description": "(k + 1) / (B + 1), B = 2,000 i.i.d. resamples, k means at or below zero",
+              "type": "number"
+            },
+            "positive_days_ratio": {
+              "type": "number"
+            },
+            "sharpe": {
+              "description": "risk-free rate 0; null without variance",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "skewness": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "sortino": {
+              "description": "null without a losing day",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "std_daily": {
+              "description": "population standard deviation",
+              "type": "number"
+            },
+            "var_99": {
+              "description": "loss at the 1 % quantile of a day; 0 when it is a gain",
+              "type": "number"
+            },
+            "worst_day": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "annualized_return",
+            "annualized_volatility",
+            "autocorr_lag1",
+            "best_day",
+            "cumulative_return",
+            "cvar_95",
+            "days",
+            "excess_kurtosis",
+            "max_drawdown",
+            "mean_daily",
+            "p_value_mean_gt_zero",
+            "positive_days_ratio",
+            "sharpe",
+            "skewness",
+            "sortino",
+            "std_daily",
+            "var_99",
+            "worst_day"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "caveats",
+        "challenge",
+        "input_summary",
+        "method",
+        "stats"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "challenge.block_length": {
+        "min": 0
+      },
+      "challenge.bust_probability": {
+        "min": 0,
+        "max": 1
+      },
+      "challenge.pass_probability": {
+        "min": 0,
+        "max": 1
+      },
+      "challenge.standard_error.bust_probability": {
+        "min": 0,
+        "max": 1
+      },
+      "challenge.standard_error.pass_probability": {
+        "min": 0,
+        "max": 1
+      },
+      "challenge.undecided_probability": {
+        "min": 0,
+        "max": 1
+      },
+      "input_summary.block_length": {
+        "min": 0
+      },
+      "stats.positive_days_ratio": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.agentsouk.dev",
+    "endpoint": "https://api.agentsouk.dev/v1/x402/lst_01M2ND5C6502HRV8VA9PMG40W6",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

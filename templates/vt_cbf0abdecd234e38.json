@@ -1,0 +1,297 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cbf0abdecd234e38",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "delivery": {
+          "type": "object",
+          "properties": {
+            "completion_deadline": {},
+            "description": {
+              "type": "string"
+            },
+            "estimate_basis": {
+              "type": "string"
+            },
+            "estimate_kind": {
+              "type": "string"
+            },
+            "estimated_duration_seconds": {},
+            "large_inputs_may_exceed_seconds": {
+              "type": "integer"
+            },
+            "maximum_duration_seconds": {},
+            "mode": {
+              "type": "string"
+            },
+            "payment_due": {
+              "type": "string"
+            },
+            "poll_after_seconds": {
+              "type": "integer"
+            },
+            "processing_starts": {
+              "type": "string"
+            },
+            "timing_factors": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "description",
+            "estimate_basis",
+            "estimate_kind",
+            "large_inputs_may_exceed_seconds",
+            "mode",
+            "payment_due",
+            "poll_after_seconds",
+            "processing_starts",
+            "timing_factors",
+            "version"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "discovery_price_usdc": {
+          "type": "string"
+        },
+        "includes_processing": {
+          "type": "boolean"
+        },
+        "order_input_schema": {
+          "type": "object",
+          "properties": {
+            "additionalProperties": {
+              "type": "boolean"
+            },
+            "properties": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "object",
+                  "properties": {
+                    "description": {
+                      "type": "string"
+                    },
+                    "format": {
+                      "type": "string"
+                    },
+                    "maxLength": {
+                      "type": "integer"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "description",
+                    "format",
+                    "maxLength",
+                    "type"
+                  ]
+                },
+                "request_key": {
+                  "type": "object",
+                  "properties": {
+                    "description": {
+                      "type": "string"
+                    },
+                    "pattern": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "description",
+                    "pattern",
+                    "type"
+                  ]
+                }
+              },
+              "required": [
+                "email",
+                "request_key"
+              ]
+            },
+            "required": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "additionalProperties",
+            "properties",
+            "required",
+            "type"
+          ]
+        },
+        "ordering_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "orders_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "overview_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "pricing": {
+          "type": "object",
+          "properties": {
+            "basis": {
+              "type": "string"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "rounding": {
+              "type": "string"
+            },
+            "tiers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "micro_usdc_per_mb": {
+                    "type": "number"
+                  },
+                  "minimum_bytes": {
+                    "type": "integer"
+                  },
+                  "usd_per_mb": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "micro_usdc_per_mb",
+                  "minimum_bytes",
+                  "usd_per_mb"
+                ]
+              }
+            },
+            "unit_bytes": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "basis",
+            "currency",
+            "rounding",
+            "tiers",
+            "unit_bytes"
+          ]
+        },
+        "quote_policy": {
+          "type": "object",
+          "properties": {
+            "notice": {
+              "type": "string"
+            },
+            "valid_for_seconds": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "notice",
+            "valid_for_seconds"
+          ]
+        },
+        "quote_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "reserves_capacity": {
+          "type": "boolean"
+        },
+        "samples_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "service": {
+          "type": "string"
+        },
+        "upload_policy": {
+          "type": "object",
+          "properties": {
+            "deadline_seconds": {
+              "type": "integer"
+            },
+            "notice": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "deadline_seconds",
+            "notice"
+          ]
+        },
+        "usage_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "workflow": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "delivery",
+        "description",
+        "discovery_price_usdc",
+        "includes_processing",
+        "order_input_schema",
+        "ordering_url",
+        "orders_url",
+        "overview_url",
+        "pricing",
+        "quote_policy",
+        "quote_url",
+        "reserves_capacity",
+        "samples_url",
+        "service",
+        "upload_policy",
+        "usage_url",
+        "workflow"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "pricing.tiers[].minimum_bytes": {
+        "min": 0
+      },
+      "pricing.unit_bytes": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "shadowharness.com",
+    "endpoint": "https://shadowharness.com/v1/sidera/discovery",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

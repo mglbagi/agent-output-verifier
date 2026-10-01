@@ -1,0 +1,169 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1b9047e60bd6faa3",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "address_queried": {
+          "type": "string"
+        },
+        "canonical_resource": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "city_name": {
+          "type": "string"
+        },
+        "compliance_verdict": {
+          "type": "string"
+        },
+        "condemned_or_boarded": {
+          "type": "object",
+          "properties": {
+            "flagged": {
+              "type": "boolean"
+            },
+            "records": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "flagged",
+            "records"
+          ]
+        },
+        "network_product": {
+          "type": "string"
+        },
+        "registered": {
+          "type": "boolean"
+        },
+        "registrations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string"
+              },
+              "apn": {
+                "type": "string"
+              },
+              "category": {
+                "type": "string"
+              },
+              "expiration_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "license_number": {
+                "type": "string"
+              },
+              "licensed_units": {
+                "type": "integer"
+              },
+              "neighborhood": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "tier": {
+                "type": "string"
+              },
+              "ward": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "address",
+              "apn",
+              "category",
+              "expiration_date",
+              "license_number",
+              "licensed_units",
+              "neighborhood",
+              "status",
+              "tier",
+              "ward"
+            ]
+          }
+        },
+        "state": {
+          "type": "string"
+        },
+        "violation_cases": {
+          "type": "object",
+          "properties": {
+            "recent": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "case_number": {
+                    "type": "string"
+                  },
+                  "case_type": {
+                    "type": "string"
+                  },
+                  "inspection_result": {
+                    "type": "string"
+                  },
+                  "start_date": {
+                    "type": "string",
+                    "format": "date"
+                  }
+                },
+                "required": [
+                  "case_number",
+                  "case_type",
+                  "inspection_result",
+                  "start_date"
+                ]
+              }
+            },
+            "total": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "recent",
+            "total"
+          ]
+        }
+      },
+      "required": [
+        "address_queried",
+        "canonical_resource",
+        "city",
+        "city_name",
+        "compliance_verdict",
+        "condemned_or_boarded",
+        "network_product",
+        "registered",
+        "registrations",
+        "state",
+        "violation_cases"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "violation_cases.total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-mcp.onrender.com",
+    "endpoint": "https://x402-mcp.onrender.com/us/mn/property-check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

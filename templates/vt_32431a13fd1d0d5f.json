@@ -1,0 +1,66 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_32431a13fd1d0d5f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "api_version": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "durationMs": {
+          "type": "integer"
+        },
+        "error": {
+          "type": "string"
+        },
+        "headers": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "method": {
+          "type": "string"
+        },
+        "redirectChain": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "statusCode": {
+          "type": "integer"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "api_version",
+        "url",
+        "method",
+        "statusCode",
+        "headers",
+        "body",
+        "durationMs",
+        "redirectChain",
+        "error"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "curl-http-request.underscoredone.com",
+    "endpoint": "https://curl-http-request.underscoredone.com/curl",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

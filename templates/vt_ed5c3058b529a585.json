@@ -1,0 +1,47 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ed5c3058b529a585",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "access_token": {
+          "description": "Secret capability for job and receipt reads.",
+          "type": "string"
+        },
+        "job_id": {
+          "type": "string"
+        },
+        "receipt_url": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "status_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "job_id",
+        "access_token",
+        "status",
+        "status_url",
+        "receipt_url"
+      ],
+      "title": "AgentPayJobAdmission",
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.x402-engine.com",
+    "endpoint": "https://api.x402-engine.com/v1/intelligence",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

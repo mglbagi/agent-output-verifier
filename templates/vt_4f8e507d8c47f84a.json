@@ -1,0 +1,77 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4f8e507d8c47f84a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "auth": {
+          "properties": {
+            "expires_in": {
+              "type": "string"
+            },
+            "id_token": {
+              "description": "Firebase ID token for the callable APIs",
+              "type": "string"
+            },
+            "refresh_token": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "expires_in",
+            "id_token",
+            "refresh_token"
+          ]
+        },
+        "intl_card_order": {
+          "properties": {
+            "charged_usd_amount": {
+              "type": "number"
+            },
+            "on_card_usd_amount": {
+              "type": "number"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "charged_usd_amount",
+            "on_card_usd_amount",
+            "status"
+          ]
+        },
+        "user_id": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "auth",
+        "intl_card_order",
+        "user_id"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "intl_card_order.charged_usd_amount": {
+        "min": 0
+      },
+      "intl_card_order.on_card_usd_amount": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "laso.finance",
+    "endpoint": "https://laso.finance/order-intl-card",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

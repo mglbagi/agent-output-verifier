@@ -1,0 +1,402 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_486ae4c4a7b0b4b7",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "disclaimer": {
+          "type": "string"
+        },
+        "forecasts": {
+          "type": "object",
+          "properties": {
+            "BTC": {
+              "type": "object",
+              "properties": {
+                "available": {
+                  "type": "boolean"
+                },
+                "direction": {
+                  "type": "string"
+                },
+                "expected_close": {
+                  "type": "integer"
+                },
+                "horizon": {
+                  "type": "string"
+                },
+                "probability": {
+                  "type": "number"
+                },
+                "range_high": {
+                  "type": "integer"
+                },
+                "range_low": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "available",
+                "direction",
+                "expected_close",
+                "horizon",
+                "probability",
+                "range_high",
+                "range_low"
+              ]
+            },
+            "ETH": {
+              "type": "object",
+              "properties": {
+                "available": {
+                  "type": "boolean"
+                },
+                "direction": {
+                  "type": "string"
+                },
+                "expected_close": {
+                  "type": "integer"
+                },
+                "horizon": {
+                  "type": "string"
+                },
+                "probability": {
+                  "type": "number"
+                },
+                "range_high": {
+                  "type": "integer"
+                },
+                "range_low": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "available",
+                "direction",
+                "expected_close",
+                "horizon",
+                "probability",
+                "range_high",
+                "range_low"
+              ]
+            },
+            "SOL": {
+              "type": "object",
+              "properties": {
+                "available": {
+                  "type": "boolean"
+                },
+                "direction": {
+                  "type": "string"
+                },
+                "expected_close": {
+                  "type": "integer"
+                },
+                "horizon": {
+                  "type": "string"
+                },
+                "probability": {
+                  "type": "number"
+                },
+                "range_high": {
+                  "type": "integer"
+                },
+                "range_low": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "available",
+                "direction",
+                "expected_close",
+                "horizon",
+                "probability",
+                "range_high",
+                "range_low"
+              ]
+            }
+          },
+          "required": [
+            "BTC",
+            "ETH",
+            "SOL"
+          ]
+        },
+        "funding_extremes": {
+          "type": "object",
+          "properties": {
+            "available": {
+              "type": "boolean"
+            },
+            "extremes_count": {
+              "type": "integer"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "asset": {
+                    "type": "string"
+                  },
+                  "captured_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "classification": {
+                    "type": "string"
+                  },
+                  "data_age_seconds": {
+                    "type": "integer"
+                  },
+                  "funding_rate": {
+                    "type": "number"
+                  },
+                  "funding_rate_annualized": {
+                    "type": "number"
+                  },
+                  "rank": {
+                    "type": "integer"
+                  },
+                  "short": {
+                    "type": "string"
+                  },
+                  "stale": {
+                    "type": "boolean"
+                  },
+                  "z_score": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "asset",
+                  "captured_at",
+                  "classification",
+                  "data_age_seconds",
+                  "funding_rate",
+                  "funding_rate_annualized",
+                  "rank",
+                  "short",
+                  "stale",
+                  "z_score"
+                ]
+              }
+            },
+            "no_extremes_message": {}
+          },
+          "required": [
+            "available",
+            "extremes_count",
+            "items"
+          ]
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "macro": {
+          "type": "object",
+          "properties": {
+            "available": {
+              "type": "boolean"
+            },
+            "dxy": {
+              "type": "object",
+              "properties": {
+                "source": {
+                  "type": "string"
+                },
+                "unavailable": {
+                  "type": "boolean"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "source",
+                "unavailable",
+                "value"
+              ]
+            },
+            "gold": {
+              "type": "object",
+              "properties": {
+                "source": {
+                  "type": "string"
+                },
+                "unavailable": {
+                  "type": "boolean"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "source",
+                "unavailable",
+                "value"
+              ]
+            },
+            "spx": {
+              "type": "object",
+              "properties": {
+                "source": {
+                  "type": "string"
+                },
+                "unavailable": {
+                  "type": "boolean"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "source",
+                "unavailable",
+                "value"
+              ]
+            },
+            "us_10y_yield": {
+              "type": "object",
+              "properties": {
+                "source": {
+                  "type": "string"
+                },
+                "unavailable": {
+                  "type": "boolean"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "source",
+                "unavailable",
+                "value"
+              ]
+            },
+            "vix": {
+              "type": "object",
+              "properties": {
+                "source": {
+                  "type": "string"
+                },
+                "unavailable": {
+                  "type": "boolean"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "source",
+                "unavailable",
+                "value"
+              ]
+            }
+          },
+          "required": [
+            "available",
+            "dxy",
+            "gold",
+            "spx",
+            "us_10y_yield",
+            "vix"
+          ]
+        },
+        "sentiment": {
+          "type": "object",
+          "properties": {
+            "available": {
+              "type": "boolean"
+            },
+            "fear_greed": {
+              "type": "object",
+              "properties": {
+                "timestamp": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                },
+                "value_classification": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "timestamp",
+                "value",
+                "value_classification"
+              ]
+            }
+          },
+          "required": [
+            "available",
+            "fear_greed"
+          ]
+        },
+        "usage_hint": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "disclaimer",
+        "forecasts",
+        "funding_extremes",
+        "generated_at",
+        "macro",
+        "sentiment",
+        "usage_hint"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "forecasts.BTC.range_low",
+        "other_field": "forecasts.BTC.range_high"
+      },
+      {
+        "type": "lte",
+        "field": "forecasts.ETH.range_low",
+        "other_field": "forecasts.ETH.range_high"
+      },
+      {
+        "type": "lte",
+        "field": "forecasts.SOL.range_low",
+        "other_field": "forecasts.SOL.range_high"
+      }
+    ],
+    "bounds": {
+      "forecasts.BTC.probability": {
+        "min": 0,
+        "max": 1
+      },
+      "forecasts.ETH.probability": {
+        "min": 0,
+        "max": 1
+      },
+      "forecasts.SOL.probability": {
+        "min": 0,
+        "max": 1
+      },
+      "funding_extremes.extremes_count": {
+        "min": 0
+      },
+      "funding_extremes.items[].data_age_seconds": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "kronossignals.com",
+    "endpoint": "https://kronossignals.com/api/v1/briefing",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

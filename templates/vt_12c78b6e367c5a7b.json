@@ -1,0 +1,359 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_12c78b6e367c5a7b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "evidence": {
+                "type": "object",
+                "properties": {
+                  "duplicate_history_supplied": {
+                    "type": "boolean"
+                  },
+                  "duplicate_scope": {
+                    "type": "string"
+                  },
+                  "computed_subtotal_minor": {
+                    "type": "string"
+                  },
+                  "declared_subtotal_minor": {
+                    "type": "string"
+                  },
+                  "computed_total_minor": {
+                    "type": "string"
+                  },
+                  "declared_total_minor": {
+                    "type": "string"
+                  },
+                  "invoice_unit_of_measure": {
+                    "type": "string"
+                  },
+                  "po_unit_of_measure": {
+                    "type": "string"
+                  },
+                  "cumulative_invoiced": {
+                    "type": "string"
+                  },
+                  "cumulative_received": {
+                    "type": "string"
+                  },
+                  "invoice_unit_price_minor": {
+                    "type": "string"
+                  },
+                  "po_unit_price_minor": {
+                    "type": "string"
+                  },
+                  "tolerance_bps": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "invoice_line_id": {
+                "type": "string"
+              },
+              "purchase_order_id": {
+                "type": "string"
+              },
+              "po_line_id": {
+                "type": "string"
+              },
+              "reason_code": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "status"
+            ]
+          }
+        },
+        "coverage": {
+          "type": "object",
+          "properties": {
+            "checks_not_performed": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "checks_performed": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "complete_for_declared_scope": {
+              "type": "boolean"
+            },
+            "evidence": {
+              "type": "object",
+              "properties": {
+                "duplicate_history_supplied": {
+                  "type": "boolean"
+                },
+                "prior_invoicing_complete": {
+                  "type": "boolean"
+                },
+                "receipts_complete": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "duplicate_history_supplied",
+                "prior_invoicing_complete",
+                "receipts_complete"
+              ]
+            },
+            "match_mode": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "checks_not_performed",
+            "checks_performed",
+            "complete_for_declared_scope",
+            "evidence",
+            "match_mode"
+          ]
+        },
+        "decision": {
+          "type": "string"
+        },
+        "input_fingerprint": {
+          "type": "string"
+        },
+        "invoice": {
+          "type": "object",
+          "properties": {
+            "currency": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "invoice_number": {
+              "type": "string"
+            },
+            "lines_evaluated": {
+              "type": "integer"
+            },
+            "purchase_orders_referenced": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "supplier_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "currency",
+            "id",
+            "invoice_number",
+            "lines_evaluated",
+            "purchase_orders_referenced",
+            "supplier_id"
+          ]
+        },
+        "line_results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "decision": {
+                "type": "string"
+              },
+              "invoice_line_id": {
+                "type": "string"
+              },
+              "po_line_id": {
+                "type": "string"
+              },
+              "pricing": {
+                "type": "object",
+                "properties": {
+                  "absolute_delta_minor": {
+                    "type": "string"
+                  },
+                  "invoice_unit_price_minor": {
+                    "type": "string"
+                  },
+                  "po_unit_price_minor": {
+                    "type": "string"
+                  },
+                  "tolerance_bps": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "absolute_delta_minor",
+                  "invoice_unit_price_minor",
+                  "po_unit_price_minor",
+                  "tolerance_bps"
+                ]
+              },
+              "purchase_order_id": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "object",
+                "properties": {
+                  "cumulative_invoiced": {
+                    "type": "string"
+                  },
+                  "cumulative_received": {
+                    "type": "string"
+                  },
+                  "current_invoiced": {
+                    "type": "string"
+                  },
+                  "ordered": {
+                    "type": "string"
+                  },
+                  "previously_invoiced": {
+                    "type": "string"
+                  },
+                  "remaining_order_after_current": {
+                    "type": "string"
+                  },
+                  "remaining_received_after_current": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "cumulative_invoiced",
+                  "cumulative_received",
+                  "current_invoiced",
+                  "ordered",
+                  "previously_invoiced",
+                  "remaining_order_after_current",
+                  "remaining_received_after_current"
+                ]
+              },
+              "reason_codes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "units": {
+                "type": "object",
+                "properties": {
+                  "invoice_price_basis_quantity": {
+                    "type": "string"
+                  },
+                  "invoice_unit_of_measure": {
+                    "type": "string"
+                  },
+                  "po_price_basis_quantity": {
+                    "type": "string"
+                  },
+                  "po_unit_of_measure": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "invoice_price_basis_quantity",
+                  "invoice_unit_of_measure",
+                  "po_price_basis_quantity",
+                  "po_unit_of_measure"
+                ]
+              }
+            },
+            "required": [
+              "decision",
+              "invoice_line_id",
+              "po_line_id",
+              "pricing",
+              "purchase_order_id",
+              "quantity",
+              "reason_codes",
+              "units"
+            ]
+          }
+        },
+        "machine_action": {
+          "type": "string"
+        },
+        "reason_codes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ruleset_version": {
+          "type": "string"
+        },
+        "totals": {
+          "type": "object",
+          "properties": {
+            "computed_subtotal_minor": {
+              "type": "string"
+            },
+            "computed_total_minor": {
+              "type": "string"
+            },
+            "declared_subtotal_minor": {
+              "type": "string"
+            },
+            "declared_total_minor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "computed_subtotal_minor",
+            "computed_total_minor",
+            "declared_subtotal_minor",
+            "declared_total_minor"
+          ]
+        }
+      },
+      "required": [
+        "checks",
+        "coverage",
+        "decision",
+        "input_fingerprint",
+        "invoice",
+        "line_results",
+        "machine_action",
+        "reason_codes",
+        "ruleset_version",
+        "totals"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "checks[].id"
+      },
+      {
+        "type": "unique",
+        "field": "line_results[].invoice_line_id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.vrsai.tech",
+    "endpoint": "https://api.vrsai.tech/v1/capabilities/invoice_match",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

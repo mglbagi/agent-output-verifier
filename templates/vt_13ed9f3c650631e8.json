@@ -1,0 +1,95 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_13ed9f3c650631e8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "final_url": {
+          "description": "The last URL reached in the redirect chain",
+          "type": "string",
+          "format": "uri"
+        },
+        "hops": {
+          "description": "Every HEAD request made, in order",
+          "items": {
+            "properties": {
+              "location": {
+                "description": "Location header value, if any",
+                "type": "string"
+              },
+              "status_code": {
+                "type": "integer"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "url",
+              "status_code"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "queried_at": {
+          "description": "UTC timestamp the trace was performed",
+          "format": "date-time",
+          "type": "string"
+        },
+        "redirect_count": {
+          "description": "Number of 3xx hops followed",
+          "type": "integer"
+        },
+        "redirected": {
+          "description": "Whether any redirect was followed",
+          "type": "boolean"
+        },
+        "status_code": {
+          "description": "HTTP status code of the final hop",
+          "type": "integer"
+        },
+        "url": {
+          "description": "The input URL as parsed",
+          "type": "string",
+          "format": "uri"
+        },
+        "warnings": {
+          "description": "Advisory notes: hop-cap truncation, redirect loops, missing Location, https→http downgrade, or a blocked redirect target",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "url",
+        "final_url",
+        "status_code",
+        "redirect_count",
+        "redirected",
+        "hops",
+        "warnings",
+        "queried_at"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "redirect_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "unwrap.use.x402atlas.com",
+    "endpoint": "https://unwrap.use.x402atlas.com/",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

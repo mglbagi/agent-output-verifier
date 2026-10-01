@@ -1,0 +1,131 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c8956bc54ede8518",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "attribution": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "returned": {
+          "type": "integer"
+        },
+        "rows": {
+          "items": {
+            "properties": {
+              "as_of": {
+                "type": "string",
+                "format": "date"
+              },
+              "at_record_extreme": {
+                "type": "boolean"
+              },
+              "change_30d_pct": {
+                "type": "number"
+              },
+              "detail": {
+                "type": "string"
+              },
+              "key": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "observations": {
+                "type": "integer"
+              },
+              "percentile": {
+                "type": "number"
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "record_depth": {
+                "type": "string"
+              },
+              "score": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string"
+              },
+              "value": {
+                "type": "number"
+              }
+            },
+            "type": "object",
+            "required": [
+              "as_of",
+              "at_record_extreme",
+              "change_30d_pct",
+              "key",
+              "name",
+              "observations",
+              "percentile",
+              "rank",
+              "record_depth",
+              "score",
+              "unit",
+              "value"
+            ]
+          },
+          "type": "array"
+        },
+        "schema_version": {
+          "type": "integer"
+        },
+        "score_model": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "total_series": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "endpoint",
+        "rows"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "rows[].key"
+      }
+    ],
+    "bounds": {
+      "total_series": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "thevaultreport.com",
+    "endpoint": "https://thevaultreport.com/api/x402/anomalies",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

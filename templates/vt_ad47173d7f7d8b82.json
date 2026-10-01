@@ -1,0 +1,141 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ad47173d7f7d8b82",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "bars": {
+          "items": {
+            "properties": {
+              "avg": {
+                "description": "Time-weighted (or, for titans, sampled) daily average, USD per hour. Equals the public dashboard value.",
+                "type": "number"
+              },
+              "close": {
+                "description": "Price at the end of the day; null when unavailable.",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "date": {
+                "description": "UTC day.",
+                "format": "date",
+                "type": "string"
+              },
+              "dur": {
+                "description": "Seconds of the day covered by known prices (`direct` rows only).",
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "high": {
+                "description": "Highest price of the day, any zone; null when unavailable.",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "low": {
+                "description": "Lowest price of the day, any zone; null when unavailable.",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "open": {
+                "description": "Price at the start of the day (median across zones for `direct`); null when the source only has an average.",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "source": {
+                "description": "Where a row comes from; see `sources` in /catalog for the legend and standing of each.",
+                "enum": [
+                  "direct",
+                  "titans",
+                  "pauley",
+                  "uscisi-adjusted",
+                  "archive"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "date",
+              "avg",
+              "source"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "direct_from": {
+          "description": "First day served from the raw event store; earlier rows are legacy history. Null for a type with legacy history only.",
+          "format": "date",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "from": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "instance": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "to": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "zones": {
+          "description": "Zone series collapsed in the `direct` rows.",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "bars[].low",
+        "other_field": "bars[].high",
+        "if_present": true
+      },
+      {
+        "type": "lte",
+        "field": "from",
+        "other_field": "to",
+        "if_present": true
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "cloud.trycorpus.ai",
+    "endpoint": "https://cloud.trycorpus.ai/v1/spot/daily",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

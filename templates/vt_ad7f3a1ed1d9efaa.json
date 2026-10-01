@@ -1,0 +1,110 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ad7f3a1ed1d9efaa",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "candles": {
+          "description": "Normalized futures OHLCV bars.",
+          "items": {
+            "properties": {
+              "close": {
+                "type": "number"
+              },
+              "dollar_volume": {
+                "type": "number"
+              },
+              "high": {
+                "type": "number"
+              },
+              "low": {
+                "type": "number"
+              },
+              "open": {
+                "type": "number"
+              },
+              "session_end_date": {
+                "description": "Trading session end date.",
+                "type": "string",
+                "format": "date"
+              },
+              "settlement_price": {
+                "type": "number"
+              },
+              "time": {
+                "description": "Bar start timestamp.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "transactions": {
+                "type": "integer"
+              },
+              "volume": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "time",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "queried_at": {
+          "description": "UTC timestamp when this bridge queried the upstream.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "resolution": {
+          "description": "Echo of the requested candle resolution.",
+          "type": "string"
+        },
+        "ticker": {
+          "description": "Echo of the requested contract ticker.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "queried_at",
+        "ticker",
+        "candles"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "candles[].low",
+        "other_field": "candles[].high"
+      }
+    ],
+    "bounds": {
+      "candles[].dollar_volume": {
+        "min": 0,
+        "if_present": true
+      },
+      "candles[].settlement_price": {
+        "min": 0,
+        "if_present": true
+      },
+      "candles[].volume": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "marketdata.use.x402atlas.com",
+    "endpoint": "https://marketdata.use.x402atlas.com/futures-aggregates",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

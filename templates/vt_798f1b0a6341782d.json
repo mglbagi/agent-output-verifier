@@ -1,0 +1,150 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_798f1b0a6341782d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "pagination": {
+          "type": "object",
+          "properties": {
+            "hasMore": {
+              "type": "boolean"
+            },
+            "limit": {
+              "type": "integer"
+            },
+            "nextOffset": {
+              "type": "integer"
+            },
+            "offset": {
+              "type": "integer"
+            },
+            "total": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "hasMore",
+            "limit",
+            "nextOffset",
+            "offset",
+            "total"
+          ]
+        },
+        "predictionMarkets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "end_ts": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "entity_code": {
+                "type": "string"
+              },
+              "entity_event_category": {
+                "type": "string"
+              },
+              "event_name": {
+                "type": "string"
+              },
+              "event_outcome_type": {
+                "type": "string"
+              },
+              "event_outcomes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "market_id": {
+                      "type": "string"
+                    },
+                    "outcome_name": {
+                      "type": "string"
+                    },
+                    "percentage": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "volume": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "market_id",
+                    "outcome_name",
+                    "percentage",
+                    "status",
+                    "volume"
+                  ]
+                }
+              },
+              "event_ticker": {
+                "type": "string"
+              },
+              "is_series": {
+                "type": "boolean"
+              },
+              "pmcs_categories": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "end_ts",
+              "entity_code",
+              "entity_event_category",
+              "event_name",
+              "event_outcome_type",
+              "event_outcomes",
+              "event_ticker",
+              "is_series",
+              "pmcs_categories"
+            ]
+          }
+        }
+      },
+      "required": [
+        "pagination",
+        "predictionMarkets"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "predictionMarkets[].event_outcomes[].market_id"
+      }
+    ],
+    "bounds": {
+      "pagination.limit": {
+        "min": 0
+      },
+      "pagination.total": {
+        "min": 0
+      },
+      "predictionMarkets[].event_outcomes[].percentage": {
+        "min": 0,
+        "max": 100
+      },
+      "predictionMarkets[].event_outcomes[].volume": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.predictionmarketdata.io",
+    "endpoint": "https://api.predictionmarketdata.io/prediction-markets",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

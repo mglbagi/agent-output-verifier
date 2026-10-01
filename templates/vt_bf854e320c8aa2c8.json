@@ -1,0 +1,56 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bf854e320c8aa2c8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "format": {
+          "type": "string"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "imageDataUrl": {
+          "type": "string"
+        },
+        "resizedAt": {
+          "type": "string"
+        },
+        "sizeBytes": {
+          "type": "integer"
+        },
+        "width": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "format",
+        "height",
+        "imageDataUrl",
+        "resizedAt",
+        "sizeBytes",
+        "width"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "height": {
+        "min": 0
+      },
+      "width": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "lab.paidapis.net",
+    "endpoint": "https://lab.paidapis.net/api/resize-image",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

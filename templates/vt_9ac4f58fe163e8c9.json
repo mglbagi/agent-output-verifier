@@ -1,0 +1,153 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9ac4f58fe163e8c9",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "about": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "connections": {
+          "type": "integer"
+        },
+        "country_code": {
+          "type": "string"
+        },
+        "current_company": {
+          "type": "string"
+        },
+        "education": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "degree": {},
+              "description": {},
+              "end_year": {
+                "type": "integer"
+              },
+              "field": {},
+              "school": {
+                "type": "string"
+              },
+              "school_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "start_year": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "end_year",
+              "school",
+              "school_url",
+              "start_year"
+            ]
+          }
+        },
+        "experience": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "company": {
+                "type": "string"
+              },
+              "company_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "description": {},
+              "duration": {
+                "type": "string"
+              },
+              "end_year": {},
+              "is_current": {
+                "type": "boolean"
+              },
+              "start_year": {
+                "type": "integer"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "company",
+              "company_url",
+              "duration",
+              "is_current",
+              "start_year",
+              "title"
+            ]
+          }
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "followers": {
+          "type": "integer"
+        },
+        "headline": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "about",
+        "avatar",
+        "connections",
+        "country_code",
+        "current_company",
+        "education",
+        "experience",
+        "first_name",
+        "followers",
+        "headline",
+        "last_name",
+        "location",
+        "name",
+        "url",
+        "username"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "education[].start_year",
+        "other_field": "education[].end_year"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agdata.shveik.dev",
+    "endpoint": "https://agdata.shveik.dev/x402/linkedin",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

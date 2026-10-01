@@ -1,0 +1,57 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6cd23c3e275c30bb",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "asset": {
+          "type": "string"
+        },
+        "divergence_flags": {
+          "type": "integer"
+        },
+        "fully_parsed": {
+          "type": "integer"
+        },
+        "group_posts_ingested": {
+          "type": "integer"
+        },
+        "note": {
+          "type": "string"
+        },
+        "paid_calls_served": {
+          "type": "integer"
+        },
+        "signals_logged": {
+          "type": "integer"
+        },
+        "tracking_since_epoch": {
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "required": [
+        "asset",
+        "divergence_flags",
+        "fully_parsed",
+        "group_posts_ingested",
+        "note",
+        "paid_calls_served",
+        "signals_logged",
+        "tracking_since_epoch"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "vedetta.dethboy.com",
+    "endpoint": "https://vedetta.dethboy.com/v1/track-record",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

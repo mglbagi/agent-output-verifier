@@ -1,0 +1,78 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2a8b9f76b67d54fb",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "generatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "models": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "contextWindow": {
+                "type": "integer"
+              },
+              "id": {
+                "type": "string"
+              },
+              "inputPricePerM": {
+                "type": "number"
+              },
+              "isOpenSource": {
+                "type": "boolean"
+              },
+              "name": {
+                "type": "string"
+              },
+              "outputPricePerM": {
+                "type": "number"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "tokenizerFamily": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "contextWindow",
+              "id",
+              "inputPricePerM",
+              "isOpenSource",
+              "name",
+              "outputPricePerM",
+              "provider",
+              "tokenizerFamily"
+            ]
+          }
+        }
+      },
+      "required": [
+        "generatedAt",
+        "models"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "models[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "contextiq.trango-compute.com",
+    "endpoint": "https://contextiq.trango-compute.com/api/v1/token-inspector/pricing/x402-v2",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

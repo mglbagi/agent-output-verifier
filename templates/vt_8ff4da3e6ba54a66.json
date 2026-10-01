@@ -1,0 +1,161 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8ff4da3e6ba54a66",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "age_days": {
+          "type": "integer"
+        },
+        "as_of": {
+          "type": "string",
+          "format": "date"
+        },
+        "calls_30d": {
+          "type": "integer"
+        },
+        "caveats": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "est_take_30d_list_price": {
+          "type": "number"
+        },
+        "going_rate": {
+          "type": "number"
+        },
+        "host": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "payers_30d": {
+          "type": "integer"
+        },
+        "price_med": {
+          "type": "number"
+        },
+        "rank_by_calls": {
+          "type": "integer"
+        },
+        "rank_by_money": {
+          "type": "integer"
+        },
+        "replay": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "calls": {
+                "type": "integer"
+              },
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "payers": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "calls",
+              "date",
+              "payers"
+            ]
+          }
+        },
+        "rivals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "calls": {
+                "type": "integer"
+              },
+              "host": {
+                "type": "string"
+              },
+              "price_med": {
+                "type": "number"
+              },
+              "sells": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "calls",
+              "host",
+              "price_med",
+              "sells"
+            ]
+          }
+        },
+        "sellers_in_market": {
+          "type": "integer"
+        },
+        "sells": {
+          "type": "string"
+        },
+        "share_of_paid_calls_pct": {
+          "type": "number"
+        },
+        "you_are": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "age_days",
+        "as_of",
+        "calls_30d",
+        "caveats",
+        "est_take_30d_list_price",
+        "going_rate",
+        "host",
+        "ok",
+        "payers_30d",
+        "price_med",
+        "rank_by_calls",
+        "rank_by_money",
+        "replay",
+        "rivals",
+        "sellers_in_market",
+        "sells",
+        "share_of_paid_calls_pct",
+        "you_are"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "age_days": {
+        "min": 0
+      },
+      "est_take_30d_list_price": {
+        "min": 0
+      },
+      "price_med": {
+        "min": 0
+      },
+      "rivals[].price_med": {
+        "min": 0
+      },
+      "share_of_paid_calls_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ausrine-who.onrender.com",
+    "endpoint": "https://ausrine-who.onrender.com/who/:target",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

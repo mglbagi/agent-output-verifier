@@ -1,0 +1,64 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cdb3bdfc6ac19e72",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "api_version": {
+          "type": "string"
+        },
+        "checked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "error": {
+          "type": "string"
+        },
+        "final_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "redirected": {
+          "type": "boolean"
+        },
+        "response_time_ms": {
+          "type": "integer"
+        },
+        "status_code": {
+          "type": "integer"
+        },
+        "up": {
+          "type": "boolean"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "api_version",
+        "url",
+        "up",
+        "status_code",
+        "response_time_ms",
+        "final_url",
+        "redirected",
+        "error",
+        "checked_at"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "url-uptime-checker.underscoredone.com",
+    "endpoint": "https://url-uptime-checker.underscoredone.com/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

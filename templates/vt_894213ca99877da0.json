@@ -1,0 +1,68 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_894213ca99877da0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "prices": {
+          "items": {
+            "properties": {
+              "change_24h_pct": {
+                "type": "number"
+              },
+              "id": {
+                "type": "string"
+              },
+              "price": {
+                "type": "number"
+              },
+              "symbol": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "change_24h_pct",
+              "id",
+              "price",
+              "symbol"
+            ]
+          },
+          "type": "array"
+        },
+        "vs_currency": {
+          "type": "string"
+        },
+        "x402_receipt": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "vs_currency",
+        "prices"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "prices[].id"
+      }
+    ],
+    "bounds": {
+      "prices[].price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.agentindex.world",
+    "endpoint": "https://x402.agentindex.world/crypto",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

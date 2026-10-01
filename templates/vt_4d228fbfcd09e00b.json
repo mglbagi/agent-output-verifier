@@ -1,0 +1,113 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4d228fbfcd09e00b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "artifacts": {
+          "maxItems": 0,
+          "type": "array"
+        },
+        "executionId": {
+          "type": "string"
+        },
+        "receipt": {
+          "additionalProperties": true,
+          "properties": {
+            "receiptId": {
+              "type": "string"
+            },
+            "resultSha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "serviceId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "receiptId",
+            "serviceId",
+            "resultSha256"
+          ],
+          "type": "object"
+        },
+        "replay": {
+          "type": "boolean"
+        },
+        "requestId": {
+          "type": "string"
+        },
+        "result": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "maxProperties": 4,
+          "minProperties": 4,
+          "properties": {
+            "analysis_json": {
+              "maxLength": 65536,
+              "minLength": 2,
+              "type": "string"
+            },
+            "evidence_scope": {
+              "const": "caller_supplied_data",
+              "maxLength": 20,
+              "minLength": 20,
+              "type": "string"
+            },
+            "service_id": {
+              "const": "agent_research_trace_report",
+              "maxLength": 27,
+              "minLength": 27,
+              "type": "string"
+            },
+            "warnings": {
+              "items": {
+                "maxLength": 512,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 8,
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "service_id",
+            "evidence_scope",
+            "analysis_json",
+            "warnings"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "const": "succeeded",
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "replay",
+        "requestId",
+        "executionId",
+        "result",
+        "receipt",
+        "artifacts"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "signalharness.ai",
+    "endpoint": "https://signalharness.ai/api/agent/services/agent_research_trace_report/invoke",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

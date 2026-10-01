@@ -1,0 +1,101 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bbc6e0e825412075",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "bids": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "bid_ntce_no": {
+                "type": "string"
+              },
+              "bid_type": {
+                "type": "string"
+              },
+              "budget_krw": {
+                "type": "integer"
+              },
+              "close_dt": {
+                "type": "string"
+              },
+              "detail_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "estimated_price_krw": {
+                "type": "number"
+              },
+              "id": {
+                "type": "integer"
+              },
+              "notice_dt": {
+                "type": "string"
+              },
+              "org_demand": {
+                "type": "string"
+              },
+              "org_notice": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "bid_ntce_no",
+              "bid_type",
+              "budget_krw",
+              "close_dt",
+              "detail_url",
+              "estimated_price_krw",
+              "id",
+              "notice_dt",
+              "org_demand",
+              "org_notice",
+              "title"
+            ]
+          }
+        },
+        "count": {
+          "type": "integer"
+        },
+        "cursor": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "bids",
+        "count",
+        "cursor"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "bids[].id"
+      }
+    ],
+    "bounds": {
+      "bids[].estimated_price_krw": {
+        "min": 0
+      },
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "dartapi.ljaysk.com",
+    "endpoint": "https://dartapi.ljaysk.com/v1/bids",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

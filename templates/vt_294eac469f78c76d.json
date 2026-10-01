@@ -1,0 +1,96 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_294eac469f78c76d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "asset": {
+          "type": "string"
+        },
+        "funding_rate_8h_pct": {
+          "type": "string"
+        },
+        "open_interest_usd": {
+          "type": "number"
+        },
+        "price_change": {
+          "type": "object",
+          "properties": {
+            "24h_pct": {
+              "type": "number"
+            },
+            "7d_pct": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "24h_pct",
+            "7d_pct"
+          ]
+        },
+        "protocol_tvl": {
+          "type": "object",
+          "properties": {
+            "change_24h_pct": {
+              "type": "number"
+            },
+            "change_7d_pct": {
+              "type": "number"
+            },
+            "slug": {
+              "type": "string"
+            },
+            "tvl_usd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "change_24h_pct",
+            "change_7d_pct",
+            "slug",
+            "tvl_usd"
+          ]
+        },
+        "score": {
+          "type": "number"
+        },
+        "sentiment": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "asset",
+        "funding_rate_8h_pct",
+        "open_interest_usd",
+        "price_change",
+        "protocol_tvl",
+        "score",
+        "sentiment"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "open_interest_usd": {
+        "min": 0
+      },
+      "price_change.24h_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "protocol_tvl.tvl_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "xhagents.xyz",
+    "endpoint": "https://xhagents.xyz/api/defi-sentiment",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

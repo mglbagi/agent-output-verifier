@@ -1,0 +1,147 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_31733851a284ad61",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "base_fee_gwei": {
+          "type": "number"
+        },
+        "block_number": {
+          "type": "integer"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "chain_id": {
+          "type": "integer"
+        },
+        "cost_usdc": {
+          "type": "number"
+        },
+        "freshness_seconds": {
+          "type": "integer"
+        },
+        "gas_price_gwei": {
+          "type": "number"
+        },
+        "native_price_usd": {
+          "type": "number"
+        },
+        "native_token": {
+          "type": "string"
+        },
+        "routing": {
+          "type": "object",
+          "properties": {
+            "cache_hit": {
+              "type": "boolean"
+            },
+            "latency_ms": {
+              "type": "integer"
+            },
+            "provider": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "cache_hit",
+            "latency_ms",
+            "provider"
+          ]
+        },
+        "tiers": {
+          "type": "object",
+          "properties": {
+            "standard": {
+              "type": "object",
+              "properties": {
+                "cost_usd": {
+                  "type": "object",
+                  "properties": {
+                    "swap": {
+                      "type": "number"
+                    },
+                    "transfer": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "swap",
+                    "transfer"
+                  ]
+                },
+                "max_fee_gwei": {
+                  "type": "number"
+                },
+                "priority_fee_gwei": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "cost_usd",
+                "max_fee_gwei",
+                "priority_fee_gwei"
+              ]
+            }
+          },
+          "required": [
+            "standard"
+          ]
+        },
+        "trend": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "base_fee_gwei",
+        "block_number",
+        "chain",
+        "chain_id",
+        "cost_usdc",
+        "freshness_seconds",
+        "gas_price_gwei",
+        "native_price_usd",
+        "native_token",
+        "routing",
+        "tiers",
+        "trend"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "base_fee_gwei": {
+        "min": 0
+      },
+      "block_number": {
+        "min": 0
+      },
+      "cost_usdc": {
+        "min": 0
+      },
+      "gas_price_gwei": {
+        "min": 0
+      },
+      "native_price_usd": {
+        "min": 0
+      },
+      "tiers.standard.max_fee_gwei": {
+        "min": 0
+      },
+      "tiers.standard.priority_fee_gwei": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-margin-router-production.up.railway.app",
+    "endpoint": "https://agent-margin-router-production.up.railway.app/gas-fees",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

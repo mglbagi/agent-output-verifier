@@ -1,0 +1,167 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c9f75dac2d989634",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "cloak_proof": {
+          "type": "object"
+        },
+        "endpoints": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "free_via_victimhood": {
+          "type": "boolean"
+        },
+        "hop_count": {
+          "type": "integer"
+        },
+        "hops": {
+          "items": {
+            "properties": {
+              "amount_sol": {
+                "type": "number"
+              },
+              "destination_category": {
+                "type": "string"
+              },
+              "destination_label": {
+                "type": "string"
+              },
+              "from": {
+                "type": "string"
+              },
+              "hop_number": {
+                "type": "integer"
+              },
+              "timestamp": {
+                "type": "number"
+              },
+              "to": {
+                "type": "string"
+              },
+              "tx_signature": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "latency_ms": {
+          "type": "number"
+        },
+        "origin_risk": {
+          "type": "object"
+        },
+        "origin_token": {
+          "type": "object"
+        },
+        "provenance": {
+          "description": "Freshness of this answer: when it was fetched/computed (UTC), whether it came from a cache layer, and the Solana slot it reflects when the underlying data source exposes one (null otherwise).",
+          "properties": {
+            "as_of_slot": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "cached": {
+              "type": "boolean"
+            },
+            "fetched_at": {
+              "description": "ISO-8601 UTC timestamp",
+              "type": "string",
+              "format": "date-time"
+            },
+            "source": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "cached",
+            "fetched_at"
+          ]
+        },
+        "reached_cex": {
+          "type": "boolean"
+        },
+        "reached_mixer": {
+          "type": "boolean"
+        },
+        "spl_outflows": {
+          "description": "Token-leg outflows; a SOL-only reading of this trace is incomplete",
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "total_sol_drained": {
+          "type": "number"
+        },
+        "trace_time_ms": {
+          "type": "number"
+        },
+        "victim_verdict": {
+          "type": "object"
+        },
+        "wallet": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "cloak_proof",
+        "endpoints",
+        "free_via_victimhood",
+        "hop_count",
+        "hops",
+        "latency_ms",
+        "origin_risk",
+        "origin_token",
+        "provenance",
+        "reached_cex",
+        "reached_mixer",
+        "spl_outflows",
+        "total_sol_drained",
+        "trace_time_ms",
+        "victim_verdict",
+        "wallet"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "hop_count": {
+        "min": 0
+      },
+      "hops[].amount_sol": {
+        "min": 0,
+        "if_present": true
+      },
+      "hops[].hop_number": {
+        "min": 0,
+        "if_present": true
+      },
+      "total_sol_drained": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.solsentry.app",
+    "endpoint": "https://api.solsentry.app/x402/v1/drain-trace/:solana_address",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

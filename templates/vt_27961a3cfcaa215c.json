@@ -1,0 +1,138 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_27961a3cfcaa215c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "cache_age_seconds": {},
+        "error": {},
+        "is_cached": {
+          "type": "boolean"
+        },
+        "lens_type": {
+          "type": "string"
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "artifact_type": {
+                "type": "string"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "performance_kpis": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "current": {
+                          "type": "object",
+                          "properties": {
+                            "value": {},
+                            "value_type": {}
+                          },
+                          "required": [
+                            "value",
+                            "value_type"
+                          ]
+                        },
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "current",
+                        "id"
+                      ]
+                    }
+                  },
+                  "performance_scores": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "value"
+                      ]
+                    }
+                  }
+                }
+              },
+              "content_type": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "artifact_type",
+              "content",
+              "content_type",
+              "kind"
+            ]
+          }
+        },
+        "process_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "stage": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "wait_url": {}
+      },
+      "required": [
+        "is_cached",
+        "lens_type",
+        "outputs",
+        "process_id",
+        "retrieved_at",
+        "stage",
+        "status"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "outputs[].content.performance_kpis[].id",
+        "if_present": true
+      },
+      {
+        "type": "unique",
+        "field": "outputs[].content.performance_scores[].id",
+        "if_present": true
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.messyvirgo.com",
+    "endpoint": "https://api.messyvirgo.com/api/v1/paid/token-due-diligence/scorecard",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

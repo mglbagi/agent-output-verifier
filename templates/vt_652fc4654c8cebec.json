@@ -1,0 +1,152 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_652fc4654c8cebec",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "fetchedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "models": {
+          "items": {
+            "properties": {
+              "cachedInputPerMTok": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "contextLength": {
+                "type": "integer"
+              },
+              "created": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date"
+              },
+              "features": {
+                "items": {
+                  "enum": [
+                    "tools",
+                    "json",
+                    "reasoning",
+                    "vision",
+                    "audio",
+                    "files",
+                    "web-search"
+                  ],
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "free": {
+                "type": "boolean"
+              },
+              "id": {
+                "description": "OpenRouter model id (provider/model).",
+                "type": "string"
+              },
+              "inputModalities": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "inputPerMTok": {
+                "description": "USD per million input tokens.",
+                "type": "number"
+              },
+              "knowledgeCutoff": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "maxOutputTokens": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "name": {
+                "type": "string"
+              },
+              "outputPerMTok": {
+                "description": "USD per million output tokens.",
+                "type": "number"
+              },
+              "perRequestUsd": {
+                "type": "number"
+              },
+              "provider": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "cachedInputPerMTok",
+              "contextLength",
+              "created",
+              "features",
+              "free",
+              "id",
+              "inputModalities",
+              "inputPerMTok",
+              "maxOutputTokens",
+              "name",
+              "outputPerMTok",
+              "perRequestUsd",
+              "provider"
+            ]
+          },
+          "type": "array"
+        },
+        "source": {
+          "type": "string"
+        },
+        "total": {
+          "description": "Models matching before the limit.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "count",
+        "total",
+        "models",
+        "source",
+        "fetchedAt"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "models[].id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "aayatai.com",
+    "endpoint": "https://aayatai.com/ai/models",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

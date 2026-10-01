@@ -1,0 +1,64 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cece5e6c0527a03b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "basket": {
+          "type": "array"
+        },
+        "crash_shield_active": {
+          "type": "boolean"
+        },
+        "eth_price_usd": {
+          "type": "number"
+        },
+        "meta": {
+          "type": "object"
+        },
+        "nav_usd": {
+          "type": "number"
+        },
+        "slippage_buffer_pct": {
+          "type": "number"
+        },
+        "slippage_reason": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "nav_usd",
+        "eth_price_usd",
+        "crash_shield_active",
+        "slippage_buffer_pct",
+        "slippage_reason",
+        "basket",
+        "meta"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "eth_price_usd": {
+        "min": 0
+      },
+      "nav_usd": {
+        "min": 0
+      },
+      "slippage_buffer_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "gblin.digital",
+    "endpoint": "https://gblin.digital/api/x402/treasury-state",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

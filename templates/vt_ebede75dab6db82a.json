@@ -1,0 +1,47 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ebede75dab6db82a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "lastFetch": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastSync": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "totalCountries": {
+          "type": "number"
+        },
+        "totalDataPoints": {
+          "type": "number"
+        },
+        "totalIndicators": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "lastFetch",
+        "lastSync",
+        "totalCountries",
+        "totalDataPoints",
+        "totalIndicators"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "econdash.org",
+    "endpoint": "https://econdash.org/api/v1/m2m/stats",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

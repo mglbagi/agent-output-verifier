@@ -1,0 +1,89 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4c1e0e3ff0d338bd",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "aiReadiness": {
+          "type": "object"
+        },
+        "capture": {
+          "type": "object"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "error": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "finalUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "headings": {
+          "type": "object"
+        },
+        "jsonLd": {
+          "type": "array"
+        },
+        "links": {
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "openGraph": {
+          "type": "object"
+        },
+        "requestedUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "sourceOk": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "text": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "ok",
+        "url",
+        "title",
+        "status",
+        "sourceOk",
+        "requestedUrl",
+        "finalUrl"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agents.samedaydesk.com",
+    "endpoint": "https://agents.samedaydesk.com/extract",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

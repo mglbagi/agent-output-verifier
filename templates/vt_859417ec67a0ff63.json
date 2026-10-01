@@ -1,0 +1,173 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_859417ec67a0ff63",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "meta": {
+          "additionalProperties": false,
+          "properties": {
+            "resultCount": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "searchedAt": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "resultCount",
+            "searchedAt"
+          ],
+          "type": "object"
+        },
+        "results": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "airlineCodes": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "itineraries": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "duration": {
+                      "type": "string"
+                    },
+                    "numberOfStops": {
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "segments": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "aircraft": {
+                            "type": "string"
+                          },
+                          "arrival": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "airportCode": {
+                                "type": "string"
+                              },
+                              "at": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object",
+                            "required": [
+                              "airportCode",
+                              "at"
+                            ]
+                          },
+                          "carrierCode": {
+                            "type": "string"
+                          },
+                          "departure": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "airportCode": {
+                                "type": "string"
+                              },
+                              "at": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object",
+                            "required": [
+                              "airportCode",
+                              "at"
+                            ]
+                          },
+                          "duration": {
+                            "type": "string"
+                          },
+                          "flightNumber": {
+                            "type": "string"
+                          },
+                          "operatingCarrierCode": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "departure",
+                          "arrival"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "numberOfStops",
+                    "segments"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "source": {
+                "const": "flight_search",
+                "type": "string"
+              },
+              "totalPrice": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "source",
+              "totalPrice",
+              "currency",
+              "airlineCodes",
+              "itineraries"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "results",
+        "meta"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "results[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.munition.io",
+    "endpoint": "https://api.munition.io/v1/flights/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

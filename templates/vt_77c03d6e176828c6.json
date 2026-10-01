@@ -1,0 +1,113 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_77c03d6e176828c6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "property_token": {
+          "type": "string"
+        },
+        "queried_at": {
+          "description": "Time the lookup ran (UTC)",
+          "format": "date-time",
+          "type": "string"
+        },
+        "sections": {
+          "items": {
+            "properties": {
+              "next_page_token": {
+                "description": "Pass back as next_page_token to page this section",
+                "type": "string"
+              },
+              "photos": {
+                "items": {
+                  "properties": {
+                    "height": {
+                      "type": "integer"
+                    },
+                    "photo_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "posted_on": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "source": {
+                      "type": "string"
+                    },
+                    "source_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "thumbnail_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "width": {
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object",
+                  "required": [
+                    "height",
+                    "photo_url",
+                    "posted_on",
+                    "source",
+                    "source_url",
+                    "thumbnail_url",
+                    "width"
+                  ]
+                },
+                "type": "array"
+              },
+              "title": {
+                "description": "Theme of the section",
+                "type": "string"
+              },
+              "total": {
+                "description": "Photos available in this section",
+                "type": "integer"
+              }
+            },
+            "type": "object",
+            "required": [
+              "photos",
+              "title",
+              "total"
+            ]
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "queried_at",
+        "property_token",
+        "sections"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "sections[].photos[].height": {
+        "min": 0
+      },
+      "sections[].photos[].width": {
+        "min": 0
+      },
+      "sections[].total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hotels.use.x402atlas.com",
+    "endpoint": "https://hotels.use.x402atlas.com/photos",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

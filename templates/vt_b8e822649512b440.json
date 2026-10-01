@@ -1,0 +1,68 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b8e822649512b440",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "bot_category": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "ip": {
+          "type": "string"
+        },
+        "seen": {
+          "type": "boolean"
+        },
+        "trap_categories_triggered": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "count": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "category",
+              "count"
+            ]
+          }
+        },
+        "used_honeypot_credential": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "bot_category",
+        "confidence",
+        "ip",
+        "seen",
+        "trap_categories_triggered",
+        "used_honeypot_credential"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "trap_categories_triggered[].count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "r3l4y58.bithash.cc",
+    "endpoint": "https://r3l4y58.bithash.cc/lookup/:ip",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

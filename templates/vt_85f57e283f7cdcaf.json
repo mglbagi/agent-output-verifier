@@ -1,0 +1,74 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_85f57e283f7cdcaf",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "appliedSince": {
+          "format": "date",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "count": {
+          "type": "integer"
+        },
+        "form": {
+          "enum": [
+            "10-K",
+            "10-Q",
+            "8-K"
+          ],
+          "type": "string"
+        },
+        "items": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "meta": {
+          "type": "object"
+        },
+        "resolved": {
+          "type": "object"
+        },
+        "source": {
+          "type": "object"
+        },
+        "truncation": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "count",
+        "form",
+        "items",
+        "meta",
+        "resolved",
+        "source"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "edgar.apitoll.cloud",
+    "endpoint": "https://edgar.apitoll.cloud/v1/edgar/filings",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

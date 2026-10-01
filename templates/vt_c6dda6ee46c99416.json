@@ -1,0 +1,47 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c6dda6ee46c99416",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "artifact": {
+          "description": "A2A-format artifact containing the AEO/GEO strategy report as markdown text",
+          "type": "object"
+        },
+        "status": {
+          "description": "completed | failed",
+          "type": "string"
+        },
+        "tokens": {
+          "type": "number"
+        },
+        "tool_calls": {
+          "description": "Tools used: queryLiveResearch, retrieveSharedAEO, retrieveCallerMemory, storeCallerMemory",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "artifact",
+        "status",
+        "tokens",
+        "tool_calls"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "aeonos.basechainlabs.com",
+    "endpoint": "https://aeonos.basechainlabs.com/api/agent",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

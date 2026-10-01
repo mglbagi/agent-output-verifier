@@ -1,0 +1,160 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_12461d468f7a83af",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "description": "Verifiable Random result and complete drand derivation transcript.",
+      "properties": {
+        "algorithm_version": {
+          "description": "Pinned canonicalization, derivation, and sampling algorithm version required to reproduce the result.",
+          "enum": [
+            "drand-hkdf-sha256-v1"
+          ],
+          "type": "string"
+        },
+        "beacon": {
+          "additionalProperties": false,
+          "description": "Locally verified drand Quicknet proof used as the public randomness source.",
+          "properties": {
+            "chain_hash": {
+              "description": "Pinned Quicknet chain hash used to fetch and verify the round.",
+              "enum": [
+                "52db9ba70e0cc0f6eaf7803dd07447a1f5477735fd3f661792ba94600c84e971"
+              ],
+              "type": "string"
+            },
+            "network": {
+              "description": "Pinned drand network name.",
+              "enum": [
+                "quicknet"
+              ],
+              "type": "string"
+            },
+            "randomness": {
+              "description": "Lowercase hexadecimal randomness derived from the verified signature.",
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "round": {
+              "description": "Exact verified Quicknet round used for this result.",
+              "minimum": 1,
+              "type": "integer"
+            },
+            "scheduled_time": {
+              "description": "Scheduled UTC publication time of the selected round.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "scheme": {
+              "description": "Pinned drand signature scheme.",
+              "enum": [
+                "bls-unchained-g1-rfc9380"
+              ],
+              "type": "string"
+            },
+            "signature": {
+              "description": "Lowercase hexadecimal BLS signature verified against the pinned Quicknet public key.",
+              "pattern": "^[0-9a-f]{96}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "network",
+            "chain_hash",
+            "scheme",
+            "round",
+            "scheduled_time",
+            "randomness",
+            "signature"
+          ],
+          "type": "object"
+        },
+        "example_only": {
+          "description": "True only in compiled catalog/keepalive examples; live paid results are false.",
+          "type": "boolean"
+        },
+        "operation": {
+          "description": "Random operation performed by this route.",
+          "enum": [
+            "pick"
+          ],
+          "type": "string"
+        },
+        "processed_at": {
+          "description": "UTC time when the service accepted the request and committed to the round-selection decision.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "request_hash": {
+          "description": "Lowercase SHA-256 of your canonical request JSON — retain the exact request body so you can re-derive the result offline.",
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "result": {
+          "additionalProperties": false,
+          "description": "Operation-specific result derived deterministically from the verified beacon and request hash.",
+          "properties": {
+            "items": {
+              "description": "Selected strings in draw order.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "original_indices": {
+              "description": "For each selected value, its zero-based position in the input array.",
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "items",
+            "original_indices"
+          ],
+          "type": "object"
+        },
+        "selection_mode": {
+          "description": "server_next means the server chose the next safe unpublished round, so you trust its selection chronology; client_fixed means the round is the one you committed to before paying and no other round can be substituted; example_only appears only in catalog examples.",
+          "enum": [
+            "server_next",
+            "client_fixed",
+            "example_only"
+          ],
+          "type": "string"
+        },
+        "target_round": {
+          "description": "Echoes the round actually selected for this result; in server_next mode this is the server-chosen round, not the 0 you sent.",
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "operation",
+        "algorithm_version",
+        "selection_mode",
+        "target_round",
+        "example_only",
+        "processed_at",
+        "request_hash",
+        "beacon",
+        "result"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "verifiable-random.use.x402atlas.com",
+    "endpoint": "https://verifiable-random.use.x402atlas.com/pick",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

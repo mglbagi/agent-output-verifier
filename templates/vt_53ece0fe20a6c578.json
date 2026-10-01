@@ -1,0 +1,89 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_53ece0fe20a6c578",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "query": {
+          "type": "string"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "extracted_price": {
+                "type": "number"
+              },
+              "link": {
+                "type": "string",
+                "format": "uri"
+              },
+              "price": {
+                "type": "string"
+              },
+              "product_id": {
+                "type": "string"
+              },
+              "rating": {
+                "type": "number"
+              },
+              "reviews": {
+                "type": "integer"
+              },
+              "source": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "extracted_price",
+              "link",
+              "price",
+              "product_id",
+              "rating",
+              "reviews",
+              "source",
+              "title"
+            ]
+          }
+        }
+      },
+      "required": [
+        "count",
+        "query",
+        "results"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "results[].product_id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "results[].extracted_price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agentbit.app",
+    "endpoint": "https://agentbit.app/v1/search/shopping",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

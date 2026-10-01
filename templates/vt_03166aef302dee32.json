@@ -1,0 +1,265 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_03166aef302dee32",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "alrededor": {
+          "type": "object",
+          "properties": {
+            "avisos": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "grupos": {
+              "type": "object",
+              "properties": {
+                "comida": {
+                  "type": "array"
+                },
+                "cripto": {
+                  "type": "array"
+                },
+                "hoteles": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "cocina": {},
+                      "direccion": {},
+                      "estrellas": {
+                        "type": "string"
+                      },
+                      "lat": {
+                        "type": "number"
+                      },
+                      "lon": {
+                        "type": "number"
+                      },
+                      "nombre": {
+                        "type": "string"
+                      },
+                      "pago": {
+                        "type": "object",
+                        "properties": {}
+                      },
+                      "rango": {
+                        "type": "string"
+                      },
+                      "telefono": {},
+                      "tipo": {
+                        "type": "string"
+                      },
+                      "web": {}
+                    },
+                    "required": [
+                      "estrellas",
+                      "lat",
+                      "lon",
+                      "nombre",
+                      "pago",
+                      "rango",
+                      "tipo"
+                    ]
+                  }
+                },
+                "pagos": {
+                  "type": "array"
+                },
+                "transporte": {
+                  "type": "array"
+                }
+              },
+              "required": [
+                "comida",
+                "cripto",
+                "hoteles",
+                "pagos",
+                "transporte"
+              ]
+            },
+            "nota_precios": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "avisos",
+            "grupos",
+            "nota_precios"
+          ]
+        },
+        "clima": {
+          "type": "object",
+          "properties": {
+            "dias": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "cielo": {
+                    "type": "string"
+                  },
+                  "fecha": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "lluvia_mm": {
+                    "type": "number"
+                  },
+                  "max_c": {
+                    "type": "number"
+                  },
+                  "min_c": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "cielo",
+                  "fecha",
+                  "lluvia_mm",
+                  "max_c",
+                  "min_c"
+                ]
+              }
+            },
+            "disponible": {
+              "type": "boolean"
+            },
+            "fuente": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "dias",
+            "disponible",
+            "fuente"
+          ]
+        },
+        "como_moverse": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "desde": {
+                "type": "string"
+              },
+              "distancia_km": {
+                "type": "number"
+              },
+              "fuente": {
+                "type": "string"
+              },
+              "horas": {
+                "type": "number"
+              },
+              "modo": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "desde",
+              "distancia_km",
+              "fuente",
+              "horas",
+              "modo"
+            ]
+          }
+        },
+        "destino": {
+          "type": "object",
+          "properties": {
+            "lat": {
+              "type": "number"
+            },
+            "lon": {
+              "type": "number"
+            },
+            "pais": {
+              "type": "string"
+            },
+            "pedido": {
+              "type": "string"
+            },
+            "ubicado": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "lat",
+            "lon",
+            "pais",
+            "pedido",
+            "ubicado"
+          ]
+        },
+        "fuentes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pagos_y_cripto": {
+          "type": "object",
+          "properties": {
+            "acepta_cripto_declarado": {
+              "type": "array"
+            },
+            "cajeros_y_bancos": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "acepta_cripto_declarado",
+            "cajeros_y_bancos"
+          ]
+        }
+      },
+      "required": [
+        "alrededor",
+        "clima",
+        "como_moverse",
+        "destino",
+        "fuentes",
+        "pagos_y_cripto"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "clima.dias[].min_c",
+        "other_field": "clima.dias[].max_c"
+      }
+    ],
+    "bounds": {
+      "alrededor.grupos.hoteles[].lat": {
+        "min": -90,
+        "max": 90
+      },
+      "alrededor.grupos.hoteles[].lon": {
+        "min": -180,
+        "max": 180
+      },
+      "destino.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "destino.lon": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "fachada.chelsea-hermes.workers.dev",
+    "endpoint": "https://fachada.chelsea-hermes.workers.dev/trip/v1/plan",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

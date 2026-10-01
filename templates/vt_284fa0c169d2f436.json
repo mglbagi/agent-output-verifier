@@ -1,0 +1,101 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_284fa0c169d2f436",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "_pricing": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "string"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "tier": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount",
+            "currency",
+            "tier"
+          ]
+        },
+        "bundle": {
+          "type": "object",
+          "properties": {
+            "iban": {
+              "type": "object",
+              "properties": {
+                "country": {
+                  "type": "string"
+                },
+                "gate": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "country",
+                "gate"
+              ]
+            }
+          },
+          "required": [
+            "iban"
+          ]
+        },
+        "gate_results": {
+          "type": "object",
+          "properties": {
+            "iban": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "iban"
+          ]
+        },
+        "receipt": {
+          "type": "object",
+          "properties": {
+            "tier": {
+              "type": "string"
+            },
+            "tool": {
+              "type": "string"
+            },
+            "v": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "tier",
+            "tool",
+            "v"
+          ]
+        }
+      },
+      "required": [
+        "_pricing",
+        "bundle",
+        "gate_results",
+        "receipt"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "verify.code402.dev",
+    "endpoint": "https://verify.code402.dev/v1/verify/bundle",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

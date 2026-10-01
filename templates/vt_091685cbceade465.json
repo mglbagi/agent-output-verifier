@@ -1,0 +1,113 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_091685cbceade465",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "blended_metrics": {
+          "type": "object",
+          "properties": {
+            "adoption": {
+              "type": "number"
+            },
+            "economic_model": {
+              "type": "number"
+            },
+            "legal_clarity": {
+              "type": "number"
+            },
+            "liquidity": {
+              "type": "number"
+            },
+            "longevity": {
+              "type": "number"
+            },
+            "network_security": {
+              "type": "number"
+            },
+            "privacy": {
+              "type": "number"
+            },
+            "technical_dev": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "adoption",
+            "economic_model",
+            "legal_clarity",
+            "liquidity",
+            "longevity",
+            "network_security",
+            "privacy",
+            "technical_dev"
+          ]
+        },
+        "holdings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "allocation_pct": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "tvr_score": {
+                "type": "integer"
+              },
+              "valuation": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "allocation_pct",
+              "name",
+              "symbol",
+              "tvr_score",
+              "valuation"
+            ]
+          }
+        },
+        "portfolio_tvr_score": {
+          "type": "number"
+        },
+        "product": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "blended_metrics",
+        "holdings",
+        "portfolio_tvr_score",
+        "product",
+        "success"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "holdings[].allocation_pct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "truevaluerankings.com",
+    "endpoint": "https://truevaluerankings.com/premium/portfolio-analysis",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

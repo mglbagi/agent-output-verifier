@@ -1,0 +1,155 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1df67d3cbdab7e5e",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "by_category": {
+          "type": "object",
+          "properties": {
+            "crypto": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "category": {
+                    "type": "string"
+                  },
+                  "condition_id": {
+                    "type": "string",
+                    "pattern": "^0x[a-fA-F0-9]{64}$"
+                  },
+                  "question": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "category",
+                  "condition_id",
+                  "question"
+                ]
+              }
+            }
+          },
+          "required": [
+            "crypto"
+          ]
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "category_counts": {
+          "type": "object",
+          "properties": {
+            "crypto": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "crypto"
+          ]
+        },
+        "fetched_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "markets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "condition_id": {
+                "type": "string",
+                "pattern": "^0x[a-fA-F0-9]{64}$"
+              },
+              "direction": {
+                "type": "string"
+              },
+              "liquidity": {
+                "type": "integer"
+              },
+              "no_price": {
+                "type": "number"
+              },
+              "question": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "volume_usd": {
+                "type": "number"
+              },
+              "yes_price": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "category",
+              "condition_id",
+              "direction",
+              "liquidity",
+              "no_price",
+              "question",
+              "source",
+              "volume_usd",
+              "yes_price"
+            ]
+          }
+        },
+        "total": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "by_category",
+        "categories",
+        "category_counts",
+        "fetched_at",
+        "markets",
+        "total"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "by_category.crypto[].condition_id"
+      },
+      {
+        "type": "unique",
+        "field": "markets[].condition_id"
+      }
+    ],
+    "bounds": {
+      "markets[].no_price": {
+        "min": 0
+      },
+      "markets[].volume_usd": {
+        "min": 0
+      },
+      "markets[].yes_price": {
+        "min": 0
+      },
+      "total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.newsgurus.ai",
+    "endpoint": "https://api.newsgurus.ai/x402/prediction/markets",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

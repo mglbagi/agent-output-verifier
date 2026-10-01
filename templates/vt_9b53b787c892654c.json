@@ -1,0 +1,189 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9b53b787c892654c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "schema.org/Product extracted from the rendered page. Fields the page does not state come back null rather than guessed.",
+      "properties": {
+        "cache_age_seconds": {
+          "type": "integer"
+        },
+        "cached": {
+          "description": "True when re-served from a recent render. Still a paid call, and the data is as old as cache_age_seconds says.",
+          "type": "boolean"
+        },
+        "page": {
+          "properties": {
+            "fetchedAt": {
+              "description": "ISO timestamp of the RENDER, not of this call. Older than now on a cached result.",
+              "type": "string"
+            },
+            "finalUrl": {
+              "type": "string"
+            },
+            "render_ms": {
+              "type": "integer"
+            },
+            "status": {
+              "type": "integer"
+            },
+            "title": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "url": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "product": {
+          "properties": {
+            "availability": {
+              "enum": [
+                "in_stock",
+                "out_of_stock",
+                "preorder",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            "brand": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "currency": {
+              "description": "ISO 4217. Null whenever price is null.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "description": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "images": {
+              "description": "Up to 5 absolute URLs copied from the page. Never invented.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "price": {
+              "description": "Numeric, no symbol or separators.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "sku": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "url": {
+              "type": "string"
+            },
+            "variants": {
+              "items": {
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "values": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "provenance": {
+          "description": "Where each field came from. `declared` fields match what the merchant published in schema.org JSON-LD or Open Graph tags — their own number, the one they stand behind. `inferred` fields were read off the page by a model and deserve less trust. Fields that came back null appear in neither list. Use this to decide which values you can act on directly and which are worth a second look.",
+          "properties": {
+            "declared": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "inferred": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "source": {
+              "enum": [
+                "json-ld",
+                "meta",
+                "json-ld+meta",
+                "none"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "redirect": {
+          "description": "Present only when the browser landed somewhere other than the requested URL.",
+          "properties": {
+            "final": {
+              "type": "string"
+            },
+            "requested": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "product",
+        "page"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "cache_age_seconds": {
+        "min": 0,
+        "if_present": true
+      },
+      "product.price": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "extract.tollkit.dev",
+    "endpoint": "https://extract.tollkit.dev/extract",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

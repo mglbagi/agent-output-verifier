@@ -1,0 +1,71 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d35e53d2bfee7ad9",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "answer": {
+          "type": "string"
+        },
+        "billing": {
+          "type": "object"
+        },
+        "object": {
+          "const": "code.result",
+          "type": "string"
+        },
+        "query": {
+          "type": "string"
+        },
+        "steps": {
+          "description": "The code that ran and its output, in execution order, for independent verification.",
+          "items": {
+            "properties": {
+              "content": {
+                "type": "string"
+              },
+              "language": {
+                "type": "string"
+              },
+              "outcome": {
+                "type": "string"
+              },
+              "type": {
+                "enum": [
+                  "code",
+                  "result"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "content"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "object",
+        "query",
+        "answer",
+        "steps"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.onhub.ai",
+    "endpoint": "https://api.onhub.ai/v1/code",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

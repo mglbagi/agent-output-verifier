@@ -1,0 +1,45 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c5047889ea290317",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "creation_date": {
+          "type": "string"
+        },
+        "domain_age_days": {
+          "type": "integer"
+        },
+        "exists": {
+          "type": "boolean"
+        },
+        "registrar": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "creation_date",
+        "domain_age_days",
+        "exists",
+        "registrar"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "domain_age_days": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "domain.hugen.tokyo",
+    "endpoint": "https://domain.hugen.tokyo/domain/whois",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

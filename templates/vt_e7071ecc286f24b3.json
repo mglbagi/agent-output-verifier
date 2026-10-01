@@ -1,0 +1,90 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e7071ecc286f24b3",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "audiobooks": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "category": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "keywords": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "language": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "slug": {
+                "description": "Audiobook slug — pass this to /api/audiobooks/details.",
+                "type": "string"
+              },
+              "thumbnail": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Cover image URL, or null if missing."
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "description": "audiobookbay.lu detail page URL. Pass the `slug` to /api/audiobooks/details for a magnet link.",
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "url",
+              "slug",
+              "title",
+              "thumbnail",
+              "category",
+              "language",
+              "keywords"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "audiobooks"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "book-bot.app",
+    "endpoint": "https://book-bot.app/api/audiobooks/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_10bc101ae1614d24",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "asOf": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "categoryConcentration": {
+          "type": "object",
+          "properties": {
+            "basis": {
+              "type": "string"
+            },
+            "categoryCount": {
+              "type": "integer"
+            },
+            "dominantShareBand": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "basis",
+            "categoryCount",
+            "dominantShareBand",
+            "status"
+          ]
+        },
+        "caveats": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "coverage": {
+          "type": "object",
+          "properties": {
+            "asset": {
+              "type": "string"
+            },
+            "history": {
+              "type": "string"
+            },
+            "interactionCount": {
+              "type": "integer"
+            },
+            "scope": {
+              "type": "string"
+            },
+            "serverBreakdown": {
+              "type": "string"
+            },
+            "serverCount": {
+              "type": "integer"
+            },
+            "source": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "asset",
+            "history",
+            "interactionCount",
+            "scope",
+            "serverBreakdown",
+            "serverCount",
+            "source"
+          ]
+        },
+        "dimensions": {
+          "type": "object",
+          "properties": {}
+        },
+        "factorExplanations": {
+          "type": "object",
+          "properties": {}
+        },
+        "freshness": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "status"
+          ]
+        },
+        "network": {
+          "type": "string"
+        },
+        "nextActions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "payment": {
+          "type": "object",
+          "properties": {
+            "builderCode": {
+              "type": "string"
+            },
+            "mode": {
+              "type": "string"
+            },
+            "network": {
+              "type": "string"
+            },
+            "offerReceipt": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "includeTxHash": {
+                  "type": "boolean"
+                },
+                "offerValiditySeconds": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "enabled",
+                "includeTxHash",
+                "offerValiditySeconds"
+              ]
+            },
+            "payTo": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "protocol": {
+              "type": "string"
+            },
+            "routeId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "builderCode",
+            "mode",
+            "network",
+            "offerReceipt",
+            "payTo",
+            "protocol",
+            "routeId"
+          ]
+        },
+        "publicSince": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "riskFlags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "schemaVersion": {
+          "type": "string"
+        },
+        "score": {
+          "type": "object",
+          "properties": {
+            "capReasons": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "confidenceTier": {
+              "type": "string"
+            },
+            "evidenceStatus": {
+              "type": "string"
+            },
+            "value": {
+              "type": "number"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "capReasons",
+            "confidenceTier",
+            "evidenceStatus",
+            "value",
+            "version"
+          ]
+        },
+        "serverRelationships": {
+          "type": "object",
+          "properties": {
+            "scope": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "scope",
+            "status"
+          ]
+        },
+        "wallet": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        }
+      },
+      "required": [
+        "asOf",
+        "categoryConcentration",
+        "caveats",
+        "coverage",
+        "dimensions",
+        "factorExplanations",
+        "freshness",
+        "network",
+        "nextActions",
+        "payment",
+        "publicSince",
+        "riskFlags",
+        "schemaVersion",
+        "score",
+        "serverRelationships",
+        "wallet"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.x402passport.xyz",
+    "endpoint": "https://api.x402passport.xyz/v1/x402/passport/:wallet",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

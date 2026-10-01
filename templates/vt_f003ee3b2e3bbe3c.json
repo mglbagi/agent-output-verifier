@@ -1,0 +1,36 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f003ee3b2e3bbe3c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "artifact": {
+          "type": "object"
+        },
+        "status": {
+          "type": "string"
+        },
+        "tokens": {
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "required": [
+        "artifact",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "aeonos.basechainlabs.com",
+    "endpoint": "https://aeonos.basechainlabs.com/api/audit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3f468f6a39cba064",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "opencode-go": {
+              "type": "object",
+              "properties": {
+                "borrowedCap": {
+                  "type": "boolean"
+                },
+                "confidence": {
+                  "type": "string"
+                },
+                "creditsPer5h": {},
+                "creditsPerWeek": {},
+                "kind": {
+                  "type": "string"
+                },
+                "perModel": {
+                  "type": "object",
+                  "properties": {
+                    "GLM-5.2": {
+                      "type": "object",
+                      "properties": {
+                        "pricePerMillionCachedRead": {
+                          "type": "number"
+                        },
+                        "pricePerMillionInput": {
+                          "type": "number"
+                        },
+                        "pricePerMillionOutput": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "pricePerMillionCachedRead",
+                        "pricePerMillionInput",
+                        "pricePerMillionOutput"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "GLM-5.2"
+                  ]
+                }
+              },
+              "required": [
+                "borrowedCap",
+                "confidence",
+                "kind",
+                "perModel"
+              ]
+            }
+          },
+          "required": [
+            "opencode-go"
+          ]
+        },
+        "last_modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "schema_version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "data",
+        "last_modified",
+        "schema_version"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.tokenplans.dev",
+    "endpoint": "https://api.tokenplans.dev/cost-rules",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

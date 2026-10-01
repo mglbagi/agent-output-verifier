@@ -1,0 +1,97 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_da0b408f1ad7a1d3",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "counterparties": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "counterparty": {
+                    "type": "string",
+                    "pattern": "^0x[a-fA-F0-9]{40}$"
+                  },
+                  "firstBlock": {
+                    "type": "integer"
+                  },
+                  "lastBlock": {
+                    "type": "integer"
+                  },
+                  "receivedTxCount": {
+                    "type": "integer"
+                  },
+                  "sentTxCount": {
+                    "type": "integer"
+                  },
+                  "succeededTxCount": {
+                    "type": "integer"
+                  },
+                  "surfaces": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "counterparty",
+                  "firstBlock",
+                  "lastBlock",
+                  "receivedTxCount",
+                  "sentTxCount",
+                  "succeededTxCount",
+                  "surfaces"
+                ]
+              }
+            },
+            "window": {
+              "type": "object",
+              "properties": {
+                "asOfBlock": {
+                  "type": "integer"
+                },
+                "kind": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "asOfBlock",
+                "kind"
+              ]
+            }
+          },
+          "required": [
+            "address",
+            "counterparties",
+            "window"
+          ]
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mpp.tracefast.xyz",
+    "endpoint": "https://mpp.tracefast.xyz/api/v1/chains/1/entities/:address/counterparties",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

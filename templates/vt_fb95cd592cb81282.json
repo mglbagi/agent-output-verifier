@@ -1,0 +1,102 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fb95cd592cb81282",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "capabilities": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "install": {
+          "additionalProperties": false,
+          "properties": {
+            "note": {
+              "type": "string"
+            },
+            "scriptPath": {
+              "type": "string"
+            },
+            "scriptUrl": {
+              "type": "string"
+            },
+            "settings": {
+              "additionalProperties": false,
+              "properties": {
+                "statusLine": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "command": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "command",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "command"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "statusLine"
+              ],
+              "type": "object"
+            },
+            "sha256": {
+              "type": "string"
+            },
+            "verify": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "scriptUrl",
+            "scriptPath",
+            "verify",
+            "settings",
+            "note"
+          ],
+          "type": "object"
+        },
+        "name": {
+          "type": "string"
+        },
+        "script": {
+          "type": "string"
+        },
+        "scriptSha256": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "slug",
+        "name",
+        "capabilities",
+        "install"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "claudelines.com",
+    "endpoint": "https://claudelines.com/api/download",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

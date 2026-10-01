@@ -1,0 +1,81 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5847f2fc03e8ff5b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string"
+        },
+        "events": {
+          "type": "array"
+        },
+        "events_count": {
+          "type": "integer"
+        },
+        "harvested": {
+          "type": "boolean"
+        },
+        "interval": {
+          "type": "string"
+        },
+        "pricing_tier": {
+          "type": "string"
+        },
+        "pulse_id": {
+          "type": "string"
+        },
+        "ready": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string"
+        },
+        "window_end": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "window_start": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "category",
+        "events",
+        "events_count",
+        "harvested",
+        "interval",
+        "pricing_tier",
+        "pulse_id",
+        "ready",
+        "status",
+        "window_end",
+        "window_start"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "window_start",
+        "other_field": "window_end"
+      }
+    ],
+    "bounds": {
+      "events_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "dataforagents.net",
+    "endpoint": "https://dataforagents.net/v1/news/pulse/alpha",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

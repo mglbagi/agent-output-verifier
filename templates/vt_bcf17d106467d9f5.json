@@ -1,0 +1,157 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bcf17d106467d9f5",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "filtres": {
+          "type": "object",
+          "properties": {
+            "cpv": {
+              "type": "string"
+            },
+            "departement": {},
+            "fenetre_mois": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "cpv",
+            "fenetre_mois"
+          ]
+        },
+        "marches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "accord_cadre": {
+                "type": "boolean"
+              },
+              "acheteur": {
+                "type": "object",
+                "properties": {
+                  "nom": {
+                    "type": "string"
+                  },
+                  "siret": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "nom",
+                  "siret"
+                ]
+              },
+              "code_cpv": {
+                "type": "string"
+              },
+              "date_fin_estimee": {
+                "type": "string",
+                "format": "date"
+              },
+              "date_notification": {
+                "type": "string",
+                "format": "date"
+              },
+              "departement": {},
+              "duree_mois": {
+                "type": "integer"
+              },
+              "id": {
+                "type": "string"
+              },
+              "lot_numero": {},
+              "modalites_execution": {
+                "type": "string"
+              },
+              "montant": {
+                "type": "number"
+              },
+              "montant_est_enveloppe": {
+                "type": "boolean"
+              },
+              "objet": {
+                "type": "string"
+              },
+              "sous_traitance_declaree": {
+                "type": "boolean"
+              },
+              "titulaires_sortants": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "nom": {
+                      "type": "string"
+                    },
+                    "siren": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "nom",
+                    "siren"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "accord_cadre",
+              "acheteur",
+              "code_cpv",
+              "date_fin_estimee",
+              "date_notification",
+              "duree_mois",
+              "id",
+              "modalites_execution",
+              "montant",
+              "montant_est_enveloppe",
+              "objet",
+              "sous_traitance_declaree",
+              "titulaires_sortants"
+            ]
+          }
+        },
+        "page": {
+          "type": "integer"
+        },
+        "pages": {
+          "type": "integer"
+        },
+        "total_marches": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "filtres",
+        "marches",
+        "page",
+        "pages",
+        "total_marches"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "marches[].id"
+      }
+    ],
+    "bounds": {
+      "total_marches": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.sirenic.eu",
+    "endpoint": "https://api.sirenic.eu/v1/marches/expirations",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

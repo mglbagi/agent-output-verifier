@@ -1,0 +1,41 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_60696be552e58c0a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "items": {
+        "properties": {
+          "o": {
+            "description": "Nested value object for multi-field metrics (e.g. OHLC)",
+            "type": "object"
+          },
+          "t": {
+            "description": "UNIX timestamp (seconds, UTC) for the start of the interval",
+            "type": "integer"
+          },
+          "v": {
+            "description": "Scalar metric value at the given timestamp",
+            "type": "number"
+          }
+        },
+        "required": [
+          "t"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.glassnode.com",
+    "endpoint": "https://x402.glassnode.com/v1/metrics/transactions/transfers_volume_exchanges_net",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

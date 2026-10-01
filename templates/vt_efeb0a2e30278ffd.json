@@ -1,0 +1,80 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_efeb0a2e30278ffd",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "attestation": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "pass": {
+                  "type": "boolean"
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "blockNumber": {
+                        "type": "string"
+                      },
+                      "conditionHash": {
+                        "type": "string"
+                      },
+                      "met": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "blockNumber",
+                      "conditionHash",
+                      "met"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "pass",
+                "results"
+              ]
+            },
+            "kid": {
+              "type": "string"
+            },
+            "sig": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "attestation",
+            "kid",
+            "sig"
+          ]
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.insumermodel.com",
+    "endpoint": "https://api.insumermodel.com/v1/attest",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

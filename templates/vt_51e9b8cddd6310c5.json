@@ -1,0 +1,56 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_51e9b8cddd6310c5",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "btcDominance": {
+          "type": "string"
+        },
+        "globalMarketCapUSD": {
+          "type": "string"
+        },
+        "topGainers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "price": {
+                "type": "string"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "upRatio": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "price",
+              "symbol",
+              "upRatio"
+            ]
+          }
+        }
+      },
+      "required": [
+        "btcDominance",
+        "globalMarketCapUSD",
+        "topGainers"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.deepsearch.com",
+    "endpoint": "https://x402.deepsearch.com/v1/context/crypto/market",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

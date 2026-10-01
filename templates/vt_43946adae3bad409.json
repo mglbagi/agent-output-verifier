@@ -1,0 +1,317 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_43946adae3bad409",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "chart": {
+          "type": "object",
+          "properties": {
+            "band": {
+              "type": "string"
+            },
+            "cell": {
+              "type": "string"
+            },
+            "cellsConsulted": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "edition": {
+              "type": "integer"
+            },
+            "issued": {
+              "type": "string"
+            },
+            "scale": {
+              "type": "integer"
+            },
+            "update": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "band",
+            "cell",
+            "cellsConsulted",
+            "edition",
+            "issued",
+            "scale",
+            "update"
+          ]
+        },
+        "coverage": {
+          "type": "object",
+          "properties": {
+            "areas": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "bands": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "cells": {
+              "type": "integer"
+            },
+            "classes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reason": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "areas",
+            "bands",
+            "cells",
+            "classes",
+            "reason",
+            "region"
+          ]
+        },
+        "depthAreaMaximum": {
+          "type": "number"
+        },
+        "depthAreaMinimum": {
+          "type": "number"
+        },
+        "disclaimer": {
+          "type": "object",
+          "properties": {
+            "notForNavigation": {
+              "type": "boolean"
+            },
+            "origin": {
+              "type": "string"
+            },
+            "statement": {
+              "type": "string"
+            },
+            "surveyAge": {
+              "type": "string"
+            },
+            "trademark": {
+              "type": "string"
+            },
+            "vintage": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "notForNavigation",
+            "origin",
+            "statement",
+            "surveyAge",
+            "trademark",
+            "vintage"
+          ]
+        },
+        "interpolation": {
+          "type": "string"
+        },
+        "nearestSounding": {
+          "type": "object",
+          "properties": {
+            "depth": {
+              "type": "number"
+            },
+            "distanceMetres": {
+              "type": "number"
+            },
+            "lat": {
+              "type": "number"
+            },
+            "lon": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "depth",
+            "distanceMetres",
+            "lat",
+            "lon"
+          ]
+        },
+        "notes": {
+          "type": "array"
+        },
+        "query": {
+          "type": "object",
+          "properties": {
+            "lat": {
+              "type": "number"
+            },
+            "lon": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "lat",
+            "lon"
+          ]
+        },
+        "soundingDatum": {
+          "type": "string"
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "cell": {
+              "type": "string"
+            },
+            "cellBand": {
+              "type": "string"
+            },
+            "cellEdition": {
+              "type": "integer"
+            },
+            "cellIssued": {
+              "type": "string"
+            },
+            "cellScale": {
+              "type": "integer"
+            },
+            "cellUpdate": {
+              "type": "integer"
+            },
+            "dataset": {
+              "type": "string"
+            },
+            "horizontalDatum": {
+              "type": "string"
+            },
+            "publisher": {
+              "type": "string"
+            },
+            "release": {
+              "type": "string"
+            },
+            "rights": {
+              "type": "string"
+            },
+            "soundingDatum": {
+              "type": "string"
+            },
+            "units": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "cell",
+            "cellBand",
+            "cellEdition",
+            "cellIssued",
+            "cellScale",
+            "cellUpdate",
+            "dataset",
+            "horizontalDatum",
+            "publisher",
+            "release",
+            "rights",
+            "soundingDatum",
+            "units",
+            "url"
+          ]
+        },
+        "surveyQuality": {
+          "type": "object",
+          "properties": {
+            "depthAccuracy": {
+              "type": "string"
+            },
+            "positionAccuracy": {
+              "type": "string"
+            },
+            "positionAccuracyMetres": {},
+            "soundingAccuracyMetres": {},
+            "surveyEnd": {
+              "type": "string"
+            },
+            "surveyStart": {
+              "type": "string"
+            },
+            "zoneOfConfidence": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "depthAccuracy",
+            "positionAccuracy",
+            "surveyEnd",
+            "surveyStart",
+            "zoneOfConfidence"
+          ]
+        },
+        "tilesRead": {
+          "type": "integer"
+        },
+        "units": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "chart",
+        "coverage",
+        "depthAreaMaximum",
+        "depthAreaMinimum",
+        "disclaimer",
+        "interpolation",
+        "nearestSounding",
+        "notes",
+        "query",
+        "soundingDatum",
+        "source",
+        "surveyQuality",
+        "tilesRead",
+        "units"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "nearestSounding.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "nearestSounding.lon": {
+        "min": -180,
+        "max": 180
+      },
+      "query.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "query.lon": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.geoprimitives.dev",
+    "endpoint": "https://api.geoprimitives.dev/v1/marine/depth",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

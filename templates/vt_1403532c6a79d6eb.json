@@ -1,0 +1,88 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1403532c6a79d6eb",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "claim": {
+          "type": "string"
+        },
+        "corroboration_level": {
+          "type": "string"
+        },
+        "distinct_source_count": {
+          "type": "integer"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "count": {
+                "type": "integer"
+              },
+              "source": {
+                "type": "string"
+              },
+              "top_published_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "top_title": {
+                "type": "string"
+              },
+              "top_url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "category",
+              "count",
+              "source",
+              "top_published_at",
+              "top_title",
+              "top_url"
+            ]
+          }
+        },
+        "total_matches": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "claim",
+        "corroboration_level",
+        "distinct_source_count",
+        "sources",
+        "total_matches"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "distinct_source_count": {
+        "min": 0
+      },
+      "sources[].count": {
+        "min": 0
+      },
+      "total_matches": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "concordancehq.duckdns.org",
+    "endpoint": "https://concordancehq.duckdns.org/tools/corroboration",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7619635d0118b587",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "payment": {
+          "properties": {
+            "status": {
+              "type": "string"
+            },
+            "x402_implemented": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "status",
+            "x402_implemented"
+          ],
+          "type": "object"
+        },
+        "request_id": {
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "result": {
+          "properties": {
+            "constraint_mode": {
+              "enum": [
+                "NONE",
+                "MINIMUM_BASE_SUPPLY_APY"
+              ],
+              "type": "string"
+            },
+            "minimum_base_supply_apy": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "opportunities": {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "requested_amount": {
+              "type": "string"
+            },
+            "selected_opportunity": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "selection": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "requested_amount",
+            "minimum_base_supply_apy",
+            "constraint_mode",
+            "selection",
+            "selected_opportunity",
+            "opportunities"
+          ],
+          "type": "object"
+        },
+        "service": {
+          "const": "lor",
+          "type": "string"
+        },
+        "verdict": {
+          "enum": [
+            "PROCEED",
+            "PROCEED_WITH_LIMIT",
+            "BLOCKED",
+            "UNKNOWN"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "request_id",
+        "service",
+        "verdict",
+        "result",
+        "payment"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.alphabuild.xyz",
+    "endpoint": "https://api.alphabuild.xyz/lor/v1/evaluate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

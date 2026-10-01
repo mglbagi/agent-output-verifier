@@ -1,0 +1,177 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e4182ecfd96a22ca",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "candidate": {
+          "type": "object",
+          "properties": {
+            "amount_minor": {
+              "type": "string"
+            },
+            "beneficiary_id": {
+              "type": "string"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "destination_fingerprint": {
+              "type": "string"
+            },
+            "destination_scheme": {
+              "type": "string"
+            },
+            "payout_fingerprint": {
+              "type": "string"
+            },
+            "payout_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount_minor",
+            "beneficiary_id",
+            "currency",
+            "destination_fingerprint",
+            "destination_scheme",
+            "payout_fingerprint",
+            "payout_id"
+          ]
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "evidence": {
+                "type": "object",
+                "properties": {
+                  "checksum_valid": {
+                    "type": "boolean"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "country_length_checked": {
+                    "type": "boolean"
+                  },
+                  "iban_masked": {
+                    "type": "string"
+                  },
+                  "scheme": {
+                    "type": "string"
+                  },
+                  "form": {
+                    "type": "string"
+                  },
+                  "supplied": {
+                    "type": "boolean"
+                  },
+                  "changed": {
+                    "type": "boolean"
+                  },
+                  "compared": {
+                    "type": "boolean"
+                  },
+                  "delta_minor": {
+                    "type": "string"
+                  },
+                  "history_entries_considered": {
+                    "type": "integer"
+                  },
+                  "matched": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "evidence",
+              "id",
+              "status"
+            ]
+          }
+        },
+        "coverage": {
+          "type": "object",
+          "properties": {
+            "checks_not_performed": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "checks_performed": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "complete_for_declared_scope": {
+              "type": "boolean"
+            },
+            "history": {
+              "type": "string"
+            },
+            "trusted_baseline": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "checks_not_performed",
+            "checks_performed",
+            "complete_for_declared_scope",
+            "history",
+            "trusted_baseline"
+          ]
+        },
+        "decision": {
+          "type": "string"
+        },
+        "machine_action": {
+          "type": "string"
+        },
+        "reason_codes": {
+          "type": "array"
+        },
+        "ruleset_version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate",
+        "checks",
+        "coverage",
+        "decision",
+        "machine_action",
+        "reason_codes",
+        "ruleset_version"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "checks[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.vrsai.tech",
+    "endpoint": "https://api.vrsai.tech/v1/capabilities/payout_preflight",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0b043c8c561de54d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "actualDeviationPct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "checkAt": {
+          "type": "string"
+        },
+        "liveEthUsdPriceAtCheck": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "maxDeviationPct": {
+          "type": "number"
+        },
+        "premiumUsdc": {
+          "type": "number"
+        },
+        "snapshotEthUsdPrice": {
+          "type": "number"
+        },
+        "status": {
+          "enum": [
+            "pending-check",
+            "held",
+            "claim-eligible",
+            "refunded"
+          ],
+          "type": "string"
+        },
+        "subscribedAt": {
+          "type": "string"
+        },
+        "subscriberAddress": {
+          "type": "string"
+        },
+        "subscriptionId": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "actualDeviationPct",
+        "checkAt",
+        "liveEthUsdPriceAtCheck",
+        "maxDeviationPct",
+        "premiumUsdc",
+        "snapshotEthUsdPrice",
+        "status",
+        "subscribedAt",
+        "subscriberAddress",
+        "subscriptionId"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "actualDeviationPct": {
+        "min": 0,
+        "max": 100
+      },
+      "maxDeviationPct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "lab.paidapis.net",
+    "endpoint": "https://lab.paidapis.net/api/insured-feed/subscribe",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

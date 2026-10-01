@@ -1,0 +1,77 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1808ca1396f44629",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "church_tax_estimate": {
+              "type": "number"
+            },
+            "gross_monthly": {
+              "type": "integer"
+            },
+            "net_monthly_estimate": {
+              "type": "number"
+            },
+            "social_contributions_estimate": {
+              "type": "number"
+            },
+            "solidarity_surcharge_estimate": {
+              "type": "integer"
+            },
+            "wage_tax_estimate": {
+              "type": "number"
+            },
+            "year": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "church_tax_estimate",
+            "gross_monthly",
+            "net_monthly_estimate",
+            "social_contributions_estimate",
+            "solidarity_surcharge_estimate",
+            "wage_tax_estimate",
+            "year"
+          ]
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "paid": {
+              "type": "boolean"
+            },
+            "service": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "paid",
+            "service"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "automaton.72.62.51.224.sslip.io",
+    "endpoint": "https://automaton.72.62.51.224.sslip.io/brutto-netto",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

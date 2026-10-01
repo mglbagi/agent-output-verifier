@@ -1,0 +1,69 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fb09dea97b90a9d7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "asOf": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "markets": {
+          "items": {
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "midCents": {
+                "type": "integer"
+              },
+              "network": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "id",
+              "midCents",
+              "network",
+              "state",
+              "title"
+            ]
+          },
+          "type": "array"
+        },
+        "network": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "network",
+        "markets"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "markets[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "predix-agent-api.fly.dev",
+    "endpoint": "https://predix-agent-api.fly.dev/agent/markets",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

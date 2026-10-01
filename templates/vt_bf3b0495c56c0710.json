@@ -1,0 +1,290 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bf3b0495c56c0710",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "candidates_evaluated": {
+          "title": "Candidates Evaluated",
+          "type": "integer"
+        },
+        "partial_results": {
+          "title": "Partial Results",
+          "type": "boolean"
+        },
+        "query": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Query"
+        },
+        "result_count": {
+          "title": "Result Count",
+          "type": "integer"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "agency_code": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Agency Code"
+              },
+              "agency_name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Agency Name"
+              },
+              "assistance_listings": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Assistance Listings",
+                "type": "array"
+              },
+              "award_ceiling_usd": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Award Ceiling Usd"
+              },
+              "award_floor_usd": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Award Floor Usd"
+              },
+              "close_date": {
+                "anyOf": [
+                  {
+                    "format": "date",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Close Date"
+              },
+              "cost_sharing_required": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Cost Sharing Required"
+              },
+              "days_remaining": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Days Remaining"
+              },
+              "eligibility": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Eligibility",
+                "type": "array"
+              },
+              "estimated_total_funding_usd": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Estimated Total Funding Usd"
+              },
+              "expected_awards": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Expected Awards"
+              },
+              "funding_categories": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Funding Categories",
+                "type": "array"
+              },
+              "funding_instruments": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Funding Instruments",
+                "type": "array"
+              },
+              "official_url": {
+                "title": "Official Url",
+                "type": "string"
+              },
+              "open_date": {
+                "anyOf": [
+                  {
+                    "format": "date",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Open Date"
+              },
+              "opportunity_id": {
+                "title": "Opportunity Id",
+                "type": "integer"
+              },
+              "opportunity_number": {
+                "title": "Opportunity Number",
+                "type": "string"
+              },
+              "source_updated_at": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Source Updated At"
+              },
+              "status": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Status"
+              },
+              "title": {
+                "title": "Title",
+                "type": "string"
+              }
+            },
+            "title": "GrantOpportunity",
+            "type": "object",
+            "required": [
+              "award_ceiling_usd",
+              "days_remaining",
+              "opportunity_number"
+            ]
+          },
+          "title": "Results",
+          "type": "array"
+        },
+        "retrieved_at": {
+          "format": "date-time",
+          "title": "Retrieved At",
+          "type": "string"
+        },
+        "source": {
+          "default": "Grants.gov",
+          "title": "Source",
+          "type": "string"
+        },
+        "source_api": {
+          "default": "https://api.grants.gov/v1/api",
+          "title": "Source Api",
+          "type": "string"
+        },
+        "source_hit_count": {
+          "title": "Source Hit Count",
+          "type": "integer"
+        }
+      },
+      "title": "GrantSearchResponse",
+      "type": "object",
+      "required": [
+        "candidates_evaluated",
+        "result_count",
+        "results",
+        "source"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "results[].opportunity_id"
+      }
+    ],
+    "bounds": {
+      "result_count": {
+        "min": 0
+      },
+      "source_hit_count": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "grant-search.46-224-157-88.sslip.io",
+    "endpoint": "https://grant-search.46-224-157-88.sslip.io/v1/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

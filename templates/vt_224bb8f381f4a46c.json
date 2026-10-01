@@ -1,0 +1,109 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_224bb8f381f4a46c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "caveat": {
+          "type": "string"
+        },
+        "company_snapshot": {
+          "type": "string"
+        },
+        "company_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "conversation_angles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "discovery_questions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "personalized_opener": {
+          "type": "string"
+        },
+        "recent_business_signals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date_or_timeframe": {
+                "type": "string"
+              },
+              "signal": {
+                "type": "string"
+              },
+              "source_url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "date_or_timeframe",
+              "signal",
+              "source_url"
+            ]
+          }
+        },
+        "relevance": {
+          "type": "object",
+          "properties": {
+            "reasonable_hypotheses": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "verified_facts": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "reasonable_hypotheses",
+            "verified_facts"
+          ]
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "caveat",
+        "company_snapshot",
+        "company_url",
+        "conversation_angles",
+        "discovery_questions",
+        "personalized_opener",
+        "recent_business_signals",
+        "relevance",
+        "sources"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "company-intelligence-api-production-6a82.up.railway.app",
+    "endpoint": "https://company-intelligence-api-production-6a82.up.railway.app/api/company-intelligence",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

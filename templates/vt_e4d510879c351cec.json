@@ -1,0 +1,94 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e4d510879c351cec",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "conflict_level": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "data_points": {
+          "type": "integer"
+        },
+        "intensity_pct_of_30d_peak": {
+          "type": "integer"
+        },
+        "note": {
+          "type": "string"
+        },
+        "recent_headlines": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date": {
+                "type": "string"
+              },
+              "domain": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "date",
+              "domain",
+              "title",
+              "url"
+            ]
+          }
+        },
+        "source": {
+          "type": "string"
+        },
+        "trend": {
+          "type": "string"
+        },
+        "trend_pct_7d_vs_prior": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "conflict_level",
+        "country",
+        "data_points",
+        "intensity_pct_of_30d_peak",
+        "note",
+        "recent_headlines",
+        "source",
+        "trend",
+        "trend_pct_7d_vs_prior"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "intensity_pct_of_30d_peak": {
+        "min": 0,
+        "max": 100
+      },
+      "trend_pct_7d_vs_prior": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "conflict.lonestaroracle.xyz",
+    "endpoint": "https://conflict.lonestaroracle.xyz/conflict",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

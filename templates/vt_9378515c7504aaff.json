@@ -1,0 +1,38 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9378515c7504aaff",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "block_reward": {
+          "type": "object"
+        },
+        "breakeven": {
+          "type": "object"
+        },
+        "freshness": {
+          "type": "object"
+        },
+        "miner_economics_per_thash": {
+          "type": "object"
+        },
+        "network_state": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.carbon-cashmere.de",
+    "endpoint": "https://api.carbon-cashmere.de/v1/kaspa-derivatives/mining-economics",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

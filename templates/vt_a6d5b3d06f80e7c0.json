@@ -1,0 +1,139 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a6d5b3d06f80e7c0",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "attribution": {
+          "type": "string"
+        },
+        "changed": {
+          "type": "boolean"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "filings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "accessionNumber": {
+                "type": "string"
+              },
+              "filingDate": {
+                "type": "string",
+                "format": "date"
+              },
+              "form": {
+                "type": "string"
+              },
+              "isAmendment": {
+                "type": "boolean"
+              },
+              "ownershipClass": {
+                "type": "string"
+              },
+              "primaryDocumentUrl": {
+                "type": "string",
+                "format": "uri"
+              },
+              "reportDate": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "required": [
+              "accessionNumber",
+              "filingDate",
+              "form",
+              "isAmendment",
+              "ownershipClass",
+              "primaryDocumentUrl",
+              "reportDate"
+            ]
+          }
+        },
+        "formsCovered": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "issuer": {
+          "type": "object",
+          "properties": {
+            "cik": {
+              "type": "string"
+            },
+            "exchanges": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "name": {
+              "type": "string"
+            },
+            "ticker": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "cik",
+            "exchanges",
+            "name",
+            "ticker"
+          ]
+        },
+        "nextSince": {
+          "type": "string",
+          "format": "date"
+        },
+        "notIncluded": {
+          "type": "string"
+        },
+        "returns": {
+          "type": "string"
+        },
+        "since": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "attribution",
+        "changed",
+        "count",
+        "endpoint",
+        "filings",
+        "formsCovered",
+        "issuer",
+        "nextSince",
+        "notIncluded",
+        "returns",
+        "since"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.donnyautomation.com",
+    "endpoint": "https://x402.donnyautomation.com/edgar/insiders",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

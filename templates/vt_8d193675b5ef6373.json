@@ -1,0 +1,101 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8d193675b5ef6373",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "ms": {
+          "type": "integer"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "result": {
+          "properties": {
+            "items": {
+              "items": {
+                "properties": {
+                  "category": {
+                    "type": "string"
+                  },
+                  "contact": {
+                    "properties": {
+                      "phone": {
+                        "type": "string"
+                      },
+                      "website": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "location": {
+                    "properties": {
+                      "city": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "verification": {
+                    "properties": {
+                      "lastVerifiedAt": {
+                        "type": "string"
+                      },
+                      "level": {
+                        "type": "string"
+                      },
+                      "score": {
+                        "type": "integer"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "total": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "tool": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "result.items[].id",
+        "if_present": true
+      }
+    ],
+    "bounds": {
+      "result.total": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "toll402.dev",
+    "endpoint": "https://toll402.dev/v1/biz/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

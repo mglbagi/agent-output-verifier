@@ -1,0 +1,67 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_17f2e05f174f6572",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "pools": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "apy": {
+                "type": "number"
+              },
+              "il_risk": {
+                "type": "string"
+              },
+              "project": {
+                "type": "string"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "tvl_usd": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "apy",
+              "il_risk",
+              "project",
+              "symbol",
+              "tvl_usd"
+            ]
+          }
+        }
+      },
+      "required": [
+        "count",
+        "pools"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "pools[].tvl_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "vape-x402.vapex402.workers.dev",
+    "endpoint": "https://vape-x402.vapex402.workers.dev/data/yields",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4c4f9163e1519106",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "block_number": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "buy_ok": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "buy_tax_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "cached": {
+          "type": "boolean"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "errors": {
+          "type": "array"
+        },
+        "gas": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "pool": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "product": {
+          "type": "string"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "revert_reason": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "risk_flags": {
+          "description": "Token-check owner/holder/contract flags; informational, do not affect verdict",
+          "items": {
+            "properties": {
+              "flag": {
+                "type": "string"
+              },
+              "note": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "flag",
+              "note"
+            ]
+          },
+          "type": "array"
+        },
+        "route": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "schema_version": {
+          "type": "string"
+        },
+        "sell_ok": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "sell_tax_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "sellability": {
+          "type": "object"
+        },
+        "sources": {
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "ok",
+            "partial",
+            "error"
+          ],
+          "type": "string"
+        },
+        "token": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "token_check": {
+          "type": "object"
+        },
+        "token_check_risk_level": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "transfer_ok": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "transfer_tax_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "verdict": {
+          "description": "Driven only by the simulation: sellability, buy/sell/transfer taxes, drained/no liquidity",
+          "enum": [
+            "ok",
+            "caution",
+            "avoid",
+            "unknown"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "token",
+        "status",
+        "verdict",
+        "reasons",
+        "risk_flags",
+        "disclaimer"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "block_number": {
+        "min": 0,
+        "if_present": true
+      },
+      "buy_tax_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "sell_tax_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "transfer_tax_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.x402risk.com",
+    "endpoint": "https://api.x402risk.com/v1/pretrade-check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

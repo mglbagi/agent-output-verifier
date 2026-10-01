@@ -1,0 +1,88 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6d6a9355b1c7f513",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "method": {
+                "type": "string"
+              },
+              "price_usd": {
+                "type": "number"
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "status": {
+                "type": "string"
+              },
+              "uptime_pct": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "method",
+              "price_usd",
+              "rank",
+              "status",
+              "uptime_pct",
+              "url"
+            ]
+          }
+        },
+        "saving_vs_typical_pct": {
+          "type": "integer"
+        },
+        "task": {
+          "type": "string"
+        },
+        "typical_price_usd": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "results",
+        "saving_vs_typical_pct",
+        "task",
+        "typical_price_usd"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "results[].price_usd": {
+        "min": 0
+      },
+      "results[].uptime_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "saving_vs_typical_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "typical_price_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-deals.gm-tools.workers.dev",
+    "endpoint": "https://agent-deals.gm-tools.workers.dev/v1/best",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

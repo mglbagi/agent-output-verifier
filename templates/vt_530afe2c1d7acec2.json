@@ -1,0 +1,69 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_530afe2c1d7acec2",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "how_to_verify_before_paying": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "red_flags_in_this_industry": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "shortlist": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "firm": {
+                "type": "string"
+              },
+              "key_rules_to_check": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "region_note": {
+                "type": "string"
+              },
+              "why": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "firm",
+              "key_rules_to_check",
+              "region_note",
+              "why"
+            ]
+          }
+        }
+      },
+      "required": [
+        "how_to_verify_before_paying",
+        "red_flags_in_this_industry",
+        "shortlist"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "alphapulse.theaslangroupllc.com",
+    "endpoint": "https://alphapulse.theaslangroupllc.com/api/alpha/prop-firms",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

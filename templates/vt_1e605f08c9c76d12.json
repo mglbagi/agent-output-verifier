@@ -1,0 +1,44 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1e605f08c9c76d12",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "adjusted": {
+          "type": "boolean"
+        },
+        "closingDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "dueDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "unadjustedDueDate": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "adjusted",
+        "closingDate",
+        "dueDate",
+        "unadjustedDueDate"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "japan-business-day-api.matchan962.workers.dev",
+    "endpoint": "https://japan-business-day-api.matchan962.workers.dev/v1/payment-due-date",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

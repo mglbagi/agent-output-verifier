@@ -1,0 +1,65 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7e659df022d40981",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "The 202 acceptance body. Every non-2xx answer is JSON { error: { code, message } } with code one of: invalid_request, invalid_source_url, source_too_large, ingest_failed, pipeline_error, rate_limited, daily_cap_exceeded, not_found, literal_path_template, gone, unknown_job, unauthorized, not_configured, unavailable - and, by the capture rule, a non-2xx response is never charged.",
+      "properties": {
+        "fundingSource": {
+          "description": "What paid for this acceptance: `x402` (the on-chain payment you signed), `credits` (your account's balance, when you sent a Bearer token) or `voucher` (a free retry). Stated back to you so a caller holding both a token and a wallet never has to guess which one it just spent.",
+          "enum": [
+            "x402",
+            "credits",
+            "voucher"
+          ],
+          "type": "string"
+        },
+        "jobId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "status": {
+          "description": "`queued` for pull mode; `awaiting_upload` for upload mode (the job queues when your PUT completes).",
+          "enum": [
+            "queued",
+            "awaiting_upload"
+          ],
+          "type": "string"
+        },
+        "statusUrl": {
+          "description": "Free, token-gated status endpoint for this job. Keep it: the token is the only proof of ownership and is not recoverable.",
+          "format": "uri",
+          "type": "string"
+        },
+        "uploadExpiresAt": {
+          "description": "Upload mode only: deadline for the PUT. Past it the job becomes a terminal `error` with no refund.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "uploadUrl": {
+          "description": "Upload mode only: PUT the raw bytes here before `uploadExpiresAt`. Keep it - this response is the ONLY place the upload token is handed out (the status route never repeats it), and it is not recoverable.",
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "required": [
+        "jobId",
+        "status",
+        "statusUrl"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ffpipe.dev",
+    "endpoint": "https://ffpipe.dev/v1/frames",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

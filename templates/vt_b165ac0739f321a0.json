@@ -1,0 +1,100 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b165ac0739f321a0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "findings": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "signals": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "targetType": {
+          "enum": [
+            "domain",
+            "base-address"
+          ],
+          "type": "string"
+        },
+        "verdict": {
+          "type": "string"
+        },
+        "x402Readiness": {
+          "properties": {
+            "level": {
+              "enum": [
+                "settlement-verified",
+                "challenge-ready",
+                "discovery-ready",
+                "not-ready",
+                "unknown",
+                "not-applicable"
+              ],
+              "type": "string"
+            },
+            "paymentAttempted": {
+              "type": "boolean"
+            },
+            "settlement": {
+              "enum": [
+                "not-tested",
+                "verified"
+              ],
+              "type": "string"
+            },
+            "status": {
+              "enum": [
+                "ready",
+                "partial",
+                "not-ready",
+                "unknown",
+                "not-applicable"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "status",
+            "level",
+            "paymentAttempted",
+            "settlement"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "required": [
+        "confidence",
+        "findings",
+        "signals",
+        "targetType",
+        "verdict",
+        "x402Readiness"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "proof.platoskallipolis.com",
+    "endpoint": "https://proof.platoskallipolis.com/api/v1/quick-resolve",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

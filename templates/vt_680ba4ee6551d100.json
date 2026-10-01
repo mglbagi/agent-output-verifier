@@ -1,0 +1,66 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_680ba4ee6551d100",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "decision": {
+          "enum": [
+            "pay",
+            "manual_review",
+            "reject"
+          ],
+          "type": "string"
+        },
+        "next_step": {
+          "type": "string"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "recommended_max_price_usd": {
+          "type": "number"
+        },
+        "score": {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "number"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "decision",
+        "score",
+        "reasons",
+        "warnings",
+        "recommended_max_price_usd",
+        "next_step"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "recommended_max_price_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-paycheck.onrender.com",
+    "endpoint": "https://agent-paycheck.onrender.com/v1/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

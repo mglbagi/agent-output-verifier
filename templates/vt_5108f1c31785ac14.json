@@ -1,0 +1,54 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5108f1c31785ac14",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "base": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "rates": {
+          "type": "object",
+          "properties": {
+            "GBP": {
+              "type": "number"
+            },
+            "USD": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "GBP",
+            "USD"
+          ]
+        }
+      },
+      "required": [
+        "base",
+        "date",
+        "rates"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "rates.USD": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-datashop-production.up.railway.app",
+    "endpoint": "https://x402-datashop-production.up.railway.app/v1/fx/latest",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

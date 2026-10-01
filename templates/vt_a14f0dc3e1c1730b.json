@@ -1,0 +1,155 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a14f0dc3e1c1730b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "query": {
+          "type": "string"
+        },
+        "result_count": {
+          "type": "integer"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "actionability_explanation": {
+                "type": "string"
+              },
+              "actionability_score": {
+                "type": "integer"
+              },
+              "buyer": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "confidence": {
+                "type": "integer"
+              },
+              "contact": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "deadline": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "evidence": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "naics": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "nsn_or_part_number": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "psc": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "quantity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "requirement": {
+                "type": "string"
+              },
+              "restrictions": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "solicitation_number": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "source_url": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "uri"
+              }
+            },
+            "type": "object",
+            "required": [
+              "actionability_explanation",
+              "actionability_score",
+              "buyer",
+              "confidence",
+              "evidence",
+              "requirement",
+              "solicitation_number",
+              "source_url"
+            ]
+          },
+          "maxItems": 10,
+          "type": "array"
+        },
+        "searched_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "service": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "service",
+        "query",
+        "result_count",
+        "searched_at",
+        "results"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "result_count": {
+        "min": 0
+      },
+      "results[].confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "cantu-radar-flow.base44.app",
+    "endpoint": "https://cantu-radar-flow.base44.app/functions/cantuVerifyX402",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

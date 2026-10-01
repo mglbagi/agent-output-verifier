@@ -1,0 +1,102 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_bcf57a0e0815694f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "company": {
+          "properties": {
+            "vendors": {
+              "items": {
+                "properties": {
+                  "category": {
+                    "type": "string"
+                  },
+                  "evidence": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "category",
+                  "evidence",
+                  "name"
+                ]
+              },
+              "type": "array"
+            }
+          },
+          "type": "object",
+          "required": [
+            "vendors"
+          ]
+        },
+        "contacts": {
+          "properties": {
+            "costUsd": {
+              "type": "number"
+            },
+            "data": {
+              "properties": {
+                "emails": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "phones": {
+                  "items": {
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object",
+              "required": [
+                "emails",
+                "phones"
+              ]
+            },
+            "kind": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "costUsd",
+            "data",
+            "kind",
+            "source"
+          ]
+        },
+        "domain": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "company",
+        "contacts",
+        "domain"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hosaka-agents.vercel.app",
+    "endpoint": "https://hosaka-agents.vercel.app/contacts",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

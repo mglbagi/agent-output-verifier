@@ -1,0 +1,140 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c0b7353ec97f283d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "alt_openings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "amazon_search": {
+          "type": "string"
+        },
+        "compliance_notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "format": {
+          "type": "string"
+        },
+        "product_or_service": {
+          "type": "string"
+        },
+        "pronunciation_notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "recording_tips": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "script_marked": {
+          "type": "string"
+        },
+        "script_plain": {
+          "type": "string"
+        },
+        "segments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "delivery_note": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "time": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "delivery_note",
+              "name",
+              "text",
+              "time"
+            ]
+          }
+        },
+        "target_duration_seconds": {
+          "type": "integer"
+        },
+        "voice_direction": {
+          "type": "object",
+          "properties": {
+            "energy": {
+              "type": "string"
+            },
+            "pace": {
+              "type": "string"
+            },
+            "persona": {
+              "type": "string"
+            },
+            "tone": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "energy",
+            "pace",
+            "persona",
+            "tone"
+          ]
+        },
+        "word_budget": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "alt_openings",
+        "amazon_search",
+        "compliance_notes",
+        "disclaimer",
+        "format",
+        "product_or_service",
+        "pronunciation_notes",
+        "recording_tips",
+        "script_marked",
+        "script_plain",
+        "segments",
+        "target_duration_seconds",
+        "voice_direction",
+        "word_budget"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "target_duration_seconds": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "marketpulse.theaslangroupllc.com",
+    "endpoint": "https://marketpulse.theaslangroupllc.com/api/market/voiceover-script",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

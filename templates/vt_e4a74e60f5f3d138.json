@@ -1,0 +1,103 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e4a74e60f5f3d138",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "duration_seconds": {
+          "type": "number"
+        },
+        "language": {
+          "type": "string"
+        },
+        "languages_detected": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "segments": {
+          "items": {
+            "properties": {
+              "confidence": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "end_time": {
+                "type": "number"
+              },
+              "language": {
+                "type": "string"
+              },
+              "speaker": {
+                "type": "string"
+              },
+              "start_time": {
+                "type": "number"
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "speaker",
+              "text",
+              "start_time",
+              "end_time",
+              "language"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "speakers": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "transcript": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "transcript",
+        "segments",
+        "speakers",
+        "duration_seconds",
+        "language",
+        "languages_detected"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "segments[].start_time",
+        "other_field": "segments[].end_time"
+      }
+    ],
+    "bounds": {
+      "duration_seconds": {
+        "min": 0
+      },
+      "segments[].confidence": {
+        "min": 0,
+        "max": 1,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "dicta-notes.com",
+    "endpoint": "https://dicta-notes.com/routes/x402/transcribe",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

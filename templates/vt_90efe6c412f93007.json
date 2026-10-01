@@ -1,0 +1,260 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_90efe6c412f93007",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "as_of": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "asset": {
+          "type": "string"
+        },
+        "available": {
+          "type": "boolean"
+        },
+        "cluster_map": {
+          "type": "object",
+          "properties": {
+            "disclaimer": {
+              "type": "string"
+            },
+            "long_clusters": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "distance_pct": {
+                    "type": "number"
+                  },
+                  "estimated_oi_fraction": {
+                    "type": "number"
+                  },
+                  "leverage": {
+                    "type": "integer"
+                  },
+                  "liq_price": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "distance_pct",
+                  "estimated_oi_fraction",
+                  "leverage",
+                  "liq_price"
+                ]
+              }
+            },
+            "model_note": {
+              "type": "string"
+            },
+            "nearest_long_liq_cluster": {
+              "type": "object",
+              "properties": {
+                "distance_pct": {
+                  "type": "number"
+                },
+                "liq_price": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "distance_pct",
+                "liq_price"
+              ]
+            },
+            "nearest_short_liq_cluster": {
+              "type": "object",
+              "properties": {
+                "distance_pct": {
+                  "type": "integer"
+                },
+                "liq_price": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "distance_pct",
+                "liq_price"
+              ]
+            },
+            "short_clusters": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "distance_pct": {
+                    "type": "number"
+                  },
+                  "estimated_oi_fraction": {
+                    "type": "number"
+                  },
+                  "leverage": {
+                    "type": "integer"
+                  },
+                  "liq_price": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "distance_pct",
+                  "estimated_oi_fraction",
+                  "leverage",
+                  "liq_price"
+                ]
+              }
+            },
+            "squeeze_bias": {
+              "type": "string"
+            },
+            "total_long_oi_estimate": {
+              "type": "number"
+            },
+            "total_short_oi_estimate": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "disclaimer",
+            "long_clusters",
+            "model_note",
+            "nearest_long_liq_cluster",
+            "nearest_short_liq_cluster",
+            "short_clusters",
+            "squeeze_bias",
+            "total_long_oi_estimate",
+            "total_short_oi_estimate"
+          ]
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "funding_rate": {
+          "type": "number"
+        },
+        "mark_price": {
+          "type": "number"
+        },
+        "open_interest": {
+          "type": "number"
+        },
+        "recent_prints": {
+          "type": "object",
+          "properties": {
+            "available": {
+              "type": "boolean"
+            },
+            "count": {
+              "type": "integer"
+            },
+            "note": {
+              "type": "string"
+            },
+            "prints": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "pos_side": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  },
+                  "side": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "number"
+                  },
+                  "time": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "pos_side",
+                  "price",
+                  "side",
+                  "size",
+                  "time"
+                ]
+              }
+            },
+            "source": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "available",
+            "count",
+            "note",
+            "prints",
+            "source"
+          ]
+        }
+      },
+      "required": [
+        "as_of",
+        "asset",
+        "available",
+        "cluster_map",
+        "disclaimer",
+        "funding_rate",
+        "mark_price",
+        "open_interest",
+        "recent_prints"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "cluster_map.long_clusters[].liq_price": {
+        "min": 0
+      },
+      "cluster_map.nearest_long_liq_cluster.liq_price": {
+        "min": 0
+      },
+      "cluster_map.nearest_short_liq_cluster.distance_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "cluster_map.nearest_short_liq_cluster.liq_price": {
+        "min": 0
+      },
+      "cluster_map.short_clusters[].distance_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "cluster_map.short_clusters[].liq_price": {
+        "min": 0
+      },
+      "cluster_map.total_short_oi_estimate": {
+        "min": 0
+      },
+      "mark_price": {
+        "min": 0
+      },
+      "recent_prints.count": {
+        "min": 0
+      },
+      "recent_prints.prints[].price": {
+        "min": 0
+      },
+      "recent_prints.prints[].size": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "kronossignals.com",
+    "endpoint": "https://kronossignals.com/api/v1/liquidations/eth",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

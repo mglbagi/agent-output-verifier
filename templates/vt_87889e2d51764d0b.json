@@ -1,0 +1,65 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_87889e2d51764d0b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "co2e_kg": {
+          "type": "number"
+        },
+        "co2e_tonnes": {
+          "type": "number"
+        },
+        "factor": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string"
+            },
+            "unit": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "source",
+            "unit"
+          ]
+        },
+        "route": {
+          "type": "object",
+          "properties": {
+            "distance_km": {
+              "type": "number"
+            },
+            "tonne_km": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "distance_km",
+            "tonne_km"
+          ]
+        }
+      },
+      "required": [
+        "co2e_kg",
+        "co2e_tonnes",
+        "factor",
+        "route"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.myco2suite.io",
+    "endpoint": "https://api.myco2suite.io/api/v1/freight",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

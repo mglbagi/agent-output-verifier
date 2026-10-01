@@ -1,0 +1,91 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_58ec9a5bfbf9f57d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "changed": {
+          "type": "boolean"
+        },
+        "changes": {
+          "items": {
+            "properties": {
+              "classification": {
+                "enum": [
+                  "breaking",
+                  "potentiallyBreaking",
+                  "nonBreaking",
+                  "informational"
+                ],
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "rule": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "rule",
+              "classification",
+              "message"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "firstSeen": {
+          "type": "boolean"
+        },
+        "summary": {
+          "properties": {
+            "breaking": {
+              "type": "integer"
+            },
+            "informational": {
+              "type": "integer"
+            },
+            "nonBreaking": {
+              "type": "integer"
+            },
+            "potentiallyBreaking": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "breaking",
+            "potentiallyBreaking",
+            "nonBreaking",
+            "informational"
+          ],
+          "type": "object"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "url",
+        "firstSeen",
+        "changed",
+        "summary",
+        "changes"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent.prh.news",
+    "endpoint": "https://agent.prh.news/v1/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

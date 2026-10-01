@@ -1,0 +1,100 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cda86f7b2d350f17",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "domain": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "records": {
+          "additionalProperties": true,
+          "properties": {
+            "A": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "MX": {
+              "items": {
+                "additionalProperties": true,
+                "properties": {
+                  "host": {
+                    "type": "string"
+                  },
+                  "priority": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "host",
+                  "priority"
+                ]
+              },
+              "type": "array"
+            },
+            "NS": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "TXT": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object",
+          "required": [
+            "A",
+            "MX",
+            "NS",
+            "TXT"
+          ]
+        },
+        "service": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "types": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "domain",
+        "ok",
+        "records",
+        "service",
+        "timestamp",
+        "types"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tools.ipintel.ai",
+    "endpoint": "https://tools.ipintel.ai/dns-lookup",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

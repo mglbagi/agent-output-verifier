@@ -1,0 +1,123 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_05a4e55bfbaa6441",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "author": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "username"
+                ]
+              },
+              "created_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "id": {
+                "type": "string"
+              },
+              "public_metrics": {
+                "type": "object",
+                "properties": {
+                  "like_count": {
+                    "type": "integer"
+                  },
+                  "quote_count": {
+                    "type": "integer"
+                  },
+                  "reply_count": {
+                    "type": "integer"
+                  },
+                  "retweet_count": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "like_count",
+                  "quote_count",
+                  "reply_count",
+                  "retweet_count"
+                ]
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "author",
+              "created_at",
+              "id",
+              "public_metrics",
+              "text"
+            ]
+          }
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "next_token": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "next_token"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data[].id"
+      }
+    ],
+    "bounds": {
+      "data[].public_metrics.like_count": {
+        "min": 0
+      },
+      "data[].public_metrics.quote_count": {
+        "min": 0
+      },
+      "data[].public_metrics.reply_count": {
+        "min": 0
+      },
+      "data[].public_metrics.retweet_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.twit.sh",
+    "endpoint": "https://x402.twit.sh/tweets/replies",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

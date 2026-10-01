@@ -1,0 +1,163 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_db8e35afba4fe366",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "checks": {
+          "type": "object",
+          "properties": {
+            "accepts_mail": {
+              "type": "boolean"
+            },
+            "disposable_domain": {
+              "type": "boolean"
+            },
+            "dmarc": {
+              "type": "object",
+              "properties": {
+                "policy": {
+                  "type": "string"
+                },
+                "present": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "policy",
+                "present"
+              ]
+            },
+            "dns_resolves": {
+              "type": "boolean"
+            },
+            "free_provider": {
+              "type": "boolean"
+            },
+            "mx_hosts": {
+              "type": "array"
+            },
+            "registration": {
+              "type": "object",
+              "properties": {
+                "age_days": {
+                  "type": "integer"
+                },
+                "expires_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "registered_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "registrar": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "age_days",
+                "expires_at",
+                "registered_at",
+                "registrar",
+                "status"
+              ]
+            },
+            "spf": {
+              "type": "object",
+              "properties": {
+                "all_policy": {
+                  "type": "string"
+                },
+                "present": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "all_policy",
+                "present"
+              ]
+            },
+            "suggested_domain": {}
+          },
+          "required": [
+            "accepts_mail",
+            "disposable_domain",
+            "dmarc",
+            "dns_resolves",
+            "free_provider",
+            "mx_hosts",
+            "registration",
+            "spf"
+          ]
+        },
+        "domain": {
+          "type": "string"
+        },
+        "input": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "message",
+              "severity"
+            ]
+          }
+        },
+        "registrable_domain": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "checks",
+        "domain",
+        "input",
+        "note",
+        "reasons",
+        "registrable_domain",
+        "type",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "checks.registration.age_days": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-tollbooth.onrender.com",
+    "endpoint": "https://x402-tollbooth.onrender.com/api/domain-trust",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,252 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_dc825ac20d6e7fd8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "availability": {
+          "type": "object",
+          "properties": {
+            "form": {
+              "type": "string"
+            },
+            "forms": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "valid": {
+              "type": "boolean"
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "form",
+            "forms",
+            "valid",
+            "value"
+          ]
+        },
+        "checked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "contradictions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "detail": {
+                "type": "string"
+              },
+              "key": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "detail",
+              "key"
+            ]
+          }
+        },
+        "data_source": {
+          "type": "string"
+        },
+        "gaps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "detail": {
+                "type": "string"
+              },
+              "key": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "detail",
+              "key"
+            ]
+          }
+        },
+        "legend": {
+          "type": "object",
+          "properties": {
+            "verdict": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "verdict"
+          ]
+        },
+        "not_checked": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "price": {
+          "type": "object",
+          "properties": {
+            "as_data": {
+              "type": "boolean"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "microdata_value": {
+              "type": "number"
+            },
+            "value": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "as_data",
+            "currency",
+            "microdata_value",
+            "value"
+          ]
+        },
+        "products": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "integer"
+            },
+            "jsonld_blocks": {
+              "type": "integer"
+            },
+            "unambiguous": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "count",
+            "jsonld_blocks",
+            "unambiguous"
+          ]
+        },
+        "returns": {
+          "type": "object",
+          "properties": {
+            "as_data": {
+              "type": "boolean"
+            },
+            "days": {}
+          },
+          "required": [
+            "as_data"
+          ]
+        },
+        "shipping": {
+          "type": "object",
+          "properties": {
+            "as_data": {
+              "type": "boolean"
+            },
+            "fields": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "as_data",
+            "fields"
+          ]
+        },
+        "variants": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "integer"
+            },
+            "distinguishable": {},
+            "formats_consistent": {}
+          },
+          "required": [
+            "count"
+          ]
+        },
+        "verdict": {
+          "type": "string"
+        },
+        "visible": {
+          "type": "object",
+          "properties": {
+            "add_to_cart_text": {
+              "type": "boolean"
+            },
+            "prices": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            },
+            "shop_markers": {
+              "type": "boolean"
+            },
+            "sold_out_text": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "add_to_cart_text",
+            "prices",
+            "shop_markers",
+            "sold_out_text"
+          ]
+        }
+      },
+      "required": [
+        "availability",
+        "checked_at",
+        "contradictions",
+        "data_source",
+        "gaps",
+        "legend",
+        "not_checked",
+        "price",
+        "products",
+        "returns",
+        "shipping",
+        "variants",
+        "verdict",
+        "visible"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "contradictions[].key"
+      },
+      {
+        "type": "unique",
+        "field": "gaps[].key"
+      }
+    ],
+    "bounds": {
+      "products.count": {
+        "min": 0
+      },
+      "variants.count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.ozdreamtools.de",
+    "endpoint": "https://api.ozdreamtools.de/api/product/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

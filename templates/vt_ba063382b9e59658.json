@@ -1,0 +1,87 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ba063382b9e59658",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "index_updated": {
+          "type": "string"
+        },
+        "networks": {
+          "type": "array"
+        },
+        "price_usd": {
+          "properties": {
+            "max": {
+              "type": "number"
+            },
+            "median": {
+              "type": "number"
+            },
+            "min": {
+              "type": "number"
+            },
+            "p25": {
+              "type": "number"
+            },
+            "p75": {
+              "type": "number"
+            },
+            "p95": {
+              "type": "number"
+            }
+          },
+          "type": "object",
+          "required": [
+            "max",
+            "median",
+            "min"
+          ]
+        },
+        "probed": {
+          "type": "number"
+        },
+        "resources": {
+          "type": "number"
+        },
+        "top_hosts": {
+          "type": "array"
+        },
+        "top_recipients": {
+          "type": "array"
+        },
+        "unique_hosts": {
+          "type": "number"
+        },
+        "unique_recipients": {
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "required": [
+        "networks",
+        "price_usd",
+        "resources",
+        "unique_hosts"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "price_usd.min",
+        "other_field": "price_usd.max"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ali-acids-helmet-cindy.trycloudflare.com",
+    "endpoint": "https://ali-acids-helmet-cindy.trycloudflare.com/api/stats",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

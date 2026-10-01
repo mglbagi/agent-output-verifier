@@ -1,0 +1,78 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8c45ab8661cbe5bd",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "cited_by_count": {
+          "type": "integer"
+        },
+        "doi": {
+          "type": "string"
+        },
+        "is_retracted": {
+          "type": "boolean"
+        },
+        "open_access": {
+          "type": "object",
+          "properties": {
+            "best_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "is_oa": {
+              "type": "boolean"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "best_url",
+            "is_oa",
+            "status"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "tldr": {
+          "type": "string"
+        },
+        "venue": {
+          "type": "string"
+        },
+        "year": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "cited_by_count",
+        "doi",
+        "is_retracted",
+        "open_access",
+        "title",
+        "tldr",
+        "venue",
+        "year"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "cited_by_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "citepulse.theaslangroupllc.com",
+    "endpoint": "https://citepulse.theaslangroupllc.com/api/paper",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

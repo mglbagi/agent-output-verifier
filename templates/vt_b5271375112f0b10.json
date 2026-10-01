@@ -1,0 +1,102 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b5271375112f0b10",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "analysis": {
+          "type": "object",
+          "properties": {
+            "headline": {
+              "type": "string"
+            },
+            "positives": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "risk_level": {
+              "type": "string"
+            },
+            "risks": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "summary": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "headline",
+            "positives",
+            "risk_level",
+            "risks",
+            "summary"
+          ]
+        },
+        "analysis_mode": {
+          "type": "string"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "red_flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "token": {
+          "type": "object",
+          "properties": {
+            "marketCapRank": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "priceUsd": {
+              "type": "number"
+            },
+            "source": {
+              "type": "string"
+            },
+            "symbol": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "marketCapRank",
+            "name",
+            "priceUsd",
+            "source",
+            "symbol"
+          ]
+        }
+      },
+      "required": [
+        "analysis",
+        "analysis_mode",
+        "disclaimer",
+        "red_flags",
+        "token"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "trapcheck.dev",
+    "endpoint": "https://trapcheck.dev/brief",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

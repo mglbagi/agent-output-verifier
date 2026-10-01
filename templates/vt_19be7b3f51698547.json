@@ -1,0 +1,62 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_19be7b3f51698547",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "bytes": {
+          "description": "Size of the returned markdown in bytes.",
+          "type": "integer"
+        },
+        "fetched_at": {
+          "description": "ISO-8601 fetch timestamp.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "markdown": {
+          "description": "Main article text as clean Markdown.",
+          "type": "string"
+        },
+        "source": {
+          "description": "Extraction backend.",
+          "type": "string"
+        },
+        "title": {
+          "description": "Page title.",
+          "type": "string"
+        },
+        "truncated": {
+          "description": "True if markdown was cut at max_chars.",
+          "type": "boolean"
+        },
+        "url": {
+          "description": "The URL that was read.",
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "url",
+        "markdown"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "bytes": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "pyfile-agent.taile3ff35.ts.net",
+    "endpoint": "https://pyfile-agent.taile3ff35.ts.net/web/read",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,318 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ee4bb8afa2670dd8",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "_apex": {
+          "properties": {
+            "evolution_runs": {
+              "type": "integer"
+            },
+            "instance": {
+              "type": "string"
+            },
+            "live_capital_deployed": {
+              "type": "boolean"
+            },
+            "live_trading": {
+              "type": "boolean"
+            },
+            "signal": {
+              "type": "string"
+            },
+            "signal_hash": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string"
+            },
+            "trades_backing_signal": {
+              "type": "integer"
+            },
+            "verify_at": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "bundle": {
+          "type": "string"
+        },
+        "bundle_note": {
+          "type": "string"
+        },
+        "bundle_savings_pct": {
+          "type": "number"
+        },
+        "components_delivered": {
+          "type": "integer"
+        },
+        "liquidation_magnet": {
+          "properties": {
+            "coin": {
+              "type": "string"
+            },
+            "distance_down_pct": {
+              "type": "number"
+            },
+            "distance_up_pct": {
+              "type": "number"
+            },
+            "liq_clusters": {
+              "properties": {
+                "above_count": {
+                  "type": "integer"
+                },
+                "above_notional_usd": {
+                  "type": "number"
+                },
+                "below_count": {
+                  "type": "integer"
+                },
+                "below_notional_usd": {
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            },
+            "magnet_bias": {
+              "type": "string"
+            },
+            "mark_price": {
+              "type": "number"
+            },
+            "nearest_long_liq": {
+              "type": "number"
+            },
+            "nearest_short_liq": {
+              "type": "number"
+            },
+            "note": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string"
+            },
+            "spot_price": {
+              "type": "integer"
+            },
+            "wallets_sampled": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "liquidation_pressure": {
+          "properties": {
+            "cached_at": {
+              "type": "string"
+            },
+            "cascade_alert": {
+              "type": "boolean"
+            },
+            "coins": {
+              "additionalProperties": {
+                "properties": {
+                  "bias": {
+                    "type": "string"
+                  },
+                  "cascade_risk_score": {
+                    "type": "integer"
+                  },
+                  "liq_vol_long_usd": {
+                    "type": "number"
+                  },
+                  "liq_vol_short_usd": {
+                    "type": "number"
+                  },
+                  "mark_price": {
+                    "type": "number"
+                  },
+                  "near_liq_long_usd": {
+                    "type": "integer"
+                  },
+                  "near_liq_short_usd": {
+                    "type": "integer"
+                  },
+                  "wallets_sampled": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "object"
+            },
+            "highest_pressure_coin": {
+              "type": "string"
+            },
+            "interpretation": {
+              "type": "string"
+            },
+            "max_cascade_risk_score": {
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "required": [
+            "cascade_alert"
+          ]
+        },
+        "portfolio_heat": {
+          "properties": {
+            "action": {
+              "type": "string"
+            },
+            "inputs": {
+              "properties": {
+                "avg_market_drop_24h": {
+                  "type": "number"
+                },
+                "fear_greed": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "market_heat_pct": {
+              "type": "number"
+            },
+            "status": {
+              "type": "string"
+            },
+            "thresholds": {
+              "properties": {
+                "caution": {
+                  "type": "integer"
+                },
+                "critical": {
+                  "type": "integer"
+                },
+                "high": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "timestamp": {
+          "type": "string"
+        },
+        "valid_for_seconds": {
+          "type": "integer"
+        },
+        "whale_sentiment": {
+          "properties": {
+            "avg_leverage": {
+              "type": "number"
+            },
+            "bias": {
+              "type": "string"
+            },
+            "long_pct": {
+              "type": "number"
+            },
+            "short_pct": {
+              "type": "number"
+            },
+            "timestamp": {
+              "type": "integer"
+            },
+            "total_notional_usd": {
+              "type": "number"
+            },
+            "wallets_sampled": {
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "required": [
+            "bias"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "bundle",
+        "bundle_savings_pct",
+        "liquidation_pressure",
+        "whale_sentiment"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "bundle_savings_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "liquidation_magnet.distance_down_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "liquidation_magnet.distance_up_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "liquidation_magnet.liq_clusters.above_count": {
+        "min": 0,
+        "if_present": true
+      },
+      "liquidation_magnet.liq_clusters.above_notional_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "liquidation_magnet.liq_clusters.below_count": {
+        "min": 0,
+        "if_present": true
+      },
+      "liquidation_magnet.liq_clusters.below_notional_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "liquidation_magnet.mark_price": {
+        "min": 0,
+        "if_present": true
+      },
+      "liquidation_magnet.spot_price": {
+        "min": 0,
+        "if_present": true
+      },
+      "portfolio_heat.market_heat_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "whale_sentiment.long_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "whale_sentiment.short_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "whale_sentiment.total_notional_usd": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "apexrunner.ai",
+    "endpoint": "https://apexrunner.ai/signals/risk-assessment-bundle",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

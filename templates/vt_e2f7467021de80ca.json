@@ -1,0 +1,44 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e2f7467021de80ca",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "conformance_pct": {
+          "type": "number"
+        },
+        "controls": {
+          "type": "array"
+        },
+        "remediation_path": {
+          "type": "object"
+        },
+        "taxonomy_version": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "controls"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "conformance_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.craigmbrown.com",
+    "endpoint": "https://api.craigmbrown.com/v1/services/security.massat-conformance",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_da4b90a0b0247a7e",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "producer_realized_prices": {
+          "type": "object",
+          "properties": {
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "period": {
+                    "type": "string"
+                  },
+                  "realized_price_usd_per_t": {
+                    "type": "number"
+                  },
+                  "ticker": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "period",
+                  "realized_price_usd_per_t",
+                  "ticker"
+                ]
+              }
+            }
+          },
+          "required": [
+            "rows"
+          ]
+        },
+        "spodumene_sc6": {
+          "type": "object",
+          "properties": {
+            "points": {
+              "type": "integer"
+            },
+            "series": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "date": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "usd_per_t": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "date",
+                  "usd_per_t"
+                ]
+              }
+            },
+            "unit": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "points",
+            "series",
+            "unit"
+          ]
+        }
+      },
+      "required": [
+        "producer_realized_prices",
+        "spodumene_sc6"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "producer_realized_prices.rows[].realized_price_usd_per_t": {
+        "min": 0
+      },
+      "spodumene_sc6.series[].usd_per_t": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "clink-lithium-vault.fly.dev",
+    "endpoint": "https://clink-lithium-vault.fly.dev/vault/spodumene-history",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

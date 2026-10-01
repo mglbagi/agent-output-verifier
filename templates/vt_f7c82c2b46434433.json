@@ -1,0 +1,50 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f7c82c2b46434433",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "author": {
+          "type": "string"
+        },
+        "markdown": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "sourceUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "title": {
+          "type": "string"
+        },
+        "wordCount": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "author",
+        "markdown",
+        "platform",
+        "sourceUrl",
+        "title",
+        "wordCount"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api-production-8785.up.railway.app",
+    "endpoint": "https://api-production-8785.up.railway.app/api/x402/extract",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

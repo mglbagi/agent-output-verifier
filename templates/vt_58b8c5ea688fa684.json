@@ -1,0 +1,174 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_58b8c5ea688fa684",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "attribution": {
+          "type": "string"
+        },
+        "changed": {
+          "type": "boolean"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "coverage": {
+          "type": "object",
+          "properties": {
+            "complete": {
+              "type": "boolean"
+            },
+            "from": {
+              "type": "string",
+              "format": "date"
+            },
+            "to": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          "required": [
+            "complete",
+            "from",
+            "to"
+          ]
+        },
+        "cursorSemantics": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "filings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "acceptanceDateTime": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "accessionNumber": {
+                "type": "string"
+              },
+              "filingDate": {
+                "type": "string",
+                "format": "date"
+              },
+              "filingIndexUrl": {
+                "type": "string",
+                "format": "uri"
+              },
+              "form": {
+                "type": "string"
+              },
+              "items": {
+                "type": "string"
+              },
+              "primaryDocumentUrl": {
+                "type": "string",
+                "format": "uri"
+              },
+              "reportDate": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "required": [
+              "acceptanceDateTime",
+              "accessionNumber",
+              "filingDate",
+              "filingIndexUrl",
+              "form",
+              "items",
+              "primaryDocumentUrl",
+              "reportDate"
+            ]
+          }
+        },
+        "issuer": {
+          "type": "object",
+          "properties": {
+            "cik": {
+              "type": "string"
+            },
+            "exchanges": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "name": {
+              "type": "string"
+            },
+            "sicDescription": {
+              "type": "string"
+            },
+            "ticker": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "cik",
+            "exchanges",
+            "name",
+            "sicDescription",
+            "ticker"
+          ]
+        },
+        "matched": {
+          "type": "integer"
+        },
+        "nextSince": {
+          "type": "string",
+          "format": "date"
+        },
+        "since": {
+          "type": "string",
+          "format": "date"
+        },
+        "truncated": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "attribution",
+        "changed",
+        "count",
+        "coverage",
+        "cursorSemantics",
+        "endpoint",
+        "filings",
+        "issuer",
+        "matched",
+        "nextSince",
+        "since",
+        "truncated"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "coverage.from",
+        "other_field": "coverage.to"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.donnyautomation.com",
+    "endpoint": "https://x402.donnyautomation.com/edgar/filings",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_47954d79ee4fc526",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "ocr_performed": {
+          "type": "boolean"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "page_count": {
+          "type": "integer"
+        },
+        "pages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "characters": {
+                "type": "integer"
+              },
+              "page": {
+                "type": "integer"
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "characters",
+              "page",
+              "text"
+            ]
+          }
+        },
+        "text": {
+          "type": "string"
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "ocr_performed",
+        "ok",
+        "page_count",
+        "pages",
+        "text",
+        "warnings"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "page_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.agentwork.run",
+    "endpoint": "https://api.agentwork.run/v1/pdf/read",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

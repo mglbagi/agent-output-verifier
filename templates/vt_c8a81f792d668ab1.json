@@ -1,0 +1,112 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c8a81f792d668ab1",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "air_quality": {
+          "nullable": true,
+          "type": "object"
+        },
+        "current": {
+          "type": "object"
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "location": {
+          "properties": {
+            "country": {
+              "type": "string"
+            },
+            "lat": {
+              "type": "number"
+            },
+            "lon": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "country",
+            "lat",
+            "lon",
+            "name"
+          ]
+        },
+        "payer": {
+          "properties": {
+            "address": {
+              "nullable": true,
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "network": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "address",
+            "network"
+          ]
+        },
+        "request_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "source": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "today": {
+          "nullable": true,
+          "type": "object"
+        },
+        "utc_offset_seconds": {
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "required": [
+        "air_quality",
+        "current",
+        "generated_at",
+        "location",
+        "payer",
+        "request_id",
+        "source",
+        "timezone",
+        "today",
+        "utc_offset_seconds"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "location.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "location.lon": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.tbs-digital.com",
+    "endpoint": "https://x402.tbs-digital.com/weather/now",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

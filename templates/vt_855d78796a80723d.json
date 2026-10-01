@@ -1,0 +1,59 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_855d78796a80723d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "age_seconds": {
+          "type": "number"
+        },
+        "data": {
+          "description": "13F institutional holdings rollup: top-held names, filer roster, per-ticker holder counts (top 300)",
+          "type": "object"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "product": {
+          "type": "string"
+        },
+        "sample": {
+          "type": "boolean"
+        },
+        "stale": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "required": [
+        "age_seconds",
+        "data",
+        "disclaimer",
+        "generated_at",
+        "product",
+        "sample",
+        "stale"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "age_seconds": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "insider-radar-agent.insider-radar-agent.workers.dev",
+    "endpoint": "https://insider-radar-agent.insider-radar-agent.workers.dev/v1/smart_holdings",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

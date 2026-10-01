@@ -1,0 +1,46 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_231d634b150105bd",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "circulatingUsd": {
+          "type": "number"
+        },
+        "found": {
+          "type": "boolean"
+        },
+        "pegDeviationPct": {
+          "type": "number"
+        },
+        "symbol": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "circulatingUsd",
+        "found",
+        "pegDeviationPct",
+        "symbol"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "pegDeviationPct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "booaip.vercel.app",
+    "endpoint": "https://booaip.vercel.app/api/stablecoins",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

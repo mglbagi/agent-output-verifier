@@ -1,0 +1,22 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d8dcebdce87389ce",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {}
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent-treats-production.up.railway.app",
+    "endpoint": "https://agent-treats-production.up.railway.app/api/name-your-price/bronze",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

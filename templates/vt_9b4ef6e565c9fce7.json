@@ -1,0 +1,96 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9b4ef6e565c9fce7",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "check": {
+          "const": "blacklist",
+          "description": "Identifies which check produced this result."
+        },
+        "network": {
+          "description": "CAIP-2 id of the chain the payment settled on (e.g. eip155:8453 = Base).",
+          "type": "string"
+        },
+        "result": {
+          "properties": {
+            "error": {
+              "description": "Human-readable failure reason, or null on success.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "listedCount": {
+              "description": "Number of blacklists the IP was found on.",
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "listedTotal": {
+              "description": "Total number of blacklists queried (15).",
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "sources": {
+              "description": "Comma-separated names of the blacklists that listed the IP, or null if clean.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "status": {
+              "description": "UP = listed on 0 blacklists; WARN = listed on 1–2; DOWN = listed on 3 or more.",
+              "enum": [
+                "UP",
+                "WARN",
+                "DOWN"
+              ],
+              "type": "string"
+            },
+            "url": {
+              "description": "The normalized URL that was checked.",
+              "type": "string",
+              "format": "uri"
+            },
+            "warning": {
+              "description": "Human-readable warning when the check passed but a threshold was crossed, else null.",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "listedCount",
+            "listedTotal",
+            "status",
+            "url"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "check",
+        "network",
+        "result"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.cloudpulsepoint.com",
+    "endpoint": "https://x402.cloudpulsepoint.com/agent/check/blacklist",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,316 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_37b23dd2ad03da3a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "description": "API version string.",
+          "type": "string"
+        },
+        "categoryHits": {
+          "description": "Category-level aggregation over all matching ranked hits.",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "category": {
+                "description": "Optional GAMEMAXXING internal category slug used to narrow results to part of the GAMEMAXXING video game knowledge base.",
+                "enum": [
+                  "game-design",
+                  "game-mechanics",
+                  "gaming-history",
+                  "speedrunning",
+                  "esports",
+                  "graphics-tech",
+                  "game-audio",
+                  "narrative",
+                  "gaming-culture",
+                  "player-psychology",
+                  "game-business",
+                  "game-genres",
+                  "indie-games",
+                  "game-tech",
+                  "iconic-games",
+                  "action-adventure-games",
+                  "roguelike-games",
+                  "rpg-games",
+                  "shooter-games",
+                  "survival-crafting-games",
+                  "horror-games",
+                  "strategy-management-games",
+                  "simulation-games",
+                  "sports-racing-games",
+                  "fighting-brawler-games",
+                  "puzzle-platformer-games",
+                  "narrative-adventure-games",
+                  "card-board-games",
+                  "onchain-gaming",
+                  "game-consoles",
+                  "game-studios",
+                  "gaming-people",
+                  "game-engines",
+                  "gaming-characters",
+                  "pokemon-games"
+                ],
+                "type": "string"
+              },
+              "count": {
+                "description": "Number of hits returned for the category in the current result set.",
+                "type": "integer"
+              },
+              "label": {
+                "description": "Human-readable category label.",
+                "type": "string"
+              },
+              "score": {
+                "description": "Aggregate relevance score for the category bucket.",
+                "type": "number"
+              }
+            },
+            "required": [
+              "category",
+              "label",
+              "count",
+              "score"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "hits": {
+          "description": "Ranked concept hits with full content payloads for direct use and a trailing source block for citation or follow-up browsing.",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "category": {
+                "description": "Optional GAMEMAXXING internal category slug used to narrow results to part of the GAMEMAXXING video game knowledge base.",
+                "enum": [
+                  "game-design",
+                  "game-mechanics",
+                  "gaming-history",
+                  "speedrunning",
+                  "esports",
+                  "graphics-tech",
+                  "game-audio",
+                  "narrative",
+                  "gaming-culture",
+                  "player-psychology",
+                  "game-business",
+                  "game-genres",
+                  "indie-games",
+                  "game-tech",
+                  "iconic-games",
+                  "action-adventure-games",
+                  "roguelike-games",
+                  "rpg-games",
+                  "shooter-games",
+                  "survival-crafting-games",
+                  "horror-games",
+                  "strategy-management-games",
+                  "simulation-games",
+                  "sports-racing-games",
+                  "fighting-brawler-games",
+                  "puzzle-platformer-games",
+                  "narrative-adventure-games",
+                  "card-board-games",
+                  "onchain-gaming",
+                  "game-consoles",
+                  "game-studios",
+                  "gaming-people",
+                  "game-engines",
+                  "gaming-characters",
+                  "pokemon-games"
+                ],
+                "type": "string"
+              },
+              "categoryLabel": {
+                "description": "Human-readable category label for the concept.",
+                "type": "string"
+              },
+              "content": {
+                "additionalProperties": false,
+                "description": "Full GAMEMAXXING concept content so the agent can use the result directly without opening the URL.",
+                "properties": {
+                  "body": {
+                    "description": "Grounded explanation of the concept.",
+                    "type": "string"
+                  },
+                  "example": {
+                    "description": "Concrete example attached to the concept when available.",
+                    "type": "string"
+                  },
+                  "oneLiner": {
+                    "description": "Single-sentence explanation suitable for quick agent consumption.",
+                    "type": "string"
+                  },
+                  "relatedTerms": {
+                    "description": "Exact GAMEMAXXING terms that connect to the concept.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "tags": {
+                    "description": "Short tags associated with the concept.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "whyItMatters": {
+                    "description": "Why the concept matters to players, studios, or other agents.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "oneLiner",
+                  "body",
+                  "whyItMatters",
+                  "relatedTerms",
+                  "tags"
+                ],
+                "type": "object"
+              },
+              "id": {
+                "description": "Canonical GAMEMAXXING concept id.",
+                "type": "string"
+              },
+              "matchedFields": {
+                "description": "Concept fields that contributed to the match.",
+                "items": {
+                  "enum": [
+                    "term",
+                    "tag",
+                    "related",
+                    "body"
+                  ],
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "score": {
+                "description": "Relevance score from the search engine.",
+                "type": "number"
+              },
+              "source": {
+                "additionalProperties": false,
+                "description": "Follow-up source metadata. Agents can ignore this unless they need citation or browsing.",
+                "properties": {
+                  "url": {
+                    "description": "Canonical human-readable GAMEMAXXING URL for citation or follow-up browsing.",
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "url"
+                ],
+                "type": "object"
+              },
+              "term": {
+                "description": "Display name of the matched concept.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "term",
+              "category",
+              "categoryLabel",
+              "score",
+              "matchedFields",
+              "content",
+              "source"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "pageInfo": {
+          "additionalProperties": false,
+          "description": "Pagination metadata for the current ranked result window. Send nextOffset as offset in the next request while hasMore is true.",
+          "properties": {
+            "hasMore": {
+              "description": "Whether another page is available.",
+              "type": "boolean"
+            },
+            "limit": {
+              "description": "Maximum number of items requested for this page.",
+              "type": "integer"
+            },
+            "nextOffset": {
+              "description": "Offset to send in the next request, or null when there are no more results.",
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "offset": {
+              "description": "Zero-based result offset used for this page.",
+              "type": "integer"
+            },
+            "returned": {
+              "description": "Number of items returned in this page.",
+              "type": "integer"
+            },
+            "totalHits": {
+              "description": "Total matching hits before pagination.",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "offset",
+            "limit",
+            "returned",
+            "totalHits",
+            "hasMore",
+            "nextOffset"
+          ],
+          "type": "object"
+        },
+        "query": {
+          "description": "Normalized query used for the search.",
+          "type": "string"
+        },
+        "totalHits": {
+          "description": "Total number of matching hits before pagination.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "apiVersion",
+        "query",
+        "totalHits",
+        "pageInfo",
+        "categoryHits",
+        "hits"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "hits[].id"
+      }
+    ],
+    "bounds": {
+      "categoryHits[].count": {
+        "min": 0
+      },
+      "pageInfo.limit": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "gamemaxxing.baes.so",
+    "endpoint": "https://gamemaxxing.baes.so/api/agent/v1/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

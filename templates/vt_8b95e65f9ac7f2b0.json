@@ -1,0 +1,325 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8b95e65f9ac7f2b0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": true,
+      "properties": {
+        "canonical_vehicle": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "additionalProperties": true,
+              "properties": {
+                "make": {
+                  "type": "string"
+                },
+                "model": {
+                  "type": "string"
+                },
+                "year": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "year",
+                "make",
+                "model"
+              ],
+              "type": "object"
+            }
+          ],
+          "description": "Normalized year, make and model resolved from the supplied VIN or year/make/model identity."
+        },
+        "choice_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "choices": {
+          "description": "Supported candidate configurations when resolution_status is NEEDS_IDENTITY.",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "configuration_id": {
+                "type": "integer"
+              },
+              "drivetrain": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "evidence_status": {
+                "type": "string"
+              },
+              "generation": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "identity": {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "trim": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "configuration_id"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "completeness": {
+          "description": "Completeness state for the requested resource.",
+          "type": [
+            "string",
+            "object"
+          ]
+        },
+        "configuration": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "additionalProperties": true,
+              "properties": {
+                "configuration_id": {
+                  "type": "integer"
+                },
+                "drivetrain": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence_status": {
+                  "type": "string"
+                },
+                "generation": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "identity": {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                "trim": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "configuration_id"
+              ],
+              "type": "object"
+            }
+          ],
+          "description": "Validated AUTO411 configuration when resolution_status is MATCHED_SINGLE."
+        },
+        "conflicts": {
+          "type": "array"
+        },
+        "data": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "additionalProperties": true,
+              "properties": {
+                "fitment": {
+                  "additionalProperties": true,
+                  "description": "Policy-filtered OEM tire and wheel-fitment facts returned only at their supported evidence scope.",
+                  "properties": {
+                    "bolt_pattern": {
+                      "additionalProperties": true,
+                      "description": "Available normalized wheel-fitment facts.",
+                      "properties": {
+                        "evidence": {
+                          "additionalProperties": true,
+                          "properties": {
+                            "evidence_status": {
+                              "type": "string"
+                            },
+                            "fact_scope": {
+                              "description": "Supported evidence scope, including YMM_SCOPED for wheel fitment.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "fact_scope",
+                            "evidence_status"
+                          ],
+                          "type": "object"
+                        },
+                        "facts": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "bolt_pattern": {
+                              "description": "Bolt pattern / PCD, for example 5x100.",
+                              "type": "string"
+                            },
+                            "center_bore": {
+                              "description": "Center bore in the normalized value returned by AUTO411.",
+                              "type": "string"
+                            },
+                            "offset": {
+                              "description": "Wheel offset in the normalized value returned by AUTO411.",
+                              "type": "string"
+                            },
+                            "thread_size": {
+                              "description": "Thread or lug size in the normalized value returned by AUTO411.",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "values": {
+                          "description": "Available bolt pattern / PCD values.",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "required": [
+                        "status",
+                        "values"
+                      ],
+                      "type": "object"
+                    },
+                    "tires": {
+                      "additionalProperties": true,
+                      "description": "Available OEM tire sizes.",
+                      "properties": {
+                        "evidence": {
+                          "additionalProperties": true,
+                          "properties": {
+                            "evidence_status": {
+                              "type": "string"
+                            },
+                            "fact_scope": {
+                              "description": "Supported evidence scope, including YMM_SCOPED for wheel fitment.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "fact_scope",
+                            "evidence_status"
+                          ],
+                          "type": "object"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "values": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "required": [
+                        "status",
+                        "values"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "fitment"
+              ],
+              "type": "object"
+            }
+          ],
+          "description": "Policy-filtered fitment data, or null when identity is unresolved or no supported facts are available."
+        },
+        "evidence_status": {
+          "description": "Evidence or availability state for the result.",
+          "type": "string"
+        },
+        "fact_scope": {
+          "description": "Scope at which the returned facts are supported.",
+          "type": "string"
+        },
+        "missing_fields": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "policy_withheld": {
+          "description": "Categories withheld by the applicable AUTO411 product policy.",
+          "type": "array"
+        },
+        "resolution_status": {
+          "description": "Explicit vehicle-resolution result. Configuration-dependent facts are returned only when identity is sufficiently resolved.",
+          "enum": [
+            "MATCHED_SINGLE",
+            "NEEDS_IDENTITY",
+            "NO_MATCH",
+            "UNAVAILABLE",
+            "SOURCE_UNAVAILABLE"
+          ],
+          "type": "string"
+        },
+        "source_availability": {
+          "enum": [
+            "AVAILABLE",
+            "PARTIAL",
+            "UNAVAILABLE"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "resolution_status",
+        "canonical_vehicle",
+        "configuration",
+        "missing_fields",
+        "conflicts",
+        "completeness",
+        "data"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "choices[].configuration_id",
+        "if_present": true
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "auto411-x402-prod.simonwakelin.workers.dev",
+    "endpoint": "https://auto411-x402-prod.simonwakelin.workers.dev/v1/vehicle_fitment",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

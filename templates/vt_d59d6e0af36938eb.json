@@ -1,0 +1,83 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d59d6e0af36938eb",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "assumptions": {
+          "type": "array"
+        },
+        "at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "changePct": {
+          "type": "number"
+        },
+        "direction": {
+          "type": "string"
+        },
+        "priceObservedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "quoteCurrency": {
+          "type": "string"
+        },
+        "ref": {
+          "type": "integer"
+        },
+        "source": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "thresholdPct": {
+          "type": "integer"
+        },
+        "triggered": {
+          "type": "boolean"
+        },
+        "usd": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "assumptions",
+        "at",
+        "changePct",
+        "direction",
+        "priceObservedAt",
+        "quoteCurrency",
+        "ref",
+        "source",
+        "symbol",
+        "thresholdPct",
+        "triggered",
+        "usd"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "thresholdPct": {
+        "min": 0,
+        "max": 100
+      },
+      "usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agenttoll.app",
+    "endpoint": "https://agenttoll.app/api/watch/price/:symbol",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

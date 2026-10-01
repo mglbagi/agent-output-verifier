@@ -1,0 +1,267 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_744a9ca513009bb5",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "_atlas": {
+          "additionalProperties": false,
+          "description": "Atlas documentation and related-route metadata added after deployment",
+          "properties": {
+            "docs": {
+              "description": "Documentation URL for this bridge",
+              "format": "uri",
+              "maxLength": 512,
+              "type": "string"
+            },
+            "related": {
+              "description": "Bounded related Atlas routes",
+              "items": {
+                "additionalProperties": false,
+                "description": "One related Atlas route",
+                "properties": {
+                  "bridge": {
+                    "description": "Related bridge name",
+                    "maxLength": 64,
+                    "type": "string"
+                  },
+                  "docs": {
+                    "description": "Related bridge documentation URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  },
+                  "summary": {
+                    "description": "Short capability summary",
+                    "maxLength": 256,
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "Related route URL",
+                    "format": "uri",
+                    "maxLength": 512,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "bridge",
+                  "url",
+                  "docs",
+                  "summary"
+                ],
+                "type": "object"
+              },
+              "maxItems": 3,
+              "type": "array"
+            }
+          },
+          "required": [
+            "docs"
+          ],
+          "type": "object"
+        },
+        "algorithm_version": {
+          "const": "pkcs10-csr-inspect-v1",
+          "description": "Pinned CSR inspection contract",
+          "type": "string"
+        },
+        "csr": {
+          "additionalProperties": false,
+          "description": "Normalized PKCS#10 request fields and included self-signature result",
+          "properties": {
+            "fingerprint_sha256": {
+              "description": "Colon-separated uppercase SHA-256 fingerprint of the exact DER bytes",
+              "pattern": "^([0-9A-F]{2}:){31}[0-9A-F]{2}$",
+              "type": "string"
+            },
+            "public_key": {
+              "additionalProperties": false,
+              "description": "Included public-key algorithm and size",
+              "properties": {
+                "algorithm": {
+                  "description": "Parsed public-key algorithm",
+                  "type": "string"
+                },
+                "bits": {
+                  "description": "Public-key or curve bit size; zero only for an unsupported parsed type",
+                  "maximum": 16384,
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "algorithm",
+                "bits"
+              ],
+              "type": "object"
+            },
+            "requested_extensions": {
+              "description": "Requested extension identifiers in deterministic OID order",
+              "items": {
+                "additionalProperties": false,
+                "description": "One requested extension identifier without raw extension bytes",
+                "properties": {
+                  "critical": {
+                    "description": "Whether the requested extension is marked critical",
+                    "type": "boolean"
+                  },
+                  "oid": {
+                    "description": "Dotted-decimal extension object identifier",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "oid",
+                  "critical"
+                ],
+                "type": "object"
+              },
+              "maxItems": 128,
+              "type": "array"
+            },
+            "sans": {
+              "additionalProperties": false,
+              "description": "Caller-provided subject alternative names; URI values were not fetched",
+              "properties": {
+                "dns_names": {
+                  "description": "DNS subject alternative names",
+                  "items": {
+                    "description": "Normalized string value",
+                    "type": "string"
+                  },
+                  "maxItems": 256,
+                  "type": "array"
+                },
+                "email_addresses": {
+                  "description": "Email subject alternative names",
+                  "items": {
+                    "description": "Normalized string value",
+                    "type": "string"
+                  },
+                  "maxItems": 256,
+                  "type": "array"
+                },
+                "ip_addresses": {
+                  "description": "Canonical IP subject alternative names",
+                  "items": {
+                    "description": "Normalized string value",
+                    "type": "string"
+                  },
+                  "maxItems": 256,
+                  "type": "array"
+                },
+                "uris": {
+                  "description": "URI subject alternative names; never fetched",
+                  "items": {
+                    "description": "Normalized string value",
+                    "type": "string"
+                  },
+                  "maxItems": 256,
+                  "type": "array"
+                }
+              },
+              "required": [
+                "dns_names",
+                "email_addresses",
+                "ip_addresses",
+                "uris"
+              ],
+              "type": "object"
+            },
+            "signature_algorithm": {
+              "description": "Parsed CSR self-signature algorithm name",
+              "type": "string"
+            },
+            "signature_valid": {
+              "description": "Whether the CSR self-signature verifies under its included key; not an identity or approval result",
+              "type": "boolean"
+            },
+            "subject": {
+              "description": "Printable requested subject distinguished name",
+              "type": "string"
+            },
+            "subject_rdns": {
+              "description": "Ordered requested subject relative distinguished names",
+              "items": {
+                "description": "One relative distinguished name set",
+                "items": {
+                  "additionalProperties": false,
+                  "description": "One distinguished-name attribute",
+                  "properties": {
+                    "name": {
+                      "description": "Known stable attribute name or unknown",
+                      "type": "string"
+                    },
+                    "oid": {
+                      "description": "Dotted-decimal attribute object identifier",
+                      "type": "string"
+                    },
+                    "value": {
+                      "description": "Printable attribute value",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "oid",
+                    "name",
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 32,
+                "type": "array"
+              },
+              "maxItems": 128,
+              "type": "array"
+            }
+          },
+          "required": [
+            "fingerprint_sha256",
+            "subject",
+            "subject_rdns",
+            "sans",
+            "requested_extensions",
+            "public_key",
+            "signature_algorithm",
+            "signature_valid"
+          ],
+          "type": "object"
+        },
+        "operation": {
+          "const": "csr-inspect",
+          "description": "Stable operation name",
+          "type": "string"
+        },
+        "warnings": {
+          "description": "Trust and identity limitations",
+          "items": {
+            "description": "Human-readable warning",
+            "type": "string"
+          },
+          "maxItems": 8,
+          "type": "array"
+        }
+      },
+      "required": [
+        "operation",
+        "algorithm_version",
+        "csr",
+        "warnings"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "artifact-inspector.use.x402atlas.com",
+    "endpoint": "https://artifact-inspector.use.x402atlas.com/csr",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

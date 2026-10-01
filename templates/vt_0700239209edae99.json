@@ -1,0 +1,191 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0700239209edae99",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "maximum": 50,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "dataAvailableCount": {
+          "maximum": 50,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "dataUnavailableCount": {
+          "maximum": 50,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "cve": {
+                "description": "CVE identifier.",
+                "type": "string"
+              },
+              "dataAvailable": {
+                "description": "Whether FIRST EPSS or CISA KEV supplied usable prioritization signal data.",
+                "type": "boolean"
+              },
+              "epss": {
+                "anyOf": [
+                  {
+                    "maximum": 1,
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "FIRST EPSS probability when available."
+              },
+              "epssPercentile": {
+                "anyOf": [
+                  {
+                    "maximum": 1,
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "FIRST EPSS percentile when available."
+              },
+              "inKev": {
+                "description": "Whether the CVE is listed in CISA KEV.",
+                "type": "boolean"
+              },
+              "kevDateAdded": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Date the CVE was added to CISA KEV when available."
+              },
+              "kevDueDate": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "CISA KEV due date when available."
+              },
+              "product": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Product from CISA KEV when available."
+              },
+              "ransomwareKnown": {
+                "description": "Whether CISA KEV marks known ransomware campaign use.",
+                "type": "boolean"
+              },
+              "reasons": {
+                "description": "Human-readable reasons supporting the score and tier.",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "requiredAction": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "CISA KEV required action when available."
+              },
+              "score": {
+                "anyOf": [
+                  {
+                    "maximum": 100,
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Deterministic priority score from 0 to 100; null when no usable signal is available for this CVE."
+              },
+              "tier": {
+                "description": "Priority tier derived from the deterministic score and KEV status.",
+                "enum": [
+                  "urgent",
+                  "high",
+                  "medium",
+                  "low",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              "vendor": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Vendor from CISA KEV when available."
+              }
+            },
+            "required": [
+              "cve",
+              "dataAvailable",
+              "score",
+              "tier",
+              "inKev",
+              "ransomwareKnown",
+              "reasons"
+            ],
+            "type": "object"
+          },
+          "maxItems": 50,
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "count",
+        "dataAvailableCount",
+        "dataUnavailableCount",
+        "results"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "zeroworker-security-api.zeroworker-lab.workers.dev",
+    "endpoint": "https://zeroworker-security-api.zeroworker-lab.workers.dev/v1/prioritize",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}
