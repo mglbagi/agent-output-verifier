@@ -2,12 +2,13 @@
 
 Independently verify an agent's output before you pay.
 
-Independent, deterministic checks of structure, formats, ranges and cross-field rules, such as
-"line totals must equal the total," against your own requirements, written in standard JSON Schema
-plus optional rules. Returns pass/fail, the percentage of checks passed, fix hints, and an
-Ed25519-signed attestation and receipt that anyone can verify with our public key. Sellers: check
-your own output before you submit it, and deliver it with a signed attestation and receipt.
-No signup: pay per call with x402 v2, in USDC on Base or Solana. 3 free calls a day through MCP.
+Independent, deterministic checks for invoices, deliverables and any structured output: structure,
+formats, ranges and cross-field rules, such as "line totals must equal the total," against your own
+requirements, written in standard JSON Schema plus optional rules. Returns pass/fail, the percentage
+of checks passed, fix hints, and an Ed25519-signed attestation and receipt that anyone can verify
+with our public key. Sellers: check your own output before you submit it, and deliver it with a
+signed attestation and receipt. No signup: pay per call with x402 v2, in USDC on Base or Solana.
+3 free calls a day through MCP.
 
 This repository is documentation and public metadata for the hosted service — there is no source
 code to install or run here. The service itself is a live API at
@@ -42,11 +43,46 @@ no account or signup required:
 exact live prices, pay-to addresses and asset addresses — treat them as the source of truth, and
 this table as a quick reference.
 
+Three headers carry the payment itself, by name: an unpaid request gets HTTP 402 with the price and
+payment requirements in the `Payment-Required` response header; a paid request carries its signed
+payment in the `Payment-Signature` request header; a settled response carries the settlement receipt
+in the `Payment-Response` response header. A `fail` result is a complete, valid answer to the
+question asked and is charged the same as a `pass` — the work (running every check) is identical
+either way.
+
 ## Free trial
 
-Each MCP tool carries its own free-trial allowance: **3 free calls per day**, available over MCP.
-After that, a call requires an x402 payment carried in the MCP request's `_meta` under
-`x402/payment`, or a standard x402 payment header on REST.
+Each MCP tool carries its own free-trial allowance: **3 free calls per day per client**, identified
+by request IP address — there is no sign-up or account — available over MCP. REST and MCP calls
+from the same address share one allowance per tool.
+
+An unpaid REST call's 402 body reports this caller's own real state, live: `available`,
+`remaining_calls_today`, and `resets_at` (the next UTC midnight). Once a client's calls for the day
+are used up, `available` turns `false` and the body carries `"code": "free_trial_exhausted"` —
+distinct from an ordinary payment-required response that never had a free trial to begin with:
+
+```json
+{
+  "free_trial": {
+    "available": false,
+    "via": "mcp",
+    "transport": "streamable-http",
+    "url": "https://fastapi-service-5ag4.onrender.com/mcp",
+    "tool": "verify_schema",
+    "calls_per_client_per_day": 3,
+    "remaining_calls_today": 0,
+    "resets_at": "2026-10-02T00:00:00+00:00",
+    "client": "identified by request IP address",
+    "message": "This client's 3 free calls/day for the MCP tool 'verify_schema' are used up for today; they reset at 2026-10-02T00:00:00+00:00. This REST endpoint has no free tier of its own.",
+    "code": "free_trial_exhausted"
+  }
+}
+```
+
+The same `free_trial_exhausted` code rides alongside the MCP tool's own payment-required result
+(in `_meta`) when a tool call is made after that client's free calls for the day are gone. After
+the free trial (or once it's exhausted for the day), a call requires an x402 payment carried in the
+MCP request's `_meta` under `x402/payment`, or a standard x402 payment header on REST.
 
 ## Verifying a receipt, step by step
 
@@ -109,7 +145,12 @@ Nothing but the response itself and `verify.public_key_url` is needed:
    named value: `output_hash` (of `submitted_output`), `schema_hash` (of `expected_schema`),
    `rules_hash` (of `{"bounds": ..., "rules": ...}`), and `request_hash` (of the whole request as
    parsed, full detail only). Recompute them yourself and compare — this is what binds the receipt
-   to the exact data that was checked.
+   to the exact data that was checked. `request_hash` fills every per-rule and per-bound field to
+   its own default before hashing — an omitted `tolerance` hashes as `1e-9`, an omitted
+   `if_present` as `false`, an omitted `equals_field`/`equals`/`other_field`/`value`/`in_field`/
+   `values` as `null` — so two requests whose rules differ only in which optional fields were
+   typed out still hash identically here. `rules_hash` is the opposite: it hashes exactly and only
+   the fields you supplied, nothing defaulted in.
 
 A minimal Python verifier, using only the standard library plus `cryptography`:
 
