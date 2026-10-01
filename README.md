@@ -77,7 +77,17 @@ Nothing but the response itself and `verify.public_key_url` is needed:
    `urn:json-schema-verifier:extension:attestation:`; its `params.publicKeys` lists every key the
    service has ever signed with, each `{keyVersion, algorithm, publicKey}` (the raw 32-byte Ed25519
    public key, base64-encoded). Pick the entry whose `keyVersion` equals
-   `response.attestation.key_version`.
+   `response.attestation.key_version`. The live agent-card is always the source of truth; this is
+   a convenience copy of the current key, worth reconfirming against the live agent-card first:
+
+   ```json
+   {
+     "keyVersion": "v1-2026-09c",
+     "algorithm": "Ed25519",
+     "publicKey": "d2IHH0/Xduci/5J8IewYmauUvgqf+gFIeCEXDwjHUhw=",
+     "publicKeyEncoding": "base64 of the raw 32-byte Ed25519 public key"
+   }
+   ```
 2. **Rebuild the signed document.** It's a JSON object with exactly these five keys:
    ```json
    {
