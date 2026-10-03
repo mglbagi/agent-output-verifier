@@ -1,0 +1,294 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b7fa3b2895d6dfc2",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "classements": {
+          "type": "object",
+          "properties": {
+            "anciennete": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "chiffre_affaires": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "resultat_net": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "anciennete",
+            "chiffre_affaires",
+            "resultat_net"
+          ]
+        },
+        "comparabilite": {
+          "type": "object",
+          "properties": {
+            "avertissements": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string"
+                  },
+                  "lecture": {
+                    "type": "string"
+                  },
+                  "portee": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "code",
+                  "lecture",
+                  "portee"
+                ]
+              }
+            },
+            "fiable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "avertissements",
+            "fiable"
+          ]
+        },
+        "ecarts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "max": {
+                "type": "integer"
+              },
+              "min": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "code",
+              "max",
+              "min"
+            ]
+          }
+        },
+        "eligibilite_classements": {
+          "type": "object",
+          "properties": {
+            "risque_le_plus_faible": {
+              "type": "object",
+              "properties": {
+                "raison": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "statut": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "raison",
+                "statut",
+                "type"
+              ]
+            }
+          },
+          "required": [
+            "risque_le_plus_faible"
+          ]
+        },
+        "entreprises": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "alertes": {
+                "type": "object",
+                "properties": {
+                  "cloture_insuffisance_actif": {
+                    "type": "boolean"
+                  },
+                  "liquidation_judiciaire": {
+                    "type": "boolean"
+                  },
+                  "procedure_collective_active": {
+                    "type": "boolean"
+                  },
+                  "radiations": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "cloture_insuffisance_actif",
+                  "liquidation_judiciaire",
+                  "procedure_collective_active",
+                  "radiations"
+                ]
+              },
+              "denomination": {
+                "type": "string"
+              },
+              "finances": {
+                "type": "object",
+                "properties": {
+                  "chiffre_affaires": {
+                    "type": "integer"
+                  },
+                  "exercice": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "perimetre": {
+                    "type": "string"
+                  },
+                  "resultat_net": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "chiffre_affaires",
+                  "exercice",
+                  "perimetre",
+                  "resultat_net"
+                ]
+              },
+              "identite": {
+                "type": "object",
+                "properties": {
+                  "activite_principale": {
+                    "type": "string"
+                  },
+                  "categorie_entreprise": {
+                    "type": "string"
+                  },
+                  "etat_administratif": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "activite_principale",
+                  "categorie_entreprise",
+                  "etat_administratif"
+                ]
+              },
+              "sanctions": {
+                "type": "object",
+                "properties": {
+                  "nombre_correspondances": {
+                    "type": "integer"
+                  },
+                  "statut": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "nombre_correspondances",
+                  "statut"
+                ]
+              },
+              "siren": {
+                "type": "string"
+              },
+              "solidite": {
+                "type": "object",
+                "properties": {
+                  "classe": {
+                    "type": "string"
+                  },
+                  "confiance": {
+                    "type": "string"
+                  },
+                  "exercice_reference": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "score_risque": {
+                    "type": "integer"
+                  },
+                  "version_modele": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "classe",
+                  "confiance",
+                  "exercice_reference",
+                  "score_risque",
+                  "version_modele"
+                ]
+              },
+              "trouve": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "alertes",
+              "denomination",
+              "finances",
+              "identite",
+              "sanctions",
+              "siren",
+              "solidite",
+              "trouve"
+            ]
+          }
+        },
+        "nombre_demande": {
+          "type": "integer"
+        },
+        "nombre_trouve": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "classements",
+        "comparabilite",
+        "ecarts",
+        "eligibilite_classements",
+        "entreprises",
+        "nombre_demande",
+        "nombre_trouve"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "ecarts[].min",
+        "other_field": "ecarts[].max"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.sirenic.eu",
+    "endpoint": "https://api.sirenic.eu/v1/comparer",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

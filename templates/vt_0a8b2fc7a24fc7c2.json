@@ -1,0 +1,84 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0a8b2fc7a24fc7c2",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "source": {
+          "type": "string"
+        },
+        "stablecoins": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "dominancePct": {
+                "type": "number"
+              },
+              "mcapUsd": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "pegMechanism": {
+                "type": "string"
+              },
+              "pegType": {
+                "type": "string"
+              },
+              "symbol": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "dominancePct",
+              "mcapUsd",
+              "name",
+              "pegMechanism",
+              "pegType",
+              "symbol"
+            ]
+          }
+        },
+        "stale": {
+          "type": "boolean"
+        },
+        "totalMcapUsd": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "count",
+        "source",
+        "stablecoins",
+        "stale",
+        "totalMcapUsd"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "stablecoins[].dominancePct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "crypto.openverbs.com",
+    "endpoint": "https://crypto.openverbs.com/v1/stablecoins",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

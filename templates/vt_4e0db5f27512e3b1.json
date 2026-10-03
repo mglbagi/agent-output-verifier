@@ -1,0 +1,72 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4e0db5f27512e3b1",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "executionMode": {
+          "type": "string"
+        },
+        "info": {
+          "type": "object",
+          "properties": {
+            "contractAddress": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "mode": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "contractAddress",
+            "mode"
+          ]
+        },
+        "transactions": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "string"
+            },
+            "to": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "data",
+            "to",
+            "value"
+          ]
+        },
+        "txId": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{64}$"
+        }
+      },
+      "required": [
+        "executionMode",
+        "info",
+        "transactions",
+        "txId"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.sandbox.brickken.com",
+    "endpoint": "https://api.sandbox.brickken.com/x402/rams/grant-mandate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

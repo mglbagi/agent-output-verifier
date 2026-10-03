@@ -1,0 +1,52 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_76e41652be1d481d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "basis": {
+          "type": "string"
+        },
+        "class": {
+          "enum": [
+            "structural",
+            "aspirational",
+            "decorative",
+            "unclassified"
+          ]
+        },
+        "dailyDelayCostUsd": {
+          "type": "number"
+        },
+        "delayDays": {
+          "type": "number"
+        },
+        "usd": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "class",
+        "usd",
+        "basis"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "market.561.group",
+    "endpoint": "https://market.561.group/v1/structural-claims/option-value",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

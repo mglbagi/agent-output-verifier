@@ -1,0 +1,92 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_5515f4261f43c134",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "description": "JSON-RPC 2.0 response envelope. Exactly one of `result` or `error` is present. `result` takes the shape the called method defines: hex-encoded quantities and byte strings per the Ethereum JSON-RPC specification, an object for block and receipt reads.",
+          "properties": {
+            "error": {
+              "description": "Present instead of `result` when the call failed",
+              "properties": {
+                "code": {
+                  "description": "A JSON-RPC 2.0 error code",
+                  "type": "integer"
+                },
+                "data": {
+                  "description": "Method-specific detail, when the node supplies it"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "id": {
+              "description": "The request id, echoed back",
+              "type": [
+                "string",
+                "number",
+                "null"
+              ]
+            },
+            "jsonrpc": {
+              "description": "The protocol version, always \"2.0\"",
+              "type": "string"
+            },
+            "result": {
+              "description": "The method's result, in the shape the called method defines. Present when the call succeeded; absent when `error` is."
+            }
+          },
+          "type": "object",
+          "required": [
+            "id",
+            "jsonrpc",
+            "result"
+          ]
+        },
+        "portal": {
+          "properties": {
+            "provenance": {
+              "const": "third-party-supplier"
+            },
+            "schemaCheck": {
+              "enum": [
+                "passed",
+                "undeclared",
+                "unchecked"
+              ]
+            },
+            "serviceId": {
+              "const": "robinhood"
+            }
+          },
+          "required": [
+            "provenance",
+            "serviceId",
+            "schemaCheck"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "portal",
+        "data"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agent.pocket.network",
+    "endpoint": "https://agent.pocket.network/v1/robinhood",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

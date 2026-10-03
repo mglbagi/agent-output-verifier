@@ -1,0 +1,121 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e706f3e317d5ccd6",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "integer"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "category": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "punchline": {
+                    "type": "string"
+                  },
+                  "rating": {
+                    "type": "string"
+                  },
+                  "setup": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "category",
+                  "id",
+                  "punchline",
+                  "rating",
+                  "setup"
+                ]
+              }
+            },
+            "joke": {
+              "type": "object",
+              "properties": {
+                "category": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "punchline": {
+                  "type": "string"
+                },
+                "rating": {
+                  "type": "string"
+                },
+                "setup": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "category",
+                "id",
+                "punchline",
+                "rating",
+                "setup"
+              ]
+            }
+          },
+          "required": [
+            "count",
+            "items",
+            "joke"
+          ]
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "node": {
+              "type": "string"
+            },
+            "schema": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "node",
+            "schema"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data.items[].id"
+      }
+    ],
+    "bounds": {
+      "data.count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-test.genesisblock.ai",
+    "endpoint": "https://x402-test.genesisblock.ai/api/joke",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

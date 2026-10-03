@@ -1,0 +1,70 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_44f9ac1bab3a6b44",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "cik": {
+              "type": "string"
+            },
+            "company": {
+              "type": "string"
+            },
+            "sec": {
+              "type": "object",
+              "properties": {
+                "periodicFinancials": {
+                  "type": "object",
+                  "properties": {
+                    "fetchedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "required": [
+                    "fetchedAt"
+                  ]
+                }
+              },
+              "required": [
+                "periodicFinancials"
+              ]
+            },
+            "symbol": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "cik",
+            "company",
+            "sec",
+            "symbol"
+          ]
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "data",
+        "version"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "iposignal.xyz",
+    "endpoint": "https://iposignal.xyz/api/agent/financials/by-symbol/:symbol",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

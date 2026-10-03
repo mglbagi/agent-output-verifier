@@ -1,0 +1,61 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f55d67518541907d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "attestation": {
+          "description": "Ed25519-signed, expiring receipt. Present `token` to a counterparty; they verify it free at GET /api/passport/verify?token=...",
+          "type": "object"
+        },
+        "mintAffinity": {
+          "description": "Hold/touch affinity to seed RWA mints",
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "riskLevel": {
+          "enum": [
+            "LOW",
+            "MEDIUM",
+            "HIGH"
+          ],
+          "type": "string"
+        },
+        "score": {
+          "description": "0-100 risk score (higher = riskier)",
+          "type": "number"
+        },
+        "signals": {
+          "description": "Explainable risk signals with points and detail",
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "address",
+        "attestation",
+        "mintAffinity",
+        "ok",
+        "riskLevel",
+        "score"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "cyre.dev",
+    "endpoint": "https://cyre.dev/api/passport",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

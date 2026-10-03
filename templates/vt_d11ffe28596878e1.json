@@ -1,0 +1,151 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d11ffe28596878e1",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "composite": {
+          "description": "no cross-source composite is offered",
+          "type": "null"
+        },
+        "domains": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "n_sources": {
+          "type": "integer"
+        },
+        "run_at": {
+          "description": "ISO timestamp the pull ran",
+          "type": "string",
+          "format": "date-time"
+        },
+        "schema_version": {
+          "type": "string"
+        },
+        "snapshot_id": {
+          "description": "YYYY-MM-DD of the pull",
+          "type": "string",
+          "format": "date"
+        },
+        "sources": {
+          "items": {
+            "properties": {
+              "access": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "cadence": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "confidence": {
+                "type": "string"
+              },
+              "delta_pct_vs_previous": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "domain": {
+                "type": "string"
+              },
+              "first_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "id": {
+                "description": "registry key, e.g. epoch.training_flop_max",
+                "type": "string"
+              },
+              "latest": {
+                "type": "number"
+              },
+              "latest_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "metric": {
+                "type": "string"
+              },
+              "n_points": {
+                "type": "integer"
+              },
+              "previous": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "previous_date": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date"
+              },
+              "signal_quality": {
+                "description": "strong | moderate | weak | noisy",
+                "type": "string"
+              },
+              "unit": {
+                "type": "string"
+              },
+              "url": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "metric",
+              "domain",
+              "unit",
+              "latest",
+              "latest_date"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "stub": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "schema_version",
+        "snapshot_id",
+        "run_at",
+        "n_sources",
+        "sources"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "sources[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-accelerometer-feed.fly.dev",
+    "endpoint": "https://x402-accelerometer-feed.fly.dev/ai-progress/latest",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

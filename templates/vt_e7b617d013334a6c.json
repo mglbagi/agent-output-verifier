@@ -1,0 +1,173 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e7b617d013334a6c",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "asOf": {
+          "type": "string",
+          "format": "date"
+        },
+        "indexValuation": {
+          "type": "object",
+          "properties": {
+            "KOSPI": {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "dividendYieldPct": {
+                  "type": "number"
+                },
+                "pbr": {
+                  "type": "number"
+                },
+                "per": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "date",
+                "dividendYieldPct",
+                "pbr",
+                "per"
+              ]
+            }
+          },
+          "required": [
+            "KOSPI"
+          ]
+        },
+        "investorDeposits": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string",
+              "format": "date"
+            },
+            "depositsKRW": {
+              "type": "integer"
+            },
+            "forcedLiquidationRatioPct": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "date",
+            "depositsKRW",
+            "forcedLiquidationRatioPct"
+          ]
+        },
+        "investorFlows": {
+          "type": "object",
+          "properties": {
+            "KOSPI": {
+              "type": "object",
+              "properties": {
+                "1d": {
+                  "type": "object",
+                  "properties": {
+                    "foreigner": {
+                      "type": "integer"
+                    },
+                    "individual": {
+                      "type": "integer"
+                    },
+                    "institutional_total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "foreigner",
+                    "individual",
+                    "institutional_total"
+                  ]
+                }
+              },
+              "required": [
+                "1d"
+              ]
+            }
+          },
+          "required": [
+            "KOSPI"
+          ]
+        },
+        "packType": {
+          "type": "string"
+        },
+        "putCallRatio": {
+          "type": "object",
+          "properties": {
+            "avg5d": {
+              "type": "number"
+            },
+            "kospi200Options": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "avg5d",
+            "kospi200Options"
+          ]
+        },
+        "volatility": {
+          "type": "object",
+          "properties": {
+            "avg20d": {
+              "type": "number"
+            },
+            "high20d": {
+              "type": "number"
+            },
+            "low20d": {
+              "type": "number"
+            },
+            "vkospi": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "avg20d",
+            "high20d",
+            "low20d",
+            "vkospi"
+          ]
+        }
+      },
+      "required": [
+        "asOf",
+        "indexValuation",
+        "investorDeposits",
+        "investorFlows",
+        "packType",
+        "putCallRatio",
+        "volatility"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "indexValuation.KOSPI.dividendYieldPct": {
+        "min": 0,
+        "max": 100
+      },
+      "investorDeposits.forcedLiquidationRatioPct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.deepsearch.com",
+    "endpoint": "https://x402.deepsearch.com/v1/context/market/kr",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}
