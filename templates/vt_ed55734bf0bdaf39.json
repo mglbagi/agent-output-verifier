@@ -1,0 +1,67 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ed55734bf0bdaf39",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "stablecoins": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "chains": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "circulating": {
+                "type": "object",
+                "properties": {
+                  "peggedUSD": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "peggedUSD"
+                ]
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "chains",
+              "circulating",
+              "name"
+            ]
+          }
+        },
+        "total": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "stablecoins",
+        "total"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "defi.hugen.tokyo",
+    "endpoint": "https://defi.hugen.tokyo/defi/stablecoins",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

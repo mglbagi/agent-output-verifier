@@ -1,0 +1,48 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1c7985db4c9d3161",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "access_token": {
+          "type": "string"
+        },
+        "payer_wallet": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "payment_method": {
+          "type": "string"
+        },
+        "receipt_id": {
+          "type": "string"
+        },
+        "status_url": {
+          "description": "GET with X-Access-Token until status is completed",
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "receipt_id",
+        "status_url",
+        "payer_wallet",
+        "payment_method",
+        "access_token"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.botx402.io",
+    "endpoint": "https://api.botx402.io/api/v1/agent/inventory-reorder/run",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9234a8ee70e409e1",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "body": {
+          "description": "The full brief as markdown",
+          "type": "string"
+        },
+        "edition": {
+          "description": "Year and month of this edition",
+          "type": "string"
+        },
+        "format": {
+          "description": "Always markdown",
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "words": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "title",
+        "edition",
+        "format",
+        "words",
+        "body"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "store-production-8add.up.railway.app",
+    "endpoint": "https://store-production-8add.up.railway.app/v1/report/agent-buyers",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

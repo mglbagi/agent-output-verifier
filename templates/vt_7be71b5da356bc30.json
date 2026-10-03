@@ -1,0 +1,270 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7be71b5da356bc30",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "description": "A successful Product verification response with a page-consistency verdict, field evidence, contradictions, coverage, observation time, and content hash.",
+      "properties": {
+        "cached": {
+          "type": "boolean"
+        },
+        "data": {
+          "additionalProperties": true,
+          "description": "The sanitized Product entity whose fields were assessed.",
+          "properties": {
+            "@context": {},
+            "@type": {
+              "const": "Product",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@type"
+          ],
+          "type": "object"
+        },
+        "extraction_ms": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "schema_type": {
+          "const": "Product",
+          "type": "string"
+        },
+        "success": {
+          "const": true,
+          "type": "boolean"
+        },
+        "verdict": {
+          "enum": [
+            "verified",
+            "conflicted",
+            "insufficient_evidence"
+          ],
+          "type": "string"
+        },
+        "verification": {
+          "additionalProperties": false,
+          "properties": {
+            "ambiguous_offer": {
+              "type": "boolean"
+            },
+            "content_sha256": {
+              "pattern": "^sha256:[a-f0-9]{64}$",
+              "type": "string"
+            },
+            "contradictions": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "const": "critical",
+                    "type": "string"
+                  },
+                  "values": {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "channel": {
+                          "enum": [
+                            "json_ld",
+                            "metadata",
+                            "microdata",
+                            "visible_text"
+                          ],
+                          "type": "string"
+                        },
+                        "value": {
+                          "description": "A bounded value observed in one representation of the page."
+                        }
+                      },
+                      "required": [
+                        "channel",
+                        "value"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "field",
+                  "severity",
+                  "values"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "coverage": {
+              "additionalProperties": false,
+              "properties": {
+                "conflicted": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "corroborated": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "single_source": {
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "corroborated",
+                "conflicted",
+                "single_source"
+              ],
+              "type": "object"
+            },
+            "efficiency": {
+              "additionalProperties": false,
+              "properties": {
+                "estimate_method": {
+                  "const": "characters_divided_by_4",
+                  "type": "string"
+                },
+                "estimated_page_tokens": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "estimated_response_tokens": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "estimated_tokens_avoided": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "page_characters": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "response_characters": {
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "estimate_method",
+                "page_characters",
+                "response_characters",
+                "estimated_page_tokens",
+                "estimated_response_tokens",
+                "estimated_tokens_avoided"
+              ],
+              "type": "object"
+            },
+            "fields": {
+              "additionalProperties": {
+                "additionalProperties": false,
+                "properties": {
+                  "sources": {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "channel": {
+                          "enum": [
+                            "json_ld",
+                            "metadata",
+                            "microdata",
+                            "visible_text"
+                          ],
+                          "type": "string"
+                        },
+                        "excerpt": {
+                          "maxLength": 160,
+                          "type": "string"
+                        },
+                        "value": {
+                          "description": "A bounded value observed in one representation of the page."
+                        }
+                      },
+                      "required": [
+                        "channel",
+                        "value"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "status": {
+                    "enum": [
+                      "corroborated",
+                      "conflicted",
+                      "single_source"
+                    ],
+                    "type": "string"
+                  },
+                  "value": {
+                    "description": "A bounded value observed in one representation of the page."
+                  }
+                },
+                "required": [
+                  "value",
+                  "status",
+                  "sources"
+                ],
+                "type": "object"
+              },
+              "type": "object"
+            },
+            "observed_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "scope": {
+              "const": "page_consistency",
+              "type": "string"
+            }
+          },
+          "required": [
+            "scope",
+            "observed_at",
+            "content_sha256",
+            "fields",
+            "contradictions",
+            "coverage",
+            "ambiguous_offer",
+            "efficiency"
+          ],
+          "type": "object"
+        },
+        "verification_version": {
+          "pattern": "^product\\/v[0-9]+$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "success",
+        "data",
+        "schema_type",
+        "verification_version",
+        "verdict",
+        "verification",
+        "cached",
+        "extraction_ms"
+      ],
+      "title": "JSON Recon Verified Product result",
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "jsonrecon.com",
+    "endpoint": "https://jsonrecon.com/extract/verified",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

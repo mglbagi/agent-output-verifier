@@ -1,0 +1,134 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ffa6c4603f01c425",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "choices": {
+          "items": {
+            "properties": {
+              "finish_reason": {
+                "type": "string"
+              },
+              "index": {
+                "type": "integer"
+              },
+              "message": {
+                "properties": {
+                  "content": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "content",
+                  "role"
+                ]
+              }
+            },
+            "type": "object",
+            "required": [
+              "finish_reason",
+              "index",
+              "message"
+            ]
+          },
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "object": {
+          "const": "chat.completion"
+        },
+        "usage": {
+          "properties": {
+            "completion_tokens": {
+              "type": "integer"
+            },
+            "prompt_tokens": {
+              "type": "integer"
+            },
+            "total_tokens": {
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "required": [
+            "completion_tokens",
+            "prompt_tokens",
+            "total_tokens"
+          ]
+        },
+        "x402": {
+          "description": "Billing stamp added by the gateway.",
+          "properties": {
+            "capped_from": {
+              "type": "integer"
+            },
+            "charged": {
+              "type": "string"
+            },
+            "inference_ms": {
+              "type": "integer"
+            },
+            "note": {
+              "type": "string"
+            },
+            "output_cap": {
+              "type": "integer"
+            },
+            "tier": {
+              "type": "string"
+            },
+            "tokens_out": {
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "required": [
+            "charged",
+            "inference_ms",
+            "output_cap",
+            "tier",
+            "tokens_out"
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "choices",
+        "id",
+        "model",
+        "object",
+        "usage",
+        "x402"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "usage.total_tokens": {
+        "min": 0
+      },
+      "x402.output_cap": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.erb-llm.com",
+    "endpoint": "https://api.erb-llm.com/v1/chat/completions",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

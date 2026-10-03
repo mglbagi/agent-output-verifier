@@ -1,0 +1,37 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9e1f2e41e152d2f3",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "_billing": {
+          "type": "object"
+        },
+        "data": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "_billing",
+        "data",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.060504.shop",
+    "endpoint": "https://api.060504.shop/v1/fetch/dynamic",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

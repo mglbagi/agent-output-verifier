@@ -1,0 +1,45 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b335b0c548a8942f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "failures": {
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        },
+        "next": {
+          "type": "string"
+        },
+        "passed": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "failures",
+        "id",
+        "next",
+        "passed",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agentrevenuenetwork.com",
+    "endpoint": "https://www.agentrevenuenetwork.com/v1/tools/verify-execution",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

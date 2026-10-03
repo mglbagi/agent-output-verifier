@@ -1,0 +1,116 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d285941ef3e41318",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "result": {
+          "additionalProperties": false,
+          "properties": {
+            "groups": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "rules": {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "directive": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "directive",
+                        "value"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "user_agents": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "user_agents",
+                  "rules"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "sitemaps": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "unsupported": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "directive": {
+                    "type": "string"
+                  },
+                  "line": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "line",
+                  "directive"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "groups",
+            "sitemaps",
+            "unsupported"
+          ],
+          "type": "object"
+        },
+        "schema_version": {
+          "const": "research-1",
+          "type": "string"
+        },
+        "test_only": {
+          "const": false,
+          "type": "boolean"
+        },
+        "utility_id": {
+          "const": "robots-directives-inspect",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "utility_id",
+        "test_only",
+        "result"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "penny-army-reference-mainnet.spruceboundgranitestudio.workers.dev",
+    "endpoint": "https://penny-army-reference-mainnet.spruceboundgranitestudio.workers.dev/v1/probes/robots-directives-inspect",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

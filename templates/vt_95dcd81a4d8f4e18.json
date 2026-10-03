@@ -1,0 +1,61 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_95dcd81a4d8f4e18",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "latency_ms": {
+          "type": "integer"
+        },
+        "model": {
+          "type": "string"
+        },
+        "usage": {
+          "type": "object",
+          "properties": {
+            "completion_tokens": {
+              "type": "integer"
+            },
+            "prompt_tokens": {
+              "type": "integer"
+            },
+            "total_tokens": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "completion_tokens",
+            "prompt_tokens",
+            "total_tokens"
+          ]
+        }
+      },
+      "required": [
+        "content",
+        "latency_ms",
+        "model",
+        "usage"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "usage.total_tokens": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "uxus.finance",
+    "endpoint": "https://uxus.finance/api/llm",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

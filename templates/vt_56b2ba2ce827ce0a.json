@@ -1,0 +1,29 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_56b2ba2ce827ce0a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "spf": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "spf"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "chainverdict.xyz",
+    "endpoint": "https://chainverdict.xyz/v1/security/email/:domain",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

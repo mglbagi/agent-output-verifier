@@ -1,0 +1,152 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e4a0bde1b0cef86c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data_source": {
+          "title": "Data Source",
+          "type": "string"
+        },
+        "generated_at": {
+          "properties": {
+            "kst": {
+              "title": "Kst",
+              "type": "string"
+            },
+            "utc": {
+              "title": "Utc",
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "utc",
+            "kst"
+          ],
+          "title": "TimestampPair",
+          "type": "object"
+        },
+        "notice": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Notice"
+        },
+        "rung_count": {
+          "title": "Rung Count",
+          "type": "integer"
+        },
+        "rungs": {
+          "items": {
+            "properties": {
+              "expiry": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Expiry"
+              },
+              "outcome_id": {
+                "title": "Outcome Id",
+                "type": "integer"
+              },
+              "period": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Period"
+              },
+              "strike": {
+                "description": "The outcome's own targetPrice field, parsed as a number.",
+                "title": "Strike",
+                "type": "number"
+              },
+              "yes_price": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "Live mid-price for the 'Yes' side (0.0-1.0, an implied probability).",
+                "title": "Yes Price"
+              }
+            },
+            "required": [
+              "outcome_id",
+              "strike"
+            ],
+            "title": "Hip4LadderRung",
+            "type": "object"
+          },
+          "title": "Rungs",
+          "type": "array"
+        },
+        "skipped_unparsable_count": {
+          "description": "Matching outcomes whose targetPrice wasn't a parseable number - excluded from rungs.",
+          "title": "Skipped Unparsable Count",
+          "type": "integer"
+        },
+        "underlying": {
+          "title": "Underlying",
+          "type": "string"
+        }
+      },
+      "required": [
+        "generated_at",
+        "underlying",
+        "rung_count",
+        "skipped_unparsable_count",
+        "rungs",
+        "data_source"
+      ],
+      "title": "PredictionHip4PriceLadderResponse",
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "rungs[].outcome_id"
+      }
+    ],
+    "bounds": {
+      "rung_count": {
+        "min": 0
+      },
+      "skipped_unparsable_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "alphapipeline-eu.onrender.com",
+    "endpoint": "https://alphapipeline-eu.onrender.com/v1/prediction/hip4-price-ladder",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

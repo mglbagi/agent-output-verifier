@@ -1,0 +1,179 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_e4b968a4debbb306",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "contentHashSha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "contentType": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "extract": {
+          "maxLength": 12000,
+          "type": "string"
+        },
+        "fetchedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "finalUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "metaDescription": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "openGraph": {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "title": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "type": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "url": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "title",
+            "description",
+            "type",
+            "url"
+          ],
+          "type": "object"
+        },
+        "outboundLinks": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 50,
+          "type": "array"
+        },
+        "requestedUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "responseHeaders": {
+          "additionalProperties": false,
+          "properties": {
+            "cacheControl": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "etag": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "lastModified": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "etag",
+            "lastModified",
+            "cacheControl"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "structuredData": {
+          "additionalProperties": false,
+          "properties": {
+            "jsonLd": {
+              "items": {},
+              "maxItems": 5,
+              "type": "array"
+            },
+            "jsonLdCount": {
+              "maximum": 5,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "jsonLd",
+            "jsonLdCount"
+          ],
+          "type": "object"
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "requestedUrl",
+        "finalUrl",
+        "status",
+        "fetchedAt",
+        "contentType",
+        "title",
+        "metaDescription",
+        "canonical",
+        "openGraph",
+        "structuredData",
+        "extract",
+        "outboundLinks",
+        "contentHashSha256",
+        "responseHeaders"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "machine-works-testnet.weathered-dew-46b4.workers.dev",
+    "endpoint": "https://machine-works-testnet.weathered-dew-46b4.workers.dev/testnet/mnra/url-evidence-pack",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

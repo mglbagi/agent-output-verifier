@@ -1,0 +1,46 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_65e180a30631df14",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "deliverable": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "has_mx": {
+          "type": "boolean"
+        },
+        "mail_provider": {
+          "type": "string"
+        },
+        "syntax_valid": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "deliverable",
+        "email",
+        "has_mx",
+        "mail_provider",
+        "syntax_valid"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "resolve402.dev",
+    "endpoint": "https://resolve402.dev/api/verify-email",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

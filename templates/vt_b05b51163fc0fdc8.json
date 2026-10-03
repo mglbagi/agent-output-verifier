@@ -1,0 +1,104 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b05b51163fc0fdc8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "analysisId": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "recommendedExecution": {
+          "type": "object",
+          "properties": {
+            "jitoTipLamports": {
+              "type": "integer"
+            },
+            "path": {
+              "type": "string"
+            },
+            "priorityFeeLamports": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "jitoTipLamports",
+            "path",
+            "priorityFeeLamports"
+          ]
+        },
+        "sandwichExposure": {
+          "type": "object",
+          "properties": {
+            "level": {
+              "type": "string"
+            },
+            "score": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "level",
+            "score"
+          ]
+        },
+        "tokenRisk": {
+          "type": "object",
+          "properties": {
+            "level": {
+              "type": "string"
+            },
+            "mint": {
+              "type": "string"
+            },
+            "score": {
+              "type": "integer"
+            },
+            "symbol": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "level",
+            "mint",
+            "score",
+            "symbol"
+          ]
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "analysisId",
+        "confidence",
+        "reasons",
+        "recommendedExecution",
+        "sandwichExposure",
+        "tokenRisk",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.zendiq.ai",
+    "endpoint": "https://api.zendiq.ai/v1/agent/analyse",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2abb2417a4697d53",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "items": {
+            "properties": {
+              "avg_sold_price_usd": {
+                "type": "number"
+              },
+              "bought_amount": {
+                "type": "number"
+              },
+              "bought_usd": {
+                "type": "number"
+              },
+              "cost_basis_usd": {
+                "type": "number"
+              },
+              "holding_amount": {
+                "type": "number"
+              },
+              "holding_usd": {
+                "type": "number"
+              },
+              "max_balance_held": {
+                "type": "number"
+              },
+              "max_balance_held_usd": {
+                "type": "number"
+              },
+              "nof_buys": {
+                "type": "string"
+              },
+              "nof_sells": {
+                "type": "string"
+              },
+              "pnl_usd_realised": {
+                "type": "number"
+              },
+              "pnl_usd_unrealised": {
+                "type": "number"
+              },
+              "roi_percent_realised": {
+                "type": "number"
+              },
+              "roi_percent_unrealised": {
+                "type": "number"
+              },
+              "sold_amount": {
+                "type": "number"
+              },
+              "sold_usd": {
+                "type": "number"
+              },
+              "token_address": {
+                "type": "string"
+              },
+              "token_price": {
+                "type": "number"
+              },
+              "token_symbol": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "token_address",
+              "token_symbol",
+              "nof_buys",
+              "nof_sells"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "pagination": {
+          "properties": {
+            "is_last_page": {
+              "type": "boolean"
+            },
+            "page": {
+              "type": "integer"
+            },
+            "per_page": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "pagination",
+        "data"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "data[].avg_sold_price_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].bought_amount": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].bought_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].cost_basis_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].holding_amount": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].holding_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].max_balance_held": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].max_balance_held_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].roi_percent_realised": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "data[].roi_percent_unrealised": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "data[].sold_amount": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].sold_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "data[].token_price": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.nansen.ai",
+    "endpoint": "https://api.nansen.ai/api/v1/profiler/address/pnl",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_572bdba435b6cc61",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "length": {
+          "type": "integer"
+        },
+        "markdown": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "length",
+        "markdown",
+        "status",
+        "title",
+        "truncated",
+        "url"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "length": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "gigsai.xyz",
+    "endpoint": "https://gigsai.xyz/api/web/read",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

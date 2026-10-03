@@ -1,0 +1,36 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_aa41bf770e57e334",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "selected_indices": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "stats": {
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "required": [
+        "selected_indices",
+        "stats"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "fractal-scaling-api.onrender.com",
+    "endpoint": "https://fractal-scaling-api.onrender.com/scale",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

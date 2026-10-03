@@ -1,0 +1,102 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_0f61af9dc4aa7879",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "disclaimer": {
+          "type": "string"
+        },
+        "items": {
+          "items": {
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "chain": {
+                "type": "string"
+              },
+              "first_seen": {
+                "type": "string",
+                "format": "date"
+              },
+              "name": {
+                "type": "string"
+              },
+              "official_url": {
+                "type": "string"
+              },
+              "risk_flags": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "sources": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "stage": {
+                "type": "string"
+              },
+              "verdict": {
+                "type": "string"
+              },
+              "x_handle": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "category",
+              "chain",
+              "first_seen",
+              "name",
+              "official_url",
+              "risk_flags",
+              "slug",
+              "sources",
+              "stage",
+              "verdict",
+              "x_handle"
+            ]
+          },
+          "type": "array"
+        },
+        "note": {
+          "type": "string"
+        },
+        "sample": {
+          "type": "boolean"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "updated_at",
+        "items",
+        "disclaimer"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-btc-radar.jinli-x402.workers.dev",
+    "endpoint": "https://x402-btc-radar.jinli-x402.workers.dev/v1/btc/radar/latest",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

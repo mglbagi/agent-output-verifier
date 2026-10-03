@@ -1,0 +1,143 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f10a6c5bd92ccff6",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "fema_flood_zone": {
+          "type": "object",
+          "properties": {
+            "base_flood_elevation_ft": {
+              "type": "integer"
+            },
+            "description": {
+              "type": "string"
+            },
+            "firm_id": {
+              "type": "string"
+            },
+            "mapped": {
+              "type": "boolean"
+            },
+            "special_flood_hazard_area": {
+              "type": "boolean"
+            },
+            "subtype": {},
+            "zone": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "base_flood_elevation_ft",
+            "description",
+            "firm_id",
+            "mapped",
+            "special_flood_hazard_area",
+            "zone"
+          ]
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "census_tract": {
+              "type": "string"
+            },
+            "county": {
+              "type": "string"
+            },
+            "input": {
+              "type": "string"
+            },
+            "lat": {
+              "type": "number"
+            },
+            "lon": {
+              "type": "number"
+            },
+            "matched_address": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "census_tract",
+            "county",
+            "input",
+            "lat",
+            "lon",
+            "matched_address"
+          ]
+        },
+        "probability_30yr": {
+          "type": "object",
+          "properties": {
+            "basis": {
+              "type": "string"
+            },
+            "max": {},
+            "min": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "basis",
+            "min"
+          ]
+        },
+        "terrain": {
+          "type": "object",
+          "properties": {
+            "elevation_m": {
+              "type": "number"
+            },
+            "hand_class": {
+              "type": "string"
+            },
+            "height_above_nearest_drainage_m": {
+              "type": "number"
+            },
+            "note": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "elevation_m",
+            "hand_class",
+            "height_above_nearest_drainage_m",
+            "note"
+          ]
+        }
+      },
+      "required": [
+        "fema_flood_zone",
+        "location",
+        "probability_30yr",
+        "terrain"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "location.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "location.lon": {
+        "min": -180,
+        "max": 180
+      },
+      "terrain.height_above_nearest_drainage_m": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "floodpulse.waltsoft.net",
+    "endpoint": "https://floodpulse.waltsoft.net/v1/flood",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

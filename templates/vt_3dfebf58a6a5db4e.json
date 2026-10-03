@@ -1,0 +1,129 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3dfebf58a6a5db4e",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "billing": {
+          "type": "object",
+          "properties": {
+            "billableMinutes": {
+              "type": "integer"
+            },
+            "totalUsd": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "billableMinutes",
+            "totalUsd"
+          ]
+        },
+        "captions": {
+          "type": "object",
+          "properties": {
+            "srt": {
+              "type": "string"
+            },
+            "vtt": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "srt",
+            "vtt"
+          ]
+        },
+        "durationSec": {
+          "type": "number"
+        },
+        "segments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "end": {
+                "type": "number"
+              },
+              "speaker": {
+                "type": "string"
+              },
+              "start": {
+                "type": "number"
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "end",
+              "speaker",
+              "start",
+              "text"
+            ]
+          }
+        },
+        "speakers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        },
+        "summary": {
+          "type": "object",
+          "properties": {
+            "chapters": {
+              "type": "array"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "chapters",
+            "title"
+          ]
+        }
+      },
+      "required": [
+        "billing",
+        "captions",
+        "durationSec",
+        "segments",
+        "speakers",
+        "summary"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "segments[].start",
+        "other_field": "segments[].end"
+      },
+      {
+        "type": "unique",
+        "field": "speakers[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "seenly-transcript-plus.vercel.app",
+    "endpoint": "https://seenly-transcript-plus.vercel.app/api/transcribe",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

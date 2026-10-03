@@ -1,0 +1,197 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a862be5767cbd137",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "acei_arb": {
+                "type": "boolean"
+              },
+              "age_years": {
+                "type": "integer"
+              },
+              "beta_blocker": {
+                "type": "boolean"
+              },
+              "bmi_kg_m2": {
+                "type": "integer"
+              },
+              "citation": {
+                "type": "object",
+                "properties": {
+                  "authors": {
+                    "type": "string"
+                  },
+                  "doi": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "pmid": {
+                    "type": "string"
+                  },
+                  "source": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "authors",
+                  "doi",
+                  "id",
+                  "pmid",
+                  "source",
+                  "title"
+                ]
+              },
+              "components": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "factor": {
+                      "type": "string"
+                    },
+                    "points": {
+                      "type": "integer"
+                    },
+                    "present": {
+                      "type": "boolean"
+                    },
+                    "value": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "factor",
+                    "points",
+                    "present"
+                  ]
+                }
+              },
+              "copd": {
+                "type": "boolean"
+              },
+              "creatinine_umol_l": {
+                "type": "integer"
+              },
+              "current_smoker": {
+                "type": "boolean"
+              },
+              "death_probability_1y": {
+                "type": "number"
+              },
+              "death_probability_3y": {
+                "type": "number"
+              },
+              "diabetes": {
+                "type": "boolean"
+              },
+              "disclaimer": {
+                "type": "string"
+              },
+              "ef_percent": {
+                "type": "integer"
+              },
+              "formula": {
+                "type": "string"
+              },
+              "formula_expression": {
+                "type": "string"
+              },
+              "hf_duration_gt_18_months": {
+                "type": "boolean"
+              },
+              "nyha_class": {
+                "type": "integer"
+              },
+              "score": {
+                "type": "integer"
+              },
+              "sex": {
+                "type": "string"
+              },
+              "systolic_mm_hg": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "acei_arb",
+              "age_years",
+              "beta_blocker",
+              "bmi_kg_m2",
+              "citation",
+              "components",
+              "copd",
+              "creatinine_umol_l",
+              "current_smoker",
+              "death_probability_1y",
+              "death_probability_3y",
+              "diabetes",
+              "disclaimer",
+              "ef_percent",
+              "formula",
+              "formula_expression",
+              "hf_duration_gt_18_months",
+              "nyha_class",
+              "score",
+              "sex",
+              "systolic_mm_hg"
+            ]
+          }
+        },
+        "path": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "count",
+        "items",
+        "path"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "items[].age_years": {
+        "min": 0
+      },
+      "items[].death_probability_1y": {
+        "min": 0,
+        "max": 1
+      },
+      "items[].death_probability_3y": {
+        "min": 0,
+        "max": 1
+      },
+      "items[].ef_percent": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.magentlab.com",
+    "endpoint": "https://api.magentlab.com/api/calc/maggic",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

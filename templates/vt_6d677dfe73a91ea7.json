@@ -1,0 +1,115 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6d677dfe73a91ea7",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "blockNumber": {
+              "type": "integer"
+            },
+            "hash": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{64}$"
+            },
+            "txIndex": {
+              "type": "integer"
+            },
+            "writes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "callDepth": {
+                    "type": "integer"
+                  },
+                  "callPath": {
+                    "type": "string"
+                  },
+                  "callType": {
+                    "type": "string"
+                  },
+                  "callerAddress": {
+                    "type": "string",
+                    "pattern": "^0x[a-fA-F0-9]{40}$"
+                  },
+                  "executionAddress": {
+                    "type": "string",
+                    "pattern": "^0x[a-fA-F0-9]{40}$"
+                  },
+                  "newValue": {
+                    "type": "string",
+                    "pattern": "^0x[a-fA-F0-9]{64}$"
+                  },
+                  "storageAddress": {
+                    "type": "string",
+                    "pattern": "^0x[a-fA-F0-9]{40}$"
+                  },
+                  "storageKey": {
+                    "type": "string",
+                    "pattern": "^0x[a-fA-F0-9]{64}$"
+                  },
+                  "valueBefore": {
+                    "type": "string",
+                    "pattern": "^0x[a-fA-F0-9]{64}$"
+                  },
+                  "valueBeforeStatus": {
+                    "type": "string"
+                  },
+                  "writeIndex": {
+                    "type": "integer"
+                  },
+                  "writeIndexStatus": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "callDepth",
+                  "callPath",
+                  "callType",
+                  "callerAddress",
+                  "executionAddress",
+                  "newValue",
+                  "storageAddress",
+                  "storageKey",
+                  "valueBefore",
+                  "valueBeforeStatus",
+                  "writeIndex",
+                  "writeIndexStatus"
+                ]
+              }
+            },
+            "writesTruncated": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "blockNumber",
+            "hash",
+            "txIndex",
+            "writes",
+            "writesTruncated"
+          ]
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "mpp.tracefast.xyz",
+    "endpoint": "https://mpp.tracefast.xyz/api/v1/chains/1/transactions/:hash/storage-writes",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

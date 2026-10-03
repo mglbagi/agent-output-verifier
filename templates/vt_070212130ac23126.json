@@ -1,0 +1,29 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_070212130ac23126",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "choices": {
+          "type": "array"
+        },
+        "usage": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "blockrun-web-vbsbhh7lea-uc.a.run.app",
+    "endpoint": "https://blockrun-web-vbsbhh7lea-uc.a.run.app/v1/chat/completions",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

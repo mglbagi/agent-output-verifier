@@ -1,0 +1,88 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f49e0a983ada5296",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "result": {
+          "properties": {
+            "address": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "chain": {
+              "type": "string"
+            },
+            "hard_flags": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "malicious": {
+              "type": "boolean"
+            },
+            "sanctioned": {
+              "type": "boolean"
+            },
+            "soft_flags": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "sources": {
+              "type": "object"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "address",
+            "chain",
+            "hard_flags",
+            "malicious",
+            "sanctioned",
+            "status"
+          ],
+          "type": "object"
+        },
+        "screening_verdict": {
+          "enum": [
+            "clean",
+            "review",
+            "deny"
+          ],
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "signed_by": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        }
+      },
+      "required": [
+        "result",
+        "screening_verdict",
+        "signed_by",
+        "signature"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "trust.nsgoods.org",
+    "endpoint": "https://trust.nsgoods.org/screen",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_84a59cd015077a2c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "_provenance": {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "id": {
+                "minimum": 1,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "has_more": {
+          "type": "boolean"
+        },
+        "next_cursor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "total": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data",
+        "has_more",
+        "next_cursor"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.apex-db.org",
+    "endpoint": "https://api.apex-db.org/v1/apex",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

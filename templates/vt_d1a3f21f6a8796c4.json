@@ -1,0 +1,121 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d1a3f21f6a8796c4",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "categories_checked": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "categories_clear": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "chain_index": {
+          "type": "integer"
+        },
+        "detection_count": {
+          "type": "integer"
+        },
+        "findings": {
+          "items": {
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "position": {
+                "type": "integer"
+              },
+              "provider": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "redacted_sample": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "position",
+              "redacted_sample",
+              "severity",
+              "category"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "input_hash": {
+          "type": "string"
+        },
+        "risk_score": {
+          "type": "number"
+        },
+        "seal_text": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "number"
+        },
+        "tx_hash": {
+          "type": "string"
+        },
+        "verdict": {
+          "enum": [
+            "COMMIT",
+            "NO_COMMIT"
+          ],
+          "type": "string"
+        },
+        "verify_url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "verdict",
+        "risk_score",
+        "findings",
+        "detection_count",
+        "categories_checked",
+        "categories_clear",
+        "tx_hash",
+        "chain_index",
+        "input_hash",
+        "timestamp",
+        "seal_text",
+        "verify_url"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "detection_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "bazaar.fronesislabs.com",
+    "endpoint": "https://bazaar.fronesislabs.com/evaluate/secrets",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

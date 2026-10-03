@@ -1,0 +1,237 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c2f59ec8dde06906",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "attribution": {
+          "items": {
+            "properties": {
+              "text": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "text",
+              "url"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "billing_warning": {
+          "type": "string"
+        },
+        "price_usd": {
+          "type": "number"
+        },
+        "provenance": {
+          "properties": {
+            "attempts": {
+              "type": "integer"
+            },
+            "elapsed_ms": {
+              "type": "integer"
+            },
+            "providers_used": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "steps": {
+              "items": {
+                "properties": {
+                  "ms": {
+                    "type": "integer"
+                  },
+                  "ok": {
+                    "type": "boolean"
+                  },
+                  "provider": {
+                    "type": "string"
+                  },
+                  "reason": {
+                    "type": "string"
+                  },
+                  "step": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "step",
+                  "ok",
+                  "ms"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "steps",
+            "providers_used",
+            "attempts",
+            "elapsed_ms"
+          ],
+          "type": "object"
+        },
+        "receipt_id": {
+          "type": "string"
+        },
+        "receipt_url": {
+          "type": "string"
+        },
+        "result": {
+          "properties": {
+            "count": {
+              "type": "integer"
+            },
+            "markets": {
+              "items": {
+                "properties": {
+                  "active": {
+                    "type": "boolean"
+                  },
+                  "closed": {
+                    "type": "boolean"
+                  },
+                  "end_date": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "implied_probabilities": {
+                    "items": {
+                      "properties": {
+                        "outcome": {
+                          "type": "string"
+                        },
+                        "probability_pct": {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "outcome"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "liquidity": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "question": {
+                    "type": "string"
+                  },
+                  "slug": {
+                    "type": "string"
+                  },
+                  "volume": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "question",
+                  "implied_probabilities"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "note": {
+              "type": "string"
+            },
+            "query": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "source": {
+              "const": "polymarket-gamma",
+              "type": "string"
+            }
+          },
+          "required": [
+            "query",
+            "markets",
+            "count",
+            "source",
+            "note"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "const": "ok",
+          "type": "string"
+        },
+        "worker": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "worker",
+        "price_usd",
+        "result",
+        "provenance",
+        "receipt_id",
+        "receipt_url"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "result.markets[].id"
+      }
+    ],
+    "bounds": {
+      "price_usd": {
+        "min": 0
+      },
+      "result.count": {
+        "min": 0
+      },
+      "result.markets[].implied_probabilities[].probability_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "result.markets[].volume": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hubvibe-io.com",
+    "endpoint": "https://hubvibe-io.com/work/market/prediction",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

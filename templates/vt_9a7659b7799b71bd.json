@@ -1,0 +1,80 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9a7659b7799b71bd",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "created": {
+          "type": "integer"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "b64_json": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "b64_json"
+            ]
+          }
+        },
+        "output_format": {
+          "type": "string"
+        },
+        "quality": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string"
+        },
+        "usage": {
+          "type": "object",
+          "properties": {
+            "input_tokens": {
+              "type": "integer"
+            },
+            "output_tokens": {
+              "type": "integer"
+            },
+            "total_tokens": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "input_tokens",
+            "output_tokens",
+            "total_tokens"
+          ]
+        }
+      },
+      "required": [
+        "created",
+        "data",
+        "output_format",
+        "quality",
+        "size",
+        "usage"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "usage.total_tokens": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "openai.mm.family",
+    "endpoint": "https://openai.mm.family/x402/v1/models/chatgpt-image-latest/images/generations",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

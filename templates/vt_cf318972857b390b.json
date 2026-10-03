@@ -1,0 +1,132 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_cf318972857b390b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "carrier": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "carrier_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "e164": {
+                "type": "string"
+              },
+              "in_service_possible": {
+                "type": "boolean"
+              },
+              "input": {
+                "type": "string"
+              },
+              "line_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "line_type_confidence": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "number_status": {
+                "type": "string"
+              },
+              "rate_center": {
+                "type": "string"
+              },
+              "risk_hints": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "sms_likely": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "state": {
+                "type": "string"
+              },
+              "timezones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "valid_format": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "e164",
+              "in_service_possible",
+              "input",
+              "number_status",
+              "rate_center",
+              "risk_hints",
+              "state",
+              "timezones",
+              "valid_format"
+            ]
+          }
+        },
+        "summary": {
+          "type": "object",
+          "properties": {
+            "landline": {
+              "type": "integer"
+            },
+            "not_in_service": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "landline",
+            "not_in_service"
+          ]
+        }
+      },
+      "required": [
+        "count",
+        "results",
+        "summary"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "numberintel.dev",
+    "endpoint": "https://numberintel.dev/v1/batch",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

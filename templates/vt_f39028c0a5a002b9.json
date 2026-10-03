@@ -1,0 +1,117 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f39028c0a5a002b9",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "attribution": {
+          "description": "Licence and creator for the retrieved content. Reusing it is subject to these terms.",
+          "properties": {
+            "creator": {
+              "type": "string"
+            },
+            "licence": {
+              "type": "string"
+            },
+            "licence_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "modifications": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "title",
+            "source",
+            "licence",
+            "licence_url",
+            "creator",
+            "modifications"
+          ],
+          "type": "object"
+        },
+        "limits": {
+          "description": "The bounds this service applies, declared so a caller can tell a short page from a truncated one.",
+          "type": "object"
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "request_id": {
+          "description": "Delivery request identifier; also returned in x-foundry-request-id.",
+          "type": "string"
+        },
+        "row_count": {
+          "type": "integer"
+        },
+        "service_id": {
+          "description": "Canonical service identifier.",
+          "type": "string"
+        },
+        "service_version": {
+          "description": "Version of the invoked service.",
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "table_count": {
+          "type": "integer"
+        },
+        "tables": {
+          "type": "array"
+        },
+        "warnings": {
+          "description": "Named limits that were reached, so truncation is never silent.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "request_id",
+        "service_id",
+        "service_version",
+        "source_url",
+        "observed_at",
+        "warnings",
+        "limits",
+        "attribution",
+        "tables",
+        "table_count",
+        "row_count"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "row_count": {
+        "min": 0
+      },
+      "table_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.zfinia.com",
+    "endpoint": "https://api.zfinia.com/x402/v1/page-tables",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

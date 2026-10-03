@@ -1,0 +1,60 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_92904f5f3bac62df",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "files": {
+          "description": "Links to any extra formats asked for.",
+          "type": "object"
+        },
+        "layers": {
+          "description": "Each part as its own named layer.",
+          "type": "array"
+        },
+        "model": {
+          "description": "The AMNT SVG model asked for.",
+          "type": "string"
+        },
+        "ms": {
+          "description": "Time taken.",
+          "type": "integer"
+        },
+        "ran": {
+          "description": "The model that made it (Auto picks one per request).",
+          "type": "string"
+        },
+        "svg": {
+          "description": "The SVG, as clean code: real shapes, strokes and editable text. No scripts, no outside links.",
+          "type": "string"
+        },
+        "url": {
+          "description": "A public link to the same SVG.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "files",
+        "layers",
+        "model",
+        "ms",
+        "ran",
+        "svg",
+        "url"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "amnt.io",
+    "endpoint": "https://www.amnt.io/api/agent/amnt/svg-pro",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

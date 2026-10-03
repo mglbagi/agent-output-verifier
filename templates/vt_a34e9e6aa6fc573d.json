@@ -1,0 +1,89 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a34e9e6aa6fc573d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "aiDisclosure": {
+          "properties": {
+            "aiGenerated": {
+              "type": "boolean"
+            },
+            "embeddedIn": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            },
+            "statement": {
+              "type": "string"
+            },
+            "termsUrl": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "aiGenerated",
+            "statement",
+            "termsUrl"
+          ],
+          "type": "object"
+        },
+        "etaSeconds": {
+          "type": "number"
+        },
+        "jobId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "kind": {
+          "enum": [
+            "music",
+            "image_generate",
+            "image_edit",
+            "image_upscale",
+            "image_restore",
+            "video",
+            "video_sound"
+          ],
+          "type": "string"
+        },
+        "pollBudgetSeconds": {
+          "type": "number"
+        },
+        "resultUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "status": {
+          "type": "string"
+        },
+        "statusUrl": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "jobId",
+        "status",
+        "statusUrl",
+        "resultUrl",
+        "etaSeconds",
+        "pollBudgetSeconds"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.havenagent.ai",
+    "endpoint": "https://api.havenagent.ai/x402/api/v1/image/edit",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3b095b3aabda1ffb",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "capabilities_as_of": {
+          "oneOf": [
+            {
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]{3})?Z$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evaluated_at": {
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]{3})?Z$",
+          "type": "string"
+        },
+        "from": {
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]{3})?Z$",
+          "type": "string"
+        },
+        "items": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "candles": {
+                "type": "array"
+              },
+              "instrument": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "quote": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "reason": {
+                "enum": [
+                  "not_retained",
+                  "gap",
+                  "insufficient_history",
+                  "policy_off",
+                  "venue_capability",
+                  "no_value",
+                  "band_truncated",
+                  "unit_unknown",
+                  "unmapped",
+                  "funding_continuous",
+                  "collector_gap",
+                  "horizon_passed",
+                  "connection_lost",
+                  "state_lag",
+                  "horizon_unknown",
+                  "freshness_bound"
+                ],
+                "type": "string"
+              },
+              "reasons": {
+                "type": "object"
+              },
+              "retention_from": {},
+              "source": {
+                "enum": [
+                  "venue",
+                  "derived"
+                ],
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "present",
+                  "stale",
+                  "missing",
+                  "not_published",
+                  "off"
+                ],
+                "type": "string"
+              },
+              "units": {
+                "type": "object"
+              },
+              "venue": {
+                "type": "string"
+              },
+              "venue_symbol": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "instrument",
+              "venue",
+              "venue_symbol",
+              "quote",
+              "status",
+              "source",
+              "retention_from",
+              "units",
+              "candles"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "items_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "listings_as_of": {
+          "oneOf": [
+            {
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]{3})?Z$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "price_type": {
+          "enum": [
+            "trade",
+            "mark",
+            "index"
+          ],
+          "type": "string"
+        },
+        "receipt_id": {
+          "pattern": "^[0-9A-Za-z]{22}$",
+          "type": "string"
+        },
+        "served_at": {
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{6}Z$",
+          "type": "string"
+        },
+        "settled": {
+          "type": "boolean"
+        },
+        "timeframe": {
+          "type": "string"
+        },
+        "to": {
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]{3})?Z$",
+          "type": "string"
+        },
+        "units": {
+          "enum": [
+            "published",
+            "base",
+            "quote"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "evaluated_at",
+        "settled",
+        "items_sha256",
+        "timeframe",
+        "price_type",
+        "from",
+        "to",
+        "units",
+        "items"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.debyko.com",
+    "endpoint": "https://api.debyko.com/v2/candles",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

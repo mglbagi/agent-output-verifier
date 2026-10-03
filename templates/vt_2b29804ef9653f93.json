@@ -1,0 +1,104 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2b29804ef9653f93",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "crunchbase": {
+          "type": "string"
+        },
+        "customized": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        },
+        "linkedin": {
+          "type": "string",
+          "format": "uri"
+        },
+        "name": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "populatedTags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "disablePage": {
+                "type": "boolean"
+              },
+              "excludeEntities": {
+                "type": "boolean"
+              },
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "tagParams": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "disablePage",
+              "excludeEntities",
+              "id",
+              "label",
+              "rank",
+              "tagParams"
+            ]
+          }
+        },
+        "service": {},
+        "twitter": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "crunchbase",
+        "customized",
+        "id",
+        "linkedin",
+        "name",
+        "note",
+        "populatedTags",
+        "twitter",
+        "type",
+        "website"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "populatedTags[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.arkm.com",
+    "endpoint": "https://api.arkm.com/x402/intelligence/entity",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

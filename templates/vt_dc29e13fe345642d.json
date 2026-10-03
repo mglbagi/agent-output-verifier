@@ -1,0 +1,41 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_dc29e13fe345642d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "tier": {
+          "enum": [
+            "standard",
+            "performance"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "content",
+        "model",
+        "tier"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.deepentresearch.com",
+    "endpoint": "https://api.deepentresearch.com/v1/agent/chat",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

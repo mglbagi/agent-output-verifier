@@ -1,0 +1,66 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_80bed62efee74155",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "disclaimer": {
+          "type": "string"
+        },
+        "matches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "confidence": {
+                "type": "number"
+              },
+              "list": {
+                "type": "string"
+              },
+              "matched_name": {
+                "type": "string"
+              },
+              "record_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "confidence",
+              "list",
+              "matched_name",
+              "record_id"
+            ]
+          }
+        }
+      },
+      "required": [
+        "disclaimer",
+        "matches"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "matches[].record_id"
+      }
+    ],
+    "bounds": {
+      "matches[].confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api-1-screening.agent-tollbooth.workers.dev",
+    "endpoint": "https://api-1-screening.agent-tollbooth.workers.dev/screen",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

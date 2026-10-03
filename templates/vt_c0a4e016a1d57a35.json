@@ -1,0 +1,103 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c0a4e016a1d57a35",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "chain": {
+          "type": "string"
+        },
+        "hint": {
+          "type": "string"
+        },
+        "input": {
+          "type": "string"
+        },
+        "network": {
+          "type": "string"
+        },
+        "pack": {
+          "properties": {
+            "goal": {
+              "type": "string"
+            },
+            "job": {
+              "type": "string"
+            },
+            "nextCall": {
+              "type": "string"
+            },
+            "steps": {
+              "items": {
+                "properties": {
+                  "do": {
+                    "type": "string"
+                  },
+                  "n": {
+                    "type": "number"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "n",
+                  "name",
+                  "do"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "stopRules": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "title",
+            "job",
+            "goal",
+            "steps",
+            "stopRules",
+            "nextCall"
+          ],
+          "type": "object"
+        },
+        "paid": {
+          "type": "boolean"
+        },
+        "price": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "paid",
+        "price",
+        "network",
+        "chain",
+        "hint",
+        "input",
+        "pack"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "splitpack.net",
+    "endpoint": "https://splitpack.net/split",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

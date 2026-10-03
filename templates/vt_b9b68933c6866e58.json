@@ -1,0 +1,439 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b9b68933c6866e58",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "checked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "count": {
+          "type": "number"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "errors": {
+          "items": {
+            "properties": {
+              "address": {
+                "type": "string"
+              },
+              "chain": {
+                "type": "string"
+              },
+              "error": {
+                "type": "string"
+              },
+              "status": {
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "action": {
+                "enum": [
+                  "proceed",
+                  "caution",
+                  "avoid"
+                ],
+                "type": "string"
+              },
+              "address": {
+                "type": "string",
+                "pattern": "^0x[a-fA-F0-9]{40}$"
+              },
+              "buy_tax": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "cache_age_seconds": {
+                "type": "number"
+              },
+              "cached": {
+                "type": "boolean"
+              },
+              "can_blacklist": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "chain": {
+                "enum": [
+                  "base",
+                  "bsc"
+                ],
+                "type": "string"
+              },
+              "chain_id": {
+                "type": "number"
+              },
+              "checked_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "creator_has_honeypot_history": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "creator_pct": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "cross_check": {
+                "properties": {
+                  "agree": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "disagreements": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "goplus_honeypot": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "honeypot_is_honeypot": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "agree",
+                  "disagreements",
+                  "goplus_honeypot",
+                  "honeypot_is_honeypot"
+                ]
+              },
+              "disclaimer": {
+                "type": "string"
+              },
+              "flag_sources": {
+                "description": "Source of each flag: goplus | honeypot.is | rpc (proxy storage slots) | rpc (bytecode scan) | ...",
+                "type": "object"
+              },
+              "hidden_owner": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "holder_count": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "implementation": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^0x[a-fA-F0-9]{40}$"
+              },
+              "is_honeypot": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "is_mintable": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "is_open_source": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "is_proxy": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "liquidity_usd": {
+                "description": "Largest single pool liquidity (USD)",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "lp_locked_pct": {
+                "description": "% of V2 LP tokens locked or burned (null for V3/V4 pools)",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "main_pair": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "missing": {
+                "description": "Fields that are null because no reachable source provides them",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "owner_address": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^0x[a-fA-F0-9]{40}$"
+              },
+              "owner_can_change_balance": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "owner_pct": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "owner_renounced": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "pair_age_hours": {
+                "description": "Age of the largest pool",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "price_usd": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "reasons": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "score": {
+                "description": "Risk score: 0 = no flags, 100 = honeypot/extreme",
+                "maximum": 100,
+                "minimum": 0,
+                "type": "number"
+              },
+              "selfdestruct": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "sell_tax": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "sources": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "sources_failed": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "symbol": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "take_back_ownership": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "tax_modifiable": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "tax_source": {
+                "enum": [
+                  "honeypot.is simulation",
+                  "goplus",
+                  null
+                ],
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "top10_holder_pct": {
+                "description": "Top-10 holders %, excluding burn/locked addresses and DEX pools",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "total_liquidity_usd": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "transfer_pausable": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "transfer_tax": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "verdict": {
+                "enum": [
+                  "low",
+                  "medium",
+                  "high",
+                  "honeypot"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "chain",
+              "address",
+              "verdict",
+              "score",
+              "reasons",
+              "sources",
+              "checked_at"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "count",
+        "results",
+        "errors"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "results[].chain_id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "results[].cache_age_seconds": {
+        "min": 0,
+        "if_present": true
+      },
+      "results[].creator_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "results[].holder_count": {
+        "min": 0,
+        "if_present": true
+      },
+      "results[].liquidity_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "results[].lp_locked_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "results[].owner_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "results[].pair_age_hours": {
+        "min": 0,
+        "if_present": true
+      },
+      "results[].price_usd": {
+        "min": 0,
+        "if_present": true
+      },
+      "results[].top10_holder_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "results[].total_liquidity_usd": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-btc-radar.jinli-x402.workers.dev",
+    "endpoint": "https://x402-btc-radar.jinli-x402.workers.dev/v1/token/risk/batch",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

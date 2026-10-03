@@ -1,0 +1,57 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_df756b4101242745",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "real_levels": {
+          "type": "object",
+          "properties": {
+            "clusters": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "clusters"
+          ]
+        },
+        "stats": {
+          "type": "object",
+          "properties": {
+            "last_price": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "last_price"
+          ]
+        },
+        "symbol": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "real_levels",
+        "stats",
+        "symbol"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "stats.last_price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "bykaranteli.com",
+    "endpoint": "https://bykaranteli.com/api/x402/liqmap-levels",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

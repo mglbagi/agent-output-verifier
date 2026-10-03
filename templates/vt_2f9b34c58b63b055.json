@@ -1,0 +1,82 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2f9b34c58b63b055",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "as_of_block": {
+          "type": "string"
+        },
+        "card_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "label",
+              "status"
+            ]
+          }
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "grade": {
+          "type": "string"
+        },
+        "one_liner": {
+          "type": "string"
+        },
+        "score": {
+          "type": "integer"
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "as_of_block",
+        "card_url",
+        "checks",
+        "disclaimer",
+        "grade",
+        "one_liner",
+        "score",
+        "verdict"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "checks[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "seenly-token-preflight.vercel.app",
+    "endpoint": "https://seenly-token-preflight.vercel.app/api/token-preflight",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

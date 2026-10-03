@@ -1,0 +1,64 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_98c246007325d550",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "esma_autorise_mica": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "autorite": {
+                "type": "string"
+              },
+              "nom": {
+                "type": "string"
+              },
+              "pays": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "autorite",
+              "nom",
+              "pays"
+            ]
+          }
+        },
+        "liste_noire_amf": {
+          "type": "array"
+        },
+        "niveau_risque": {
+          "type": "string"
+        },
+        "sanctions_ue": {
+          "type": "array"
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "esma_autorise_mica",
+        "liste_noire_amf",
+        "niveau_risque",
+        "sanctions_ue",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agoraverify.com",
+    "endpoint": "https://agoraverify.com/finance/contrepartie",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

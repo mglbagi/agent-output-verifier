@@ -1,0 +1,173 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_647659a50794b41f",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "asset": {
+          "type": "string"
+        },
+        "cache_age_seconds": {
+          "type": "integer"
+        },
+        "cached": {
+          "type": "boolean"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "forecast": {
+          "type": "object",
+          "properties": {
+            "confidence": {
+              "type": "number"
+            },
+            "expected_close": {
+              "type": "number"
+            },
+            "horizon_bars": {
+              "type": "integer"
+            },
+            "n_paths": {
+              "type": "integer"
+            },
+            "pred_high": {
+              "type": "integer"
+            },
+            "pred_low": {
+              "type": "integer"
+            },
+            "pred_volatility": {
+              "type": "number"
+            },
+            "prob_up": {
+              "type": "number"
+            },
+            "quantiles": {
+              "type": "object",
+              "properties": {
+                "p10": {
+                  "type": "integer"
+                },
+                "p25": {
+                  "type": "integer"
+                },
+                "p50": {
+                  "type": "integer"
+                },
+                "p75": {
+                  "type": "integer"
+                },
+                "p90": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "p10",
+                "p25",
+                "p50",
+                "p75",
+                "p90"
+              ]
+            },
+            "range_high": {
+              "type": "integer"
+            },
+            "range_low": {
+              "type": "integer"
+            },
+            "up_prob": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "confidence",
+            "expected_close",
+            "horizon_bars",
+            "n_paths",
+            "pred_high",
+            "pred_low",
+            "pred_volatility",
+            "prob_up",
+            "quantiles",
+            "range_high",
+            "range_low",
+            "up_prob"
+          ]
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "horizon": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "price": {
+          "type": "object",
+          "properties": {
+            "atr": {
+              "type": "integer"
+            },
+            "close": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "atr",
+            "close"
+          ]
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "asset",
+        "cache_age_seconds",
+        "cached",
+        "disclaimer",
+        "forecast",
+        "generated_at",
+        "horizon",
+        "model",
+        "price",
+        "source"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "forecast.pred_low",
+        "other_field": "forecast.pred_high"
+      },
+      {
+        "type": "lte",
+        "field": "forecast.range_low",
+        "other_field": "forecast.range_high"
+      }
+    ],
+    "bounds": {
+      "cache_age_seconds": {
+        "min": 0
+      },
+      "forecast.confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "kronossignals.com",
+    "endpoint": "https://kronossignals.com/api/v1/forecast/btc",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

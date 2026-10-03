@@ -1,0 +1,67 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7f427efa93e7cacb",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "items": {
+            "properties": {
+              "content": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "score": {
+                "description": "Cosine similarity computed at query time.",
+                "type": "number"
+              },
+              "tags": {
+                "type": "array"
+              },
+              "valid_from": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "valid_until": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "content",
+              "score"
+            ]
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data[].id"
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "memory.wickedapi.com",
+    "endpoint": "https://memory.wickedapi.com/memories/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

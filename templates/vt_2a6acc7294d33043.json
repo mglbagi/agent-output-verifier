@@ -1,0 +1,68 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2a6acc7294d33043",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "files": {
+          "type": "array"
+        },
+        "order_id": {
+          "type": "string"
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "artifacts": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "engine": {
+              "type": "string"
+            },
+            "input_source": {
+              "type": "string"
+            },
+            "operation": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "artifacts",
+            "engine",
+            "input_source",
+            "operation"
+          ]
+        },
+        "sku": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "files",
+        "order_id",
+        "result",
+        "sku",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "market.datapackvibe.com",
+    "endpoint": "https://market.datapackvibe.com/x402/studio3d-process-render-turntable",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

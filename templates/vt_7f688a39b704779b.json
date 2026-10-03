@@ -1,0 +1,105 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_7f688a39b704779b",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "payload": {
+          "type": "object",
+          "properties": {
+            "day": {
+              "type": "integer"
+            },
+            "evidence": {
+              "type": "array"
+            },
+            "limitations": {
+              "type": "array"
+            },
+            "plan": {
+              "type": "string"
+            },
+            "product": {
+              "type": "string"
+            },
+            "provenance": {
+              "type": "object",
+              "properties": {
+                "content_hash": {
+                  "type": "string"
+                },
+                "corpus_version": {
+                  "type": "string"
+                },
+                "retrieved_at": {
+                  "type": "string"
+                },
+                "runtime_outbound_network_used": {
+                  "type": "boolean"
+                },
+                "sources": {
+                  "type": "array"
+                }
+              },
+              "required": [
+                "content_hash",
+                "corpus_version",
+                "retrieved_at",
+                "runtime_outbound_network_used",
+                "sources"
+              ]
+            },
+            "reference": {
+              "type": "string"
+            },
+            "reflection_prompts": {
+              "type": "array"
+            },
+            "total_days": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "day",
+            "evidence",
+            "limitations",
+            "plan",
+            "product",
+            "provenance",
+            "reference",
+            "reflection_prompts",
+            "total_days"
+          ]
+        },
+        "predicate_passed": {
+          "type": "boolean"
+        },
+        "settled": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "payload",
+        "predicate_passed",
+        "settled"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "payload.total_days": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.macaroonnetwork.com",
+    "endpoint": "https://api.macaroonnetwork.com/execute/christian-scripture-reading-plan-v1",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

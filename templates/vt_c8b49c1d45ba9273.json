@@ -1,0 +1,37 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c8b49c1d45ba9273",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "average_gco2_kwh": {
+          "type": "integer"
+        },
+        "end": {
+          "type": "string"
+        },
+        "start": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "average_gco2_kwh",
+        "end",
+        "start"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "energybilltoolkit.co.uk",
+    "endpoint": "https://energybilltoolkit.co.uk/decision-tools/api/carbon/cleanest-window",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

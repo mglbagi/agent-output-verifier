@@ -1,0 +1,184 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c5159466b2ff482d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "costUsd": {
+          "description": "USD charged on the original run. On a replay this value is echoed for parity; the replay itself is free.",
+          "type": "number"
+        },
+        "hint": {
+          "description": "Optional one-line nudge, absent when there is nothing to say. `large_result:` suggests the fields/max_items/summary/jq controls for a big response. `paging_unavailable:` means this result came from a source that cannot return a `nextCursor`, so it may be INCOMPLETE and cannot be continued - re-run with `requireFields: [\"nextCursor\"]` to be served only by a source that can page, which may cost more per request.",
+          "type": "string"
+        },
+        "items": {
+          "description": "Number of result rows returned; an API that returns one record counts it as one row. For per-result APIs the per-item cost is charged against this count; for input-priced APIs the charge is per submitted input, independent of this count.",
+          "type": "integer"
+        },
+        "jqError": {
+          "description": "Present only when a `jq` expression failed; `output` then carries the full unshaped result and this explains why the reshape did not apply.",
+          "type": "string"
+        },
+        "output": {
+          "anyOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "data": {
+                  "oneOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "items": {
+                          "description": "Records for the accounts the target user follows. About the first 50, in the order the source returns them, not the user's full following list - see nextCursor. Populated whenever the provider has data for the entity.",
+                          "items": {
+                            "properties": {
+                              "handle": {
+                                "description": "The followed account's username, without the @ prefix. Populated whenever the provider has data for the entity.",
+                                "type": "string"
+                              },
+                              "id": {
+                                "description": "The followed account's numeric Instagram user ID, as a string. Populated whenever the provider has data for the entity.",
+                                "type": "string"
+                              },
+                              "image": {
+                                "description": "URL of the followed account's profile picture, with tracking query params stripped. Empty when the upstream omits it.",
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "The followed account's display name. Empty when the account has none.",
+                                "type": "string"
+                              },
+                              "private": {
+                                "description": "Whether the followed account is private.",
+                                "type": "boolean"
+                              },
+                              "url": {
+                                "description": "Canonical URL of the followed account's profile, with tracking query params stripped. Empty when the lane does not return it.",
+                                "type": "string"
+                              },
+                              "verified": {
+                                "description": "Whether the followed account is verified.",
+                                "type": "boolean"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "handle"
+                            ],
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "nextCursor": {
+                          "description": "Opaque cursor for the next page of results, or null/empty when there are no more. Empty on every source behind this endpoint today, because each returns a single page of about 50 accounts and no continuation. Pass it back as cursor whenever it is non-empty.",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "items"
+                      ],
+                      "type": "object"
+                    }
+                  ]
+                },
+                "found": {
+                  "description": "Whether the account was found and returned following records.",
+                  "type": "boolean"
+                },
+                "reason": {
+                  "description": "Present only when `found` is false, and says why there is no result. `not_found`: the source states the target does not exist, or returned nothing for it. A `found: false` answer is a successful call, not an error, and `costUsd` is what it actually cost.",
+                  "enum": [
+                    "not_found"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "found",
+                "data"
+              ],
+              "title": "Instagram following output",
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Normalized output, or null when the replay payload was not retained."
+        },
+        "provider": {
+          "description": "Always \"AnyAPI\".",
+          "type": "string"
+        },
+        "replayed": {
+          "description": "True when this response replays the durable result of an earlier run without billing or upstream execution.",
+          "type": "boolean"
+        },
+        "resultId": {
+          "description": "Opaque handle to the full unshaped result, cached ~15 min. Re-shape it for free (fields/max_items/summary/jq) via GET /v1/results/{id}, no re-billing. Absent when the result was too large to cache.",
+          "type": "string"
+        },
+        "source": {
+          "description": "The source that served this run. Pass its `id` back as `source` to prefer it again, or as `ignoreSources` to avoid it. Absent when no source identity applies to the run.",
+          "properties": {
+            "artworkKey": {
+              "description": "Key for this source's artwork.",
+              "type": "string"
+            },
+            "id": {
+              "description": "Stable identifier for this source.",
+              "type": "string"
+            },
+            "kind": {
+              "description": "anonymous is a stable identity for an unattributed source; brand names the dataset that supplies the data.",
+              "enum": [
+                "anonymous",
+                "brand"
+              ],
+              "type": "string"
+            },
+            "name": {
+              "description": "Display name for this source.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "kind",
+            "artworkKey"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "output",
+        "provider",
+        "costUsd",
+        "items",
+        "replayed"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.getanyapi.com",
+    "endpoint": "https://api.getanyapi.com/v1/run/instagram.following",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

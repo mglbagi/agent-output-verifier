@@ -1,0 +1,64 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ac1ee370946afaf6",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "advisory": {
+          "type": "string"
+        },
+        "fullpage": {
+          "type": "boolean"
+        },
+        "mime": {
+          "const": "image/png",
+          "type": "string"
+        },
+        "png_base64": {
+          "description": "Base64-encoded PNG image bytes.",
+          "type": "string"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "untrusted": {
+          "type": "boolean"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "width": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "advisory",
+        "fullpage",
+        "mime",
+        "png_base64",
+        "status",
+        "untrusted",
+        "url",
+        "width"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "width": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "web.cyberwarex.com",
+    "endpoint": "https://web.cyberwarex.com/screenshot",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

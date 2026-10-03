@@ -1,0 +1,58 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a4f3c814ade2268a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "confidence_score": {
+          "type": "number"
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "text",
+            "title"
+          ]
+        },
+        "sources_agreed": {
+          "type": "integer"
+        },
+        "sources_checked": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "confidence_score",
+        "result",
+        "sources_agreed",
+        "sources_checked"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "confidence_score": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "money-mind-extract.onrender.com",
+    "endpoint": "https://money-mind-extract.onrender.com/v1/extract",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6a1d22e3247c4692",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "asOf": {
+          "type": "string",
+          "format": "date"
+        },
+        "blockTrades": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "changePct": {
+                "type": "number"
+              },
+              "closeKRW": {
+                "type": "integer"
+              },
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "shareOfVolumePct": {
+                "type": "number"
+              },
+              "volume": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "changePct",
+              "closeKRW",
+              "date",
+              "shareOfVolumePct",
+              "volume"
+            ]
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "netBuy": {
+          "type": "object",
+          "properties": {
+            "1d": {
+              "type": "object",
+              "properties": {
+                "foreigner": {
+                  "type": "integer"
+                },
+                "individual": {
+                  "type": "integer"
+                },
+                "institutional_total": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "foreigner",
+                "individual",
+                "institutional_total"
+              ]
+            }
+          },
+          "required": [
+            "1d"
+          ]
+        },
+        "packType": {
+          "type": "string"
+        },
+        "shortSelling": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "amountKRW": {
+                "type": "number"
+              },
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "shareOfVolumePct": {
+                "type": "number"
+              },
+              "volume": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "amountKRW",
+              "date",
+              "shareOfVolumePct",
+              "volume"
+            ]
+          }
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "asOf",
+        "blockTrades",
+        "name",
+        "netBuy",
+        "packType",
+        "shortSelling",
+        "ticker",
+        "unit"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "blockTrades[].shareOfVolumePct": {
+        "min": 0,
+        "max": 100
+      },
+      "blockTrades[].volume": {
+        "min": 0
+      },
+      "shortSelling[].shareOfVolumePct": {
+        "min": 0,
+        "max": 100
+      },
+      "shortSelling[].volume": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.deepsearch.com",
+    "endpoint": "https://x402.deepsearch.com/v1/context/flows/:ticker",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

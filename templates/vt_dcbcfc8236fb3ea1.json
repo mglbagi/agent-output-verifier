@@ -1,0 +1,61 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_dcbcfc8236fb3ea1",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "amountOut": {
+          "type": "string"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "transactions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "string"
+              },
+              "to": {
+                "type": "string",
+                "pattern": "^0x[a-fA-F0-9]{40}$"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "data",
+              "to",
+              "value"
+            ]
+          }
+        }
+      },
+      "required": [
+        "amountOut",
+        "chain",
+        "note",
+        "transactions"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "yield.trdefi.com",
+    "endpoint": "https://yield.trdefi.com/v1/swaps",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

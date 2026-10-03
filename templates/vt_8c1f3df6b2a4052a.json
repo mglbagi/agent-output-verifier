@@ -1,0 +1,88 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8c1f3df6b2a4052a",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "native": {
+          "type": "object",
+          "properties": {
+            "balance": {
+              "type": "number"
+            },
+            "balance_raw": {
+              "type": "string"
+            },
+            "symbol": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "balance",
+            "balance_raw",
+            "symbol"
+          ]
+        },
+        "network": {
+          "type": "string"
+        },
+        "tokens": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "balance": {
+                "type": "number"
+              },
+              "balance_raw": {
+                "type": "string"
+              },
+              "token": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "balance",
+              "balance_raw",
+              "token"
+            ]
+          }
+        }
+      },
+      "required": [
+        "address",
+        "chain",
+        "native",
+        "network",
+        "tokens"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "native.balance": {
+        "min": 0
+      },
+      "tokens[].balance": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "webtools402.176-109-107-191.sslip.io",
+    "endpoint": "https://webtools402.176-109-107-191.sslip.io/wallet/balances",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

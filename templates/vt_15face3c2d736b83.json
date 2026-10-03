@@ -1,0 +1,92 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_15face3c2d736b83",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "payment": {
+          "properties": {
+            "network": {
+              "description": "CAIP-2 network the payment settled on.",
+              "type": "string"
+            },
+            "transaction": {
+              "description": "Settlement transaction hash; quote it to support.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "network",
+            "transaction"
+          ],
+          "type": "object"
+        },
+        "product": {
+          "properties": {
+            "content": {
+              "description": "Personal download link for the zip (latest release). Valid 24 hours; each purchase allows 10 downloads. Null only if the link could not be created; see support.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "contentExpiresAt": {
+              "description": "When content stops working (ISO 8601).",
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date-time"
+            },
+            "delivery": {
+              "const": "kit"
+            },
+            "description": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "slug": {
+              "const": "design-pack-meridian"
+            },
+            "support": {
+              "description": "Present only if something failed after payment: email jorge@latitude10.tech with the transaction.",
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "slug",
+            "name",
+            "version",
+            "description",
+            "delivery",
+            "content",
+            "contentExpiresAt"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "product",
+        "payment"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "latitude10.tech",
+    "endpoint": "https://latitude10.tech/api/agent-products/design-pack-meridian",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

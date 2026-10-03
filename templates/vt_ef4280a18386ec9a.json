@@ -1,0 +1,53 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ef4280a18386ec9a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "query": {
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "snippet": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "title",
+              "url",
+              "snippet"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "query",
+        "results"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402-echo-service.onrender.com",
+    "endpoint": "https://x402-echo-service.onrender.com/web/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

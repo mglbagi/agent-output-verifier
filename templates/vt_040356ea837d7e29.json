@@ -1,0 +1,110 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_040356ea837d7e29",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "counts": {
+          "type": "object",
+          "properties": {
+            "fail": {
+              "type": "integer"
+            },
+            "pass": {
+              "type": "integer"
+            },
+            "total": {
+              "type": "number"
+            },
+            "warn": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "fail",
+            "pass",
+            "total",
+            "warn"
+          ]
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "evidence": {},
+              "id": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "rule": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "message",
+              "rule",
+              "severity"
+            ]
+          }
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "overall": {
+          "type": "string"
+        },
+        "receipt": {
+          "type": "object",
+          "properties": {
+            "binding": {
+              "type": "string"
+            },
+            "protocol": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "binding",
+            "protocol"
+          ]
+        }
+      },
+      "required": [
+        "counts",
+        "findings",
+        "ok",
+        "overall",
+        "receipt"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "findings[].id"
+      }
+    ],
+    "bounds": {
+      "counts.total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agents.daedalusdevelopmentgroup.com",
+    "endpoint": "https://agents.daedalusdevelopmentgroup.com/v1/robot-task/completion-receipt-validator",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

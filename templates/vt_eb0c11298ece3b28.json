@@ -1,0 +1,95 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_eb0c11298ece3b28",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "fetched": {
+          "description": "Pages whose content was retrieved.",
+          "type": "integer"
+        },
+        "query": {
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "chars": {
+                "type": "integer"
+              },
+              "content": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "engine": {
+                "type": "string"
+              },
+              "error": {
+                "type": "string"
+              },
+              "snippet": {
+                "type": "string"
+              },
+              "status": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "title": {
+                "type": "string"
+              },
+              "truncated": {
+                "type": "boolean"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "type": "object",
+            "required": [
+              "chars",
+              "content",
+              "engine",
+              "snippet",
+              "status",
+              "title",
+              "truncated",
+              "url"
+            ]
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "count",
+        "fetched",
+        "query",
+        "results"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "search.cyberwarex.com",
+    "endpoint": "https://search.cyberwarex.com/search-contents",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

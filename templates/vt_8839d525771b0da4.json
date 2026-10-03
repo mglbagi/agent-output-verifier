@@ -1,0 +1,210 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8839d525771b0da4",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "comments": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "_truncated": {
+                    "type": "boolean"
+                  },
+                  "author": {
+                    "type": "string"
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "createdUtc": {
+                    "type": "integer"
+                  },
+                  "depth": {
+                    "type": "integer"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "parentId": {
+                    "type": "string"
+                  },
+                  "permalink": {
+                    "type": "string"
+                  },
+                  "renderedHtml": {
+                    "type": "string"
+                  },
+                  "score": {
+                    "type": "integer"
+                  },
+                  "text": {
+                    "type": "string"
+                  },
+                  "upvotes": {
+                    "type": "integer"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "_truncated",
+                  "author",
+                  "createdAt",
+                  "createdUtc",
+                  "depth",
+                  "id",
+                  "parentId",
+                  "permalink",
+                  "renderedHtml",
+                  "score",
+                  "text",
+                  "upvotes",
+                  "url"
+                ]
+              }
+            },
+            "lookupStatus": {
+              "type": "string"
+            },
+            "page": {
+              "type": "object",
+              "properties": {
+                "hasMore": {
+                  "type": "boolean"
+                },
+                "nextCursor": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "hasMore",
+                "nextCursor"
+              ]
+            },
+            "post": {
+              "type": "object",
+              "properties": {
+                "_truncated": {
+                  "type": "boolean"
+                },
+                "author": {
+                  "type": "string"
+                },
+                "commentCount": {
+                  "type": "integer"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "createdUtc": {
+                  "type": "integer"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "permalink": {
+                  "type": "string"
+                },
+                "score": {
+                  "type": "integer"
+                },
+                "subreddit": {
+                  "type": "string"
+                },
+                "subredditNamePrefixed": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "upvoteRatio": {
+                  "type": "number"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "_truncated",
+                "author",
+                "commentCount",
+                "createdAt",
+                "createdUtc",
+                "id",
+                "permalink",
+                "score",
+                "subreddit",
+                "subredditNamePrefixed",
+                "title",
+                "upvoteRatio",
+                "url"
+              ]
+            }
+          },
+          "required": [
+            "comments",
+            "lookupStatus",
+            "page",
+            "post"
+          ]
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "creditsCharged": {
+              "type": "integer"
+            },
+            "requestId": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "creditsCharged",
+            "requestId",
+            "version"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data.comments[].id"
+      }
+    ],
+    "bounds": {
+      "data.post.upvoteRatio": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.socialfetch.dev",
+    "endpoint": "https://api.socialfetch.dev/v1/reddit/posts/comments",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

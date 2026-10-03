@@ -1,0 +1,170 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d8c428f87b6721b6",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "asOf": {
+          "type": "string",
+          "format": "date"
+        },
+        "currentPriceKRW": {
+          "type": "number"
+        },
+        "forecasts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "brokers": {
+                "type": "integer"
+              },
+              "eps": {
+                "type": "integer"
+              },
+              "fiscalPeriod": {
+                "type": "string"
+              },
+              "operatingIncomeKRW": {
+                "type": "integer"
+              },
+              "per": {
+                "type": "number"
+              },
+              "revenueKRW": {
+                "type": "integer"
+              },
+              "roePct": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "brokers",
+              "eps",
+              "fiscalPeriod",
+              "operatingIncomeKRW",
+              "per",
+              "revenueKRW",
+              "roePct"
+            ]
+          }
+        },
+        "opinion": {
+          "type": "object",
+          "properties": {
+            "average": {
+              "type": "number"
+            },
+            "scale": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "average",
+            "scale"
+          ]
+        },
+        "packType": {
+          "type": "string"
+        },
+        "recentReports": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "opinion": {
+                "type": "string"
+              },
+              "priceAtReportKRW": {
+                "type": "number"
+              },
+              "targetPriceKRW": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "date",
+              "opinion",
+              "priceAtReportKRW",
+              "targetPriceKRW"
+            ]
+          }
+        },
+        "targetPrice": {
+          "type": "object",
+          "properties": {
+            "analysts": {
+              "type": "integer"
+            },
+            "averageKRW": {
+              "type": "integer"
+            },
+            "change30dPct": {
+              "type": "number"
+            },
+            "change90dPct": {
+              "type": "number"
+            },
+            "highKRW": {
+              "type": "integer"
+            },
+            "lowKRW": {
+              "type": "integer"
+            },
+            "upsidePct": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "analysts",
+            "averageKRW",
+            "change30dPct",
+            "change90dPct",
+            "highKRW",
+            "lowKRW",
+            "upsidePct"
+          ]
+        },
+        "ticker": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "asOf",
+        "currentPriceKRW",
+        "forecasts",
+        "opinion",
+        "packType",
+        "recentReports",
+        "targetPrice",
+        "ticker"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "forecasts[].roePct": {
+        "min": 0,
+        "max": 100
+      },
+      "targetPrice.upsidePct": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.deepsearch.com",
+    "endpoint": "https://x402.deepsearch.com/v1/context/consensus/:ticker",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

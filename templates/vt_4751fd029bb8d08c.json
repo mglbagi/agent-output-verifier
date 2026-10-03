@@ -1,0 +1,85 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4751fd029bb8d08c",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "title": "Count",
+          "type": "integer"
+        },
+        "max": {
+          "title": "Max",
+          "type": "number"
+        },
+        "mean": {
+          "title": "Mean",
+          "type": "number"
+        },
+        "median": {
+          "title": "Median",
+          "type": "number"
+        },
+        "min": {
+          "title": "Min",
+          "type": "number"
+        },
+        "stdev": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Stdev"
+        },
+        "variance": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Variance"
+        }
+      },
+      "required": [
+        "count",
+        "mean",
+        "median",
+        "stdev",
+        "variance",
+        "min",
+        "max"
+      ],
+      "title": "SummaryOutput",
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "min",
+        "other_field": "max"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.agentindex.world",
+    "endpoint": "https://x402.agentindex.world/stats/summary",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

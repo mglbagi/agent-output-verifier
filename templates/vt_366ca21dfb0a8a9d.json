@@ -1,0 +1,127 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_366ca21dfb0a8a9d",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "evaluated_at": {
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]{3})?Z$",
+          "type": "string"
+        },
+        "freshness": {
+          "additionalProperties": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": "object"
+        },
+        "items": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "instrument": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "layers": {
+                "type": "object"
+              },
+              "quote": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "reason": {
+                "type": "string"
+              },
+              "venue": {
+                "type": "string"
+              },
+              "venue_symbol": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "instrument",
+              "venue",
+              "venue_symbol",
+              "quote",
+              "layers"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "missing": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "instrument": {
+                "type": "string"
+              },
+              "reason": {
+                "enum": [
+                  "not_listed",
+                  "not_in_plan"
+                ],
+                "type": "string"
+              },
+              "venue": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "instrument",
+              "venue",
+              "reason"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "receipt_id": {
+          "pattern": "^[0-9A-Za-z]{22}$",
+          "type": "string"
+        },
+        "served_at": {
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{6}Z$",
+          "type": "string"
+        },
+        "units": {
+          "enum": [
+            "published",
+            "base",
+            "quote"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "evaluated_at",
+        "units",
+        "freshness",
+        "items",
+        "missing"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.debyko.com",
+    "endpoint": "https://api.debyko.com/v2/snapshots",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

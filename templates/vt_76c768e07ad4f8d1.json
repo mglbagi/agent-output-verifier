@@ -1,0 +1,73 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_76c768e07ad4f8d1",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "failed": {
+          "type": "integer"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "input": {
+                "type": "string"
+              },
+              "result": {
+                "type": "object",
+                "properties": {
+                  "detected": {
+                    "type": "boolean"
+                  },
+                  "domain": {
+                    "type": "string"
+                  },
+                  "evidence": {},
+                  "technology": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "detected",
+                  "domain",
+                  "technology"
+                ]
+              }
+            },
+            "required": [
+              "input",
+              "result"
+            ]
+          }
+        }
+      },
+      "required": [
+        "count",
+        "failed",
+        "results"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "site.intel.rallylive.ca",
+    "endpoint": "https://site.intel.rallylive.ca/bulk/site/uses/hcaptcha",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

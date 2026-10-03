@@ -1,0 +1,371 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c68bf9f7b3aaad14",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "The 200 body of every paid /work call. `result` is the worker's own output (its schema is per route); everything else is the same on every /work route. A receipt for the job is at `receipt_url`.",
+      "properties": {
+        "billing_warning": {
+          "description": "Present only when the charge was recorded with a caveat.",
+          "type": "string"
+        },
+        "price_usd": {
+          "description": "What this call cost, in USD.",
+          "type": "number"
+        },
+        "provenance": {
+          "description": "How the result was produced: which providers ran and how long each took.",
+          "properties": {
+            "attempts": {
+              "description": "Provider attempts made, including retries and failovers.",
+              "type": "integer"
+            },
+            "elapsed_ms": {
+              "description": "Wall-clock milliseconds for the whole job.",
+              "type": "integer"
+            },
+            "providers_used": {
+              "description": "Providers that served the job.",
+              "items": {
+                "description": "Provider name.",
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "steps": {
+              "description": "Every step the job ran, in order.",
+              "items": {
+                "description": "One step of the job.",
+                "properties": {
+                  "ms": {
+                    "description": "Milliseconds the step took.",
+                    "type": "integer"
+                  },
+                  "ok": {
+                    "description": "Whether the step succeeded.",
+                    "type": "boolean"
+                  },
+                  "provider": {
+                    "description": "Provider that served the step.",
+                    "type": "string"
+                  },
+                  "reason": {
+                    "description": "Failure reason, on a failed step.",
+                    "type": "string"
+                  },
+                  "step": {
+                    "description": "Step name inside the worker.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "step",
+                  "ok",
+                  "ms"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "steps",
+            "providers_used",
+            "attempts",
+            "elapsed_ms"
+          ],
+          "type": "object"
+        },
+        "receipt_id": {
+          "description": "Receipt id for this job.",
+          "type": "string"
+        },
+        "receipt_url": {
+          "description": "Where to fetch the machine-readable receipt (free, no payment).",
+          "type": "string"
+        },
+        "result": {
+          "properties": {
+            "checked_at": {
+              "description": "When this node read the source (UTC). Nothing here is cached.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "limit_per_portal": {
+              "description": "Results requested per portal.",
+              "type": "integer"
+            },
+            "portals_failed": {
+              "description": "Portals that did not answer, with the reason; never silently dropped.",
+              "items": {
+                "description": "A portal that failed for this call.",
+                "properties": {
+                  "portal": {
+                    "description": "Portal id.",
+                    "type": "string"
+                  },
+                  "reason": {
+                    "description": "Why it did not answer this call.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "portal",
+                  "reason"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "portals_ok": {
+              "description": "Portals that answered.",
+              "items": {
+                "description": "Portal id.",
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "portals_searched": {
+              "description": "Portals the query was sent to.",
+              "items": {
+                "description": "Portal id.",
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "query": {
+              "description": "The query as given.",
+              "type": "string"
+            },
+            "region": {
+              "description": "Region searched.",
+              "type": "string"
+            },
+            "result_count": {
+              "description": "Datasets returned.",
+              "type": "integer"
+            },
+            "results": {
+              "description": "Datasets found, most recently updated first.",
+              "items": {
+                "description": "One dataset.",
+                "properties": {
+                  "country": {
+                    "description": "ISO 3166-1 alpha-2.",
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "Description, up to 1000 characters.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "id": {
+                    "description": "Dataset id on the portal.",
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "landing_url": {
+                    "description": "Dataset page or source URL when the portal gives one.",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "uri"
+                  },
+                  "license": {
+                    "description": "Licence title or id.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "name": {
+                    "description": "Dataset slug.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "organization": {
+                    "description": "Publishing organization.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "portal": {
+                    "description": "Portal id.",
+                    "type": "string"
+                  },
+                  "region": {
+                    "description": "Region code.",
+                    "type": "string"
+                  },
+                  "resource_count": {
+                    "description": "Resources the dataset has in total.",
+                    "type": "integer"
+                  },
+                  "resources": {
+                    "description": "Up to 25 resources, ready for fetch.raw.",
+                    "items": {
+                      "description": "One downloadable resource.",
+                      "properties": {
+                        "format": {
+                          "description": "CSV, JSON, XLS, HTML...",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "last_modified": {
+                          "description": "Resource modification time.",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "name": {
+                          "description": "Resource name.",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "size_bytes": {
+                          "description": "Size when the portal states it.",
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "url": {
+                          "description": "Download URL.",
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      },
+                      "required": [
+                        "url"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "tags": {
+                    "description": "Portal tags.",
+                    "items": {
+                      "description": "A tag.",
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "title": {
+                    "description": "Dataset title, in the portal's language.",
+                    "type": "string"
+                  },
+                  "updated_at": {
+                    "description": "Portal metadata modification time.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "portal",
+                  "region",
+                  "country",
+                  "id",
+                  "title",
+                  "tags",
+                  "resources",
+                  "resource_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "total_matches": {
+              "additionalProperties": {
+                "type": "integer"
+              },
+              "description": "Total matches per portal that answered, keyed by portal id.",
+              "properties": {},
+              "required": [],
+              "type": "object"
+            }
+          },
+          "required": [
+            "query",
+            "region",
+            "portals_searched",
+            "portals_ok",
+            "portals_failed",
+            "total_matches",
+            "results",
+            "result_count",
+            "limit_per_portal",
+            "checked_at"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "const": "ok",
+          "description": "Present only on a delivered result.",
+          "type": "string"
+        },
+        "worker": {
+          "description": "Catalog name of the worker that ran.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "worker",
+        "price_usd",
+        "result",
+        "provenance",
+        "receipt_id",
+        "receipt_url"
+      ],
+      "title": "opendata.search response",
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "result.results[].id"
+      }
+    ],
+    "bounds": {
+      "price_usd": {
+        "min": 0
+      },
+      "result.limit_per_portal": {
+        "min": 0
+      },
+      "result.result_count": {
+        "min": 0
+      },
+      "result.results[].resource_count": {
+        "min": 0
+      },
+      "result.results[].resources[].size_bytes": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hubvibe-io.com",
+    "endpoint": "https://hubvibe-io.com/work/opendata/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

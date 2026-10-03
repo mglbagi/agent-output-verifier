@@ -1,0 +1,108 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_872349af3a7bda08",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "company": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "count": {
+          "type": "integer"
+        },
+        "freshness": {
+          "description": "Reporting date, source and snapshot hashes, age and validation time; not a live feed.",
+          "type": "object"
+        },
+        "nif": {
+          "type": "string"
+        },
+        "signals": {
+          "items": {
+            "properties": {
+              "commercial_assessment": {
+                "properties": {
+                  "commercial_usefulness": {
+                    "enum": [
+                      "RESEARCH_LEAD",
+                      "HISTORICAL_CONTEXT",
+                      "UNKNOWN"
+                    ],
+                    "type": "string"
+                  },
+                  "current_purchase_opportunity": {
+                    "enum": [
+                      "UNKNOWN"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "commercial_usefulness",
+                  "current_purchase_opportunity"
+                ]
+              },
+              "facts": {
+                "description": "Official project text, provenance and source reporting date.",
+                "type": "object"
+              },
+              "operation_code": {
+                "type": "string"
+              },
+              "purchase_inferences": {
+                "description": "Rule-based category matches with matched terms and confidence; not confirmed orders.",
+                "items": {
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "signal": {
+                "description": "Funding and scheduled dates are source facts; score and strength are heuristic, not purchase probabilities.",
+                "type": "object"
+              }
+            },
+            "type": "object",
+            "required": [
+              "commercial_assessment",
+              "facts",
+              "operation_code",
+              "purchase_inferences",
+              "signal"
+            ]
+          },
+          "type": "array"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "nif",
+        "signals",
+        "count"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "buy-signal-portugal.onrender.com",
+    "endpoint": "https://buy-signal-portugal.onrender.com/company/:nif/buy-signal",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

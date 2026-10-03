@@ -1,0 +1,50 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fa81ee2c902b2041",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "content_hash": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "hold_id": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "content_hash",
+        "created_at",
+        "created_by",
+        "hold_id",
+        "size"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "size": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "shared-hold-api.onrender.com",
+    "endpoint": "https://shared-hold-api.onrender.com/hold",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

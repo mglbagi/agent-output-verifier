@@ -1,0 +1,347 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_79b55c2558c7b584",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "author": {
+              "type": "object",
+              "properties": {
+                "avatarUrl": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "displayName": {
+                  "type": "string"
+                },
+                "handle": {
+                  "type": "string"
+                },
+                "platform": {
+                  "type": "string"
+                },
+                "platformUserId": {
+                  "type": "string"
+                },
+                "privateAccount": {
+                  "type": "boolean"
+                },
+                "verified": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "avatarUrl",
+                "displayName",
+                "handle",
+                "platform",
+                "platformUserId",
+                "privateAccount",
+                "verified"
+              ]
+            },
+            "lookupStatus": {
+              "type": "string"
+            },
+            "media": {
+              "type": "object",
+              "properties": {
+                "accessibilityCaption": {},
+                "dimensions": {
+                  "type": "object",
+                  "properties": {
+                    "height": {
+                      "type": "integer"
+                    },
+                    "width": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "height",
+                    "width"
+                  ]
+                },
+                "images": {
+                  "type": "array"
+                },
+                "mediaType": {
+                  "type": "string"
+                },
+                "videos": {
+                  "type": "array"
+                }
+              },
+              "required": [
+                "dimensions",
+                "images",
+                "mediaType",
+                "videos"
+              ]
+            },
+            "metrics": {
+              "type": "object",
+              "properties": {
+                "likes": {
+                  "type": "integer"
+                },
+                "quotes": {
+                  "type": "integer"
+                },
+                "replies": {
+                  "type": "integer"
+                },
+                "reposts": {
+                  "type": "integer"
+                },
+                "reshares": {
+                  "type": "integer"
+                },
+                "views": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "likes",
+                "quotes",
+                "replies",
+                "reposts",
+                "reshares",
+                "views"
+              ]
+            },
+            "post": {
+              "type": "object",
+              "properties": {
+                "caption": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "isReply": {
+                  "type": "boolean"
+                },
+                "replyControl": {
+                  "type": "string"
+                },
+                "shortcode": {
+                  "type": "string"
+                },
+                "takenAt": {
+                  "type": "integer"
+                },
+                "unavailableReason": {},
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "caption",
+                "createdAt",
+                "id",
+                "isReply",
+                "replyControl",
+                "shortcode",
+                "takenAt",
+                "url"
+              ]
+            },
+            "relatedPosts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "author": {
+                    "type": "object",
+                    "properties": {
+                      "avatarUrl": {},
+                      "displayName": {},
+                      "handle": {},
+                      "platform": {},
+                      "platformUserId": {},
+                      "privateAccount": {},
+                      "verified": {}
+                    }
+                  },
+                  "caption": {},
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "metrics": {
+                    "type": "object",
+                    "properties": {
+                      "likes": {},
+                      "quotes": {},
+                      "replies": {},
+                      "reposts": {},
+                      "reshares": {},
+                      "views": {}
+                    }
+                  },
+                  "shortcode": {
+                    "type": "string"
+                  },
+                  "takenAt": {
+                    "type": "integer"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "email"
+                  }
+                },
+                "required": [
+                  "author",
+                  "createdAt",
+                  "id",
+                  "metrics",
+                  "shortcode",
+                  "takenAt",
+                  "url"
+                ]
+              }
+            },
+            "replies": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "author": {
+                    "type": "object",
+                    "properties": {
+                      "avatarUrl": {},
+                      "displayName": {},
+                      "handle": {},
+                      "platform": {},
+                      "platformUserId": {},
+                      "privateAccount": {},
+                      "verified": {}
+                    }
+                  },
+                  "caption": {
+                    "type": "string"
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "metrics": {
+                    "type": "object",
+                    "properties": {
+                      "likes": {},
+                      "quotes": {},
+                      "replies": {},
+                      "reposts": {},
+                      "reshares": {},
+                      "views": {}
+                    }
+                  },
+                  "shortcode": {
+                    "type": "string"
+                  },
+                  "takenAt": {
+                    "type": "integer"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "author",
+                  "caption",
+                  "createdAt",
+                  "id",
+                  "metrics",
+                  "shortcode",
+                  "takenAt",
+                  "url"
+                ]
+              }
+            },
+            "threadItems": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "author",
+            "lookupStatus",
+            "media",
+            "metrics",
+            "post",
+            "relatedPosts",
+            "replies",
+            "threadItems"
+          ]
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "creditsCharged": {
+              "type": "integer"
+            },
+            "requestId": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "creditsCharged",
+            "requestId",
+            "version"
+          ]
+        }
+      },
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "data.relatedPosts[].id"
+      },
+      {
+        "type": "unique",
+        "field": "data.replies[].id"
+      }
+    ],
+    "bounds": {
+      "data.media.dimensions.height": {
+        "min": 0
+      },
+      "data.media.dimensions.width": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.socialfetch.dev",
+    "endpoint": "https://api.socialfetch.dev/v1/threads/posts",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

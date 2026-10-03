@@ -1,0 +1,97 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_155168daaddeda71",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "items": {
+          "description": "Array of job listings",
+          "items": {
+            "properties": {
+              "company": {
+                "description": "Company name",
+                "type": "string"
+              },
+              "description": {
+                "description": "Job description",
+                "type": "string"
+              },
+              "job_type": {
+                "description": "Employment type",
+                "type": "string"
+              },
+              "location": {
+                "description": "Job location",
+                "type": "string"
+              },
+              "posted_date": {
+                "description": "Date posted",
+                "type": "string",
+                "format": "date"
+              },
+              "remote": {
+                "description": "Remote flag",
+                "type": "boolean"
+              },
+              "salary": {
+                "description": "Salary (if listed)",
+                "type": "string"
+              },
+              "source": {
+                "description": "Job board source",
+                "type": "string"
+              },
+              "tags": {
+                "description": "Skill / category tags",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "title": {
+                "description": "Job title",
+                "type": "string"
+              },
+              "url": {
+                "description": "Apply / listing URL",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "type": "object",
+            "required": [
+              "company",
+              "description",
+              "job_type",
+              "location",
+              "posted_date",
+              "remote",
+              "salary",
+              "source",
+              "tags",
+              "title",
+              "url"
+            ]
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "items"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "techforce-agents.onrender.com",
+    "endpoint": "https://techforce-agents.onrender.com/api/all-jobs",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

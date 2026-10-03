@@ -1,0 +1,97 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ae79a3ef2b7353dd",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "ranked_by": {
+          "type": "string"
+        },
+        "recommendations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "avg_price_usd": {
+                "type": "number"
+              },
+              "catalog_calls_30d": {
+                "type": "integer"
+              },
+              "domain": {
+                "type": "string"
+              },
+              "seller": {
+                "type": "string",
+                "pattern": "^0x[a-fA-F0-9]{40}$"
+              },
+              "service": {
+                "type": "string"
+              },
+              "settlements_30d": {
+                "type": "integer"
+              },
+              "unique_buyers_30d": {
+                "type": "integer"
+              },
+              "volume_usd_30d": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "avg_price_usd",
+              "catalog_calls_30d",
+              "domain",
+              "seller",
+              "service",
+              "settlements_30d",
+              "unique_buyers_30d",
+              "volume_usd_30d"
+            ]
+          }
+        },
+        "sellers_in_category": {
+          "type": "integer"
+        },
+        "window_start": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "category",
+        "chain",
+        "ranked_by",
+        "recommendations",
+        "sellers_in_category",
+        "window_start"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "recommendations[].avg_price_usd": {
+        "min": 0
+      },
+      "recommendations[].volume_usd_30d": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "agentaudit.waltsoft.net",
+    "endpoint": "https://agentaudit.waltsoft.net/v1/discover",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,355 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a0461eb7a57c0713",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "admite_depositos": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "apr_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "cerrado": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "comision_lider_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "depositantes": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "descripcion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fuente": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lider": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "nombre": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "participacion_lider_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "rendimiento": {
+          "properties": {
+            "allTime": {
+              "properties": {
+                "pnl_usd": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "valor_usd": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              },
+              "type": [
+                "object",
+                "null"
+              ],
+              "required": [
+                "pnl_usd",
+                "valor_usd"
+              ]
+            },
+            "day": {
+              "properties": {
+                "pnl_usd": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "valor_usd": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              },
+              "type": [
+                "object",
+                "null"
+              ],
+              "required": [
+                "pnl_usd",
+                "valor_usd"
+              ]
+            },
+            "month": {
+              "properties": {
+                "pnl_usd": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "valor_usd": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              },
+              "type": [
+                "object",
+                "null"
+              ],
+              "required": [
+                "pnl_usd",
+                "valor_usd"
+              ]
+            },
+            "perpAllTime": {
+              "properties": {
+                "pnl_usd": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "valor_usd": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              },
+              "type": [
+                "object",
+                "null"
+              ],
+              "required": [
+                "pnl_usd",
+                "valor_usd"
+              ]
+            },
+            "perpDay": {
+              "properties": {
+                "pnl_usd": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "valor_usd": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              },
+              "type": [
+                "object",
+                "null"
+              ],
+              "required": [
+                "pnl_usd",
+                "valor_usd"
+              ]
+            },
+            "perpMonth": {
+              "properties": {
+                "pnl_usd": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "valor_usd": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              },
+              "type": [
+                "object",
+                "null"
+              ],
+              "required": [
+                "pnl_usd",
+                "valor_usd"
+              ]
+            },
+            "perpWeek": {
+              "properties": {
+                "pnl_usd": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "valor_usd": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              },
+              "type": [
+                "object",
+                "null"
+              ],
+              "required": [
+                "pnl_usd",
+                "valor_usd"
+              ]
+            },
+            "week": {
+              "properties": {
+                "pnl_usd": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "valor_usd": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              },
+              "type": [
+                "object",
+                "null"
+              ],
+              "required": [
+                "pnl_usd",
+                "valor_usd"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "allTime",
+            "day",
+            "month",
+            "perpAllTime",
+            "perpDay",
+            "perpMonth",
+            "perpWeek",
+            "week"
+          ]
+        },
+        "vault": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "admite_depositos",
+        "apr_pct",
+        "cerrado",
+        "comision_lider_pct",
+        "depositantes",
+        "descripcion",
+        "fuente",
+        "lider",
+        "nombre",
+        "participacion_lider_pct",
+        "rendimiento",
+        "vault"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "apr_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "comision_lider_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "participacion_lider_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "rendimiento.allTime.valor_usd": {
+        "min": 0
+      },
+      "rendimiento.day.valor_usd": {
+        "min": 0
+      },
+      "rendimiento.month.valor_usd": {
+        "min": 0
+      },
+      "rendimiento.perpAllTime.valor_usd": {
+        "min": 0
+      },
+      "rendimiento.perpDay.valor_usd": {
+        "min": 0
+      },
+      "rendimiento.perpMonth.valor_usd": {
+        "min": 0
+      },
+      "rendimiento.perpWeek.valor_usd": {
+        "min": 0
+      },
+      "rendimiento.week.valor_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.vextorium.com",
+    "endpoint": "https://api.vextorium.com/hyperliquid-vault-pago",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

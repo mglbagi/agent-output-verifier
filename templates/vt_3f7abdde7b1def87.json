@@ -1,0 +1,98 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3f7abdde7b1def87",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "items": {
+          "description": "Array of Amazon products",
+          "items": {
+            "properties": {
+              "asin": {
+                "description": "Amazon Standard Identification Number",
+                "type": "string"
+              },
+              "availability": {
+                "description": "Stock availability",
+                "type": "string"
+              },
+              "brand": {
+                "description": "Brand name",
+                "type": "string"
+              },
+              "currency": {
+                "description": "Currency code",
+                "type": "string"
+              },
+              "price": {
+                "description": "Numeric price",
+                "type": "number"
+              },
+              "priceRaw": {
+                "description": "Formatted price with currency symbol",
+                "type": "string"
+              },
+              "rating": {
+                "description": "Average rating out of 5",
+                "type": "number"
+              },
+              "reviewsCount": {
+                "description": "Number of reviews",
+                "type": "integer"
+              },
+              "thumbnailUrl": {
+                "description": "Product image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "title": {
+                "description": "Product title",
+                "type": "string"
+              },
+              "url": {
+                "description": "Product page URL",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "type": "object",
+            "required": [
+              "asin",
+              "availability",
+              "brand",
+              "currency",
+              "price",
+              "priceRaw",
+              "rating",
+              "reviewsCount",
+              "thumbnailUrl",
+              "title",
+              "url"
+            ]
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "required": [
+        "items"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "items[].price": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "techforce-agents.onrender.com",
+    "endpoint": "https://techforce-agents.onrender.com/api/amazon-products",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

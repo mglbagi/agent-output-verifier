@@ -1,0 +1,64 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_8739a63b410781ad",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "canonical_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "subject_id": {
+                "type": "string"
+              },
+              "subject_type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "subject_type",
+              "subject_id",
+              "display_name",
+              "kind",
+              "canonical_url"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "count",
+        "results"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "results[].subject_id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "elements-live.com",
+    "endpoint": "https://www.elements-live.com/v1/subjects/search",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

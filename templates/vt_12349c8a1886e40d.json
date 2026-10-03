@@ -1,0 +1,53 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_12349c8a1886e40d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "algo": {
+          "type": "string"
+        },
+        "bytes": {
+          "type": "integer"
+        },
+        "hex": {
+          "type": "string"
+        },
+        "hex_prefix": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "skill": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "algo",
+        "bytes",
+        "hex",
+        "hex_prefix",
+        "ok",
+        "skill"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "bytes": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ai-micro-o0w12oaf0-nic-s-projects-33d61015.vercel.app",
+    "endpoint": "https://ai-micro-o0w12oaf0-nic-s-projects-33d61015.vercel.app/api/skills/sha256",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

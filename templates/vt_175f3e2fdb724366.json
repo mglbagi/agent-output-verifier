@@ -1,0 +1,77 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_175f3e2fdb724366",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "colors": {
+          "description": "Every fill colour used, most used first.",
+          "type": "array"
+        },
+        "files": {
+          "description": "Links to any extra formats asked for: png, pdf, eps, dxf, icons (zip), small (simplified SVG).",
+          "type": "object"
+        },
+        "height": {
+          "description": "Display height in pixels.",
+          "type": "integer"
+        },
+        "ms": {
+          "description": "Time taken.",
+          "type": "integer"
+        },
+        "paths": {
+          "description": "Number of paths.",
+          "type": "integer"
+        },
+        "score": {
+          "description": "How close the SVG is to the source picture: fidelity (0-1, higher is better), edge (colour error on edges, lower is better), holes and spill (per mille, lower is better).",
+          "type": "object"
+        },
+        "svg": {
+          "description": "The SVG document. Only <g> groups and filled <path>s: no scripts, no embedded bitmap.",
+          "type": "string"
+        },
+        "url": {
+          "description": "A public link to the same SVG.",
+          "type": "string"
+        },
+        "width": {
+          "description": "Display width in pixels. The picture's own shape is kept.",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "required": [
+        "colors",
+        "files",
+        "height",
+        "ms",
+        "paths",
+        "score",
+        "svg",
+        "url",
+        "width"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "height": {
+        "min": 0
+      },
+      "width": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "amnt.io",
+    "endpoint": "https://www.amnt.io/api/agent/amnt/text-to-svg",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

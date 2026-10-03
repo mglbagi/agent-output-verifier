@@ -1,0 +1,119 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_1a3ddc733f0f98b0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "best_provider": {
+          "description": "Best comparable provider only when at least two valid quotes are available.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "confidence": {
+          "description": "Deterministic quote-comparison confidence; two providers never produce HIGH in this MVP.",
+          "enum": [
+            "LOW",
+            "MEDIUM"
+          ],
+          "type": "string"
+        },
+        "consensus": {
+          "description": "Comparable-output median and comparison basis when two provider quotes are valid.",
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "economic_advantage": {
+          "description": "Best quote versus declared baseline or next available quote; never ROI.",
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "economics": {
+          "description": "Known or unknown estimated provider COGS; unknown is never represented as zero.",
+          "type": "object"
+        },
+        "evidence_quality": {
+          "description": "Per-provider reported, calculated, estimated, or unavailable field quality.",
+          "type": "object"
+        },
+        "observed_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "partial": {
+          "description": "True when one or more providers did not yield a valid quote.",
+          "type": "boolean"
+        },
+        "provider_failures": {
+          "items": {
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "provider",
+              "category"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "quotes": {
+          "description": "Normalized provider quote evidence in raw token units.",
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "COMPARISON_AVAILABLE",
+            "PARTIAL",
+            "UPSTREAM_UNAVAILABLE"
+          ],
+          "type": "string"
+        },
+        "usage": {
+          "description": "Per-provider call success, latency, and configured cost-estimate availability.",
+          "type": "object"
+        }
+      },
+      "required": [
+        "status",
+        "best_provider",
+        "confidence",
+        "quotes",
+        "consensus",
+        "economic_advantage",
+        "partial",
+        "provider_failures",
+        "evidence_quality",
+        "usage",
+        "economics",
+        "observed_at"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "relay.straelo.com",
+    "endpoint": "https://relay.straelo.com/defi-execution-snapshot",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

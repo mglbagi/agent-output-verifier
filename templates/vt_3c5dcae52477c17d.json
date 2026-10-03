@@ -1,0 +1,146 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_3c5dcae52477c17d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "attribution": {
+          "type": "string"
+        },
+        "changed": {
+          "type": "boolean"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "accessionNumber": {
+                "type": "string"
+              },
+              "filingDate": {
+                "type": "string",
+                "format": "date"
+              },
+              "filingIndexUrl": {
+                "type": "string",
+                "format": "uri"
+              },
+              "form": {
+                "type": "string"
+              },
+              "itemCodes": {
+                "type": "string"
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "titleSource": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "title",
+                    "titleSource"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "accessionNumber",
+              "filingDate",
+              "filingIndexUrl",
+              "form",
+              "itemCodes",
+              "items"
+            ]
+          }
+        },
+        "issuer": {
+          "type": "object",
+          "properties": {
+            "cik": {
+              "type": "string"
+            },
+            "exchanges": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "name": {
+              "type": "string"
+            },
+            "ticker": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "cik",
+            "exchanges",
+            "name",
+            "ticker"
+          ]
+        },
+        "itemTitleSource": {
+          "type": "string"
+        },
+        "nextSince": {
+          "type": "string",
+          "format": "date"
+        },
+        "since": {
+          "type": "string",
+          "format": "date"
+        },
+        "unknownItemCodes": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "attribution",
+        "changed",
+        "count",
+        "endpoint",
+        "events",
+        "issuer",
+        "itemTitleSource",
+        "nextSince",
+        "since",
+        "unknownItemCodes"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "x402.donnyautomation.com",
+    "endpoint": "https://x402.donnyautomation.com/edgar/events",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

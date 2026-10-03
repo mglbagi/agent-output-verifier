@@ -1,0 +1,74 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_12ef38b95d6974f8",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "duration": {
+          "type": "number"
+        },
+        "language": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "segments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "end": {
+                "type": "number"
+              },
+              "start": {
+                "type": "integer"
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "end",
+              "start",
+              "text"
+            ]
+          }
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "duration",
+        "language",
+        "model",
+        "segments",
+        "text"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "segments[].start",
+        "other_field": "segments[].end"
+      }
+    ],
+    "bounds": {
+      "duration": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.sitecheck-api.workers.dev",
+    "endpoint": "https://api.sitecheck-api.workers.dev/api/transcribe",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

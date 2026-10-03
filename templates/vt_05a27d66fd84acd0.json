@@ -1,0 +1,73 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_05a27d66fd84acd0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "access_mode": {
+          "enum": [
+            "wallet_agent",
+            "signup_account"
+          ],
+          "type": "string"
+        },
+        "agent_token": {
+          "type": "string"
+        },
+        "amount_usd": {
+          "type": "number"
+        },
+        "network": {
+          "type": "string"
+        },
+        "new_balance": {
+          "type": "number"
+        },
+        "owner_wallet": {
+          "type": "string"
+        },
+        "payment_protocol": {
+          "enum": [
+            "x402",
+            "mpp"
+          ],
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "tx_hash": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "amount_usd",
+        "access_mode",
+        "payment_protocol",
+        "network"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "amount_usd": {
+        "min": 0
+      },
+      "new_balance": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.agentline.cloud",
+    "endpoint": "https://api.agentline.cloud/v1/billing/topup/x402/pay",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_30f8143a79d7cadc",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "actionable": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "scanned_pairs": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "signed_by": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "top": {
+          "items": {
+            "properties": {
+              "confidence": {
+                "type": "number"
+              },
+              "disclaimer": {
+                "type": "string"
+              },
+              "generated_at": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "pair": {
+                "type": "string"
+              },
+              "signal": {
+                "enum": [
+                  "BUY",
+                  "SELL",
+                  "HOLD"
+                ],
+                "type": "string"
+              },
+              "timeframe": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "confidence",
+              "generated_at",
+              "pair",
+              "signal",
+              "timeframe"
+            ]
+          },
+          "type": "array"
+        },
+        "universe": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "scanned_pairs",
+        "actionable",
+        "top",
+        "universe",
+        "generated_at"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "top[].confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "signals.nsgoods.org",
+    "endpoint": "https://signals.nsgoods.org/signals/top",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

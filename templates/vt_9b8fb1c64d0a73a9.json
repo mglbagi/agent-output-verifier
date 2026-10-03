@@ -1,0 +1,67 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9b8fb1c64d0a73a9",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "einheit": {
+          "const": "Anzahl",
+          "type": "string"
+        },
+        "formulare_anzahl": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "meta": {
+          "additionalProperties": false,
+          "properties": {
+            "hinweis": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "methode": {
+              "type": "string"
+            },
+            "objektart": {
+              "const": "skript",
+              "type": "string"
+            },
+            "partial": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "partial",
+            "methode",
+            "hinweis",
+            "objektart"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "formulare_anzahl",
+        "einheit",
+        "meta"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "formwerk.halowerk.com",
+    "endpoint": "https://formwerk.halowerk.com/v1/pruef/formwerk/formularzahl/skript",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

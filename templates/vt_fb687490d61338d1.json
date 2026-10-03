@@ -1,0 +1,172 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fb687490d61338d1",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "as_of": {
+          "oneOf": [
+            {
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]{3})?Z$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "capabilities_as_of": {
+          "oneOf": [
+            {
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]{3})?Z$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "dql": {
+          "type": "string"
+        },
+        "evaluated_at": {
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]{3})?Z$",
+          "type": "string"
+        },
+        "freshness": {
+          "additionalProperties": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": "object"
+        },
+        "instruments": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "instrument": {
+                "type": "string"
+              },
+              "result": {
+                "enum": [
+                  "true",
+                  "false",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              "values": {
+                "type": "object"
+              },
+              "venues": {
+                "type": "array"
+              }
+            },
+            "required": [
+              "instrument",
+              "result",
+              "values",
+              "venues"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "listings_as_of": {
+          "oneOf": [
+            {
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]{3})?Z$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "page": {
+          "additionalProperties": false,
+          "properties": {
+            "limit": {
+              "type": "integer"
+            },
+            "next_cursor": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "returned": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "limit",
+            "returned",
+            "next_cursor"
+          ],
+          "type": "object"
+        },
+        "query": {
+          "additionalProperties": false,
+          "properties": {
+            "json": {
+              "type": "object"
+            },
+            "string": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "string",
+            "json"
+          ],
+          "type": "object"
+        },
+        "receipt_id": {
+          "pattern": "^[0-9A-Za-z]{22}$",
+          "type": "string"
+        },
+        "served_at": {
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{6}Z$",
+          "type": "string"
+        },
+        "settled": {
+          "type": "boolean"
+        },
+        "timeframe": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "dql",
+        "query",
+        "evaluated_at",
+        "as_of",
+        "settled",
+        "freshness",
+        "instruments",
+        "page"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "page.limit": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.debyko.com",
+    "endpoint": "https://api.debyko.com/v2/screen",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_9e346170833b0ec4",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "avg_return_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "best_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "forward_minutes": {
+          "type": "integer"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "pair": {
+          "type": "string"
+        },
+        "sample": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "signals_evaluated": {
+          "type": "integer"
+        },
+        "step_minutes": {
+          "type": "integer"
+        },
+        "win_rate_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "window_hours": {
+          "type": "number"
+        },
+        "worst_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "pair",
+        "signals_evaluated",
+        "generated_at"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "avg_return_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "best_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "win_rate_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "signals.nsgoods.org",
+    "endpoint": "https://signals.nsgoods.org/backtest",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

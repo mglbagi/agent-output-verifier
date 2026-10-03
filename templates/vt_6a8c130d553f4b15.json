@@ -1,0 +1,120 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_6a8c130d553f4b15",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "answer": {
+          "type": "string"
+        },
+        "charged": {
+          "type": "object",
+          "properties": {
+            "ceilingUsdc": {
+              "type": "string"
+            },
+            "feeUsdc": {
+              "type": "string"
+            },
+            "spentUsdc": {
+              "type": "string"
+            },
+            "totalUsdc": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "ceilingUsdc",
+            "feeUsdc",
+            "spentUsdc",
+            "totalUsdc"
+          ]
+        },
+        "spent": {
+          "type": "object",
+          "properties": {
+            "purchases": {
+              "type": "integer"
+            },
+            "thinkingUsdc": {
+              "type": "string"
+            },
+            "thoughts": {
+              "type": "integer"
+            },
+            "toolsUsdc": {
+              "type": "string"
+            },
+            "totalUsdc": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "purchases",
+            "thinkingUsdc",
+            "thoughts",
+            "toolsUsdc",
+            "totalUsdc"
+          ]
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "costUsdc": {
+                "type": "string"
+              },
+              "detail": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "seller": {
+                "type": "string"
+              },
+              "status": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "costUsdc",
+              "detail",
+              "kind",
+              "seller",
+              "status"
+            ]
+          }
+        },
+        "stoppedBecause": {
+          "type": "string"
+        },
+        "task": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "answer",
+        "charged",
+        "spent",
+        "steps",
+        "stoppedBecause",
+        "task"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.cra-agent.tech",
+    "endpoint": "https://api.cra-agent.tech/v1/upto/think",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f7f8583d1638ad9e",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "list_health": {
+          "type": "object"
+        },
+        "payees": {
+          "type": "array"
+        },
+        "quote_sha256": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "signed_by": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "verdict": {
+          "enum": [
+            "deny",
+            "review",
+            "clean"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "verdict",
+        "payees",
+        "signed_by",
+        "signature"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "sanctions.nsgoods.org",
+    "endpoint": "https://sanctions.nsgoods.org/screen-url",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

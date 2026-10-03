@@ -1,0 +1,346 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_37d8694708bbc915",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "costs": {
+          "type": "object",
+          "properties": {
+            "buy": {
+              "type": "object",
+              "properties": {
+                "fees_and_taxes_pct": {
+                  "type": "number"
+                },
+                "hook_fee_pct": {},
+                "pool_fee_pct": {
+                  "type": "number"
+                },
+                "price_impact_pct": {
+                  "type": "number"
+                },
+                "token_tax_pct": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "fees_and_taxes_pct",
+                "pool_fee_pct",
+                "price_impact_pct",
+                "token_tax_pct"
+              ]
+            },
+            "round_trip_usd": {
+              "type": "number"
+            },
+            "sell": {
+              "type": "object",
+              "properties": {
+                "fees_and_taxes_pct": {
+                  "type": "number"
+                },
+                "hook_fee_pct": {},
+                "pool_fee_pct": {
+                  "type": "number"
+                },
+                "price_impact_pct": {
+                  "type": "number"
+                },
+                "token_tax_pct": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "fees_and_taxes_pct",
+                "pool_fee_pct",
+                "price_impact_pct",
+                "token_tax_pct"
+              ]
+            },
+            "tested_usd": {
+              "type": "number"
+            },
+            "transfer_tax_pct": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "buy",
+            "round_trip_usd",
+            "sell",
+            "tested_usd",
+            "transfer_tax_pct"
+          ]
+        },
+        "owner": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            },
+            "control": {
+              "type": "string"
+            },
+            "proven_powers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "effect": {
+                    "type": "string"
+                  },
+                  "function": {
+                    "type": "string"
+                  },
+                  "power": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "effect",
+                  "function",
+                  "power"
+                ]
+              }
+            }
+          },
+          "required": [
+            "address",
+            "control",
+            "proven_powers"
+          ]
+        },
+        "risk_level": {
+          "type": "string"
+        },
+        "risks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "detail": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "string"
+              },
+              "level": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "detail",
+              "evidence",
+              "level",
+              "message"
+            ]
+          }
+        },
+        "sell": {
+          "type": "object",
+          "properties": {
+            "can_sell": {
+              "type": "boolean"
+            },
+            "is_honeypot": {
+              "type": "boolean"
+            },
+            "real_holders": {
+              "type": "object",
+              "properties": {
+                "blocked": {
+                  "type": "integer"
+                },
+                "highest_tax_pct": {
+                  "type": "number"
+                },
+                "sold": {
+                  "type": "integer"
+                },
+                "tested": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "blocked",
+                "highest_tax_pct",
+                "sold",
+                "tested"
+              ]
+            },
+            "recommended_slippage_pct": {
+              "type": "number"
+            },
+            "sells_later": {
+              "type": "object",
+              "properties": {
+                "after_1d": {
+                  "type": "boolean"
+                },
+                "after_1h": {
+                  "type": "boolean"
+                },
+                "after_1y": {
+                  "type": "boolean"
+                },
+                "after_30d": {
+                  "type": "boolean"
+                },
+                "after_7d": {
+                  "type": "boolean"
+                },
+                "next_block": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "after_1d",
+                "after_1h",
+                "after_1y",
+                "after_30d",
+                "after_7d",
+                "next_block"
+              ]
+            },
+            "via_opensea": {
+              "type": "object",
+              "properties": {
+                "gas_usd": {
+                  "type": "number"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "received_usd": {
+                  "type": "number"
+                },
+                "result": {
+                  "type": "string"
+                },
+                "tested_usd": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "gas_usd",
+                "provider",
+                "received_usd",
+                "result",
+                "tested_usd"
+              ]
+            }
+          },
+          "required": [
+            "can_sell",
+            "is_honeypot",
+            "real_holders",
+            "recommended_slippage_pct",
+            "sells_later",
+            "via_opensea"
+          ]
+        },
+        "summary": {
+          "type": "string"
+        },
+        "traps": {
+          "type": "array"
+        },
+        "verdict": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "costs",
+        "owner",
+        "risk_level",
+        "risks",
+        "sell",
+        "summary",
+        "traps",
+        "verdict"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "costs.buy.fees_and_taxes_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "costs.buy.pool_fee_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "costs.buy.price_impact_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "costs.buy.token_tax_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "costs.round_trip_usd": {
+        "min": 0
+      },
+      "costs.sell.fees_and_taxes_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "costs.sell.pool_fee_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "costs.sell.price_impact_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "costs.sell.token_tax_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "costs.tested_usd": {
+        "min": 0
+      },
+      "costs.transfer_tax_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "sell.real_holders.highest_tax_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "sell.recommended_slippage_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "sell.via_opensea.gas_usd": {
+        "min": 0
+      },
+      "sell.via_opensea.received_usd": {
+        "min": 0
+      },
+      "sell.via_opensea.tested_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "tokensafetycheck.xyz",
+    "endpoint": "https://tokensafetycheck.xyz/api/token-safety-check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

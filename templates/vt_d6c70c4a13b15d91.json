@@ -1,0 +1,126 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_d6c70c4a13b15d91",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "annualElectricityCost": {
+              "type": "number"
+            },
+            "annualGasCost": {
+              "type": "number"
+            },
+            "annualSavings": {
+              "type": "number"
+            },
+            "breakEvenYears": {
+              "type": "number"
+            },
+            "costPerCharge": {
+              "type": "number"
+            },
+            "effectiveMPG": {
+              "type": "number"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "electricVehicle": {
+                  "type": "object",
+                  "properties": {
+                    "batteryCapacityKwh": {
+                      "type": "integer"
+                    },
+                    "electricityRatePerKwh": {
+                      "type": "number"
+                    },
+                    "freeChargingPercent": {
+                      "type": "number"
+                    },
+                    "purchasePrice": {
+                      "type": "number"
+                    },
+                    "rangeMiles": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "batteryCapacityKwh",
+                    "electricityRatePerKwh",
+                    "freeChargingPercent",
+                    "purchasePrice",
+                    "rangeMiles"
+                  ]
+                },
+                "gasPricePerGallon": {
+                  "type": "number"
+                },
+                "gasVehicle": {
+                  "type": "object",
+                  "properties": {
+                    "mpg": {
+                      "type": "integer"
+                    },
+                    "purchasePrice": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "mpg",
+                    "purchasePrice"
+                  ]
+                },
+                "milesPerYear": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "electricVehicle",
+                "gasPricePerGallon",
+                "gasVehicle",
+                "milesPerYear"
+              ]
+            }
+          },
+          "required": [
+            "annualElectricityCost",
+            "annualGasCost",
+            "annualSavings",
+            "breakEvenYears",
+            "costPerCharge",
+            "effectiveMPG",
+            "params"
+          ]
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "data",
+        "ok"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data.params.electricVehicle.freeChargingPercent": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "ppu43fkyhimq5fiqpmo42eh5ri0yypid.lambda-url.us-east-1.on.aws",
+    "endpoint": "https://ppu43fkyhimq5fiqpmo42eh5ri0yypid.lambda-url.us-east-1.on.aws/teslaSavingsCalculator",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

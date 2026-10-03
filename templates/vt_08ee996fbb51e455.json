@@ -1,0 +1,102 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_08ee996fbb51e455",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "coverage": {
+          "description": "JSON-encoded string inside the signed bytes; JSON.parse it after verifying the signature. Added to the signed payload by commit 19ccb28 (2026-09-07); the example below predates it.",
+          "type": "string"
+        },
+        "expires_at": {
+          "description": "issued_at + 60s. Signed into the canonical payload - consumers must reject expired receipts.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "halt_detection": {
+          "enum": [
+            "active",
+            "schedule_only"
+          ]
+        },
+        "issued_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "issuer": {
+          "const": "headlessoracle.com"
+        },
+        "mic": {
+          "description": "ISO 10383 Market Identifier Code",
+          "type": "string"
+        },
+        "public_key_id": {
+          "description": "Active key ID published at /v5/keys",
+          "type": "string"
+        },
+        "receipt_id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "receipt_mode": {
+          "enum": [
+            "demo",
+            "live"
+          ]
+        },
+        "schema_version": {
+          "const": "v5.0"
+        },
+        "signature": {
+          "description": "Ed25519 signature over canonical (alphabetical, no-whitespace) JSON of the payload, hex-encoded.",
+          "pattern": "^[0-9a-f]{128}$",
+          "type": "string"
+        },
+        "source": {
+          "enum": [
+            "SCHEDULE",
+            "OVERRIDE",
+            "SYSTEM",
+            "REALTIME"
+          ]
+        },
+        "status": {
+          "description": "UNKNOWN must be treated as CLOSED (fail-closed contract).",
+          "enum": [
+            "OPEN",
+            "CLOSED",
+            "HALTED",
+            "UNKNOWN"
+          ]
+        }
+      },
+      "required": [
+        "receipt_id",
+        "issued_at",
+        "expires_at",
+        "issuer",
+        "mic",
+        "status",
+        "source",
+        "halt_detection",
+        "receipt_mode",
+        "schema_version",
+        "public_key_id",
+        "signature"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "headlessoracle.com",
+    "endpoint": "https://headlessoracle.com/v5/status/x402",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ece46dd8da977875",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "content_chars": {
+          "maximum": 24000,
+          "minimum": 80,
+          "type": "integer"
+        },
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "final_url": {
+          "maxLength": 2048,
+          "type": "string",
+          "format": "uri"
+        },
+        "markdown": {
+          "maxLength": 24000,
+          "minLength": 80,
+          "type": "string"
+        },
+        "published_at": {
+          "type": "null"
+        },
+        "quality": {
+          "additionalProperties": false,
+          "properties": {
+            "method": {
+              "enum": [
+                "readability",
+                "document"
+              ]
+            },
+            "status": {
+              "const": "usable"
+            },
+            "warnings": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "status",
+            "method",
+            "warnings"
+          ],
+          "type": "object"
+        },
+        "replay": {
+          "type": "boolean"
+        },
+        "request_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "retrieved_at": {
+          "maxLength": 40,
+          "minLength": 20,
+          "type": "string",
+          "format": "date-time"
+        },
+        "schema_version": {
+          "const": "1.0"
+        },
+        "source_status": {
+          "maximum": 299,
+          "minimum": 200,
+          "type": "integer"
+        },
+        "source_url": {
+          "maxLength": 2048,
+          "type": "string",
+          "format": "uri"
+        },
+        "timing": {
+          "additionalProperties": false,
+          "properties": {
+            "extraction_ms": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "source_fetch_ms": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "source_fetch_ms",
+            "extraction_ms"
+          ],
+          "type": "object"
+        },
+        "title": {
+          "maxLength": 500,
+          "type": "string"
+        },
+        "truncated": {
+          "const": false
+        },
+        "untrusted_content": {
+          "const": true
+        }
+      },
+      "required": [
+        "schema_version",
+        "request_id",
+        "source_url",
+        "final_url",
+        "title",
+        "markdown",
+        "retrieved_at",
+        "published_at",
+        "content_sha256",
+        "source_status",
+        "content_chars",
+        "truncated",
+        "untrusted_content",
+        "quality",
+        "timing",
+        "replay"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "signalforgestudios.com",
+    "endpoint": "https://signalforgestudios.com/x402/fetch",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

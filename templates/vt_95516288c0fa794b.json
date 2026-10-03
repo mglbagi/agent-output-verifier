@@ -1,0 +1,42 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_95516288c0fa794b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "address": {
+          "description": "Lower-cased account address queried",
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "queried_at": {
+          "description": "Time the upstream was queried",
+          "format": "date-time",
+          "type": "string"
+        },
+        "state": {
+          "description": "Upstream Hyperliquid clearinghouseState object relayed verbatim — open positions (size, entry, unrealized PnL, leverage, liquidation price), cross-margin summary (account value, total margin used, total notional), and withdrawable balance",
+          "type": "object"
+        }
+      },
+      "required": [
+        "queried_at",
+        "address",
+        "state"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "hyperliquid-accounts.use.x402atlas.com",
+    "endpoint": "https://hyperliquid-accounts.use.x402atlas.com/state",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

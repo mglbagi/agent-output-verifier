@@ -1,0 +1,115 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_f9164740a764412a",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "after": {
+          "format": "date",
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "holiday": {
+          "properties": {
+            "end_date": {
+              "format": "date",
+              "type": "string"
+            },
+            "name": {
+              "description": "Holiday name in the requested language when available",
+              "type": "string"
+            },
+            "nationwide": {
+              "type": "boolean"
+            },
+            "regional_scope": {
+              "enum": [
+                "National",
+                "Regional",
+                "Local"
+              ],
+              "type": "string"
+            },
+            "start_date": {
+              "format": "date",
+              "type": "string"
+            },
+            "subdivisions": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "temporal_scope": {
+              "enum": [
+                "FullDay",
+                "HalfDay"
+              ],
+              "type": "string"
+            },
+            "type": {
+              "enum": [
+                "Public",
+                "Bank",
+                "Optional",
+                "School",
+                "BackToSchool",
+                "EndOfLessons"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "start_date",
+            "end_date",
+            "type",
+            "nationwide",
+            "subdivisions"
+          ],
+          "type": "object"
+        },
+        "language": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "queried_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "subdivision": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "after",
+        "queried_at"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "holiday.start_date",
+        "other_field": "holiday.end_date",
+        "if_present": true
+      }
+    ],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "holidays.use.x402atlas.com",
+    "endpoint": "https://holidays.use.x402atlas.com/next",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

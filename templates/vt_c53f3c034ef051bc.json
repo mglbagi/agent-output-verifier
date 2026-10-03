@@ -1,0 +1,33 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c53f3c034ef051bc",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "escrow_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "escrow_id",
+        "status"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "escrowpulse.waltsoft.net",
+    "endpoint": "https://escrowpulse.waltsoft.net/v1/escrow/:id",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

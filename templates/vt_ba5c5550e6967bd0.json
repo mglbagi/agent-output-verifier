@@ -1,0 +1,252 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_ba5c5550e6967bd0",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "transactions": {
+          "items": {
+            "properties": {
+              "blockHeight": {
+                "format": "int64",
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "blockPosition": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "deleted": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "fee": {
+                "format": "int64",
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "inputs": {
+                "items": {
+                  "properties": {
+                    "address": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "coinbase": {
+                      "type": "boolean"
+                    },
+                    "output": {
+                      "format": "int64",
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    },
+                    "pkscript": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "sequence": {
+                      "format": "int64",
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    },
+                    "sigscript": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "txid": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "value": {
+                      "format": "int64",
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    },
+                    "witness": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "coinbase",
+                    "witness"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "locktime": {
+                "format": "int64",
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "mempool": {
+                "type": "boolean"
+              },
+              "mempoolTime": {
+                "format": "int64",
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "outputs": {
+                "items": {
+                  "properties": {
+                    "address": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "pkscript": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "spender": {
+                      "properties": {
+                        "input": {
+                          "type": "integer"
+                        },
+                        "txid": {
+                          "type": "string"
+                        }
+                      },
+                      "type": [
+                        "object",
+                        "null"
+                      ]
+                    },
+                    "spent": {
+                      "type": "boolean"
+                    },
+                    "value": {
+                      "format": "int64",
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "spent"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "rbf": {
+                "type": "boolean"
+              },
+              "size": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "time": {
+                "format": "int64",
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "txId": {
+                "type": "string"
+              },
+              "version": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "weight": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "txId",
+              "mempool",
+              "rbf",
+              "inputs",
+              "outputs"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "transactions",
+        "limit",
+        "offset"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "limit": {
+        "min": 0
+      },
+      "transactions[].fee": {
+        "min": 0,
+        "if_present": true
+      },
+      "transactions[].size": {
+        "min": 0,
+        "if_present": true
+      },
+      "transactions[].weight": {
+        "min": 0,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.blockchain.info",
+    "endpoint": "https://api.blockchain.info/explorer-gateway-kt/x402/btc/address/transactions",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

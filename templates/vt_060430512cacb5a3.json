@@ -1,0 +1,118 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_060430512cacb5a3",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "agent_id": {
+          "type": "string"
+        },
+        "batch_id": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "chain_index": {
+                "type": "integer"
+              },
+              "confidence": {
+                "type": "number"
+              },
+              "drift_mode": {
+                "type": "string"
+              },
+              "drift_score": {
+                "type": "number"
+              },
+              "input_hash": {
+                "type": "string"
+              },
+              "pipeline_id": {
+                "type": "string"
+              },
+              "policy_version": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "seal_text": {
+                "type": "string"
+              },
+              "timestamp": {
+                "type": "number"
+              },
+              "tx_hash": {
+                "type": "string"
+              },
+              "verdict": {
+                "enum": [
+                  "COMMIT",
+                  "NO_COMMIT"
+                ],
+                "type": "string"
+              },
+              "verify_url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "verdict",
+              "confidence",
+              "reason",
+              "tx_hash",
+              "chain_index",
+              "input_hash",
+              "policy_version",
+              "timestamp",
+              "pipeline_id",
+              "drift_mode",
+              "drift_score",
+              "seal_text",
+              "verify_url"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "batch_id",
+        "agent_id",
+        "count",
+        "results"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "results[].pipeline_id"
+      }
+    ],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "results[].confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "bazaar.fronesislabs.com",
+    "endpoint": "https://bazaar.fronesislabs.com/evaluate/batch",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

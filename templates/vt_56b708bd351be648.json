@@ -1,0 +1,283 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_56b708bd351be648",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "balances": {
+          "type": "object",
+          "properties": {
+            "bsc": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "balance": {
+                    "type": "number"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  },
+                  "priceChange24h": {
+                    "type": "number"
+                  },
+                  "priceChange24hPercent": {
+                    "type": "number"
+                  },
+                  "quoteTime": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "symbol": {
+                    "type": "string"
+                  },
+                  "usd": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "balance",
+                  "id",
+                  "name",
+                  "price",
+                  "priceChange24h",
+                  "priceChange24hPercent",
+                  "quoteTime",
+                  "symbol",
+                  "usd"
+                ]
+              }
+            },
+            "ethereum": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "balance": {
+                    "type": "number"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  },
+                  "priceChange24h": {
+                    "type": "number"
+                  },
+                  "priceChange24hPercent": {
+                    "type": "number"
+                  },
+                  "quoteTime": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "symbol": {
+                    "type": "string"
+                  },
+                  "usd": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "balance",
+                  "id",
+                  "name",
+                  "price",
+                  "priceChange24h",
+                  "priceChange24hPercent",
+                  "quoteTime",
+                  "symbol",
+                  "usd"
+                ]
+              }
+            }
+          },
+          "required": [
+            "bsc",
+            "ethereum"
+          ]
+        },
+        "entities": {
+          "type": "object",
+          "properties": {
+            "binance": {
+              "type": "object",
+              "properties": {
+                "crunchbase": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "linkedin": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "note": {
+                  "type": "string"
+                },
+                "populatedTags": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "disablePage": {
+                        "type": "boolean"
+                      },
+                      "excludeEntities": {
+                        "type": "boolean"
+                      },
+                      "id": {
+                        "type": "string"
+                      },
+                      "label": {
+                        "type": "string"
+                      },
+                      "rank": {
+                        "type": "integer"
+                      },
+                      "tagParams": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "disablePage",
+                      "excludeEntities",
+                      "id",
+                      "label",
+                      "rank",
+                      "tagParams"
+                    ]
+                  }
+                },
+                "service": {},
+                "twitter": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "website": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "crunchbase",
+                "description",
+                "id",
+                "linkedin",
+                "name",
+                "note",
+                "populatedTags",
+                "twitter",
+                "type",
+                "website"
+              ]
+            }
+          },
+          "required": [
+            "binance"
+          ]
+        },
+        "totalBalance": {
+          "type": "object",
+          "properties": {
+            "bsc": {
+              "type": "number"
+            },
+            "ethereum": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "bsc",
+            "ethereum"
+          ]
+        },
+        "totalBalance24hAgo": {
+          "type": "object",
+          "properties": {
+            "bsc": {
+              "type": "number"
+            },
+            "ethereum": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "bsc",
+            "ethereum"
+          ]
+        }
+      },
+      "required": [
+        "balances",
+        "entities",
+        "totalBalance",
+        "totalBalance24hAgo"
+      ]
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "balances.bsc[].id"
+      },
+      {
+        "type": "unique",
+        "field": "balances.ethereum[].id"
+      },
+      {
+        "type": "unique",
+        "field": "entities.binance.populatedTags[].id"
+      }
+    ],
+    "bounds": {
+      "balances.bsc[].balance": {
+        "min": 0
+      },
+      "balances.bsc[].price": {
+        "min": 0
+      },
+      "balances.bsc[].usd": {
+        "min": 0
+      },
+      "balances.ethereum[].balance": {
+        "min": 0
+      },
+      "balances.ethereum[].price": {
+        "min": 0
+      },
+      "balances.ethereum[].usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.arkm.com",
+    "endpoint": "https://api.arkm.com/x402/balances/entity",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

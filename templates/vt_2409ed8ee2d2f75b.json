@@ -1,0 +1,157 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_2409ed8ee2d2f75b",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "activity": {
+          "type": "object"
+        },
+        "address": {
+          "type": "string"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "wallet",
+            "contract",
+            "program"
+          ],
+          "type": "string"
+        },
+        "label": {
+          "description": "ENS or known name, if any.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "native": {
+          "properties": {
+            "balance": {
+              "type": "number"
+            },
+            "priceUsd": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "symbol": {
+              "type": "string"
+            },
+            "valueUsd": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": "object",
+          "required": [
+            "balance",
+            "priceUsd",
+            "symbol",
+            "valueUsd"
+          ]
+        },
+        "recent": {
+          "description": "Recent transactions, transfers, counterparties and activity window.",
+          "type": "object"
+        },
+        "sources": {
+          "description": "Where the data came from.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "tokenCount": {
+          "type": "integer"
+        },
+        "tokens": {
+          "description": "Largest holdings first (top 25).",
+          "items": {
+            "properties": {
+              "balance": {
+                "type": "number"
+              },
+              "name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "priceUsd": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "symbol": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "token": {
+                "type": "string"
+              },
+              "valueUsd": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "type": "object",
+            "required": [
+              "balance",
+              "name",
+              "priceUsd",
+              "symbol",
+              "token",
+              "valueUsd"
+            ]
+          },
+          "type": "array"
+        },
+        "totalValueUsd": {
+          "description": "Native + priced tokens, in USD.",
+          "type": "number"
+        }
+      },
+      "required": [
+        "address",
+        "chain",
+        "kind",
+        "native",
+        "tokens",
+        "totalValueUsd",
+        "recent"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {
+      "native.balance": {
+        "min": 0
+      },
+      "tokens[].balance": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "aayatai.com",
+    "endpoint": "https://aayatai.com/wallet/deep",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_69f69f76f5805201",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "Station f(x) response with metadata and pre-computed derived metrics",
+      "properties": {
+        "data": {
+          "description": "Observations ordered by date ascending",
+          "items": {
+            "properties": {
+              "above_trend": {
+                "description": "1 if value is above long-run trend, else 0",
+                "type": "integer"
+              },
+              "date": {
+                "description": "Observation date YYYY-MM-DD",
+                "type": "string",
+                "format": "date"
+              },
+              "mom_change": {
+                "description": "Month-over-month absolute change",
+                "type": "number"
+              },
+              "mom_pct": {
+                "description": "Month-over-month % change",
+                "type": "number"
+              },
+              "pct_rank_5y": {
+                "description": "Percentile rank over trailing 5 years (0-100)",
+                "type": "number"
+              },
+              "rolling_12m_avg": {
+                "description": "12-month rolling average",
+                "type": "number"
+              },
+              "rolling_3m_avg": {
+                "description": "3-month rolling average",
+                "type": "number"
+              },
+              "trend_direction": {
+                "description": "Trend: 1 rising, -1 falling, 0 flat",
+                "type": "integer"
+              },
+              "value": {
+                "description": "Raw observed value in series units",
+                "type": "number"
+              },
+              "yoy_change": {
+                "description": "Year-over-year absolute change",
+                "type": "number"
+              },
+              "yoy_pct": {
+                "description": "Year-over-year % change",
+                "type": "number"
+              },
+              "zscore_12m": {
+                "description": "Z-score relative to trailing 12 months",
+                "type": "number"
+              },
+              "zscore_5y": {
+                "description": "Z-score relative to trailing 5 years",
+                "type": "number"
+              }
+            },
+            "type": "object",
+            "required": [
+              "date",
+              "mom_pct",
+              "trend_direction",
+              "value",
+              "yoy_change",
+              "zscore_12m"
+            ]
+          },
+          "type": "array"
+        },
+        "meta": {
+          "description": "Series metadata: source_key (FRED series ID), units, frequency (D/W/M/Q/A), date_from, date_to, fields",
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "required": [
+        "data",
+        "meta"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "data[].mom_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "data[].pct_rank_5y": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      },
+      "data[].yoy_pct": {
+        "min": 0,
+        "max": 100,
+        "if_present": true
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "stationfx.com",
+    "endpoint": "https://stationfx.com/economic-data/cross-signal/10y-2y-treasury-spread-yield-curve",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

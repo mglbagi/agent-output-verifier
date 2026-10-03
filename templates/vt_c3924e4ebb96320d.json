@@ -1,0 +1,189 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c3924e4ebb96320d",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "cost": {
+          "type": "object",
+          "properties": {
+            "federal_tax_credit_usd": {
+              "type": "number"
+            },
+            "gross_cost_usd": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "federal_tax_credit_usd",
+            "gross_cost_usd"
+          ]
+        },
+        "electricity": {
+          "type": "object",
+          "properties": {
+            "rate_cents_per_kwh": {
+              "type": "number"
+            },
+            "utility": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "rate_cents_per_kwh",
+            "utility"
+          ]
+        },
+        "financials": {
+          "type": "object",
+          "properties": {
+            "first_year_savings_usd": {
+              "type": "number"
+            },
+            "savings_25yr_usd": {
+              "type": "number"
+            },
+            "simple_payback_years": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "first_year_savings_usd",
+            "savings_25yr_usd",
+            "simple_payback_years"
+          ]
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "county": {
+              "type": "string"
+            },
+            "county_fips": {
+              "type": "string"
+            },
+            "input": {
+              "type": "string"
+            },
+            "lat": {
+              "type": "number"
+            },
+            "lon": {
+              "type": "number"
+            },
+            "matched_address": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "county",
+            "county_fips",
+            "input",
+            "lat",
+            "lon",
+            "matched_address",
+            "state"
+          ]
+        },
+        "production": {
+          "type": "object",
+          "properties": {
+            "annual_kwh": {
+              "type": "integer"
+            },
+            "specific_yield_kwh_per_kw": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "annual_kwh",
+            "specific_yield_kwh_per_kw"
+          ]
+        },
+        "system": {
+          "type": "object",
+          "properties": {
+            "orientation": {
+              "type": "string"
+            },
+            "panel_watts": {
+              "type": "integer"
+            },
+            "panels_approx": {
+              "type": "integer"
+            },
+            "size_kw_dc": {
+              "type": "number"
+            },
+            "sized_to": {
+              "type": "string"
+            },
+            "tilt_deg": {
+              "type": "integer"
+            },
+            "usage_offset_pct": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "orientation",
+            "panel_watts",
+            "panels_approx",
+            "size_kw_dc",
+            "sized_to",
+            "tilt_deg",
+            "usage_offset_pct"
+          ]
+        }
+      },
+      "required": [
+        "cost",
+        "electricity",
+        "financials",
+        "location",
+        "production",
+        "system"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "cost.federal_tax_credit_usd": {
+        "min": 0
+      },
+      "cost.gross_cost_usd": {
+        "min": 0
+      },
+      "financials.first_year_savings_usd": {
+        "min": 0
+      },
+      "financials.savings_25yr_usd": {
+        "min": 0
+      },
+      "location.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "location.lon": {
+        "min": -180,
+        "max": 180
+      },
+      "system.size_kw_dc": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "solarpulse.waltsoft.net",
+    "endpoint": "https://solarpulse.waltsoft.net/v1/estimate",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

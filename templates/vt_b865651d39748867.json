@@ -1,0 +1,88 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_b865651d39748867",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "attribution": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "dataset": {
+          "type": "string"
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cluster_size": {
+                "type": "integer"
+              },
+              "commodity": {
+                "type": "string"
+              },
+              "confidence": {
+                "type": "integer"
+              },
+              "source": {
+                "type": "string"
+              },
+              "time": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "value_kes": {
+                "type": "number"
+              },
+              "variety": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "cluster_size",
+              "commodity",
+              "confidence",
+              "source",
+              "time",
+              "value_kes",
+              "variety"
+            ]
+          }
+        }
+      },
+      "required": [
+        "attribution",
+        "count",
+        "dataset",
+        "rows"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "rows[].cluster_size": {
+        "min": 0
+      },
+      "rows[].confidence": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.nuasense.com",
+    "endpoint": "https://api.nuasense.com/x402/v1/market/news",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

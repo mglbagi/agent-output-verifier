@@ -1,0 +1,223 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_fc6278739f9fc269",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "age": {
+                "type": "integer"
+              },
+              "age_band": {
+                "type": "string"
+              },
+              "albumin_g_dl": {
+                "type": "number"
+              },
+              "alt_u_l": {
+                "type": "integer"
+              },
+              "bmi": {
+                "type": "integer"
+              },
+              "cci": {
+                "type": "integer"
+              },
+              "citation": {
+                "type": "object",
+                "properties": {
+                  "authors": {
+                    "type": "string"
+                  },
+                  "doi": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "pmid": {
+                    "type": "string"
+                  },
+                  "source": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "authors",
+                  "doi",
+                  "id",
+                  "pmid",
+                  "source",
+                  "title"
+                ]
+              },
+              "constitutional_symptoms": {
+                "type": "boolean"
+              },
+              "crp_mg_dl": {
+                "type": "number"
+              },
+              "d_dimer_gt_1": {
+                "type": "boolean"
+              },
+              "day_2_percent": {
+                "type": "integer"
+              },
+              "day_4_percent": {
+                "type": "integer"
+              },
+              "day_7_percent": {
+                "type": "integer"
+              },
+              "disclaimer": {
+                "type": "string"
+              },
+              "ferritin_ng_ml": {
+                "type": "integer"
+              },
+              "fever": {
+                "type": "boolean"
+              },
+              "formula": {
+                "type": "string"
+              },
+              "formula_expression": {
+                "type": "string"
+              },
+              "gastrointestinal_symptoms": {
+                "type": "boolean"
+              },
+              "gfr": {
+                "type": "integer"
+              },
+              "hemoglobin_g_dl": {
+                "type": "number"
+              },
+              "leukocyte_k": {
+                "type": "number"
+              },
+              "logit_delta": {
+                "type": "integer"
+              },
+              "loss_of_taste_smell": {
+                "type": "boolean"
+              },
+              "lymphocyte_k": {
+                "type": "integer"
+              },
+              "nursing_home": {
+                "type": "boolean"
+              },
+              "obesity": {
+                "type": "boolean"
+              },
+              "pulse": {
+                "type": "integer"
+              },
+              "race": {
+                "type": "string"
+              },
+              "respiratory_rate": {
+                "type": "number"
+              },
+              "respiratory_symptoms": {
+                "type": "boolean"
+              },
+              "sex": {
+                "type": "string"
+              },
+              "troponin_detectable": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "age",
+              "age_band",
+              "albumin_g_dl",
+              "alt_u_l",
+              "bmi",
+              "cci",
+              "citation",
+              "constitutional_symptoms",
+              "crp_mg_dl",
+              "d_dimer_gt_1",
+              "day_2_percent",
+              "day_4_percent",
+              "day_7_percent",
+              "disclaimer",
+              "ferritin_ng_ml",
+              "fever",
+              "formula",
+              "formula_expression",
+              "gastrointestinal_symptoms",
+              "gfr",
+              "hemoglobin_g_dl",
+              "leukocyte_k",
+              "logit_delta",
+              "loss_of_taste_smell",
+              "lymphocyte_k",
+              "nursing_home",
+              "obesity",
+              "pulse",
+              "race",
+              "respiratory_rate",
+              "respiratory_symptoms",
+              "sex",
+              "troponin_detectable"
+            ]
+          }
+        },
+        "path": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "count",
+        "items",
+        "path"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "count": {
+        "min": 0
+      },
+      "items[].age": {
+        "min": 0
+      },
+      "items[].day_2_percent": {
+        "min": 0,
+        "max": 100
+      },
+      "items[].day_4_percent": {
+        "min": 0,
+        "max": 100
+      },
+      "items[].day_7_percent": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.magentlab.com",
+    "endpoint": "https://api.magentlab.com/api/calc/circ",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

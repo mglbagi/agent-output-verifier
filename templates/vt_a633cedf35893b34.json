@@ -1,0 +1,93 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_a633cedf35893b34",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "$defs": {
+        "__schema0": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "items": {
+                "$ref": "#/$defs/__schema0"
+              },
+              "type": "array"
+            },
+            {
+              "additionalProperties": {
+                "$ref": "#/$defs/__schema0"
+              },
+              "propertyNames": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "result": {
+          "additionalProperties": false,
+          "properties": {
+            "payload": {
+              "$ref": "#/$defs/__schema0"
+            },
+            "replacements": {
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "payload",
+            "replacements"
+          ],
+          "type": "object"
+        },
+        "schema_version": {
+          "const": "research-1",
+          "type": "string"
+        },
+        "test_only": {
+          "const": false,
+          "type": "boolean"
+        },
+        "utility_id": {
+          "const": "redact-fields",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "utility_id",
+        "test_only",
+        "result"
+      ],
+      "type": "object"
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "penny-army-reference-mainnet.spruceboundgranitestudio.workers.dev",
+    "endpoint": "https://penny-army-reference-mainnet.spruceboundgranitestudio.workers.dev/v1/probes/redact-fields",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

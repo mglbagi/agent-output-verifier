@@ -1,0 +1,162 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_836e10edd9c7ae81",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "description": "Endpoint-specific response payload",
+      "properties": {
+        "as_of_block": {
+          "type": "integer"
+        },
+        "basis": {
+          "type": "string"
+        },
+        "chain_id": {
+          "type": "integer"
+        },
+        "epochs": {
+          "items": {
+            "properties": {
+              "as_of_block": {
+                "type": "integer"
+              },
+              "branches_total": {
+                "type": "integer"
+              },
+              "closed": {
+                "type": "boolean"
+              },
+              "effective_issuance_per_day": {
+                "type": "string"
+              },
+              "end_block": {
+                "type": "integer"
+              },
+              "end_ts": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "epoch": {
+                "type": "integer"
+              },
+              "eth_in_raw": {
+                "type": "string"
+              },
+              "eth_out_raw": {
+                "type": "string"
+              },
+              "flow_attribution": {
+                "type": "string"
+              },
+              "issuance_raw": {
+                "type": "string"
+              },
+              "multiplier": {
+                "type": "string"
+              },
+              "net_flow_raw": {
+                "type": "string"
+              },
+              "regime": {
+                "type": "string"
+              },
+              "signal": {
+                "type": "string"
+              },
+              "start_block": {
+                "type": "integer"
+              },
+              "start_ts": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "tax_attribution": {
+                "type": "string"
+              },
+              "taxes_eth_buy_raw": {
+                "type": "string"
+              },
+              "taxes_eth_sell_raw": {
+                "type": "string"
+              },
+              "taxes_hook_raw": {
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "required": [
+              "as_of_block",
+              "branches_total",
+              "closed",
+              "effective_issuance_per_day",
+              "end_block",
+              "end_ts",
+              "epoch",
+              "eth_in_raw",
+              "eth_out_raw",
+              "flow_attribution",
+              "issuance_raw",
+              "multiplier",
+              "net_flow_raw",
+              "regime",
+              "signal",
+              "start_block",
+              "start_ts",
+              "tax_attribution",
+              "taxes_eth_buy_raw",
+              "taxes_eth_sell_raw",
+              "taxes_hook_raw"
+            ]
+          },
+          "type": "array"
+        },
+        "lag_blocks": {
+          "type": "integer"
+        },
+        "network": {
+          "type": "string"
+        },
+        "serving_state": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "as_of_block",
+        "basis",
+        "chain_id",
+        "epochs",
+        "lag_blocks",
+        "network",
+        "serving_state"
+      ]
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "epochs[].start_block",
+        "other_field": "epochs[].end_block"
+      },
+      {
+        "type": "lte",
+        "field": "epochs[].start_ts",
+        "other_field": "epochs[].end_ts"
+      }
+    ],
+    "bounds": {
+      "epochs[].branches_total": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.onesource.io",
+    "endpoint": "https://api.onesource.io/standard/v1/policy/epochs",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

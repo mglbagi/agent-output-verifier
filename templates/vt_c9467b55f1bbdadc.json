@@ -1,0 +1,378 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_c9467b55f1bbdadc",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "bgcr": {
+          "properties": {
+            "fecha": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            },
+            "p1": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "p99": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "tipo_pct": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "volumen_mm_usd": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "fecha",
+            "p1",
+            "p99",
+            "tipo_pct",
+            "volumen_mm_usd"
+          ]
+        },
+        "effr": {
+          "properties": {
+            "fecha": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            },
+            "p1": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "p99": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "tipo_pct": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "volumen_mm_usd": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "fecha",
+            "p1",
+            "p99",
+            "tipo_pct",
+            "volumen_mm_usd"
+          ]
+        },
+        "fuente": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "obfr": {
+          "properties": {
+            "fecha": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            },
+            "p1": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "p99": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "tipo_pct": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "volumen_mm_usd": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "fecha",
+            "p1",
+            "p99",
+            "tipo_pct",
+            "volumen_mm_usd"
+          ]
+        },
+        "rango_objetivo_fed": {
+          "properties": {
+            "desde": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "hasta": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "desde",
+            "hasta"
+          ]
+        },
+        "sofr": {
+          "properties": {
+            "fecha": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            },
+            "p1": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "p99": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "tipo_pct": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "volumen_mm_usd": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "fecha",
+            "p1",
+            "p99",
+            "tipo_pct",
+            "volumen_mm_usd"
+          ]
+        },
+        "sofr_medias": {
+          "properties": {
+            "fecha": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            },
+            "indice": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "media_180d": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "media_30d": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "media_90d": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "fecha",
+            "indice",
+            "media_180d",
+            "media_30d",
+            "media_90d"
+          ]
+        },
+        "tgcr": {
+          "properties": {
+            "fecha": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            },
+            "p1": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "p99": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "tipo_pct": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "volumen_mm_usd": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "fecha",
+            "p1",
+            "p99",
+            "tipo_pct",
+            "volumen_mm_usd"
+          ]
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "bgcr",
+        "effr",
+        "fuente",
+        "obfr",
+        "rango_objetivo_fed",
+        "sofr",
+        "sofr_medias",
+        "tgcr"
+      ]
+    },
+    "rules": [],
+    "bounds": {
+      "bgcr.tipo_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "bgcr.volumen_mm_usd": {
+        "min": 0
+      },
+      "effr.tipo_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "effr.volumen_mm_usd": {
+        "min": 0
+      },
+      "obfr.tipo_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "obfr.volumen_mm_usd": {
+        "min": 0
+      },
+      "sofr.tipo_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "sofr.volumen_mm_usd": {
+        "min": 0
+      },
+      "tgcr.tipo_pct": {
+        "min": 0,
+        "max": 100
+      },
+      "tgcr.volumen_mm_usd": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.vextorium.com",
+    "endpoint": "https://api.vextorium.com/tipos-fed-pago",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

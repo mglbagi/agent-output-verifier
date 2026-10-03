@@ -1,0 +1,109 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_4e9b849b60494071",
+  "label": "draft",
+  "label_meaning": "draft: schema inferred from the seller's published example output",
+  "template": {
+    "expected_schema": {
+      "type": "object",
+      "properties": {
+        "company": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "siren": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "city",
+            "name",
+            "siren"
+          ]
+        },
+        "domain": {
+          "type": "object",
+          "properties": {
+            "confidence": {
+              "type": "string"
+            },
+            "domain": {
+              "type": "string"
+            },
+            "evidence": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "confidence",
+            "domain",
+            "evidence"
+          ]
+        },
+        "mail_provider": {
+          "type": "string"
+        },
+        "officers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "verified": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "address",
+                  "verified"
+                ]
+              },
+              "first_name": {
+                "type": "string"
+              },
+              "last_name": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "email",
+              "first_name",
+              "last_name",
+              "role"
+            ]
+          }
+        }
+      },
+      "required": [
+        "company",
+        "domain",
+        "mail_provider",
+        "officers"
+      ]
+    },
+    "rules": [],
+    "bounds": {},
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "resolve402.dev",
+    "endpoint": "https://resolve402.dev/api/decision-makers",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_228f868742b01536",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "citation_link_candidates": {
+          "items": {
+            "properties": {
+              "from_id": {
+                "type": "string"
+              },
+              "locations": {
+                "items": {
+                  "properties": {
+                    "anchor_text": {
+                      "type": "string"
+                    },
+                    "column": {
+                      "type": "integer"
+                    },
+                    "line": {
+                      "type": "integer"
+                    },
+                    "target_url": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  },
+                  "required": [
+                    "target_url",
+                    "line",
+                    "column",
+                    "anchor_text"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "status": {
+                "const": "citation_link_candidate"
+              },
+              "to_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "from_id",
+              "to_id",
+              "locations",
+              "status"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "coverage": {
+          "properties": {
+            "citation_count": {
+              "type": "integer"
+            },
+            "html_document_count": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "citation_count",
+            "html_document_count"
+          ],
+          "type": "object"
+        },
+        "independence": {
+          "const": "unknown"
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "schema_version": {
+          "const": "1"
+        },
+        "service": {
+          "const": "citation-overlap-checker"
+        },
+        "shared_link_candidates": {
+          "items": {
+            "properties": {
+              "documents": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "locations": {
+                      "items": {
+                        "properties": {
+                          "anchor_text": {
+                            "type": "string"
+                          },
+                          "column": {
+                            "type": "integer"
+                          },
+                          "line": {
+                            "type": "integer"
+                          },
+                          "target_url": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "target_url",
+                          "line",
+                          "column",
+                          "anchor_text"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "locations"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "linked_url": {
+                "type": "string"
+              },
+              "status": {
+                "const": "shared_link_candidate"
+              }
+            },
+            "required": [
+              "linked_url",
+              "documents",
+              "status"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "shared_origin_groups": {
+          "items": {
+            "properties": {
+              "basis": {
+                "const": "supplied_lineage_or_identical_url"
+              },
+              "citation_ids": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "origin_url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "origin_url",
+              "citation_ids",
+              "basis"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "supplied_lineage_links": {
+          "items": {
+            "properties": {
+              "evidence_locator": {
+                "type": "string"
+              },
+              "from_id": {
+                "type": "string"
+              },
+              "to_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "from_id",
+              "to_id",
+              "evidence_locator"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "unresolved_citation_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "service",
+        "schema_version",
+        "shared_origin_groups",
+        "supplied_lineage_links",
+        "shared_link_candidates",
+        "citation_link_candidates",
+        "unresolved_citation_ids",
+        "independence",
+        "coverage",
+        "limitations"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "unique",
+        "field": "citation_link_candidates[].from_id"
+      },
+      {
+        "type": "unique",
+        "field": "shared_link_candidates[].documents[].id"
+      },
+      {
+        "type": "unique",
+        "field": "supplied_lineage_links[].from_id"
+      }
+    ],
+    "bounds": {
+      "coverage.citation_count": {
+        "min": 0
+      },
+      "coverage.html_document_count": {
+        "min": 0
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "citation-overlap-checker.mekler.ai",
+    "endpoint": "https://citation-overlap-checker.mekler.ai/v1/sources/check",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}

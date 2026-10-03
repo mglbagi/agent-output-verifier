@@ -1,0 +1,255 @@
+{
+  "schema": "verification-template/1",
+  "template_id": "vt_74feb885ff7af77f",
+  "label": "meaningful",
+  "label_meaning": "meaningful: built from the seller's own published schema",
+  "template": {
+    "expected_schema": {
+      "properties": {
+        "data": {
+          "properties": {
+            "bbox": {
+              "properties": {
+                "max_lat": {
+                  "type": "number"
+                },
+                "max_lon": {
+                  "type": "number"
+                },
+                "min_lat": {
+                  "type": "number"
+                },
+                "min_lon": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "min_lat",
+                "min_lon",
+                "max_lat",
+                "max_lon"
+              ],
+              "type": "object"
+            },
+            "cell_height_m": {
+              "type": "number"
+            },
+            "cell_width_m": {
+              "type": "number"
+            },
+            "center": {
+              "properties": {
+                "lat": {
+                  "type": "number"
+                },
+                "lon": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "lat",
+                "lon"
+              ],
+              "type": "object"
+            },
+            "error_m": {
+              "properties": {
+                "lat": {
+                  "type": "number"
+                },
+                "lon": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "lat",
+                "lon"
+              ],
+              "type": "object"
+            },
+            "geohash": {
+              "type": "string"
+            },
+            "neighbours": {
+              "properties": {
+                "e": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "n": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "ne": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "nw": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "s": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "se": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "sw": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "w": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "n",
+                "ne",
+                "e",
+                "se",
+                "s",
+                "sw",
+                "w",
+                "nw"
+              ],
+              "type": "object"
+            },
+            "precision": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "geohash",
+            "precision",
+            "bbox",
+            "center",
+            "error_m"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "properties": {
+            "computed_at": {
+              "description": "RFC 3339 UTC with milliseconds",
+              "type": "string",
+              "format": "date-time"
+            },
+            "deterministic": {
+              "type": "boolean"
+            },
+            "disclaimer": {
+              "type": "string"
+            },
+            "price_usd": {
+              "type": "string"
+            },
+            "request_id": {
+              "type": "string"
+            },
+            "sources": {
+              "items": {
+                "required": [
+                  "id",
+                  "version",
+                  "published"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "request_id",
+            "computed_at",
+            "price_usd",
+            "deterministic",
+            "disclaimer"
+          ],
+          "type": "object"
+        },
+        "ok": {
+          "const": true
+        },
+        "route": {
+          "const": "/v1/geo/geohash"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ok",
+        "route",
+        "version",
+        "data",
+        "meta"
+      ],
+      "type": "object"
+    },
+    "rules": [
+      {
+        "type": "lte",
+        "field": "data.bbox.min_lat",
+        "other_field": "data.bbox.max_lat"
+      },
+      {
+        "type": "lte",
+        "field": "data.bbox.min_lon",
+        "other_field": "data.bbox.max_lon"
+      }
+    ],
+    "bounds": {
+      "data.cell_height_m": {
+        "min": 0,
+        "if_present": true
+      },
+      "data.cell_width_m": {
+        "min": 0,
+        "if_present": true
+      },
+      "data.center.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "data.center.lon": {
+        "min": -180,
+        "max": 180
+      },
+      "data.error_m.lat": {
+        "min": -90,
+        "max": 90
+      },
+      "data.error_m.lon": {
+        "min": -180,
+        "max": 180
+      }
+    },
+    "enforce_rules": true
+  },
+  "attribution": {
+    "seller": "api.duoleads.com",
+    "endpoint": "https://api.duoleads.com/v1/geo/geohash",
+    "imported_from": "the x402 Bazaar",
+    "derived_from": "the schema and example output the seller publicly lists there",
+    "status": "unclaimed: the owner can claim or remove the matching listing on the discovery board"
+  }
+}
