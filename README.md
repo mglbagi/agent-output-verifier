@@ -61,7 +61,7 @@ today's value from `/llms.txt`, the agent-card, or the `free_trial` note of any 
 A valid unpaid REST request is served free while the allowance lasts, and the response says what is left in
 the `Free-Allowance-Remaining`, `Free-Allowance-Limit` and `Free-Allowance-Resets` headers. A request that is
 invalid or too large, one that carries a payment, and any request after the day's allowance is used up, goes
-to payment as usual (HTTP 402). Free verifications are never counted toward a score or reputation.
+to payment as usual (HTTP 402). Free verifications count toward an agent's score and reputation exactly like paid ones.
 
 **Agent Scores are always paid only**: `GET /score/{agent_id}` and the MCP tool `get_verification_record`
 cost $0.01 per lookup, with no free access.
