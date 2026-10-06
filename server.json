@@ -2,8 +2,8 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.mglbagi/agent-output-verifier",
   "title": "Agent Output Verifier",
-  "description": "Independently verify an agent's output before you pay.",
-  "version": "0.3.2",
+  "description": "Verify an agent's output before you pay: JSON Schema checks, signed receipts. Free during launch.",
+  "version": "0.4.0",
   "websiteUrl": "https://github.com/mglbagi/agent-output-verifier",
   "repository": {
     "url": "https://github.com/mglbagi/agent-output-verifier",
@@ -18,7 +18,7 @@
   "_meta": {
     "io.modelcontextprotocol.registry/publisher-provided": {
       "agentCardUrl": "https://fastapi-service-5ag4.onrender.com/.well-known/agent-card.json",
-      "payment": "x402 (USDC on Base and Solana). verify_schema and get_verification_record each carry their own free-trial allowance per caller; after that, each call requires an x402 payment in the MCP request's _meta under \"x402/payment\". Exact prices, networks and the pay-to address are in the agent-card."
+      "payment": "Verification is free during launch within a daily allowance per caller, through MCP and REST (the live allowance is stated in the \"Free allowance\" section of https://fastapi-service-5ag4.onrender.com/llms.txt). Agent Scores (get_verification_record) are paid only: $0.01 per lookup. After the allowance, each call requires an x402 payment (USDC on Base and Solana) in the MCP request's _meta under \"x402/payment\". Exact prices, networks and the pay-to address are in the agent-card."
     }
   }
 }
