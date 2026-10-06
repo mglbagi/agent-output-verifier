@@ -8,7 +8,8 @@ requirements, written in standard JSON Schema plus optional rules. Returns pass/
 of checks passed, fix hints, and an Ed25519-signed attestation and receipt that anyone can verify
 with our public key. Sellers: check your own output before you submit it, and deliver it with a
 signed attestation and receipt. No signup: pay per call with x402 v2, in USDC on Base or Solana.
-3 free calls a day through MCP.
+Verification is free during launch within a daily allowance per caller, through MCP and REST (the live
+allowance is in `/llms.txt` and in every 402 response). Agent Scores are paid only: $0.01 per lookup.
 
 This repository is documentation and public metadata for the hosted service — there is no source
 code to install or run here. The service itself is a live API at
@@ -50,39 +51,49 @@ in the `Payment-Response` response header. A `fail` result is a complete, valid 
 question asked and is charged the same as a `pass` — the work (running every check) is identical
 either way.
 
-## Free trial
+## Free allowance
 
-Each MCP tool carries its own free-trial allowance: **3 free calls per day per client**, identified
-by request IP address — there is no sign-up or account — available over MCP. REST and MCP calls
-from the same address share one allowance per tool.
+Verification is **free during launch**. Each client, identified by request IP address (there is no sign-up
+or account), gets a daily allowance of checks, shared by the MCP tool `verify_schema` and the REST routes
+`POST /verify/schema` and `POST /verify/deliverable`. The allowance is a setting, not a constant: read
+today's value from `/llms.txt`, the agent-card, or the `free_trial` note of any 402.
+
+A valid unpaid REST request is served free while the allowance lasts, and the response says what is left in
+the `Free-Allowance-Remaining`, `Free-Allowance-Limit` and `Free-Allowance-Resets` headers. A request that is
+invalid or too large, one that carries a payment, and any request after the day's allowance is used up, goes
+to payment as usual (HTTP 402). Free verifications are never counted toward a score or reputation.
+
+**Agent Scores are always paid only**: `GET /score/{agent_id}` and the MCP tool `get_verification_record`
+cost $0.01 per lookup, with no free access.
 
 An unpaid REST call's 402 body reports this caller's own real state, live: `available`,
-`remaining_calls_today`, and `resets_at` (the next UTC midnight). Once a client's calls for the day
-are used up, `available` turns `false` and the body carries `"code": "free_trial_exhausted"` —
-distinct from an ordinary payment-required response that never had a free trial to begin with:
+`remaining_calls_today`, and `resets_at` (the next UTC midnight). Once a client's allowance for the day is
+used up, `available` turns `false` and the body carries `"code": "free_trial_exhausted"`:
 
 ```json
 {
   "free_trial": {
     "available": false,
-    "via": "mcp",
+    "via": "mcp+rest",
     "transport": "streamable-http",
     "url": "https://fastapi-service-5ag4.onrender.com/mcp",
     "tool": "verify_schema",
-    "calls_per_client_per_day": 3,
+    "calls_per_client_per_day": "<N>",
     "remaining_calls_today": 0,
-    "resets_at": "2026-10-02T00:00:00+00:00",
-    "client": "identified by request IP address",
-    "message": "This client's 3 free calls/day for the MCP tool 'verify_schema' are used up for today; they reset at 2026-10-02T00:00:00+00:00. This REST endpoint has no free tier of its own.",
+    "resets_at": "<next UTC midnight>",
+    "client": "identified by request IP address; the same address's REST and MCP verification calls share one allowance",
+    "rest_free": true,
+    "launch": true,
+    "message": "Free during launch. This client's <N> free checks for today are used up (REST and MCP share them); they reset at <next UTC midnight>. Payment applies until then.",
     "code": "free_trial_exhausted"
   }
 }
 ```
 
-The same `free_trial_exhausted` code rides alongside the MCP tool's own payment-required result
-(in `_meta`) when a tool call is made after that client's free calls for the day are gone. After
-the free trial (or once it's exhausted for the day), a call requires an x402 payment carried in the
-MCP request's `_meta` under `x402/payment`, or a standard x402 payment header on REST.
+The same `free_trial_exhausted` code rides alongside the MCP tool's own payment-required result (in `_meta`)
+when a tool call is made after that client's allowance for the day is gone. After the allowance (or once it is
+used up for the day), a call requires an x402 payment carried in the MCP request's `_meta` under
+`x402/payment`, or a standard x402 payment header on REST.
 
 ## Verifying a receipt, step by step
 
