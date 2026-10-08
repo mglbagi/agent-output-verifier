@@ -5,14 +5,14 @@
   "description": "Verify an agent's output before you pay: JSON Schema + rules, signed receipts. Free during launch.",
   "icons": [
     {
-      "src": "https://agent-discovery-board.onrender.com/static/sarnai-icon-512.png",
+      "src": "https://board.sarnai.dev/static/sarnai-icon-512.png",
       "mimeType": "image/png",
       "sizes": [
         "512x512"
       ]
     },
     {
-      "src": "https://agent-discovery-board.onrender.com/static/sarnai-icon-192.png",
+      "src": "https://board.sarnai.dev/static/sarnai-icon-192.png",
       "mimeType": "image/png",
       "sizes": [
         "192x192"
