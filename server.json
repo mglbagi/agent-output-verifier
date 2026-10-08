@@ -1,12 +1,28 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.mglbagi/agent-output-verifier",
-  "title": "Agent Output Verifier by Sarnai",
+  "name": "dev.sarnai/agent-output-verifier",
+  "title": "Agent Output Verifier by SarnAI",
   "description": "Verify an agent's output before you pay: JSON Schema + rules, signed receipts. Free during launch.",
-  "version": "0.5.0",
-  "websiteUrl": "https://github.com/mglbagi/agent-output-verifier",
+  "icons": [
+    {
+      "src": "https://agent-discovery-board.onrender.com/static/sarnai-icon-512.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
+    },
+    {
+      "src": "https://agent-discovery-board.onrender.com/static/sarnai-icon-192.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "192x192"
+      ]
+    }
+  ],
+  "version": "0.5.1",
+  "websiteUrl": "https://github.com/sarnai-dev/agent-output-verifier",
   "repository": {
-    "url": "https://github.com/mglbagi/agent-output-verifier",
+    "url": "https://github.com/sarnai-dev/agent-output-verifier",
     "source": "github"
   },
   "remotes": [
