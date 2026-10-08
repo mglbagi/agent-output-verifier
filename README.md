@@ -15,22 +15,22 @@ Agent Output Verifier is part of SarnAI, an ecosystem of products for agents tha
 
 This repository is documentation and public metadata for the hosted service — there is no source
 code to install or run here. The service itself is a live API at
-`https://fastapi-service-5ag4.onrender.com`.
+`https://verify.sarnai.dev`. The original address, `https://fastapi-service-5ag4.onrender.com`, keeps working with the same responses and keys; receipts issued before the move point at it.
 
 ## Endpoints
 
 | Purpose | Endpoint |
 |---|---|
-| MCP (Streamable HTTP) | `https://fastapi-service-5ag4.onrender.com/mcp` |
-| Verify an output (REST) | `POST https://fastapi-service-5ag4.onrender.com/verify/schema` |
-| Verify a deliverable (REST; the same check under a second name) | `POST https://fastapi-service-5ag4.onrender.com/verify/deliverable` |
-| Look up an agent's trust score (REST) | `GET https://fastapi-service-5ag4.onrender.com/score/{agent_id}` |
-| An agent's free pass/fail history (REST) | `GET https://fastapi-service-5ag4.onrender.com/reputation/{agent_id}` |
-| Liveness check | `GET https://fastapi-service-5ag4.onrender.com/health` |
-| Agent card (discovery) | `GET https://fastapi-service-5ag4.onrender.com/.well-known/agent-card.json` |
-| x402 discovery manifest | `GET https://fastapi-service-5ag4.onrender.com/.well-known/x402` |
-| llms.txt | `GET https://fastapi-service-5ag4.onrender.com/llms.txt` |
-| Interactive API docs | `GET https://fastapi-service-5ag4.onrender.com/docs` |
+| MCP (Streamable HTTP) | `https://verify.sarnai.dev/mcp` |
+| Verify an output (REST) | `POST https://verify.sarnai.dev/verify/schema` |
+| Verify a deliverable (REST; the same check under a second name) | `POST https://verify.sarnai.dev/verify/deliverable` |
+| Look up an agent's trust score (REST) | `GET https://score.sarnai.dev/score/{agent_id}` |
+| An agent's free pass/fail history (REST) | `GET https://verify.sarnai.dev/reputation/{agent_id}` |
+| Liveness check | `GET https://verify.sarnai.dev/health` |
+| Agent card (discovery) | `GET https://verify.sarnai.dev/.well-known/agent-card.json` |
+| x402 discovery manifest | `GET https://verify.sarnai.dev/.well-known/x402` |
+| llms.txt | `GET https://verify.sarnai.dev/llms.txt` |
+| Interactive API docs | `GET https://verify.sarnai.dev/docs` |
 
 Two MCP tools are exposed over the same endpoint: `verify_schema` (`POST /verify/schema`) and
 `get_verification_record` (`GET /score/{agent_id}`).
@@ -82,7 +82,7 @@ used up, `available` turns `false` and the body carries `"code": "free_trial_exh
     "available": false,
     "via": "mcp+rest",
     "transport": "streamable-http",
-    "url": "https://fastapi-service-5ag4.onrender.com/mcp",
+    "url": "https://verify.sarnai.dev/mcp",
     "tool": "verify_schema",
     "calls_per_client_per_day": "<N>",
     "remaining_calls_today": 0,
@@ -131,12 +131,12 @@ an `attestation` block, for example:
 
 ```json
 "verify": {
-  "public_key_url": "https://fastapi-service-5ag4.onrender.com/.well-known/agent-card.json",
+  "public_key_url": "https://verify.sarnai.dev/.well-known/agent-card.json",
   "key_version": "v1-2026-09c",
   "canonicalization": "RFC 8785 (JCS)",
   "hash_algorithm": "SHA-256",
   "service": "Agent Output Verifier",
-  "mcp": "https://fastapi-service-5ag4.onrender.com/mcp"
+  "mcp": "https://verify.sarnai.dev/mcp"
 },
 "attestation": {
   "algorithm": "Ed25519",

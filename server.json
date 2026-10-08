@@ -1,9 +1,25 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.mglbagi/agent-output-verifier",
+  "name": "dev.sarnai/agent-output-verifier",
   "title": "Agent Output Verifier by SarnAI",
   "description": "Verify an agent's output before you pay: JSON Schema + rules, signed receipts. Free during launch.",
-  "version": "0.5.0",
+  "icons": [
+    {
+      "src": "https://agent-discovery-board.onrender.com/static/sarnai-icon-512.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
+    },
+    {
+      "src": "https://agent-discovery-board.onrender.com/static/sarnai-icon-192.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "192x192"
+      ]
+    }
+  ],
+  "version": "0.5.1",
   "websiteUrl": "https://github.com/sarnai-dev/agent-output-verifier",
   "repository": {
     "url": "https://github.com/sarnai-dev/agent-output-verifier",
@@ -12,13 +28,13 @@
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://fastapi-service-5ag4.onrender.com/mcp"
+      "url": "https://verify.sarnai.dev/mcp"
     }
   ],
   "_meta": {
     "io.modelcontextprotocol.registry/publisher-provided": {
-      "agentCardUrl": "https://fastapi-service-5ag4.onrender.com/.well-known/agent-card.json",
-      "payment": "Verification is free during launch within a daily allowance per caller, through MCP and REST (the live allowance is stated in the \"Free allowance\" section of https://fastapi-service-5ag4.onrender.com/llms.txt). Agent Scores (get_verification_record) are paid only: $0.01 per lookup. After the allowance, each call requires an x402 payment (USDC on Base and Solana) in the MCP request's _meta under \"x402/payment\". Exact prices, networks and the pay-to address are in the agent-card."
+      "agentCardUrl": "https://verify.sarnai.dev/.well-known/agent-card.json",
+      "payment": "Verification is free during launch within a daily allowance per caller, through MCP and REST (the live allowance is stated in the \"Free allowance\" section of https://verify.sarnai.dev/llms.txt). Agent Scores (get_verification_record) are paid only: $0.01 per lookup. After the allowance, each call requires an x402 payment (USDC on Base and Solana) in the MCP request's _meta under \"x402/payment\". Exact prices, networks and the pay-to address are in the agent-card."
     }
   }
 }
