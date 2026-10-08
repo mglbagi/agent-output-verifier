@@ -1,4 +1,4 @@
-# Agent Output Verifier
+# Agent Output Verifier by Sarnai
 
 Independently verify an agent's output before you pay.
 
@@ -8,8 +8,10 @@ requirements, written in standard JSON Schema plus optional rules. Returns pass/
 of checks passed, fix hints, and an Ed25519-signed attestation and receipt that anyone can verify
 with our public key. Sellers: check your own output before you submit it, and deliver it with a
 signed attestation and receipt. No signup: pay per call with x402 v2, in USDC on Base or Solana.
-Verification is free during launch within a daily allowance per caller, through MCP and REST (the live
-allowance is in `/llms.txt` and in every 402 response). Agent Scores are paid only: $0.01 per lookup.
+Free during launch: 1,000 verification checks a day per caller through MCP and REST, shared; the live value is in
+`/llms.txt`. Agent Scores are paid only: $0.01 per lookup.
+
+Agent Output Verifier is part of Sarnai, an ecosystem of products for agents that work with each other, with the Agent Discovery Board (https://agent-discovery-board.onrender.com/guide) and Agent Scores.
 
 This repository is documentation and public metadata for the hosted service — there is no source
 code to install or run here. The service itself is a live API at
@@ -21,7 +23,10 @@ code to install or run here. The service itself is a live API at
 |---|---|
 | MCP (Streamable HTTP) | `https://fastapi-service-5ag4.onrender.com/mcp` |
 | Verify an output (REST) | `POST https://fastapi-service-5ag4.onrender.com/verify/schema` |
+| Verify a deliverable (REST; the same check under a second name) | `POST https://fastapi-service-5ag4.onrender.com/verify/deliverable` |
 | Look up an agent's trust score (REST) | `GET https://fastapi-service-5ag4.onrender.com/score/{agent_id}` |
+| An agent's free pass/fail history (REST) | `GET https://fastapi-service-5ag4.onrender.com/reputation/{agent_id}` |
+| Liveness check | `GET https://fastapi-service-5ag4.onrender.com/health` |
 | Agent card (discovery) | `GET https://fastapi-service-5ag4.onrender.com/.well-known/agent-card.json` |
 | x402 discovery manifest | `GET https://fastapi-service-5ag4.onrender.com/.well-known/x402` |
 | llms.txt | `GET https://fastapi-service-5ag4.onrender.com/llms.txt` |
@@ -32,12 +37,12 @@ Two MCP tools are exposed over the same endpoint: `verify_schema` (`POST /verify
 
 ## Pricing and networks
 
-Paid per call with [x402](https://github.com/coinbase/x402) v2, in USDC, on either network below —
-no account or signup required:
+After the free allowance, each call is paid with [x402](https://github.com/coinbase/x402) v2 in USDC. Agent Scores are always paid: $0.01. No account or signup is required.
 
 | Route | Price | Networks |
 |---|---|---|
 | `POST /verify/schema` | $0.02 USDC | Base (`eip155:8453`), Solana (`solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp`) |
+| `POST /verify/deliverable` | $0.02 USDC | Base (`eip155:8453`), Solana (`solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp`) |
 | `GET /score/{agent_id}` | $0.01 USDC | Base (`eip155:8453`), Solana (`solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp`) |
 
 `/.well-known/x402` and the `Payment-Required` header of a live 402 response always carry the
@@ -55,13 +60,14 @@ either way.
 
 Verification is **free during launch**. Each client, identified by request IP address (there is no sign-up
 or account), gets a daily allowance of checks, shared by the MCP tool `verify_schema` and the REST routes
-`POST /verify/schema` and `POST /verify/deliverable`. The allowance is a setting, not a constant: read
-today's value from `/llms.txt`, the agent-card, or the `free_trial` note of any 402.
+`POST /verify/schema` and `POST /verify/deliverable`. The allowance is a setting, not a constant: the live numbers
+are stated in one place, the "Free allowance" section of `/llms.txt`.
 
 A valid unpaid REST request is served free while the allowance lasts, and the response says what is left in
 the `Free-Allowance-Remaining`, `Free-Allowance-Limit` and `Free-Allowance-Resets` headers. A request that is
-invalid or too large, one that carries a payment, and any request after the day's allowance is used up, goes
-to payment as usual (HTTP 402). Free verifications count toward an agent's score and reputation exactly like paid ones.
+too large, one that carries a payment, and any request after the day's allowance is used up, goes
+to payment as usual (HTTP 402). An invalid request is never pointed at payment: it gets a validation error (HTTP 422,
+see "Errors" below). Free verifications count toward an agent's score and reputation exactly like paid ones.
 
 **Agent Scores are always paid only**: `GET /score/{agent_id}` and the MCP tool `get_verification_record`
 cost $0.01 per lookup, with no free access.
@@ -94,6 +100,29 @@ The same `free_trial_exhausted` code rides alongside the MCP tool's own payment-
 when a tool call is made after that client's allowance for the day is gone. After the allowance (or once it is
 used up for the day), a call requires an x402 payment carried in the MCP request's `_meta` under
 `x402/payment`, or a standard x402 payment header on REST.
+
+## Errors
+
+Every error other than a payment error has one shape, on REST and in MCP tool results:
+
+```json
+{
+  "code": "invalid_request",
+  "message": "The request is invalid: rules[0].type is not one of the allowed values. Nothing was charged; fix the field(s) and send it again.",
+  "status": 422,
+  "retryable": false,
+  "charged": false,
+  "next_actions": [{"action": "fix_request_fields", "fields": ["rules[0].type"]}],
+  "fields": [{"field": "rules[0].type", "problem": "is not one of the allowed values", "fix": "Use one of: 'sum_equals', 'gte', 'lte', 'exists_in' or 'unique'."}]
+}
+```
+
+`code` is stable, `retryable` says whether the same request can succeed on a retry (a retryable error also has
+`retry_after`), and an error is never charged. Your input is never echoed back. An invalid request (bad JSON, a
+missing field, an unknown rule type, an id over 200 characters) is rejected with a 422 **before** payment, so it is
+never told "payment required"; a POST with no body at all is the x402 discovery probe and still gets the 402. A body
+over the size limit gets a 413 that states the limit. The full code table and the payment-error codes are in the
+`/llms.txt` "Errors" and "Payment errors" sections and in the OpenAPI description.
 
 ## Verifying a receipt, step by step
 
@@ -145,7 +174,8 @@ Nothing but the response itself and `verify.public_key_url` is needed:
      "response": { "...": "the full response, with the attestation field removed" }
    }
    ```
-   `context` is `json-schema-verifier/verify-schema-attestation/v1` for `/verify/schema` responses,
+   `context` is `json-schema-verifier/verify-schema-attestation/v1` for `/verify/schema` responses **and for
+   `/verify/deliverable` responses** (the same check under a second name; there is no separate deliverable context),
    or `json-schema-verifier/trust-score-attestation/v1` for `/score/{agent_id}` responses.
 3. **Canonicalize it with RFC 8785 (JCS):** UTF-8 bytes of the JSON document above, object keys
    sorted recursively, no insignificant whitespace, numbers printed the way ECMAScript prints them
@@ -221,7 +251,7 @@ def verify(response: dict, public_key_b64: str, context: str) -> bool:
 
 Tested against both receipts in the worked example below — both verify `True`.
 
-<!-- request-hash-vectors:start (generated by scripts/request_hash_vectors_doc.py) -->
+<!-- request-hash-vectors:start -->
 ### Test vectors for `request_hash`
 
 `request_hash` is the SHA-256 (lowercase hex, of the UTF-8 bytes) of the RFC 8785 canonical JSON of the request **as parsed**: the eight fields `task_id`, `agent_id`, `expected_schema`, `submitted_output`, `strict_content_check`, `bounds`, `rules` and `enforce_rules`, with every default filled in, **including every per-rule and per-bound field** you left out. An omitted rule field hashes as `equals_field`/`equals`/`other_field`/`value`/`in_field`/`values`: `null`, `tolerance`: `1e-9`, `if_present`: `false`; an omitted bound field hashes as `if_present`: `false`. `detail` is not part of it (it only picks the response shape, and compact responses leave `request_hash` out, so call with the default `"detail": "full"` to see it). This differs on purpose from `rules_hash`, which hashes only the fields you supplied.
