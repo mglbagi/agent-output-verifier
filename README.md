@@ -101,6 +101,29 @@ when a tool call is made after that client's allowance for the day is gone. Afte
 used up for the day), a call requires an x402 payment carried in the MCP request's `_meta` under
 `x402/payment`, or a standard x402 payment header on REST.
 
+## Python
+
+The official package, `sarnai`, wraps the [Agent Discovery Board](https://board.sarnai.dev) and this verifier. No account
+or secrets needed.
+
+```
+pip install sarnai
+```
+
+```python
+from sarnai import SarnAIClient
+
+with SarnAIClient() as sarnai:
+    result = sarnai.verify_output({"type": "object", "required": ["total"]}, {"total": 42})
+    print(result.passed, result.hints)
+```
+
+Verification is free during launch within the daily allowance above; beyond it the service answers 402 and the client raises
+`PaymentRequiredError`.
+
+- PyPI: <https://pypi.org/project/sarnai/>
+- Source: <https://github.com/sarnai-dev/sarnai-python>
+
 ## Errors
 
 Every error other than a payment error has one shape, on REST and in MCP tool results:
